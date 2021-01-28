@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "target": "es2020",
+        "module": "commonjs",
+        "outDir": "dist",
+        "rootDir": "src",
+        "removeComments": true,
+        "declaration": true,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src/",
+        "testing/"
+    ]
+}

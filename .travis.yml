@@ -1,0 +1,22 @@
+language: node_js
+
+node_js:
+  - 14
+
+script:
+  - yarn build
+  - yarn test
+
+after_success:
+  - bash .travis/docs.sh
+
+deploy:
+  provider: npm
+  email: apixelvisualsofficial@gmail.com
+  api_key:
+    secure: l8nND88Nw1gtiKW6YuTQnhurYaD/5BT+QTqUF5L3dgPe1WpJ461GN2RrOr9RWmHcygO4aowIZXWrlQjzsWEtoaliy0BfB3ouPqdXVUuxweyZb/zWTLwmWxtEEmEKq8qdKnhqNTivIMVYiIMMayET3wLAwtl7GRTYaoo6ja7DuE/3V3A00ZrdoKxY0gI+nJQKaL1wyu/dOFKtlQCliAOdYK+uHzJLBK4H3ugJW7ByyRpYNjRiMOKCDCzEKT9e78/Rn3Ek6vrtQNfSNhuM7/HBV++nwmDehpra7VHR2OOJ5CbvrhHmc0is/0mdhe72Bq7RvJzKAoBFwG6PeMfB3kgjv/zJblgoHjfcQXnu8eulbD+cUyJSCbdGAIK4PDkx54T4MlLg4v78/P6OlNHUJbP4N8vc5aUUn6rCQlezIcOVn1MyOijTz9YFJQFPozDcr6kUieg2kfYMBl9sIdfmyWAAF8s7AL7/hoJHCWe6V7UCbEtGS4T1cbd13RTTqG0lDy2wkPEQb6QdL1WKDuA+nEmim/kPVlDbkH4wzUzUQsGXBEvM4Pk96FjPS4yOMVw2Z58CrCYak5FWCqxpCCLD2Z7B/WoxfXWC477B6IxcOFZxiI7pO7BMh0l8WRmKS6eWDVFRMH2MqrTbPGHNTh3XfU5kAEX4v9CIBQycoGEpIBp3RJw=
+  on:
+    repo: APixelVisuals/dislite
+    branch: master
+    tags: true
+  skip_cleanup: true

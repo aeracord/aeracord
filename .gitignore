@@ -1,0 +1,11 @@
+# Build
+dist/
+
+# Node modules
+node_modules/
+
+# Coverage reports
+coverage/
+
+# TS Temp Build Graph
+tsconfig.tsbuildinfo
