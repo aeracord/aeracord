@@ -1,1 +1,293 @@
-{}
+{
+	"id": 0,
+	"name": "dislite",
+	"kind": 0,
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 1,
+			"name": "\"classes/Client/Client\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/Client.ts",
+			"children": [
+				{
+					"id": 4,
+					"name": "Client",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 6,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Client"
+							},
+							"signatures": [
+								{
+									"id": 7,
+									"name": "new Client",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"shortText": "Client"
+									},
+									"parameters": [
+										{
+											"id": 8,
+											"name": "clientData",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"comment": {
+												"shortText": "Options to initialize this client with"
+											},
+											"type": {
+												"type": "reference",
+												"id": 2,
+												"name": "ClientData"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 4,
+										"name": "Client"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "classes/Client/Client.ts",
+									"line": 14,
+									"character": 18
+								}
+							]
+						},
+						{
+							"id": 5,
+							"name": "token",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Token",
+								"text": "The client's token\n"
+							},
+							"sources": [
+								{
+									"fileName": "classes/Client/Client.ts",
+									"line": 14,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								6
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								5
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "classes/Client/Client.ts",
+							"line": 7,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 2,
+					"name": "ClientData",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 3,
+							"name": "token",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "classes/Client/Client.ts",
+									"line": 4,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								3
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "classes/Client/Client.ts",
+							"line": 3,
+							"character": 27
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						4
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						2
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "classes/Client/Client.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 11,
+			"name": "\"index\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/index.ts",
+			"children": [
+				{
+					"id": 12,
+					"name": "Client",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4
+				}
+			],
+			"groups": [
+				{
+					"title": "References",
+					"kind": 16777216,
+					"children": [
+						12
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 9,
+			"name": "\"internal\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/internal.ts",
+			"children": [
+				{
+					"id": 10,
+					"name": "Client",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4
+				}
+			],
+			"groups": [
+				{
+					"title": "References",
+					"kind": 16777216,
+					"children": [
+						10
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "internal.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"kind": 1,
+			"children": [
+				1,
+				11,
+				9
+			]
+		}
+	]
+}
