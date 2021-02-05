@@ -6,5 +6,16 @@ export default dislite;
 
 // Client
 export {
-    Client
+    ACTIVITY_TYPE_COMPETING,
+    ACTIVITY_TYPE_CUSTOM,
+    ACTIVITY_TYPE_LISTENING,
+    ACTIVITY_TYPE_PLAYING,
+    ACTIVITY_TYPE_STREAMING,
+    ActivityType,
+    BotActivity,
+    BotActivityType,
+    Client,
+    ClientData,
+    Presence,
+    Status
 } from "./internal";
