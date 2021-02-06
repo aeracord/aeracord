@@ -6,7 +6,7 @@
 	"originalName": "",
 	"children": [
 		{
-			"id": 1,
+			"id": 104,
 			"name": "\"classes/Client/Client\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -16,7 +16,7 @@
 			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/Client.ts",
 			"children": [
 				{
-					"id": 4,
+					"id": 122,
 					"name": "Client",
 					"kind": 128,
 					"kindString": "Class",
@@ -25,7 +25,17 @@
 					},
 					"children": [
 						{
-							"id": 6,
+							"id": 238,
+							"name": "EventEmitter",
+							"kind": 16777216,
+							"kindString": "Reference",
+							"flags": {
+								"isExported": true
+							},
+							"target": -1
+						},
+						{
+							"id": 149,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -37,7 +47,7 @@
 							},
 							"signatures": [
 								{
-									"id": 7,
+									"id": 150,
 									"name": "new Client",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -49,7 +59,7 @@
 									},
 									"parameters": [
 										{
-											"id": 8,
+											"id": 151,
 											"name": "clientData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -61,28 +71,415 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 2,
+												"id": 105,
 												"name": "ClientData"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"id": 4,
+										"id": 122,
 										"name": "Client"
+									},
+									"overwrites": {
+										"type": "reference",
+										"name": "EventEmitter.__constructor"
 									}
 								}
 							],
 							"sources": [
 								{
-									"fileName": "classes/Client/Client.ts",
-									"line": 14,
-									"character": 18
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 178,
+									"character": 23
 								}
-							]
+							],
+							"overwrites": {
+								"type": "reference",
+								"name": "EventEmitter.__constructor"
+							}
 						},
 						{
-							"id": 5,
+							"id": 145,
+							"name": "_heartbeatInterval",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Heartbeat Interval",
+								"text": "The result from `setInterval` for heartbeats\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 157,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Timeout"
+							}
+						},
+						{
+							"id": 146,
+							"name": "_initialPresence",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Initial Presence",
+								"text": "The bot's initial presence\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 164,
+									"character": 20
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 110,
+								"name": "Presence"
+							}
+						},
+						{
+							"id": 147,
+							"name": "_intents",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Intents",
+								"text": "The bot's intents\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 171,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 80,
+									"name": "Intent"
+								}
+							}
+						},
+						{
+							"id": 143,
+							"name": "_lastPingTimestamp",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Last Ping Timestamp",
+								"text": "The last timestamp a ping was sent\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 143,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 144,
+							"name": "_pingInterval",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Ping Interval",
+								"text": "The result from `setInterval` for pings\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 150,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Timeout"
+							}
+						},
+						{
+							"id": 135,
+							"name": "avatarURL",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Avatar URL",
+								"text": "The client's avatar's URL\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 87,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 148,
+							"name": "debugMode",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Debug Mode",
+								"text": "Whether or not this client is in debug mode\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 178,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 132,
+							"name": "discriminator",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Discriminator",
+								"text": "The client's discriminator\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 71,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 141,
+							"name": "eventQueue",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Event Queue",
+								"text": "A queue of events that were sent before the client was ready\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 129,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 119,
+									"name": "EventQueueEvent"
+								}
+							}
+						},
+						{
+							"id": 130,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "ID",
+								"text": "The client's ID\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 57,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 142,
+							"name": "ping",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Ping",
+								"text": "The client's ping\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 136,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 140,
+							"name": "ready",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Ready",
+								"text": "Whether or not the client is ready to process events\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 122,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "false"
+									},
+									{
+										"type": "intrinsic",
+										"name": "true"
+									}
+								]
+							}
+						},
+						{
+							"id": 137,
+							"name": "sequence",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Sequence",
+								"text": "The sequence number\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 101,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						},
+						{
+							"id": 136,
+							"name": "sessionID",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Session ID",
+								"text": "The session ID\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 94,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									}
+								]
+							}
+						},
+						{
+							"id": 138,
 							"name": "token",
 							"kind": 1024,
 							"kindString": "Property",
@@ -95,8 +492,8 @@
 							},
 							"sources": [
 								{
-									"fileName": "classes/Client/Client.ts",
-									"line": 14,
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 108,
 									"character": 9
 								}
 							],
@@ -104,34 +501,2153 @@
 								"type": "intrinsic",
 								"name": "string"
 							}
+						},
+						{
+							"id": 131,
+							"name": "username",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Username",
+								"text": "The client's username\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 64,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 139,
+							"name": "ws",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Websocket",
+								"text": "The client's websocket\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 115,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "WebSocket"
+							}
+						},
+						{
+							"id": 235,
+							"name": "captureRejectionSymbol",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isStatic": true,
+								"isExported": true,
+								"isReadonly": true
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 38,
+									"character": 46
+								}
+							],
+							"type": {
+								"type": "typeOperator",
+								"operator": "unique",
+								"target": {
+									"type": "intrinsic",
+									"name": "symbol"
+								}
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 235,
+								"name": "EventEmitter.captureRejectionSymbol"
+							}
+						},
+						{
+							"id": 236,
+							"name": "captureRejections",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Sets or gets the default captureRejection value for all emitters."
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 44,
+									"character": 32
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 236,
+								"name": "EventEmitter.captureRejections"
+							}
+						},
+						{
+							"id": 237,
+							"name": "defaultMaxListeners",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 45,
+									"character": 34
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 237,
+								"name": "EventEmitter.defaultMaxListeners"
+							}
+						},
+						{
+							"id": 234,
+							"name": "errorMonitor",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isStatic": true,
+								"isExported": true,
+								"isReadonly": true
+							},
+							"comment": {
+								"shortText": "This symbol shall be used to install a listener for only monitoring `'error'`\nevents. Listeners installed using this symbol are called before the regular\n`'error'` listeners are called.",
+								"text": "Installing a listener using this symbol does not change the behavior once an\n`'error'` event is emitted, therefore the process will still crash if no\nregular `'error'` listener is installed.\n"
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 37,
+									"character": 36
+								}
+							],
+							"type": {
+								"type": "typeOperator",
+								"operator": "unique",
+								"target": {
+									"type": "intrinsic",
+									"name": "symbol"
+								}
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 234,
+								"name": "EventEmitter.errorMonitor"
+							}
+						},
+						{
+							"id": 133,
+							"name": "tag",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Tag",
+								"text": "The client's tag\n"
+							},
+							"getSignature": [
+								{
+									"id": 134,
+									"name": "__get",
+									"kind": 524288,
+									"kindString": "Get signature",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"shortText": "Tag",
+										"text": "The client's tag\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 78,
+									"character": 11
+								}
+							]
+						},
+						{
+							"id": 152,
+							"name": "_connect",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Connect",
+								"text": "Connect to the gateway\n"
+							},
+							"signatures": [
+								{
+									"id": 153,
+									"name": "_connect",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"shortText": "Connect",
+										"text": "Connect to the gateway\n"
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 207,
+									"character": 12
+								}
+							]
+						},
+						{
+							"id": 154,
+							"name": "_debug",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Debug",
+								"text": "Log debug info\n"
+							},
+							"signatures": [
+								{
+									"id": 155,
+									"name": "_debug",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"shortText": "Debug",
+										"text": "Log debug info\n"
+									},
+									"parameters": [
+										{
+											"id": 156,
+											"name": "info",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"comment": {
+												"shortText": "Debug info to log\n"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 216,
+									"character": 10
+								}
+							]
+						},
+						{
+							"id": 157,
+							"name": "addListener",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 158,
+									"name": "addListener",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 159,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										},
+										{
+											"id": 160,
+											"name": "listener",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 161,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"signatures": [
+														{
+															"id": 162,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {
+																"isExported": true
+															},
+															"parameters": [
+																{
+																	"id": 163,
+																	"name": "args",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isExported": true,
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "node_modules/@types/node/events.d.ts",
+															"line": 57,
+															"character": 61
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 157,
+										"name": "EventEmitter.addListener"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 57,
+									"character": 27
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 157,
+								"name": "EventEmitter.addListener"
+							}
+						},
+						{
+							"id": 199,
+							"name": "emit",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 200,
+									"name": "emit",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 201,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										},
+										{
+											"id": 202,
+											"name": "args",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true,
+												"isRest": true
+											},
+											"type": {
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "any"
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 199,
+										"name": "EventEmitter.emit"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 67,
+									"character": 20
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 199,
+								"name": "EventEmitter.emit"
+							}
+						},
+						{
+							"id": 220,
+							"name": "eventNames",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 221,
+									"name": "eventNames",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										],
+										"name": "Array"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 220,
+										"name": "EventEmitter.eventNames"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 72,
+									"character": 26
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 220,
+								"name": "EventEmitter.eventNames"
+							}
+						},
+						{
+							"id": 191,
+							"name": "getMaxListeners",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 192,
+									"name": "getMaxListeners",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 191,
+										"name": "EventEmitter.getMaxListeners"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 64,
+									"character": 31
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 191,
+								"name": "EventEmitter.getMaxListeners"
+							}
+						},
+						{
+							"id": 203,
+							"name": "listenerCount",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 204,
+									"name": "listenerCount",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 205,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 203,
+										"name": "EventEmitter.listenerCount"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 68,
+									"character": 29
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 203,
+								"name": "EventEmitter.listenerCount"
+							}
+						},
+						{
+							"id": 193,
+							"name": "listeners",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 194,
+									"name": "listeners",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 195,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "Function"
+										}
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 193,
+										"name": "EventEmitter.listeners"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 65,
+									"character": 25
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 193,
+								"name": "EventEmitter.listeners"
+							}
+						},
+						{
+							"id": 178,
+							"name": "off",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 179,
+									"name": "off",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 180,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										},
+										{
+											"id": 181,
+											"name": "listener",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 182,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"signatures": [
+														{
+															"id": 183,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {
+																"isExported": true
+															},
+															"parameters": [
+																{
+																	"id": 184,
+																	"name": "args",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isExported": true,
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "node_modules/@types/node/events.d.ts",
+															"line": 61,
+															"character": 53
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 178,
+										"name": "EventEmitter.off"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 61,
+									"character": 19
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 178,
+								"name": "EventEmitter.off"
+							}
+						},
+						{
+							"id": 123,
+							"name": "on",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 124,
+									"name": "on",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 125,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "stringLiteral",
+												"value": "ready"
+											}
+										},
+										{
+											"id": 126,
+											"name": "listener",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 127,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"signatures": [
+														{
+															"id": 128,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {
+																"isExported": true
+															},
+															"parameters": [
+																{
+																	"id": 129,
+																	"name": "data",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isExported": true
+																	},
+																	"type": {
+																		"type": "reference",
+																		"id": 20,
+																		"name": "ReadyData"
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "src/classes/Client/Client.ts",
+															"line": 47,
+															"character": 32
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"overwrites": {
+										"type": "reference",
+										"name": "EventEmitter.on"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 47,
+									"character": 6
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"name": "EventEmitter.on"
+							}
+						},
+						{
+							"id": 164,
+							"name": "once",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 165,
+									"name": "once",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 166,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										},
+										{
+											"id": 167,
+											"name": "listener",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 168,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"signatures": [
+														{
+															"id": 169,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {
+																"isExported": true
+															},
+															"parameters": [
+																{
+																	"id": 170,
+																	"name": "args",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isExported": true,
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "node_modules/@types/node/events.d.ts",
+															"line": 59,
+															"character": 54
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 164,
+										"name": "EventEmitter.once"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 59,
+									"character": 20
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 164,
+								"name": "EventEmitter.once"
+							}
+						},
+						{
+							"id": 206,
+							"name": "prependListener",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 207,
+									"name": "prependListener",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 208,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										},
+										{
+											"id": 209,
+											"name": "listener",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 210,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"signatures": [
+														{
+															"id": 211,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {
+																"isExported": true
+															},
+															"parameters": [
+																{
+																	"id": 212,
+																	"name": "args",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isExported": true,
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "node_modules/@types/node/events.d.ts",
+															"line": 70,
+															"character": 65
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 206,
+										"name": "EventEmitter.prependListener"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 70,
+									"character": 31
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 206,
+								"name": "EventEmitter.prependListener"
+							}
+						},
+						{
+							"id": 213,
+							"name": "prependOnceListener",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 214,
+									"name": "prependOnceListener",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 215,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										},
+										{
+											"id": 216,
+											"name": "listener",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 217,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"signatures": [
+														{
+															"id": 218,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {
+																"isExported": true
+															},
+															"parameters": [
+																{
+																	"id": 219,
+																	"name": "args",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isExported": true,
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "node_modules/@types/node/events.d.ts",
+															"line": 71,
+															"character": 69
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 213,
+										"name": "EventEmitter.prependOnceListener"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 71,
+									"character": 35
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 213,
+								"name": "EventEmitter.prependOnceListener"
+							}
+						},
+						{
+							"id": 196,
+							"name": "rawListeners",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 197,
+									"name": "rawListeners",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 198,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "Function"
+										}
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 196,
+										"name": "EventEmitter.rawListeners"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 66,
+									"character": 28
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 196,
+								"name": "EventEmitter.rawListeners"
+							}
+						},
+						{
+							"id": 185,
+							"name": "removeAllListeners",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 186,
+									"name": "removeAllListeners",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 187,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true,
+												"isOptional": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 185,
+										"name": "EventEmitter.removeAllListeners"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 62,
+									"character": 34
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 185,
+								"name": "EventEmitter.removeAllListeners"
+							}
+						},
+						{
+							"id": 171,
+							"name": "removeListener",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 172,
+									"name": "removeListener",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 173,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										},
+										{
+											"id": 174,
+											"name": "listener",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 175,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"signatures": [
+														{
+															"id": 176,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {
+																"isExported": true
+															},
+															"parameters": [
+																{
+																	"id": 177,
+																	"name": "args",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isExported": true,
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "node_modules/@types/node/events.d.ts",
+															"line": 60,
+															"character": 64
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 171,
+										"name": "EventEmitter.removeListener"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 60,
+									"character": 30
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 171,
+								"name": "EventEmitter.removeListener"
+							}
+						},
+						{
+							"id": 188,
+							"name": "setMaxListeners",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 189,
+									"name": "setMaxListeners",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 190,
+											"name": "n",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 188,
+										"name": "EventEmitter.setMaxListeners"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 63,
+									"character": 31
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 188,
+								"name": "EventEmitter.setMaxListeners"
+							}
+						},
+						{
+							"id": 230,
+							"name": "listenerCount",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 231,
+									"name": "listenerCount",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"tags": [
+											{
+												"tag": "deprecated",
+												"text": "since v4.0.0"
+											}
+										]
+									},
+									"parameters": [
+										{
+											"id": 232,
+											"name": "emitter",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "EventEmitter"
+											}
+										},
+										{
+											"id": 233,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 230,
+										"name": "EventEmitter.listenerCount"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 26,
+									"character": 28
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 230,
+								"name": "EventEmitter.listenerCount"
+							}
+						},
+						{
+							"id": 226,
+							"name": "on",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 227,
+									"name": "on",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 228,
+											"name": "emitter",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "EventEmitter"
+											}
+										},
+										{
+											"id": 229,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										],
+										"name": "AsyncIterableIterator"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 226,
+										"name": "EventEmitter.on"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 23,
+									"character": 17
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 226,
+								"name": "EventEmitter.on"
+							}
+						},
+						{
+							"id": 222,
+							"name": "once",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 223,
+									"name": "once",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 224,
+											"name": "emitter",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "NodeEventTarget"
+											}
+										},
+										{
+											"id": 225,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "symbol"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "any"
+												}
+											}
+										],
+										"name": "Promise"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 222,
+										"name": "EventEmitter.once"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 222,
+										"name": "EventEmitter.once"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node_modules/@types/node/events.d.ts",
+									"line": 21,
+									"character": 19
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 222,
+								"name": "EventEmitter.once"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 222,
+								"name": "EventEmitter.once"
+							}
 						}
 					],
 					"groups": [
 						{
+							"title": "References",
+							"kind": 16777216,
+							"children": [
+								238
+							]
+						},
+						{
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								6
+								149
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								5
+								145,
+								146,
+								147,
+								143,
+								144,
+								135,
+								148,
+								132,
+								141,
+								130,
+								142,
+								140,
+								137,
+								136,
+								138,
+								131,
+								139,
+								235,
+								236,
+								237,
+								234
+							]
+						},
+						{
+							"title": "Accessors",
+							"kind": 262144,
+							"children": [
+								133
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								152,
+								154,
+								157,
+								199,
+								220,
+								191,
+								203,
+								193,
+								178,
+								123,
+								164,
+								206,
+								213,
+								196,
+								185,
+								171,
+								188,
+								230,
+								226,
+								222
 							]
 						}
 					],
 					"sources": [
 						{
-							"fileName": "classes/Client/Client.ts",
-							"line": 7,
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 46,
+							"character": 31
+						},
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 50,
 							"character": 27
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "EventEmitter"
 						}
 					]
 				},
 				{
-					"id": 2,
+					"id": 115,
+					"name": "BotActivity",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 116,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 24,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 117,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 25,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 241,
+								"name": "BotActivityType"
+							}
+						},
+						{
+							"id": 118,
+							"name": "url",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 26,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								116,
+								117,
+								118
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 23,
+							"character": 28
+						}
+					]
+				},
+				{
+					"id": 105,
 					"name": "ClientData",
 					"kind": 256,
 					"kindString": "Interface",
@@ -140,7 +2656,87 @@
 					},
 					"children": [
 						{
-							"id": 3,
+							"id": 109,
+							"name": "debugMode",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 11,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "false"
+									},
+									{
+										"type": "intrinsic",
+										"name": "true"
+									}
+								]
+							}
+						},
+						{
+							"id": 108,
+							"name": "intents",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 10,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 80,
+									"name": "Intent"
+								}
+							}
+						},
+						{
+							"id": 107,
+							"name": "presence",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 9,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 110,
+								"name": "Presence"
+							}
+						},
+						{
+							"id": 106,
 							"name": "token",
 							"kind": 1024,
 							"kindString": "Property",
@@ -149,8 +2745,8 @@
 							},
 							"sources": [
 								{
-									"fileName": "classes/Client/Client.ts",
-									"line": 4,
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 8,
 									"character": 9
 								}
 							],
@@ -165,17 +2761,497 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								3
+								109,
+								108,
+								107,
+								106
 							]
 						}
 					],
 					"sources": [
 						{
-							"fileName": "classes/Client/Client.ts",
-							"line": 3,
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 7,
 							"character": 27
 						}
 					]
+				},
+				{
+					"id": 119,
+					"name": "EventQueueEvent",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 121,
+							"name": "data",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 43,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 120,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 42,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								121,
+								120
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 41,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 110,
+					"name": "Presence",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 113,
+							"name": "activities",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 17,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 115,
+									"name": "BotActivity"
+								}
+							}
+						},
+						{
+							"id": 112,
+							"name": "afk",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 16,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "false"
+									},
+									{
+										"type": "intrinsic",
+										"name": "true"
+									}
+								]
+							}
+						},
+						{
+							"id": 114,
+							"name": "since",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 18,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						},
+						{
+							"id": 111,
+							"name": "status",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/Client.ts",
+									"line": 15,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 239,
+								"name": "Status"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								113,
+								112,
+								114,
+								111
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 14,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 240,
+					"name": "ActivityType",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Activity types\nhttps://discord.com/developers/docs/topics/gateway#activity-object-activity-types"
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 33,
+							"character": 24
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 242,
+									"name": "ACTIVITY_TYPE_PLAYING"
+								}
+							},
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 243,
+									"name": "ACTIVITY_TYPE_STREAMING"
+								}
+							},
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 244,
+									"name": "ACTIVITY_TYPE_LISTENING"
+								}
+							},
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 245,
+									"name": "ACTIVITY_TYPE_CUSTOM"
+								}
+							},
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 246,
+									"name": "ACTIVITY_TYPE_COMPETING"
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": 241,
+					"name": "BotActivityType",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 34,
+							"character": 27
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 242,
+									"name": "ACTIVITY_TYPE_PLAYING"
+								}
+							},
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 243,
+									"name": "ACTIVITY_TYPE_STREAMING"
+								}
+							},
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 244,
+									"name": "ACTIVITY_TYPE_LISTENING"
+								}
+							},
+							{
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 246,
+									"name": "ACTIVITY_TYPE_COMPETING"
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": 239,
+					"name": "Status",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 21,
+							"character": 18
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "stringLiteral",
+								"value": "online"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "idle"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "dnd"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "invisible"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "offline"
+							}
+						]
+					}
+				},
+				{
+					"id": 246,
+					"name": "ACTIVITY_TYPE_COMPETING",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 39,
+							"character": 36
+						}
+					],
+					"type": {
+						"type": "unknown",
+						"name": "5"
+					},
+					"defaultValue": "5"
+				},
+				{
+					"id": 245,
+					"name": "ACTIVITY_TYPE_CUSTOM",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 38,
+							"character": 33
+						}
+					],
+					"type": {
+						"type": "unknown",
+						"name": "4"
+					},
+					"defaultValue": "4"
+				},
+				{
+					"id": 244,
+					"name": "ACTIVITY_TYPE_LISTENING",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 37,
+							"character": 36
+						}
+					],
+					"type": {
+						"type": "unknown",
+						"name": "2"
+					},
+					"defaultValue": "2"
+				},
+				{
+					"id": 242,
+					"name": "ACTIVITY_TYPE_PLAYING",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 35,
+							"character": 34
+						}
+					],
+					"type": {
+						"type": "unknown",
+						"name": "0"
+					},
+					"defaultValue": "0"
+				},
+				{
+					"id": 243,
+					"name": "ACTIVITY_TYPE_STREAMING",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/Client.ts",
+							"line": 36,
+							"character": 36
+						}
+					],
+					"type": {
+						"type": "unknown",
+						"name": "1"
+					},
+					"defaultValue": "1"
 				}
 			],
 			"groups": [
@@ -183,27 +3259,1976 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						4
+						122
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						2
+						115,
+						105,
+						119,
+						110
+					]
+				},
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						240,
+						241,
+						239
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						246,
+						245,
+						244,
+						242,
+						243
 					]
 				}
 			],
 			"sources": [
 				{
-					"fileName": "classes/Client/Client.ts",
+					"fileName": "src/classes/Client/Client.ts",
 					"line": 1,
 					"character": 0
 				}
 			]
 		},
 		{
-			"id": 11,
+			"id": 79,
+			"name": "\"classes/Client/connect\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/connect.ts",
+			"children": [
+				{
+					"id": 80,
+					"name": "Intent",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Intents\nhttps://discord.com/developers/docs/topics/gateway#list-of-intents"
+					},
+					"sources": [
+						{
+							"fileName": "src/classes/Client/connect.ts",
+							"line": 14,
+							"character": 18
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "stringLiteral",
+								"value": "GUILDS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_MEMBERS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_BANS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_EMOJIS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_INTEGRATIONS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_WEBHOOKS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_INVITES"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_VOICE_STATES"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_PRESENCES"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_MESSAGES"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_MESSAGE_REACTIONS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "GUILD_MESSAGE_TYPING"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "DIRECT_MESSAGES"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "DIRECT_MESSAGE_REACTIONS"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "DIRECT_MESSAGE_TYPING"
+							}
+						]
+					}
+				},
+				{
+					"id": 81,
+					"name": "connect",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 82,
+							"name": "connect",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 83,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/connect.ts",
+							"line": 32,
+							"character": 37
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						80
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						81
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/connect.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 41,
+			"name": "\"classes/Client/event\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/event.ts",
+			"children": [
+				{
+					"id": 42,
+					"name": "event",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 43,
+							"name": "event",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 44,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								},
+								{
+									"id": 45,
+									"name": "type",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 46,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/event.ts",
+							"line": 4,
+							"character": 29
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						42
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/event.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "\"classes/Client/events/ready/rawReadyData\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/events/ready/rawReadyData.ts",
+			"children": [
+				{
+					"id": 2,
+					"name": "RawReadyData",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 7,
+							"name": "application",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 6,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 16,
+								"name": "RawReadyDataApplication"
+							}
+						},
+						{
+							"id": 6,
+							"name": "guilds",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 5,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 14,
+									"name": "RawReadyDataGuild"
+								}
+							}
+						},
+						{
+							"id": 5,
+							"name": "session_id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 4,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 4,
+							"name": "user",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 3,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 8,
+								"name": "RawReadyDataUser"
+							}
+						},
+						{
+							"id": 3,
+							"name": "v",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 2,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								7,
+								6,
+								5,
+								4,
+								3
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+							"line": 1,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 16,
+					"name": "RawReadyDataApplication",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 18,
+							"name": "flags",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 23,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 17,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 22,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								18,
+								17
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+							"line": 21,
+							"character": 40
+						}
+					]
+				},
+				{
+					"id": 14,
+					"name": "RawReadyDataGuild",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 15,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 18,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								15
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+							"line": 17,
+							"character": 34
+						}
+					]
+				},
+				{
+					"id": 8,
+					"name": "RawReadyDataUser",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 12,
+							"name": "avatar",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 13,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						},
+						{
+							"id": 11,
+							"name": "discriminator",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 12,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 13,
+							"name": "flags",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 14,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						},
+						{
+							"id": 9,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 10,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 10,
+							"name": "username",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+									"line": 11,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								12,
+								11,
+								13,
+								9,
+								10
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+							"line": 9,
+							"character": 33
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						2,
+						16,
+						14,
+						8
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/events/ready/rawReadyData.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 36,
+			"name": "\"classes/Client/events/ready/ready\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/events/ready/ready.ts",
+			"children": [
+				{
+					"id": 37,
+					"name": "ready",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 38,
+							"name": "ready",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 39,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								},
+								{
+									"id": 40,
+									"name": "rawData",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "RawReadyData"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/ready.ts",
+							"line": 7,
+							"character": 29
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						37
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/events/ready/ready.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 19,
+			"name": "\"classes/Client/events/ready/readyData\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/events/ready/readyData.ts",
+			"children": [
+				{
+					"id": 20,
+					"name": "ReadyData",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 21,
+							"name": "apiVersion",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "API Version",
+								"text": "The version of the Discord API being used\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 8,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 25,
+							"name": "application",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Application",
+								"text": "Data about the client's application\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 36,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 33,
+								"name": "ReadyDataApplication"
+							}
+						},
+						{
+							"id": 24,
+							"name": "guilds",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Guilds",
+								"text": "An array of unavailable guild IDs that the bot is in\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 29,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 26,
+							"name": "raw",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Raw",
+								"text": "The raw data from the Discord API for this event\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 43,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 23,
+							"name": "sessionID",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Session ID",
+								"text": "The ID for the logged in session\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 22,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 22,
+							"name": "user",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "User",
+								"text": "The client's user object\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 15,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 27,
+								"name": "ReadyDataUser"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								21,
+								25,
+								24,
+								26,
+								23,
+								22
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/readyData.ts",
+							"line": 1,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 33,
+					"name": "ReadyDataApplication",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 35,
+							"name": "flags",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Avatar",
+								"text": "The application's flags\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 98,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 34,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "ID",
+								"text": "The application's ID\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 91,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								35,
+								34
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/readyData.ts",
+							"line": 84,
+							"character": 37
+						}
+					]
+				},
+				{
+					"id": 27,
+					"name": "ReadyDataUser",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 31,
+							"name": "avatar",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Avatar",
+								"text": "The bot's avatar hash\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 74,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						},
+						{
+							"id": 30,
+							"name": "discriminator",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Discriminator",
+								"text": "The bot's discriminator\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 67,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 32,
+							"name": "flags",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Flags",
+								"text": "The flags on the bot's account\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 81,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						},
+						{
+							"id": 28,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "ID",
+								"text": "The client's ID\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 53,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 29,
+							"name": "username",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Username",
+								"text": "The bot's username\n"
+							},
+							"sources": [
+								{
+									"fileName": "src/classes/Client/events/ready/readyData.ts",
+									"line": 60,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								31,
+								30,
+								32,
+								28,
+								29
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/events/ready/readyData.ts",
+							"line": 46,
+							"character": 30
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						20,
+						33,
+						27
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/events/ready/readyData.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 56,
+			"name": "\"classes/Client/handleWebsocketEvent\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/handleWebsocketEvent.ts",
+			"children": [
+				{
+					"id": 57,
+					"name": "handleWebsocketEvent",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 58,
+							"name": "handleWebsocketEvent",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 59,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								},
+								{
+									"id": 60,
+									"name": "rawPacket",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/handleWebsocketEvent.ts",
+							"line": 6,
+							"character": 44
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						57
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/handleWebsocketEvent.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 47,
+			"name": "\"classes/Client/heartbeat\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/heartbeat.ts",
+			"children": [
+				{
+					"id": 48,
+					"name": "heartbeat",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 49,
+							"name": "heartbeat",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 50,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/heartbeat.ts",
+							"line": 3,
+							"character": 33
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						48
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/heartbeat.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 61,
+			"name": "\"classes/Client/identify\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/identify.ts",
+			"children": [
+				{
+					"id": 62,
+					"name": "identify",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 63,
+							"name": "identify",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 64,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/identify.ts",
+							"line": 3,
+							"character": 32
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						62
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/identify.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 51,
+			"name": "\"classes/Client/initializeHeartbeat\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/initializeHeartbeat.ts",
+			"children": [
+				{
+					"id": 52,
+					"name": "initializeHeartbeat",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 53,
+							"name": "initializeHeartbeat",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 54,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								},
+								{
+									"id": 55,
+									"name": "interval",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/initializeHeartbeat.ts",
+							"line": 4,
+							"character": 43
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						52
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/initializeHeartbeat.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 65,
+			"name": "\"classes/Client/ping\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/ping.ts",
+			"children": [
+				{
+					"id": 66,
+					"name": "ping",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 67,
+							"name": "ping",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 68,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/ping.ts",
+							"line": 3,
+							"character": 28
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						66
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/ping.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 69,
+			"name": "\"classes/Client/resume\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/resume.ts",
+			"children": [
+				{
+					"id": 70,
+					"name": "resume",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 71,
+							"name": "resume",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 72,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/resume.ts",
+							"line": 3,
+							"character": 30
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						70
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/resume.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 73,
+			"name": "\"classes/Client/websocketClosed\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/classes/Client/websocketClosed.ts",
+			"children": [
+				{
+					"id": 74,
+					"name": "websocketClosed",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 75,
+							"name": "websocketClosed",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 76,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								},
+								{
+									"id": 77,
+									"name": "code",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 78,
+									"name": "reason",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/classes/Client/websocketClosed.ts",
+							"line": 3,
+							"character": 39
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						74
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/classes/Client/websocketClosed.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 99,
+			"name": "\"debug\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/home/travis/build/APixelVisuals/dislite/src/debug.ts",
+			"children": [
+				{
+					"id": 100,
+					"name": "debug",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 101,
+							"name": "debug",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 102,
+									"name": "client",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 122,
+										"name": "Client"
+									}
+								},
+								{
+									"id": 103,
+									"name": "info",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/debug.ts",
+							"line": 3,
+							"character": 29
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						100
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/debug.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 247,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -213,14 +5238,144 @@
 			"originalName": "/home/travis/build/APixelVisuals/dislite/src/index.ts",
 			"children": [
 				{
-					"id": 12,
+					"id": 248,
+					"name": "ACTIVITY_TYPE_COMPETING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 246
+				},
+				{
+					"id": 249,
+					"name": "ACTIVITY_TYPE_CUSTOM",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 245
+				},
+				{
+					"id": 250,
+					"name": "ACTIVITY_TYPE_LISTENING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 244
+				},
+				{
+					"id": 251,
+					"name": "ACTIVITY_TYPE_PLAYING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 242
+				},
+				{
+					"id": 252,
+					"name": "ACTIVITY_TYPE_STREAMING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 243
+				},
+				{
+					"id": 253,
+					"name": "ActivityType",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 240
+				},
+				{
+					"id": 254,
+					"name": "BotActivity",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 115
+				},
+				{
+					"id": 255,
+					"name": "BotActivityType",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 241
+				},
+				{
+					"id": 256,
 					"name": "Client",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 4
+					"target": 122
+				},
+				{
+					"id": 257,
+					"name": "ClientData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 105
+				},
+				{
+					"id": 258,
+					"name": "Intent",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 80
+				},
+				{
+					"id": 259,
+					"name": "Presence",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 110
+				},
+				{
+					"id": 260,
+					"name": "ReadyData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 20
+				},
+				{
+					"id": 261,
+					"name": "Status",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 239
 				}
 			],
 			"groups": [
@@ -228,20 +5383,33 @@
 					"title": "References",
 					"kind": 16777216,
 					"children": [
-						12
+						248,
+						249,
+						250,
+						251,
+						252,
+						253,
+						254,
+						255,
+						256,
+						257,
+						258,
+						259,
+						260,
+						261
 					]
 				}
 			],
 			"sources": [
 				{
-					"fileName": "index.ts",
+					"fileName": "src/index.ts",
 					"line": 1,
 					"character": 0
 				}
 			]
 		},
 		{
-			"id": 9,
+			"id": 84,
 			"name": "\"internal\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -251,14 +5419,144 @@
 			"originalName": "/home/travis/build/APixelVisuals/dislite/src/internal.ts",
 			"children": [
 				{
-					"id": 10,
+					"id": 86,
+					"name": "ACTIVITY_TYPE_COMPETING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 246
+				},
+				{
+					"id": 87,
+					"name": "ACTIVITY_TYPE_CUSTOM",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 245
+				},
+				{
+					"id": 88,
+					"name": "ACTIVITY_TYPE_LISTENING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 244
+				},
+				{
+					"id": 89,
+					"name": "ACTIVITY_TYPE_PLAYING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 242
+				},
+				{
+					"id": 90,
+					"name": "ACTIVITY_TYPE_STREAMING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 243
+				},
+				{
+					"id": 91,
+					"name": "ActivityType",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 240
+				},
+				{
+					"id": 92,
+					"name": "BotActivity",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 115
+				},
+				{
+					"id": 93,
+					"name": "BotActivityType",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 241
+				},
+				{
+					"id": 85,
 					"name": "Client",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 4
+					"target": 122
+				},
+				{
+					"id": 94,
+					"name": "ClientData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 105
+				},
+				{
+					"id": 97,
+					"name": "Intent",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 80
+				},
+				{
+					"id": 95,
+					"name": "Presence",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 110
+				},
+				{
+					"id": 98,
+					"name": "ReadyData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 20
+				},
+				{
+					"id": 96,
+					"name": "Status",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 239
 				}
 			],
 			"groups": [
@@ -266,13 +5564,26 @@
 					"title": "References",
 					"kind": 16777216,
 					"children": [
-						10
+						86,
+						87,
+						88,
+						89,
+						90,
+						91,
+						92,
+						93,
+						85,
+						94,
+						97,
+						95,
+						98,
+						96
 					]
 				}
 			],
 			"sources": [
 				{
-					"fileName": "internal.ts",
+					"fileName": "src/internal.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -284,9 +5595,22 @@
 			"title": "Modules",
 			"kind": 1,
 			"children": [
+				104,
+				79,
+				41,
 				1,
-				11,
-				9
+				36,
+				19,
+				56,
+				47,
+				61,
+				51,
+				65,
+				69,
+				73,
+				99,
+				247,
+				84
 			]
 		}
 	]
