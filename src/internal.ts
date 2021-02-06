@@ -14,3 +14,4 @@ export {
     Status
 } from "./classes/Client/Client";
 export { Intent } from "./classes/Client/connect";
+export { ReadyData } from "./classes/Client/events/ready/readyData";

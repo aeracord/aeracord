@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import debug from "../../debug";
-import { Intent } from "../../internal";
+import { Intent, ReadyData } from "../../internal";
 import connect from "./connect";
 
 export interface ClientData {
@@ -41,6 +41,10 @@ export const ACTIVITY_TYPE_COMPETING = 5;
 export interface EventQueueEvent {
     type: string;
     data: any;
+}
+
+export default interface Client {
+    on(event: "ready", listener: (data: ReadyData) => void): this;
 }
 
 export default class Client extends EventEmitter {

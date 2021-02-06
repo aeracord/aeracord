@@ -16,6 +16,8 @@ export {
     BotActivityType,
     Client,
     ClientData,
+    Intent,
     Presence,
+    ReadyData,
     Status
 } from "./internal";
