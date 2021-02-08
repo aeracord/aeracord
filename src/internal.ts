@@ -15,6 +15,7 @@ export {
 } from "./classes/Client/Client";
 export { Intent } from "./classes/Client/connect";
 export { ReadyData } from "./classes/Client/events/ready/readyData";
+export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
 
 // Channel
 export {
@@ -74,6 +75,12 @@ export {
     default as StoreChannel,
     StoreChannelData
 } from "./classes/StoreChannel/StoreChannel";
+
+// Role
+export {
+    default as Role,
+    RoleData
+} from "./classes/Role/Role";
 
 // User
 export {

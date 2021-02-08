@@ -80,6 +80,12 @@ export {
     StoreChannelData
 } from "./internal";
 
+// Role
+export {
+    Role,
+    RoleData
+} from "./internal";
+
 // User
 export {
     User,
