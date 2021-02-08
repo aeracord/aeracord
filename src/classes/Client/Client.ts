@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import debug from "../../debug";
-import { Intent, ReadyData } from "../../internal";
+import { AnyChannel, Intent, ReadyData } from "../../internal";
 import connect from "./connect";
 
 export interface ClientData {
@@ -45,6 +45,9 @@ export interface EventQueueEvent {
 
 export default interface Client {
     on(event: "ready", listener: (data: ReadyData) => void): this;
+    on(event: "channelCreate", listener: (channel: AnyChannel, rawData: any) => void): this;
+    on(event: "channelUpdate", listener: (channel: AnyChannel, rawData: any) => void): this;
+    on(event: "channelDelete", listener: (channel: AnyChannel, rawData: any) => void): this;
 }
 
 export default class Client extends EventEmitter {
