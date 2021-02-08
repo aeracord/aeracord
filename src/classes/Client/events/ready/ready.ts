@@ -18,8 +18,7 @@ export default function ready(client: Client, rawData: RawReadyData) {
         },
         sessionID: rawData.session_id,
         guilds: rawData.guilds.map((g: RawReadyDataGuild) => g.id),
-        application: rawData.application,
-        raw: JSON.parse(JSON.stringify(rawData))
+        application: rawData.application
     };
 
     // Set client data
@@ -42,5 +41,5 @@ export default function ready(client: Client, rawData: RawReadyData) {
     client.eventQueue = [];
 
     // Emit event
-    client.emit("ready", data);
+    client.emit("ready", data, rawData);
 }

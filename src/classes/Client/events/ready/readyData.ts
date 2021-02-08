@@ -34,13 +34,6 @@ export interface ReadyData {
      * Data about the client's application
      */
     application: ReadyDataApplication;
-
-    /**
-     * Raw
-     *
-     * The raw data from the Discord API for this event
-     */
-    raw: any;
 }
 
 export interface ReadyDataUser {
