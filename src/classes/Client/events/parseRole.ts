@@ -20,7 +20,7 @@ export default function parseRole(client: Client, rawData: RawRoleData): Role {
 
             // `tags.premium_subscriber` is either `undefined` (false) or `null` (true)
             // Look, I didnt make the damn api
-            premiumRole: rawData.role.tags?.premium_subscriber === null ? true : false
+            premiumRole: rawData.role.tags?.premium_subscriber === null
         }
     });
 
