@@ -89,9 +89,13 @@ export {
 // User
 export {
     User,
-    PREMIUM_TYPE_NITRO,
-    PREMIUM_TYPE_NITRO_CLASSIC,
-    PREMIUM_TYPE_NONE,
-    PremiumType,
     UserData
+} from "./internal";
+
+// Invite
+export {
+    Invite,
+    TARGET_USER_TYPE_STREAM,
+    TargetUserType,
+    InviteData
 } from "./internal";

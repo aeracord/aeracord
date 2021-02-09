@@ -16,6 +16,7 @@ export {
 export { Intent } from "./classes/Client/connect";
 export { ReadyData } from "./classes/Client/events/ready/readyData";
 export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
+export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";
 
 // Channel
 export {
@@ -85,9 +86,13 @@ export {
 // User
 export {
     default as User,
-    PREMIUM_TYPE_NITRO,
-    PREMIUM_TYPE_NITRO_CLASSIC,
-    PREMIUM_TYPE_NONE,
-    PremiumType,
     UserData
 } from "./classes/User/User";
+
+// Invite
+export {
+    default as Invite,
+    TARGET_USER_TYPE_STREAM,
+    TargetUserType,
+    InviteData
+} from "./classes/Invite/Invite";

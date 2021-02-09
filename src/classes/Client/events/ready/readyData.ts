@@ -71,7 +71,7 @@ export interface ReadyDataUser {
      *
      * The flags on the bot's account
      */
-    flags?: number;
+    flags: number;
 }
 
 export interface ReadyDataApplication {

@@ -1,17 +1,11 @@
+import { RawUserData } from "../rawUserData";
+
 export interface RawReadyData {
     v: number;
-    user: RawReadyDataUser;
+    user: RawUserData;
     session_id: string;
     guilds: RawReadyDataGuild[];
     application: RawReadyDataApplication;
-}
-
-export interface RawReadyDataUser {
-    id: string;
-    username: string;
-    discriminator: string;
-    avatar: string | null;
-    flags?: number;
 }
 
 export interface RawReadyDataGuild {

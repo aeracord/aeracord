@@ -1,4 +1,5 @@
-import { PermissionType, PremiumType } from "../../../internal";
+import { PermissionType } from "../../../internal";
+import { RawUserData } from "./rawUserData";
 
 export interface RawChannelData {
     id: string;
@@ -15,7 +16,7 @@ export interface RawChannelData {
     user_limit?: number;
     rate_limit_per_user?: number;
     parent_id: string | null;
-    recipients?: RawChannelDataUser[];
+    recipients?: RawUserData[];
 }
 
 export type RawChannelDataType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_DM | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE;
@@ -31,17 +32,4 @@ export interface RawChannelDataPermissionOverwrite {
     type: PermissionType;
     allow: string;
     deny: string;
-}
-
-export interface RawChannelDataUser {
-    id: string;
-    username: string;
-    discriminator: string;
-    avatar: string | null;
-    bot?: boolean;
-    system?: boolean;
-    mfa_enabled?: boolean;
-    locale?: boolean;
-    flags?: number;
-    premium_type?: PremiumType;
 }

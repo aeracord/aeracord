@@ -12,7 +12,7 @@ export default function ready(client: Client, rawData: RawReadyData) {
         user: {
             username: rawData.user.username,
             id: rawData.user.id,
-            flags: rawData.user.flags,
+            flags: rawData.user.flags || 0,
             discriminator: rawData.user.discriminator,
             avatar: rawData.user.avatar
         },
