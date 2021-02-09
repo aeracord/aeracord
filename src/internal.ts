@@ -15,6 +15,7 @@ export {
 } from "./classes/Client/Client";
 export { Intent } from "./classes/Client/connect";
 export { ReadyData } from "./classes/Client/events/ready/readyData";
+export { GuildEmojisUpdateData } from "./classes/Client/events/guildEmojisUpdate/guildEmojisUpdateData";
 export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
 export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";
 
@@ -88,6 +89,12 @@ export {
     default as User,
     UserData
 } from "./classes/User/User";
+
+// Emoji
+export {
+    default as Emoji,
+    EmojiData
+} from "./classes/Emoji/Emoji";
 
 // Invite
 export {

@@ -92,6 +92,12 @@ export {
     UserData
 } from "./internal";
 
+// Emoji
+export {
+    Emoji,
+    EmojiData
+} from "./internal";
+
 // Invite
 export {
     Invite,

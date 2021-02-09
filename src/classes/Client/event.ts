@@ -2,6 +2,7 @@ import { Client } from "../../internal";
 import channelCreate from "./events/channelCreate/channelCreate";
 import channelDelete from "./events/channelDelete/channelDelete";
 import channelUpdate from "./events/channelUpdate/channelUpdate";
+import guildEmojisUpdate from "./events/guildEmojisUpdate/guildEmojisUpdate";
 import guildRoleCreate from "./events/guildRoleCreate/guildRoleCreate";
 import guildRoleDelete from "./events/guildRoleDelete/guildRoleDelete";
 import guildRoleUpdate from "./events/guildRoleUpdate/guildRoleUpdate";
@@ -28,6 +29,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // Channel Update
     else if (type === "CHANNEL_UPDATE") channelUpdate(client, data);
+
+    // Guild Emojis Update
+    else if (type === "GUILD_EMOJIS_UPDATE") guildEmojisUpdate(client, data);
 
     // Guild Role Create
     else if (type === "GUILD_ROLE_CREATE") guildRoleCreate(client, data);
