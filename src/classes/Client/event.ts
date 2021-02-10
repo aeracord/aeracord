@@ -1,6 +1,7 @@
 import { Client } from "../../internal";
 import channelCreate from "./events/channelCreate/channelCreate";
 import channelDelete from "./events/channelDelete/channelDelete";
+import channelPinsUpdate from "./events/channelPinsUpdate/channelPinsUpdate";
 import channelUpdate from "./events/channelUpdate/channelUpdate";
 import guildEmojisUpdate from "./events/guildEmojisUpdate/guildEmojisUpdate";
 import guildMemberUpdate from "./events/guildMemberUpdate/guildMemberUpdate";
@@ -27,6 +28,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // Channel Delete
     else if (type === "CHANNEL_DELETE") channelDelete(client, data);
+
+    // Channel Pins Update
+    else if (type === "CHANNEL_PINS_UPDATE") channelPinsUpdate(client, data);
 
     // Channel Update
     else if (type === "CHANNEL_UPDATE") channelUpdate(client, data);

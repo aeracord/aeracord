@@ -15,6 +15,7 @@ export {
 } from "./classes/Client/Client";
 export { Intent } from "./classes/Client/connect";
 export { ReadyData } from "./classes/Client/events/ready/readyData";
+export { ChannelPinsUpdateData } from "./classes/Client/events/channelPinsUpdate/channelPinsUpdateData";
 export { GuildMemberUpdateData } from "./classes/Client/events/guildMemberUpdate/guildMemberUpdateData";
 export { GuildEmojisUpdateData } from "./classes/Client/events/guildEmojisUpdate/guildEmojisUpdateData";
 export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";

@@ -14,6 +14,7 @@ export {
     ActivityType,
     BotActivity,
     BotActivityType,
+    ChannelPinsUpdateData,
     Client,
     ClientData,
     GuildMemberUpdateData,
