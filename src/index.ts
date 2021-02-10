@@ -16,7 +16,11 @@ export {
     BotActivityType,
     Client,
     ClientData,
+    GuildMemberUpdateData,
+    GuildEmojisUpdateData,
+    GuildRoleDeleteData,
     Intent,
+    InviteDeleteData,
     Presence,
     ReadyData,
     Status
