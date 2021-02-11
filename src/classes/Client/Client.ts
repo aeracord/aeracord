@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import debug from "../../debug";
-import { AnyChannel, ChannelPinsUpdateData, Guild, GuildEmojisUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, ReadyData, Role } from "../../internal";
+import { AnyChannel, ChannelPinsUpdateData, Guild, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, ReadyData, Role } from "../../internal";
 import connect from "./connect";
 
 export interface ClientData {
@@ -50,6 +50,7 @@ export default interface Client {
     on(event: "channelPinsUpdate", listener: (data: ChannelPinsUpdateData, rawData: any) => void): this;
     on(event: "channelUpdate", listener: (channel: AnyChannel, rawData: any) => void): this;
     on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, rawData: any) => void): this;
+    on(event: "guildIntegrationsUpdate", listener: (data: GuildIntegrationsUpdateData, rawData: any) => void): this;
     on(event: "guildMemberUpdate", listener: (data: GuildMemberUpdateData, rawData: any) => void): this;
     on(event: "guildRoleCreate", listener: (role: Role, rawData: any) => void): this;
     on(event: "guildRoleDelete", listener: (data: GuildRoleDeleteData, rawData: any) => void): this;
