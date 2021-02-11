@@ -1,9 +1,4 @@
 export interface RawRoleData {
-    role: RawRoleDataRole;
-    guild_id: string;
-}
-
-export interface RawRoleDataRole {
     id: string;
     name: string;
     color: number;

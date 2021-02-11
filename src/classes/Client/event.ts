@@ -8,6 +8,7 @@ import guildMemberUpdate from "./events/guildMemberUpdate/guildMemberUpdate";
 import guildRoleCreate from "./events/guildRoleCreate/guildRoleCreate";
 import guildRoleDelete from "./events/guildRoleDelete/guildRoleDelete";
 import guildRoleUpdate from "./events/guildRoleUpdate/guildRoleUpdate";
+import guildUpdate from "./events/guildUpdate/guildUpdate";
 import inviteCreate from "./events/inviteCreate/inviteCreate";
 import inviteDelete from "./events/inviteDelete/inviteDelete";
 import ready from "./events/ready/ready";
@@ -49,6 +50,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // Guild Role Update
     else if (type === "GUILD_ROLE_UPDATE") guildRoleUpdate(client, data);
+
+    // Guild Update
+    else if (type === "GUILD_UPDATE") guildUpdate(client, data);
 
     // Invite Create
     else if (type === "INVITE_CREATE") inviteCreate(client, data);
