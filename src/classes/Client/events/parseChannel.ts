@@ -78,7 +78,7 @@ export default function parseChannel(client: Client, rawData: RawChannelData): A
     });
 
     // Unknown channel type
-    else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/APixelVisuals/dislite`);
+    else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
 
     // Return
     return channel;

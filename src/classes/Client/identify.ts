@@ -40,8 +40,8 @@ export default function identify(client: Client) {
             token: client.token,
             properties: {
                 $os: os,
-                $browser: "dislite",
-                $device: "dislite"
+                $browser: "aeracord",
+                $device: "aeracord"
             },
             presence: client._initialPresence,
             intents: client._intents.reduce((all, intent) => all | INTENTS[intent], 0)

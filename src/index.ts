@@ -1,8 +1,8 @@
 // Import
-import * as dislite from "./internal";
+import * as aeracord from "./internal";
 
 // All
-export default dislite;
+export default aeracord;
 
 // Client
 export {

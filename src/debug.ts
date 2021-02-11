@@ -6,5 +6,5 @@ export default function debug(client: Client, info: string) {
     if (!client.debugMode) return;
 
     // Log
-    console.log(`[Dislite] ${info}`);
+    console.log(`[Aeracord] ${info}`);
 }

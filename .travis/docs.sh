@@ -4,7 +4,7 @@
 git config --global user.name "Travis CI"
 git config --global user.email "travis@travis-ci.com"
 
-git remote add origin-docs https://${GITHUB_TOKEN}@github.com/APixelVisuals/dislite.git
+git remote add origin-docs https://${GITHUB_TOKEN}@github.com/APixelVisuals/aeracord.git
 git checkout $TRAVIS_BRANCH
 
 # Build docs

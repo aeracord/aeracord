@@ -1,12 +1,12 @@
 {
-    "name": "dislite",
+    "name": "aeracord",
     "version": "0.1.0",
-    "description": "Dislite is a simple Node.js module that mirrors the Discord API",
+    "description": "Aeracord is a simple Node.js module that mirrors the Discord API",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/APixelVisuals/dislite.git"
+        "url": "https://github.com/APixelVisuals/aeracord.git"
     },
     "author": "APixel Visuals <apixelvisualsofficial@gmail.com> (https://apixel.me)",
     "license": "MIT",
