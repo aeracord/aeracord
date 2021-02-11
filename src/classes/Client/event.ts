@@ -13,6 +13,7 @@ import guildUpdate from "./events/guildUpdate/guildUpdate";
 import inviteCreate from "./events/inviteCreate/inviteCreate";
 import inviteDelete from "./events/inviteDelete/inviteDelete";
 import ready from "./events/ready/ready";
+import webhooksUpdate from "./events/webhooksUpdate/webhooksUpdate";
 
 export default function event(client: Client, type: string, data: any) {
 
@@ -63,4 +64,7 @@ export default function event(client: Client, type: string, data: any) {
 
     // Invite Delete
     else if (type === "INVITE_DELETE") inviteDelete(client, data);
+
+    // Webhooks Update
+    else if (type === "WEBHOOKS_UPDATE") webhooksUpdate(client, data);
 }

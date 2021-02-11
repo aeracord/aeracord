@@ -21,6 +21,7 @@ export { GuildIntegrationsUpdateData } from "./classes/Client/events/guildIntegr
 export { GuildMemberUpdateData } from "./classes/Client/events/guildMemberUpdate/guildMemberUpdateData";
 export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
 export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";
+export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";
 
 // Guild
 export {

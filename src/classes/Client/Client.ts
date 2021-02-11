@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import debug from "../../debug";
-import { AnyChannel, ChannelPinsUpdateData, Guild, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, ReadyData, Role } from "../../internal";
+import { AnyChannel, ChannelPinsUpdateData, Guild, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, ReadyData, Role, WebhooksUpdateData } from "../../internal";
 import connect from "./connect";
 
 export interface ClientData {
@@ -58,6 +58,7 @@ export default interface Client {
     on(event: "guildUpdate", listener: (guild: Guild, rawData: any) => void): this;
     on(event: "inviteCreate", listener: (invite: Invite, rawData: any) => void): this;
     on(event: "inviteDelete", listener: (data: InviteDeleteData, rawData: any) => void): this;
+    on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, rawData: any) => void): this;
 }
 
 export default class Client extends EventEmitter {
