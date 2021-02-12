@@ -127,6 +127,12 @@ export {
     UserData
 } from "./internal";
 
+// Member
+export {
+    Member,
+    MemberData
+} from "./internal";
+
 // Emoji
 export {
     Emoji,
