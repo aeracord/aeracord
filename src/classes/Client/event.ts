@@ -3,6 +3,8 @@ import channelCreate from "./events/channelCreate/channelCreate";
 import channelDelete from "./events/channelDelete/channelDelete";
 import channelPinsUpdate from "./events/channelPinsUpdate/channelPinsUpdate";
 import channelUpdate from "./events/channelUpdate/channelUpdate";
+import guildBanAdd from "./events/guildBanAdd/guildBanAdd";
+import guildBanRemove from "./events/guildBanRemove/guildBanRemove";
 import guildEmojisUpdate from "./events/guildEmojisUpdate/guildEmojisUpdate";
 import guildIntegrationsUpdate from "./events/guildIntegrationsUpdate/guildIntegrationsUpdate";
 import guildMemberAdd from "./events/guildMemberAdd/guildMemberAdd";
@@ -40,6 +42,12 @@ export default function event(client: Client, type: string, data: any) {
 
     // Channel Update
     else if (type === "CHANNEL_UPDATE") channelUpdate(client, data);
+
+    // Guild Ban Add
+    else if (type === "GUILD_BAN_ADD") guildBanAdd(client, data);
+
+    // Guild Ban Remove
+    else if (type === "GUILD_BAN_REMOVE") guildBanRemove(client, data);
 
     // Guild Emojis Update
     else if (type === "GUILD_EMOJIS_UPDATE") guildEmojisUpdate(client, data);

@@ -49,6 +49,8 @@ export default interface Client {
     on(event: "channelDelete", listener: (channel: AnyChannel, rawData: any) => void): this;
     on(event: "channelPinsUpdate", listener: (data: ChannelPinsUpdateData, rawData: any) => void): this;
     on(event: "channelUpdate", listener: (channel: AnyChannel, rawData: any) => void): this;
+    on(event: "guildBanAdd", listener: (user: User, rawData: any) => void): this;
+    on(event: "guildBanRemove", listener: (user: User, rawData: any) => void): this;
     on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, rawData: any) => void): this;
     on(event: "guildIntegrationsUpdate", listener: (data: GuildIntegrationsUpdateData, rawData: any) => void): this;
     on(event: "guildMemberAdd", listener: (member: Member, rawData: any) => void): this;
