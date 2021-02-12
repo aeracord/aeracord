@@ -63,6 +63,7 @@ export default interface Client {
     on(event: "inviteCreate", listener: (invite: Invite, rawData: any) => void): this;
     on(event: "inviteDelete", listener: (data: InviteDeleteData, rawData: any) => void): this;
     on(event: "typingStart", listener: (data: TypingStartData, rawData: any) => void): this;
+    on(event: "userUpdate", listener: (user: User, rawData: any) => void): this;
     on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, rawData: any) => void): this;
 }
 

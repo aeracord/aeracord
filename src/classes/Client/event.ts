@@ -18,6 +18,7 @@ import inviteCreate from "./events/inviteCreate/inviteCreate";
 import inviteDelete from "./events/inviteDelete/inviteDelete";
 import ready from "./events/ready/ready";
 import typingStart from "./events/typingStart/typingStart";
+import userUpdate from "./events/userUpdate/userUpdate";
 import webhooksUpdate from "./events/webhooksUpdate/webhooksUpdate";
 
 export default function event(client: Client, type: string, data: any) {
@@ -84,6 +85,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // Typing Start
     else if (type === "TYPING_START") typingStart(client, data);
+
+    // User Update
+    else if (type === "USER_UPDATE") userUpdate(client, data);
 
     // Webhooks Update
     else if (type === "WEBHOOKS_UPDATE") webhooksUpdate(client, data);
