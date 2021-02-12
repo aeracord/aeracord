@@ -5,6 +5,8 @@ import channelPinsUpdate from "./events/channelPinsUpdate/channelPinsUpdate";
 import channelUpdate from "./events/channelUpdate/channelUpdate";
 import guildEmojisUpdate from "./events/guildEmojisUpdate/guildEmojisUpdate";
 import guildIntegrationsUpdate from "./events/guildIntegrationsUpdate/guildIntegrationsUpdate";
+import guildMemberAdd from "./events/guildMemberAdd/guildMemberAdd";
+import guildMemberRemove from "./events/guildMemberRemove/guildMemberRemove";
 import guildMemberUpdate from "./events/guildMemberUpdate/guildMemberUpdate";
 import guildRoleCreate from "./events/guildRoleCreate/guildRoleCreate";
 import guildRoleDelete from "./events/guildRoleDelete/guildRoleDelete";
@@ -41,6 +43,12 @@ export default function event(client: Client, type: string, data: any) {
 
     // Guild Emojis Update
     else if (type === "GUILD_EMOJIS_UPDATE") guildEmojisUpdate(client, data);
+
+    // Guild Member Add
+    else if (type === "GUILD_MEMBER_ADD") guildMemberAdd(client, data);
+
+    // Guild Member Remove
+    else if (type === "GUILD_MEMBER_REMOVE") guildMemberRemove(client, data);
 
     // Guild Member Update
     else if (type === "GUILD_MEMBER_UPDATE") guildMemberUpdate(client, data);
