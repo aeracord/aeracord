@@ -16,6 +16,7 @@ import guildRoleUpdate from "./events/guildRoleUpdate/guildRoleUpdate";
 import guildUpdate from "./events/guildUpdate/guildUpdate";
 import inviteCreate from "./events/inviteCreate/inviteCreate";
 import inviteDelete from "./events/inviteDelete/inviteDelete";
+import presenceUpdate from "./events/presenceUpdate/presenceUpdate";
 import ready from "./events/ready/ready";
 import typingStart from "./events/typingStart/typingStart";
 import userUpdate from "./events/userUpdate/userUpdate";
@@ -82,6 +83,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // Invite Delete
     else if (type === "INVITE_DELETE") inviteDelete(client, data);
+
+    // Presence Update
+    else if (type === "PRESENCE_UPDATE") presenceUpdate(client, data);
 
     // Typing Start
     else if (type === "TYPING_START") typingStart(client, data);

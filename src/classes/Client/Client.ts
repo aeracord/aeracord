@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import debug from "../../debug";
-import { AnyChannel, ChannelPinsUpdateData, Guild, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, ReadyData, Role, TypingStartData, User, WebhooksUpdateData } from "../../internal";
+import { AnyChannel, ACTIVITY_TYPE_COMPETING, ACTIVITY_TYPE_LISTENING, ACTIVITY_TYPE_PLAYING, ACTIVITY_TYPE_STREAMING, ChannelPinsUpdateData, Guild, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, PresenceUpdateData, ReadyData, Role, Status, TypingStartData, User, WebhooksUpdateData } from "../../internal";
 import connect from "./connect";
 
 export interface ClientData {
@@ -12,31 +12,21 @@ export interface ClientData {
 }
 
 export interface Presence {
-    status?: Status;
+    status?: ClientStatus;
     afk?: boolean;
-    activities?: BotActivity[];
+    activities?: ClientActivity[];
     since?: number;
 }
 
-export type Status = "online" | "idle" | "dnd" | "invisible" | "offline";
+export type ClientStatus = Status | "invisible";
 
-export interface BotActivity {
+export interface ClientActivity {
     name: string;
-    type: BotActivityType;
+    type: ClientActivityType;
     url?: string;
 }
 
-/**
- * Activity types
- * https://discord.com/developers/docs/topics/gateway#activity-object-activity-types
- */
-export type ActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_CUSTOM | typeof ACTIVITY_TYPE_COMPETING;
-export type BotActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_COMPETING;
-export const ACTIVITY_TYPE_PLAYING = 0;
-export const ACTIVITY_TYPE_STREAMING = 1;
-export const ACTIVITY_TYPE_LISTENING = 2;
-export const ACTIVITY_TYPE_CUSTOM = 4;
-export const ACTIVITY_TYPE_COMPETING = 5;
+export type ClientActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_COMPETING;
 
 export interface EventQueueEvent {
     type: string;
@@ -62,6 +52,7 @@ export default interface Client {
     on(event: "guildUpdate", listener: (guild: Guild, rawData: any) => void): this;
     on(event: "inviteCreate", listener: (invite: Invite, rawData: any) => void): this;
     on(event: "inviteDelete", listener: (data: InviteDeleteData, rawData: any) => void): this;
+    on(event: "presenceUpdate", listener: (data: PresenceUpdateData, rawData: any) => void): this;
     on(event: "typingStart", listener: (data: TypingStartData, rawData: any) => void): this;
     on(event: "userUpdate", listener: (user: User, rawData: any) => void): this;
     on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, rawData: any) => void): this;

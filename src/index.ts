@@ -6,25 +6,19 @@ export default aeracord;
 
 // Client
 export {
-    ACTIVITY_TYPE_COMPETING,
-    ACTIVITY_TYPE_CUSTOM,
-    ACTIVITY_TYPE_LISTENING,
-    ACTIVITY_TYPE_PLAYING,
-    ACTIVITY_TYPE_STREAMING,
-    ActivityType,
-    BotActivity,
-    BotActivityType,
     ChannelPinsUpdateData,
     Client,
+    ClientActivity,
+    ClientActivityType,
     ClientData,
+    ClientStatus,
     GuildMemberUpdateData,
     GuildEmojisUpdateData,
     GuildRoleDeleteData,
     Intent,
     InviteDeleteData,
     Presence,
-    ReadyData,
-    Status
+    ReadyData
 } from "./internal";
 
 // Guild
@@ -123,6 +117,13 @@ export {
 
 // User
 export {
+    ACTIVITY_TYPE_COMPETING,
+    ACTIVITY_TYPE_CUSTOM,
+    ACTIVITY_TYPE_LISTENING,
+    ACTIVITY_TYPE_PLAYING,
+    ACTIVITY_TYPE_STREAMING,
+    ActivityType,
+    Status,
     User,
     UserData
 } from "./internal";
