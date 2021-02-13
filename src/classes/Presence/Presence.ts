@@ -1,44 +1,13 @@
-import { ActivityType, Status } from "../../../../internal";
+import { ActivityType, Client, Status } from "../../internal";
 
-export interface PresenceUpdateData {
-
-    /**
-     * User
-     *
-     * The user that was updated
-     */
-    user: PresenceUpdateDataUser;
-
-    /**
-     * Guild ID
-     *
-     * The ID of the guild this update happened in
-     */
-    guildID: string;
-
-    /**
-     * Status
-     *
-     * The status of the user
-     */
+export interface PresenceData {
+    user: PresenceUser;
     status: Status;
-
-    /**
-     * Activities
-     *
-     * The user's activities
-     */
-    activities: PresenceUpdateDataActivity[];
-
-    /**
-     * Client Status
-     *
-     * The user's statuses
-     */
-    clientStatus: PresenceUpdateDataClientStatus;
+    activities: Activity[];
+    clientStatus: PresenceClientStatus;
 }
 
-export interface PresenceUpdateDataUser {
+export interface PresenceUser {
 
     /**
      * ID
@@ -90,7 +59,7 @@ export interface PresenceUpdateDataUser {
     publicFlags?: number;
 }
 
-export interface PresenceUpdateDataActivity {
+export interface Activity {
 
     /**
      * Name
@@ -125,7 +94,7 @@ export interface PresenceUpdateDataActivity {
      *
      * The timestamps for when this activity was started and ended
      */
-    timestamps?: PresenceUpdateDataActivityTimestamps;
+    timestamps?: ActivityTimestamps;
 
     /**
      * Application ID
@@ -153,28 +122,28 @@ export interface PresenceUpdateDataActivity {
      *
      * The emoji in a custom status
      */
-    emoji?: PresenceUpdateDataActivityEmoji;
+    emoji?: ActivityEmoji;
 
     /**
      * Party
      *
      * The activity's party
      */
-    party?: PresenceUpdateDataActivityParty;
+    party?: ActivityParty;
 
     /**
      * Assets
      *
      * The activity's assets
      */
-    assets?: PresenceUpdateDataActivityAssets;
+    assets?: ActivityAssets;
 
     /**
      * Secrets
      *
      * The activity's secrets
      */
-    secrets?: PresenceUpdateDataActivitySecrets;
+    secrets?: ActivitySecrets;
 
     /**
      * Instance
@@ -191,7 +160,7 @@ export interface PresenceUpdateDataActivity {
     flags?: number;
 }
 
-export interface PresenceUpdateDataActivityTimestamps {
+export interface ActivityTimestamps {
 
     /**
      * Start
@@ -208,7 +177,7 @@ export interface PresenceUpdateDataActivityTimestamps {
     end?: number;
 }
 
-export interface PresenceUpdateDataActivityEmoji {
+export interface ActivityEmoji {
 
     /**
      * ID
@@ -232,7 +201,7 @@ export interface PresenceUpdateDataActivityEmoji {
     animated: boolean;
 }
 
-export interface PresenceUpdateDataActivityParty {
+export interface ActivityParty {
 
     /**
      * ID
@@ -249,7 +218,7 @@ export interface PresenceUpdateDataActivityParty {
     size?: number[];
 }
 
-export interface PresenceUpdateDataActivityAssets {
+export interface ActivityAssets {
 
     /**
      * Large Image
@@ -280,7 +249,7 @@ export interface PresenceUpdateDataActivityAssets {
     smallText?: string;
 }
 
-export interface PresenceUpdateDataActivitySecrets {
+export interface ActivitySecrets {
 
     /**
      * Join
@@ -304,7 +273,7 @@ export interface PresenceUpdateDataActivitySecrets {
     match?: string;
 }
 
-export interface PresenceUpdateDataClientStatus {
+export interface PresenceClientStatus {
 
     /**
      * Desktop
@@ -327,4 +296,71 @@ export interface PresenceUpdateDataClientStatus {
      * Bots will have their statuses as web statuses
      */
     web?: Status;
+}
+
+export default class Presence {
+
+    /**
+     * Client
+     *
+     * The client
+     */
+    client: Client;
+
+    /**
+     * User
+     *
+     * The user this presence is for
+     */
+    user: PresenceUser;
+
+    /**
+     * Status
+     *
+     * The presence's status
+     */
+    status: Status;
+
+    /**
+     * Activities
+     *
+     * The presence's activities
+     */
+    activities: Activity[];
+
+    /**
+     * Client Status
+     *
+     * The presence's statuses
+     */
+    clientStatus: PresenceClientStatus;
+
+    /**
+     * Presence
+     *
+     * @param client The client
+     * @param presenceData Options to initialize this presence with
+     * @param presenceData.user The user this presence is for
+     * @param presenceData.status The presence's status
+     * @param presenceData.activities The presence's activities
+     * @param presenceData.clientStatus The presence's statuses
+     */
+    constructor(client: Client, presenceData: PresenceData) {
+
+        // Set data
+        this.client = client;
+        this.user = presenceData.user;
+        this.status = presenceData.status;
+        this.activities = presenceData.activities;
+        this.clientStatus = presenceData.clientStatus;
+    }
+
+    /**
+     * Debug
+     *
+     * Log debug info
+     *
+     * @param info Debug info to log
+     */
+    _debug = (info: string) => this.client._debug(info);
 }

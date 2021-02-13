@@ -4,8 +4,8 @@ export {
     ClientActivity,
     ClientActivityType,
     ClientData,
-    ClientStatus,
-    Presence
+    ClientPresence,
+    ClientStatus
 } from "./classes/Client/Client";
 export { Intent } from "./classes/Client/connect";
 export { ReadyData } from "./classes/Client/events/ready/readyData";
@@ -15,7 +15,6 @@ export { GuildIntegrationsUpdateData } from "./classes/Client/events/guildIntegr
 export { GuildMemberUpdateData } from "./classes/Client/events/guildMemberUpdate/guildMemberUpdateData";
 export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
 export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";
-export { PresenceUpdateData } from "./classes/Client/events/presenceUpdate/presenceUpdateData";
 export { TypingStartData } from "./classes/Client/events/typingStart/typingStartData";
 export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";
 
@@ -126,6 +125,20 @@ export {
     Status,
     UserData
 } from "./classes/User/User";
+
+// Presence
+export {
+    default as Presence,
+    Activity,
+    ActivityAssets,
+    ActivityEmoji,
+    ActivityParty,
+    ActivitySecrets,
+    ActivityTimestamps,
+    PresenceClientStatus,
+    PresenceData,
+    PresenceUser
+} from "./classes/Presence/Presence";
 
 // Member
 export {

@@ -11,13 +11,13 @@ export {
     ClientActivity,
     ClientActivityType,
     ClientData,
+    ClientPresence,
     ClientStatus,
     GuildMemberUpdateData,
     GuildEmojisUpdateData,
     GuildRoleDeleteData,
     Intent,
     InviteDeleteData,
-    Presence,
     ReadyData
 } from "./internal";
 
@@ -126,6 +126,20 @@ export {
     Status,
     User,
     UserData
+} from "./internal";
+
+// Presence
+export {
+    Activity,
+    ActivityAssets,
+    ActivityEmoji,
+    ActivityParty,
+    ActivitySecrets,
+    ActivityTimestamps,
+    Presence,
+    PresenceClientStatus,
+    PresenceData,
+    PresenceUser
 } from "./internal";
 
 // Member

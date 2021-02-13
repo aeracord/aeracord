@@ -6,12 +6,12 @@ import connect from "./connect";
 
 export interface ClientData {
     token: string;
-    presence?: Presence;
+    presence?: ClientPresence;
     intents: Intent[];
     debugMode?: boolean;
 }
 
-export interface Presence {
+export interface ClientPresence {
     status?: ClientStatus;
     afk?: boolean;
     activities?: ClientActivity[];
@@ -52,7 +52,7 @@ export default interface Client {
     on(event: "guildUpdate", listener: (guild: Guild, rawData: any) => void): this;
     on(event: "inviteCreate", listener: (invite: Invite, rawData: any) => void): this;
     on(event: "inviteDelete", listener: (data: InviteDeleteData, rawData: any) => void): this;
-    on(event: "presenceUpdate", listener: (data: PresenceUpdateData, rawData: any) => void): this;
+    on(event: "presenceUpdate", listener: (presence: Presence, rawData: any) => void): this;
     on(event: "typingStart", listener: (data: TypingStartData, rawData: any) => void): this;
     on(event: "userUpdate", listener: (user: User, rawData: any) => void): this;
     on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, rawData: any) => void): this;
@@ -172,7 +172,7 @@ export default class Client extends EventEmitter {
      *
      * The bot's initial presence
      */
-    _initialPresence?: Presence;
+    _initialPresence?: ClientPresence;
 
     /**
      * Intents
