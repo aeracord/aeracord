@@ -1,10 +1,12 @@
-import { Client } from "../../internal";
+import { Client, READY_STATE_INITIAL_GUILDS, READY_STATE_READY } from "../../internal";
 import channelCreate from "./events/channelCreate/channelCreate";
 import channelDelete from "./events/channelDelete/channelDelete";
 import channelPinsUpdate from "./events/channelPinsUpdate/channelPinsUpdate";
 import channelUpdate from "./events/channelUpdate/channelUpdate";
 import guildBanAdd from "./events/guildBanAdd/guildBanAdd";
 import guildBanRemove from "./events/guildBanRemove/guildBanRemove";
+import guildCreate from "./events/guildCreate/guildCreate";
+import guildDelete from "./events/guildDelete/guildDelete";
 import guildEmojisUpdate from "./events/guildEmojisUpdate/guildEmojisUpdate";
 import guildIntegrationsUpdate from "./events/guildIntegrationsUpdate/guildIntegrationsUpdate";
 import guildMemberAdd from "./events/guildMemberAdd/guildMemberAdd";
@@ -27,11 +29,21 @@ export default function event(client: Client, type: string, data: any) {
     // Ready
     if (type === "READY") return ready(client, data);
 
+    // Initial Guild Create
+    if ((client._readyState === READY_STATE_INITIAL_GUILDS) && ((type === "GUILD_CREATE") || (type === "GUILD_DELETE"))) {
+
+        // Guild Create
+        if (type === "GUILD_CREATE") return guildCreate(client, data);
+
+        // Guild Delete
+        else return guildDelete(client, data);
+    }
+
     /**
      * If the client isn't ready, add the events to the event queue
      * Once the client's ready, it'll loop through the queue and process all the events
      */
-    if (!client.ready) return client.eventQueue.push({ type, data });
+    if (client._readyState < READY_STATE_READY) return client._eventQueue.push({ type, data });
 
     // Channel Create
     if (type === "CHANNEL_CREATE") channelCreate(client, data);
@@ -50,6 +62,12 @@ export default function event(client: Client, type: string, data: any) {
 
     // Guild Ban Remove
     else if (type === "GUILD_BAN_REMOVE") guildBanRemove(client, data);
+
+    // Guild Create
+    else if (type === "GUILD_CREATE") guildCreate(client, data);
+
+    // Guild Delete
+    else if (type === "GUILD_DELETE") guildDelete(client, data);
 
     // Guild Emojis Update
     else if (type === "GUILD_EMOJIS_UPDATE") guildEmojisUpdate(client, data);

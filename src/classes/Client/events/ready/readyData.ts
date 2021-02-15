@@ -1,3 +1,5 @@
+import { GuildCreateData, GuildDeleteData } from "../../../../internal";
+
 export interface ReadyData {
 
     /**
@@ -22,11 +24,18 @@ export interface ReadyData {
     sessionID: string;
 
     /**
-     * Guilds
+     * Available Guilds
      *
-     * An array of unavailable guild IDs that the bot is in
+     * An array of available guilds that the bot is in
      */
-    guilds: string[];
+    availableGuilds: GuildCreateData[];
+
+    /**
+     * Unavailable Guilds
+     *
+     * An array of unavailable guilds that the bot is in
+     */
+    unavailableGuilds: GuildDeleteData[];
 
     /**
      * Application

@@ -5,11 +5,17 @@ export {
     ClientActivityType,
     ClientData,
     ClientPresence,
-    ClientStatus
+    ClientStatus,
+    READY_STATE_INITIAL_GUILDS,
+    READY_STATE_NONE,
+    READY_STATE_READY,
+    ReadyState
 } from "./classes/Client/Client";
 export { Intent } from "./classes/Client/connect";
 export { ReadyData } from "./classes/Client/events/ready/readyData";
 export { ChannelPinsUpdateData } from "./classes/Client/events/channelPinsUpdate/channelPinsUpdateData";
+export { GuildCreateData } from "./classes/Client/events/guildCreate/guildCreateData";
+export { GuildDeleteData } from "./classes/Client/events/guildDelete/guildDeleteData";
 export { GuildEmojisUpdateData } from "./classes/Client/events/guildEmojisUpdate/guildEmojisUpdateData";
 export { GuildIntegrationsUpdateData } from "./classes/Client/events/guildIntegrationsUpdate/guildIntegrationsUpdateData";
 export { GuildMemberUpdateData } from "./classes/Client/events/guildMemberUpdate/guildMemberUpdateData";
@@ -159,3 +165,9 @@ export {
     TargetUserType,
     InviteData
 } from "./classes/Invite/Invite";
+
+// Voice State
+export {
+    default as VoiceState,
+    VoiceStateData
+} from "./classes/VoiceState/VoiceState";

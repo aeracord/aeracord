@@ -161,3 +161,9 @@ export {
     TargetUserType,
     InviteData
 } from "./internal";
+
+// Voice State
+export {
+    VoiceState,
+    VoiceStateData
+} from "./internal";

@@ -1,4 +1,4 @@
-import { Client } from "../../../../internal";
+import { Client, READY_STATE_INITIAL_GUILDS } from "../../../../internal";
 import { EventQueueEvent } from "../../Client";
 import event from "../../event";
 import { RawReadyData, RawReadyDataGuild } from "./rawReadyData";
@@ -17,7 +17,8 @@ export default function ready(client: Client, rawData: RawReadyData) {
             avatar: rawData.user.avatar
         },
         sessionID: rawData.session_id,
-        guilds: rawData.guilds.map((g: RawReadyDataGuild) => g.id),
+        availableGuilds: [],
+        unavailableGuilds: [],
         application: rawData.application
     };
 
@@ -28,18 +29,23 @@ export default function ready(client: Client, rawData: RawReadyData) {
     client.avatarURL = `https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}`;
     client.sessionID = data.sessionID;
 
+    // Set ready data
+    client._readyData = { data, rawData };
+
+    // Set uninitialized guilds
+    client._uninitializedGuilds = new Set(rawData.guilds.map((g: RawReadyDataGuild) => g.id));
+
     /**
-     * Ready
+     * Set Ready State
      *
-     * Set the client as ready
-     * This allows events to be processed
+     * Set the ready state to allow guild create and delete events
      */
-    client.ready = true;
+    client._readyState = READY_STATE_INITIAL_GUILDS;
 
-    // Process queued events
-    client.eventQueue.forEach((e: EventQueueEvent) => event(client, e.type, e.data));
-    client.eventQueue = [];
+    // Get queued initial guild events
+    const initialGuildEvents: EventQueueEvent[] = client._eventQueue.filter((e: EventQueueEvent) => ((e.type === "GUILD_CREATE") || (e.type === "GUILD_DELETE")) && (client._uninitializedGuilds.has(e.data.id)));
 
-    // Emit event
-    client.emit("ready", data, rawData);
+    // Process queued initial guild events
+    initialGuildEvents.forEach((e: EventQueueEvent) => event(client, e.type, e.data));
+    client._eventQueue = client._eventQueue.filter((e: EventQueueEvent) => ((e.type !== "GUILD_CREATE") && (e.type !== "GUILD_DELETE")) || (!client._uninitializedGuilds.has(e.data.id)));
 }
