@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import debug from "../../debug";
-import { AnyChannel, ACTIVITY_TYPE_COMPETING, ACTIVITY_TYPE_LISTENING, ACTIVITY_TYPE_PLAYING, ACTIVITY_TYPE_STREAMING, ChannelPinsUpdateData, Guild, GuildCreateData, GuildDeleteData, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, Presence, ReadyData, Role, Status, TypingStartData, User, WebhooksUpdateData } from "../../internal";
+import { AnyChannel, ACTIVITY_TYPE_COMPETING, ACTIVITY_TYPE_LISTENING, ACTIVITY_TYPE_PLAYING, ACTIVITY_TYPE_STREAMING, ChannelPinsUpdateData, Guild, GuildCreateData, GuildDeleteData, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, Presence, ReadyData, Role, Status, TypingStartData, User, VoiceState, WebhooksUpdateData } from "../../internal";
 import connect from "./connect";
 
 export interface ClientData {
@@ -69,6 +69,7 @@ export default interface Client {
     on(event: "presenceUpdate", listener: (presence: Presence, rawData: any) => void): this;
     on(event: "typingStart", listener: (data: TypingStartData, rawData: any) => void): this;
     on(event: "userUpdate", listener: (user: User, rawData: any) => void): this;
+    on(event: "voiceStateUpdate", listener: (voiceState: VoiceState, rawData: any) => void): this;
     on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, rawData: any) => void): this;
 }
 

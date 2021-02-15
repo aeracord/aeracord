@@ -22,6 +22,7 @@ import presenceUpdate from "./events/presenceUpdate/presenceUpdate";
 import ready from "./events/ready/ready";
 import typingStart from "./events/typingStart/typingStart";
 import userUpdate from "./events/userUpdate/userUpdate";
+import voiceStateUpdate from "./events/voiceStateUpdate/voiceStateUpdate";
 import webhooksUpdate from "./events/webhooksUpdate/webhooksUpdate";
 
 export default function event(client: Client, type: string, data: any) {
@@ -110,6 +111,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // User Update
     else if (type === "USER_UPDATE") userUpdate(client, data);
+
+    // Voice State Update
+    else if (type === "VOICE_STATE_UPDATE") voiceStateUpdate(client, data);
 
     // Webhooks Update
     else if (type === "WEBHOOKS_UPDATE") webhooksUpdate(client, data);
