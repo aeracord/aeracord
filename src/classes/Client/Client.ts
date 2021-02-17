@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import debug from "../../debug";
-import { AnyChannel, ACTIVITY_TYPE_COMPETING, ACTIVITY_TYPE_LISTENING, ACTIVITY_TYPE_PLAYING, ACTIVITY_TYPE_STREAMING, ChannelPinsUpdateData, Guild, GuildCreateData, GuildDeleteData, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, Message, MessageDeleteBulkData, MessageDeleteData, MessageUpdateData, Presence, ReadyData, Role, Status, TypingStartData, User, VoiceState, WebhooksUpdateData } from "../../internal";
+import { AnyChannel, ACTIVITY_TYPE_COMPETING, ACTIVITY_TYPE_LISTENING, ACTIVITY_TYPE_PLAYING, ACTIVITY_TYPE_STREAMING, ChannelPinsUpdateData, Guild, GuildCreateData, GuildDeleteData, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, Message, MessageDeleteBulkData, MessageDeleteData, MessageReactionAddData, MessageReactionRemoveAllData, MessageReactionRemoveData, MessageReactionRemoveEmojiData, MessageUpdateData, Presence, ReadyData, Role, Status, TypingStartData, User, VoiceState, WebhooksUpdateData } from "../../internal";
 import connect from "./connect";
 
 export interface ClientData {
@@ -69,6 +69,10 @@ export default interface Client {
     on(event: "messageCreate", listener: (message: Message, rawData: any) => void): this;
     on(event: "messageDelete", listener: (data: MessageDeleteData, rawData: any) => void): this;
     on(event: "messageDeleteBulk", listener: (data: MessageDeleteBulkData, rawData: any) => void): this;
+    on(event: "messageReactionAdd", listener: (data: MessageReactionAddData, rawData: any) => void): this;
+    on(event: "messageReactionRemove", listener: (data: MessageReactionRemoveData, rawData: any) => void): this;
+    on(event: "messageReactionRemoveAll", listener: (data: MessageReactionRemoveAllData, rawData: any) => void): this;
+    on(event: "messageReactionRemoveEmoji", listener: (data: MessageReactionRemoveEmojiData, rawData: any) => void): this;
     on(event: "messageUpdate", listener: (data: MessageUpdateData, rawData: any) => void): this;
     on(event: "presenceUpdate", listener: (presence: Presence, rawData: any) => void): this;
     on(event: "typingStart", listener: (data: TypingStartData, rawData: any) => void): this;

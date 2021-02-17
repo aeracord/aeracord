@@ -23,6 +23,10 @@ export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/gui
 export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";
 export { MessageDeleteBulkData } from "./classes/Client/events/messageDeleteBulk/messageDeleteBulkData";
 export { MessageDeleteData } from "./classes/Client/events/messageDelete/messageDeleteData";
+export { MessageReactionAddData } from "./classes/Client/events/messageReactionAdd/messageReactionAddData";
+export { MessageReactionRemoveAllData } from "./classes/Client/events/messageReactionRemoveAll/messageReactionRemoveAllData";
+export { MessageReactionRemoveData } from "./classes/Client/events/messageReactionRemove/messageReactionRemoveData";
+export { MessageReactionRemoveEmojiData } from "./classes/Client/events/messageReactionRemoveEmoji/messageReactionRemoveEmojiData";
 export { MessageUpdateData } from "./classes/Client/events/messageUpdate/messageUpdateData";
 export { TypingStartData } from "./classes/Client/events/typingStart/typingStartData";
 export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";

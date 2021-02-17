@@ -21,6 +21,10 @@ import inviteDelete from "./events/inviteDelete/inviteDelete";
 import messageCreate from "./events/messageCreate/messageCreate";
 import messageDelete from "./events/messageDelete/messageDelete";
 import messageDeleteBulk from "./events/messageDeleteBulk/messageDeleteBulk";
+import messageReactionAdd from "./events/messageReactionAdd/messageReactionAdd";
+import messageReactionRemove from "./events/messageReactionRemove/messageReactionRemove";
+import messageReactionRemoveAll from "./events/messageReactionRemoveAll/messageReactionRemoveAll";
+import messageReactionRemoveEmoji from "./events/messageReactionRemoveEmoji/messageReactionRemoveEmoji";
 import messageUpdate from "./events/messageUpdate/messageUpdate";
 import presenceUpdate from "./events/presenceUpdate/presenceUpdate";
 import ready from "./events/ready/ready";
@@ -115,6 +119,18 @@ export default function event(client: Client, type: string, data: any) {
 
     // Message Delete Bulk
     else if (type === "MESSAGE_DELETE_BULK") messageDeleteBulk(client, data);
+
+    // Message Reaction Add
+    else if (type === "MESSAGE_REACTION_ADD") messageReactionAdd(client, data);
+
+    // Message Reaction Remove
+    else if (type === "MESSAGE_REACTION_REMOVE") messageReactionRemove(client, data);
+
+    // Message Reaction Remove All
+    else if (type === "MESSAGE_REACTION_REMOVE_ALL") messageReactionRemoveAll(client, data);
+
+    // Message Reaction Remove Emoji
+    else if (type === "MESSAGE_REACTION_REMOVE_EMOJI") messageReactionRemoveEmoji(client, data);
 
     // Message Update
     else if (type === "MESSAGE_UPDATE") messageUpdate(client, data);
