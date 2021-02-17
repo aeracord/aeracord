@@ -14,7 +14,7 @@ export default function websocketClosed(client: Client, code: number, reason: st
     client._debug(`Websocket closed: ${reason}`);
 
     // Must start new session
-    if (![4000, 4021, 4022].includes(code)) client.sessionID = undefined;
+    if (![4000, 4021, 4022].includes(code)) delete client._sessionID;
 
     // Exit process
     if ([4004, 4005, 4010, 4011, 4012, 4013, 4014].includes(code)) {

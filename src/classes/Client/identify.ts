@@ -34,7 +34,7 @@ export default function identify(client: Client) {
      * Identify
      * https://discord.com/developers/docs/topics/gateway#identifying
      */
-    client.ws.send(JSON.stringify({
+    client._ws.send(JSON.stringify({
         op: 2,
         d: {
             token: client.token,

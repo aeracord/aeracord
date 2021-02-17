@@ -9,7 +9,7 @@ export default function handleWebsocketEvent(client: Client, rawPacket: string) 
     const packet: any = JSON.parse(rawPacket);
 
     // Update sequence
-    if (packet.s) client.sequence = packet.s;
+    if (packet.s) client._sequence = packet.s;
 
     /**
      * Events
@@ -27,7 +27,7 @@ export default function handleWebsocketEvent(client: Client, rawPacket: string) 
      * Reconnect
      * https://discord.com/developers/docs/topics/gateway#reconnect
      */
-    else if (packet.op === 7) client.ws.close(4021, "Reconnect requested by Discord");
+    else if (packet.op === 7) client._ws.close(4021, "Reconnect requested by Discord");
 
     /**
      * Invalid session
@@ -36,10 +36,10 @@ export default function handleWebsocketEvent(client: Client, rawPacket: string) 
     else if (packet.op === 9) {
 
         // The session can be resumed
-        if (packet.d) client.ws.close(4022, "Session invalidated by Discord");
+        if (packet.d) client._ws.close(4022, "Session invalidated by Discord");
 
         // A new session needs to be started
-        else client.ws.close(4023, "Session invalidated by Discord");
+        else client._ws.close(4023, "Session invalidated by Discord");
     }
 
     /**

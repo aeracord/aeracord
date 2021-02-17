@@ -57,7 +57,7 @@ export default async function connect(client: Client) {
     const ws: WebSocket = new WebSocket(`${gatewayData.url}?v=8&encoding=json`);
 
     // Set websocket
-    client.ws = ws;
+    client._ws = ws;
 
     // Websocket opened
     ws.on("open", () => {
@@ -70,7 +70,7 @@ export default async function connect(client: Client) {
          *
          * If there isn't already a session, send an identify payload to Discord
          */
-        if (!client.sessionID) identify(client);
+        if (!client._sessionID) identify(client);
 
         /**
          * Resume

@@ -27,7 +27,7 @@ export default function ready(client: Client, rawData: RawReadyData) {
     client.username = data.user.username;
     client.discriminator = data.user.discriminator;
     client.avatar = data.user.avatar || undefined;
-    client.sessionID = data.sessionID;
+    client._sessionID = data.sessionID;
 
     // Set ready data
     client._readyData = { data, rawData };

@@ -6,8 +6,8 @@ export default function heartbeat(client: Client) {
     client._debug("Sent heartbeat");
 
     // Send heartbeat
-    client.ws.send(JSON.stringify({
+    client._ws.send(JSON.stringify({
         op: 1,
-        d: client.sequence || null
+        d: client._sequence || null
     }));
 }

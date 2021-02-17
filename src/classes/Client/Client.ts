@@ -125,14 +125,14 @@ export default class Client extends EventEmitter {
      *
      * The session ID
      */
-    sessionID?: string;
+    _sessionID?: string;
 
     /**
      * Sequence
      *
      * The sequence number
      */
-    sequence?: number;
+    _sequence?: number;
 
     /**
      * Token
@@ -146,7 +146,7 @@ export default class Client extends EventEmitter {
      *
      * The client's websocket
      */
-    ws: WebSocket;
+    _ws: WebSocket;
 
     /**
      * Ready State

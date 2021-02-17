@@ -6,5 +6,5 @@ export default function ping(client: Client) {
     client._lastPingTimestamp = Date.now();
 
     // Ping
-    client.ws.ping();
+    client._ws.ping();
 }
