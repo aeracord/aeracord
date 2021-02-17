@@ -200,13 +200,4 @@ export default class Embed {
         this.author = embedData.author;
         this.fields = embedData.fields;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

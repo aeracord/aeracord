@@ -31,10 +31,6 @@ export type Intent = (
 
 export default async function connect(client: Client) {
 
-    // Debug
-    const connectingStart: number = Date.now();
-    client._debug("Connecting to the gateway");
-
     /**
      * Get gateway data
      * https://discord.com/developers/docs/topics/gateway#get-gateway-bot
@@ -61,9 +57,6 @@ export default async function connect(client: Client) {
 
     // Websocket opened
     ws.on("open", () => {
-
-        // Log
-        client._debug(`Connected to the gateway in ${Date.now() - connectingStart}ms`);
 
         /**
          * Identify

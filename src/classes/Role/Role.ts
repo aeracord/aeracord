@@ -135,13 +135,4 @@ export default class Role {
         this.managed = Boolean(roleData.managed);
         this.tags = roleData.tags;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

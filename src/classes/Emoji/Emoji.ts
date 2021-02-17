@@ -103,13 +103,4 @@ export default class Emoji {
         this.requiresColons = Boolean(emojiData.requiresColons);
         this.roles = emojiData.roles;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

@@ -354,13 +354,4 @@ export default class Presence {
         this.activities = presenceData.activities;
         this.clientStatus = presenceData.clientStatus;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

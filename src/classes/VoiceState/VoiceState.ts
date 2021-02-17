@@ -143,13 +143,4 @@ export default class VoiceState {
         this.selfVideo = Boolean(voiceStateData.selfVideo);
         this.suppress = Boolean(voiceStateData.suppress);
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

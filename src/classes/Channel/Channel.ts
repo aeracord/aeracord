@@ -43,13 +43,4 @@ export default class Channel {
         this.client = client;
         this.id = channelData.id;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

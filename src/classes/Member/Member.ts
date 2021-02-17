@@ -113,13 +113,4 @@ export default class Member {
         this.pending = Boolean(memberData.pending);
         this.user = memberData.user;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

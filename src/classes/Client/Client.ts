@@ -1,6 +1,5 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
-import debug from "../../debug";
 import { AnyChannel, ACTIVITY_TYPE_COMPETING, ACTIVITY_TYPE_LISTENING, ACTIVITY_TYPE_PLAYING, ACTIVITY_TYPE_STREAMING, ChannelPinsUpdateData, Guild, GuildCreateData, GuildDeleteData, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, Message, MessageDeleteBulkData, MessageDeleteData, MessageReactionAddData, MessageReactionRemoveAllData, MessageReactionRemoveData, MessageReactionRemoveEmojiData, MessageUpdateData, Presence, ReadyData, Role, Status, TypingStartData, User, VoiceState, WebhooksUpdateData } from "../../internal";
 import connect from "./connect";
 
@@ -8,7 +7,6 @@ export interface ClientData {
     token: string;
     presence?: ClientPresence;
     intents: Intent[];
-    debugMode?: boolean;
 }
 
 export interface ClientPresence {
@@ -227,13 +225,6 @@ export default class Client extends EventEmitter {
     _intents: Intent[];
 
     /**
-     * Debug Mode
-     *
-     * Whether or not this client is in debug mode
-     */
-    debugMode: boolean;
-
-    /**
      * Client
      *
      * @param clientData Options to initialize this client with
@@ -252,7 +243,6 @@ export default class Client extends EventEmitter {
         this._unavailableGuilds = new Set();
         this._initialPresence = clientData.presence;
         this._intents = clientData.intents;
-        this.debugMode = Boolean(clientData.debugMode);
 
         // Connect
         this._connect();
@@ -264,13 +254,4 @@ export default class Client extends EventEmitter {
      * Connect to the gateway
      */
     _connect = () => connect(this);
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => debug(this, info);
 }

@@ -59,13 +59,4 @@ export default class Reaction {
         this.me = Boolean(reactionData.me);
         this.emoji = reactionData.emoji;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

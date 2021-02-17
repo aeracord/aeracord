@@ -413,13 +413,4 @@ export default class Guild {
         this.approximatePresenceCount = guildData.approximatePresenceCount;
         this.welcomeScreen = guildData.welcomeScreen;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

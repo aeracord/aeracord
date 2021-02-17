@@ -93,13 +93,4 @@ export default class Attachment {
         this.width = attachmentData.width;
         this.height = attachmentData.height;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

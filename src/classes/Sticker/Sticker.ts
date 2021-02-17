@@ -108,13 +108,4 @@ export default class Sticker {
         this.previewAsset = stickerData.previewAsset;
         this.formatType = stickerData.formatType;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }

@@ -53,13 +53,4 @@ export default class Webhook {
         this.username = webhookData.username;
         this.avatar = webhookData.avatar;
     }
-
-    /**
-     * Debug
-     *
-     * Log debug info
-     *
-     * @param info Debug info to log
-     */
-    _debug = (info: string) => this.client._debug(info);
 }
