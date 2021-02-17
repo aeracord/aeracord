@@ -4,6 +4,31 @@ import * as aeracord from "./internal";
 // All
 export default aeracord;
 
+// Attachment
+export {
+    Attachment,
+    AttachmentData
+} from "./internal";
+
+// Category Channel
+export {
+    CategoryChannel,
+    CategoryChannelData
+} from "./internal";
+
+// Channel
+export {
+    Channel,
+    ChannelData,
+    ChannelType,
+    CHANNEL_TYPE_CATEGORY,
+    CHANNEL_TYPE_DM,
+    CHANNEL_TYPE_NEWS,
+    CHANNEL_TYPE_STORE,
+    CHANNEL_TYPE_TEXT,
+    CHANNEL_TYPE_VOICE
+} from "./internal";
+
 // Client
 export {
     ChannelPinsUpdateData,
@@ -19,6 +44,32 @@ export {
     Intent,
     InviteDeleteData,
     ReadyData
+} from "./internal";
+
+// DM Channel
+export {
+    DMChannel,
+    DMChannelData
+} from "./internal";
+
+// Embed
+export {
+    Embed,
+    EmbedAuthor,
+    EmbedData,
+    EmbedField,
+    EmbedFooter,
+    EmbedImage,
+    EmbedProvider,
+    EmbedThumbnail,
+    EmbedType,
+    EmbedVideo
+} from "./internal";
+
+// Emoji
+export {
+    Emoji,
+    EmojiData
 } from "./internal";
 
 // Guild
@@ -51,19 +102,6 @@ export {
     WelcomeScreenChannel
 } from "./internal";
 
-// Channel
-export {
-    Channel,
-    ChannelData,
-    ChannelType,
-    CHANNEL_TYPE_CATEGORY,
-    CHANNEL_TYPE_DM,
-    CHANNEL_TYPE_NEWS,
-    CHANNEL_TYPE_STORE,
-    CHANNEL_TYPE_TEXT,
-    CHANNEL_TYPE_VOICE
-} from "./internal";
-
 // Guild Channel
 export {
     GuildChannel,
@@ -74,93 +112,6 @@ export {
     PERMISSION_TYPE_MEMBER
 } from "./internal";
 
-// Text Based Channel
-export {
-    TextBasedChannel,
-    TextBasedChannelData
-} from "./internal";
-
-// DM Channel
-export {
-    DMChannel,
-    DMChannelData
-} from "./internal";
-
-// Text Channel
-export {
-    TextChannel,
-    TextChannelData
-} from "./internal";
-
-// Voice Channel
-export {
-    VoiceChannel,
-    VoiceChannelData
-} from "./internal";
-
-// Category Channel
-export {
-    CategoryChannel,
-    CategoryChannelData
-} from "./internal";
-
-// News Channel
-export {
-    NewsChannel,
-    NewsChannelData
-} from "./internal";
-
-// Store Channel
-export {
-    StoreChannel,
-    StoreChannelData
-} from "./internal";
-
-// Role
-export {
-    Role,
-    RoleData
-} from "./internal";
-
-// User
-export {
-    ACTIVITY_TYPE_COMPETING,
-    ACTIVITY_TYPE_CUSTOM,
-    ACTIVITY_TYPE_LISTENING,
-    ACTIVITY_TYPE_PLAYING,
-    ACTIVITY_TYPE_STREAMING,
-    ActivityType,
-    Status,
-    User,
-    UserData
-} from "./internal";
-
-// Presence
-export {
-    Activity,
-    ActivityAssets,
-    ActivityEmoji,
-    ActivityParty,
-    ActivitySecrets,
-    ActivityTimestamps,
-    Presence,
-    PresenceClientStatus,
-    PresenceData,
-    PresenceUser
-} from "./internal";
-
-// Member
-export {
-    Member,
-    MemberData
-} from "./internal";
-
-// Emoji
-export {
-    Emoji,
-    EmojiData
-} from "./internal";
-
 // Invite
 export {
     Invite,
@@ -169,10 +120,10 @@ export {
     InviteData
 } from "./internal";
 
-// Voice State
+// Member
 export {
-    VoiceState,
-    VoiceStateData
+    Member,
+    MemberData
 } from "./internal";
 
 // Message
@@ -203,16 +154,24 @@ export {
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3
 } from "./internal";
 
-// Webhook
+// News Channel
 export {
-    Webhook,
-    WebhookData
+    NewsChannel,
+    NewsChannelData
 } from "./internal";
 
-// Attachment
+// Presence
 export {
-    Attachment,
-    AttachmentData
+    Activity,
+    ActivityAssets,
+    ActivityEmoji,
+    ActivityParty,
+    ActivitySecrets,
+    ActivityTimestamps,
+    Presence,
+    PresenceClientStatus,
+    PresenceData,
+    PresenceUser
 } from "./internal";
 
 // Reaction
@@ -220,6 +179,12 @@ export {
     Reaction,
     ReactionData,
     ReactionEmoji
+} from "./internal";
+
+// Role
+export {
+    Role,
+    RoleData
 } from "./internal";
 
 // Sticker
@@ -232,16 +197,51 @@ export {
     STICKER_FORMAT_TYPE_PNG
 } from "./internal";
 
-// Embed
+// Store Channel
 export {
-    Embed,
-    EmbedAuthor,
-    EmbedData,
-    EmbedField,
-    EmbedFooter,
-    EmbedImage,
-    EmbedProvider,
-    EmbedThumbnail,
-    EmbedType,
-    EmbedVideo
+    StoreChannel,
+    StoreChannelData
+} from "./internal";
+
+// Text Based Channel
+export {
+    TextBasedChannel,
+    TextBasedChannelData
+} from "./internal";
+
+// Text Channel
+export {
+    TextChannel,
+    TextChannelData
+} from "./internal";
+
+// User
+export {
+    ACTIVITY_TYPE_COMPETING,
+    ACTIVITY_TYPE_CUSTOM,
+    ACTIVITY_TYPE_LISTENING,
+    ACTIVITY_TYPE_PLAYING,
+    ACTIVITY_TYPE_STREAMING,
+    ActivityType,
+    Status,
+    User,
+    UserData
+} from "./internal";
+
+// Voice Channel
+export {
+    VoiceChannel,
+    VoiceChannelData
+} from "./internal";
+
+// Voice State
+export {
+    VoiceState,
+    VoiceStateData
+} from "./internal";
+
+// Webhook
+export {
+    Webhook,
+    WebhookData
 } from "./internal";

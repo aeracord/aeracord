@@ -1,3 +1,29 @@
+// Attachment
+export {
+    default as Attachment,
+    AttachmentData
+} from "./classes/Attachment/Attachment";
+
+// Category Channel
+export {
+    default as CategoryChannel,
+    CategoryChannelData
+} from "./classes/CategoryChannel/CategoryChannel";
+
+// Channel
+export {
+    default as Channel,
+    AnyChannel,
+    ChannelData,
+    ChannelType,
+    CHANNEL_TYPE_CATEGORY,
+    CHANNEL_TYPE_DM,
+    CHANNEL_TYPE_NEWS,
+    CHANNEL_TYPE_STORE,
+    CHANNEL_TYPE_TEXT,
+    CHANNEL_TYPE_VOICE
+} from "./classes/Channel/Channel";
+
 // Client
 export {
     default as Client,
@@ -31,6 +57,32 @@ export { MessageUpdateData } from "./classes/Client/events/messageUpdate/message
 export { TypingStartData } from "./classes/Client/events/typingStart/typingStartData";
 export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";
 
+// DM Channel
+export {
+    default as DMChannel,
+    DMChannelData
+} from "./classes/DMChannel/DMChannel";
+
+// Embed
+export {
+    default as Embed,
+    EmbedAuthor,
+    EmbedData,
+    EmbedField,
+    EmbedFooter,
+    EmbedImage,
+    EmbedProvider,
+    EmbedThumbnail,
+    EmbedType,
+    EmbedVideo
+} from "./classes/Embed/Embed";
+
+// Emoji
+export {
+    default as Emoji,
+    EmojiData
+} from "./classes/Emoji/Emoji";
+
 // Guild
 export {
     default as Guild,
@@ -61,20 +113,6 @@ export {
     WelcomeScreenChannel
 } from "./classes/Guild/Guild";
 
-// Channel
-export {
-    default as Channel,
-    AnyChannel,
-    ChannelData,
-    ChannelType,
-    CHANNEL_TYPE_CATEGORY,
-    CHANNEL_TYPE_DM,
-    CHANNEL_TYPE_NEWS,
-    CHANNEL_TYPE_STORE,
-    CHANNEL_TYPE_TEXT,
-    CHANNEL_TYPE_VOICE
-} from "./classes/Channel/Channel";
-
 // Guild Channel
 export {
     default as GuildChannel,
@@ -85,93 +123,6 @@ export {
     PERMISSION_TYPE_MEMBER
 } from "./classes/GuildChannel/GuildChannel";
 
-// Text Based Channel
-export {
-    default as TextBasedChannel,
-    TextBasedChannelData
-} from "./classes/TextBasedChannel/TextBasedChannel";
-
-// DM Channel
-export {
-    default as DMChannel,
-    DMChannelData
-} from "./classes/DMChannel/DMChannel";
-
-// Text Channel
-export {
-    default as TextChannel,
-    TextChannelData
-} from "./classes/TextChannel/TextChannel";
-
-// Voice Channel
-export {
-    default as VoiceChannel,
-    VoiceChannelData
-} from "./classes/VoiceChannel/VoiceChannel";
-
-// Category Channel
-export {
-    default as CategoryChannel,
-    CategoryChannelData
-} from "./classes/CategoryChannel/CategoryChannel";
-
-// News Channel
-export {
-    default as NewsChannel,
-    NewsChannelData
-} from "./classes/NewsChannel/NewsChannel";
-
-// Store Channel
-export {
-    default as StoreChannel,
-    StoreChannelData
-} from "./classes/StoreChannel/StoreChannel";
-
-// Role
-export {
-    default as Role,
-    RoleData
-} from "./classes/Role/Role";
-
-// User
-export {
-    default as User,
-    ACTIVITY_TYPE_COMPETING,
-    ACTIVITY_TYPE_CUSTOM,
-    ACTIVITY_TYPE_LISTENING,
-    ACTIVITY_TYPE_PLAYING,
-    ACTIVITY_TYPE_STREAMING,
-    ActivityType,
-    Status,
-    UserData
-} from "./classes/User/User";
-
-// Presence
-export {
-    default as Presence,
-    Activity,
-    ActivityAssets,
-    ActivityEmoji,
-    ActivityParty,
-    ActivitySecrets,
-    ActivityTimestamps,
-    PresenceClientStatus,
-    PresenceData,
-    PresenceUser
-} from "./classes/Presence/Presence";
-
-// Member
-export {
-    default as Member,
-    MemberData
-} from "./classes/Member/Member";
-
-// Emoji
-export {
-    default as Emoji,
-    EmojiData
-} from "./classes/Emoji/Emoji";
-
 // Invite
 export {
     default as Invite,
@@ -180,11 +131,11 @@ export {
     InviteData
 } from "./classes/Invite/Invite";
 
-// Voice State
+// Member
 export {
-    default as VoiceState,
-    VoiceStateData
-} from "./classes/VoiceState/VoiceState";
+    default as Member,
+    MemberData
+} from "./classes/Member/Member";
 
 // Message
 export {
@@ -214,17 +165,25 @@ export {
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3
 } from "./classes/Message/Message";
 
-// Webhook
+// News Channel
 export {
-    default as Webhook,
-    WebhookData
-} from "./classes/Webhook/Webhook";
+    default as NewsChannel,
+    NewsChannelData
+} from "./classes/NewsChannel/NewsChannel";
 
-// Attachment
+// Presence
 export {
-    default as Attachment,
-    AttachmentData
-} from "./classes/Attachment/Attachment";
+    default as Presence,
+    Activity,
+    ActivityAssets,
+    ActivityEmoji,
+    ActivityParty,
+    ActivitySecrets,
+    ActivityTimestamps,
+    PresenceClientStatus,
+    PresenceData,
+    PresenceUser
+} from "./classes/Presence/Presence";
 
 // Reaction
 export {
@@ -232,6 +191,12 @@ export {
     ReactionData,
     ReactionEmoji
 } from "./classes/Reaction/Reaction";
+
+// Role
+export {
+    default as Role,
+    RoleData
+} from "./classes/Role/Role";
 
 // Sticker
 export {
@@ -243,16 +208,51 @@ export {
     STICKER_FORMAT_TYPE_PNG
 } from "./classes/Sticker/Sticker";
 
-// Embed
+// Store Channel
 export {
-    default as Embed,
-    EmbedAuthor,
-    EmbedData,
-    EmbedField,
-    EmbedFooter,
-    EmbedImage,
-    EmbedProvider,
-    EmbedThumbnail,
-    EmbedType,
-    EmbedVideo
-} from "./classes/Embed/Embed";
+    default as StoreChannel,
+    StoreChannelData
+} from "./classes/StoreChannel/StoreChannel";
+
+// Text Based Channel
+export {
+    default as TextBasedChannel,
+    TextBasedChannelData
+} from "./classes/TextBasedChannel/TextBasedChannel";
+
+// Text Channel
+export {
+    default as TextChannel,
+    TextChannelData
+} from "./classes/TextChannel/TextChannel";
+
+// User
+export {
+    default as User,
+    ACTIVITY_TYPE_COMPETING,
+    ACTIVITY_TYPE_CUSTOM,
+    ACTIVITY_TYPE_LISTENING,
+    ACTIVITY_TYPE_PLAYING,
+    ACTIVITY_TYPE_STREAMING,
+    ActivityType,
+    Status,
+    UserData
+} from "./classes/User/User";
+
+// Voice Channel
+export {
+    default as VoiceChannel,
+    VoiceChannelData
+} from "./classes/VoiceChannel/VoiceChannel";
+
+// Voice State
+export {
+    default as VoiceState,
+    VoiceStateData
+} from "./classes/VoiceState/VoiceState";
+
+// Webhook
+export {
+    default as Webhook,
+    WebhookData
+} from "./classes/Webhook/Webhook";
