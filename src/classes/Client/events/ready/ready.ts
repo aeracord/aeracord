@@ -26,7 +26,7 @@ export default function ready(client: Client, rawData: RawReadyData) {
     client.id = data.user.id;
     client.username = data.user.username;
     client.discriminator = data.user.discriminator;
-    client.avatarURL = `https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}`;
+    client.avatar = data.user.avatar || undefined;
     client.sessionID = data.sessionID;
 
     // Set ready data

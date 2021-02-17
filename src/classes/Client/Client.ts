@@ -114,11 +114,11 @@ export default class Client extends EventEmitter {
     }
 
     /**
-     * Avatar URL
+     * Avatar
      *
-     * The client's avatar's URL
+     * The client's avatar hash
      */
-    avatarURL: string;
+    avatar?: string;
 
     /**
      * Session ID
