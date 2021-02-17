@@ -21,6 +21,7 @@ export { GuildIntegrationsUpdateData } from "./classes/Client/events/guildIntegr
 export { GuildMemberUpdateData } from "./classes/Client/events/guildMemberUpdate/guildMemberUpdateData";
 export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
 export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";
+export { MessageDeleteData } from "./classes/Client/events/messageDelete/messageDeleteData";
 export { MessageUpdateData } from "./classes/Client/events/messageUpdate/messageUpdateData";
 export { TypingStartData } from "./classes/Client/events/typingStart/typingStartData";
 export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";

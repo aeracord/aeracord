@@ -19,6 +19,7 @@ import guildUpdate from "./events/guildUpdate/guildUpdate";
 import inviteCreate from "./events/inviteCreate/inviteCreate";
 import inviteDelete from "./events/inviteDelete/inviteDelete";
 import messageCreate from "./events/messageCreate/messageCreate";
+import messageDelete from "./events/messageDelete/messageDelete";
 import messageUpdate from "./events/messageUpdate/messageUpdate";
 import presenceUpdate from "./events/presenceUpdate/presenceUpdate";
 import ready from "./events/ready/ready";
@@ -107,6 +108,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // Message Create
     else if (type === "MESSAGE_CREATE") messageCreate(client, data);
+
+    // Message Delete
+    else if (type === "MESSAGE_DELETE") messageDelete(client, data);
 
     // Message Update
     else if (type === "MESSAGE_UPDATE") messageUpdate(client, data);
