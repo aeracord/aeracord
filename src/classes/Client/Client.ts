@@ -125,7 +125,7 @@ export default class Client extends EventEmitter {
      *
      * The session ID
      */
-    sessionID: string | undefined;
+    sessionID?: string;
 
     /**
      * Sequence
