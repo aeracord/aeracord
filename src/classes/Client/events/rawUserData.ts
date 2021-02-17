@@ -1,3 +1,5 @@
+import { RawUserlessMemberData } from "./rawMemberData";
+
 export interface RawUserData {
     id: string;
     username: string;
@@ -7,4 +9,8 @@ export interface RawUserData {
     system?: boolean;
     flags?: number;
     public_flags?: number;
+}
+
+export interface RawUserWithMemberData extends RawUserData {
+    member: RawUserlessMemberData;
 }

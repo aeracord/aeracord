@@ -54,7 +54,14 @@ export {
 // Channel
 export {
     Channel,
-    ChannelData
+    ChannelData,
+    ChannelType,
+    CHANNEL_TYPE_CATEGORY,
+    CHANNEL_TYPE_DM,
+    CHANNEL_TYPE_NEWS,
+    CHANNEL_TYPE_STORE,
+    CHANNEL_TYPE_TEXT,
+    CHANNEL_TYPE_VOICE
 } from "./internal";
 
 // Guild Channel
@@ -166,4 +173,75 @@ export {
 export {
     VoiceState,
     VoiceStateData
+} from "./internal";
+
+// Message
+export {
+    ChannelMention,
+    Message,
+    MessageData,
+    MessageActivity,
+    MessageActivityType,
+    MESSAGE_ACTIVITY_TYPE_JOIN,
+    MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST,
+    MESSAGE_ACTIVITY_TYPE_LISTEN,
+    MESSAGE_ACTIVITY_TYPE_SPECTATE,
+    MessageApplication,
+    MessageReference,
+    MessageType,
+    MESSAGE_TYPE_APPLICATION_COMMAND,
+    MESSAGE_TYPE_CHANNEL_FOLLOW_ADD,
+    MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE,
+    MESSAGE_TYPE_DEFAULT,
+    MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED,
+    MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED,
+    MESSAGE_TYPE_GUILD_MEMBER_JOIN,
+    MESSAGE_TYPE_REPLY,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3
+} from "./internal";
+
+// Webhook
+export {
+    Webhook,
+    WebhookData
+} from "./internal";
+
+// Attachment
+export {
+    Attachment,
+    AttachmentData
+} from "./internal";
+
+// Reaction
+export {
+    Reaction,
+    ReactionData,
+    ReactionEmoji
+} from "./internal";
+
+// Sticker
+export {
+    Sticker,
+    StickerData,
+    StickerFormatType,
+    STICKER_FORMAT_TYPE_APNG,
+    STICKER_FORMAT_TYPE_LOTTIE,
+    STICKER_FORMAT_TYPE_PNG
+} from "./internal";
+
+// Embed
+export {
+    Embed,
+    EmbedAuthor,
+    EmbedData,
+    EmbedField,
+    EmbedFooter,
+    EmbedImage,
+    EmbedProvider,
+    EmbedThumbnail,
+    EmbedType,
+    EmbedVideo
 } from "./internal";

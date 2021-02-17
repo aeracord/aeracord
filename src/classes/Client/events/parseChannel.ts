@@ -1,5 +1,5 @@
-import { AnyChannel, CategoryChannel, Client, DMChannel, NewsChannel, PermissionOverwrite, StoreChannel, TextChannel, VoiceChannel } from "../../../internal";
-import { CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, RawChannelData } from "./rawChannelData";
+import { AnyChannel, CategoryChannel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, NewsChannel, PermissionOverwrite, StoreChannel, TextChannel, VoiceChannel } from "../../../internal";
+import { RawChannelData } from "./rawChannelData";
 import { RawUserData } from "./rawUserData";
 
 export default function parseChannel(client: Client, rawData: RawChannelData): AnyChannel {

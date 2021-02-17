@@ -58,7 +58,14 @@ export {
 export {
     default as Channel,
     AnyChannel,
-    ChannelData
+    ChannelData,
+    ChannelType,
+    CHANNEL_TYPE_CATEGORY,
+    CHANNEL_TYPE_DM,
+    CHANNEL_TYPE_NEWS,
+    CHANNEL_TYPE_STORE,
+    CHANNEL_TYPE_TEXT,
+    CHANNEL_TYPE_VOICE
 } from "./classes/Channel/Channel";
 
 // Guild Channel
@@ -171,3 +178,74 @@ export {
     default as VoiceState,
     VoiceStateData
 } from "./classes/VoiceState/VoiceState";
+
+// Message
+export {
+    default as Message,
+    ChannelMention,
+    MessageData,
+    MessageActivity,
+    MessageActivityType,
+    MESSAGE_ACTIVITY_TYPE_JOIN,
+    MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST,
+    MESSAGE_ACTIVITY_TYPE_LISTEN,
+    MESSAGE_ACTIVITY_TYPE_SPECTATE,
+    MessageApplication,
+    MessageReference,
+    MessageType,
+    MESSAGE_TYPE_APPLICATION_COMMAND,
+    MESSAGE_TYPE_CHANNEL_FOLLOW_ADD,
+    MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE,
+    MESSAGE_TYPE_DEFAULT,
+    MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED,
+    MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED,
+    MESSAGE_TYPE_GUILD_MEMBER_JOIN,
+    MESSAGE_TYPE_REPLY,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3
+} from "./classes/Message/Message";
+
+// Webhook
+export {
+    default as Webhook,
+    WebhookData
+} from "./classes/Webhook/Webhook";
+
+// Attachment
+export {
+    default as Attachment,
+    AttachmentData
+} from "./classes/Attachment/Attachment";
+
+// Reaction
+export {
+    default as Reaction,
+    ReactionData,
+    ReactionEmoji
+} from "./classes/Reaction/Reaction";
+
+// Sticker
+export {
+    default as Sticker,
+    StickerData,
+    StickerFormatType,
+    STICKER_FORMAT_TYPE_APNG,
+    STICKER_FORMAT_TYPE_LOTTIE,
+    STICKER_FORMAT_TYPE_PNG
+} from "./classes/Sticker/Sticker";
+
+// Embed
+export {
+    default as Embed,
+    EmbedAuthor,
+    EmbedData,
+    EmbedField,
+    EmbedFooter,
+    EmbedImage,
+    EmbedProvider,
+    EmbedThumbnail,
+    EmbedType,
+    EmbedVideo
+} from "./classes/Embed/Embed";
