@@ -20,6 +20,7 @@ import inviteCreate from "./events/inviteCreate/inviteCreate";
 import inviteDelete from "./events/inviteDelete/inviteDelete";
 import messageCreate from "./events/messageCreate/messageCreate";
 import messageDelete from "./events/messageDelete/messageDelete";
+import messageDeleteBulk from "./events/messageDeleteBulk/messageDeleteBulk";
 import messageUpdate from "./events/messageUpdate/messageUpdate";
 import presenceUpdate from "./events/presenceUpdate/presenceUpdate";
 import ready from "./events/ready/ready";
@@ -111,6 +112,9 @@ export default function event(client: Client, type: string, data: any) {
 
     // Message Delete
     else if (type === "MESSAGE_DELETE") messageDelete(client, data);
+
+    // Message Delete Bulk
+    else if (type === "MESSAGE_DELETE_BULK") messageDeleteBulk(client, data);
 
     // Message Update
     else if (type === "MESSAGE_UPDATE") messageUpdate(client, data);
