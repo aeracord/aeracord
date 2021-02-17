@@ -33,12 +33,21 @@ import userUpdate from "./events/userUpdate/userUpdate";
 import voiceStateUpdate from "./events/voiceStateUpdate/voiceStateUpdate";
 import webhooksUpdate from "./events/webhooksUpdate/webhooksUpdate";
 
+/**
+ * Event
+ * https://discord.com/developers/docs/topics/gateway#commands-and-events-gateway-events
+ *
+ * Handles events from the gateway
+ */
 export default function event(client: Client, type: string, data: any) {
 
-    // Ready
+    /**
+     * Ready
+     * https://discord.com/developers/docs/topics/gateway#ready
+     */
     if (type === "READY") return ready(client, data);
 
-    // Initial Guild Create
+    // Initial guild create/delete
     if ((client._readyState === READY_STATE_INITIAL_GUILDS) && ((type === "GUILD_CREATE") || (type === "GUILD_DELETE"))) {
 
         // Guild Create
@@ -54,99 +63,195 @@ export default function event(client: Client, type: string, data: any) {
      */
     if (client._readyState < READY_STATE_READY) return client._eventQueue.push({ type, data });
 
-    // Channel Create
+    /**
+     * Channel Create
+     * https://discord.com/developers/docs/topics/gateway#channel-create
+     */
     if (type === "CHANNEL_CREATE") channelCreate(client, data);
 
-    // Channel Delete
+    /**
+     * Channel Delete
+     * https://discord.com/developers/docs/topics/gateway#channel-delete
+     */
     else if (type === "CHANNEL_DELETE") channelDelete(client, data);
 
-    // Channel Pins Update
+    /**
+     * Channel Pins Update
+     * https://discord.com/developers/docs/topics/gateway#channel-pins-update
+     */
     else if (type === "CHANNEL_PINS_UPDATE") channelPinsUpdate(client, data);
 
-    // Channel Update
+    /**
+     * Channel Update
+     * https://discord.com/developers/docs/topics/gateway#channel-update
+     */
     else if (type === "CHANNEL_UPDATE") channelUpdate(client, data);
 
-    // Guild Ban Add
+    /**
+     * Guild Ban Add
+     * https://discord.com/developers/docs/topics/gateway#guild-ban-add
+     */
     else if (type === "GUILD_BAN_ADD") guildBanAdd(client, data);
 
-    // Guild Ban Remove
+    /**
+     * Guild Ban Remove
+     * https://discord.com/developers/docs/topics/gateway#guild-ban-remove
+     */
     else if (type === "GUILD_BAN_REMOVE") guildBanRemove(client, data);
 
-    // Guild Create
+    /**
+     * Guild Create
+     * https://discord.com/developers/docs/topics/gateway#guild-create
+     */
     else if (type === "GUILD_CREATE") guildCreate(client, data);
 
-    // Guild Delete
+    /**
+     * Guild Delete
+     * https://discord.com/developers/docs/topics/gateway#guild-delete
+     */
     else if (type === "GUILD_DELETE") guildDelete(client, data);
 
-    // Guild Emojis Update
+    /**
+     * Guild Emojis Update
+     * https://discord.com/developers/docs/topics/gateway#guild-emojis-update
+     */
     else if (type === "GUILD_EMOJIS_UPDATE") guildEmojisUpdate(client, data);
 
-    // Guild Member Add
+    /**
+     * Guild Member Add
+     * https://discord.com/developers/docs/topics/gateway#guild-member-add
+     */
     else if (type === "GUILD_MEMBER_ADD") guildMemberAdd(client, data);
 
-    // Guild Member Remove
+    /**
+     * Guild Member Remove
+     * https://discord.com/developers/docs/topics/gateway#guild-member-remove
+     */
     else if (type === "GUILD_MEMBER_REMOVE") guildMemberRemove(client, data);
 
-    // Guild Member Update
+    /**
+     * Guild Member Update
+     * https://discord.com/developers/docs/topics/gateway#guild-member-update
+     */
     else if (type === "GUILD_MEMBER_UPDATE") guildMemberUpdate(client, data);
 
-    // Guild Integrations Update
+    /**
+     * Guild Integrations Update
+     * https://discord.com/developers/docs/topics/gateway#guild-integrations-update
+     */
     else if (type === "GUILD_INTEGRATIONS_UPDATE") guildIntegrationsUpdate(client, data);
 
-    // Guild Role Create
+    /**
+     * Guild Role Create
+     * https://discord.com/developers/docs/topics/gateway#guild-role-create
+     */
     else if (type === "GUILD_ROLE_CREATE") guildRoleCreate(client, data);
 
-    // Guild Role Delete
+    /**
+     * Guild Role Delete
+     * https://discord.com/developers/docs/topics/gateway#guild-role-delete
+     */
     else if (type === "GUILD_ROLE_DELETE") guildRoleDelete(client, data);
 
-    // Guild Role Update
+    /**
+     * Guild Role Update
+     * https://discord.com/developers/docs/topics/gateway#guild-role-update
+     */
     else if (type === "GUILD_ROLE_UPDATE") guildRoleUpdate(client, data);
 
-    // Guild Update
+    /**
+     * Guild Update
+     * https://discord.com/developers/docs/topics/gateway#guild-update
+     */
     else if (type === "GUILD_UPDATE") guildUpdate(client, data);
 
-    // Invite Create
+    /**
+     * Invite Create
+     * https://discord.com/developers/docs/topics/gateway#invite-create
+     */
     else if (type === "INVITE_CREATE") inviteCreate(client, data);
 
-    // Invite Delete
+    /**
+     * Invite Delete
+     * https://discord.com/developers/docs/topics/gateway#invite-delete
+     */
     else if (type === "INVITE_DELETE") inviteDelete(client, data);
 
-    // Message Create
+    /**
+     * Message Create
+     * https://discord.com/developers/docs/topics/gateway#message-create
+     */
     else if (type === "MESSAGE_CREATE") messageCreate(client, data);
 
-    // Message Delete
+    /**
+     * Message Delete
+     * https://discord.com/developers/docs/topics/gateway#message-delete
+     */
     else if (type === "MESSAGE_DELETE") messageDelete(client, data);
 
-    // Message Delete Bulk
+    /**
+     * Message Delete Bulk
+     * https://discord.com/developers/docs/topics/gateway#message-delete-bulk
+     */
     else if (type === "MESSAGE_DELETE_BULK") messageDeleteBulk(client, data);
 
-    // Message Reaction Add
+    /**
+     * Message Reaction Add
+     * https://discord.com/developers/docs/topics/gateway#message-reaction-add
+     */
     else if (type === "MESSAGE_REACTION_ADD") messageReactionAdd(client, data);
 
-    // Message Reaction Remove
+    /**
+     * Message Reaction Remove
+     * https://discord.com/developers/docs/topics/gateway#message-reaction-remove
+     */
     else if (type === "MESSAGE_REACTION_REMOVE") messageReactionRemove(client, data);
 
-    // Message Reaction Remove All
+    /**
+     * Message Reaction Remove All
+     * https://discord.com/developers/docs/topics/gateway#message-reaction-remove-all
+     */
     else if (type === "MESSAGE_REACTION_REMOVE_ALL") messageReactionRemoveAll(client, data);
 
-    // Message Reaction Remove Emoji
+    /**
+     * Message Reaction Remove Emoji
+     * https://discord.com/developers/docs/topics/gateway#message-reaction-remove-emoji
+     */
     else if (type === "MESSAGE_REACTION_REMOVE_EMOJI") messageReactionRemoveEmoji(client, data);
 
-    // Message Update
+    /**
+     * Message Update
+     * https://discord.com/developers/docs/topics/gateway#message-update
+     */
     else if (type === "MESSAGE_UPDATE") messageUpdate(client, data);
 
-    // Presence Update
+    /**
+     * Presence Update
+     * https://discord.com/developers/docs/topics/gateway#presence-update
+     */
     else if (type === "PRESENCE_UPDATE") presenceUpdate(client, data);
 
-    // Typing Start
+    /**
+     * Typing Start
+     * https://discord.com/developers/docs/topics/gateway#typing-start
+     */
     else if (type === "TYPING_START") typingStart(client, data);
 
-    // User Update
+    /**
+     * User Update
+     * https://discord.com/developers/docs/topics/gateway#user-update
+     */
     else if (type === "USER_UPDATE") userUpdate(client, data);
 
-    // Voice State Update
+    /**
+     * Voice State Update
+     * https://discord.com/developers/docs/topics/gateway#voice-state-update
+     */
     else if (type === "VOICE_STATE_UPDATE") voiceStateUpdate(client, data);
 
-    // Webhooks Update
+    /**
+     * Webhooks Update
+     * https://discord.com/developers/docs/topics/gateway#webhooks-update
+     */
     else if (type === "WEBHOOKS_UPDATE") webhooksUpdate(client, data);
 }
