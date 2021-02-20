@@ -40,6 +40,7 @@ import {
     WebhooksUpdateData
 } from "../../internal";
 import createMessage from "./apiMethods/channel/createMessage";
+import getChannel from "./apiMethods/channel/getChannel";
 import connect from "./connect";
 import fetch from "./fetch";
 import getFetchQueue from "./getFetchQueue";
@@ -340,4 +341,15 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message>} The created message
      */
     createMessage = (channelID: string, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channelID, createMessageData);
+
+    /**
+     * Get Channel
+     *
+     * Get a channel
+     *
+     * @param channelID The ID of the channel to get
+     *
+     * @returns {Promise<AnyChannel>} The channel
+     */
+    getChannel = (channelID: string): Promise<AnyChannel> => getChannel(this, channelID);
 }
