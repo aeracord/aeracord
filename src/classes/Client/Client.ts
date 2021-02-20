@@ -38,8 +38,8 @@ import {
     VoiceState,
     WebhooksUpdateData
 } from "../../internal";
+import createMessage from "./apiMethods/channel/createMessage";
 import connect from "./connect";
-import createMessage from "./createMessage";
 import fetch from "./fetch";
 import getFetchQueue from "./getFetchQueue";
 
@@ -334,9 +334,9 @@ export default class Client extends EventEmitter {
      * Send a message to a channel
      *
      * @param channelID The ID of the channel to send this message to
-     * @param messageData The data for the message
+     * @param createMessageData The data for the message
      *
      * @returns {Promise<Message>} The created message
      */
-    createMessage = (channelID: string, messageData: CreateMessageData): Promise<Message> => createMessage(this, channelID, messageData);
+    createMessage = (channelID: string, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channelID, createMessageData);
 }

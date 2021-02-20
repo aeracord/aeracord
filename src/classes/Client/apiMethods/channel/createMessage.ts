@@ -1,7 +1,7 @@
-import { Client, Embed, FetchQueue, Message } from "../../internal";
-import getRoute from "../../util/getRoute";
-import parseMessage from "./events/parseMessage";
-import { RawMessageData } from "./events/rawMessageData";
+import { Client, Embed, FetchQueue, Message } from "../../../../internal";
+import getRoute from "../../../../util/getRoute";
+import parseMessage from "../../events/parseMessage";
+import { RawMessageData } from "../../events/rawMessageData";
 
 export interface CreateMessageData {
     content?: string;
@@ -25,7 +25,7 @@ export interface CreateMessageReference {
     failIfNotExists?: boolean;
 }
 
-export default async function createMessage(client: Client, channelID: string, messageData: CreateMessageData): Promise<Message> {
+export default async function createMessage(client: Client, channelID: string, createMessageData: CreateMessageData): Promise<Message> {
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages`;
@@ -40,11 +40,11 @@ export default async function createMessage(client: Client, channelID: string, m
         path,
         method,
         data: {
-            content: messageData.content,
-            tts: messageData.tts,
-            embed: messageData.embed?._toJSON(),
-            allowed_mentions: messageData.allowedMentions,
-            message_reference: messageData.messageReference
+            content: createMessageData.content,
+            tts: createMessageData.tts,
+            embed: createMessageData.embed?._toJSON(),
+            allowed_mentions: createMessageData.allowedMentions,
+            message_reference: createMessageData.messageReference
         }
     });
 

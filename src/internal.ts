@@ -61,7 +61,9 @@ export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webho
 
 // Client: Methods
 export { RateLimit, RequestOptions } from "./classes/Client/fetch";
-export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageReference } from "./classes/Client/createMessage";
+
+// Client: API Methods: Channel
+export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageReference } from "./classes/Client/apiMethods/channel/createMessage";
 
 // DM Channel
 export {
