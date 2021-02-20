@@ -29,6 +29,7 @@ import {
     MessageReactionRemoveData,
     MessageReactionRemoveEmojiData,
     MessageUpdateData,
+    ModifyChannelData,
     Presence,
     ReadyData,
     RequestOptions,
@@ -41,6 +42,7 @@ import {
 } from "../../internal";
 import createMessage from "./apiMethods/channel/createMessage";
 import getChannel from "./apiMethods/channel/getChannel";
+import modifyChannel from "./apiMethods/channel/modifyChannel";
 import connect from "./connect";
 import fetch from "./fetch";
 import getFetchQueue from "./getFetchQueue";
@@ -352,4 +354,16 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The channel
      */
     getChannel = (channelID: string): Promise<AnyChannel> => getChannel(this, channelID);
+
+    /**
+     * Modify Channel
+     *
+     * Modify a channel
+     *
+     * @param channelID The ID of the channel to modify
+     * @param modifyChannelData The data to modify the channel
+     *
+     * @returns {Promise<AnyChannel>} The modified channel
+     */
+    modifyChannel = (channelID: string, modifyChannelData: ModifyChannelData): Promise<AnyChannel> => modifyChannel(this, channelID, modifyChannelData);
 }
