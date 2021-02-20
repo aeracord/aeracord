@@ -44,6 +44,7 @@ import {
 import createMessage from "./apiMethods/channel/createMessage";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
 import getChannel from "./apiMethods/channel/getChannel";
+import getChannelMessage from "./apiMethods/channel/getChannelMessage";
 import getChannelMessages from "./apiMethods/channel/getChannelMessages";
 import modifyChannel from "./apiMethods/channel/modifyChannel";
 import connect from "./connect";
@@ -368,6 +369,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The channel
      */
     getChannel = (channelID: string): Promise<AnyChannel> => getChannel(this, channelID);
+
+    /**
+     * Get Channel Message
+     *
+     * Get a message
+     *
+     * @param channelID The ID of the channel to get the message from
+     * @param messageID The ID of the message to get
+     *
+     * @returns {Promise<Message>} The message
+     */
+    getChannelMessage = (channelID: string, messageID: string): Promise<Message> => getChannelMessage(this, channelID, messageID);
 
     /**
      * Get Channel Messages
