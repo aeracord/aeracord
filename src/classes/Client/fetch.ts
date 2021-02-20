@@ -11,13 +11,18 @@ export interface RequestOptions {
     body?: object;
 }
 
+export interface FetchedData {
+    data?: any;
+    rateLimited: boolean;
+}
+
 export interface RateLimit {
     limit: number;
     remaining: number;
     reset: number;
 }
 
-export default async function fetch(client: Client, requestOptions: RequestOptions): Promise<any> {
+export default async function fetch(client: Client, requestOptions: RequestOptions): Promise<FetchedData> {
 
     // Get route
     const route: string = getRoute(requestOptions.path, requestOptions.method);
@@ -56,5 +61,8 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
     if ((data) && (data.code !== undefined)) throw new Error(`Discord API error at ${requestOptions.method} ${requestOptions.path}: ${JSON.stringify(data, null, 4)}`);
 
     // Return
-    return data;
+    return {
+        data,
+        rateLimited: result.status === 429
+    };
 }

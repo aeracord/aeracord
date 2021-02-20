@@ -1,4 +1,4 @@
-import { FetchQueue, Request } from "../../internal";
+import { FetchedData, FetchQueue, Request } from "../../internal";
 
 export default async function processRequests(fetchQueue: FetchQueue) {
 
@@ -19,14 +19,24 @@ export default async function processRequests(fetchQueue: FetchQueue) {
         if ((fetchQueue.rateLimit) && (fetchQueue.rateLimit.remaining === 0)) await sleep(fetchQueue.rateLimit.reset - Date.now());
 
         // Fetch
-        const result = await fetchQueue.client.fetch({
+        const result: FetchedData = await fetchQueue.client.fetch({
             path: request.path,
             method: request.method,
             body: request.data
         }).catch((err: Error) => request.reject(err));
 
+        // Rate limited
+        if (result.rateLimited) {
+
+            // Add the request back to the front of the queue
+            fetchQueue.queue.unshift(request);
+
+            // Continue
+            continue;
+        }
+
         // Resolve
-        request.resolve(result);
+        request.resolve(result.data);
     }
 
     // Set processing requests

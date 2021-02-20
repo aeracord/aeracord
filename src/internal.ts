@@ -60,7 +60,7 @@ export { TypingStartData } from "./classes/Client/events/typingStart/typingStart
 export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";
 
 // Client: Methods
-export { RateLimit, RequestOptions } from "./classes/Client/fetch";
+export { FetchedData, RateLimit, RequestOptions } from "./classes/Client/fetch";
 
 // Client: API Methods: Channel
 export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageReference } from "./classes/Client/apiMethods/channel/createMessage";

@@ -8,6 +8,7 @@ import {
     ACTIVITY_TYPE_STREAMING,
     ChannelPinsUpdateData,
     CreateMessageData,
+    FetchedData,
     FetchQueue,
     Guild,
     GuildCreateData,
@@ -313,9 +314,9 @@ export default class Client extends EventEmitter {
      * @param requestOptions.method The method for the request
      * @param requestOptions.body The body for the request
      *
-     * @returns {Promise<any>} The fetched data
+     * @returns {Promise<FetchedData>} The fetched data
      */
-    fetch = (requestOptions: RequestOptions): Promise<any> => fetch(this, requestOptions);
+    fetch = (requestOptions: RequestOptions): Promise<FetchedData> => fetch(this, requestOptions);
 
     /**
      * Get Fetch Queue
