@@ -10,6 +10,7 @@ import {
     CreateMessageData,
     FetchedData,
     FetchQueue,
+    GetChannelMessagesData,
     Guild,
     GuildCreateData,
     GuildDeleteData,
@@ -43,6 +44,7 @@ import {
 import createMessage from "./apiMethods/channel/createMessage";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
 import getChannel from "./apiMethods/channel/getChannel";
+import getChannelMessages from "./apiMethods/channel/getChannelMessages";
 import modifyChannel from "./apiMethods/channel/modifyChannel";
 import connect from "./connect";
 import fetch from "./fetch";
@@ -366,6 +368,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The channel
      */
     getChannel = (channelID: string): Promise<AnyChannel> => getChannel(this, channelID);
+
+    /**
+     * Get Channel Messages
+     *
+     * Get a channel's messages
+     *
+     * @param channelID The ID of the channel to get messages from
+     * @param getChannelMessagesData The data for getting messages from the channel
+     *
+     * @returns {Promise<Message[]>} The messages
+     */
+    getChannelMessages = (channelID: string, getChannelMessagesData: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channelID, getChannelMessagesData);
 
     /**
      * Modify Channel
