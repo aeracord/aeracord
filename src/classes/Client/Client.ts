@@ -41,6 +41,7 @@ import {
     WebhooksUpdateData
 } from "../../internal";
 import createMessage from "./apiMethods/channel/createMessage";
+import deleteChannel from "./apiMethods/channel/deleteChannel";
 import getChannel from "./apiMethods/channel/getChannel";
 import modifyChannel from "./apiMethods/channel/modifyChannel";
 import connect from "./connect";
@@ -343,6 +344,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message>} The created message
      */
     createMessage = (channelID: string, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channelID, createMessageData);
+
+    /**
+     * Delete Channel
+     *
+     * Delete a channel
+     *
+     * @param channelID The ID of the channel to delete
+     *
+     * @returns {Promise<AnyChannel>} The deleted channel
+     */
+    deleteChannel = (channelID: string): Promise<AnyChannel> => deleteChannel(this, channelID);
 
     /**
      * Get Channel
