@@ -13,8 +13,11 @@
  */
 export default function getRoute(path: string, method: string): string {
 
+    // Remove query parameters
+    let route: string = path.split("?")[0];
+
     // Parse route
-    let route: string = path
+    route = route
 
         /**
          * Replaces IDs for non-major parameters with ":id"
