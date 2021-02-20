@@ -1,4 +1,6 @@
-import { Client, GuildChannel, GuildChannelData, TextBasedChannel, TextBasedChannelData } from "../../internal";
+import { Client, GuildChannelData, TextBasedChannelData } from "../../internal";
+import GuildChannel from "../GuildChannel/GuildChannel";
+import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
 
 export interface TextChannelData extends GuildChannelData, TextBasedChannelData {

@@ -1,4 +1,5 @@
-import { Client, TextChannel, TextChannelData } from "../../internal";
+import { Client, TextChannelData } from "../../internal";
+import TextChannel from "../TextChannel/TextChannel";
 
 export interface NewsChannelData extends TextChannelData { }
 

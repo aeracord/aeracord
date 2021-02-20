@@ -1,7 +1,47 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
-import { AnyChannel, ACTIVITY_TYPE_COMPETING, ACTIVITY_TYPE_LISTENING, ACTIVITY_TYPE_PLAYING, ACTIVITY_TYPE_STREAMING, ChannelPinsUpdateData, Guild, GuildCreateData, GuildDeleteData, GuildEmojisUpdateData, GuildIntegrationsUpdateData, GuildMemberUpdateData, GuildRoleDeleteData, Intent, Invite, InviteDeleteData, Member, Message, MessageDeleteBulkData, MessageDeleteData, MessageReactionAddData, MessageReactionRemoveAllData, MessageReactionRemoveData, MessageReactionRemoveEmojiData, MessageUpdateData, Presence, ReadyData, Role, Status, TypingStartData, User, VoiceState, WebhooksUpdateData } from "../../internal";
+import {
+    AnyChannel,
+    ACTIVITY_TYPE_COMPETING,
+    ACTIVITY_TYPE_LISTENING,
+    ACTIVITY_TYPE_PLAYING,
+    ACTIVITY_TYPE_STREAMING,
+    ChannelPinsUpdateData,
+    CreateMessageData,
+    FetchQueue,
+    Guild,
+    GuildCreateData,
+    GuildDeleteData,
+    GuildEmojisUpdateData,
+    GuildIntegrationsUpdateData,
+    GuildMemberUpdateData,
+    GuildRoleDeleteData,
+    Intent,
+    Invite,
+    InviteDeleteData,
+    Member,
+    Message,
+    MessageDeleteBulkData,
+    MessageDeleteData,
+    MessageReactionAddData,
+    MessageReactionRemoveAllData,
+    MessageReactionRemoveData,
+    MessageReactionRemoveEmojiData,
+    MessageUpdateData,
+    Presence,
+    ReadyData,
+    RequestOptions,
+    Role,
+    Status,
+    TypingStartData,
+    User,
+    VoiceState,
+    WebhooksUpdateData
+} from "../../internal";
 import connect from "./connect";
+import createMessage from "./createMessage";
+import fetch from "./fetch";
+import getFetchQueue from "./getFetchQueue";
 
 export interface ClientData {
     token: string;
@@ -225,6 +265,13 @@ export default class Client extends EventEmitter {
     _intents: Intent[];
 
     /**
+     * Fetch Queues
+     *
+     * Queues for fetching data from the API
+     */
+    _fetchQueues: Map<string, FetchQueue>;
+
+    /**
      * Client
      *
      * @param clientData Options to initialize this client with
@@ -243,6 +290,7 @@ export default class Client extends EventEmitter {
         this._unavailableGuilds = new Set();
         this._initialPresence = clientData.presence;
         this._intents = clientData.intents;
+        this._fetchQueues = new Map();
 
         // Connect
         this._connect();
@@ -254,4 +302,41 @@ export default class Client extends EventEmitter {
      * Connect to the gateway
      */
     _connect = () => connect(this);
+
+    /**
+     * Fetch
+     *
+     * Fetch data from the API
+     *
+     * @param requestOptions The options for the request
+     * @param requestOptions.path The path for the request
+     * @param requestOptions.method The method for the request
+     * @param requestOptions.body The body for the request
+     *
+     * @returns {Promise<any>} The fetched data
+     */
+    fetch = (requestOptions: RequestOptions): Promise<any> => fetch(this, requestOptions);
+
+    /**
+     * Get Fetch Queue
+     *
+     * Get a fetch queue for a route, and create one if it doesn't already exist
+     *
+     * @param route The route for the fetch queue
+     *
+     * @returns {FetchQueue} The fetch queue
+     */
+    _getFetchQueue = (route: string): FetchQueue => getFetchQueue(this, route);
+
+    /**
+     * Create Message
+     *
+     * Send a message to a channel
+     *
+     * @param channelID The ID of the channel to send this message to
+     * @param messageData The data for the message
+     *
+     * @returns {Promise<Message>} The created message
+     */
+    createMessage = (channelID: string, messageData: CreateMessageData): Promise<Message> => createMessage(this, channelID, messageData);
 }

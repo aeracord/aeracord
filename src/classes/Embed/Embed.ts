@@ -1,4 +1,5 @@
 import { Client } from "../../internal";
+import toJSON from "./toJSON";
 
 export interface EmbedData {
     title?: string;
@@ -200,4 +201,11 @@ export default class Embed {
         this.author = embedData.author;
         this.fields = embedData.fields;
     }
+
+    /**
+     * To JSON
+     *
+     * Convert this embed to a JSON object for sending to the API
+     */
+    _toJSON = (): object => toJSON(this);
 }

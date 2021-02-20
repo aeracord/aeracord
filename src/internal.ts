@@ -38,7 +38,8 @@ export {
     ReadyState
 } from "./classes/Client/Client";
 export { Intent } from "./classes/Client/connect";
-export { ReadyData } from "./classes/Client/events/ready/readyData";
+
+// Client: Events
 export { ChannelPinsUpdateData } from "./classes/Client/events/channelPinsUpdate/channelPinsUpdateData";
 export { GuildCreateData } from "./classes/Client/events/guildCreate/guildCreateData";
 export { GuildDeleteData } from "./classes/Client/events/guildDelete/guildDeleteData";
@@ -54,8 +55,13 @@ export { MessageReactionRemoveAllData } from "./classes/Client/events/messageRea
 export { MessageReactionRemoveData } from "./classes/Client/events/messageReactionRemove/messageReactionRemoveData";
 export { MessageReactionRemoveEmojiData } from "./classes/Client/events/messageReactionRemoveEmoji/messageReactionRemoveEmojiData";
 export { MessageUpdateData } from "./classes/Client/events/messageUpdate/messageUpdateData";
+export { ReadyData } from "./classes/Client/events/ready/readyData";
 export { TypingStartData } from "./classes/Client/events/typingStart/typingStartData";
 export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";
+
+// Client: Methods
+export { RateLimit, RequestOptions } from "./classes/Client/fetch";
+export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageReference } from "./classes/Client/createMessage";
 
 // DM Channel
 export {
@@ -82,6 +88,12 @@ export {
     default as Emoji,
     EmojiData
 } from "./classes/Emoji/Emoji";
+
+// Fetch Queue
+export {
+    default as FetchQueue,
+    Request
+} from "./classes/FetchQueue/FetchQueue";
 
 // Guild
 export {

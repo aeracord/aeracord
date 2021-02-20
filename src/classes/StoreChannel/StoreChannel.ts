@@ -1,4 +1,5 @@
-import { Client, GuildChannel, GuildChannelData } from "../../internal";
+import { Client, GuildChannelData } from "../../internal";
+import GuildChannel from "../GuildChannel/GuildChannel";
 
 export interface StoreChannelData extends GuildChannelData { }
 

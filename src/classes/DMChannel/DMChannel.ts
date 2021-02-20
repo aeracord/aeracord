@@ -1,4 +1,5 @@
-import { Client, TextBasedChannel, TextBasedChannelData } from "../../internal";
+import { Client, TextBasedChannelData } from "../../internal";
+import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 
 export interface DMChannelData extends TextBasedChannelData {
     recipient: string;
