@@ -1,3 +1,4 @@
+import FormData from "form-data";
 import nodeFetch, { Response } from "node-fetch";
 import { Client, FetchQueue } from "../../internal";
 import getRoute from "../../util/getRoute";
@@ -8,7 +9,8 @@ const packageJSON = require("../../../package.json");
 export interface RequestOptions {
     path: string;
     method: string;
-    body?: object;
+    contentType?: string;
+    body?: object | FormData;
 }
 
 export interface FetchedData {
@@ -35,11 +37,11 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
         headers: {
             "User-Agent": `Aeracord (https://aeracord.apixel.me, ${packageJSON.version})`,
             "Authorization": `Bot ${client.token}`,
-            "Content-Type": requestOptions.method === "DELETE" ? undefined : "application/json",
+            "Content-Type": requestOptions.contentType || (requestOptions.method === "DELETE" ? undefined : "application/json"),
             "X-RateLimit-Precision": "millisecond"
         } as any,
         method: requestOptions.method,
-        body: requestOptions.body && JSON.stringify(requestOptions.body)
+        body: requestOptions.body && (requestOptions.body instanceof FormData ? requestOptions.body : JSON.stringify(requestOptions.body))
     });
 
     // Parse result

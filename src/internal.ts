@@ -63,7 +63,7 @@ export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webho
 export { FetchedData, RateLimit, RequestOptions } from "./classes/Client/fetch";
 
 // Client: API Methods: Channel
-export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageReference } from "./classes/Client/apiMethods/channel/createMessage";
+export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/channel/createMessage";
 export { GetChannelMessagesData } from "./classes/Client/apiMethods/channel/getChannelMessages";
 export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/channel/modifyChannel";
 

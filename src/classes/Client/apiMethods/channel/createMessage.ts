@@ -1,3 +1,5 @@
+import FormData from "form-data";
+import { promises as fs } from "fs";
 import { Client, Embed, FetchQueue, Message } from "../../../../internal";
 import getRoute from "../../../../util/getRoute";
 import parseMessage from "../../events/parseMessage";
@@ -9,6 +11,7 @@ export interface CreateMessageData {
     embed?: Embed;
     allowedMentions?: AllowedMentions;
     messageReference?: CreateMessageReference;
+    file?: CreateMessageFile;
 }
 
 export interface AllowedMentions {
@@ -25,6 +28,11 @@ export interface CreateMessageReference {
     failIfNotExists?: boolean;
 }
 
+export interface CreateMessageFile {
+    file: Buffer | string;
+    filename: string;
+}
+
 export default async function createMessage(client: Client, channelID: string, createMessageData: CreateMessageData): Promise<Message> {
 
     // Define fetch data
@@ -35,17 +43,38 @@ export default async function createMessage(client: Client, channelID: string, c
     // Get fetch queue
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
+    // Parse file
+    if (typeof createMessageData.file?.file === "string") createMessageData.file.file = await fs.readFile(createMessageData.file.file);
+
+    // Parse payload data
+    const data: object = {
+        content: createMessageData.content,
+        tts: createMessageData.tts,
+        embed: createMessageData.embed?._toJSON(),
+        allowed_mentions: createMessageData.allowedMentions,
+        message_reference: createMessageData.messageReference
+    };
+
+    // Parse form data
+    let formData: FormData | undefined;
+    if (createMessageData.file) {
+
+        // Create form data
+        formData = new FormData();
+
+        // Add file
+        formData.append("file", createMessageData.file.file, { filename: createMessageData.file.filename });
+
+        // Add data
+        formData.append("payload_json", JSON.stringify(data));
+    }
+
     // Add to fetch queue
     const result: RawMessageData = await fetchQueue.request({
         path,
         method,
-        data: {
-            content: createMessageData.content,
-            tts: createMessageData.tts,
-            embed: createMessageData.embed?._toJSON(),
-            allowed_mentions: createMessageData.allowedMentions,
-            message_reference: createMessageData.messageReference
-        }
+        contentType: createMessageData.file ? `multipart/form-data; boundary=${formData?.getBoundary()}` : "application/json",
+        data: createMessageData.file ? formData : data
     });
 
     // Parse message

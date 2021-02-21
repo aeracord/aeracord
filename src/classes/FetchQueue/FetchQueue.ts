@@ -9,6 +9,7 @@ export interface FetchQueueData {
 export interface Request {
     path: string;
     method: string;
+    contentType?: string;
     data?: object;
     resolve: Function;
     reject: Function;
@@ -75,6 +76,7 @@ export default class FetchQueue {
      * @param options The options for the request
      * @param options.path The path for the request
      * @param options.method The method for the request
+     * @param options.contentType The `Content-Type` header for the request
      * @param options.data The data for the request
      */
     request = (options: RequestOptions): Promise<any> => request(this, options);

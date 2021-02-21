@@ -1,16 +1,25 @@
+import FormData from "form-data";
 import { FetchQueue } from "../../internal";
 
 export interface RequestOptions {
     path: string;
     method: string;
-    data?: object;
+    contentType?: string;
+    data?: object | FormData;
 }
 
 export default function request(fetchQueue: FetchQueue, options: RequestOptions): Promise<any> {
     return new Promise((resolve, reject) => {
 
         // Add request to queue
-        fetchQueue.queue.push({ path: options.path, method: options.method, data: options.data, resolve, reject });
+        fetchQueue.queue.push({
+            path: options.path,
+            method: options.method,
+            contentType: options.contentType,
+            data: options.data,
+            resolve,
+            reject
+        });
 
         /**
          * Process requests

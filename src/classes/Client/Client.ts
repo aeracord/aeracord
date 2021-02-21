@@ -319,6 +319,7 @@ export default class Client extends EventEmitter {
      * @param requestOptions The options for the request
      * @param requestOptions.path The path for the request
      * @param requestOptions.method The method for the request
+     * @param requestOptions.contentType The `Content-Type` header for the request
      * @param requestOptions.body The body for the request
      *
      * @returns {Promise<FetchedData>} The fetched data

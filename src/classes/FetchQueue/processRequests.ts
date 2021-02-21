@@ -22,6 +22,7 @@ export default async function processRequests(fetchQueue: FetchQueue) {
         const result: FetchedData = await fetchQueue.client.fetch({
             path: request.path,
             method: request.method,
+            contentType: request.contentType,
             body: request.data
         }).catch((err: Error) => request.reject(err));
 
