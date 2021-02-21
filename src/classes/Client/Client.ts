@@ -42,6 +42,7 @@ import {
     WebhooksUpdateData
 } from "../../internal";
 import createMessage from "./apiMethods/channel/createMessage";
+import crosspostMessage from "./apiMethods/channel/crosspostMessage";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
 import getChannel from "./apiMethods/channel/getChannel";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
@@ -348,6 +349,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message>} The created message
      */
     createMessage = (channelID: string, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channelID, createMessageData);
+
+    /**
+     * Crosspost Message
+     *
+     * Publish a message in a news channel
+     *
+     * @param channelID The ID of the channel to crosspost from
+     * @param messageID The ID of the message to crosspost
+     *
+     * @returns {Promise<Message>} The crossposted message
+     */
+    crosspostMessage = (channelID: string, messageID: string): Promise<Message> => crosspostMessage(this, channelID, messageID);
 
     /**
      * Delete Channel
