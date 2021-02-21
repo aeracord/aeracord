@@ -15,6 +15,7 @@ export {
     default as Channel,
     AnyChannel,
     ChannelData,
+    ChannelResolvable,
     ChannelType,
     CHANNEL_TYPE_CATEGORY,
     CHANNEL_TYPE_DM,
@@ -111,6 +112,7 @@ export {
     EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES,
     Feature,
     GuildData,
+    GuildResolvable,
     MFALevel,
     MFA_LEVEL_ELEVATED,
     MFA_LEVEL_NONE,
@@ -142,9 +144,10 @@ export {
 // Invite
 export {
     default as Invite,
+    InviteData,
+    InviteResolvable,
     TARGET_USER_TYPE_STREAM,
-    TargetUserType,
-    InviteData
+    TargetUserType
 } from "./classes/Invite/Invite";
 
 // Member
@@ -166,6 +169,7 @@ export {
     MESSAGE_ACTIVITY_TYPE_SPECTATE,
     MessageApplication,
     MessageReference,
+    MessageResolvable,
     MessageType,
     MESSAGE_TYPE_APPLICATION_COMMAND,
     MESSAGE_TYPE_CHANNEL_FOLLOW_ADD,
@@ -211,7 +215,10 @@ export {
 // Role
 export {
     default as Role,
-    RoleData
+    RoleData,
+    RoleDataTags,
+    RoleResolvable,
+    RoleTags
 } from "./classes/Role/Role";
 
 // Sticker
@@ -252,7 +259,8 @@ export {
     ACTIVITY_TYPE_STREAMING,
     ActivityType,
     Status,
-    UserData
+    UserData,
+    UserResolvable
 } from "./classes/User/User";
 
 // Voice Channel

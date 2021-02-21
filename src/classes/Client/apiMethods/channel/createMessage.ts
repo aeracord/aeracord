@@ -1,6 +1,6 @@
 import FormData from "form-data";
 import { promises as fs } from "fs";
-import { Client, Embed, FetchQueue, Message } from "../../../../internal";
+import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message } from "../../../../internal";
 import getRoute from "../../../../util/getRoute";
 import parseMessage from "../../events/parseMessage";
 import { RawMessageData } from "../../events/rawMessageData";
@@ -33,7 +33,10 @@ export interface CreateMessageFile {
     filename: string;
 }
 
-export default async function createMessage(client: Client, channelID: string, createMessageData: CreateMessageData): Promise<Message> {
+export default async function createMessage(client: Client, channelResolvable: ChannelResolvable, createMessageData: CreateMessageData): Promise<Message> {
+
+    // Resolve objects
+    const channelID: string = Channel.resolveID(channelResolvable);
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages`;

@@ -1,4 +1,5 @@
 import { CategoryChannel, Client, DMChannel, GuildChannel, NewsChannel, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import resolveID from "./resolveID";
 
 export interface ChannelData {
     id: string;
@@ -13,6 +14,8 @@ export const CHANNEL_TYPE_VOICE = 2;
 export const CHANNEL_TYPE_CATEGORY = 4;
 export const CHANNEL_TYPE_NEWS = 5;
 export const CHANNEL_TYPE_STORE = 6;
+
+export type ChannelResolvable = AnyChannel | string;
 
 export default class Channel {
 
@@ -43,4 +46,15 @@ export default class Channel {
         this.client = client;
         this.id = channelData.id;
     }
+
+    /**
+     * Resolve From
+     *
+     * Resolve an object to a channel ID
+     *
+     * @param channelResolvable The channel resolvable
+     *
+     * @returns {string} The resolved channel ID
+     */
+    static resolveID = (channelResolvable: ChannelResolvable): string => resolveID(channelResolvable);
 }

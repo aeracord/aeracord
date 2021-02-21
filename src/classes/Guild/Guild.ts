@@ -1,4 +1,5 @@
-import { Client, Emoji, Role } from "../../internal";
+import { Client, Emoji, GuildChannel, Invite, Member, Role } from "../../internal";
+import resolveID from "./resolveID";
 
 export interface GuildData {
     id: string;
@@ -77,6 +78,8 @@ export interface WelcomeScreenChannel {
     emojiID?: string;
     emojiName?: string;
 }
+
+export type GuildResolvable = Guild | GuildChannel | Member | Role | Invite | string;
 
 export default class Guild {
 
@@ -413,4 +416,15 @@ export default class Guild {
         this.approximatePresenceCount = guildData.approximatePresenceCount;
         this.welcomeScreen = guildData.welcomeScreen;
     }
+
+    /**
+     * Resolve From
+     *
+     * Resolve an object to a guild ID
+     *
+     * @param guildResolvable The guild resolvable
+     *
+     * @returns {string} The resolved guild ID
+     */
+    static resolveID = (guildResolvable: GuildResolvable): string => resolveID(guildResolvable);
 }

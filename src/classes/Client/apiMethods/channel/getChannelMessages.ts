@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { Client, FetchQueue, Message } from "../../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message } from "../../../../internal";
 import getRoute from "../../../../util/getRoute";
 import parseMessage from "../../events/parseMessage";
 import { RawMessageData } from "../../events/rawMessageData";
@@ -11,7 +11,10 @@ export interface GetChannelMessagesData {
     around?: string;
 }
 
-export default async function getChannelMessages(client: Client, channelID: string, getChannelMessagesData: GetChannelMessagesData): Promise<Message[]> {
+export default async function getChannelMessages(client: Client, channelResolvable: ChannelResolvable, getChannelMessagesData: GetChannelMessagesData): Promise<Message[]> {
+
+    // Resolve objects
+    const channelID: string = Channel.resolveID(channelResolvable);
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages?${queryString.stringify({

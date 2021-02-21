@@ -1,4 +1,5 @@
 import { Client } from "../../internal";
+import resolveID from "./resolveID";
 
 export interface RoleData {
     id: string;
@@ -20,6 +21,8 @@ export interface RoleDataTags {
 }
 
 export type RoleTags = RoleDataTags;
+
+export type RoleResolvable = Role | string;
 
 export default class Role {
 
@@ -135,4 +138,15 @@ export default class Role {
         this.managed = Boolean(roleData.managed);
         this.tags = roleData.tags;
     }
+
+    /**
+     * Resolve From
+     *
+     * Resolve an object to a role ID
+     *
+     * @param roleResolvable The role resolvable
+     *
+     * @returns {string} The resolved role ID
+     */
+    static resolveID = (roleResolvable: RoleResolvable): string => resolveID(roleResolvable);
 }

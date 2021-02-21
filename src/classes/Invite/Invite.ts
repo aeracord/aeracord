@@ -1,4 +1,5 @@
 import { Client, User } from "../../internal";
+import resolveID from "./resolveID";
 
 export interface InviteData {
     code: string;
@@ -23,6 +24,8 @@ export interface TargetUser {
 
 export type TargetUserType = typeof TARGET_USER_TYPE_STREAM;
 export const TARGET_USER_TYPE_STREAM = 1;
+
+export type InviteResolvable = Invite | string;
 
 export default class Invite {
 
@@ -143,4 +146,15 @@ export default class Invite {
         this.targetUser = inviteData.targetUser;
         this.targetUserType = inviteData.targetUserType;
     }
+
+    /**
+     * Resolve From
+     *
+     * Resolve an object to an invite code
+     *
+     * @param inviteResolvable The invite resolvable
+     *
+     * @returns {string} The resolved invite code
+     */
+    static resolveID = (inviteResolvable: InviteResolvable): string => resolveID(inviteResolvable);
 }

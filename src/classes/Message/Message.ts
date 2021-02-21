@@ -1,4 +1,5 @@
 import { Attachment, ChannelType, Client, Embed, Member, Reaction, Sticker, User, Webhook } from "../../internal";
+import resolveID from "./resolveID";
 
 export interface MessageData {
     id: string;
@@ -73,6 +74,8 @@ export interface MessageReference {
     channelID: string;
     guildID?: string;
 }
+
+export type MessageResolvable = Message | string;
 
 export default class Message {
 
@@ -319,4 +322,15 @@ export default class Message {
         this.flags = messageData.flags;
         this.referencedMessage = messageData.referencedMessage;
     }
+
+    /**
+     * Resolve From
+     *
+     * Resolve an object to a message ID
+     *
+     * @param messageResolvable The message resolvable
+     *
+     * @returns {string} The resolved message ID
+     */
+    static resolveID = (messageResolvable: MessageResolvable): string => resolveID(messageResolvable);
 }

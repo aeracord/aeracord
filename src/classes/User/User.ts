@@ -1,4 +1,5 @@
-import { Client } from "../../internal";
+import { Client, Member } from "../../internal";
+import resolveID from "./resolveID";
 
 export interface UserData {
     id: string;
@@ -22,6 +23,8 @@ export const ACTIVITY_TYPE_STREAMING = 1;
 export const ACTIVITY_TYPE_LISTENING = 2;
 export const ACTIVITY_TYPE_CUSTOM = 4;
 export const ACTIVITY_TYPE_COMPETING = 5;
+
+export type UserResolvable = User | Member | string;
 
 export default class User {
 
@@ -106,4 +109,15 @@ export default class User {
         this.system = Boolean(userData.system);
         this.publicFlags = userData.publicFlags;
     }
+
+    /**
+     * Resolve From
+     *
+     * Resolve an object to a user ID
+     *
+     * @param userResolvable The user resolvable
+     *
+     * @returns {string} The resolved user ID
+     */
+    static resolveID = (userResolvable: UserResolvable): string => resolveID(userResolvable);
 }

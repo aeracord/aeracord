@@ -1,4 +1,4 @@
-import { AnyChannel, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite } from "../../../../internal";
+import { AnyChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite } from "../../../../internal";
 import getRoute from "../../../../util/getRoute";
 import parseChannel from "../../events/parseChannel";
 import { RawChannelData } from "../../events/rawChannelData";
@@ -18,7 +18,10 @@ export interface ModifyChannelData {
 
 export type ModifyChannelDataType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_NEWS;
 
-export default async function modifyChannel(client: Client, channelID: string, modifyChannelData: ModifyChannelData): Promise<AnyChannel> {
+export default async function modifyChannel(client: Client, channelResolvable: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyChannel> {
+
+    // Resolve objects
+    const channelID: string = Channel.resolveID(channelResolvable);
 
     // Define fetch data
     const path: string = `/channels/${channelID}`;

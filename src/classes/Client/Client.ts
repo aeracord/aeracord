@@ -7,6 +7,7 @@ import {
     ACTIVITY_TYPE_PLAYING,
     ACTIVITY_TYPE_STREAMING,
     ChannelPinsUpdateData,
+    ChannelResolvable,
     CreateMessageData,
     FetchedData,
     FetchQueue,
@@ -29,6 +30,7 @@ import {
     MessageReactionRemoveAllData,
     MessageReactionRemoveData,
     MessageReactionRemoveEmojiData,
+    MessageResolvable,
     MessageUpdateData,
     ModifyChannelData,
     Presence,
@@ -343,80 +345,80 @@ export default class Client extends EventEmitter {
      *
      * Send a message to a channel
      *
-     * @param channelID The ID of the channel to send this message to
+     * @param channel The channel to send this message to
      * @param createMessageData The data for the message
      *
      * @returns {Promise<Message>} The created message
      */
-    createMessage = (channelID: string, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channelID, createMessageData);
+    createMessage = (channel: ChannelResolvable, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channel, createMessageData);
 
     /**
      * Crosspost Message
      *
      * Publish a message in a news channel
      *
-     * @param channelID The ID of the channel to crosspost from
-     * @param messageID The ID of the message to crosspost
+     * @param channel The channel to crosspost from
+     * @param message The message to crosspost
      *
      * @returns {Promise<Message>} The crossposted message
      */
-    crosspostMessage = (channelID: string, messageID: string): Promise<Message> => crosspostMessage(this, channelID, messageID);
+    crosspostMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<Message> => crosspostMessage(this, channel, message);
 
     /**
      * Delete Channel
      *
      * Delete a channel
      *
-     * @param channelID The ID of the channel to delete
+     * @param channel The channel to delete
      *
      * @returns {Promise<AnyChannel>} The deleted channel
      */
-    deleteChannel = (channelID: string): Promise<AnyChannel> => deleteChannel(this, channelID);
+    deleteChannel = (channel: ChannelResolvable): Promise<AnyChannel> => deleteChannel(this, channel);
 
     /**
      * Get Channel
      *
      * Get a channel
      *
-     * @param channelID The ID of the channel to get
+     * @param channel The channel to get
      *
      * @returns {Promise<AnyChannel>} The channel
      */
-    getChannel = (channelID: string): Promise<AnyChannel> => getChannel(this, channelID);
+    getChannel = (channel: ChannelResolvable): Promise<AnyChannel> => getChannel(this, channel);
 
     /**
      * Get Channel Message
      *
      * Get a message
      *
-     * @param channelID The ID of the channel to get the message from
-     * @param messageID The ID of the message to get
+     * @param channel The channel to get the message from
+     * @param message The message to get
      *
      * @returns {Promise<Message>} The message
      */
-    getChannelMessage = (channelID: string, messageID: string): Promise<Message> => getChannelMessage(this, channelID, messageID);
+    getChannelMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<Message> => getChannelMessage(this, channel, message);
 
     /**
      * Get Channel Messages
      *
      * Get a channel's messages
      *
-     * @param channelID The ID of the channel to get messages from
+     * @param channel The channel to get messages from
      * @param getChannelMessagesData The data for getting messages from the channel
      *
      * @returns {Promise<Message[]>} The messages
      */
-    getChannelMessages = (channelID: string, getChannelMessagesData: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channelID, getChannelMessagesData);
+    getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
 
     /**
      * Modify Channel
      *
      * Modify a channel
      *
-     * @param channelID The ID of the channel to modify
+     * @param channel The channel to modify
      * @param modifyChannelData The data to modify the channel
      *
      * @returns {Promise<AnyChannel>} The modified channel
      */
-    modifyChannel = (channelID: string, modifyChannelData: ModifyChannelData): Promise<AnyChannel> => modifyChannel(this, channelID, modifyChannelData);
+    modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyChannel> => modifyChannel(this, channel, modifyChannelData);
 }

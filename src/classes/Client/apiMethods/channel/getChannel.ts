@@ -1,9 +1,12 @@
-import { AnyChannel, Client, FetchQueue } from "../../../../internal";
+import { AnyChannel, Channel, ChannelResolvable, Client, FetchQueue } from "../../../../internal";
 import getRoute from "../../../../util/getRoute";
 import parseChannel from "../../events/parseChannel";
 import { RawChannelData } from "../../events/rawChannelData";
 
-export default async function getChannel(client: Client, channelID: string): Promise<AnyChannel> {
+export default async function getChannel(client: Client, channelResolvable: ChannelResolvable): Promise<AnyChannel> {
+
+    // Resolve objects
+    const channelID: string = Channel.resolveID(channelResolvable);
 
     // Define fetch data
     const path: string = `/channels/${channelID}`;
