@@ -12,6 +12,7 @@ import {
     FetchedData,
     FetchQueue,
     GetChannelMessagesData,
+    GetReactionsData,
     Guild,
     GuildCreateData,
     GuildDeleteData,
@@ -56,6 +57,7 @@ import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
 import getChannel from "./apiMethods/channel/getChannel";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
 import getChannelMessages from "./apiMethods/channel/getChannelMessages";
+import getReactions from "./apiMethods/channel/getReactions";
 import modifyChannel from "./apiMethods/channel/modifyChannel";
 import connect from "./connect";
 import fetch from "./fetch";
@@ -470,7 +472,21 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message[]>} The messages
      */
-    getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
+    getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
+
+    /**
+     * Get Reactions
+     *
+     * Get the users that reacted to a message with a specific emoji
+     *
+     * @param channel The channel to get the reactions from
+     * @param message The message to get the reactions from
+     * @param reactionEmoji The emoji to get the reactions for
+     * @param getReactionsData The data for getting reactions
+     *
+     * @returns {Promise<User[]>} The users
+     */
+    getReactions = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> => getReactions(this, channel, message, reactionEmoji, getReactionsData);
 
     /**
      * Modify Channel

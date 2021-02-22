@@ -11,7 +11,7 @@ export interface GetChannelMessagesData {
     around?: string;
 }
 
-export default async function getChannelMessages(client: Client, channelResolvable: ChannelResolvable, getChannelMessagesData: GetChannelMessagesData): Promise<Message[]> {
+export default async function getChannelMessages(client: Client, channelResolvable: ChannelResolvable, getChannelMessagesData: GetChannelMessagesData = {}): Promise<Message[]> {
 
     // Resolve objects
     const channelID: string = Channel.resolveID(channelResolvable);
