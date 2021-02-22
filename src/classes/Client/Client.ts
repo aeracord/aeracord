@@ -41,6 +41,7 @@ import {
     Status,
     TypingStartData,
     User,
+    UserResolvable,
     VoiceState,
     WebhooksUpdateData
 } from "../../internal";
@@ -48,6 +49,8 @@ import createMessage from "./apiMethods/channel/createMessage";
 import createReaction from "./apiMethods/channel/createReaction";
 import crosspostMessage from "./apiMethods/channel/crosspostMessage";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
+import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
+import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
 import getChannel from "./apiMethods/channel/getChannel";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
 import getChannelMessages from "./apiMethods/channel/getChannelMessages";
@@ -387,6 +390,29 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The deleted channel
      */
     deleteChannel = (channel: ChannelResolvable): Promise<AnyChannel> => deleteChannel(this, channel);
+
+    /**
+     * Delete Own Reaction
+     *
+     * Remove the client's reaction from a message
+     *
+     * @param channel The channel to delete the reaction in
+     * @param message The message to delete the reaction from
+     * @param reactionEmoji The emoji to unreact with
+     */
+    deleteOwnReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => deleteOwnReaction(this, channel, message, reactionEmoji);
+
+    /**
+     * Delete User Reaction
+     *
+     * Remove a user's reaction from a message
+     *
+     * @param channel The channel to delete the reaction in
+     * @param message The message to delete the reaction from
+     * @param reactionEmoji The emoji to unreact with
+     * @param user The user to delete the reaction from
+     */
+    deleteUserReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> => deleteUserReaction(this, channel, message, reactionEmoji, user);
 
     /**
      * Get Channel
