@@ -66,6 +66,7 @@ export { FetchedData, RateLimit, RequestOptions } from "./classes/Client/fetch";
 // Client: API Methods: Channel
 export { BulkDeleteMessagesData } from "./classes/Client/apiMethods/channel/bulkDeleteMessages";
 export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/channel/createMessage";
+export { EditChannelPermissionsData } from "./classes/Client/apiMethods/channel/editChannelPermissions";
 export { EditMessageData } from "./classes/Client/apiMethods/channel/editMessage";
 export { GetChannelMessagesData } from "./classes/Client/apiMethods/channel/getChannelMessages";
 export { GetReactionsData } from "./classes/Client/apiMethods/channel/getReactions";

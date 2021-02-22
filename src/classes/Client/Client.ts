@@ -10,6 +10,7 @@ import {
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateMessageData,
+    EditChannelPermissionsData,
     EditMessageData,
     FetchedData,
     FetchQueue,
@@ -41,6 +42,7 @@ import {
     ReadyData,
     RequestOptions,
     Role,
+    RoleResolvable,
     Status,
     TypingStartData,
     User,
@@ -58,6 +60,7 @@ import deleteChannel from "./apiMethods/channel/deleteChannel";
 import deleteMessage from "./apiMethods/channel/deleteMessage";
 import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
 import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
+import editChannelPermissions from "./apiMethods/channel/editChannelPermissions";
 import editMessage from "./apiMethods/channel/editMessage";
 import getChannel from "./apiMethods/channel/getChannel";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
@@ -463,6 +466,17 @@ export default class Client extends EventEmitter {
      * @param user The user to delete the reaction for
      */
     deleteUserReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> => deleteUserReaction(this, channel, message, reactionEmoji, user);
+
+    /**
+     * Edit Channel Permissions
+     *
+     * Edit the permissions for a channel
+     *
+     * @param channel The channel to edit the permissions for
+     * @param roleOrUser The role or user's permissions to edit
+     * @param editChannelPermissionsData The data for editing the channel permissions
+     */
+    editChannelPermissions = (channel: ChannelResolvable, roleOrUser: RoleResolvable | UserResolvable, editChannelPermissionsData: EditChannelPermissionsData): Promise<void> => editChannelPermissions(this, channel, roleOrUser, editChannelPermissionsData);
 
     /**
      * Edit Message
