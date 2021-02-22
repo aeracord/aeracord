@@ -48,6 +48,8 @@ import {
 import createMessage from "./apiMethods/channel/createMessage";
 import createReaction from "./apiMethods/channel/createReaction";
 import crosspostMessage from "./apiMethods/channel/crosspostMessage";
+import deleteAllReactions from "./apiMethods/channel/deleteAllReactions";
+import deleteAllReactionsForEmoji from "./apiMethods/channel/deleteAllReactionsForEmoji";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
 import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
 import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
@@ -381,6 +383,27 @@ export default class Client extends EventEmitter {
     crosspostMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<Message> => crosspostMessage(this, channel, message);
 
     /**
+     * Delete All Reactions
+     *
+     * Remove all reactions from a message
+     *
+     * @param channel The channel to delete the reactions in
+     * @param message The message to delete the reactions from
+     */
+    deleteAllReactions = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => deleteAllReactions(this, channel, message);
+
+    /**
+     * Delete All Reactions for Emoji
+     *
+     * Remove all reactions from a message for a specific emoji
+     *
+     * @param channel The channel to delete the reactions in
+     * @param message The message to delete the reactions from
+     * @param reactionEmoji The emoji to delete reactions for
+     */
+    deleteAllReactionsForEmoji = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => deleteAllReactionsForEmoji(this, channel, message, reactionEmoji);
+
+    /**
      * Delete Channel
      *
      * Delete a channel
@@ -410,7 +433,7 @@ export default class Client extends EventEmitter {
      * @param channel The channel to delete the reaction in
      * @param message The message to delete the reaction from
      * @param reactionEmoji The emoji to unreact with
-     * @param user The user to delete the reaction from
+     * @param user The user to delete the reaction for
      */
     deleteUserReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> => deleteUserReaction(this, channel, message, reactionEmoji, user);
 
