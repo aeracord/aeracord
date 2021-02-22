@@ -53,6 +53,7 @@ import {
     VoiceState,
     WebhooksUpdateData
 } from "../../internal";
+import addPinnedChannelMessage from "./apiMethods/channel/addPinnedChannelMessage";
 import bulkDeleteMessages from "./apiMethods/channel/bulkDeleteMessages";
 import createChannelInvite from "./apiMethods/channel/createChannelInvite";
 import createMessage from "./apiMethods/channel/createMessage";
@@ -64,6 +65,7 @@ import deleteChannel from "./apiMethods/channel/deleteChannel";
 import deleteChannelPermission from "./apiMethods/channel/deleteChannelPermission";
 import deleteMessage from "./apiMethods/channel/deleteMessage";
 import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
+import deletePinnedChannelMessage from "./apiMethods/channel/deletePinnedChannelMessage";
 import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
 import editChannelPermissions from "./apiMethods/channel/editChannelPermissions";
 import editMessage from "./apiMethods/channel/editMessage";
@@ -367,6 +369,16 @@ export default class Client extends EventEmitter {
     _getFetchQueue = (route: string): FetchQueue => getFetchQueue(this, route);
 
     /**
+     * Add Pinned Channel Message
+     *
+     * Pin a message to a channel
+     *
+     * @param channel The channel to pin the messages in
+     * @param message The message to pin
+     */
+    addPinnedChannelMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => addPinnedChannelMessage(this, channel, message);
+
+    /**
      * Bulk Delete Messages
      *
      * Bulk delete messages
@@ -485,6 +497,16 @@ export default class Client extends EventEmitter {
      * @param reactionEmoji The emoji to unreact with
      */
     deleteOwnReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => deleteOwnReaction(this, channel, message, reactionEmoji);
+
+    /**
+     * Delete Pinned Channel Message
+     *
+     * Unpin a message from a channel
+     *
+     * @param channel The channel to unpin the messages from
+     * @param message The message to unpin
+     */
+    deletePinnedChannelMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => deletePinnedChannelMessage(this, channel, message);
 
     /**
      * Delete User Reaction
