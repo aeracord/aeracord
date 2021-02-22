@@ -59,6 +59,7 @@ import crosspostMessage from "./apiMethods/channel/crosspostMessage";
 import deleteAllReactions from "./apiMethods/channel/deleteAllReactions";
 import deleteAllReactionsForEmoji from "./apiMethods/channel/deleteAllReactionsForEmoji";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
+import deleteChannelPermission from "./apiMethods/channel/deleteChannelPermission";
 import deleteMessage from "./apiMethods/channel/deleteMessage";
 import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
 import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
@@ -448,6 +449,16 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The deleted channel
      */
     deleteChannel = (channel: ChannelResolvable): Promise<AnyChannel> => deleteChannel(this, channel);
+
+    /**
+     * Delete Channel Permission
+     *
+     * Delete a permission from a channel
+     *
+     * @param channel The channel to delete the permission from
+     * @param roleOrUser The role or user's permissions to delete
+     */
+    deleteChannelPermission = (channel: ChannelResolvable, roleOrUser: RoleResolvable | UserResolvable): Promise<void> => deleteChannelPermission(this, channel, roleOrUser);
 
     /**
      * Delete Message
