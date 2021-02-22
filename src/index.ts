@@ -6,20 +6,19 @@ export default aeracord;
 
 // Attachment
 export {
-    Attachment,
-    AttachmentData
+    Attachment
 } from "./internal";
 
 // Category Channel
 export {
-    CategoryChannel,
-    CategoryChannelData
+    CategoryChannel
 } from "./internal";
 
 // Channel
 export {
+    AnyChannel,
     Channel,
-    ChannelData,
+    ChannelResolvable,
     ChannelType,
     CHANNEL_TYPE_CATEGORY,
     CHANNEL_TYPE_DM,
@@ -31,32 +30,60 @@ export {
 
 // Client
 export {
-    ChannelPinsUpdateData,
     Client,
     ClientActivity,
     ClientActivityType,
     ClientData,
     ClientPresence,
     ClientStatus,
-    GuildMemberUpdateData,
+    Intent
+} from "./internal";
+
+// Client: Events
+export {
+    ChannelPinsUpdateData,
+    GuildCreateData,
+    GuildDeleteData,
     GuildEmojisUpdateData,
+    GuildIntegrationsUpdateData,
+    GuildMemberUpdateData,
     GuildRoleDeleteData,
-    Intent,
     InviteDeleteData,
-    ReadyData
+    MessageDeleteBulkData,
+    MessageDeleteData,
+    MessageReactionAddData,
+    MessageReactionRemoveAllData,
+    MessageReactionRemoveData,
+    MessageReactionRemoveEmojiData,
+    MessageUpdateData,
+    ReadyData,
+    TypingStartData,
+    WebhooksUpdateData
+} from "./internal";
+
+// Client: API Methods: Channel
+export {
+    AllowedMentionType,
+    AllowedMentions,
+    CreateMessageData,
+    CreateMessageFile,
+    CreateMessageReference,
+    EditMessageData,
+    GetChannelMessagesData,
+    GetReactionsData,
+    ModifyChannelData,
+    ModifyChannelDataType
 } from "./internal";
 
 // DM Channel
 export {
-    DMChannel,
-    DMChannelData
+    DMChannel
 } from "./internal";
 
 // Embed
 export {
     Embed,
     EmbedAuthor,
-    EmbedData,
     EmbedField,
     EmbedFooter,
     EmbedImage,
@@ -68,8 +95,7 @@ export {
 
 // Emoji
 export {
-    Emoji,
-    EmojiData
+    Emoji
 } from "./internal";
 
 // Guild
@@ -83,7 +109,7 @@ export {
     EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES,
     Feature,
     Guild,
-    GuildData,
+    GuildResolvable,
     MFALevel,
     MFA_LEVEL_ELEVATED,
     MFA_LEVEL_NONE,
@@ -105,7 +131,6 @@ export {
 // Guild Channel
 export {
     GuildChannel,
-    GuildChannelData,
     PermissionOverwrite,
     PermissionType,
     PERMISSION_TYPE_ROLE,
@@ -115,22 +140,20 @@ export {
 // Invite
 export {
     Invite,
+    InviteResolvable,
     TARGET_USER_TYPE_STREAM,
-    TargetUserType,
-    InviteData
+    TargetUserType
 } from "./internal";
 
 // Member
 export {
-    Member,
-    MemberData
+    Member
 } from "./internal";
 
 // Message
 export {
     ChannelMention,
     Message,
-    MessageData,
     MessageActivity,
     MessageActivityType,
     MESSAGE_ACTIVITY_TYPE_JOIN,
@@ -139,6 +162,7 @@ export {
     MESSAGE_ACTIVITY_TYPE_SPECTATE,
     MessageApplication,
     MessageReference,
+    MessageResolvable,
     MessageType,
     MESSAGE_TYPE_APPLICATION_COMMAND,
     MESSAGE_TYPE_CHANNEL_FOLLOW_ADD,
@@ -156,8 +180,7 @@ export {
 
 // News Channel
 export {
-    NewsChannel,
-    NewsChannelData
+    NewsChannel
 } from "./internal";
 
 // Presence
@@ -170,21 +193,21 @@ export {
     ActivityTimestamps,
     Presence,
     PresenceClientStatus,
-    PresenceData,
     PresenceUser
 } from "./internal";
 
 // Reaction
 export {
     Reaction,
-    ReactionData,
-    ReactionEmoji
+    ReactionEmoji,
+    ReactionEmojiResolvable
 } from "./internal";
 
 // Role
 export {
     Role,
-    RoleData
+    RoleResolvable,
+    RoleTags
 } from "./internal";
 
 // Sticker
@@ -199,20 +222,17 @@ export {
 
 // Store Channel
 export {
-    StoreChannel,
-    StoreChannelData
+    StoreChannel
 } from "./internal";
 
 // Text Based Channel
 export {
-    TextBasedChannel,
-    TextBasedChannelData
+    TextBasedChannel
 } from "./internal";
 
 // Text Channel
 export {
-    TextChannel,
-    TextChannelData
+    TextChannel
 } from "./internal";
 
 // User
@@ -224,24 +244,20 @@ export {
     ACTIVITY_TYPE_STREAMING,
     ActivityType,
     Status,
-    User,
-    UserData
+    User
 } from "./internal";
 
 // Voice Channel
 export {
-    VoiceChannel,
-    VoiceChannelData
+    VoiceChannel
 } from "./internal";
 
 // Voice State
 export {
-    VoiceState,
-    VoiceStateData
+    VoiceState
 } from "./internal";
 
 // Webhook
 export {
-    Webhook,
-    WebhookData
+    Webhook
 } from "./internal";

@@ -9,6 +9,7 @@ import {
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateMessageData,
+    EditMessageData,
     FetchedData,
     FetchQueue,
     GetChannelMessagesData,
@@ -54,6 +55,7 @@ import deleteAllReactionsForEmoji from "./apiMethods/channel/deleteAllReactionsF
 import deleteChannel from "./apiMethods/channel/deleteChannel";
 import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
 import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
+import editMessage from "./apiMethods/channel/editMessage";
 import getChannel from "./apiMethods/channel/getChannel";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
 import getChannelMessages from "./apiMethods/channel/getChannelMessages";
@@ -438,6 +440,19 @@ export default class Client extends EventEmitter {
      * @param user The user to delete the reaction for
      */
     deleteUserReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> => deleteUserReaction(this, channel, message, reactionEmoji, user);
+
+    /**
+     * Edit Message
+     *
+     * Edit a message
+     *
+     * @param channel The channel to edit the message in
+     * @param message The message to edit
+     * @param editMessageData The data for editing the message
+     *
+     * @returns {Promise<Message>} The edited message
+     */
+    editMessage = (channel: ChannelResolvable, message: MessageResolvable, editMessageData: EditMessageData): Promise<Message> => editMessage(this, channel, message, editMessageData);
 
     /**
      * Get Channel
