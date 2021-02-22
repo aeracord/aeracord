@@ -69,6 +69,7 @@ export { CreateChannelInviteData } from "./classes/Client/apiMethods/channel/cre
 export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/channel/createMessage";
 export { EditChannelPermissionsData } from "./classes/Client/apiMethods/channel/editChannelPermissions";
 export { EditMessageData } from "./classes/Client/apiMethods/channel/editMessage";
+export { FollowedChannel, FollowNewsChannelData } from "./classes/Client/apiMethods/channel/followNewsChannel";
 export { GetChannelMessagesData } from "./classes/Client/apiMethods/channel/getChannelMessages";
 export { GetReactionsData } from "./classes/Client/apiMethods/channel/getReactions";
 export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/channel/modifyChannel";

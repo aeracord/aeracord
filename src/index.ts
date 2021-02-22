@@ -72,6 +72,8 @@ export {
     CreateMessageReference,
     EditChannelPermissionsData,
     EditMessageData,
+    FollowedChannel,
+    FollowNewsChannelData,
     GetChannelMessagesData,
     GetReactionsData,
     ModifyChannelData,

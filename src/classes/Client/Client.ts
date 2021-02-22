@@ -15,6 +15,8 @@ import {
     EditMessageData,
     FetchedData,
     FetchQueue,
+    FollowedChannel,
+    FollowNewsChannelData,
     GetChannelMessagesData,
     GetReactionsData,
     Guild,
@@ -65,6 +67,7 @@ import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
 import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
 import editChannelPermissions from "./apiMethods/channel/editChannelPermissions";
 import editMessage from "./apiMethods/channel/editMessage";
+import followNewsChannel from "./apiMethods/channel/followNewsChannel";
 import getChannel from "./apiMethods/channel/getChannel";
 import getChannelInvites from "./apiMethods/channel/getChannelInvites";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
@@ -516,6 +519,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message>} The edited message
      */
     editMessage = (channel: ChannelResolvable, message: MessageResolvable, editMessageData: EditMessageData): Promise<Message> => editMessage(this, channel, message, editMessageData);
+
+    /**
+     * Follow News Channel
+     *
+     * Follows an announcement channel
+     *
+     * @param channel The channel to follow
+     * @param followNewsChannelData The data for following the news channel
+     *
+     * @returns {Promise<FollowedChannel>} The followed channel
+     */
+    followNewsChannel = (channel: ChannelResolvable, followNewsChannelData: FollowNewsChannelData): Promise<FollowedChannel> => followNewsChannel(this, channel, followNewsChannelData);
 
     /**
      * Get Channel
