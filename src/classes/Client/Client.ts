@@ -72,6 +72,7 @@ import getChannel from "./apiMethods/channel/getChannel";
 import getChannelInvites from "./apiMethods/channel/getChannelInvites";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
 import getChannelMessages from "./apiMethods/channel/getChannelMessages";
+import getPinnedMessages from "./apiMethods/channel/getPinnedMessages";
 import getReactions from "./apiMethods/channel/getReactions";
 import modifyChannel from "./apiMethods/channel/modifyChannel";
 import triggerTypingIndicator from "./apiMethods/channel/triggerTypingIndicator";
@@ -578,6 +579,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message[]>} The messages
      */
     getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
+
+    /**
+     * Get Pinned Messages
+     *
+     * Get a channel's pinned messages
+     *
+     * @param channel The channel to get the pinned messages of
+     *
+     * @returns {Promise<Message[]>} The messages
+     */
+    getPinnedMessages = (channel: ChannelResolvable): Promise<Message[]> => getPinnedMessages(this, channel);
 
     /**
      * Get Reactions
