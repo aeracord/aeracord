@@ -34,6 +34,7 @@ import {
     MessageUpdateData,
     ModifyChannelData,
     Presence,
+    ReactionEmojiResolvable,
     ReadyData,
     RequestOptions,
     Role,
@@ -44,6 +45,7 @@ import {
     WebhooksUpdateData
 } from "../../internal";
 import createMessage from "./apiMethods/channel/createMessage";
+import createReaction from "./apiMethods/channel/createReaction";
 import crosspostMessage from "./apiMethods/channel/crosspostMessage";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
 import getChannel from "./apiMethods/channel/getChannel";
@@ -351,6 +353,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message>} The created message
      */
     createMessage = (channel: ChannelResolvable, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channel, createMessageData);
+
+    /**
+     * Create Reaction
+     *
+     * Add a reaction to a message
+     *
+     * @param channel The channel to create the reaction in
+     * @param message The message to create the reaction on
+     * @param reactionEmoji The emoji to react with
+     */
+    createReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => createReaction(this, channel, message, reactionEmoji);
 
     /**
      * Crosspost Message

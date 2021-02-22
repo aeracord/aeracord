@@ -209,7 +209,8 @@ export {
 export {
     default as Reaction,
     ReactionData,
-    ReactionEmoji
+    ReactionEmoji,
+    ReactionEmojiResolvable
 } from "./classes/Reaction/Reaction";
 
 // Role

@@ -140,7 +140,7 @@ export default class Role {
     }
 
     /**
-     * Resolve From
+     * Resolve ID
      *
      * Resolve an object to a role ID
      *

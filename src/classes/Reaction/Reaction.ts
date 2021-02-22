@@ -1,4 +1,5 @@
-import { Client } from "../../internal";
+import { Client, Emoji } from "../../internal";
+import resolveString from "./resolveString";
 
 export interface ReactionData {
     count: number;
@@ -11,6 +12,8 @@ export interface ReactionEmoji {
     name?: string;
     animated: boolean;
 }
+
+export type ReactionEmojiResolvable = Reaction | Emoji | string;
 
 export default class Reaction {
 
@@ -59,4 +62,15 @@ export default class Reaction {
         this.me = Boolean(reactionData.me);
         this.emoji = reactionData.emoji;
     }
+
+    /**
+     * Resolve String
+     *
+     * Resolve an object to a reaction emoji string (`name:id` or unicode character)
+     *
+     * @param reactionEmojiResolvable The emoji resolvable
+     *
+     * @returns {string} The resolved reaction emoji string
+     */
+    static resolveString = (reactionEmojiResolvable: ReactionEmojiResolvable): string => resolveString(reactionEmojiResolvable);
 }

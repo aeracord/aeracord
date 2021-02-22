@@ -418,7 +418,7 @@ export default class Guild {
     }
 
     /**
-     * Resolve From
+     * Resolve ID
      *
      * Resolve an object to a guild ID
      *

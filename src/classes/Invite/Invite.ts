@@ -148,7 +148,7 @@ export default class Invite {
     }
 
     /**
-     * Resolve From
+     * Resolve ID
      *
      * Resolve an object to an invite code
      *

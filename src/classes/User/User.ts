@@ -111,7 +111,7 @@ export default class User {
     }
 
     /**
-     * Resolve From
+     * Resolve ID
      *
      * Resolve an object to a user ID
      *

@@ -48,7 +48,7 @@ export default class Channel {
     }
 
     /**
-     * Resolve From
+     * Resolve ID
      *
      * Resolve an object to a channel ID
      *

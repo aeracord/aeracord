@@ -324,7 +324,7 @@ export default class Message {
     }
 
     /**
-     * Resolve From
+     * Resolve ID
      *
      * Resolve an object to a message ID
      *
