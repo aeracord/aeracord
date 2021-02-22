@@ -9,6 +9,7 @@ import {
     BulkDeleteMessagesData,
     ChannelPinsUpdateData,
     ChannelResolvable,
+    CreateChannelInviteData,
     CreateMessageData,
     EditChannelPermissionsData,
     EditMessageData,
@@ -51,6 +52,7 @@ import {
     WebhooksUpdateData
 } from "../../internal";
 import bulkDeleteMessages from "./apiMethods/channel/bulkDeleteMessages";
+import createChannelInvite from "./apiMethods/channel/createChannelInvite";
 import createMessage from "./apiMethods/channel/createMessage";
 import createReaction from "./apiMethods/channel/createReaction";
 import crosspostMessage from "./apiMethods/channel/crosspostMessage";
@@ -367,6 +369,18 @@ export default class Client extends EventEmitter {
      * @param bulkDeleteMessagesData The data for bulk deleting messages
      */
     bulkDeleteMessages = (channel: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData): Promise<void> => bulkDeleteMessages(this, channel, bulkDeleteMessagesData);
+
+    /**
+     * Create Channel Invite
+     *
+     * Create an invite
+     *
+     * @param channel The channel to create an invite in
+     * @param createChannelInviteData The data for the invite
+     *
+     * @returns {Promise<Invite>} The invite
+     */
+    createChannelInvite = (channel: ChannelResolvable, createChannelInviteData?: CreateChannelInviteData): Promise<Invite> => createChannelInvite(this, channel, createChannelInviteData);
 
     /**
      * Create Message

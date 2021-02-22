@@ -60,7 +60,7 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
     };
 
     // API error
-    if ((data) && (data.code !== undefined)) throw new Error(`Discord API error at ${requestOptions.method} ${requestOptions.path}: ${JSON.stringify(data, null, 4)}`);
+    if ((data) && (typeof data.code === "number")) throw new Error(`Discord API error at ${requestOptions.method} ${requestOptions.path}: ${JSON.stringify(data, null, 4)}`);
 
     // Return
     return {
