@@ -53,6 +53,7 @@ import crosspostMessage from "./apiMethods/channel/crosspostMessage";
 import deleteAllReactions from "./apiMethods/channel/deleteAllReactions";
 import deleteAllReactionsForEmoji from "./apiMethods/channel/deleteAllReactionsForEmoji";
 import deleteChannel from "./apiMethods/channel/deleteChannel";
+import deleteMessage from "./apiMethods/channel/deleteMessage";
 import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
 import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
 import editMessage from "./apiMethods/channel/editMessage";
@@ -417,6 +418,16 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The deleted channel
      */
     deleteChannel = (channel: ChannelResolvable): Promise<AnyChannel> => deleteChannel(this, channel);
+
+    /**
+     * Delete Message
+     *
+     * Delete a message
+     *
+     * @param channel The channel to delete the message in
+     * @param message The message to delete
+     */
+    deleteMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => deleteMessage(this, channel, message);
 
     /**
      * Delete Own Reaction
