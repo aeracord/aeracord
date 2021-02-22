@@ -63,6 +63,7 @@ import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
 import editChannelPermissions from "./apiMethods/channel/editChannelPermissions";
 import editMessage from "./apiMethods/channel/editMessage";
 import getChannel from "./apiMethods/channel/getChannel";
+import getChannelInvites from "./apiMethods/channel/getChannelInvites";
 import getChannelMessage from "./apiMethods/channel/getChannelMessage";
 import getChannelMessages from "./apiMethods/channel/getChannelMessages";
 import getReactions from "./apiMethods/channel/getReactions";
@@ -501,6 +502,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The channel
      */
     getChannel = (channel: ChannelResolvable): Promise<AnyChannel> => getChannel(this, channel);
+
+    /**
+     * Get Channel Invites
+     *
+     * Get a channel's invites
+     *
+     * @param channel The channel to get the invites of
+     *
+     * @returns {Promise<Invite[]>} The invites
+     */
+    getChannelInvites = (channel: ChannelResolvable): Promise<Invite[]> => getChannelInvites(this, channel);
 
     /**
      * Get Channel Message
