@@ -74,6 +74,7 @@ import getChannelMessage from "./apiMethods/channel/getChannelMessage";
 import getChannelMessages from "./apiMethods/channel/getChannelMessages";
 import getReactions from "./apiMethods/channel/getReactions";
 import modifyChannel from "./apiMethods/channel/modifyChannel";
+import triggerTypingIndicator from "./apiMethods/channel/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
 import getFetchQueue from "./getFetchQueue";
@@ -603,4 +604,13 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The modified channel
      */
     modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyChannel> => modifyChannel(this, channel, modifyChannelData);
+
+    /**
+     * Trigger Typing Indicator
+     *
+     * Start typing in a channel
+     *
+     * @param channel The channel to start typing in
+     */
+    triggerTypingIndicator = (channel: ChannelResolvable): Promise<void> => triggerTypingIndicator(this, channel);
 }
