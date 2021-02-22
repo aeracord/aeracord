@@ -65,6 +65,7 @@ export {
 export {
     AllowedMentionType,
     AllowedMentions,
+    BulkDeleteMessagesData,
     CreateMessageData,
     CreateMessageFile,
     CreateMessageReference,

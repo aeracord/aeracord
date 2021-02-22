@@ -6,6 +6,7 @@ import {
     ACTIVITY_TYPE_LISTENING,
     ACTIVITY_TYPE_PLAYING,
     ACTIVITY_TYPE_STREAMING,
+    BulkDeleteMessagesData,
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateMessageData,
@@ -47,6 +48,7 @@ import {
     VoiceState,
     WebhooksUpdateData
 } from "../../internal";
+import bulkDeleteMessages from "./apiMethods/channel/bulkDeleteMessages";
 import createMessage from "./apiMethods/channel/createMessage";
 import createReaction from "./apiMethods/channel/createReaction";
 import crosspostMessage from "./apiMethods/channel/crosspostMessage";
@@ -351,6 +353,16 @@ export default class Client extends EventEmitter {
      * @returns {FetchQueue} The fetch queue
      */
     _getFetchQueue = (route: string): FetchQueue => getFetchQueue(this, route);
+
+    /**
+     * Bulk Delete Messages
+     *
+     * Bulk delete messages
+     *
+     * @param channel The channel to delete the messages in
+     * @param bulkDeleteMessagesData The data for bulk deleting messages
+     */
+    bulkDeleteMessages = (channel: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData): Promise<void> => bulkDeleteMessages(this, channel, bulkDeleteMessagesData);
 
     /**
      * Create Message
