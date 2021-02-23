@@ -76,6 +76,7 @@ export { GetGuildData } from "./classes/Client/apiMethods/getGuild";
 export { GuildPreview } from "./classes/Client/apiMethods/getGuildPreview";
 export { GetReactionsData } from "./classes/Client/apiMethods/getReactions";
 export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/modifyChannel";
+export { ModifyGuildData } from "./classes/Client/apiMethods/modifyGuild";
 
 // DM Channel
 export {

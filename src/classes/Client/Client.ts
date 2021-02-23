@@ -44,6 +44,7 @@ import {
     MessageResolvable,
     MessageUpdateData,
     ModifyChannelData,
+    ModifyGuildData,
     Presence,
     ReactionEmojiResolvable,
     ReadyData,
@@ -85,6 +86,7 @@ import getGuildPreview from "./apiMethods/getGuildPreview";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import modifyChannel from "./apiMethods/modifyChannel";
+import modifyGuild from "./apiMethods/modifyGuild";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
@@ -689,6 +691,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyChannel>} The modified channel
      */
     modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyChannel> => modifyChannel(this, channel, modifyChannelData);
+
+    /**
+     * Modify Guild
+     *
+     * Modify a guild
+     *
+     * @param guild The guild to modify
+     * @param modifyGuildData The data to modify the guild
+     *
+     * @returns {Promise<Guild>} The modified guild
+     */
+    modifyGuild = (guild: GuildResolvable, modifyGuildData: ModifyGuildData): Promise<Guild> => modifyGuild(this, guild, modifyGuildData);
 
     /**
      * Trigger Typing Indicator

@@ -83,7 +83,8 @@ export {
     GetReactionsData,
     GuildPreview,
     ModifyChannelData,
-    ModifyChannelDataType
+    ModifyChannelDataType,
+    ModifyGuildData
 } from "./internal";
 
 // DM Channel
