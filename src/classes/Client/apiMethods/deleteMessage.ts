@@ -1,14 +1,14 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
 
-export default async function deletePinnedChannelMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable): Promise<void> {
+export default async function deleteMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable): Promise<void> {
 
     // Resolve objects
     const channelID: string = Channel.resolveID(channelResolvable);
     const messageID: string = Message.resolveID(messageResolvable);
 
     // Define fetch data
-    const path: string = `/channels/${channelID}/pins/${messageID}`;
+    const path: string = `/channels/${channelID}/messages/${messageID}`;
     const method: string = "DELETE";
     const route: string = getRoute(path, method);
 

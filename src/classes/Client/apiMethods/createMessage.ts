@@ -1,9 +1,9 @@
 import FormData from "form-data";
 import { promises as fs } from "fs";
-import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
-import parseMessage from "../../events/parseMessage";
-import { RawMessageData } from "../../events/rawMessageData";
+import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message } from "../../../internal";
+import getRoute from "../../../util/getRoute";
+import parseMessage from "../events/parseMessage";
+import { RawMessageData } from "../events/rawMessageData";
 
 export interface CreateMessageData {
     content?: string;

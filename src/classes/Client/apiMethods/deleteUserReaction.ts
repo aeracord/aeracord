@@ -1,5 +1,5 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, Reaction, ReactionEmojiResolvable, User, UserResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, Reaction, ReactionEmojiResolvable, User, UserResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
 
 export default async function deleteUserReaction(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, reactionEmojiResolvable: ReactionEmojiResolvable, userResolvable: UserResolvable): Promise<void> {
 

@@ -1,5 +1,5 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
 
 export interface BulkDeleteMessagesData {
     messages: MessageResolvable[];

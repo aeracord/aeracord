@@ -1,5 +1,5 @@
-import { Channel, ChannelResolvable, Client, FetchQueue } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
+import { Channel, ChannelResolvable, Client, FetchQueue } from "../../../internal";
+import getRoute from "../../../util/getRoute";
 
 export interface FollowNewsChannelData {
     targetChannel: ChannelResolvable;

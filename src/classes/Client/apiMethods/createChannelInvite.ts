@@ -1,7 +1,7 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, TargetUserType, User, UserResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
-import parseInvite from "../../events/parseInvite";
-import { RawInviteData } from "../../events/rawInviteData";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, TargetUserType, User, UserResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
+import parseInvite from "../events/parseInvite";
+import { RawInviteData } from "../events/rawInviteData";
 
 export interface CreateChannelInviteData {
     maxAge?: number;

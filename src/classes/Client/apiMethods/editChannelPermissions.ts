@@ -1,5 +1,5 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, PermissionType, Role, RoleResolvable, User, UserResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
+import { Channel, ChannelResolvable, Client, FetchQueue, PermissionType, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
 
 export interface EditChannelPermissionsData {
     type: PermissionType;

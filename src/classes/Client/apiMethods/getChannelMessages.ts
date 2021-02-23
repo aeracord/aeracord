@@ -1,8 +1,8 @@
 import queryString from "query-string";
-import { Channel, ChannelResolvable, Client, FetchQueue, Message } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
-import parseMessage from "../../events/parseMessage";
-import { RawMessageData } from "../../events/rawMessageData";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message } from "../../../internal";
+import getRoute from "../../../util/getRoute";
+import parseMessage from "../events/parseMessage";
+import { RawMessageData } from "../events/rawMessageData";
 
 export interface GetChannelMessagesData {
     limit?: number;

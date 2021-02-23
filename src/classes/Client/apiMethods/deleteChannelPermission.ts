@@ -1,5 +1,5 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Role, RoleResolvable, User, UserResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
+import { Channel, ChannelResolvable, Client, FetchQueue, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
 
 export default async function deleteChannelPermission(client: Client, channelResolvable: ChannelResolvable, roleOrUserResolvable: RoleResolvable | UserResolvable): Promise<void> {
 

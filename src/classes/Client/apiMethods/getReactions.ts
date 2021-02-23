@@ -1,8 +1,8 @@
 import queryString from "query-string";
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, Reaction, ReactionEmojiResolvable, User } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
-import parseUser from "../../events/parseUser";
-import { RawUserData } from "../../events/rawUserData";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, Reaction, ReactionEmojiResolvable, User } from "../../../internal";
+import getRoute from "../../../util/getRoute";
+import parseUser from "../events/parseUser";
+import { RawUserData } from "../events/rawUserData";
 
 export interface GetReactionsData {
     limit?: number;

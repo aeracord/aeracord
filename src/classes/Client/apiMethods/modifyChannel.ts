@@ -1,7 +1,7 @@
-import { AnyChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
-import parseChannel from "../../events/parseChannel";
-import { RawChannelData } from "../../events/rawChannelData";
+import { AnyChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite } from "../../../internal";
+import getRoute from "../../../util/getRoute";
+import parseChannel from "../events/parseChannel";
+import { RawChannelData } from "../events/rawChannelData";
 
 export interface ModifyChannelData {
     name?: string;

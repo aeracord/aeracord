@@ -10,6 +10,7 @@ import {
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
+    CreateGuildData,
     CreateMessageData,
     EditChannelPermissionsData,
     EditMessageData,
@@ -53,31 +54,32 @@ import {
     VoiceState,
     WebhooksUpdateData
 } from "../../internal";
-import addPinnedChannelMessage from "./apiMethods/channel/addPinnedChannelMessage";
-import bulkDeleteMessages from "./apiMethods/channel/bulkDeleteMessages";
-import createChannelInvite from "./apiMethods/channel/createChannelInvite";
-import createMessage from "./apiMethods/channel/createMessage";
-import createReaction from "./apiMethods/channel/createReaction";
-import crosspostMessage from "./apiMethods/channel/crosspostMessage";
-import deleteAllReactions from "./apiMethods/channel/deleteAllReactions";
-import deleteAllReactionsForEmoji from "./apiMethods/channel/deleteAllReactionsForEmoji";
-import deleteChannel from "./apiMethods/channel/deleteChannel";
-import deleteChannelPermission from "./apiMethods/channel/deleteChannelPermission";
-import deleteMessage from "./apiMethods/channel/deleteMessage";
-import deleteOwnReaction from "./apiMethods/channel/deleteOwnReaction";
-import deletePinnedChannelMessage from "./apiMethods/channel/deletePinnedChannelMessage";
-import deleteUserReaction from "./apiMethods/channel/deleteUserReaction";
-import editChannelPermissions from "./apiMethods/channel/editChannelPermissions";
-import editMessage from "./apiMethods/channel/editMessage";
-import followNewsChannel from "./apiMethods/channel/followNewsChannel";
-import getChannel from "./apiMethods/channel/getChannel";
-import getChannelInvites from "./apiMethods/channel/getChannelInvites";
-import getChannelMessage from "./apiMethods/channel/getChannelMessage";
-import getChannelMessages from "./apiMethods/channel/getChannelMessages";
-import getPinnedMessages from "./apiMethods/channel/getPinnedMessages";
-import getReactions from "./apiMethods/channel/getReactions";
-import modifyChannel from "./apiMethods/channel/modifyChannel";
-import triggerTypingIndicator from "./apiMethods/channel/triggerTypingIndicator";
+import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
+import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
+import createChannelInvite from "./apiMethods/createChannelInvite";
+import createGuild from "./apiMethods/createGuild";
+import createMessage from "./apiMethods/createMessage";
+import createReaction from "./apiMethods/createReaction";
+import crosspostMessage from "./apiMethods/crosspostMessage";
+import deleteAllReactions from "./apiMethods/deleteAllReactions";
+import deleteAllReactionsForEmoji from "./apiMethods/deleteAllReactionsForEmoji";
+import deleteChannel from "./apiMethods/deleteChannel";
+import deleteChannelPermission from "./apiMethods/deleteChannelPermission";
+import deleteMessage from "./apiMethods/deleteMessage";
+import deleteOwnReaction from "./apiMethods/deleteOwnReaction";
+import deletePinnedChannelMessage from "./apiMethods/deletePinnedChannelMessage";
+import deleteUserReaction from "./apiMethods/deleteUserReaction";
+import editChannelPermissions from "./apiMethods/editChannelPermissions";
+import editMessage from "./apiMethods/editMessage";
+import followNewsChannel from "./apiMethods/followNewsChannel";
+import getChannel from "./apiMethods/getChannel";
+import getChannelInvites from "./apiMethods/getChannelInvites";
+import getChannelMessage from "./apiMethods/getChannelMessage";
+import getChannelMessages from "./apiMethods/getChannelMessages";
+import getPinnedMessages from "./apiMethods/getPinnedMessages";
+import getReactions from "./apiMethods/getReactions";
+import modifyChannel from "./apiMethods/modifyChannel";
+import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
 import getFetchQueue from "./getFetchQueue";
@@ -399,6 +401,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Invite>} The invite
      */
     createChannelInvite = (channel: ChannelResolvable, createChannelInviteData?: CreateChannelInviteData): Promise<Invite> => createChannelInvite(this, channel, createChannelInviteData);
+
+    /**
+     * Create Guild
+     *
+     * Create a guild
+     *
+     * @param createGuildData The data for the guild
+     *
+     * @returns {Promise<Guild>} The created guild
+     */
+    createGuild = (createGuildData: CreateGuildData): Promise<Guild> => createGuild(this, createGuildData);
 
     /**
      * Create Message

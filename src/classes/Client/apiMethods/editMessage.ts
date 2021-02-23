@@ -1,7 +1,7 @@
-import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
-import parseMessage from "../../events/parseMessage";
-import { RawMessageData } from "../../events/rawMessageData";
+import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
+import parseMessage from "../events/parseMessage";
+import { RawMessageData } from "../events/rawMessageData";
 
 export interface EditMessageData {
     content?: string;

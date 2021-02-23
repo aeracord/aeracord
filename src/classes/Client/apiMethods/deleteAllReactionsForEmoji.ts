@@ -1,7 +1,7 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, Reaction, ReactionEmojiResolvable } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, Reaction, ReactionEmojiResolvable } from "../../../internal";
+import getRoute from "../../../util/getRoute";
 
-export default async function deleteOwnReaction(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, reactionEmojiResolvable: ReactionEmojiResolvable): Promise<void> {
+export default async function deleteAllReactionsForEmoji(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, reactionEmojiResolvable: ReactionEmojiResolvable): Promise<void> {
 
     // Resolve objects
     const channelID: string = Channel.resolveID(channelResolvable);
@@ -9,7 +9,7 @@ export default async function deleteOwnReaction(client: Client, channelResolvabl
     const reactionEmoji: string = Reaction.resolveString(reactionEmojiResolvable);
 
     // Define fetch data
-    const path: string = `/channels/${channelID}/messages/${messageID}/reactions/${encodeURIComponent(reactionEmoji)}/@me`;
+    const path: string = `/channels/${channelID}/messages/${messageID}/reactions/${encodeURIComponent(reactionEmoji)}`;
     const method: string = "DELETE";
     const route: string = getRoute(path, method);
 

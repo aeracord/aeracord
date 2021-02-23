@@ -1,7 +1,7 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite } from "../../../../internal";
-import getRoute from "../../../../util/getRoute";
-import parseInvite from "../../events/parseInvite";
-import { RawInviteData } from "../../events/rawInviteData";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite } from "../../../internal";
+import getRoute from "../../../util/getRoute";
+import parseInvite from "../events/parseInvite";
+import { RawInviteData } from "../events/rawInviteData";
 
 export default async function getChannelInvites(client: Client, channelResolvable: ChannelResolvable): Promise<Invite[]> {
 

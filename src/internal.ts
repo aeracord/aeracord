@@ -63,16 +63,17 @@ export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webho
 // Client: Methods
 export { FetchedData, RateLimit, RequestOptions } from "./classes/Client/fetch";
 
-// Client: API Methods: Channel
-export { BulkDeleteMessagesData } from "./classes/Client/apiMethods/channel/bulkDeleteMessages";
-export { CreateChannelInviteData } from "./classes/Client/apiMethods/channel/createChannelInvite";
-export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/channel/createMessage";
-export { EditChannelPermissionsData } from "./classes/Client/apiMethods/channel/editChannelPermissions";
-export { EditMessageData } from "./classes/Client/apiMethods/channel/editMessage";
-export { FollowedChannel, FollowNewsChannelData } from "./classes/Client/apiMethods/channel/followNewsChannel";
-export { GetChannelMessagesData } from "./classes/Client/apiMethods/channel/getChannelMessages";
-export { GetReactionsData } from "./classes/Client/apiMethods/channel/getReactions";
-export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/channel/modifyChannel";
+// Client: API Methods
+export { BulkDeleteMessagesData } from "./classes/Client/apiMethods/bulkDeleteMessages";
+export { CreateChannelInviteData } from "./classes/Client/apiMethods/createChannelInvite";
+export { CreateGuildData, CreateGuildDataChannel, CreateGuildDataChannelPermissionOverwrite, CreateGuildDataRole } from "./classes/Client/apiMethods/createGuild";
+export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/createMessage";
+export { EditChannelPermissionsData } from "./classes/Client/apiMethods/editChannelPermissions";
+export { EditMessageData } from "./classes/Client/apiMethods/editMessage";
+export { FollowedChannel, FollowNewsChannelData } from "./classes/Client/apiMethods/followNewsChannel";
+export { GetChannelMessagesData } from "./classes/Client/apiMethods/getChannelMessages";
+export { GetReactionsData } from "./classes/Client/apiMethods/getReactions";
+export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/modifyChannel";
 
 // DM Channel
 export {

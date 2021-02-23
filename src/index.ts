@@ -61,12 +61,16 @@ export {
     WebhooksUpdateData
 } from "./internal";
 
-// Client: API Methods: Channel
+// Client: API Methods
 export {
     AllowedMentionType,
     AllowedMentions,
     BulkDeleteMessagesData,
     CreateChannelInviteData,
+    CreateGuildData,
+    CreateGuildDataChannel,
+    CreateGuildDataChannelPermissionOverwrite,
+    CreateGuildDataRole,
     CreateMessageData,
     CreateMessageFile,
     CreateMessageReference,
