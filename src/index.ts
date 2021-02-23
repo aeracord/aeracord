@@ -81,6 +81,7 @@ export {
     GetChannelMessagesData,
     GetGuildData,
     GetReactionsData,
+    GuildPreview,
     ModifyChannelData,
     ModifyChannelDataType
 } from "./internal";

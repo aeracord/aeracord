@@ -27,6 +27,7 @@ import {
     GuildEmojisUpdateData,
     GuildIntegrationsUpdateData,
     GuildMemberUpdateData,
+    GuildPreview,
     GuildResolvable,
     GuildRoleDeleteData,
     Intent,
@@ -80,6 +81,7 @@ import getChannelInvites from "./apiMethods/getChannelInvites";
 import getChannelMessage from "./apiMethods/getChannelMessage";
 import getChannelMessages from "./apiMethods/getChannelMessages";
 import getGuild from "./apiMethods/getGuild";
+import getGuildPreview from "./apiMethods/getGuildPreview";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import modifyChannel from "./apiMethods/modifyChannel";
@@ -639,6 +641,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Guild>} The guild
      */
     getGuild = (guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild> => getGuild(this, guild, getGuildData);
+
+    /**
+     * Get Guild Preview
+     *
+     * Get a guild preview
+     *
+     * @param guild The guild to get the preview from
+     *
+     * @returns {Promise<GuildPreview>} The guild preview
+     */
+    getGuildPreview = (guild: GuildResolvable): Promise<GuildPreview> => getGuildPreview(this, guild);
 
     /**
      * Get Pinned Messages

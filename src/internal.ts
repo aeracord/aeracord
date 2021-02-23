@@ -73,6 +73,7 @@ export { EditMessageData } from "./classes/Client/apiMethods/editMessage";
 export { FollowedChannel, FollowNewsChannelData } from "./classes/Client/apiMethods/followNewsChannel";
 export { GetChannelMessagesData } from "./classes/Client/apiMethods/getChannelMessages";
 export { GetGuildData } from "./classes/Client/apiMethods/getGuild";
+export { GuildPreview } from "./classes/Client/apiMethods/getGuildPreview";
 export { GetReactionsData } from "./classes/Client/apiMethods/getReactions";
 export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/modifyChannel";
 
