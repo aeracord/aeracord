@@ -26,6 +26,7 @@ import {
     GuildEmojisUpdateData,
     GuildIntegrationsUpdateData,
     GuildMemberUpdateData,
+    GuildResolvable,
     GuildRoleDeleteData,
     Intent,
     Invite,
@@ -65,6 +66,7 @@ import deleteAllReactions from "./apiMethods/deleteAllReactions";
 import deleteAllReactionsForEmoji from "./apiMethods/deleteAllReactionsForEmoji";
 import deleteChannel from "./apiMethods/deleteChannel";
 import deleteChannelPermission from "./apiMethods/deleteChannelPermission";
+import deleteGuild from "./apiMethods/deleteGuild";
 import deleteMessage from "./apiMethods/deleteMessage";
 import deleteOwnReaction from "./apiMethods/deleteOwnReaction";
 import deletePinnedChannelMessage from "./apiMethods/deletePinnedChannelMessage";
@@ -489,6 +491,15 @@ export default class Client extends EventEmitter {
      * @param roleOrUser The role or user's permissions to delete
      */
     deleteChannelPermission = (channel: ChannelResolvable, roleOrUser: RoleResolvable | UserResolvable): Promise<void> => deleteChannelPermission(this, channel, roleOrUser);
+
+    /**
+     * Delete Guild
+     *
+     * Delete a guild
+     *
+     * @param guild The guild to delete
+     */
+    deleteGuild = (guild: GuildResolvable): Promise<void> => deleteGuild(this, guild);
 
     /**
      * Delete Message
