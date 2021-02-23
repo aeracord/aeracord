@@ -19,6 +19,7 @@ import {
     FollowedChannel,
     FollowNewsChannelData,
     GetChannelMessagesData,
+    GetGuildData,
     GetReactionsData,
     Guild,
     GuildCreateData,
@@ -78,6 +79,7 @@ import getChannel from "./apiMethods/getChannel";
 import getChannelInvites from "./apiMethods/getChannelInvites";
 import getChannelMessage from "./apiMethods/getChannelMessage";
 import getChannelMessages from "./apiMethods/getChannelMessages";
+import getGuild from "./apiMethods/getGuild";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import modifyChannel from "./apiMethods/modifyChannel";
@@ -625,6 +627,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message[]>} The messages
      */
     getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
+
+    /**
+     * Get Guild
+     *
+     * Get a guild
+     *
+     * @param guild The guild to get
+     * @param getGuildData The data for getting the guild
+     *
+     * @returns {Promise<Guild>} The guild
+     */
+    getGuild = (guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild> => getGuild(this, guild, getGuildData);
 
     /**
      * Get Pinned Messages

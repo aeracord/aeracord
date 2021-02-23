@@ -79,6 +79,7 @@ export {
     FollowedChannel,
     FollowNewsChannelData,
     GetChannelMessagesData,
+    GetGuildData,
     GetReactionsData,
     ModifyChannelData,
     ModifyChannelDataType
