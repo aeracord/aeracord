@@ -75,6 +75,7 @@ export {
     CreateMessageData,
     CreateMessageFile,
     CreateMessageReference,
+    CurrentUserNickname,
     EditChannelPermissionsData,
     EditMessageData,
     FollowedChannel,
@@ -86,6 +87,7 @@ export {
     ListGuildMembersData,
     ModifyChannelData,
     ModifyChannelDataType,
+    ModifyCurrentUserNicknameData,
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
     ModifyGuildMemberData

@@ -14,6 +14,7 @@ import {
     CreateGuildChannelData,
     CreateGuildData,
     CreateMessageData,
+    CurrentUserNickname,
     EditChannelPermissionsData,
     EditMessageData,
     FetchedData,
@@ -48,6 +49,7 @@ import {
     MessageResolvable,
     MessageUpdateData,
     ModifyChannelData,
+    ModifyCurrentUserNicknameData,
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
     ModifyGuildMemberData,
@@ -96,6 +98,7 @@ import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import modifyChannel from "./apiMethods/modifyChannel";
+import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
@@ -750,6 +753,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyGuildChannel>} The modified channel
      */
     modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannel> => modifyChannel(this, channel, modifyChannelData);
+
+    /**
+     * Modify Current User Nickname
+     *
+     * Set the client's nickname in a guild
+     *
+     * @param guild The guild to set the nickname in
+     * @param modifyCurrentUserNicknameData The data to modify the nickname
+     *
+     * @returns {Promise<CurrentUserNickname>} The modified nickname data
+     */
+    modifyCurrentUserNickname = (guild: GuildResolvable, modifyCurrentUserNicknameData?: ModifyCurrentUserNicknameData): Promise<CurrentUserNickname> => modifyCurrentUserNickname(this, guild, modifyCurrentUserNicknameData);
 
     /**
      * Modify Guild

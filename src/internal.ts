@@ -78,6 +78,7 @@ export { GuildPreview } from "./classes/Client/apiMethods/getGuildPreview";
 export { GetReactionsData } from "./classes/Client/apiMethods/getReactions";
 export { ListGuildMembersData } from "./classes/Client/apiMethods/listGuildMembers";
 export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/modifyChannel";
+export { CurrentUserNickname, ModifyCurrentUserNicknameData } from "./classes/Client/apiMethods/modifyCurrentUserNickname";
 export { ModifyGuildData } from "./classes/Client/apiMethods/modifyGuild";
 export { ModifyGuildChannelPositionsData } from "./classes/Client/apiMethods/modifyGuildChannelPositions";
 export { ModifyGuildMemberData } from "./classes/Client/apiMethods/modifyGuildMember";
