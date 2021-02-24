@@ -88,6 +88,7 @@ import getChannelMessage from "./apiMethods/getChannelMessage";
 import getChannelMessages from "./apiMethods/getChannelMessages";
 import getGuild from "./apiMethods/getGuild";
 import getGuildChannels from "./apiMethods/getGuildChannels";
+import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
@@ -673,6 +674,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<GuildChannel[]>} The guild's channels
      */
     getGuildChannels = (guild: GuildResolvable): Promise<GuildChannel[]> => getGuildChannels(this, guild);
+
+    /**
+     * Get Guild Member
+     *
+     * Get a member from a guild
+     *
+     * @param guild The guild to get the member from
+     * @param user The user resolvable for the member to get
+     *
+     * @returns {Promise<Member>} The member
+     */
+    getGuildMember = (guild: GuildResolvable, user: UserResolvable): Promise<Member> => getGuildMember(this, guild, user);
 
     /**
      * Get Guild Preview
