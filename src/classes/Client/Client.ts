@@ -56,6 +56,7 @@ import {
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
     ModifyGuildMemberData,
+    ModifyGuildRolePositionsData,
     Presence,
     ReactionEmojiResolvable,
     ReadyData,
@@ -111,6 +112,7 @@ import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
+import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
 import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
@@ -880,6 +882,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Member>} The modified member
      */
     modifyGuildMember = (guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> => modifyGuildMember(this, guild, user, modifyGuildMemberData);
+
+    /**
+     * Modify Guild Role Positions
+     *
+     * Modify the positions of roles in a guild
+     *
+     * @param guild The guild to modify role positions in
+     * @param modifyGuildRolePositionsData The data to modify the role positions
+     *
+     * @returns {Promise<Role[]>} The guild's roles
+     */
+    modifyGuildRolePositions = (guild: GuildResolvable, modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> => modifyGuildRolePositions(this, guild, modifyGuildRolePositionsData);
 
     /**
      * Remove Guild Ban

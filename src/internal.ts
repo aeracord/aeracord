@@ -84,6 +84,7 @@ export { CurrentUserNickname, ModifyCurrentUserNicknameData } from "./classes/Cl
 export { ModifyGuildData } from "./classes/Client/apiMethods/modifyGuild";
 export { ModifyGuildChannelPositionsData } from "./classes/Client/apiMethods/modifyGuildChannelPositions";
 export { ModifyGuildMemberData } from "./classes/Client/apiMethods/modifyGuildMember";
+export { ModifyGuildRolePositionsData } from "./classes/Client/apiMethods/modifyGuildRolePositions";
 
 // DM Channel
 export {
