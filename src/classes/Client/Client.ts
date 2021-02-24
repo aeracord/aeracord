@@ -7,6 +7,7 @@ import {
     ACTIVITY_TYPE_LISTENING,
     ACTIVITY_TYPE_PLAYING,
     ACTIVITY_TYPE_STREAMING,
+    Ban,
     BulkDeleteMessagesData,
     ChannelPinsUpdateData,
     ChannelResolvable,
@@ -92,6 +93,8 @@ import getChannelInvites from "./apiMethods/getChannelInvites";
 import getChannelMessage from "./apiMethods/getChannelMessage";
 import getChannelMessages from "./apiMethods/getChannelMessages";
 import getGuild from "./apiMethods/getGuild";
+import getGuildBan from "./apiMethods/getGuildBan";
+import getGuildBans from "./apiMethods/getGuildBans";
 import getGuildChannels from "./apiMethods/getGuildChannels";
 import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
@@ -684,6 +687,29 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Guild>} The guild
      */
     getGuild = (guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild> => getGuild(this, guild, getGuildData);
+
+    /**
+     * Get Guild Ban
+     *
+     * Get a guild ban
+     *
+     * @param guild The guild to get the ban for
+     * @param user The user to get the ban for
+     *
+     * @returns {Promise<Ban>} The ban
+     */
+    getGuildBan = (guild: GuildResolvable, user: UserResolvable): Promise<Ban> => getGuildBan(this, guild, user);
+
+    /**
+     * Get Guild Bans
+     *
+     * Get a guild's bans
+     *
+     * @param guild The guild to get the bans for
+     *
+     * @returns {Promise<Ban[]>} The guild's bans
+     */
+    getGuildBans = (guild: GuildResolvable): Promise<Ban[]> => getGuildBans(this, guild);
 
     /**
      * Get Guild Channels

@@ -118,6 +118,7 @@ export {
 // Guild
 export {
     default as Guild,
+    Ban,
     DefaultMessageNotifications,
     DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES,
     DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS,

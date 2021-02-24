@@ -1,4 +1,4 @@
-import { Client, Emoji, GuildChannel, Invite, Member, Role } from "../../internal";
+import { Client, Emoji, GuildChannel, Invite, Member, Role, User } from "../../internal";
 import resolveID from "./resolveID";
 
 export interface GuildData {
@@ -77,6 +77,11 @@ export interface WelcomeScreenChannel {
     description: string;
     emojiID?: string;
     emojiName?: string;
+}
+
+export interface Ban {
+    user: User;
+    reason?: string;
 }
 
 export type GuildResolvable = Guild | GuildChannel | Member | Role | Invite | string;
