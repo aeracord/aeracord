@@ -12,6 +12,7 @@ import {
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
+    CreateGuildBanData,
     CreateGuildChannelData,
     CreateGuildData,
     CreateMessageData,
@@ -72,6 +73,7 @@ import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
 import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
 import createChannelInvite from "./apiMethods/createChannelInvite";
 import createGuild from "./apiMethods/createGuild";
+import createGuildBan from "./apiMethods/createGuildBan";
 import createGuildChannel from "./apiMethods/createGuildChannel";
 import createMessage from "./apiMethods/createMessage";
 import createReaction from "./apiMethods/createReaction";
@@ -452,6 +454,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Guild>} The created guild
      */
     createGuild = (createGuildData: CreateGuildData): Promise<Guild> => createGuild(this, createGuildData);
+
+    /**
+     * Create Guild Ban
+     *
+     * Ban a user from a guild
+     *
+     * @param guild The guild to ban the user from
+     * @param user The user to ban
+     * @param createGuildBanData The data for the ban
+     */
+    createGuildBan = (guild: GuildResolvable, user: UserResolvable, createGuildBanData?: CreateGuildBanData): Promise<void> => createGuildBan(this, guild, user, createGuildBanData);
 
     /**
      * Create Guild Channel

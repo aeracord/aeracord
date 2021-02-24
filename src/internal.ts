@@ -67,6 +67,7 @@ export { FetchedData, RateLimit, RequestOptions } from "./classes/Client/fetch";
 export { BulkDeleteMessagesData } from "./classes/Client/apiMethods/bulkDeleteMessages";
 export { CreateChannelInviteData } from "./classes/Client/apiMethods/createChannelInvite";
 export { CreateGuildData, CreateGuildDataChannel, CreateGuildDataChannelPermissionOverwrite, CreateGuildDataRole } from "./classes/Client/apiMethods/createGuild";
+export { CreateGuildBanData } from "./classes/Client/apiMethods/createGuildBan";
 export { CreateGuildChannelData } from "./classes/Client/apiMethods/createGuildChannel";
 export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/createMessage";
 export { EditChannelPermissionsData } from "./classes/Client/apiMethods/editChannelPermissions";

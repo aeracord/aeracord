@@ -67,6 +67,7 @@ export {
     AllowedMentions,
     BulkDeleteMessagesData,
     CreateChannelInviteData,
+    CreateGuildBanData,
     CreateGuildChannelData,
     CreateGuildData,
     CreateGuildDataChannel,
