@@ -100,6 +100,7 @@ import getGuildBans from "./apiMethods/getGuildBans";
 import getGuildChannels from "./apiMethods/getGuildChannels";
 import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
+import getGuildRoles from "./apiMethods/getGuildRoles";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import listGuildMembers from "./apiMethods/listGuildMembers";
@@ -758,6 +759,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<GuildPreview>} The guild preview
      */
     getGuildPreview = (guild: GuildResolvable): Promise<GuildPreview> => getGuildPreview(this, guild);
+
+    /**
+     * Get Guild Roles
+     *
+     * Get a guild's roles
+     *
+     * @param guild The guild to get the roles for
+     *
+     * @returns {Promise<Role[]>} The guild's roles
+     */
+    getGuildRoles = (guild: GuildResolvable): Promise<Role[]> => getGuildRoles(this, guild);
 
     /**
      * Get Pinned Messages
