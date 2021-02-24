@@ -1,4 +1,4 @@
-import { Attachment, ChannelType, Client, Embed, Member, Reaction, Sticker, User, Webhook } from "../../internal";
+import { Attachment, Client, Embed, GuildChannelType, Member, Reaction, Sticker, User, Webhook } from "../../internal";
 import resolveID from "./resolveID";
 
 export interface MessageData {
@@ -46,7 +46,7 @@ export const MESSAGE_TYPE_APPLICATION_COMMAND = 20;
 export interface ChannelMention {
     id: string;
     guildID: string;
-    type: ChannelType;
+    type: GuildChannelType;
     name: string;
 }
 

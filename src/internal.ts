@@ -144,7 +144,9 @@ export {
 // Guild Channel
 export {
     default as GuildChannel,
+    AnyGuildChannel,
     GuildChannelData,
+    GuildChannelType,
     PermissionOverwrite,
     PermissionType,
     PERMISSION_TYPE_ROLE,

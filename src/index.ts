@@ -142,7 +142,9 @@ export {
 
 // Guild Channel
 export {
+    AnyGuildChannel,
     GuildChannel,
+    GuildChannelType,
     PermissionOverwrite,
     PermissionType,
     PERMISSION_TYPE_ROLE,

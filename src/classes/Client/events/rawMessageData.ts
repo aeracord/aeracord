@@ -1,4 +1,4 @@
-import { ChannelType, MessageActivityType, MessageType } from "../../../internal";
+import { GuildChannelType, MessageActivityType, MessageType } from "../../../internal";
 import { RawAttachmentData } from "./rawAttachmentData";
 import { RawEmbedData } from "./rawEmbedData";
 import { RawUserlessMemberData } from "./rawMemberData";
@@ -39,7 +39,7 @@ export interface RawMessageData {
 export interface RawMessageDataChannelMention {
     id: string;
     guild_id: string;
-    type: ChannelType;
+    type: GuildChannelType;
     name: string;
 }
 

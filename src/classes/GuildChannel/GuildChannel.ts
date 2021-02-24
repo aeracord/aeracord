@@ -1,4 +1,4 @@
-import { ChannelData, Client } from "../../internal";
+import { CategoryChannel, ChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, NewsChannel, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
 import Channel from "../Channel/Channel";
 
 export interface GuildChannelData extends ChannelData {
@@ -19,6 +19,10 @@ export interface PermissionOverwrite {
 export type PermissionType = typeof PERMISSION_TYPE_ROLE | typeof PERMISSION_TYPE_MEMBER;
 export const PERMISSION_TYPE_ROLE = 0;
 export const PERMISSION_TYPE_MEMBER = 1;
+
+export type AnyGuildChannel = GuildChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel;
+
+export type GuildChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE;
 
 export default class GuildChannel extends Channel {
 

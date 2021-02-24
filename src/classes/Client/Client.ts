@@ -2,6 +2,7 @@ import EventEmitter from "events";
 import WebSocket from "ws";
 import {
     AnyChannel,
+    AnyGuildChannel,
     ACTIVITY_TYPE_COMPETING,
     ACTIVITY_TYPE_LISTENING,
     ACTIVITY_TYPE_PLAYING,
@@ -134,10 +135,10 @@ export interface UnemittedReadyData {
 
 export default interface Client {
     on(event: "ready", listener: (data: ReadyData, rawData: any) => void): this;
-    on(event: "channelCreate", listener: (channel: AnyChannel, rawData: any) => void): this;
-    on(event: "channelDelete", listener: (channel: AnyChannel, rawData: any) => void): this;
+    on(event: "channelCreate", listener: (channel: AnyGuildChannel, rawData: any) => void): this;
+    on(event: "channelDelete", listener: (channel: AnyGuildChannel, rawData: any) => void): this;
     on(event: "channelPinsUpdate", listener: (data: ChannelPinsUpdateData, rawData: any) => void): this;
-    on(event: "channelUpdate", listener: (channel: AnyChannel, rawData: any) => void): this;
+    on(event: "channelUpdate", listener: (channel: AnyGuildChannel, rawData: any) => void): this;
     on(event: "guildAvailable", listener: (data: GuildCreateData, rawData: any) => void): this;
     on(event: "guildBanAdd", listener: (user: User, rawData: any) => void): this;
     on(event: "guildBanRemove", listener: (user: User, rawData: any) => void): this;
@@ -701,9 +702,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to modify
      * @param modifyChannelData The data to modify the channel
      *
-     * @returns {Promise<AnyChannel>} The modified channel
+     * @returns {Promise<AnyGuildChannel>} The modified channel
      */
-    modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyChannel> => modifyChannel(this, channel, modifyChannelData);
+    modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannel> => modifyChannel(this, channel, modifyChannelData);
 
     /**
      * Modify Guild
