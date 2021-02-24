@@ -83,6 +83,7 @@ export {
     GetGuildData,
     GetReactionsData,
     GuildPreview,
+    ListGuildMembersData,
     ModifyChannelData,
     ModifyChannelDataType,
     ModifyGuildChannelPositionsData,

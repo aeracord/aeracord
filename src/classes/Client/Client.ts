@@ -36,6 +36,7 @@ import {
     Intent,
     Invite,
     InviteDeleteData,
+    ListGuildMembersData,
     Member,
     Message,
     MessageDeleteBulkData,
@@ -92,6 +93,7 @@ import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
+import listGuildMembers from "./apiMethods/listGuildMembers";
 import modifyChannel from "./apiMethods/modifyChannel";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
@@ -722,6 +724,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<User[]>} The users
      */
     getReactions = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> => getReactions(this, channel, message, reactionEmoji, getReactionsData);
+
+    /**
+     * List Guild Members
+     *
+     * Get members from a guild
+     *
+     * @param guild The guild to get the members from
+     * @param listGuildMembersData The data for getting the members
+     *
+     * @returns {Promise<Member[]>} The members
+     */
+    listGuildMembers = (guild: GuildResolvable, listGuildMembersData?: ListGuildMembersData): Promise<Member[]> => listGuildMembers(this, guild, listGuildMembersData);
 
     /**
      * Modify Channel
