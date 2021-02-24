@@ -15,6 +15,7 @@ import {
     CreateGuildBanData,
     CreateGuildChannelData,
     CreateGuildData,
+    CreateGuildRoleData,
     CreateMessageData,
     CurrentUserNickname,
     EditChannelPermissionsData,
@@ -75,6 +76,7 @@ import createChannelInvite from "./apiMethods/createChannelInvite";
 import createGuild from "./apiMethods/createGuild";
 import createGuildBan from "./apiMethods/createGuildBan";
 import createGuildChannel from "./apiMethods/createGuildChannel";
+import createGuildRole from "./apiMethods/createGuildRole";
 import createMessage from "./apiMethods/createMessage";
 import createReaction from "./apiMethods/createReaction";
 import crosspostMessage from "./apiMethods/crosspostMessage";
@@ -479,6 +481,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyGuildChannel>} The created channel
      */
     createGuildChannel = (guild: GuildResolvable, createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannel> => createGuildChannel(this, guild, createGuildChannelData);
+
+    /**
+     * Create Guild Role
+     *
+     * Create a role
+     *
+     * @param guild The guild to create a role in
+     * @param createGuildRoleData The data for the role
+     *
+     * @returns {Promise<Role>} The created role
+     */
+    createGuildRole = (guild: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<Role> => createGuildRole(this, guild, createGuildRoleData);
 
     /**
      * Create Message
