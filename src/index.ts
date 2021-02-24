@@ -93,6 +93,7 @@ export {
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
     ModifyGuildMemberData,
+    ModifyGuildRoleData,
     ModifyGuildRolePositionsData
 } from "./internal";
 
