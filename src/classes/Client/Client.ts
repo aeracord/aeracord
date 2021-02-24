@@ -103,6 +103,7 @@ import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
+import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
@@ -813,6 +814,16 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Member>} The modified member
      */
     modifyGuildMember = (guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> => modifyGuildMember(this, guild, user, modifyGuildMemberData);
+
+    /**
+     * Remove Guild Member
+     *
+     * Kick a member
+     *
+     * @param guild The guild to kick the member from
+     * @param user The user resolvable for the member to kick
+     */
+    removeGuildMember = (guild: GuildResolvable, user: UserResolvable): Promise<void> => removeGuildMember(this, guild, user);
 
     /**
      * Remove Guild Member Role
