@@ -85,6 +85,7 @@ export {
     GuildPreview,
     ModifyChannelData,
     ModifyChannelDataType,
+    ModifyGuildChannelPositionsData,
     ModifyGuildData
 } from "./internal";
 

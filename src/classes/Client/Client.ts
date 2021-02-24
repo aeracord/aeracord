@@ -47,6 +47,7 @@ import {
     MessageResolvable,
     MessageUpdateData,
     ModifyChannelData,
+    ModifyGuildChannelPositionsData,
     ModifyGuildData,
     Presence,
     ReactionEmojiResolvable,
@@ -92,6 +93,7 @@ import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import modifyChannel from "./apiMethods/modifyChannel";
 import modifyGuild from "./apiMethods/modifyGuild";
+import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
@@ -731,6 +733,16 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Guild>} The modified guild
      */
     modifyGuild = (guild: GuildResolvable, modifyGuildData: ModifyGuildData): Promise<Guild> => modifyGuild(this, guild, modifyGuildData);
+
+    /**
+     * Modify Guild Channel Positions
+     *
+     * Modify the positions of channels in a guild
+     *
+     * @param guild The guild to modify channel positions in
+     * @param modifyGuildChannelPositionsData The data to modify the channel positions
+     */
+    modifyGuildChannelPositions = (guild: GuildResolvable, modifyGuildChannelPositionsData: ModifyGuildChannelPositionsData[]): Promise<void> => modifyGuildChannelPositions(this, guild, modifyGuildChannelPositionsData);
 
     /**
      * Trigger Typing Indicator
