@@ -50,6 +50,7 @@ import {
     ModifyChannelData,
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
+    ModifyGuildMemberData,
     Presence,
     ReactionEmojiResolvable,
     ReadyData,
@@ -97,6 +98,7 @@ import listGuildMembers from "./apiMethods/listGuildMembers";
 import modifyChannel from "./apiMethods/modifyChannel";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
+import modifyGuildMember from "./apiMethods/modifyGuildMember";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
@@ -770,6 +772,19 @@ export default class Client extends EventEmitter {
      * @param modifyGuildChannelPositionsData The data to modify the channel positions
      */
     modifyGuildChannelPositions = (guild: GuildResolvable, modifyGuildChannelPositionsData: ModifyGuildChannelPositionsData[]): Promise<void> => modifyGuildChannelPositions(this, guild, modifyGuildChannelPositionsData);
+
+    /**
+     * Modify Guild Member
+     *
+     * Modify a member
+     *
+     * @param guild The guild to modify the member in
+     * @param user The user resolvable for the member to modify
+     * @param modifyGuildMemberData The data to modify the member
+     *
+     * @returns {Promise<Member>} The modified member
+     */
+    modifyGuildMember = (guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> => modifyGuildMember(this, guild, user, modifyGuildMemberData);
 
     /**
      * Trigger Typing Indicator

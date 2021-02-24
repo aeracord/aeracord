@@ -80,6 +80,7 @@ export { ListGuildMembersData } from "./classes/Client/apiMethods/listGuildMembe
 export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/modifyChannel";
 export { ModifyGuildData } from "./classes/Client/apiMethods/modifyGuild";
 export { ModifyGuildChannelPositionsData } from "./classes/Client/apiMethods/modifyGuildChannelPositions";
+export { ModifyGuildMemberData } from "./classes/Client/apiMethods/modifyGuildMember";
 
 // DM Channel
 export {

@@ -87,7 +87,8 @@ export {
     ModifyChannelData,
     ModifyChannelDataType,
     ModifyGuildChannelPositionsData,
-    ModifyGuildData
+    ModifyGuildData,
+    ModifyGuildMemberData
 } from "./internal";
 
 // DM Channel
