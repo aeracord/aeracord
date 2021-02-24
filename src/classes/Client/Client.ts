@@ -483,11 +483,11 @@ export default class Client extends EventEmitter {
     /**
      * Delete Channel
      *
-     * Delete a channel
+     * Delete a channel or close a DM channel
      *
-     * @param channel The channel to delete
+     * @param channel The channel to delete or close
      *
-     * @returns {Promise<AnyChannel>} The deleted channel
+     * @returns {Promise<AnyChannel>} The deleted or closed channel
      */
     deleteChannel = (channel: ChannelResolvable): Promise<AnyChannel> => deleteChannel(this, channel);
 
