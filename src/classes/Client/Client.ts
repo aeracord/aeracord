@@ -66,6 +66,7 @@ import {
     VoiceState,
     WebhooksUpdateData
 } from "../../internal";
+import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
 import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
 import createChannelInvite from "./apiMethods/createChannelInvite";
@@ -102,6 +103,7 @@ import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
+import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
@@ -392,6 +394,17 @@ export default class Client extends EventEmitter {
      * @returns {FetchQueue} The fetch queue
      */
     _getFetchQueue = (route: string): FetchQueue => getFetchQueue(this, route);
+
+    /**
+     * Add Guild Member Role
+     *
+     * Add a role to a member
+     *
+     * @param guild The guild to add the role in
+     * @param user The user resolvable for the member to add the role to
+     * @param role The role to add
+     */
+    addGuildMemberRole = (guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> => addGuildMemberRole(this, guild, user, role);
 
     /**
      * Add Pinned Channel Message
@@ -800,6 +813,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Member>} The modified member
      */
     modifyGuildMember = (guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> => modifyGuildMember(this, guild, user, modifyGuildMemberData);
+
+    /**
+     * Remove Guild Member Role
+     *
+     * Remove a role from a member
+     *
+     * @param guild The guild to remove the role in
+     * @param user The user resolvable for the member to remove the role from
+     * @param role The role to remove
+     */
+    removeGuildMemberRole = (guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> => removeGuildMemberRole(this, guild, user, role);
 
     /**
      * Trigger Typing Indicator
