@@ -11,6 +11,7 @@ import {
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
+    CreateGuildChannelData,
     CreateGuildData,
     CreateMessageData,
     EditChannelPermissionsData,
@@ -64,6 +65,7 @@ import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
 import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
 import createChannelInvite from "./apiMethods/createChannelInvite";
 import createGuild from "./apiMethods/createGuild";
+import createGuildChannel from "./apiMethods/createGuildChannel";
 import createMessage from "./apiMethods/createMessage";
 import createReaction from "./apiMethods/createReaction";
 import crosspostMessage from "./apiMethods/crosspostMessage";
@@ -423,6 +425,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Guild>} The created guild
      */
     createGuild = (createGuildData: CreateGuildData): Promise<Guild> => createGuild(this, createGuildData);
+
+    /**
+     * Create Guild Channel
+     *
+     * Create a channel in a guild
+     *
+     * @param guild The guild to create a channel in
+     * @param createGuildChannelData The data for the channel
+     *
+     * @returns {Promise<AnyGuildChannel>} The created channel
+     */
+    createGuildChannel = (guild: GuildResolvable, createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannel> => createGuildChannel(this, guild, createGuildChannelData);
 
     /**
      * Create Message
