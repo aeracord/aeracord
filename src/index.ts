@@ -93,6 +93,7 @@ export {
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
     ModifyGuildMemberData,
+    ModifyGuildMembershipScreeningFormData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
     ModifyGuildWidgetData
@@ -133,6 +134,9 @@ export {
     EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES,
     Feature,
     Guild,
+    GuildMembershipScreeningForm,
+    GuildMembershipScreeningFormField,
+    GuildMembershipScreeningFormFieldType,
     GuildResolvable,
     GuildWidget,
     MFALevel,

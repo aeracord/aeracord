@@ -84,6 +84,7 @@ export { CurrentUserNickname, ModifyCurrentUserNicknameData } from "./classes/Cl
 export { ModifyGuildData } from "./classes/Client/apiMethods/modifyGuild";
 export { ModifyGuildChannelPositionsData } from "./classes/Client/apiMethods/modifyGuildChannelPositions";
 export { ModifyGuildMemberData } from "./classes/Client/apiMethods/modifyGuildMember";
+export { ModifyGuildMembershipScreeningFormData } from "./classes/Client/apiMethods/modifyGuildMembershipScreeningForm";
 export { ModifyGuildRoleData } from "./classes/Client/apiMethods/modifyGuildRole";
 export { ModifyGuildRolePositionsData } from "./classes/Client/apiMethods/modifyGuildRolePositions";
 export { ModifyGuildWidgetData } from "./classes/Client/apiMethods/modifyGuildWidget";
@@ -133,6 +134,9 @@ export {
     EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES,
     Feature,
     GuildData,
+    GuildMembershipScreeningForm,
+    GuildMembershipScreeningFormField,
+    GuildMembershipScreeningFormFieldType,
     GuildResolvable,
     GuildWidget,
     MFALevel,
