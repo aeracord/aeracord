@@ -93,6 +93,11 @@ export interface VoiceRegion {
     custom: boolean;
 }
 
+export interface VanityInvite {
+    code?: string;
+    uses: number;
+}
+
 export interface GuildWidget {
     enabled: boolean;
     channelID?: string;

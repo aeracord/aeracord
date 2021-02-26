@@ -143,6 +143,7 @@ export {
     PREMIUM_TIER_TIER_1,
     PREMIUM_TIER_TIER_2,
     PREMIUM_TIER_TIER_3,
+    VanityInvite,
     VerificationLevel,
     VERIFICATION_LEVEL_HIGH,
     VERIFICATION_LEVEL_LOW,

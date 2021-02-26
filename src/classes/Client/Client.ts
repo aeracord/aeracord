@@ -70,6 +70,7 @@ import {
     TypingStartData,
     User,
     UserResolvable,
+    VanityInvite,
     VoiceRegion,
     VoiceState,
     WebhooksUpdateData
@@ -110,6 +111,7 @@ import getGuildInvites from "./apiMethods/getGuildInvites";
 import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getGuildRoles from "./apiMethods/getGuildRoles";
+import getGuildVanityURL from "./apiMethods/getGuildVanityURL";
 import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
 import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
@@ -817,6 +819,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Role[]>} The guild's roles
      */
     getGuildRoles = (guild: GuildResolvable): Promise<Role[]> => getGuildRoles(this, guild);
+
+    /**
+     * Get Guild Vanity URL
+     *
+     * Get a guild's vanity invite
+     *
+     * @param guild The guild to get the vanity invite for
+     *
+     * @returns {Promise<VanityInvite>} The vanity invite
+     */
+    getGuildVanityURL = (guild: GuildResolvable): Promise<VanityInvite> => getGuildVanityURL(this, guild);
 
     /**
      * Get Guild Voice Regions
