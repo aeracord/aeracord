@@ -7,8 +7,8 @@ export default function parseInvite(client: Client, rawData: RawInviteData): Inv
     // Parse invite
     const invite: Invite = new Invite(client, {
         code: rawData.code,
-        channelID: rawData.channel_id,
-        guildID: rawData.guild_id,
+        channelID: rawData.channel.id,
+        guildID: rawData.guild.id,
         createdAt: new Date(rawData.created_at).getTime(),
         inviter: rawData.inviter && parseUser(client, rawData.inviter),
         maxAge: rawData.max_age || undefined,

@@ -1,10 +1,10 @@
-import { TargetUserType } from "../../../internal";
+import { Feature, GuildChannelType, TargetUserType, VerificationLevel } from "../../../internal";
 import { RawUserData } from "./rawUserData";
 
 export interface RawInviteData {
     code: string;
-    channel_id: string;
-    guild_id: string;
+    channel: RawInviteDataChannel;
+    guild: RawInviteDataGuild;
     created_at: string;
     inviter?: RawUserData;
     max_age: number;
@@ -13,6 +13,24 @@ export interface RawInviteData {
     uses: number;
     target_user?: RawInviteDataTargetUser;
     target_user_type?: TargetUserType;
+}
+
+export interface RawInviteDataChannel {
+    id: string;
+    name: string;
+    type: GuildChannelType;
+}
+
+export interface RawInviteDataGuild {
+    id: string;
+    name: string;
+    icon: string | null;
+    splash: string | null;
+    verification_level: VerificationLevel;
+    features: Feature[];
+    vanity_url_code: string | null;
+    description: string | null;
+    banner: string | null;
 }
 
 export interface RawInviteDataTargetUser {
