@@ -37,6 +37,7 @@ import {
     GuildPreview,
     GuildResolvable,
     GuildRoleDeleteData,
+    GuildWidget,
     Intent,
     Invite,
     InviteDeleteData,
@@ -58,6 +59,7 @@ import {
     ModifyGuildMemberData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
+    ModifyGuildWidgetData,
     Presence,
     ReactionEmojiResolvable,
     ReadyData,
@@ -109,6 +111,7 @@ import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getGuildRoles from "./apiMethods/getGuildRoles";
 import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
+import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import listGuildMembers from "./apiMethods/listGuildMembers";
@@ -119,6 +122,7 @@ import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPosition
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
 import modifyGuildRole from "./apiMethods/modifyGuildRole";
 import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
+import modifyGuildWidget from "./apiMethods/modifyGuildWidget";
 import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
@@ -826,6 +830,17 @@ export default class Client extends EventEmitter {
     getGuildVoiceRegions = (guild: GuildResolvable): Promise<VoiceRegion[]> => getGuildVoiceRegions(this, guild);
 
     /**
+     * Get Guild Widget Settings
+     *
+     * Get a guild's widget settings
+     *
+     * @param guild The guild to get the widget for
+     *
+     * @returns {Promise<GuildWidget>} The widget
+     */
+    getGuildWidgetSettings = (guild: GuildResolvable): Promise<GuildWidget> => getGuildWidgetSettings(this, guild);
+
+    /**
      * Get Pinned Messages
      *
      * Get a channel's pinned messages
@@ -945,6 +960,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Role[]>} The guild's roles
      */
     modifyGuildRolePositions = (guild: GuildResolvable, modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> => modifyGuildRolePositions(this, guild, modifyGuildRolePositionsData);
+
+    /**
+     * Modify Guild Widget
+     *
+     * Modify a guild's widget
+     *
+     * @param guild The guild to modify the widget in
+     * @param modifyGuildWidgetData The data to modify the guild's widget
+     *
+     * @returns {Promise<GuildWidget>} The modified guild widget
+     */
+    modifyGuildWidget = (guild: GuildResolvable, modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> => modifyGuildWidget(this, guild, modifyGuildWidgetData);
 
     /**
      * Remove Guild Ban

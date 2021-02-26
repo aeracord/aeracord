@@ -94,7 +94,8 @@ export {
     ModifyGuildData,
     ModifyGuildMemberData,
     ModifyGuildRoleData,
-    ModifyGuildRolePositionsData
+    ModifyGuildRolePositionsData,
+    ModifyGuildWidgetData
 } from "./internal";
 
 // DM Channel
@@ -133,6 +134,7 @@ export {
     Feature,
     Guild,
     GuildResolvable,
+    GuildWidget,
     MFALevel,
     MFA_LEVEL_ELEVATED,
     MFA_LEVEL_NONE,

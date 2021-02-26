@@ -93,6 +93,11 @@ export interface VoiceRegion {
     custom: boolean;
 }
 
+export interface GuildWidget {
+    enabled: boolean;
+    channelID?: string;
+}
+
 export type GuildResolvable = Guild | GuildChannel | Member | Role | Invite | string;
 
 export default class Guild {

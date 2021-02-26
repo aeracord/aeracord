@@ -86,6 +86,7 @@ export { ModifyGuildChannelPositionsData } from "./classes/Client/apiMethods/mod
 export { ModifyGuildMemberData } from "./classes/Client/apiMethods/modifyGuildMember";
 export { ModifyGuildRoleData } from "./classes/Client/apiMethods/modifyGuildRole";
 export { ModifyGuildRolePositionsData } from "./classes/Client/apiMethods/modifyGuildRolePositions";
+export { ModifyGuildWidgetData } from "./classes/Client/apiMethods/modifyGuildWidget";
 
 // DM Channel
 export {
@@ -133,6 +134,7 @@ export {
     Feature,
     GuildData,
     GuildResolvable,
+    GuildWidget,
     MFALevel,
     MFA_LEVEL_ELEVATED,
     MFA_LEVEL_NONE,
