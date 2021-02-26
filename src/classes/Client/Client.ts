@@ -68,6 +68,7 @@ import {
     TypingStartData,
     User,
     UserResolvable,
+    VoiceRegion,
     VoiceState,
     WebhooksUpdateData
 } from "../../internal";
@@ -106,6 +107,7 @@ import getGuildChannels from "./apiMethods/getGuildChannels";
 import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getGuildRoles from "./apiMethods/getGuildRoles";
+import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import listGuildMembers from "./apiMethods/listGuildMembers";
@@ -799,6 +801,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Role[]>} The guild's roles
      */
     getGuildRoles = (guild: GuildResolvable): Promise<Role[]> => getGuildRoles(this, guild);
+
+    /**
+     * Get Guild Voice Regions
+     *
+     * Get a guild's voice regions
+     *
+     * @param guild The guild to get the voice regions for
+     *
+     * @returns {Promise<VoiceRegion[]>} The guild's voice regions
+     */
+    getGuildVoiceRegions = (guild: GuildResolvable): Promise<VoiceRegion[]> => getGuildVoiceRegions(this, guild);
 
     /**
      * Get Pinned Messages

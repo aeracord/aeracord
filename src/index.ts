@@ -147,6 +147,7 @@ export {
     VERIFICATION_LEVEL_MEDIUM,
     VERIFICATION_LEVEL_NONE,
     VERIFICATION_LEVEL_VERY_HIGH,
+    VoiceRegion,
     WelcomeScreen,
     WelcomeScreenChannel
 } from "./internal";

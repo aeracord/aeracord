@@ -84,6 +84,15 @@ export interface Ban {
     reason?: string;
 }
 
+export interface VoiceRegion {
+    id: string;
+    name: string;
+    vip: boolean;
+    optimal: boolean;
+    deprecated: boolean;
+    custom: boolean;
+}
+
 export type GuildResolvable = Guild | GuildChannel | Member | Role | Invite | string;
 
 export default class Guild {
