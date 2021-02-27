@@ -121,7 +121,8 @@ export { default as RawEmbedData, RawEmbedDataAuthor, RawEmbedDataField, RawEmbe
 // Emoji
 export {
     default as Emoji,
-    EmojiData
+    EmojiData,
+    EmojiResolvable
 } from "./classes/Emoji/Emoji";
 export { default as RawEmojiData } from "./classes/Emoji/rawEmojiData";
 

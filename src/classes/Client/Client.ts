@@ -21,6 +21,7 @@ import {
     EditChannelPermissionsData,
     EditMessageData,
     Emoji,
+    EmojiResolvable,
     FetchedData,
     FetchQueue,
     FollowedChannel,
@@ -108,6 +109,7 @@ import getGuild from "./apiMethods/getGuild";
 import getGuildBan from "./apiMethods/getGuildBan";
 import getGuildBans from "./apiMethods/getGuildBans";
 import getGuildChannels from "./apiMethods/getGuildChannels";
+import getGuildEmoji from "./apiMethods/getGuildEmoji";
 import getGuildInvites from "./apiMethods/getGuildInvites";
 import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
@@ -776,6 +778,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<GuildChannel[]>} The guild's channels
      */
     getGuildChannels = (guild: GuildResolvable): Promise<GuildChannel[]> => getGuildChannels(this, guild);
+
+    /**
+     * Get Guild Emoji
+     *
+     * Get an emoji from a guild
+     *
+     * @param guild The guild to get the emoji from
+     * @param emoji The emoji to get
+     *
+     * @returns {Promise<Emoji>} The emoji
+     */
+    getGuildEmoji = (guild: GuildResolvable, emoji: EmojiResolvable): Promise<Emoji> => getGuildEmoji(this, guild, emoji);
 
     /**
      * Get Guild Invites

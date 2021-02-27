@@ -123,7 +123,8 @@ export {
 
 // Emoji
 export {
-    Emoji
+    Emoji,
+    EmojiResolvable
 } from "./internal";
 
 // Guild

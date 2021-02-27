@@ -1,5 +1,6 @@
 import { Client, RawEmojiData, User } from "../../internal";
 import fromRawData from "./fromRawData";
+import resolveID from "./resolveID";
 
 export interface EmojiData {
     id: string;
@@ -11,6 +12,8 @@ export interface EmojiData {
     requiresColons?: boolean;
     roles: string[];
 }
+
+export type EmojiResolvable = Emoji | string;
 
 export default class Emoji {
 
@@ -115,4 +118,15 @@ export default class Emoji {
      * @returns {Emoji} The emoji
      */
     static _fromRawData = (client: Client, rawData: RawEmojiData): Emoji => fromRawData(client, rawData);
+
+    /**
+     * Resolve ID
+     *
+     * Resolve an object to an emoji ID
+     *
+     * @param emojiResolvable The emoji resolvable
+     *
+     * @returns {string} The resolved emoji ID
+     */
+    static resolveID = (emojiResolvable: EmojiResolvable): string => resolveID(emojiResolvable);
 }
