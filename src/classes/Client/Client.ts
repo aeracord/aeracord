@@ -20,6 +20,7 @@ import {
     CurrentUserNickname,
     EditChannelPermissionsData,
     EditMessageData,
+    Emoji,
     FetchedData,
     FetchQueue,
     FollowedChannel,
@@ -116,6 +117,7 @@ import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
 import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
+import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import modifyChannel from "./apiMethods/modifyChannel";
 import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
@@ -877,6 +879,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<User[]>} The users
      */
     getReactions = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> => getReactions(this, channel, message, reactionEmoji, getReactionsData);
+
+    /**
+     * List Guild Emojis
+     *
+     * Get the emojis in a guild
+     *
+     * @param guild The guild to get the emojis from
+     *
+     * @returns {Promise<Emoji[]>} The emojis
+     */
+    listGuildEmojis = (guild: GuildResolvable): Promise<Emoji[]> => listGuildEmojis(this, guild);
 
     /**
      * List Guild Members
