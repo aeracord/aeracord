@@ -1,7 +1,5 @@
-import { Ban, Client, FetchQueue, Guild, GuildResolvable, User, UserResolvable } from "../../../internal";
+import { Ban, Client, FetchQueue, Guild, GuildResolvable, RawBanData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseBan from "../events/parseBan";
-import { RawBanData } from "../events/rawBanData";
 
 export default async function getGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable): Promise<Ban> {
 
@@ -24,7 +22,7 @@ export default async function getGuildBan(client: Client, guildResolvable: Guild
     });
 
     // Parse ban
-    const ban: Ban = parseBan(client, result);
+    const ban: Ban = Ban._fromRawData(client, result, guildID);
 
     // Return
     return ban;

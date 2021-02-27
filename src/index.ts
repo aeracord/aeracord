@@ -9,6 +9,11 @@ export {
     Attachment
 } from "./internal";
 
+// Ban
+export {
+    Ban
+} from "./internal";
+
 // Category Channel
 export {
     CategoryChannel
@@ -124,7 +129,6 @@ export {
 
 // Guild
 export {
-    Ban,
     DefaultMessageNotifications,
     DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES,
     DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS,

@@ -5,6 +5,13 @@ export {
 } from "./classes/Attachment/Attachment";
 export { default as RawAttachmentData } from "./classes/Attachment/rawAttachmentData";
 
+// Ban
+export {
+    default as Ban,
+    BanData
+} from "./classes/Ban/Ban";
+export { default as RawBanData } from "./classes/Ban/rawBanData";
+
 // Category Channel
 export {
     default as CategoryChannel,
@@ -128,7 +135,6 @@ export {
 // Guild
 export {
     default as Guild,
-    Ban,
     DefaultMessageNotifications,
     DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES,
     DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS,
