@@ -156,7 +156,6 @@ export {
     PREMIUM_TIER_TIER_1,
     PREMIUM_TIER_TIER_2,
     PREMIUM_TIER_TIER_3,
-    VanityInvite,
     VerificationLevel,
     VERIFICATION_LEVEL_HIGH,
     VERIFICATION_LEVEL_LOW,
@@ -318,6 +317,13 @@ export {
     UserResolvable
 } from "./classes/User/User";
 export { default as RawUserData, RawUserWithMemberData } from "./classes/User/rawUserData";
+
+// Vanity Invite
+export {
+    default as VanityInvite,
+    VanityInviteData
+} from "./classes/VanityInvite/VanityInvite";
+export { default as RawVanityInviteData } from "./classes/VanityInvite/rawVanityInviteData";
 
 // Voice Channel
 export {

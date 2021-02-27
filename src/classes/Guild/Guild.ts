@@ -104,11 +104,6 @@ export interface VoiceRegion {
     custom: boolean;
 }
 
-export interface VanityInvite {
-    code?: string;
-    uses: number;
-}
-
 export type GuildResolvable = Guild | GuildChannel | Member | Role | Invite | string;
 
 export default class Guild {
