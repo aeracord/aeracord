@@ -1,4 +1,4 @@
-import { Client, Emoji, GuildChannel, Invite, Member, RawGuildData, Role } from "../../internal";
+import { Client, Emoji, GuildChannel, Invite, Member, RawGuildData, Role, WelcomeScreen } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -67,18 +67,6 @@ export const PREMIUM_TIER_NONE = 0;
 export const PREMIUM_TIER_TIER_1 = 1;
 export const PREMIUM_TIER_TIER_2 = 2;
 export const PREMIUM_TIER_TIER_3 = 3;
-
-export interface WelcomeScreen {
-    description?: string;
-    channels: WelcomeScreenChannel[];
-}
-
-export interface WelcomeScreenChannel {
-    channelID: string;
-    description: string;
-    emojiID?: string;
-    emojiName?: string;
-}
 
 export interface VoiceRegion {
     id: string;

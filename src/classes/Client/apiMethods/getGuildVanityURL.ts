@@ -1,7 +1,5 @@
-import { Client, FetchQueue, Guild, GuildResolvable, VanityInvite } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawVanityInviteData, VanityInvite } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseVanityInvite from "../events/parseVanityInvite";
-import { RawVanityInviteData } from "../events/rawVanityInviteData";
 
 export default async function getGuildVanityURL(client: Client, guildResolvable: GuildResolvable): Promise<VanityInvite> {
 
@@ -23,7 +21,7 @@ export default async function getGuildVanityURL(client: Client, guildResolvable:
     });
 
     // Parse vanity invite
-    const vanityInvite: VanityInvite = parseVanityInvite(result);
+    const vanityInvite: VanityInvite = VanityInvite._fromRawData(client, result, guildID);
 
     // Return
     return vanityInvite;

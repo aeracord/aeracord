@@ -152,9 +152,7 @@ export {
     VERIFICATION_LEVEL_MEDIUM,
     VERIFICATION_LEVEL_NONE,
     VERIFICATION_LEVEL_VERY_HIGH,
-    VoiceRegion,
-    WelcomeScreen,
-    WelcomeScreenChannel
+    VoiceRegion
 } from "./internal";
 
 // Guild Channel
@@ -301,4 +299,10 @@ export {
 // Webhook
 export {
     Webhook
+} from "./internal";
+
+// Welcome Screen
+export {
+    WelcomeScreen,
+    WelcomeScreenChannel
 } from "./internal";

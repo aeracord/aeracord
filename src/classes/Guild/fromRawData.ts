@@ -1,4 +1,4 @@
-import { Client, Emoji, Guild, RawEmojiData, RawGuildData, RawGuildDataWelcomeScreenChannel, RawRoleData, Role } from "../../internal";
+import { Client, Emoji, Guild, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
 
 export default function fromRawData(client: Client, rawData: RawGuildData): Guild {
 
@@ -38,15 +38,7 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         maxVideoChannelUsers: rawData.max_video_channel_users,
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
-        welcomeScreen: rawData.welcome_screen && {
-            description: rawData.welcome_screen.description || undefined,
-            channels: rawData.welcome_screen.welcome_channels.map((c: RawGuildDataWelcomeScreenChannel) => ({
-                channelID: c.channel_id,
-                description: c.description,
-                emojiID: c.emoji_id || undefined,
-                emojiName: c.emoji_name || undefined
-            }))
-        }
+        welcomeScreen: rawData.welcome_screen && WelcomeScreen._fromRawData(client, rawData.welcome_screen, rawData.id)
     });
 
     // Return

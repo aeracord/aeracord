@@ -58,7 +58,7 @@ export default class VanityInvite {
     /**
      * From Raw Data
      *
-     * Create an `VanityInvite` from a `RawVanityInviteData` object
+     * Create a `VanityInvite` from a `RawVanityInviteData` object
      *
      * @param rawData The raw data from the API
      *

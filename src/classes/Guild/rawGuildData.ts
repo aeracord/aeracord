@@ -1,4 +1,4 @@
-import { DefaultMessageNotifications, ExplicitContentFilter, Feature, MFALevel, PremiumTier, RawEmojiData, RawRoleData, VerificationLevel } from "../../internal";
+import { DefaultMessageNotifications, ExplicitContentFilter, Feature, MFALevel, PremiumTier, RawEmojiData, RawRoleData, RawWelcomeScreenData, VerificationLevel } from "../../internal";
 
 export default interface RawGuildData {
     id: string;
@@ -35,17 +35,5 @@ export default interface RawGuildData {
     max_video_channel_users?: number;
     approximate_member_count?: number;
     approximate_presence_count?: number;
-    welcome_screen?: RawGuildDataWelcomeScreen;
-}
-
-export interface RawGuildDataWelcomeScreen {
-    description: string | null;
-    welcome_channels: RawGuildDataWelcomeScreenChannel[];
-}
-
-export interface RawGuildDataWelcomeScreenChannel {
-    channel_id: string;
-    description: string;
-    emoji_id: string | null;
-    emoji_name: string | null;
+    welcome_screen?: RawWelcomeScreenData;
 }

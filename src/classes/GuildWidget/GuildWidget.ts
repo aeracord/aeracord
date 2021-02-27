@@ -58,7 +58,7 @@ export default class GuildWidget {
     /**
      * From Raw Data
      *
-     * Create an `GuildWidget` from a `RawGuildWidgetData` object
+     * Create a `GuildWidget` from a `RawGuildWidgetData` object
      *
      * @param rawData The raw data from the API
      *

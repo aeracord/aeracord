@@ -58,7 +58,7 @@ export default class Ban {
     /**
      * From Raw Data
      *
-     * Create an `Ban` from a `RawBanData` object
+     * Create a `Ban` from a `RawBanData` object
      *
      * @param rawData The raw data from the API
      *

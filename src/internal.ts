@@ -158,11 +158,9 @@ export {
     VERIFICATION_LEVEL_MEDIUM,
     VERIFICATION_LEVEL_NONE,
     VERIFICATION_LEVEL_VERY_HIGH,
-    VoiceRegion,
-    WelcomeScreen,
-    WelcomeScreenChannel
+    VoiceRegion
 } from "./classes/Guild/Guild";
-export { default as RawGuildData, RawGuildDataWelcomeScreen, RawGuildDataWelcomeScreenChannel } from "./classes/Guild/rawGuildData";
+export { default as RawGuildData } from "./classes/Guild/rawGuildData";
 
 // Guild Channel
 export {
@@ -340,3 +338,11 @@ export {
     WebhookData
 } from "./classes/Webhook/Webhook";
 export { default as RawWebhookData } from "./classes/Webhook/rawWebhookData";
+
+// Welcome Screen
+export {
+    default as WelcomeScreen,
+    WelcomeScreenChannel,
+    WelcomeScreenData
+} from "./classes/WelcomeScreen/WelcomeScreen";
+export { default as RawWelcomeScreenData, RawWelcomeScreenDataChannel } from "./classes/WelcomeScreen/rawWelcomeScreenData";

@@ -1,7 +1,5 @@
-import { Client, FetchQueue, Guild, GuildResolvable, GuildWidget } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, GuildWidget, RawGuildWidgetData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseGuildWidget from "../events/parseGuildWidget";
-import { RawGuildWidgetData } from "../events/rawGuildWidgetData";
 
 export interface ModifyGuildWidgetData {
     enabled?: boolean;
@@ -32,7 +30,7 @@ export default async function modifyGuildWidget(client: Client, guildResolvable:
     });
 
     // Parse guild widget
-    const guildWidget: GuildWidget = parseGuildWidget(result);
+    const guildWidget: GuildWidget = GuildWidget._fromRawData(client, result, guildID);
 
     // Return
     return guildWidget;
