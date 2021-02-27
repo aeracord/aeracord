@@ -1,13 +1,6 @@
-import { GuildChannelType, MessageActivityType, MessageType } from "../../../internal";
-import { RawAttachmentData } from "./rawAttachmentData";
-import { RawEmbedData } from "./rawEmbedData";
-import { RawUserlessMemberData } from "./rawMemberData";
-import { RawReactionData } from "./rawReactionData";
-import { RawStickerData } from "./rawStickerData";
-import { RawUserData, RawUserWithMemberData } from "./rawUserData";
-import { RawWebhookData } from "./rawWebhookData";
+import { GuildChannelType, MessageActivityType, MessageType, RawAttachmentData, RawEmbedData, RawReactionData, RawStickerData, RawUserData, RawUserlessMemberData, RawUserWithMemberData, RawWebhookData } from "../../internal";
 
-export interface RawMessageData {
+export default interface RawMessageData {
     id: string;
     type: MessageType;
     channel_id: string;

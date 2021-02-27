@@ -1,6 +1,6 @@
-import { StickerFormatType } from "../../../internal";
+import { StickerFormatType } from "../../internal";
 
-export interface RawStickerData {
+export default interface RawStickerData {
     id: string;
     pack_id: string;
     name: string;

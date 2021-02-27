@@ -1,7 +1,5 @@
-import { AnyGuildChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite } from "../../../internal";
+import { AnyGuildChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseChannel from "../events/parseChannel";
-import { RawChannelData } from "../events/rawChannelData";
 
 export interface ModifyChannelData {
     name?: string;
@@ -50,7 +48,7 @@ export default async function modifyChannel(client: Client, channelResolvable: C
     });
 
     // Parse channel
-    const channel: AnyGuildChannel = parseChannel(client, result) as AnyGuildChannel;
+    const channel: AnyGuildChannel = Channel._fromRawData(client, result) as AnyGuildChannel;
 
     // Return
     return channel;

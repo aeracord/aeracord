@@ -1,4 +1,4 @@
-import { RawRoleData } from "../rawRoleData";
+import { RawRoleData } from "../../../../internal";
 
 export interface RawGuildRoleCreateData {
     guild_id: string;

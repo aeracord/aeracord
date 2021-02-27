@@ -1,4 +1,5 @@
-import { Client, Member } from "../../internal";
+import { Client, Member, RawVoiceStateData } from "../../internal";
+import fromRawData from "./fromRawData";
 
 export interface VoiceStateData {
     guildID: string;
@@ -143,4 +144,15 @@ export default class VoiceState {
         this.selfVideo = Boolean(voiceStateData.selfVideo);
         this.suppress = Boolean(voiceStateData.suppress);
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `VoiceState` from a `RawVoiceStateData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {VoiceState} The voice state
+     */
+    static _fromRawData = (client: Client, rawData: RawVoiceStateData): VoiceState => fromRawData(client, rawData);
 }

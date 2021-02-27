@@ -1,7 +1,5 @@
-import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable } from "../../../internal";
+import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, RawMessageData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseMessage from "../events/parseMessage";
-import { RawMessageData } from "../events/rawMessageData";
 
 export interface EditMessageData {
     content?: string;
@@ -37,7 +35,7 @@ export default async function editMessage(client: Client, channelResolvable: Cha
     });
 
     // Parse message
-    const message: Message = parseMessage(client, result);
+    const message: Message = Message._fromRawData(client, result);
 
     // Return
     return message;

@@ -1,6 +1,6 @@
-import { EmbedType } from "../../../internal";
+import { EmbedType } from "../../internal";
 
-export interface RawEmbedData {
+export default interface RawEmbedData {
     title?: string;
     type?: EmbedType;
     description?: string;

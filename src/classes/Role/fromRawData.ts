@@ -1,7 +1,6 @@
-import { Client, Role } from "../../../internal";
-import { RawRoleData } from "./rawRoleData";
+import { Client, RawRoleData, Role } from "../../internal";
 
-export default function parseRole(client: Client, rawData: RawRoleData, guildID: string): Role {
+export default function fromRawData(client: Client, rawData: RawRoleData, guildID: string): Role {
 
     // Parse role
     const role: Role = new Role(client, {

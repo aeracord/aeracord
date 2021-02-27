@@ -1,13 +1,4 @@
-import { Client } from "../../../../internal";
-import parseChannel from "../parseChannel";
-import parseGuild from "../parseGuild";
-import parseMember from "../parseMember";
-import parsePresence from "../parsePresence";
-import parseVoiceState from "../parseVoiceState";
-import { RawChannelData } from "../rawChannelData";
-import { RawMemberData } from "../rawMemberData";
-import { RawPresenceData } from "../rawPresenceData";
-import { RawVoiceStateData } from "../rawVoiceStateData";
+import { Channel, Client, Guild, Member, Presence, RawChannelData, RawMemberData, RawPresenceData, RawVoiceStateData, VoiceState } from "../../../../internal";
 import ready from "../ready";
 import { GuildCreateData } from "./guildCreateData";
 import { RawGuildCreateData } from "./rawGuildCreateData";
@@ -16,14 +7,14 @@ export default function guildCreate(client: Client, rawData: RawGuildCreateData)
 
     // Parse data
     const data: GuildCreateData = {
-        guild: parseGuild(client, rawData),
+        guild: Guild._fromRawData(client, rawData),
         joinedAt: new Date(rawData.joined_at).getTime(),
         large: rawData.large,
         memberCount: rawData.member_count,
-        voiceStates: rawData.voice_states.map((vs: RawVoiceStateData) => parseVoiceState(client, vs)),
-        members: rawData.members.map((m: RawMemberData) => parseMember(client, m, rawData.id)),
-        channels: rawData.channels.map((c: RawChannelData) => parseChannel(client, c)),
-        presences: rawData.presences.map((p: RawPresenceData) => parsePresence(client, p))
+        voiceStates: rawData.voice_states.map((vs: RawVoiceStateData) => VoiceState._fromRawData(client, vs)),
+        members: rawData.members.map((m: RawMemberData) => Member._fromRawData(client, m, rawData.id)),
+        channels: rawData.channels.map((c: RawChannelData) => Channel._fromRawData(client, c)),
+        presences: rawData.presences.map((p: RawPresenceData) => Presence._fromRawData(client, p))
     };
 
     // Initial guild create event

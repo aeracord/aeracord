@@ -1,7 +1,6 @@
-import { Client, Presence } from "../../../internal";
-import { RawPresenceData, RawPresenceDataActivity } from "./rawPresenceData";
+import { Client, Presence, RawPresenceData, RawPresenceDataActivity } from "../../internal";
 
-export default function parsePresence(client: Client, rawData: RawPresenceData): Presence {
+export default function fromRawData(client: Client, rawData: RawPresenceData): Presence {
 
     // Parse presence
     const presence: Presence = new Presence(client, {

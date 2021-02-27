@@ -1,4 +1,4 @@
-export interface RawRoleData {
+export default interface RawRoleData {
     id: string;
     name: string;
     color: number;

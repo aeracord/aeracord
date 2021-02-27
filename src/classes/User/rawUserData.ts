@@ -1,6 +1,6 @@
-import { RawUserlessMemberData } from "./rawMemberData";
+import { RawUserlessMemberData } from "../../internal";
 
-export interface RawUserData {
+export default interface RawUserData {
     id: string;
     username: string;
     discriminator: string;

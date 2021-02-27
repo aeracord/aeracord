@@ -1,8 +1,6 @@
-import { Client, Member } from "../../../internal";
-import parseUser from "./parseUser";
-import { RawMemberData } from "./rawMemberData";
+import { Client, Member, RawMemberData, User } from "../../internal";
 
-export default function parseMember(client: Client, rawData: RawMemberData, guildID: string): Member {
+export default function fromRawData(client: Client, rawData: RawMemberData, guildID: string): Member {
 
     // Parse member
     const member: Member = new Member(client, {
@@ -14,7 +12,7 @@ export default function parseMember(client: Client, rawData: RawMemberData, guil
         joinedAt: new Date(rawData.joined_at).getTime(),
         premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : undefined,
         pending: rawData.pending,
-        user: parseUser(client, rawData.user)
+        user: User._fromRawData(client, rawData.user)
     });
 
     // Return

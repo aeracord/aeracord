@@ -1,7 +1,6 @@
-import { ChannelType, PermissionType } from "../../../internal";
-import { RawUserData } from "./rawUserData";
+import { ChannelType, PermissionType, RawUserData } from "../../internal";
 
-export interface RawChannelData {
+export default interface RawChannelData {
     id: string;
     type: ChannelType;
     name?: string;

@@ -1,4 +1,4 @@
-import { RawMemberData } from "../rawMemberData";
+import { RawMemberData } from "../../../../internal";
 
 export interface RawTypingStartData {
     guild_id?: string;

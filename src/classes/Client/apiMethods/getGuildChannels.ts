@@ -1,7 +1,5 @@
-import { Client, FetchQueue, Guild, GuildChannel, GuildResolvable } from "../../../internal";
+import { Channel, Client, FetchQueue, Guild, GuildChannel, GuildResolvable, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseChannel from "../events/parseChannel";
-import { RawChannelData } from "../events/rawChannelData";
 
 export default async function getGuildChannels(client: Client, guildResolvable: GuildResolvable): Promise<GuildChannel[]> {
 
@@ -23,7 +21,7 @@ export default async function getGuildChannels(client: Client, guildResolvable: 
     });
 
     // Parse channels
-    const channels: GuildChannel[] = result.map((c: RawChannelData) => parseChannel(client, c)) as GuildChannel[];
+    const channels: GuildChannel[] = result.map((c: RawChannelData) => Channel._fromRawData(client, c)) as GuildChannel[];
 
     // Return
     return channels;

@@ -1,4 +1,5 @@
-import { ActivityType, Client, Status } from "../../internal";
+import { ActivityType, Client, RawPresenceData, Status } from "../../internal";
+import fromRawData from "./fromRawData";
 
 export interface PresenceData {
     user: PresenceUser;
@@ -354,4 +355,15 @@ export default class Presence {
         this.activities = presenceData.activities;
         this.clientStatus = presenceData.clientStatus;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Presence` from a `RawPresenceData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Presence} The presence
+     */
+    static _fromRawData = (client: Client, rawData: RawPresenceData): Presence => fromRawData(client, rawData);
 }

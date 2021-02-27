@@ -1,4 +1,5 @@
-import { Client, User } from "../../internal";
+import { Client, RawMemberData, User } from "../../internal";
+import fromRawData from "./fromRawData";
 
 export interface MemberData {
     guildID: string;
@@ -113,4 +114,15 @@ export default class Member {
         this.pending = Boolean(memberData.pending);
         this.user = memberData.user;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Member` from a `RawMemberData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Member} The member
+     */
+    static _fromRawData = (client: Client, rawData: RawMemberData, guildID: string): Member => fromRawData(client, rawData, guildID);
 }

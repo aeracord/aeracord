@@ -1,4 +1,4 @@
-import { RawEmojiData } from "../rawEmojiData";
+import { RawEmojiData } from "../../../../internal";
 
 export interface RawGuildEmojisUpdateData {
     guild_id: string;

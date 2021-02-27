@@ -1,5 +1,4 @@
-import { AnyChannel, Member, Presence, VoiceState } from "../../../../internal";
-import Guild from "../../../Guild/Guild";
+import { AnyChannel, Guild, Member, Presence, VoiceState } from "../../../../internal";
 
 export interface GuildCreateData {
 

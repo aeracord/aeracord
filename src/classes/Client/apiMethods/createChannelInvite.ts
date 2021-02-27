@@ -1,7 +1,5 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, TargetUserType, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, RawInviteData, TargetUserType, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseInvite from "../events/parseInvite";
-import { RawInviteData } from "../events/rawInviteData";
 
 export interface CreateChannelInviteData {
     maxAge?: number;
@@ -41,7 +39,7 @@ export default async function createChannelInvite(client: Client, channelResolva
     });
 
     // Parse invite
-    const invite: Invite = parseInvite(client, result);
+    const invite: Invite = Invite._fromRawData(client, result);
 
     // Return
     return invite;

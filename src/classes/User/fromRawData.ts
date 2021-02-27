@@ -1,7 +1,6 @@
-import { Client, User } from "../../../internal";
-import { RawUserData } from "./rawUserData";
+import { Client, RawUserData, User } from "../../internal";
 
-export default function parseUser(client: Client, rawData: RawUserData): User {
+export default function fromRawData(client: Client, rawData: RawUserData): User {
 
     // Parse user
     const user: User = new User(client, {

@@ -1,4 +1,5 @@
-import { Attachment, Client, Embed, GuildChannelType, Member, Reaction, Sticker, User, Webhook } from "../../internal";
+import { Attachment, Client, Embed, GuildChannelType, Member, RawMessageData, Reaction, Sticker, User, Webhook } from "../../internal";
+import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
 export interface MessageData {
@@ -322,6 +323,17 @@ export default class Message {
         this.flags = messageData.flags;
         this.referencedMessage = messageData.referencedMessage;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Message` from a `RawMessageData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Message} The message
+     */
+    static _fromRawData = (client: Client, rawData: RawMessageData): Message => fromRawData(client, rawData);
 
     /**
      * Resolve ID

@@ -1,9 +1,7 @@
 import FormData from "form-data";
 import { promises as fs } from "fs";
-import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message } from "../../../internal";
+import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, RawMessageData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseMessage from "../events/parseMessage";
-import { RawMessageData } from "../events/rawMessageData";
 
 export interface CreateMessageData {
     content?: string;
@@ -81,7 +79,7 @@ export default async function createMessage(client: Client, channelResolvable: C
     });
 
     // Parse message
-    const message: Message = parseMessage(client, result);
+    const message: Message = Message._fromRawData(client, result);
 
     // Return
     return message;

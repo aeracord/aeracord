@@ -1,4 +1,5 @@
-import { Client } from "../../internal";
+import { Client, RawAttachmentData } from "../../internal";
+import fromRawData from "./fromRawData";
 
 export interface AttachmentData {
     id: string;
@@ -93,4 +94,15 @@ export default class Attachment {
         this.width = attachmentData.width;
         this.height = attachmentData.height;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Attachment` from a `RawAttachmentData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Attachment} The attachment
+     */
+    static _fromRawData = (client: Client, rawData: RawAttachmentData): Attachment => fromRawData(client, rawData);
 }

@@ -1,7 +1,5 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, RawMessageData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseMessage from "../events/parseMessage";
-import { RawMessageData } from "../events/rawMessageData";
 
 export default async function getChannelMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable): Promise<Message> {
 
@@ -24,7 +22,7 @@ export default async function getChannelMessage(client: Client, channelResolvabl
     });
 
     // Parse message
-    const message: Message = parseMessage(client, result);
+    const message: Message = Message._fromRawData(client, result);
 
     // Return
     return message;

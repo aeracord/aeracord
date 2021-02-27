@@ -1,11 +1,6 @@
-import { Client, Guild } from "../../../internal";
-import parseEmoji from "./parseEmoji";
-import parseRole from "./parseRole";
-import { RawEmojiData } from "./rawEmojiData";
-import { RawGuildData, RawGuildDataWelcomeScreenChannel } from "./rawGuildData";
-import { RawRoleData } from "./rawRoleData";
+import { Client, Emoji, Guild, RawEmojiData, RawGuildData, RawGuildDataWelcomeScreenChannel, RawRoleData, Role } from "../../internal";
 
-export default function parseGuild(client: Client, rawData: RawGuildData): Guild {
+export default function fromRawData(client: Client, rawData: RawGuildData): Guild {
 
     // Parse guild
     const guild: Guild = new Guild(client, {
@@ -23,8 +18,8 @@ export default function parseGuild(client: Client, rawData: RawGuildData): Guild
         verificationLevel: rawData.verification_level,
         defaultMessageNotifications: rawData.default_message_notifications,
         explicitContentFilter: rawData.explicit_content_filter,
-        roles: rawData.roles.map((r: RawRoleData) => parseRole(client, r, rawData.id)),
-        emojis: rawData.emojis.map((e: RawEmojiData) => parseEmoji(client, e)),
+        roles: rawData.roles.map((r: RawRoleData) => Role._fromRawData(client, r, rawData.id)),
+        emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e)),
         features: rawData.features,
         mfaLevel: rawData.mfa_level,
         applicationID: rawData.application_id || undefined,

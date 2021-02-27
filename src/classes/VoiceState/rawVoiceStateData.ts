@@ -1,6 +1,6 @@
-import { RawMemberData } from "./rawMemberData";
+import { RawMemberData } from "../../internal";
 
-export interface RawVoiceStateData {
+export default interface RawVoiceStateData {
     guild_id: string;
     channel_id: string;
     user_id: string;

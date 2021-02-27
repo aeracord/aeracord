@@ -1,8 +1,6 @@
 import queryString from "query-string";
-import { Client, FetchQueue, Guild, GuildResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawGuildData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseGuild from "../events/parseGuild";
-import { RawGuildData } from "../events/rawGuildData";
 
 export interface GetGuildData {
     withCounts?: boolean;
@@ -30,7 +28,7 @@ export default async function getGuild(client: Client, guildResolvable: GuildRes
     });
 
     // Parse guild
-    const guild: Guild = parseGuild(client, result);
+    const guild: Guild = Guild._fromRawData(client, result);
 
     // Return
     return guild;

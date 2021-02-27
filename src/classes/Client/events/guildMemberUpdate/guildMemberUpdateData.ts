@@ -1,4 +1,4 @@
-import User from "../../../User/User";
+import { User } from "../../../../internal";
 
 export interface GuildMemberUpdateData {
 

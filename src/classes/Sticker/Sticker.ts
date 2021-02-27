@@ -1,4 +1,5 @@
-import { Client } from "../../internal";
+import { Client, RawStickerData } from "../../internal";
+import fromRawData from "./fromRawData";
 
 export interface StickerData {
     id: string;
@@ -108,4 +109,15 @@ export default class Sticker {
         this.previewAsset = stickerData.previewAsset;
         this.formatType = stickerData.formatType;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Sticker` from a `RawStickerData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Sticker} The sticker
+     */
+    static _fromRawData = (client: Client, rawData: RawStickerData): Sticker => fromRawData(client, rawData);
 }

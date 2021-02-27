@@ -1,7 +1,5 @@
-import { Client, FetchQueue, Guild, GuildResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawGuildData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseGuild from "../events/parseGuild";
-import { RawGuildData } from "../events/rawGuildData";
 
 export interface ModifyGuildData {
     name?: string;
@@ -58,7 +56,7 @@ export default async function modifyGuild(client: Client, guildResolvable: Guild
     });
 
     // Parse guild
-    const guild: Guild = parseGuild(client, result);
+    const guild: Guild = Guild._fromRawData(client, result);
 
     // Return
     return guild;

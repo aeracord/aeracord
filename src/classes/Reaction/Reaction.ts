@@ -1,4 +1,5 @@
-import { Client, Emoji } from "../../internal";
+import { Client, Emoji, RawReactionData } from "../../internal";
+import fromRawData from "./fromRawData";
 import resolveString from "./resolveString";
 
 export interface ReactionData {
@@ -62,6 +63,17 @@ export default class Reaction {
         this.me = Boolean(reactionData.me);
         this.emoji = reactionData.emoji;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Reaction` from a `RawReactionData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Reaction} The reaction
+     */
+    static _fromRawData = (client: Client, rawData: RawReactionData): Reaction => fromRawData(client, rawData);
 
     /**
      * Resolve String

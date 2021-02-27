@@ -1,4 +1,5 @@
-import { Client, Member } from "../../internal";
+import { Client, Member, RawUserData } from "../../internal";
+import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
 export interface UserData {
@@ -109,6 +110,17 @@ export default class User {
         this.system = Boolean(userData.system);
         this.publicFlags = userData.publicFlags;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `User` from a `RawUserData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {User} The user
+     */
+    static _fromRawData = (client: Client, rawData: RawUserData): User => fromRawData(client, rawData);
 
     /**
      * Resolve ID

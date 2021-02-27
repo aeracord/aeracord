@@ -1,4 +1,5 @@
-import { CategoryChannel, Client, DMChannel, GuildChannel, NewsChannel, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import { CategoryChannel, Client, DMChannel, GuildChannel, NewsChannel, RawChannelData, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
 export interface ChannelData {
@@ -46,6 +47,17 @@ export default class Channel {
         this.client = client;
         this.id = channelData.id;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Channel` from a `RawChannelData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Channel} The channel
+     */
+    static _fromRawData = (client: Client, rawData: RawChannelData): Channel => fromRawData(client, rawData);
 
     /**
      * Resolve ID

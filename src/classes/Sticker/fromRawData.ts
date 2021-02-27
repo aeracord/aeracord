@@ -1,7 +1,6 @@
-import { Client, Sticker } from "../../../internal";
-import { RawStickerData } from "./rawStickerData";
+import { Client, RawStickerData, Sticker } from "../../internal";
 
-export default function parseSticker(client: Client, rawData: RawStickerData): Sticker {
+export default function fromRawData(client: Client, rawData: RawStickerData): Sticker {
 
     // Parse sticker
     const sticker: Sticker = new Sticker(client, {

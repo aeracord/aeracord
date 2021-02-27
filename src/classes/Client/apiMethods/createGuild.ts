@@ -1,8 +1,5 @@
-import { Client, DefaultMessageNotifications, ExplicitContentFilter, FetchQueue, Guild, GuildChannelType, VerificationLevel } from "../../../internal";
+import { Client, DefaultMessageNotifications, ExplicitContentFilter, FetchQueue, Guild, GuildChannelType, RawChannelDataPermissionOverwrite, RawGuildData, VerificationLevel } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseGuild from "../events/parseGuild";
-import { RawChannelDataPermissionOverwrite } from "../events/rawChannelData";
-import { RawGuildData } from "../events/rawGuildData";
 
 export interface CreateGuildData {
     name: string;
@@ -87,7 +84,7 @@ export default async function createGuild(client: Client, createGuildData: Creat
     });
 
     // Parse guild
-    const guild: Guild = parseGuild(client, result);
+    const guild: Guild = Guild._fromRawData(client, result);
 
     // Return
     return guild;

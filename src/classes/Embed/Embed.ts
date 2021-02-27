@@ -1,4 +1,5 @@
-import { Client } from "../../internal";
+import { Client, RawEmbedData } from "../../internal";
+import fromRawData from "./fromRawData";
 import toJSON from "./toJSON";
 
 export interface EmbedData {
@@ -201,6 +202,17 @@ export default class Embed {
         this.author = embedData.author;
         this.fields = embedData.fields;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Embed` from a `RawEmbedData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Embed} The embed
+     */
+    static _fromRawData = (client: Client, rawData: RawEmbedData): Embed => fromRawData(client, rawData);
 
     /**
      * To JSON

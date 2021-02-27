@@ -1,8 +1,4 @@
-import { RawChannelData } from "../rawChannelData";
-import { RawGuildData } from "../rawGuildData";
-import { RawMemberData } from "../rawMemberData";
-import { RawPresenceData } from "../rawPresenceData";
-import { RawVoiceStateData } from "../rawVoiceStateData";
+import { RawChannelData, RawGuildData, RawMemberData, RawPresenceData, RawVoiceStateData } from "../../../../internal";
 
 export interface RawGuildCreateData extends RawGuildData {
     joined_at: string;

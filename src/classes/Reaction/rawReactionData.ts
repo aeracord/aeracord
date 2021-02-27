@@ -1,4 +1,4 @@
-export interface RawReactionData {
+export default interface RawReactionData {
     count: number;
     me: boolean;
     emoji: RawReactionDataEmoji;

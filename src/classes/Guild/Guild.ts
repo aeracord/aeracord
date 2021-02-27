@@ -1,4 +1,5 @@
-import { Client, Emoji, GuildChannel, Invite, Member, Role, User } from "../../internal";
+import { Client, Emoji, GuildChannel, Invite, Member, RawGuildData, Role, User } from "../../internal";
+import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
 export interface GuildData {
@@ -455,6 +456,17 @@ export default class Guild {
         this.approximatePresenceCount = guildData.approximatePresenceCount;
         this.welcomeScreen = guildData.welcomeScreen;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Guild` from a `RawGuildData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Guild} The guild
+     */
+    static _fromRawData = (client: Client, rawData: RawGuildData): Guild => fromRawData(client, rawData);
 
     /**
      * Resolve ID

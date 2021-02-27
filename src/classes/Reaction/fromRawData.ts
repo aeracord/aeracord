@@ -1,7 +1,6 @@
-import { Client, Reaction } from "../../../internal";
-import { RawReactionData } from "./rawReactionData";
+import { Client, RawReactionData, Reaction } from "../../internal";
 
-export default function parseReaction(client: Client, rawData: RawReactionData): Reaction {
+export default function fromRawData(client: Client, rawData: RawReactionData): Reaction {
 
     // Parse reaction
     const reaction: Reaction = new Reaction(client, {

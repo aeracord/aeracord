@@ -1,7 +1,6 @@
-import { Attachment, Client } from "../../../internal";
-import { RawAttachmentData } from "./rawAttachmentData";
+import { Attachment, Client, RawAttachmentData } from "../../internal";
 
-export default function parseAttachment(client: Client, rawData: RawAttachmentData): Attachment {
+export default function fromRawData(client: Client, rawData: RawAttachmentData): Attachment {
 
     // Parse attachment
     const attachment: Attachment = new Attachment(client, {

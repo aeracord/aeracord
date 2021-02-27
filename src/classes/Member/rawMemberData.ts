@@ -1,6 +1,6 @@
-import { RawUserData } from "./rawUserData";
+import { RawUserData } from "../../internal";
 
-export interface RawMemberData extends RawUserlessMemberData {
+export default interface RawMemberData extends RawUserlessMemberData {
     user: RawUserData;
 }
 

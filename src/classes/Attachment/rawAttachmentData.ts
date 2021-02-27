@@ -1,4 +1,4 @@
-export interface RawAttachmentData {
+export default interface RawAttachmentData {
     id: string;
     filename: string;
     size: number;

@@ -1,7 +1,5 @@
-import { Client, FetchQueue, Guild, GuildResolvable, Role } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawRoleData, Role } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseRole from "../events/parseRole";
-import { RawRoleData } from "../events/rawRoleData";
 
 export interface ModifyGuildRolePositionsData {
     id: string;
@@ -29,7 +27,7 @@ export default async function modifyGuildRolePositions(client: Client, guildReso
     });
 
     // Parse roles
-    const roles: Role[] = result.map((r: RawRoleData) => parseRole(client, r, guildID));
+    const roles: Role[] = result.map((r: RawRoleData) => Role._fromRawData(client, r, guildID));
 
     // Return
     return roles;

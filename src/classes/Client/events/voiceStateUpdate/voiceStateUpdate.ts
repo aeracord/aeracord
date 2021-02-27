@@ -1,11 +1,9 @@
-import { Client, VoiceState } from "../../../../internal";
-import parseVoiceState from "../parseVoiceState";
-import { RawVoiceStateData } from "../rawVoiceStateData";
+import { Client, RawVoiceStateData, VoiceState } from "../../../../internal";
 
 export default function voiceStateUpdate(client: Client, rawData: RawVoiceStateData) {
 
     // Parse voiceState
-    const voiceState: VoiceState = parseVoiceState(client, rawData);
+    const voiceState: VoiceState = VoiceState._fromRawData(client, rawData);
 
     // Emit event
     client.emit("voiceStateUpdate", voiceState, rawData);

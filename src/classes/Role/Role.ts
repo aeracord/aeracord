@@ -1,4 +1,5 @@
-import { Client } from "../../internal";
+import { Client, RawRoleData } from "../../internal";
+import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
 export interface RoleData {
@@ -138,6 +139,17 @@ export default class Role {
         this.managed = Boolean(roleData.managed);
         this.tags = roleData.tags;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Role` from a `RawRoleData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Role} The role
+     */
+    static _fromRawData = (client: Client, rawData: RawRoleData, guildID: string): Role => fromRawData(client, rawData, guildID);
 
     /**
      * Resolve ID

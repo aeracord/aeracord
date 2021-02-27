@@ -1,5 +1,4 @@
-import { RawMemberData } from "../rawMemberData";
-import { RawReactionDataEmoji } from "../rawReactionData";
+import { RawMemberData, RawReactionDataEmoji } from "../../../../internal";
 
 export interface RawMessageReactionAddData {
     message_id: string;

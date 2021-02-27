@@ -1,6 +1,6 @@
-import { ActivityType, Status } from "../../../internal";
+import { ActivityType, Status } from "../../internal";
 
-export interface RawPresenceData {
+export default interface RawPresenceData {
     user: RawPresenceDataUser;
     status: Status;
     activities: RawPresenceDataActivity[];

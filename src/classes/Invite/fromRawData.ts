@@ -1,8 +1,6 @@
-import { Client, Invite } from "../../../internal";
-import parseUser from "./parseUser";
-import { RawInviteData } from "./rawInviteData";
+import { Client, Invite, RawInviteData, User } from "../../internal";
 
-export default function parseInvite(client: Client, rawData: RawInviteData): Invite {
+export default function fromRawData(client: Client, rawData: RawInviteData): Invite {
 
     // Parse invite
     const invite: Invite = new Invite(client, {
@@ -10,7 +8,7 @@ export default function parseInvite(client: Client, rawData: RawInviteData): Inv
         channelID: rawData.channel.id,
         guildID: rawData.guild.id,
         createdAt: new Date(rawData.created_at).getTime(),
-        inviter: rawData.inviter && parseUser(client, rawData.inviter),
+        inviter: rawData.inviter && User._fromRawData(client, rawData.inviter),
         maxAge: rawData.max_age || undefined,
         maxUses: rawData.max_uses || undefined,
         temporary: rawData.temporary,

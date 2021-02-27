@@ -1,5 +1,4 @@
-import { Client } from "../../../../internal";
-import parseMember from "../parseMember";
+import { Client, Member } from "../../../../internal";
 import { RawTypingStartData } from "./rawTypingStartData";
 import { TypingStartData } from "./typingStartData";
 
@@ -11,7 +10,7 @@ export default function typingStart(client: Client, rawData: RawTypingStartData)
         channelID: rawData.channel_id,
         userID: rawData.user_id,
         timestamp: rawData.timestamp,
-        member: (rawData.member && rawData.guild_id) ? parseMember(client, rawData.member, rawData.guild_id) : undefined
+        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(client, rawData.member, rawData.guild_id) : undefined
     };
 
     // Emit event

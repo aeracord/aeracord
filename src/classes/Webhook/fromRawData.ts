@@ -1,7 +1,6 @@
-import { Client, Webhook } from "../../../internal";
-import { RawWebhookData } from "./rawWebhookData";
+import { Client, RawWebhookData, Webhook } from "../../internal";
 
-export default function parseWebhook(client: Client, rawData: RawWebhookData): Webhook {
+export default function fromRawData(client: Client, rawData: RawWebhookData): Webhook {
 
     // Parse webhook
     const webhook: Webhook = new Webhook(client, {

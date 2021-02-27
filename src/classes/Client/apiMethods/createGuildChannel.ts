@@ -1,7 +1,5 @@
-import { AnyGuildChannel, Client, FetchQueue, Guild, GuildChannelType, GuildResolvable, PermissionOverwrite } from "../../../internal";
+import { AnyGuildChannel, Channel, Client, FetchQueue, Guild, GuildChannelType, GuildResolvable, PermissionOverwrite, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseChannel from "../events/parseChannel";
-import { RawChannelData } from "../events/rawChannelData";
 
 export interface CreateGuildChannelData {
     name: string;
@@ -48,7 +46,7 @@ export default async function createGuildChannel(client: Client, guildResolvable
     });
 
     // Parse channel
-    const channel: AnyGuildChannel = parseChannel(client, result) as AnyGuildChannel;
+    const channel: AnyGuildChannel = Channel._fromRawData(client, result) as AnyGuildChannel;
 
     // Return
     return channel;

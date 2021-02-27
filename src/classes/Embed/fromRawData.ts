@@ -1,7 +1,6 @@
-import { Client, Embed } from "../../../internal";
-import { RawEmbedData, RawEmbedDataField } from "./rawEmbedData";
+import { Client, Embed, RawEmbedData, RawEmbedDataField } from "../../internal";
 
-export default function parseEmbed(client: Client, rawData: RawEmbedData): Embed {
+export default function fromRawData(client: Client, rawData: RawEmbedData): Embed {
 
     // Parse embed
     const embed: Embed = new Embed(client, {

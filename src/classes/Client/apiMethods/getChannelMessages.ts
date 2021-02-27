@@ -1,8 +1,6 @@
 import queryString from "query-string";
-import { Channel, ChannelResolvable, Client, FetchQueue, Message } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, RawMessageData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseMessage from "../events/parseMessage";
-import { RawMessageData } from "../events/rawMessageData";
 
 export interface GetChannelMessagesData {
     limit?: number;
@@ -36,7 +34,7 @@ export default async function getChannelMessages(client: Client, channelResolvab
     });
 
     // Parse messages
-    const messages: Message[] = result.map((m: RawMessageData) => parseMessage(client, m));
+    const messages: Message[] = result.map((m: RawMessageData) => Message._fromRawData(client, m));
 
     // Return
     return messages;

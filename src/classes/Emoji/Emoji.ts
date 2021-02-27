@@ -1,4 +1,5 @@
-import { Client, User } from "../../internal";
+import { Client, RawEmojiData, User } from "../../internal";
+import fromRawData from "./fromRawData";
 
 export interface EmojiData {
     id: string;
@@ -103,4 +104,15 @@ export default class Emoji {
         this.requiresColons = Boolean(emojiData.requiresColons);
         this.roles = emojiData.roles;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Emoji` from a `RawEmojiData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Emoji} The emoji
+     */
+    static _fromRawData = (client: Client, rawData: RawEmojiData): Emoji => fromRawData(client, rawData);
 }

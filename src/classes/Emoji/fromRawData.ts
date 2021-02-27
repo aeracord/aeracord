@@ -1,8 +1,6 @@
-import { Client, Emoji } from "../../../internal";
-import parseUser from "./parseUser";
-import { RawEmojiData } from "./rawEmojiData";
+import { Client, Emoji, RawEmojiData, User } from "../../internal";
 
-export default function parseEmoji(client: Client, rawData: RawEmojiData): Emoji {
+export default function fromRawData(client: Client, rawData: RawEmojiData): Emoji {
 
     // Parse emoji
     const emoji: Emoji = new Emoji(client, {
@@ -11,7 +9,7 @@ export default function parseEmoji(client: Client, rawData: RawEmojiData): Emoji
         animated: rawData.animated,
         managed: rawData.managed,
         available: rawData.available,
-        creator: rawData.user && parseUser(client, rawData.user),
+        creator: rawData.user && User._fromRawData(client, rawData.user),
         requiresColons: rawData.require_colons,
         roles: rawData.roles || []
     });

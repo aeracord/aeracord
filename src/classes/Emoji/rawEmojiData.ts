@@ -1,6 +1,6 @@
-import { RawUserData } from "./rawUserData";
+import { RawUserData } from "../../internal";
 
-export interface RawEmojiData {
+export default interface RawEmojiData {
     id: string;
     name: string;
     animated?: boolean;

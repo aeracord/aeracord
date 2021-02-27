@@ -3,6 +3,7 @@ export {
     default as Attachment,
     AttachmentData
 } from "./classes/Attachment/Attachment";
+export { default as RawAttachmentData } from "./classes/Attachment/rawAttachmentData";
 
 // Category Channel
 export {
@@ -24,6 +25,7 @@ export {
     CHANNEL_TYPE_TEXT,
     CHANNEL_TYPE_VOICE
 } from "./classes/Channel/Channel";
+export { default as RawChannelData, RawChannelDataPermissionOverwrite } from "./classes/Channel/rawChannelData";
 
 // Client
 export {
@@ -108,12 +110,14 @@ export {
     EmbedType,
     EmbedVideo
 } from "./classes/Embed/Embed";
+export { default as RawEmbedData, RawEmbedDataAuthor, RawEmbedDataField, RawEmbedDataFooter, RawEmbedDataImage, RawEmbedDataProvider, RawEmbedDataThumbnail, RawEmbedDataVideo } from "./classes/Embed/rawEmbedData";
 
 // Emoji
 export {
     default as Emoji,
     EmojiData
 } from "./classes/Emoji/Emoji";
+export { default as RawEmojiData } from "./classes/Emoji/rawEmojiData";
 
 // Fetch Queue
 export {
@@ -158,6 +162,7 @@ export {
     WelcomeScreen,
     WelcomeScreenChannel
 } from "./classes/Guild/Guild";
+export { default as RawGuildData, RawGuildDataWelcomeScreen, RawGuildDataWelcomeScreenChannel } from "./classes/Guild/rawGuildData";
 
 // Guild Channel
 export {
@@ -179,12 +184,14 @@ export {
     TARGET_USER_TYPE_STREAM,
     TargetUserType
 } from "./classes/Invite/Invite";
+export { default as RawInviteData, RawInviteDataChannel, RawInviteDataGuild, RawInviteDataTargetUser } from "./classes/Invite/rawInviteData";
 
 // Member
 export {
     default as Member,
     MemberData
 } from "./classes/Member/Member";
+export { default as RawMemberData, RawUserlessMemberData } from "./classes/Member/rawMemberData";
 
 // Message
 export {
@@ -214,6 +221,7 @@ export {
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3
 } from "./classes/Message/Message";
+export { default as RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataMessageReference } from "./classes/Message/rawMessageData";
 
 // News Channel
 export {
@@ -234,6 +242,7 @@ export {
     PresenceData,
     PresenceUser
 } from "./classes/Presence/Presence";
+export { default as RawPresenceData, RawPresenceDataActivity, RawPresenceDataActivityAssets, RawPresenceDataActivityEmoji, RawPresenceDataActivityParty, RawPresenceDataActivitySecrets, RawPresenceDataActivityTimestamps, RawPresenceDataClientStatus, RawPresenceDataUser } from "./classes/Presence/rawPresenceData";
 
 // Reaction
 export {
@@ -242,6 +251,7 @@ export {
     ReactionEmoji,
     ReactionEmojiResolvable
 } from "./classes/Reaction/Reaction";
+export { default as RawReactionData, RawReactionDataEmoji } from "./classes/Reaction/rawReactionData";
 
 // Role
 export {
@@ -251,6 +261,7 @@ export {
     RoleResolvable,
     RoleTags
 } from "./classes/Role/Role";
+export { default as RawRoleData, RawRoleDataTags } from "./classes/Role/rawRoleData";
 
 // Sticker
 export {
@@ -261,6 +272,7 @@ export {
     STICKER_FORMAT_TYPE_LOTTIE,
     STICKER_FORMAT_TYPE_PNG
 } from "./classes/Sticker/Sticker";
+export { default as RawStickerData } from "./classes/Sticker/rawStickerData";
 
 // Store Channel
 export {
@@ -293,6 +305,7 @@ export {
     UserData,
     UserResolvable
 } from "./classes/User/User";
+export { default as RawUserData, RawUserWithMemberData } from "./classes/User/rawUserData";
 
 // Voice Channel
 export {
@@ -305,9 +318,11 @@ export {
     default as VoiceState,
     VoiceStateData
 } from "./classes/VoiceState/VoiceState";
+export { default as RawVoiceStateData } from "./classes/VoiceState/rawVoiceStateData";
 
 // Webhook
 export {
     default as Webhook,
     WebhookData
 } from "./classes/Webhook/Webhook";
+export { default as RawWebhookData } from "./classes/Webhook/rawWebhookData";

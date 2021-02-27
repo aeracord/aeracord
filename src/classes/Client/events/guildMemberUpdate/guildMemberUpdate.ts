@@ -1,5 +1,4 @@
-import { Client } from "../../../../internal";
-import parseUser from "../parseUser";
+import { Client, User } from "../../../../internal";
 import { GuildMemberUpdateData } from "./guildMemberUpdateData";
 import { RawGuildMemberUpdateData } from "./rawGuildMemberUpdateData";
 
@@ -13,7 +12,7 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
         joinedAt: new Date(rawData.joined_at).getTime(),
         premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : undefined,
         pending: rawData.pending || false,
-        user: parseUser(client, rawData.user)
+        user: User._fromRawData(client, rawData.user)
     };
 
     // Emit event

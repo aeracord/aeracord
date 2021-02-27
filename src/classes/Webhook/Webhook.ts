@@ -1,4 +1,5 @@
-import { Client } from "../../internal";
+import { Client, RawWebhookData } from "../../internal";
+import fromRawData from "./fromRawData";
 
 export interface WebhookData {
     id: string;
@@ -53,4 +54,15 @@ export default class Webhook {
         this.username = webhookData.username;
         this.avatar = webhookData.avatar;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Webhook` from a `RawWebhookData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Webhook} The webhook
+     */
+    static _fromRawData = (client: Client, rawData: RawWebhookData): Webhook => fromRawData(client, rawData);
 }

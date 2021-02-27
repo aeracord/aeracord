@@ -1,8 +1,6 @@
-import { DefaultMessageNotifications, ExplicitContentFilter, Feature, MFALevel, PremiumTier, VerificationLevel } from "../../../internal";
-import { RawEmojiData } from "./rawEmojiData";
-import { RawRoleData } from "./rawRoleData";
+import { DefaultMessageNotifications, ExplicitContentFilter, Feature, MFALevel, PremiumTier, RawEmojiData, RawRoleData, VerificationLevel } from "../../internal";
 
-export interface RawGuildData {
+export default interface RawGuildData {
     id: string;
     name: string;
     icon: string | null;

@@ -1,7 +1,6 @@
-import { Feature, GuildChannelType, TargetUserType, VerificationLevel } from "../../../internal";
-import { RawUserData } from "./rawUserData";
+import { Feature, GuildChannelType, RawUserData, TargetUserType, VerificationLevel } from "../../internal";
 
-export interface RawInviteData {
+export default interface RawInviteData {
     code: string;
     channel: RawInviteDataChannel;
     guild: RawInviteDataGuild;

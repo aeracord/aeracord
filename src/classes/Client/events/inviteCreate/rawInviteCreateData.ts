@@ -1,5 +1,4 @@
-import { TargetUserType } from "../../../../internal";
-import { RawUserData } from "../rawUserData";
+import { RawUserData, TargetUserType } from "../../../../internal";
 
 export interface RawInviteCreateData {
     code: string;

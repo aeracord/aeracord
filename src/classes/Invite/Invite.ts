@@ -1,4 +1,5 @@
-import { Client, User } from "../../internal";
+import { Client, RawInviteData, User } from "../../internal";
+import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 
 export interface InviteData {
@@ -146,6 +147,17 @@ export default class Invite {
         this.targetUser = inviteData.targetUser;
         this.targetUserType = inviteData.targetUserType;
     }
+
+    /**
+     * From Raw Data
+     *
+     * Create an `Invite` from a `RawInviteData` object
+     *
+     * @param rawData The raw data from the API
+     *
+     * @returns {Invite} The invite
+     */
+    static _fromRawData = (client: Client, rawData: RawInviteData): Invite => fromRawData(client, rawData);
 
     /**
      * Resolve Code

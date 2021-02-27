@@ -1,7 +1,5 @@
-import { Client, Emoji, Feature, FetchQueue, Guild, GuildResolvable } from "../../../internal";
+import { Client, Emoji, Feature, FetchQueue, Guild, GuildResolvable, RawEmojiData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseEmoji from "../events/parseEmoji";
-import { RawEmojiData } from "../events/rawEmojiData";
 
 export interface GuildPreview {
     id: string;
@@ -55,7 +53,7 @@ export default async function getGuildPreview(client: Client, guildResolvable: G
         icon: result.icon || undefined,
         splash: result.splash || undefined,
         discoverySplash: result.discovery_splash || undefined,
-        emojis: result.emojis.map((e: RawEmojiData) => parseEmoji(client, e)),
+        emojis: result.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e)),
         features: result.features,
         description: result.description || undefined,
         approximateMemberCount: result.approximate_member_count,

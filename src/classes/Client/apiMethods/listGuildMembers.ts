@@ -1,8 +1,6 @@
 import queryString from "query-string";
-import { Client, FetchQueue, Guild, GuildResolvable, Member } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, Member, RawMemberData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseMember from "../events/parseMember";
-import { RawMemberData } from "../events/rawMemberData";
 
 export interface ListGuildMembersData {
     limit?: number;
@@ -32,7 +30,7 @@ export default async function listGuildMembers(client: Client, guildResolvable: 
     });
 
     // Parse members
-    const members: Member[] = result.map((m: RawMemberData) => parseMember(client, m, guildID));
+    const members: Member[] = result.map((m: RawMemberData) => Member._fromRawData(client, m, guildID));
 
     // Return
     return members;
