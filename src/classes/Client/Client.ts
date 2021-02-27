@@ -33,7 +33,6 @@ import {
     GuildDeleteData,
     GuildEmojisUpdateData,
     GuildIntegrationsUpdateData,
-    GuildMembershipScreeningForm,
     GuildMemberUpdateData,
     GuildPreview,
     GuildResolvable,
@@ -57,7 +56,6 @@ import {
     ModifyCurrentUserNicknameData,
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
-    ModifyGuildMembershipScreeningFormData,
     ModifyGuildMemberData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
@@ -111,7 +109,6 @@ import getGuildBans from "./apiMethods/getGuildBans";
 import getGuildChannels from "./apiMethods/getGuildChannels";
 import getGuildInvites from "./apiMethods/getGuildInvites";
 import getGuildMember from "./apiMethods/getGuildMember";
-import getGuildMembershipScreeningForm from "./apiMethods/getGuildMembershipScreeningForm";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getGuildRoles from "./apiMethods/getGuildRoles";
 import getGuildVanityURL from "./apiMethods/getGuildVanityURL";
@@ -125,7 +122,6 @@ import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
-import modifyGuildMembershipScreeningForm from "./apiMethods/modifyGuildMembershipScreeningForm";
 import modifyGuildRole from "./apiMethods/modifyGuildRole";
 import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
 import modifyGuildWidget from "./apiMethods/modifyGuildWidget";
@@ -803,17 +799,6 @@ export default class Client extends EventEmitter {
     getGuildMember = (guild: GuildResolvable, user: UserResolvable): Promise<Member> => getGuildMember(this, guild, user);
 
     /**
-     * Get Guild Membership Screening Form
-     *
-     * Get a guild's membership screening form
-     *
-     * @param guild The guild to get the membership screening form for
-     *
-     * @returns {Promise<GuildMembershipScreeningForm>} The membership screening form
-     */
-    getGuildMembershipScreeningForm = (guild: GuildResolvable): Promise<GuildMembershipScreeningForm> => getGuildMembershipScreeningForm(this, guild);
-
-    /**
      * Get Guild Preview
      *
      * Get a guild preview
@@ -963,18 +948,6 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Member>} The modified member
      */
     modifyGuildMember = (guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> => modifyGuildMember(this, guild, user, modifyGuildMemberData);
-
-    /**
-     * Modify Guild Membership Screening Form
-     *
-     * Modify a guild's membership screening form
-     *
-     * @param guild The guild to modify the membership screening form in
-     * @param modifyGuildMembershipScreeningFormData The data to modify the guild's membership screening form
-     *
-     * @returns {Promise<GuildMembershipScreeningForm>} The modified guild membership screening form
-     */
-    modifyGuildMembershipScreeningForm = (guild: GuildResolvable, modifyGuildMembershipScreeningFormData: ModifyGuildMembershipScreeningFormData): Promise<GuildMembershipScreeningForm> => modifyGuildMembershipScreeningForm(this, guild, modifyGuildMembershipScreeningFormData);
 
     /**
      * Modify Guild Role

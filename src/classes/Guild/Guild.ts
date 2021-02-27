@@ -80,21 +80,6 @@ export interface WelcomeScreenChannel {
     emojiName?: string;
 }
 
-export interface GuildMembershipScreeningForm {
-    description?: string;
-    fields: GuildMembershipScreeningFormField[];
-    updatedAt: number;
-}
-
-export interface GuildMembershipScreeningFormField {
-    type: GuildMembershipScreeningFormFieldType;
-    label: string;
-    values?: string[];
-    required: boolean;
-}
-
-export type GuildMembershipScreeningFormFieldType = "TERMS";
-
 export interface VoiceRegion {
     id: string;
     name: string;
