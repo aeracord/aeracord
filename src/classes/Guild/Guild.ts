@@ -109,11 +109,6 @@ export interface VanityInvite {
     uses: number;
 }
 
-export interface GuildWidget {
-    enabled: boolean;
-    channelID?: string;
-}
-
 export type GuildResolvable = Guild | GuildChannel | Member | Role | Invite | string;
 
 export default class Guild {

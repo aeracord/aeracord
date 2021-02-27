@@ -148,7 +148,6 @@ export {
     GuildMembershipScreeningFormField,
     GuildMembershipScreeningFormFieldType,
     GuildResolvable,
-    GuildWidget,
     MFALevel,
     MFA_LEVEL_ELEVATED,
     MFA_LEVEL_NONE,
@@ -181,6 +180,13 @@ export {
     PERMISSION_TYPE_ROLE,
     PERMISSION_TYPE_MEMBER
 } from "./classes/GuildChannel/GuildChannel";
+
+// Guild Widget
+export {
+    default as GuildWidget,
+    GuildWidgetData
+} from "./classes/GuildWidget/GuildWidget";
+export { default as RawGuildWidgetData } from "./classes/GuildWidget/rawGuildWidgetData";
 
 // Invite
 export {

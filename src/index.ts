@@ -142,7 +142,6 @@ export {
     GuildMembershipScreeningFormField,
     GuildMembershipScreeningFormFieldType,
     GuildResolvable,
-    GuildWidget,
     MFALevel,
     MFA_LEVEL_ELEVATED,
     MFA_LEVEL_NONE,
@@ -172,6 +171,11 @@ export {
     PermissionType,
     PERMISSION_TYPE_ROLE,
     PERMISSION_TYPE_MEMBER
+} from "./internal";
+
+// Guild Widget
+export {
+    GuildWidget
 } from "./internal";
 
 // Invite
