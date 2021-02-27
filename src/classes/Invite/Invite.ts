@@ -1,5 +1,5 @@
 import { Client, User } from "../../internal";
-import resolveID from "./resolveID";
+import resolveCode from "./resolveCode";
 
 export interface InviteData {
     code: string;
@@ -148,7 +148,7 @@ export default class Invite {
     }
 
     /**
-     * Resolve ID
+     * Resolve Code
      *
      * Resolve an object to an invite code
      *
@@ -156,5 +156,5 @@ export default class Invite {
      *
      * @returns {string} The resolved invite code
      */
-    static resolveID = (inviteResolvable: InviteResolvable): string => resolveID(inviteResolvable);
+    static resolveCode = (inviteResolvable: InviteResolvable): string => resolveCode(inviteResolvable);
 }

@@ -1,6 +1,6 @@
 import { Invite, InviteResolvable } from "../../internal";
 
-export default function resolveID(inviteResolvable: InviteResolvable): string {
+export default function resolveCode(inviteResolvable: InviteResolvable): string {
 
     // Invite
     if (inviteResolvable instanceof Invite) return inviteResolvable.code;
