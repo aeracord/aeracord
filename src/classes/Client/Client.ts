@@ -96,6 +96,7 @@ import deleteAllReactionsForEmoji from "./apiMethods/deleteAllReactionsForEmoji"
 import deleteChannel from "./apiMethods/deleteChannel";
 import deleteChannelPermission from "./apiMethods/deleteChannelPermission";
 import deleteGuild from "./apiMethods/deleteGuild";
+import deleteGuildEmoji from "./apiMethods/deleteGuildEmoji";
 import deleteGuildRole from "./apiMethods/deleteGuildRole";
 import deleteMessage from "./apiMethods/deleteMessage";
 import deleteOwnReaction from "./apiMethods/deleteOwnReaction";
@@ -613,6 +614,16 @@ export default class Client extends EventEmitter {
      * @param guild The guild to delete
      */
     deleteGuild = (guild: GuildResolvable): Promise<void> => deleteGuild(this, guild);
+
+    /**
+     * Delete Guild Emoji
+     *
+     * Delete an emoji
+     *
+     * @param guild The guild to delete the emoji from
+     * @param emoji The emoji to delete
+     */
+    deleteGuildEmoji = (guild: GuildResolvable, emoji: EmojiResolvable): Promise<void> => deleteGuildEmoji(this, guild, emoji);
 
     /**
      * Delete Guild Role
