@@ -29,6 +29,7 @@ import {
     FollowNewsChannelData,
     GetChannelMessagesData,
     GetGuildData,
+    GetInviteData,
     GetReactionsData,
     Guild,
     GuildChannel,
@@ -44,6 +45,7 @@ import {
     Intent,
     Invite,
     InviteDeleteData,
+    InviteResolvable,
     ListGuildMembersData,
     Member,
     Message,
@@ -121,6 +123,7 @@ import getGuildRoles from "./apiMethods/getGuildRoles";
 import getGuildVanityURL from "./apiMethods/getGuildVanityURL";
 import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
 import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
+import getInvite from "./apiMethods/getInvite";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
@@ -895,6 +898,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<GuildWidget>} The widget
      */
     getGuildWidgetSettings = (guild: GuildResolvable): Promise<GuildWidget> => getGuildWidgetSettings(this, guild);
+
+    /**
+     * Get Invite
+     *
+     * Get an invite
+     *
+     * @param invite The invite to get
+     * @param getInviteData The data for getting the invite
+     *
+     * @returns {Promise<Invite>} The invite
+     */
+    getInvite = (invite: InviteResolvable, getInviteData?: GetInviteData): Promise<Invite> => getInvite(this, invite, getInviteData);
 
     /**
      * Get Pinned Messages

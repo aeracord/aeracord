@@ -90,6 +90,7 @@ export {
     FollowNewsChannelData,
     GetChannelMessagesData,
     GetGuildData,
+    GetInviteData,
     GetReactionsData,
     GuildPreview,
     ListGuildMembersData,
