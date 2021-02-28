@@ -59,6 +59,7 @@ import {
     ModifyCurrentUserNicknameData,
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
+    ModifyGuildEmojiData,
     ModifyGuildMemberData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
@@ -127,6 +128,7 @@ import modifyChannel from "./apiMethods/modifyChannel";
 import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
+import modifyGuildEmoji from "./apiMethods/modifyGuildEmoji";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
 import modifyGuildRole from "./apiMethods/modifyGuildRole";
 import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
@@ -976,6 +978,19 @@ export default class Client extends EventEmitter {
      * @param modifyGuildChannelPositionsData The data to modify the channel positions
      */
     modifyGuildChannelPositions = (guild: GuildResolvable, modifyGuildChannelPositionsData: ModifyGuildChannelPositionsData[]): Promise<void> => modifyGuildChannelPositions(this, guild, modifyGuildChannelPositionsData);
+
+    /**
+     * Modify Guild Emoji
+     *
+     * Modify an emoji
+     *
+     * @param guild The guild to modify the emoji in
+     * @param emoji The emoji to modify
+     * @param modifyGuildEmojiData The data to modify the emoji
+     *
+     * @returns {Promise<Emoji>} The modified emoji
+     */
+    modifyGuildEmoji = (guild: GuildResolvable, emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<Emoji> => modifyGuildEmoji(this, guild, emoji, modifyGuildEmojiData);
 
     /**
      * Modify Guild Member
