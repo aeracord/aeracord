@@ -79,6 +79,7 @@ export {
     CreateGuildDataChannelPermissionOverwrite,
     CreateGuildDataRole,
     CreateGuildEmojiData,
+    CreateGuildFromTemplateData,
     CreateGuildRoleData,
     CreateMessageData,
     CreateMessageFile,
