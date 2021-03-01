@@ -125,6 +125,7 @@ import getGuildInvites from "./apiMethods/getGuildInvites";
 import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getGuildRoles from "./apiMethods/getGuildRoles";
+import getGuildTemplates from "./apiMethods/getGuildTemplates";
 import getGuildVanityURL from "./apiMethods/getGuildVanityURL";
 import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
 import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
@@ -894,6 +895,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Role[]>} The guild's roles
      */
     getGuildRoles = (guild: GuildResolvable): Promise<Role[]> => getGuildRoles(this, guild);
+
+    /**
+     * Get Guild Templates
+     *
+     * Get a guild's templates
+     *
+     * @param guild The guild to get the templates for
+     *
+     * @returns {Promise<Template[]>} The guild's templates
+     */
+    getGuildTemplates = (guild: GuildResolvable): Promise<Template[]> => getGuildTemplates(this, guild);
 
     /**
      * Get Guild Vanity URL
