@@ -289,6 +289,18 @@ export {
     StoreChannelData
 } from "./classes/StoreChannel/StoreChannel";
 
+// Template
+export {
+    default as Template,
+    TemplateData,
+    TemplateGuild,
+    TemplateGuildChannel,
+    TemplateGuildChannelPermissionOverwrite,
+    TemplateGuildRole,
+    TemplateResolvable
+} from "./classes/Template/Template";
+export { default as RawTemplateData, RawTemplateDataGuild, RawTemplateDataGuildChannel, RawTemplateDataGuildChannelPermissionOverwrite, RawTemplateDataGuildRole } from "./classes/Template/rawTemplateData";
+
 // Text Based Channel
 export {
     default as TextBasedChannel,

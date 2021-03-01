@@ -73,6 +73,8 @@ import {
     Role,
     RoleResolvable,
     Status,
+    Template,
+    TemplateResolvable,
     TypingStartData,
     User,
     UserResolvable,
@@ -127,6 +129,7 @@ import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
 import getInvite from "./apiMethods/getInvite";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
+import getTemplate from "./apiMethods/getTemplate";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import modifyChannel from "./apiMethods/modifyChannel";
@@ -947,6 +950,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<User[]>} The users
      */
     getReactions = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> => getReactions(this, channel, message, reactionEmoji, getReactionsData);
+
+    /**
+     * Get Template
+     *
+     * Get a template
+     *
+     * @param template The template to get
+     *
+     * @returns {Promise<Template>} The template
+     */
+    getTemplate = (template: TemplateResolvable): Promise<Template> => getTemplate(this, template);
 
     /**
      * List Guild Emojis

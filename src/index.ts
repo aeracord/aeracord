@@ -263,6 +263,16 @@ export {
     StoreChannel
 } from "./internal";
 
+// Template
+export {
+    Template,
+    TemplateGuild,
+    TemplateGuildChannel,
+    TemplateGuildChannelPermissionOverwrite,
+    TemplateGuildRole,
+    TemplateResolvable
+} from "./internal";
+
 // Text Based Channel
 export {
     TextBasedChannel
