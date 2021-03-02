@@ -107,6 +107,7 @@ import deleteChannelPermission from "./apiMethods/deleteChannelPermission";
 import deleteGuild from "./apiMethods/deleteGuild";
 import deleteGuildEmoji from "./apiMethods/deleteGuildEmoji";
 import deleteGuildRole from "./apiMethods/deleteGuildRole";
+import deleteGuildTemplate from "./apiMethods/deleteGuildTemplate";
 import deleteInvite from "./apiMethods/deleteInvite";
 import deleteMessage from "./apiMethods/deleteMessage";
 import deleteOwnReaction from "./apiMethods/deleteOwnReaction";
@@ -673,6 +674,18 @@ export default class Client extends EventEmitter {
      * @param role The role to delete
      */
     deleteGuildRole = (guild: GuildResolvable, role: RoleResolvable): Promise<void> => deleteGuildRole(this, guild, role);
+
+    /**
+     * Delete Guild Template
+     *
+     * Delete a template
+     *
+     * @param guild The guild to delete the template in
+     * @param template The template to delete
+     *
+     * @returns {Promise<Template>} The deleted template
+     */
+    deleteGuildTemplate = (guild: GuildResolvable, template: TemplateResolvable): Promise<Template> => deleteGuildTemplate(this, guild, template);
 
     /**
      * Delete Invite
