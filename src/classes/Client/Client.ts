@@ -120,6 +120,7 @@ import getChannel from "./apiMethods/getChannel";
 import getChannelInvites from "./apiMethods/getChannelInvites";
 import getChannelMessage from "./apiMethods/getChannelMessage";
 import getChannelMessages from "./apiMethods/getChannelMessages";
+import getCurrentUser from "./apiMethods/getCurrentUser";
 import getGuild from "./apiMethods/getGuild";
 import getGuildBan from "./apiMethods/getGuildBan";
 import getGuildBans from "./apiMethods/getGuildBans";
@@ -822,6 +823,15 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message[]>} The messages
      */
     getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
+
+    /**
+     * Get Current User
+     *
+     * Get the current user
+     *
+     * @returns {Promise<User>} The user
+     */
+    getCurrentUser = (): Promise<User> => getCurrentUser(this);
 
     /**
      * Get Guild
