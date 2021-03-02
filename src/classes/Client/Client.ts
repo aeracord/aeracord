@@ -143,6 +143,7 @@ import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import getTemplate from "./apiMethods/getTemplate";
 import getUser from "./apiMethods/getUser";
+import leaveGuild from "./apiMethods/leaveGuild";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import modifyChannel from "./apiMethods/modifyChannel";
@@ -1055,6 +1056,15 @@ export default class Client extends EventEmitter {
      * @returns {Promise<User>} The user
      */
     getUser = (user: UserResolvable): Promise<User> => getUser(this, user);
+
+    /**
+     * Leave Guild
+     *
+     * Leave a guild
+     *
+     * @param guild The guild to leave
+     */
+    leaveGuild = (guild: GuildResolvable): Promise<void> => leaveGuild(this, guild);
 
     /**
      * List Guild Emojis
