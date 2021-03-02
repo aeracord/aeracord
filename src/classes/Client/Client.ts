@@ -67,6 +67,7 @@ import {
     ModifyGuildMemberData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
+    ModifyGuildTemplateData,
     ModifyGuildWidgetData,
     Presence,
     ReactionEmojiResolvable,
@@ -145,6 +146,7 @@ import modifyGuildEmoji from "./apiMethods/modifyGuildEmoji";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
 import modifyGuildRole from "./apiMethods/modifyGuildRole";
 import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
+import modifyGuildTemplate from "./apiMethods/modifyGuildTemplate";
 import modifyGuildWidget from "./apiMethods/modifyGuildWidget";
 import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
@@ -1121,6 +1123,19 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Role[]>} The guild's roles
      */
     modifyGuildRolePositions = (guild: GuildResolvable, modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> => modifyGuildRolePositions(this, guild, modifyGuildRolePositionsData);
+
+    /**
+     * Modify Guild Template
+     *
+     * Modify a template
+     *
+     * @param guild The guild to modify the template in
+     * @param template The template to modify
+     * @param modifyGuildTemplateData The data to modify the template
+     *
+     * @returns {Promise<Template>} The modified template
+     */
+    modifyGuildTemplate = (guild: GuildResolvable, template: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<Template> => modifyGuildTemplate(this, guild, template, modifyGuildTemplateData);
 
     /**
      * Modify Guild Widget

@@ -100,6 +100,7 @@ export { ModifyGuildEmojiData } from "./classes/Client/apiMethods/modifyGuildEmo
 export { ModifyGuildMemberData } from "./classes/Client/apiMethods/modifyGuildMember";
 export { ModifyGuildRoleData } from "./classes/Client/apiMethods/modifyGuildRole";
 export { ModifyGuildRolePositionsData } from "./classes/Client/apiMethods/modifyGuildRolePositions";
+export { ModifyGuildTemplateData } from "./classes/Client/apiMethods/modifyGuildTemplate";
 export { ModifyGuildWidgetData } from "./classes/Client/apiMethods/modifyGuildWidget";
 
 // DM Channel

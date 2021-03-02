@@ -105,6 +105,7 @@ export {
     ModifyGuildMemberData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
+    ModifyGuildTemplateData,
     ModifyGuildWidgetData
 } from "./internal";
 
