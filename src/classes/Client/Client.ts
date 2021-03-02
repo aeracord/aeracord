@@ -30,6 +30,7 @@ import {
     FollowedChannel,
     FollowNewsChannelData,
     GetChannelMessagesData,
+    GetCurrentUserGuildsData,
     GetGuildData,
     GetInviteData,
     GetReactionsData,
@@ -70,6 +71,7 @@ import {
     ModifyGuildRolePositionsData,
     ModifyGuildTemplateData,
     ModifyGuildWidgetData,
+    PartialGuild,
     Presence,
     ReactionEmojiResolvable,
     ReadyData,
@@ -122,6 +124,7 @@ import getChannelInvites from "./apiMethods/getChannelInvites";
 import getChannelMessage from "./apiMethods/getChannelMessage";
 import getChannelMessages from "./apiMethods/getChannelMessages";
 import getCurrentUser from "./apiMethods/getCurrentUser";
+import getCurrentUserGuilds from "./apiMethods/getCurrentUserGuilds";
 import getGuild from "./apiMethods/getGuild";
 import getGuildBan from "./apiMethods/getGuildBan";
 import getGuildBans from "./apiMethods/getGuildBans";
@@ -835,6 +838,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<User>} The user
      */
     getCurrentUser = (): Promise<User> => getCurrentUser(this);
+
+    /**
+     * Get Current User Guilds
+     *
+     * Get the current user's guilds
+     *
+     * @param getCurrentUserGuildsData The data for getting the current user's guilds
+     *
+     * @returns {Promise<PartialGuild[]>} The guilds
+     */
+    getCurrentUserGuilds = (getCurrentUserGuildsData?: GetCurrentUserGuildsData): Promise<PartialGuild[]> => getCurrentUserGuilds(this, getCurrentUserGuildsData);
 
     /**
      * Get Guild

@@ -91,6 +91,7 @@ export {
     FollowedChannel,
     FollowNewsChannelData,
     GetChannelMessagesData,
+    GetCurrentUserGuildsData,
     GetGuildData,
     GetInviteData,
     GetReactionsData,
@@ -107,7 +108,8 @@ export {
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
     ModifyGuildTemplateData,
-    ModifyGuildWidgetData
+    ModifyGuildWidgetData,
+    PartialGuild
 } from "./internal";
 
 // DM Channel
