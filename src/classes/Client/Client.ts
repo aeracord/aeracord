@@ -151,6 +151,7 @@ import modifyGuildWidget from "./apiMethods/modifyGuildWidget";
 import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
+import syncGuildTemplate from "./apiMethods/syncGuildTemplate";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
@@ -1179,6 +1180,18 @@ export default class Client extends EventEmitter {
      * @param role The role to remove
      */
     removeGuildMemberRole = (guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> => removeGuildMemberRole(this, guild, user, role);
+
+    /**
+     * Sync Guild Template
+     *
+     * Sync a template
+     *
+     * @param guild The guild to sync the template in
+     * @param template The template to sync
+     *
+     * @returns {Promise<Template>} The synced template
+     */
+    syncGuildTemplate = (guild: GuildResolvable, template: TemplateResolvable): Promise<Template> => syncGuildTemplate(this, guild, template);
 
     /**
      * Trigger Typing Indicator
