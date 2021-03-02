@@ -18,6 +18,7 @@ import {
     CreateGuildEmojiData,
     CreateGuildFromTemplateData,
     CreateGuildRoleData,
+    CreateGuildTemplateData,
     CreateMessageData,
     CurrentUserNickname,
     EditChannelPermissionsData,
@@ -94,6 +95,7 @@ import createGuildChannel from "./apiMethods/createGuildChannel";
 import createGuildEmoji from "./apiMethods/createGuildEmoji";
 import createGuildFromTemplate from "./apiMethods/createGuildFromTemplate";
 import createGuildRole from "./apiMethods/createGuildRole";
+import createGuildTemplate from "./apiMethods/createGuildTemplate";
 import createMessage from "./apiMethods/createMessage";
 import createReaction from "./apiMethods/createReaction";
 import crosspostMessage from "./apiMethods/crosspostMessage";
@@ -550,6 +552,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Role>} The created role
      */
     createGuildRole = (guild: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<Role> => createGuildRole(this, guild, createGuildRoleData);
+
+    /**
+     * Create Guild Template
+     *
+     * Create a template
+     *
+     * @param guild The guild to create a template in
+     * @param createGuildTemplateData The data for the template
+     *
+     * @returns {Promise<Template>} The created template
+     */
+    createGuildTemplate = (guild: GuildResolvable, createGuildTemplateData: CreateGuildTemplateData): Promise<Template> => createGuildTemplate(this, guild, createGuildTemplateData);
 
     /**
      * Create Message

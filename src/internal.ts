@@ -81,6 +81,7 @@ export { CreateGuildChannelData } from "./classes/Client/apiMethods/createGuildC
 export { CreateGuildEmojiData } from "./classes/Client/apiMethods/createGuildEmoji";
 export { CreateGuildFromTemplateData } from "./classes/Client/apiMethods/createGuildFromTemplate";
 export { CreateGuildRoleData } from "./classes/Client/apiMethods/createGuildRole";
+export { CreateGuildTemplateData } from "./classes/Client/apiMethods/createGuildTemplate";
 export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/createMessage";
 export { EditChannelPermissionsData } from "./classes/Client/apiMethods/editChannelPermissions";
 export { EditMessageData } from "./classes/Client/apiMethods/editMessage";

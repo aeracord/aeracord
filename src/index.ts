@@ -81,6 +81,7 @@ export {
     CreateGuildEmojiData,
     CreateGuildFromTemplateData,
     CreateGuildRoleData,
+    CreateGuildTemplateData,
     CreateMessageData,
     CreateMessageFile,
     CreateMessageReference,
