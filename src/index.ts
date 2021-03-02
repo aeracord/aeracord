@@ -98,6 +98,7 @@ export {
     ListGuildMembersData,
     ModifyChannelData,
     ModifyChannelDataType,
+    ModifyCurrentUserData,
     ModifyCurrentUserNicknameData,
     ModifyGuildChannelPositionsData,
     ModifyGuildData,

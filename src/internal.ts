@@ -93,6 +93,7 @@ export { GetInviteData } from "./classes/Client/apiMethods/getInvite";
 export { GetReactionsData } from "./classes/Client/apiMethods/getReactions";
 export { ListGuildMembersData } from "./classes/Client/apiMethods/listGuildMembers";
 export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/modifyChannel";
+export { ModifyCurrentUserData } from "./classes/Client/apiMethods/modifyCurrentUser";
 export { CurrentUserNickname, ModifyCurrentUserNicknameData } from "./classes/Client/apiMethods/modifyCurrentUserNickname";
 export { ModifyGuildData } from "./classes/Client/apiMethods/modifyGuild";
 export { ModifyGuildChannelPositionsData } from "./classes/Client/apiMethods/modifyGuildChannelPositions";

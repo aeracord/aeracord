@@ -60,6 +60,7 @@ import {
     MessageResolvable,
     MessageUpdateData,
     ModifyChannelData,
+    ModifyCurrentUserData,
     ModifyCurrentUserNicknameData,
     ModifyGuildChannelPositionsData,
     ModifyGuildData,
@@ -142,6 +143,7 @@ import getUser from "./apiMethods/getUser";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import modifyChannel from "./apiMethods/modifyChannel";
+import modifyCurrentUser from "./apiMethods/modifyCurrentUser";
 import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
 import modifyGuild from "./apiMethods/modifyGuild";
 import modifyGuildChannelPositions from "./apiMethods/modifyGuildChannelPositions";
@@ -1074,6 +1076,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<AnyGuildChannel>} The modified channel
      */
     modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannel> => modifyChannel(this, channel, modifyChannelData);
+
+    /**
+     * Modify Current User
+     *
+     * Modify the current user
+     *
+     * @param modifyCurrentUserData The data to modify the current user
+     *
+     * @returns {Promise<User>} The modified user
+     */
+    modifyCurrentUser = (modifyCurrentUserData: ModifyCurrentUserData): Promise<User> => modifyCurrentUser(this, modifyCurrentUserData);
 
     /**
      * Modify Current User Nickname
