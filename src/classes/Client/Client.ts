@@ -12,6 +12,7 @@ import {
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
+    CreateDMData,
     CreateGuildBanData,
     CreateGuildChannelData,
     CreateGuildData,
@@ -21,6 +22,7 @@ import {
     CreateGuildTemplateData,
     CreateMessageData,
     CurrentUserNickname,
+    DMChannel,
     EditChannelPermissionsData,
     EditMessageData,
     Emoji,
@@ -93,6 +95,7 @@ import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
 import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
 import createChannelInvite from "./apiMethods/createChannelInvite";
+import createDM from "./apiMethods/createDM";
 import createGuild from "./apiMethods/createGuild";
 import createGuildBan from "./apiMethods/createGuildBan";
 import createGuildChannel from "./apiMethods/createGuildChannel";
@@ -494,6 +497,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Invite>} The invite
      */
     createChannelInvite = (channel: ChannelResolvable, createChannelInviteData?: CreateChannelInviteData): Promise<Invite> => createChannelInvite(this, channel, createChannelInviteData);
+
+    /**
+     * Create DM
+     *
+     * Create a DM
+     *
+     * @param createDMData The data for the DM
+     *
+     * @returns {Promise<DMChannel[]>} The DM channel
+     */
+    createDM = (createDMData: CreateDMData): Promise<DMChannel> => createDM(this, createDMData);
 
     /**
      * Create Guild
