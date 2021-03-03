@@ -21,6 +21,7 @@ import {
     CreateGuildRoleData,
     CreateGuildTemplateData,
     CreateMessageData,
+    CreateWebhookData,
     CurrentUserNickname,
     DMChannel,
     EditChannelPermissionsData,
@@ -89,7 +90,8 @@ import {
     VanityInvite,
     VoiceRegion,
     VoiceState,
-    WebhooksUpdateData
+    WebhooksUpdateData,
+    Webhook
 } from "../../internal";
 import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
@@ -105,6 +107,7 @@ import createGuildRole from "./apiMethods/createGuildRole";
 import createGuildTemplate from "./apiMethods/createGuildTemplate";
 import createMessage from "./apiMethods/createMessage";
 import createReaction from "./apiMethods/createReaction";
+import createWebhook from "./apiMethods/createWebhook";
 import crosspostMessage from "./apiMethods/crosspostMessage";
 import deleteAllReactions from "./apiMethods/deleteAllReactions";
 import deleteAllReactionsForEmoji from "./apiMethods/deleteAllReactionsForEmoji";
@@ -613,6 +616,18 @@ export default class Client extends EventEmitter {
      * @param reactionEmoji The emoji to react with
      */
     createReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => createReaction(this, channel, message, reactionEmoji);
+
+    /**
+     * Create Webhook
+     *
+     * Create a webhook
+     *
+     * @param channel The channel to create a webhook in
+     * @param createWebhookData The data for the webhook
+     *
+     * @returns {Promise<Webhook>} The created webhook
+     */
+    createWebhook = (channel: ChannelResolvable, createWebhookData: CreateWebhookData): Promise<Webhook> => createWebhook(this, channel, createWebhookData);
 
     /**
      * Crosspost Message

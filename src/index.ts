@@ -86,6 +86,7 @@ export {
     CreateMessageData,
     CreateMessageFile,
     CreateMessageReference,
+    CreateWebhookData,
     CurrentUserNickname,
     EditChannelPermissionsData,
     EditMessageData,

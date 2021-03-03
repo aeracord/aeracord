@@ -84,6 +84,7 @@ export { CreateGuildFromTemplateData } from "./classes/Client/apiMethods/createG
 export { CreateGuildRoleData } from "./classes/Client/apiMethods/createGuildRole";
 export { CreateGuildTemplateData } from "./classes/Client/apiMethods/createGuildTemplate";
 export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/createMessage";
+export { CreateWebhookData } from "./classes/Client/apiMethods/createWebhook";
 export { EditChannelPermissionsData } from "./classes/Client/apiMethods/editChannelPermissions";
 export { EditMessageData } from "./classes/Client/apiMethods/editMessage";
 export { FollowedChannel, FollowNewsChannelData } from "./classes/Client/apiMethods/followNewsChannel";
