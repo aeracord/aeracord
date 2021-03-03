@@ -90,8 +90,8 @@ import {
     VanityInvite,
     VoiceRegion,
     VoiceState,
-    WebhooksUpdateData,
-    Webhook
+    Webhook,
+    WebhooksUpdateData
 } from "../../internal";
 import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";

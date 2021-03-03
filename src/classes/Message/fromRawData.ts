@@ -9,7 +9,11 @@ export default function fromRawData(client: Client, rawData: RawMessageData): Me
         channelID: rawData.channel_id,
         guildID: rawData.guild_id,
         author: rawData.webhook_id ? undefined : User._fromRawData(client, rawData.author as RawUserData),
-        webhook: rawData.webhook_id ? Webhook._fromRawData(client, rawData.author as RawWebhookData) : undefined,
+        webhook: rawData.webhook_id ? {
+            id: rawData.author.id,
+            name: rawData.author.username,
+            avatar: rawData.author.avatar || undefined
+        } : undefined,
         member: (rawData.member && rawData.guild_id) ? Member._fromRawData(client, { ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
         content: rawData.content,
         timestamp: new Date(rawData.timestamp).getTime(),

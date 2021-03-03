@@ -1,4 +1,4 @@
-import { Attachment, ChannelMention, Embed, Member, Message, MessageActivity, MessageApplication, MessageReference, MessageType, Reaction, Sticker, User, Webhook } from "../../../../internal";
+import { Attachment, ChannelMention, Embed, Member, Message, MessageActivity, MessageApplication, MessageReference, MessageType, MessageWebhook, Reaction, Sticker, User } from "../../../../internal";
 
 export interface MessageUpdateData {
 
@@ -42,7 +42,7 @@ export interface MessageUpdateData {
      *
      * The webhook that sent this message
      */
-    webhook?: Webhook;
+    webhook?: MessageWebhook;
 
     /**
      * Member

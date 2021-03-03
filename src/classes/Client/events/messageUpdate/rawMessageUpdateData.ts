@@ -1,11 +1,11 @@
-import { MessageType, RawAttachmentData, RawEmbedData, RawUserlessMemberData, RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataMessageReference, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData } from "../../../../internal";
+import { MessageType, RawAttachmentData, RawEmbedData, RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataMessageReference, RawMessageDataWebhook, RawReactionData, RawStickerData, RawUserlessMemberData, RawUserData, RawUserWithMemberData, RawWebhookData } from "../../../../internal";
 
 export interface RawMessageUpdateData {
     id: string;
     type?: MessageType;
     channel_id: string;
     guild_id?: string;
-    author?: RawUserData | RawWebhookData;
+    author?: RawUserData | RawMessageDataWebhook;
     member?: RawUserlessMemberData;
     content?: string;
     timestamp?: string;

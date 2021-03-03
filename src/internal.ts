@@ -235,9 +235,10 @@ export {
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION,
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1,
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3
+    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3,
+    MessageWebhook
 } from "./classes/Message/Message";
-export { default as RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataMessageReference } from "./classes/Message/rawMessageData";
+export { default as RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataMessageReference, RawMessageDataWebhook } from "./classes/Message/rawMessageData";
 
 // News Channel
 export {

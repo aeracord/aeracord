@@ -8,7 +8,7 @@ export interface MessageData {
     channelID: string;
     guildID?: string;
     author?: User;
-    webhook?: Webhook;
+    webhook?: MessageWebhook;
     member?: Member;
     content: string;
     timestamp: number;
@@ -43,6 +43,12 @@ export const MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED = 14;
 export const MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED = 15;
 export const MESSAGE_TYPE_REPLY = 19;
 export const MESSAGE_TYPE_APPLICATION_COMMAND = 20;
+
+export interface MessageWebhook {
+    id: string;
+    name: string;
+    avatar?: string;
+}
 
 export interface ChannelMention {
     id: string;
@@ -127,7 +133,7 @@ export default class Message {
      *
      * The webhook that sent this message
      */
-    webhook?: Webhook;
+    webhook?: MessageWebhook;
 
     /**
      * Member

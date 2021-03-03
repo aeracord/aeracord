@@ -11,7 +11,11 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         channelID: rawData.channel_id,
         guildID: rawData.guild_id,
         author: (rawData.webhook_id || !rawData.author) ? undefined : User._fromRawData(client, rawData.author as RawUserData),
-        webhook: (rawData.webhook_id && rawData.author) ? Webhook._fromRawData(client, rawData.author as RawWebhookData) : undefined,
+        webhook: (rawData.webhook_id && rawData.author) ? {
+            id: rawData.author.id,
+            name: rawData.author.username,
+            avatar: rawData.author.avatar || undefined
+        } : undefined,
         member: (rawData.member && rawData.guild_id) ? Member._fromRawData(client, { ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
         content: rawData.content,
         timestamp: rawData.timestamp ? new Date(rawData.timestamp).getTime() : undefined,
