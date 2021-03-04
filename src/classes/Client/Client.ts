@@ -158,6 +158,7 @@ import getWebhook from "./apiMethods/getWebhook";
 import leaveGuild from "./apiMethods/leaveGuild";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
+import listVoiceRegions from "./apiMethods/listVoiceRegions";
 import modifyChannel from "./apiMethods/modifyChannel";
 import modifyCurrentUser from "./apiMethods/modifyCurrentUser";
 import modifyCurrentUserNickname from "./apiMethods/modifyCurrentUserNickname";
@@ -1166,6 +1167,15 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Member[]>} The members
      */
     listGuildMembers = (guild: GuildResolvable, listGuildMembersData?: ListGuildMembersData): Promise<Member[]> => listGuildMembers(this, guild, listGuildMembersData);
+
+    /**
+     * List Voice Regions
+     *
+     * Get the voice regions that can be used when creating servers
+     *
+     * @returns {Promise<VoiceRegion[]>} The voice regions
+     */
+    listVoiceRegions = (): Promise<VoiceRegion[]> => listVoiceRegions(this);
 
     /**
      * Modify Channel
