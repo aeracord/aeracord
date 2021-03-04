@@ -143,7 +143,7 @@ export default class Role {
     /**
      * From Raw Data
      *
-     * Create an `Role` from a `RawRoleData` object
+     * Create a `Role` from a `RawRoleData` object
      *
      * @param rawData The raw data from the API
      *

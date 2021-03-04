@@ -322,6 +322,7 @@ export {
 // Webhook
 export {
     Webhook,
+    WebhookResolvable,
     WEBHOOK_TYPE_CHANNEL_FOLLOWER,
     WEBHOOK_TYPE_INCOMING,
     WebhookType

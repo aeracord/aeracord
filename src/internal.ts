@@ -360,6 +360,7 @@ export { default as RawVoiceStateData } from "./classes/VoiceState/rawVoiceState
 export {
     default as Webhook,
     WebhookData,
+    WebhookResolvable,
     WEBHOOK_TYPE_CHANNEL_FOLLOWER,
     WEBHOOK_TYPE_INCOMING,
     WebhookType

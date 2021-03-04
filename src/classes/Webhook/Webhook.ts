@@ -1,5 +1,6 @@
 import { Client, RawWebhookData, User } from "../../internal";
 import fromRawData from "./fromRawData";
+import resolveID from "./resolveID";
 
 export interface WebhookData {
     id: string;
@@ -16,6 +17,8 @@ export interface WebhookData {
 export type WebhookType = typeof WEBHOOK_TYPE_INCOMING | typeof WEBHOOK_TYPE_CHANNEL_FOLLOWER;
 export const WEBHOOK_TYPE_INCOMING = 1;
 export const WEBHOOK_TYPE_CHANNEL_FOLLOWER = 2;
+
+export type WebhookResolvable = Webhook | string;
 
 export default class Webhook {
 
@@ -122,11 +125,22 @@ export default class Webhook {
     /**
      * From Raw Data
      *
-     * Create an `Webhook` from a `RawWebhookData` object
+     * Create a `Webhook` from a `RawWebhookData` object
      *
      * @param rawData The raw data from the API
      *
      * @returns {Webhook} The webhook
      */
     static _fromRawData = (client: Client, rawData: RawWebhookData): Webhook => fromRawData(client, rawData);
+
+    /**
+     * Resolve ID
+     *
+     * Resolve an object to a webhook ID
+     *
+     * @param webhookResolvable The webhook resolvable
+     *
+     * @returns {string} The resolved webhook ID
+     */
+    static resolveID = (webhookResolvable: WebhookResolvable): string => resolveID(webhookResolvable);
 }
