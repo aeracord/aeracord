@@ -1,4 +1,4 @@
-import { Client, Emoji, GuildChannel, Invite, Member, RawGuildData, Role, WelcomeScreen } from "../../internal";
+import { Ban, Client, Emoji, GuildChannel, GuildWidget, Invite, Member, RawGuildData, Role, Template, VanityInvite, Webhook, WelcomeScreen } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -77,7 +77,7 @@ export interface VoiceRegion {
     custom: boolean;
 }
 
-export type GuildResolvable = Guild | GuildChannel | Member | Role | Invite | string;
+export type GuildResolvable = Guild | Ban | GuildChannel | GuildWidget | Invite | Member | Role | Template | VanityInvite | Webhook | WelcomeScreen | string;
 
 export default class Guild {
 
