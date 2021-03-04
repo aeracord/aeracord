@@ -144,6 +144,7 @@ import getGuildRoles from "./apiMethods/getGuildRoles";
 import getGuildTemplates from "./apiMethods/getGuildTemplates";
 import getGuildVanityURL from "./apiMethods/getGuildVanityURL";
 import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
+import getGuildWebhooks from "./apiMethods/getGuildWebhooks";
 import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
 import getInvite from "./apiMethods/getInvite";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
@@ -1027,6 +1028,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<VoiceRegion[]>} The guild's voice regions
      */
     getGuildVoiceRegions = (guild: GuildResolvable): Promise<VoiceRegion[]> => getGuildVoiceRegions(this, guild);
+
+    /**
+     * Get Guild Webhooks
+     *
+     * Get a guild's webhooks
+     *
+     * @param guild The guild to get the webhooks for
+     *
+     * @returns {Promise<Webhook[]>} The guild's webhooks
+     */
+    getGuildWebhooks = (guild: GuildResolvable): Promise<Webhook[]> => getGuildWebhooks(this, guild);
 
     /**
      * Get Guild Widget Settings
