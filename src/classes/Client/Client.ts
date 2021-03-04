@@ -124,6 +124,7 @@ import deleteMessage from "./apiMethods/deleteMessage";
 import deleteOwnReaction from "./apiMethods/deleteOwnReaction";
 import deletePinnedChannelMessage from "./apiMethods/deletePinnedChannelMessage";
 import deleteUserReaction from "./apiMethods/deleteUserReaction";
+import deleteWebhook from "./apiMethods/deleteWebhook";
 import editChannelPermissions from "./apiMethods/editChannelPermissions";
 import editMessage from "./apiMethods/editMessage";
 import followNewsChannel from "./apiMethods/followNewsChannel";
@@ -783,6 +784,15 @@ export default class Client extends EventEmitter {
      * @param user The user to delete the reaction for
      */
     deleteUserReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> => deleteUserReaction(this, channel, message, reactionEmoji, user);
+
+    /**
+     * Delete Webhook
+     *
+     * Delete a webhook
+     *
+     * @param webhook The webhook to delete
+     */
+    deleteWebhook = (webhook: WebhookResolvable): Promise<void> => deleteWebhook(this, webhook);
 
     /**
      * Edit Channel Permissions
