@@ -129,6 +129,7 @@ import getChannel from "./apiMethods/getChannel";
 import getChannelInvites from "./apiMethods/getChannelInvites";
 import getChannelMessage from "./apiMethods/getChannelMessage";
 import getChannelMessages from "./apiMethods/getChannelMessages";
+import getChannelWebhooks from "./apiMethods/getChannelWebhooks";
 import getCurrentUser from "./apiMethods/getCurrentUser";
 import getCurrentUserGuilds from "./apiMethods/getCurrentUserGuilds";
 import getGuild from "./apiMethods/getGuild";
@@ -859,6 +860,17 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Message[]>} The messages
      */
     getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
+
+    /**
+     * Get Channel Webhooks
+     *
+     * Get a channel's webhooks
+     *
+     * @param channel The channel to get the webhooks for
+     *
+     * @returns {Promise<Webhook[]>} The channel's webhooks
+     */
+    getChannelWebhooks = (channel: ChannelResolvable): Promise<Webhook[]> => getChannelWebhooks(this, channel);
 
     /**
      * Get Current User
