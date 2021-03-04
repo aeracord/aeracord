@@ -111,6 +111,7 @@ export {
     ModifyGuildRolePositionsData,
     ModifyGuildTemplateData,
     ModifyGuildWidgetData,
+    ModifyWebhookData,
     PartialGuild
 } from "./internal";
 

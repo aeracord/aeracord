@@ -74,6 +74,7 @@ import {
     ModifyGuildRolePositionsData,
     ModifyGuildTemplateData,
     ModifyGuildWidgetData,
+    ModifyWebhookData,
     PartialGuild,
     Presence,
     ReactionEmojiResolvable,
@@ -167,6 +168,7 @@ import modifyGuildRole from "./apiMethods/modifyGuildRole";
 import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
 import modifyGuildTemplate from "./apiMethods/modifyGuildTemplate";
 import modifyGuildWidget from "./apiMethods/modifyGuildWidget";
+import modifyWebhook from "./apiMethods/modifyWebhook";
 import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
@@ -1287,6 +1289,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<GuildWidget>} The modified guild widget
      */
     modifyGuildWidget = (guild: GuildResolvable, modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> => modifyGuildWidget(this, guild, modifyGuildWidgetData);
+
+    /**
+     * Modify Webhook
+     *
+     * Modify a webhook
+     *
+     * @param webhook The webhook to modify
+     * @param modifyWebhookData The data to modify the webhook
+     *
+     * @returns {Promise<Webhook>} The modified webhook
+     */
+    modifyWebhook = (webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<Webhook> => modifyWebhook(this, webhook, modifyWebhookData);
 
     /**
      * Remove Guild Ban
