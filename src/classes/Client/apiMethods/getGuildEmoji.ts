@@ -22,7 +22,7 @@ export default async function getGuildEmoji(client: Client, guildResolvable: Gui
     });
 
     // Parse emoji
-    const emoji: Emoji = Emoji._fromRawData(client, result);
+    const emoji: Emoji = Emoji._fromRawData(client, result, guildID);
 
     // Return
     return emoji;

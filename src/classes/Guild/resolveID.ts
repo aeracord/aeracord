@@ -1,4 +1,4 @@
-import { Ban, Guild, GuildChannel, GuildResolvable, GuildWidget, Invite, Member, Role, Template, VanityInvite, Webhook, WelcomeScreen } from "../../internal";
+import { Ban, Emoji, Guild, GuildChannel, GuildResolvable, GuildWidget, Invite, Member, Role, Template, VanityInvite, Webhook, WelcomeScreen } from "../../internal";
 
 export default function resolveID(guildResolvable: GuildResolvable): string {
 
@@ -7,6 +7,9 @@ export default function resolveID(guildResolvable: GuildResolvable): string {
 
     // Ban
     else if (guildResolvable instanceof Ban) return guildResolvable.guildID;
+
+    // Emoji
+    else if (guildResolvable instanceof Emoji) return guildResolvable.guildID;
 
     // Guild Channel
     else if (guildResolvable instanceof GuildChannel) return guildResolvable.guildID;

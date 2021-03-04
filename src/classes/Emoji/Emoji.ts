@@ -5,6 +5,7 @@ import resolveID from "./resolveID";
 export interface EmojiData {
     id: string;
     name: string;
+    guildID: string;
     animated?: boolean;
     managed?: boolean;
     available?: boolean;
@@ -37,6 +38,13 @@ export default class Emoji {
      * The emoji's name
      */
     name: string;
+
+    /**
+     * Guild ID
+     *
+     * The ID of the guild this emoji is in
+     */
+    guildID: string;
 
     /**
      * Animated
@@ -87,6 +95,7 @@ export default class Emoji {
      * @param emojiData Options to initialize this emoji with
      * @param emojiData.id The emoji's ID
      * @param emojiData.name The emoji's name
+     * @param emojiData.guildID The ID of the guild this emoji is in
      * @param emojiData.animated Whether or not this emoji is animated
      * @param emojiData.managed Whether or not this emoji is managed by an integration
      * @param emojiData.available Whether or not this emoji is available
@@ -100,6 +109,7 @@ export default class Emoji {
         this.client = client;
         this.id = emojiData.id;
         this.name = emojiData.name;
+        this.guildID = emojiData.guildID;
         this.animated = Boolean(emojiData.animated);
         this.managed = Boolean(emojiData.managed);
         this.available = Boolean(emojiData.available);
@@ -117,7 +127,7 @@ export default class Emoji {
      *
      * @returns {Emoji} The emoji
      */
-    static _fromRawData = (client: Client, rawData: RawEmojiData): Emoji => fromRawData(client, rawData);
+    static _fromRawData = (client: Client, rawData: RawEmojiData, guildID: string): Emoji => fromRawData(client, rawData, guildID);
 
     /**
      * Resolve ID

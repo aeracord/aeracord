@@ -21,7 +21,7 @@ export default async function listGuildEmojis(client: Client, guildResolvable: G
     });
 
     // Parse emojis
-    const emojis: Emoji[] = result.map((e: RawEmojiData) => Emoji._fromRawData(client, e));
+    const emojis: Emoji[] = result.map((e: RawEmojiData) => Emoji._fromRawData(client, e, guildID));
 
     // Return
     return emojis;

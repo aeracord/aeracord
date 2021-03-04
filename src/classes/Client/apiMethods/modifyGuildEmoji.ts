@@ -31,7 +31,7 @@ export default async function modifyGuildEmoji(client: Client, guildResolvable: 
     });
 
     // Parse emoji
-    const emoji: Emoji = Emoji._fromRawData(client, result);
+    const emoji: Emoji = Emoji._fromRawData(client, result, guildID);
 
     // Return
     return emoji;

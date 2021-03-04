@@ -19,7 +19,7 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         defaultMessageNotifications: rawData.default_message_notifications,
         explicitContentFilter: rawData.explicit_content_filter,
         roles: rawData.roles.map((r: RawRoleData) => Role._fromRawData(client, r, rawData.id)),
-        emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e)),
+        emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e, rawData.id)),
         features: rawData.features,
         mfaLevel: rawData.mfa_level,
         applicationID: rawData.application_id || undefined,

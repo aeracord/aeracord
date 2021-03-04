@@ -77,7 +77,7 @@ export interface VoiceRegion {
     custom: boolean;
 }
 
-export type GuildResolvable = Guild | Ban | GuildChannel | GuildWidget | Invite | Member | Role | Template | VanityInvite | Webhook | WelcomeScreen | string;
+export type GuildResolvable = Guild | Ban | Emoji | GuildChannel | GuildWidget | Invite | Member | Role | Template | VanityInvite | Webhook | WelcomeScreen | string;
 
 export default class Guild {
 
