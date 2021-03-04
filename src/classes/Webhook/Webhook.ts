@@ -1,11 +1,21 @@
-import { Client, RawWebhookData } from "../../internal";
+import { Client, RawWebhookData, User } from "../../internal";
 import fromRawData from "./fromRawData";
 
 export interface WebhookData {
     id: string;
-    username: string;
+    type: WebhookType;
+    guildID: string;
+    channelID: string;
+    name: string;
     avatar?: string;
+    creator?: User;
+    token?: string;
+    applicationID?: string;
 }
+
+export type WebhookType = typeof WEBHOOK_TYPE_INCOMING | typeof WEBHOOK_TYPE_CHANNEL_FOLLOWER;
+export const WEBHOOK_TYPE_INCOMING = 1;
+export const WEBHOOK_TYPE_CHANNEL_FOLLOWER = 2;
 
 export default class Webhook {
 
@@ -24,11 +34,32 @@ export default class Webhook {
     id: string;
 
     /**
-     * Username
+     * Type
      *
-     * The webhook's username
+     * The webhook's type
      */
-    username: string;
+    type: WebhookType;
+
+    /**
+     * Guild ID
+     *
+     * The ID of the guild this webhook is in
+     */
+    guildID: string;
+
+    /**
+     * Channel ID
+     *
+     * The ID of the channel this webhook is in
+     */
+    channelID: string;
+
+    /**
+     * Name
+     *
+     * The webhook's name
+     */
+    name: string;
 
     /**
      * Avatar
@@ -38,21 +69,54 @@ export default class Webhook {
     avatar?: string;
 
     /**
+     * User
+     *
+     * The user that created this webhook
+     */
+    creator?: User;
+
+    /**
+     * Token
+     *
+     * The webhook's token
+     */
+    token?: string;
+
+    /**
+     * Application ID
+     *
+     * The webhook's application ID
+     */
+    applicationID?: string;
+
+    /**
      * Webhook
      *
      * @param client The client
      * @param webhookData Options to initialize this webhook with
      * @param webhookData.id The webhook's ID
-     * @param webhookData.username The webhook's username
+     * @param webhookData.type The webhook's type
+     * @param webhookData.guildID The ID of the guild this webhook is in
+     * @param webhookData.channelID The ID of the channel this webhook is in
+     * @param webhookData.name The webhook's name
      * @param webhookData.avatar The webhook's avatar
+     * @param webhookData.creator The user that created this webhook
+     * @param webhookData.token The webhook's token
+     * @param webhookData.applicationID The webhook's application ID
      */
     constructor(client: Client, webhookData: WebhookData) {
 
         // Set data
         this.client = client;
         this.id = webhookData.id;
-        this.username = webhookData.username;
+        this.type = webhookData.type;
+        this.guildID = webhookData.guildID;
+        this.channelID = webhookData.channelID;
+        this.name = webhookData.name;
         this.avatar = webhookData.avatar;
+        this.creator = webhookData.creator;
+        this.token = webhookData.token;
+        this.applicationID = webhookData.applicationID;
     }
 
     /**

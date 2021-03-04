@@ -321,7 +321,10 @@ export {
 
 // Webhook
 export {
-    Webhook
+    Webhook,
+    WEBHOOK_TYPE_CHANNEL_FOLLOWER,
+    WEBHOOK_TYPE_INCOMING,
+    WebhookType
 } from "./internal";
 
 // Welcome Screen
