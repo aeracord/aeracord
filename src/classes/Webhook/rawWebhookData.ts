@@ -7,7 +7,7 @@ export default interface RawWebhookData {
     channel_id: string;
     name: string;
     avatar: string | null;
-    user?: RawUserData;
+    user: RawUserData;
     token?: string;
     application_id: string | null;
 }

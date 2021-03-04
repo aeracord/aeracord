@@ -9,7 +9,7 @@ export interface WebhookData {
     channelID: string;
     name: string;
     avatar?: string;
-    creator?: User;
+    creator: User;
     token?: string;
     applicationID?: string;
 }
@@ -76,7 +76,7 @@ export default class Webhook {
      *
      * The user that created this webhook
      */
-    creator?: User;
+    creator: User;
 
     /**
      * Token
