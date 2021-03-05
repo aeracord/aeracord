@@ -1,4 +1,5 @@
 import { Member, User, UserResolvable } from "../../internal";
+import isID from "../../util/isID";
 
 export default function resolveID(userResolvable: UserResolvable): string | undefined {
 
@@ -9,5 +10,5 @@ export default function resolveID(userResolvable: UserResolvable): string | unde
     else if (userResolvable instanceof Member) return userResolvable.user.id;
 
     // User ID
-    else if (/^[0-9]{17,}$/.test(userResolvable)) return userResolvable;
+    else if (isID(userResolvable)) return userResolvable;
 }

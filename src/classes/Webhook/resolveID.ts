@@ -1,4 +1,5 @@
 import { Webhook, WebhookResolvable } from "../../internal";
+import isID from "../../util/isID";
 
 export default function resolveID(webhookResolvable: WebhookResolvable): string | undefined {
 
@@ -6,5 +7,5 @@ export default function resolveID(webhookResolvable: WebhookResolvable): string 
     if (webhookResolvable instanceof Webhook) return webhookResolvable.id;
 
     // Webhook ID
-    else if (/^[0-9]{17,}$/.test(webhookResolvable)) return webhookResolvable;
+    else if (isID(webhookResolvable)) return webhookResolvable;
 }

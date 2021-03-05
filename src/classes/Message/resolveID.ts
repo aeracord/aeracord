@@ -1,4 +1,5 @@
 import { Message, MessageResolvable } from "../../internal";
+import isID from "../../util/isID";
 
 export default function resolveID(messageResolvable: MessageResolvable): string | undefined {
 
@@ -6,5 +7,5 @@ export default function resolveID(messageResolvable: MessageResolvable): string 
     if (messageResolvable instanceof Message) return messageResolvable.id;
 
     // Message ID
-    else if (/^[0-9]{17,}$/.test(messageResolvable)) return messageResolvable;
+    else if (isID(messageResolvable)) return messageResolvable;
 }

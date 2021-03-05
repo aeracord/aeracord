@@ -1,4 +1,5 @@
 import { Role, RoleResolvable } from "../../internal";
+import isID from "../../util/isID";
 
 export default function resolveID(roleResolvable: RoleResolvable): string | undefined {
 
@@ -6,5 +7,5 @@ export default function resolveID(roleResolvable: RoleResolvable): string | unde
     if (roleResolvable instanceof Role) return roleResolvable.id;
 
     // Role ID
-    else if (/^[0-9]{17,}$/.test(roleResolvable)) return roleResolvable;
+    else if (isID(roleResolvable)) return roleResolvable;
 }
