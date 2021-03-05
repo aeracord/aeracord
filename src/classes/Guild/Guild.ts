@@ -433,7 +433,7 @@ export default class Guild {
      *
      * @param guildResolvable The guild resolvable
      *
-     * @returns {string} The resolved guild ID
+     * @returns {string | undefined} The resolved guild ID, or `undefined` if the guild resolvable is invalid
      */
-    static resolveID = (guildResolvable: GuildResolvable): string => resolveID(guildResolvable);
+    static resolveID = (guildResolvable: GuildResolvable): string | undefined => resolveID(guildResolvable);
 }

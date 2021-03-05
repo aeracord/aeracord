@@ -4,8 +4,10 @@ import getRoute from "../../../util/getRoute";
 export default async function deleteGuildTemplate(client: Client, guildResolvable: GuildResolvable, templateResolvable: TemplateResolvable): Promise<Template> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
-    const templateCode: string = Template.resolveCode(templateResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
+    const templateCode: string | undefined = Template.resolveCode(templateResolvable);
+    if (!templateCode) throw new Error("Invalid template resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/templates/${templateCode}`;

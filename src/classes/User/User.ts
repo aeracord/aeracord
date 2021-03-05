@@ -129,7 +129,7 @@ export default class User {
      *
      * @param userResolvable The user resolvable
      *
-     * @returns {string} The resolved user ID
+     * @returns {string | undefined} The resolved user ID, or `undefined` if the user resolvable is invalid
      */
-    static resolveID = (userResolvable: UserResolvable): string => resolveID(userResolvable);
+    static resolveID = (userResolvable: UserResolvable): string | undefined => resolveID(userResolvable);
 }

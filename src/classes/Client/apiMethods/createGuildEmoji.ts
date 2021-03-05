@@ -10,7 +10,8 @@ export interface CreateGuildEmojiData {
 export default async function createGuildEmoji(client: Client, guildResolvable: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<Emoji> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/emojis`;

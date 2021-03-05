@@ -4,7 +4,8 @@ import getRoute from "../../../util/getRoute";
 export default async function getTemplate(client: Client, templateResolvable: TemplateResolvable): Promise<Template> {
 
     // Resolve objects
-    const templateCode: string = Template.resolveCode(templateResolvable);
+    const templateCode: string | undefined = Template.resolveCode(templateResolvable);
+    if (!templateCode) throw new Error("Invalid template resolvable");
 
     // Define fetch data
     const path: string = `/guilds/templates/${templateCode}`;

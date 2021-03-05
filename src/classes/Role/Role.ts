@@ -158,7 +158,7 @@ export default class Role {
      *
      * @param roleResolvable The role resolvable
      *
-     * @returns {string} The resolved role ID
+     * @returns {string | undefined} The resolved role ID, or `undefined` if the role resolvable is invalid
      */
-    static resolveID = (roleResolvable: RoleResolvable): string => resolveID(roleResolvable);
+    static resolveID = (roleResolvable: RoleResolvable): string | undefined => resolveID(roleResolvable);
 }

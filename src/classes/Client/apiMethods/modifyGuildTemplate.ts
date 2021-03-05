@@ -9,8 +9,10 @@ export interface ModifyGuildTemplateData {
 export default async function modifyGuildTemplate(client: Client, guildResolvable: GuildResolvable, templateResolvable: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<Template> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
-    const templateCode: string = Template.resolveCode(templateResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
+    const templateCode: string | undefined = Template.resolveCode(templateResolvable);
+    if (!templateCode) throw new Error("Invalid template resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/templates/${templateCode}`;

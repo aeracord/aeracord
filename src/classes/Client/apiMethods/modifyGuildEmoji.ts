@@ -9,8 +9,10 @@ export interface ModifyGuildEmojiData {
 export default async function modifyGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<Emoji> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
-    const emojiID: string = Emoji.resolveID(emojiResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
+    const emojiID: string | undefined = Emoji.resolveID(emojiResolvable);
+    if (!emojiID) throw new Error("Invalid emoji resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/emojis/${emojiID}`;

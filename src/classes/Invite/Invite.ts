@@ -166,7 +166,7 @@ export default class Invite {
      *
      * @param inviteResolvable The invite resolvable
      *
-     * @returns {string} The resolved invite code
+     * @returns {string | undefined} The resolved invite code, or `undefined` if the invite resolvable is invalid
      */
-    static resolveCode = (inviteResolvable: InviteResolvable): string => resolveCode(inviteResolvable);
+    static resolveCode = (inviteResolvable: InviteResolvable): string | undefined => resolveCode(inviteResolvable);
 }

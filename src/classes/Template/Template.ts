@@ -192,7 +192,7 @@ export default class Template {
      *
      * @param templateResolvable The template resolvable
      *
-     * @returns {string} The resolved template code
+     * @returns {string | undefined} The resolved template code, or `undefined` if the template resolvable is invalid
      */
-    static resolveCode = (templateResolvable: TemplateResolvable): string => resolveCode(templateResolvable);
+    static resolveCode = (templateResolvable: TemplateResolvable): string | undefined => resolveCode(templateResolvable);
 }

@@ -13,8 +13,10 @@ export interface CreateChannelInviteData {
 export default async function createChannelInvite(client: Client, channelResolvable: ChannelResolvable, createChannelInviteData: CreateChannelInviteData = {}): Promise<Invite> {
 
     // Resolve objects
-    const channelID: string = Channel.resolveID(channelResolvable);
-    if (createChannelInviteData.targetUser) createChannelInviteData.targetUser = User.resolveID(createChannelInviteData.targetUser);
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
+    const targetUser = createChannelInviteData.targetUser ? User.resolveID(createChannelInviteData.targetUser) : null;
+    if (!targetUser === undefined) throw new Error("Invalid user resolvable for target user");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/invites`;
@@ -33,7 +35,7 @@ export default async function createChannelInvite(client: Client, channelResolva
             max_uses: createChannelInviteData.maxUses,
             temporary: createChannelInviteData.temporary,
             unique: createChannelInviteData.unique,
-            target_user: createChannelInviteData.targetUser,
+            target_user: targetUser || undefined,
             target_user_type: createChannelInviteData.targetUserType
         }
     });

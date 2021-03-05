@@ -136,7 +136,7 @@ export default class Emoji {
      *
      * @param emojiResolvable The emoji resolvable
      *
-     * @returns {string} The resolved emoji ID
+     * @returns {string | undefined} The resolved emoji ID, or `undefined` if the emoji resolvable is invalid
      */
-    static resolveID = (emojiResolvable: EmojiResolvable): string => resolveID(emojiResolvable);
+    static resolveID = (emojiResolvable: EmojiResolvable): string | undefined => resolveID(emojiResolvable);
 }

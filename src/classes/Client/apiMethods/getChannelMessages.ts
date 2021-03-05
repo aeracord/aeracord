@@ -12,7 +12,8 @@ export interface GetChannelMessagesData {
 export default async function getChannelMessages(client: Client, channelResolvable: ChannelResolvable, getChannelMessagesData: GetChannelMessagesData = {}): Promise<Message[]> {
 
     // Resolve objects
-    const channelID: string = Channel.resolveID(channelResolvable);
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages?${queryString.stringify({

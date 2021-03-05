@@ -9,8 +9,10 @@ export interface CreateGuildBanData {
 export default async function createGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, createGuildBanData: CreateGuildBanData = {}): Promise<void> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
-    const userID: string = User.resolveID(userResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
+    const userID: string | undefined = User.resolveID(userResolvable);
+    if (!userID) throw new Error("Invalid user resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/bans/${userID}`;

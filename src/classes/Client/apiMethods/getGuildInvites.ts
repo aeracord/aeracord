@@ -4,7 +4,8 @@ import getRoute from "../../../util/getRoute";
 export default async function getGuildInvites(client: Client, guildResolvable: GuildResolvable): Promise<Invite[]> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/invites`;

@@ -18,8 +18,10 @@ interface RawFollowedChannel {
 export default async function followNewsChannel(client: Client, channelResolvable: ChannelResolvable, followNewsChannelData: FollowNewsChannelData): Promise<FollowedChannel> {
 
     // Resolve objects
-    const channelID: string = Channel.resolveID(channelResolvable);
-    followNewsChannelData.targetChannel = Channel.resolveID(followNewsChannelData.targetChannel);
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
+    const targetChannel: string | undefined = Channel.resolveID(followNewsChannelData.targetChannel);
+    if (!targetChannel) throw new Error("Invalid channel resolvable for target channel");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/followers`;
@@ -34,7 +36,7 @@ export default async function followNewsChannel(client: Client, channelResolvabl
         path,
         method,
         data: {
-            webhook_channel_id: followNewsChannelData.targetChannel
+            webhook_channel_id: targetChannel
         }
     });
 

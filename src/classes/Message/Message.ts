@@ -348,7 +348,7 @@ export default class Message {
      *
      * @param messageResolvable The message resolvable
      *
-     * @returns {string} The resolved message ID
+     * @returns {string | undefined} The resolved message ID, or `undefined` if the message resolvable is invalid
      */
-    static resolveID = (messageResolvable: MessageResolvable): string => resolveID(messageResolvable);
+    static resolveID = (messageResolvable: MessageResolvable): string | undefined => resolveID(messageResolvable);
 }

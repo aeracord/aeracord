@@ -9,7 +9,8 @@ export interface ModifyGuildRolePositionsData {
 export default async function modifyGuildRolePositions(client: Client, guildResolvable: GuildResolvable, modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/roles`;

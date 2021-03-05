@@ -9,7 +9,8 @@ export interface GetInviteData {
 export default async function getInvite(client: Client, inviteResolvable: InviteResolvable, getInviteData: GetInviteData = {}): Promise<Invite> {
 
     // Resolve objects
-    const inviteCode: string = Invite.resolveCode(inviteResolvable);
+    const inviteCode: string | undefined = Invite.resolveCode(inviteResolvable);
+    if (!inviteCode) throw new Error("Invalid invite resolvable");
 
     // Define fetch data
     const path: string = `/invites/${inviteCode}?${queryString.stringify({

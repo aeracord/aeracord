@@ -66,7 +66,7 @@ export default class Channel {
      *
      * @param channelResolvable The channel resolvable
      *
-     * @returns {string} The resolved channel ID
+     * @returns {string | undefined} The resolved channel ID, or `undefined` if the channel resolvable is invalid
      */
-    static resolveID = (channelResolvable: ChannelResolvable): string => resolveID(channelResolvable);
+    static resolveID = (channelResolvable: ChannelResolvable): string | undefined => resolveID(channelResolvable);
 }

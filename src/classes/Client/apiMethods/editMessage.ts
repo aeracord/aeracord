@@ -11,8 +11,10 @@ export interface EditMessageData {
 export default async function editMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, editMessageData: EditMessageData): Promise<Message> {
 
     // Resolve objects
-    const channelID: string = Channel.resolveID(channelResolvable);
-    const messageID: string = Message.resolveID(messageResolvable);
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
+    const messageID: string | undefined = Message.resolveID(messageResolvable);
+    if (!messageID) throw new Error("Invalid message resolvable");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}`;

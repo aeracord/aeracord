@@ -17,7 +17,8 @@ export interface CreateGuildChannelData {
 export default async function createGuildChannel(client: Client, guildResolvable: GuildResolvable, createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannel> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/channels`;

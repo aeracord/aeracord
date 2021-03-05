@@ -4,9 +4,12 @@ import getRoute from "../../../util/getRoute";
 export default async function removeGuildMemberRole(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, roleResolvable: RoleResolvable): Promise<void> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
-    const userID: string = User.resolveID(userResolvable);
-    const roleID: string = Role.resolveID(roleResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
+    const userID: string | undefined = User.resolveID(userResolvable);
+    if (!userID) throw new Error("Invalid user resolvable");
+    const roleID: string | undefined = Role.resolveID(roleResolvable);
+    if (!roleID) throw new Error("Invalid role resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/${userID}/roles/${roleID}`;

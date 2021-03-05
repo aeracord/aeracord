@@ -9,7 +9,8 @@ export interface CreateWebhookData {
 export default async function createWebhook(client: Client, channelResolvable: ChannelResolvable, createWebhookData: CreateWebhookData): Promise<Webhook> {
 
     // Resolve objects
-    const channelID: string = Channel.resolveID(channelResolvable);
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/webhooks`;

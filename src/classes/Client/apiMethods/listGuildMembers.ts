@@ -10,7 +10,8 @@ export interface ListGuildMembersData {
 export default async function listGuildMembers(client: Client, guildResolvable: GuildResolvable, listGuildMembersData: ListGuildMembersData = {}): Promise<Member[]> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members?${queryString.stringify({

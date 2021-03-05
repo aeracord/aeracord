@@ -4,10 +4,11 @@ import getRoute from "../../../util/getRoute";
 export default async function deleteInvite(client: Client, inviteResolvable: InviteResolvable): Promise<Invite> {
 
     // Resolve objects
-    const resolveCode: string = Invite.resolveCode(inviteResolvable);
+    const inviteCode: string | undefined = Invite.resolveCode(inviteResolvable);
+    if (!inviteCode) throw new Error("Invalid invite resolvable");
 
     // Define fetch data
-    const path: string = `/invites/${resolveCode}`;
+    const path: string = `/invites/${inviteCode}`;
     const method: string = "DELETE";
     const route: string = getRoute(path, method);
 

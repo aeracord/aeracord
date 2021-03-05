@@ -4,7 +4,8 @@ import getRoute from "../../../util/getRoute";
 export default async function deleteChannel(client: Client, channelResolvable: ChannelResolvable): Promise<AnyChannel> {
 
     // Resolve objects
-    const channelID: string = Channel.resolveID(channelResolvable);
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Define fetch data
     const path: string = `/channels/${channelID}`;

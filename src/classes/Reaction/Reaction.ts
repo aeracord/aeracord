@@ -82,7 +82,7 @@ export default class Reaction {
      *
      * @param reactionEmojiResolvable The emoji resolvable
      *
-     * @returns {string} The resolved reaction emoji string
+     * @returns {string | undefined} The resolved reaction emoji string, or `undefined` if the reaction emoji resolvable is invalid
      */
-    static resolveString = (reactionEmojiResolvable: ReactionEmojiResolvable): string => resolveString(reactionEmojiResolvable);
+    static resolveString = (reactionEmojiResolvable: ReactionEmojiResolvable): string | undefined => resolveString(reactionEmojiResolvable);
 }

@@ -140,7 +140,7 @@ export default class Webhook {
      *
      * @param webhookResolvable The webhook resolvable
      *
-     * @returns {string} The resolved webhook ID
+     * @returns {string | undefined} The resolved webhook ID, or `undefined` if the webhook resolvable is invalid
      */
-    static resolveID = (webhookResolvable: WebhookResolvable): string => resolveID(webhookResolvable);
+    static resolveID = (webhookResolvable: WebhookResolvable): string | undefined => resolveID(webhookResolvable);
 }

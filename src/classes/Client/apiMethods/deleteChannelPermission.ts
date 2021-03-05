@@ -4,8 +4,10 @@ import getRoute from "../../../util/getRoute";
 export default async function deleteChannelPermission(client: Client, channelResolvable: ChannelResolvable, roleOrUserResolvable: RoleResolvable | UserResolvable): Promise<void> {
 
     // Resolve objects
-    const channelID: string = Channel.resolveID(channelResolvable);
-    const roleOrUserID: string = roleOrUserResolvable instanceof Role ? Role.resolveID(roleOrUserResolvable) : User.resolveID(roleOrUserResolvable);
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
+    const roleOrUserID: string | undefined = roleOrUserResolvable instanceof Role ? Role.resolveID(roleOrUserResolvable) : User.resolveID(roleOrUserResolvable);
+    if (!roleOrUserID) throw new Error("Invalid role or user resolvable");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/permissions/${roleOrUserID}`;

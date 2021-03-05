@@ -10,7 +10,8 @@ export interface ModifyWebhookData {
 export default async function modifyWebhook(client: Client, webhookResolvable: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<Webhook> {
 
     // Resolve objects
-    const webhookID: string = Webhook.resolveID(webhookResolvable);
+    const webhookID: string | undefined = Webhook.resolveID(webhookResolvable);
+    if (!webhookID) throw new Error("Invalid webhook resolvable");
 
     // Define fetch data
     const path: string = `/webhooks/${webhookID}`;

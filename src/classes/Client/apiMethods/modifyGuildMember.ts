@@ -12,8 +12,10 @@ export interface ModifyGuildMemberData {
 export default async function modifyGuildMember(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
-    const userID: string = User.resolveID(userResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
+    const userID: string | undefined = User.resolveID(userResolvable);
+    if (!userID) throw new Error("Invalid user resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/${userID}`;

@@ -4,7 +4,8 @@ import getRoute from "../../../util/getRoute";
 export default async function getUser(client: Client, userResolvable: UserResolvable): Promise<User> {
 
     // Resolve objects
-    const userID: string = User.resolveID(userResolvable);
+    const userID: string | undefined = User.resolveID(userResolvable);
+    if (!userID) throw new Error("Invalid user resolvable");
 
     // Define fetch data
     const path: string = `/users/${userID}`;

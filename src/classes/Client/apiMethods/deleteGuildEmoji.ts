@@ -4,8 +4,10 @@ import getRoute from "../../../util/getRoute";
 export default async function deleteGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable): Promise<void> {
 
     // Resolve objects
-    const guildID: string = Guild.resolveID(guildResolvable);
-    const emojiID: string = Emoji.resolveID(emojiResolvable);
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
+    const emojiID: string | undefined = Emoji.resolveID(emojiResolvable);
+    if (!emojiID) throw new Error("Invalid emoji resolvable");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/emojis/${emojiID}`;

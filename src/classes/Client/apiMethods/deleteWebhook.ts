@@ -4,7 +4,8 @@ import getRoute from "../../../util/getRoute";
 export default async function deleteWebhook(client: Client, webhookResolvable: WebhookResolvable): Promise<void> {
 
     // Resolve objects
-    const webhookID: string = Webhook.resolveID(webhookResolvable);
+    const webhookID: string | undefined = Webhook.resolveID(webhookResolvable);
+    if (!webhookID) throw new Error("Invalid webhook resolvable");
 
     // Define fetch data
     const path: string = `/webhooks/${webhookID}`;

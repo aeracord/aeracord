@@ -9,7 +9,8 @@ export interface CreateGuildFromTemplateData {
 export default async function createGuildFromTemplate(client: Client, templateResolvable: TemplateResolvable, createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<Guild> {
 
     // Resolve objects
-    const templateCode: string = Template.resolveCode(templateResolvable);
+    const templateCode: string | undefined = Template.resolveCode(templateResolvable);
+    if (!templateCode) throw new Error("Invalid template resolvable");
 
     // Define fetch data
     const path: string = `/guilds/templates/${templateCode}`;

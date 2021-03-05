@@ -1,6 +1,6 @@
 import { Ban, Emoji, Guild, GuildChannel, GuildResolvable, GuildWidget, Invite, Member, Role, Template, VanityInvite, Webhook, WelcomeScreen } from "../../internal";
 
-export default function resolveID(guildResolvable: GuildResolvable): string {
+export default function resolveID(guildResolvable: GuildResolvable): string | undefined {
 
     // Guild
     if (guildResolvable instanceof Guild) return guildResolvable.id;
@@ -39,5 +39,5 @@ export default function resolveID(guildResolvable: GuildResolvable): string {
     else if (guildResolvable instanceof WelcomeScreen) return guildResolvable.guildID;
 
     // Guild ID
-    else return guildResolvable;
+    else if (/^[0-9]{17,}$/.test(guildResolvable)) return guildResolvable;
 }
