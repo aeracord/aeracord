@@ -1,4 +1,4 @@
-import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, RawMessageData } from "../../../internal";
+import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditMessageData {
@@ -15,6 +15,10 @@ export default async function editMessage(client: Client, channelResolvable: Cha
     if (!channelID) throw new Error("Invalid channel resolvable");
     const messageID: string | undefined = Message.resolveID(messageResolvable);
     if (!messageID) throw new Error("Invalid message resolvable");
+    const allowedMentionsUsers: Array<string | undefined> | undefined = editMessageData.allowedMentions?.users?.map((u: UserResolvable) => User.resolveID(u));
+    if (allowedMentionsUsers?.find((u: string | undefined) => !u)) throw new Error("Invalid user resolvable in array of allowed mentions users");
+    const allowedMentionsRoles: Array<string | undefined> | undefined = editMessageData.allowedMentions?.roles?.map((r: RoleResolvable) => Role.resolveID(r));
+    if (allowedMentionsRoles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed mentions roles");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}`;
@@ -31,7 +35,12 @@ export default async function editMessage(client: Client, channelResolvable: Cha
         data: {
             content: editMessageData.content,
             embed: editMessageData.embed?._toJSON(),
-            allowed_mentions: editMessageData.allowedMentions,
+            allowed_mentions: editMessageData.allowedMentions && {
+                parse: editMessageData.allowedMentions.parse,
+                users: allowedMentionsUsers,
+                roles: allowedMentionsRoles,
+                replied_user: editMessageData.allowedMentions.repliedUser
+            },
             flags: editMessageData.flags
         }
     });

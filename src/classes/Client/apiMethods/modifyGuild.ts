@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawGuildData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, RawGuildData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildData {
@@ -7,15 +7,15 @@ export interface ModifyGuildData {
     verificationLevel?: string;
     defaultMessageNotifications?: string;
     explicitContentFilter?: string;
-    afkChannelID?: string | null;
+    afkChannel?: ChannelResolvable | null;
     afkTimeout?: string;
     icon?: string | null;
-    ownerID?: string;
+    owner?: UserResolvable;
     splash?: string | null;
     banner?: string | null;
-    systemChannelID?: string | null;
-    rulesChannelID?: string | null;
-    publicUpdatesChannelID?: string | null;
+    systemChannel?: ChannelResolvable | null;
+    rulesChannel?: ChannelResolvable | null;
+    publicUpdatesChannel?: ChannelResolvable | null;
     preferredLocale?: string;
 }
 
@@ -24,6 +24,16 @@ export default async function modifyGuild(client: Client, guildResolvable: Guild
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
+    const afkChannelID: string | undefined | null = modifyGuildData.afkChannel ? Channel.resolveID(modifyGuildData.afkChannel) : null;
+    if (afkChannelID === undefined) throw new Error("Invalid channel resolvable for AFK channel");
+    const ownerID: string | undefined | null = modifyGuildData.owner ? User.resolveID(modifyGuildData.owner) : null;
+    if (ownerID === undefined) throw new Error("Invalid user resolvable for owner");
+    const systemChannelID: string | undefined | null = modifyGuildData.systemChannel ? Channel.resolveID(modifyGuildData.systemChannel) : null;
+    if (systemChannelID === undefined) throw new Error("Invalid channel resolvable for system channel");
+    const rulesChannelID: string | undefined | null = modifyGuildData.rulesChannel ? Channel.resolveID(modifyGuildData.rulesChannel) : null;
+    if (rulesChannelID === undefined) throw new Error("Invalid channel resolvable for rules channel");
+    const publicUpdatesChannelID: string | undefined | null = modifyGuildData.publicUpdatesChannel ? Channel.resolveID(modifyGuildData.publicUpdatesChannel) : null;
+    if (publicUpdatesChannelID === undefined) throw new Error("Invalid channel resolvable for public updates channel");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}`;
@@ -43,15 +53,15 @@ export default async function modifyGuild(client: Client, guildResolvable: Guild
             verification_level: modifyGuildData.verificationLevel,
             default_message_notifications: modifyGuildData.defaultMessageNotifications,
             explicit_content_filter: modifyGuildData.explicitContentFilter,
-            afk_channel_id: modifyGuildData.afkChannelID,
+            afk_channel_id: afkChannelID || undefined,
             afk_timeout: modifyGuildData.afkTimeout,
             icon: modifyGuildData.icon,
-            owner_id: modifyGuildData.ownerID,
+            owner_id: ownerID || undefined,
             splash: modifyGuildData.splash,
             banner: modifyGuildData.banner,
-            system_channel_id: modifyGuildData.systemChannelID,
-            rules_channel_id: modifyGuildData.rulesChannelID,
-            public_updates_channel_id: modifyGuildData.publicUpdatesChannelID,
+            system_channel_id: systemChannelID || undefined,
+            rules_channel_id: rulesChannelID || undefined,
+            public_updates_channel_id: publicUpdatesChannelID || undefined,
             preferred_locale: modifyGuildData.preferredLocale
         }
     });

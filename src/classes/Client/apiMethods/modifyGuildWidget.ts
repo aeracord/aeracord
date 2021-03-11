@@ -1,9 +1,9 @@
-import { Client, FetchQueue, Guild, GuildResolvable, GuildWidget, RawGuildWidgetData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, GuildWidget, RawGuildWidgetData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildWidgetData {
     enabled?: boolean;
-    channelID?: string | null;
+    channel?: string | null;
 }
 
 export default async function modifyGuildWidget(client: Client, guildResolvable: GuildResolvable, modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> {
@@ -11,6 +11,8 @@ export default async function modifyGuildWidget(client: Client, guildResolvable:
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
+    const channelID: string | undefined | null = modifyGuildWidgetData.channel ? Channel.resolveID(modifyGuildWidgetData.channel) : null;
+    if (channelID === undefined) throw new Error("Invalid channel resolvable for widget channel");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/widget`;
@@ -26,7 +28,7 @@ export default async function modifyGuildWidget(client: Client, guildResolvable:
         method,
         data: {
             enabled: modifyGuildWidgetData.enabled,
-            channel_id: modifyGuildWidgetData.channelID
+            channel_id: channelID || undefined
         }
     });
 

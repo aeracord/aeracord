@@ -1,8 +1,13 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawRoleData, Role } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawRoleData, Role, RoleResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildRolePositionsData {
-    id: string;
+    role: RoleResolvable;
+    position: number;
+}
+
+interface PositionsData {
+    id: string | undefined;
     position: number;
 }
 
@@ -11,6 +16,11 @@ export default async function modifyGuildRolePositions(client: Client, guildReso
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
+    const positions: PositionsData[] = modifyGuildRolePositionsData.map((p: ModifyGuildRolePositionsData) => ({
+        id: Role.resolveID(p.role),
+        position: p.position
+    }));
+    if (positions.find((p: PositionsData) => !p.id)) throw new Error("Invalid role resolvable in array of role positions");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/roles`;
@@ -24,7 +34,7 @@ export default async function modifyGuildRolePositions(client: Client, guildReso
     const result: RawRoleData[] = await fetchQueue.request({
         path,
         method,
-        data: modifyGuildRolePositionsData
+        data: positions
     });
 
     // Parse roles

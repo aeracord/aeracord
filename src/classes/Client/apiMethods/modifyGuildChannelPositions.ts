@@ -1,8 +1,13 @@
-import { Client, FetchQueue, Guild, GuildResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildChannelPositionsData {
-    id: string;
+    channel: ChannelResolvable;
+    position: number;
+}
+
+interface PositionsData {
+    id: string | undefined;
     position: number;
 }
 
@@ -11,6 +16,11 @@ export default async function modifyGuildChannelPositions(client: Client, guildR
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
+    const positions: PositionsData[] = modifyGuildChannelPositionsData.map((p: ModifyGuildChannelPositionsData) => ({
+        id: Channel.resolveID(p.channel),
+        position: p.position
+    }));
+    if (positions.find((p: PositionsData) => !p.id)) throw new Error("Invalid channel resolvable in array of channel positions");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/channels`;
@@ -24,6 +34,6 @@ export default async function modifyGuildChannelPositions(client: Client, guildR
     await fetchQueue.request({
         path,
         method,
-        data: modifyGuildChannelPositionsData
+        data: positions
     });
 }

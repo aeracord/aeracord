@@ -1,10 +1,10 @@
-import { Client, Emoji, FetchQueue, Guild, GuildResolvable, RawEmojiData } from "../../../internal";
+import { Client, Emoji, FetchQueue, Guild, GuildResolvable, RawEmojiData, Role, RoleResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildEmojiData {
     name: string;
     image: string;
-    roles?: string[];
+    roles?: RoleResolvable[];
 }
 
 export default async function createGuildEmoji(client: Client, guildResolvable: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<Emoji> {
@@ -12,6 +12,8 @@ export default async function createGuildEmoji(client: Client, guildResolvable: 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
+    const roles: Array<string | undefined> | undefined = createGuildEmojiData.roles?.map((r: RoleResolvable) => Role.resolveID(r));
+    if (roles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed roles");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/emojis`;
@@ -28,7 +30,7 @@ export default async function createGuildEmoji(client: Client, guildResolvable: 
         data: {
             name: createGuildEmojiData.name,
             image: createGuildEmojiData.image,
-            roles: createGuildEmojiData.roles || []
+            roles: roles || []
         }
     });
 

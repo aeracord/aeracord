@@ -1,6 +1,6 @@
 import FormData from "form-data";
 import { promises as fs } from "fs";
-import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, RawMessageData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateMessageData {
@@ -14,8 +14,8 @@ export interface CreateMessageData {
 
 export interface AllowedMentions {
     parse?: AllowedMentionType[];
-    users?: string[];
-    roles?: string[];
+    users?: UserResolvable[];
+    roles?: RoleResolvable[];
     repliedUser?: boolean;
 }
 
@@ -36,6 +36,10 @@ export default async function createMessage(client: Client, channelResolvable: C
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
+    const allowedMentionsUsers: Array<string | undefined> | undefined = createMessageData.allowedMentions?.users?.map((u: UserResolvable) => User.resolveID(u));
+    if (allowedMentionsUsers?.find((u: string | undefined) => !u)) throw new Error("Invalid user resolvable in array of allowed mentions users");
+    const allowedMentionsRoles: Array<string | undefined> | undefined = createMessageData.allowedMentions?.roles?.map((r: RoleResolvable) => Role.resolveID(r));
+    if (allowedMentionsRoles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed mentions roles");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages`;
@@ -53,8 +57,16 @@ export default async function createMessage(client: Client, channelResolvable: C
         content: createMessageData.content,
         tts: createMessageData.tts,
         embed: createMessageData.embed?._toJSON(),
-        allowed_mentions: createMessageData.allowedMentions,
-        message_reference: createMessageData.messageReference
+        allowed_mentions: createMessageData.allowedMentions && {
+            parse: createMessageData.allowedMentions.parse,
+            users: allowedMentionsUsers,
+            roles: allowedMentionsRoles,
+            replied_user: createMessageData.allowedMentions.repliedUser
+        },
+        message_reference: createMessageData.messageReference && {
+            message_id: createMessageData.messageReference.id,
+            fail_if_not_exists: createMessageData.messageReference.failIfNotExists
+        }
     };
 
     // Parse form data

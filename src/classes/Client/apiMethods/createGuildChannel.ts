@@ -1,4 +1,4 @@
-import { AnyGuildChannel, Channel, Client, FetchQueue, Guild, GuildChannelType, GuildResolvable, PermissionOverwrite, RawChannelData } from "../../../internal";
+import { AnyGuildChannel, Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildChannelType, GuildResolvable, PermissionOverwrite, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildChannelData {
@@ -11,7 +11,7 @@ export interface CreateGuildChannelData {
     bitrate?: number;
     userLimit?: number;
     permissionOverwrites?: PermissionOverwrite[];
-    parentID?: string;
+    parent?: ChannelResolvable;
 }
 
 export default async function createGuildChannel(client: Client, guildResolvable: GuildResolvable, createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannel> {
@@ -19,6 +19,8 @@ export default async function createGuildChannel(client: Client, guildResolvable
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
+    const parentID: string | undefined | null = createGuildChannelData.parent ? Channel.resolveID(createGuildChannelData.parent) : null;
+    if (parentID === undefined) throw new Error("Invalid channel resolvable for parent");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/channels`;
@@ -42,7 +44,7 @@ export default async function createGuildChannel(client: Client, guildResolvable
             bitrate: createGuildChannelData.bitrate,
             user_limit: createGuildChannelData.userLimit,
             permission_overwrites: createGuildChannelData.permissionOverwrites,
-            parent_id: createGuildChannelData.parentID
+            parent_id: parentID || undefined
         }
     });
 

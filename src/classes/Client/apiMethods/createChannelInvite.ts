@@ -15,8 +15,8 @@ export default async function createChannelInvite(client: Client, channelResolva
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
-    const targetUser = createChannelInviteData.targetUser ? User.resolveID(createChannelInviteData.targetUser) : null;
-    if (!targetUser === undefined) throw new Error("Invalid user resolvable for target user");
+    const targetUser: string | undefined | null = createChannelInviteData.targetUser ? User.resolveID(createChannelInviteData.targetUser) : null;
+    if (targetUser === undefined) throw new Error("Invalid user resolvable for target user");
 
     // Define fetch data
     const path: string = `/channels/${channelID}/invites`;

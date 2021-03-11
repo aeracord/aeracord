@@ -11,7 +11,7 @@ export interface ModifyChannelData {
     bitrate?: number | null;
     userLimit?: number | null;
     permissionOverwrites?: PermissionOverwrite[] | null;
-    parentID?: string | null;
+    parent?: ChannelResolvable | null;
 }
 
 export type ModifyChannelDataType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_NEWS;
@@ -21,6 +21,8 @@ export default async function modifyChannel(client: Client, channelResolvable: C
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
+    const parentID: string | undefined | null = modifyChannelData.parent ? Channel.resolveID(modifyChannelData.parent) : null;
+    if (parentID === undefined) throw new Error("Invalid channel resolvable for parent");
 
     // Define fetch data
     const path: string = `/channels/${channelID}`;
@@ -44,7 +46,7 @@ export default async function modifyChannel(client: Client, channelResolvable: C
             bitrate: modifyChannelData.bitrate,
             user_limit: modifyChannelData.userLimit,
             permission_overwrites: modifyChannelData.permissionOverwrites,
-            parent_id: modifyChannelData.parentID
+            parent_id: parentID || undefined
         }
     });
 
