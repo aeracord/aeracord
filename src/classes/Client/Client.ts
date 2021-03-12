@@ -3,6 +3,7 @@ import WebSocket from "ws";
 import {
     AnyChannel,
     AnyGuildChannel,
+    AuditLog,
     ACTIVITY_TYPE_COMPETING,
     ACTIVITY_TYPE_LISTENING,
     ACTIVITY_TYPE_PLAYING,
@@ -34,6 +35,7 @@ import {
     FollowNewsChannelData,
     GetChannelMessagesData,
     GetCurrentUserGuildsData,
+    GetGuildAuditLogData,
     GetGuildData,
     GetInviteData,
     GetReactionsData,
@@ -136,6 +138,7 @@ import getChannelWebhooks from "./apiMethods/getChannelWebhooks";
 import getCurrentUser from "./apiMethods/getCurrentUser";
 import getCurrentUserGuilds from "./apiMethods/getCurrentUserGuilds";
 import getGuild from "./apiMethods/getGuild";
+import getGuildAuditLog from "./apiMethods/getGuildAuditLog";
 import getGuildBan from "./apiMethods/getGuildBan";
 import getGuildBans from "./apiMethods/getGuildBans";
 import getGuildChannels from "./apiMethods/getGuildChannels";
@@ -919,6 +922,18 @@ export default class Client extends EventEmitter {
      * @returns {Promise<Guild>} The guild
      */
     getGuild = (guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild> => getGuild(this, guild, getGuildData);
+
+    /**
+     * Get Guild Audit Log
+     *
+     * Get an audit log
+     *
+     * @param guild The guild to get the ban for
+     * @param getGuildAuditLogData The data for getting the guild
+     *
+     * @returns {Promise<AuditLog>} The audit log
+     */
+    getGuildAuditLog = (guild: GuildResolvable, getGuildAuditLogData?: GetGuildAuditLogData): Promise<AuditLog> => getGuildAuditLog(this, guild, getGuildAuditLogData);
 
     /**
      * Get Guild Ban

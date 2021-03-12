@@ -5,6 +5,53 @@ export {
 } from "./classes/Attachment/Attachment";
 export { default as RawAttachmentData } from "./classes/Attachment/rawAttachmentData";
 
+// Audit Log
+export {
+    default as AuditLog,
+    AUDIT_LOG_EVENT_BOT_ADD,
+    AUDIT_LOG_EVENT_CHANNEL_CREATE,
+    AUDIT_LOG_EVENT_CHANNEL_DELETE,
+    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_CREATE,
+    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_DELETE,
+    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_UPDATE,
+    AUDIT_LOG_EVENT_CHANNEL_UPDATE,
+    AUDIT_LOG_EVENT_EMOJI_CREATE,
+    AUDIT_LOG_EVENT_EMOJI_DELETE,
+    AUDIT_LOG_EVENT_EMOJI_UPDATE,
+    AUDIT_LOG_EVENT_GUILD_UPDATE,
+    AUDIT_LOG_EVENT_INTEGRATION_CREATE,
+    AUDIT_LOG_EVENT_INTEGRATION_DELETE,
+    AUDIT_LOG_EVENT_INTEGRATION_UPDATE,
+    AUDIT_LOG_EVENT_INVITE_CREATE,
+    AUDIT_LOG_EVENT_INVITE_DELETE,
+    AUDIT_LOG_EVENT_INVITE_UPDATE,
+    AUDIT_LOG_EVENT_MEMBER_BAN_ADD,
+    AUDIT_LOG_EVENT_MEMBER_BAN_REMOVE,
+    AUDIT_LOG_EVENT_MEMBER_DISCONNECT,
+    AUDIT_LOG_EVENT_MEMBER_KICK,
+    AUDIT_LOG_EVENT_MEMBER_MOVE,
+    AUDIT_LOG_EVENT_MEMBER_PRUNE,
+    AUDIT_LOG_EVENT_MEMBER_ROLE_UPDATE,
+    AUDIT_LOG_EVENT_MEMBER_UPDATE,
+    AUDIT_LOG_EVENT_MESSAGE_BULK_DELETE,
+    AUDIT_LOG_EVENT_MESSAGE_DELETE,
+    AUDIT_LOG_EVENT_MESSAGE_PIN,
+    AUDIT_LOG_EVENT_MESSAGE_UNPIN,
+    AUDIT_LOG_EVENT_ROLE_CREATE,
+    AUDIT_LOG_EVENT_ROLE_DELETE,
+    AUDIT_LOG_EVENT_ROLE_UPDATE,
+    AUDIT_LOG_EVENT_WEBHOOK_CREATE,
+    AUDIT_LOG_EVENT_WEBHOOK_DELETE,
+    AUDIT_LOG_EVENT_WEBHOOK_UPDATE,
+    AuditLogChange,
+    AuditLogChangeType,
+    AuditLogData,
+    AuditLogEntry,
+    AuditLogEvent,
+    AuditLogOptions
+} from "./classes/AuditLog/AuditLog";
+export { default as RawAuditLogData, RawAuditLogDataEntry, RawAuditLogDataEntryChange, RawAuditLogDataEntryChangeKey, RawAuditLogDataEntryOptions, RawAuditLogDataIntegration, RawAuditLogDataIntegrationAccount } from "./classes/AuditLog/rawAuditLogData";
+
 // Ban
 export {
     default as Ban,
@@ -91,6 +138,7 @@ export { FollowedChannel, FollowNewsChannelData } from "./classes/Client/apiMeth
 export { GetChannelMessagesData } from "./classes/Client/apiMethods/getChannelMessages";
 export { GetCurrentUserGuildsData, PartialGuild } from "./classes/Client/apiMethods/getCurrentUserGuilds";
 export { GetGuildData } from "./classes/Client/apiMethods/getGuild";
+export { GetGuildAuditLogData } from "./classes/Client/apiMethods/getGuildAuditLog";
 export { GuildPreview } from "./classes/Client/apiMethods/getGuildPreview";
 export { GetInviteData } from "./classes/Client/apiMethods/getInvite";
 export { GetReactionsData } from "./classes/Client/apiMethods/getReactions";
