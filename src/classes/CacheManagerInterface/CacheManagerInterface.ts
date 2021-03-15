@@ -1,11 +1,14 @@
 import { CacheManager, Client, GetResult } from "../../internal";
+import clear from "./clear";
 import get from "./get";
 import uncache from "./uncache";
 
 export interface CacheManagerInterfaceData<CachedObject> {
     cacheManager: CacheManager<CachedObject>;
-    match?: (object: CachedObject) => boolean;
+    match?: MatchFunction<CachedObject>;
 }
+
+export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
 
 /**
  * Cache Manager Interface
@@ -41,7 +44,7 @@ export default class CacheManagerInterface<CachedObject> {
      * This could potentially return a channel that isnt in the right guild
      * The `match` function is what should be used to ensure that the channel is from the right guild
      */
-    _match?: (object: CachedObject) => boolean;
+    _match?: MatchFunction<CachedObject>;
 
     /**
      * Cache Manager Interface
@@ -96,5 +99,14 @@ export default class CacheManagerInterface<CachedObject> {
      */
     filter(predicate: (value: CachedObject, index: number) => any, modify?: boolean): Map<string, CachedObject> {
         return this._cacheManager.filter((value: CachedObject, index: number) => this._match ? (this._match(value) && predicate(value, index)) : (predicate(value, index)), modify);
+    }
+
+    /**
+     * Clear
+     *
+     * Clear the cache
+     */
+    clear() {
+        clear<CachedObject>(this);
     }
 }

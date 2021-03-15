@@ -75,7 +75,8 @@ export { GetResult } from "./classes/CacheManager/get";
 // Cache Manager Interface
 export {
     default as CacheManagerInterface,
-    CacheManagerInterfaceData
+    CacheManagerInterfaceData,
+    MatchFunction
 } from "./classes/CacheManagerInterface/CacheManagerInterface";
 
 // Category Channel

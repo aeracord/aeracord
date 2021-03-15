@@ -91,4 +91,13 @@ export default class CacheManager<CachedObject> {
     filter(predicate: (value: CachedObject, index: number) => any, modify?: boolean): Map<string, CachedObject> {
         return filter<CachedObject>(this, predicate, modify);
     }
+
+    /**
+     * Clear
+     *
+     * Clear the cache
+     */
+    clear() {
+        this.cache.clear();
+    }
 }
