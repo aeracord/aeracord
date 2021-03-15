@@ -64,5 +64,7 @@ export default class VanityInvite {
      *
      * @returns {VanityInvite} The vanity invite
      */
-    static _fromRawData = (client: Client, rawData: RawVanityInviteData, guildID: string): VanityInvite => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInvite {
+        return fromRawData(client, rawData, guildID);
+    }
 }

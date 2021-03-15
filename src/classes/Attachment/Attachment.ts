@@ -104,5 +104,7 @@ export default class Attachment {
      *
      * @returns {Attachment} The attachment
      */
-    static _fromRawData = (client: Client, rawData: RawAttachmentData): Attachment => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawAttachmentData): Attachment {
+        return fromRawData(client, rawData);
+    }
 }

@@ -120,5 +120,7 @@ export default class AuditLog {
      *
      * @returns {AuditLog} The audit log
      */
-    static _fromRawData = (client: Client, rawData: RawAuditLogData, guildID: string): AuditLog => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawAuditLogData, guildID: string): AuditLog {
+        return fromRawData(client, rawData, guildID);
+    }
 }

@@ -124,5 +124,7 @@ export default class Member {
      *
      * @returns {Member} The member
      */
-    static _fromRawData = (client: Client, rawData: RawMemberData, guildID: string): Member => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawMemberData, guildID: string): Member {
+        return fromRawData(client, rawData, guildID);
+    }
 }

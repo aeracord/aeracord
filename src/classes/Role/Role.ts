@@ -149,7 +149,9 @@ export default class Role {
      *
      * @returns {Role} The role
      */
-    static _fromRawData = (client: Client, rawData: RawRoleData, guildID: string): Role => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawRoleData, guildID: string): Role {
+        return fromRawData(client, rawData, guildID);
+    }
 
     /**
      * Resolve ID
@@ -160,5 +162,7 @@ export default class Role {
      *
      * @returns {string | undefined} The resolved role ID, or `undefined` if the role resolvable is invalid
      */
-    static resolveID = (roleResolvable: RoleResolvable): string | undefined => resolveID(roleResolvable);
+    static resolveID(roleResolvable: RoleResolvable): string | undefined {
+        return resolveID(roleResolvable);
+    }
 }

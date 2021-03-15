@@ -71,5 +71,7 @@ export default class WelcomeScreen {
      *
      * @returns {WelcomeScreen} The welcome screen
      */
-    static _fromRawData = (client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreen => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreen {
+        return fromRawData(client, rawData, guildID);
+    }
 }

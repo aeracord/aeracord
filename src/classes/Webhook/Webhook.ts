@@ -131,7 +131,9 @@ export default class Webhook {
      *
      * @returns {Webhook} The webhook
      */
-    static _fromRawData = (client: Client, rawData: RawWebhookData): Webhook => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawWebhookData): Webhook {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve ID
@@ -142,5 +144,7 @@ export default class Webhook {
      *
      * @returns {string | undefined} The resolved webhook ID, or `undefined` if the webhook resolvable is invalid
      */
-    static resolveID = (webhookResolvable: WebhookResolvable): string | undefined => resolveID(webhookResolvable);
+    static resolveID(webhookResolvable: WebhookResolvable): string | undefined {
+        return resolveID(webhookResolvable);
+    }
 }

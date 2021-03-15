@@ -9,11 +9,11 @@ export interface TextChannelData extends GuildChannelData, TextBasedChannelData 
     rateLimitPerUser?: number;
 }
 
-interface TextChannel extends GuildChannel, TextBasedChannel {
+interface TextChannel extends TextBasedChannel {
 
 }
 
-class TextChannel {
+class TextChannel extends GuildChannel {
 
     /**
      * Topic
@@ -47,9 +47,10 @@ class TextChannel {
      */
     constructor(client: Client, textChannelData: TextChannelData) {
 
+        // Super
+        super(client, textChannelData);
+
         // Set data
-        this.client = client;
-        this.id = textChannelData.id;
         this.name = textChannelData.name;
         this.guildID = textChannelData.guildID;
         this.position = textChannelData.position;
@@ -63,6 +64,6 @@ class TextChannel {
     }
 }
 
-applyMixins(TextChannel, [GuildChannel, TextBasedChannel]);
+applyMixins(TextChannel, [TextBasedChannel]);
 
 export default TextChannel;

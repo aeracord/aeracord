@@ -79,12 +79,16 @@ export default class FetchQueue {
      * @param options.contentType The `Content-Type` header for the request
      * @param options.data The data for the request
      */
-    request = (options: RequestOptions): Promise<any> => request(this, options);
+    request(options: RequestOptions): Promise<any> {
+        return request(this, options);
+    }
 
     /**
      * Process Requests
      *
      * Process the queued requests
      */
-    processRequests = () => processRequests(this);
+    processRequests() {
+        processRequests(this);
+    }
 }

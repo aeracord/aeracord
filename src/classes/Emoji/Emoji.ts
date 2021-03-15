@@ -127,7 +127,9 @@ export default class Emoji {
      *
      * @returns {Emoji} The emoji
      */
-    static _fromRawData = (client: Client, rawData: RawEmojiData, guildID: string): Emoji => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawEmojiData, guildID: string): Emoji {
+        return fromRawData(client, rawData, guildID);
+    }
 
     /**
      * Resolve ID
@@ -138,5 +140,7 @@ export default class Emoji {
      *
      * @returns {string | undefined} The resolved emoji ID, or `undefined` if the emoji resolvable is invalid
      */
-    static resolveID = (emojiResolvable: EmojiResolvable): string | undefined => resolveID(emojiResolvable);
+    static resolveID(emojiResolvable: EmojiResolvable): string | undefined {
+        return resolveID(emojiResolvable);
+    }
 }

@@ -365,5 +365,7 @@ export default class Presence {
      *
      * @returns {Presence} The presence
      */
-    static _fromRawData = (client: Client, rawData: RawPresenceData): Presence => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawPresenceData): Presence {
+        return fromRawData(client, rawData);
+    }
 }

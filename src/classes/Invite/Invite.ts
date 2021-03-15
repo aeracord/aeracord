@@ -157,7 +157,9 @@ export default class Invite {
      *
      * @returns {Invite} The invite
      */
-    static _fromRawData = (client: Client, rawData: RawInviteData): Invite => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawInviteData): Invite {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve Code
@@ -168,5 +170,7 @@ export default class Invite {
      *
      * @returns {string | undefined} The resolved invite code, or `undefined` if the invite resolvable is invalid
      */
-    static resolveCode = (inviteResolvable: InviteResolvable): string | undefined => resolveCode(inviteResolvable);
+    static resolveCode(inviteResolvable: InviteResolvable): string | undefined {
+        return resolveCode(inviteResolvable);
+    }
 }

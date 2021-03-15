@@ -64,5 +64,7 @@ export default class Ban {
      *
      * @returns {Ban} The ban
      */
-    static _fromRawData = (client: Client, rawData: RawBanData, guildID: string): Ban => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawBanData, guildID: string): Ban {
+        return fromRawData(client, rawData, guildID);
+    }
 }

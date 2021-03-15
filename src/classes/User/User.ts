@@ -120,7 +120,9 @@ export default class User {
      *
      * @returns {User} The user
      */
-    static _fromRawData = (client: Client, rawData: RawUserData): User => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawUserData): User {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve ID
@@ -131,5 +133,7 @@ export default class User {
      *
      * @returns {string | undefined} The resolved user ID, or `undefined` if the user resolvable is invalid
      */
-    static resolveID = (userResolvable: UserResolvable): string | undefined => resolveID(userResolvable);
+    static resolveID(userResolvable: UserResolvable): string | undefined {
+        return resolveID(userResolvable);
+    }
 }

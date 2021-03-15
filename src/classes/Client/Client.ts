@@ -441,7 +441,9 @@ export default class Client extends EventEmitter {
      *
      * Connect to the gateway
      */
-    _connect = () => connect(this);
+    _connect() {
+        return connect(this);
+    }
 
     /**
      * Fetch
@@ -456,7 +458,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<FetchedData>} The fetched data
      */
-    fetch = (requestOptions: RequestOptions): Promise<FetchedData> => fetch(this, requestOptions);
+    fetch(requestOptions: RequestOptions): Promise<FetchedData> {
+        return fetch(this, requestOptions);
+    }
 
     /**
      * Get Fetch Queue
@@ -467,7 +471,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {FetchQueue} The fetch queue
      */
-    _getFetchQueue = (route: string): FetchQueue => getFetchQueue(this, route);
+    _getFetchQueue(route: string): FetchQueue {
+        return getFetchQueue(this, route);
+    }
 
     /**
      * Add Guild Member Role
@@ -478,7 +484,9 @@ export default class Client extends EventEmitter {
      * @param user The user resolvable for the member to add the role to
      * @param role The role to add
      */
-    addGuildMemberRole = (guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> => addGuildMemberRole(this, guild, user, role);
+    addGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> {
+        return addGuildMemberRole(this, guild, user, role);
+    }
 
     /**
      * Add Pinned Channel Message
@@ -488,7 +496,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to pin the messages in
      * @param message The message to pin
      */
-    addPinnedChannelMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => addPinnedChannelMessage(this, channel, message);
+    addPinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<void> {
+        return addPinnedChannelMessage(this, channel, message);
+    }
 
     /**
      * Bulk Delete Messages
@@ -498,7 +508,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to delete the messages in
      * @param bulkDeleteMessagesData The data for bulk deleting messages
      */
-    bulkDeleteMessages = (channel: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData): Promise<void> => bulkDeleteMessages(this, channel, bulkDeleteMessagesData);
+    bulkDeleteMessages(channel: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData): Promise<void> {
+        return bulkDeleteMessages(this, channel, bulkDeleteMessagesData);
+    }
 
     /**
      * Create Channel Invite
@@ -510,7 +522,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Invite>} The invite
      */
-    createChannelInvite = (channel: ChannelResolvable, createChannelInviteData?: CreateChannelInviteData): Promise<Invite> => createChannelInvite(this, channel, createChannelInviteData);
+    createChannelInvite(channel: ChannelResolvable, createChannelInviteData?: CreateChannelInviteData): Promise<Invite> {
+        return createChannelInvite(this, channel, createChannelInviteData);
+    }
 
     /**
      * Create DM
@@ -521,7 +535,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<DMChannel[]>} The DM channel
      */
-    createDM = (createDMData: CreateDMData): Promise<DMChannel> => createDM(this, createDMData);
+    createDM(createDMData: CreateDMData): Promise<DMChannel> {
+        return createDM(this, createDMData);
+    }
 
     /**
      * Create Guild
@@ -532,7 +548,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Guild>} The created guild
      */
-    createGuild = (createGuildData: CreateGuildData): Promise<Guild> => createGuild(this, createGuildData);
+    createGuild(createGuildData: CreateGuildData): Promise<Guild> {
+        return createGuild(this, createGuildData);
+    }
 
     /**
      * Create Guild Ban
@@ -543,7 +561,9 @@ export default class Client extends EventEmitter {
      * @param user The user to ban
      * @param createGuildBanData The data for the ban
      */
-    createGuildBan = (guild: GuildResolvable, user: UserResolvable, createGuildBanData?: CreateGuildBanData): Promise<void> => createGuildBan(this, guild, user, createGuildBanData);
+    createGuildBan(guild: GuildResolvable, user: UserResolvable, createGuildBanData?: CreateGuildBanData): Promise<void> {
+        return createGuildBan(this, guild, user, createGuildBanData);
+    }
 
     /**
      * Create Guild Channel
@@ -555,7 +575,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<AnyGuildChannel>} The created channel
      */
-    createGuildChannel = (guild: GuildResolvable, createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannel> => createGuildChannel(this, guild, createGuildChannelData);
+    createGuildChannel(guild: GuildResolvable, createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannel> {
+        return createGuildChannel(this, guild, createGuildChannelData);
+    }
 
     /**
      * Create Guild Emoji
@@ -567,7 +589,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Emoji>} The created emoji
      */
-    createGuildEmoji = (guild: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<Emoji> => createGuildEmoji(this, guild, createGuildEmojiData);
+    createGuildEmoji(guild: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<Emoji> {
+        return createGuildEmoji(this, guild, createGuildEmojiData);
+    }
 
     /**
      * Create Guild From Template
@@ -579,7 +603,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Guild>} The created guild
      */
-    createGuildFromTemplate = (template: TemplateResolvable, createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<Guild> => createGuildFromTemplate(this, template, createGuildFromTemplateData);
+    createGuildFromTemplate(template: TemplateResolvable, createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<Guild> {
+        return createGuildFromTemplate(this, template, createGuildFromTemplateData);
+    }
 
     /**
      * Create Guild Role
@@ -591,7 +617,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Role>} The created role
      */
-    createGuildRole = (guild: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<Role> => createGuildRole(this, guild, createGuildRoleData);
+    createGuildRole(guild: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<Role> {
+        return createGuildRole(this, guild, createGuildRoleData);
+    }
 
     /**
      * Create Guild Template
@@ -603,7 +631,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Template>} The created template
      */
-    createGuildTemplate = (guild: GuildResolvable, createGuildTemplateData: CreateGuildTemplateData): Promise<Template> => createGuildTemplate(this, guild, createGuildTemplateData);
+    createGuildTemplate(guild: GuildResolvable, createGuildTemplateData: CreateGuildTemplateData): Promise<Template> {
+        return createGuildTemplate(this, guild, createGuildTemplateData);
+    }
 
     /**
      * Create Message
@@ -615,7 +645,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message>} The created message
      */
-    createMessage = (channel: ChannelResolvable, createMessageData: CreateMessageData): Promise<Message> => createMessage(this, channel, createMessageData);
+    createMessage(channel: ChannelResolvable, createMessageData: CreateMessageData): Promise<Message> {
+        return createMessage(this, channel, createMessageData);
+    }
 
     /**
      * Create Reaction
@@ -626,7 +658,9 @@ export default class Client extends EventEmitter {
      * @param message The message to create the reaction on
      * @param reactionEmoji The emoji to react with
      */
-    createReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => createReaction(this, channel, message, reactionEmoji);
+    createReaction(channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> {
+        return createReaction(this, channel, message, reactionEmoji);
+    }
 
     /**
      * Create Webhook
@@ -638,7 +672,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Webhook>} The created webhook
      */
-    createWebhook = (channel: ChannelResolvable, createWebhookData: CreateWebhookData): Promise<Webhook> => createWebhook(this, channel, createWebhookData);
+    createWebhook(channel: ChannelResolvable, createWebhookData: CreateWebhookData): Promise<Webhook> {
+        return createWebhook(this, channel, createWebhookData);
+    }
 
     /**
      * Crosspost Message
@@ -650,7 +686,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message>} The crossposted message
      */
-    crosspostMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<Message> => crosspostMessage(this, channel, message);
+    crosspostMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<Message> {
+        return crosspostMessage(this, channel, message);
+    }
 
     /**
      * Delete All Reactions
@@ -660,7 +698,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to delete the reactions in
      * @param message The message to delete the reactions from
      */
-    deleteAllReactions = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => deleteAllReactions(this, channel, message);
+    deleteAllReactions(channel: ChannelResolvable, message: MessageResolvable): Promise<void> {
+        return deleteAllReactions(this, channel, message);
+    }
 
     /**
      * Delete All Reactions for Emoji
@@ -671,7 +711,9 @@ export default class Client extends EventEmitter {
      * @param message The message to delete the reactions from
      * @param reactionEmoji The emoji to delete reactions for
      */
-    deleteAllReactionsForEmoji = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => deleteAllReactionsForEmoji(this, channel, message, reactionEmoji);
+    deleteAllReactionsForEmoji(channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> {
+        return deleteAllReactionsForEmoji(this, channel, message, reactionEmoji);
+    }
 
     /**
      * Delete Channel
@@ -682,7 +724,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<AnyChannel>} The deleted or closed channel
      */
-    deleteChannel = (channel: ChannelResolvable): Promise<AnyChannel> => deleteChannel(this, channel);
+    deleteChannel(channel: ChannelResolvable): Promise<AnyChannel> {
+        return deleteChannel(this, channel);
+    }
 
     /**
      * Delete Channel Permission
@@ -692,7 +736,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to delete the permission from
      * @param roleOrUser The role or user's permissions to delete
      */
-    deleteChannelPermission = (channel: ChannelResolvable, roleOrUser: RoleResolvable | UserResolvable): Promise<void> => deleteChannelPermission(this, channel, roleOrUser);
+    deleteChannelPermission(channel: ChannelResolvable, roleOrUser: RoleResolvable | UserResolvable): Promise<void> {
+        return deleteChannelPermission(this, channel, roleOrUser);
+    }
 
     /**
      * Delete Guild
@@ -701,7 +747,9 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to delete
      */
-    deleteGuild = (guild: GuildResolvable): Promise<void> => deleteGuild(this, guild);
+    deleteGuild(guild: GuildResolvable): Promise<void> {
+        return deleteGuild(this, guild);
+    }
 
     /**
      * Delete Guild Emoji
@@ -711,7 +759,9 @@ export default class Client extends EventEmitter {
      * @param guild The guild to delete the emoji from
      * @param emoji The emoji to delete
      */
-    deleteGuildEmoji = (guild: GuildResolvable, emoji: EmojiResolvable): Promise<void> => deleteGuildEmoji(this, guild, emoji);
+    deleteGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable): Promise<void> {
+        return deleteGuildEmoji(this, guild, emoji);
+    }
 
     /**
      * Delete Guild Role
@@ -721,7 +771,9 @@ export default class Client extends EventEmitter {
      * @param guild The guild to delete the role from
      * @param role The role to delete
      */
-    deleteGuildRole = (guild: GuildResolvable, role: RoleResolvable): Promise<void> => deleteGuildRole(this, guild, role);
+    deleteGuildRole(guild: GuildResolvable, role: RoleResolvable): Promise<void> {
+        return deleteGuildRole(this, guild, role);
+    }
 
     /**
      * Delete Guild Template
@@ -733,7 +785,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Template>} The deleted template
      */
-    deleteGuildTemplate = (guild: GuildResolvable, template: TemplateResolvable): Promise<Template> => deleteGuildTemplate(this, guild, template);
+    deleteGuildTemplate(guild: GuildResolvable, template: TemplateResolvable): Promise<Template> {
+        return deleteGuildTemplate(this, guild, template);
+    }
 
     /**
      * Delete Invite
@@ -744,7 +798,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Invite>} The deleted invite
      */
-    deleteInvite = (invite: InviteResolvable): Promise<Invite> => deleteInvite(this, invite);
+    deleteInvite(invite: InviteResolvable): Promise<Invite> {
+        return deleteInvite(this, invite);
+    }
 
     /**
      * Delete Message
@@ -754,7 +810,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to delete the message in
      * @param message The message to delete
      */
-    deleteMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => deleteMessage(this, channel, message);
+    deleteMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<void> {
+        return deleteMessage(this, channel, message);
+    }
 
     /**
      * Delete Own Reaction
@@ -765,7 +823,9 @@ export default class Client extends EventEmitter {
      * @param message The message to delete the reaction from
      * @param reactionEmoji The emoji to unreact with
      */
-    deleteOwnReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> => deleteOwnReaction(this, channel, message, reactionEmoji);
+    deleteOwnReaction(channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> {
+        return deleteOwnReaction(this, channel, message, reactionEmoji);
+    }
 
     /**
      * Delete Pinned Channel Message
@@ -775,7 +835,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to unpin the messages from
      * @param message The message to unpin
      */
-    deletePinnedChannelMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<void> => deletePinnedChannelMessage(this, channel, message);
+    deletePinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<void> {
+        return deletePinnedChannelMessage(this, channel, message);
+    }
 
     /**
      * Delete User Reaction
@@ -787,7 +849,9 @@ export default class Client extends EventEmitter {
      * @param reactionEmoji The emoji to unreact with
      * @param user The user to delete the reaction for
      */
-    deleteUserReaction = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> => deleteUserReaction(this, channel, message, reactionEmoji, user);
+    deleteUserReaction(channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> {
+        return deleteUserReaction(this, channel, message, reactionEmoji, user);
+    }
 
     /**
      * Delete Webhook
@@ -796,7 +860,9 @@ export default class Client extends EventEmitter {
      *
      * @param webhook The webhook to delete
      */
-    deleteWebhook = (webhook: WebhookResolvable): Promise<void> => deleteWebhook(this, webhook);
+    deleteWebhook(webhook: WebhookResolvable): Promise<void> {
+        return deleteWebhook(this, webhook);
+    }
 
     /**
      * Edit Channel Permissions
@@ -807,7 +873,9 @@ export default class Client extends EventEmitter {
      * @param roleOrUser The role or user's permissions to edit
      * @param editChannelPermissionsData The data for editing the channel permissions
      */
-    editChannelPermissions = (channel: ChannelResolvable, roleOrUser: RoleResolvable | UserResolvable, editChannelPermissionsData: EditChannelPermissionsData): Promise<void> => editChannelPermissions(this, channel, roleOrUser, editChannelPermissionsData);
+    editChannelPermissions(channel: ChannelResolvable, roleOrUser: RoleResolvable | UserResolvable, editChannelPermissionsData: EditChannelPermissionsData): Promise<void> {
+        return editChannelPermissions(this, channel, roleOrUser, editChannelPermissionsData);
+    }
 
     /**
      * Edit Message
@@ -820,7 +888,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message>} The edited message
      */
-    editMessage = (channel: ChannelResolvable, message: MessageResolvable, editMessageData: EditMessageData): Promise<Message> => editMessage(this, channel, message, editMessageData);
+    editMessage(channel: ChannelResolvable, message: MessageResolvable, editMessageData: EditMessageData): Promise<Message> {
+        return editMessage(this, channel, message, editMessageData);
+    }
 
     /**
      * Follow News Channel
@@ -832,7 +902,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<FollowedChannel>} The followed channel
      */
-    followNewsChannel = (channel: ChannelResolvable, followNewsChannelData: FollowNewsChannelData): Promise<FollowedChannel> => followNewsChannel(this, channel, followNewsChannelData);
+    followNewsChannel(channel: ChannelResolvable, followNewsChannelData: FollowNewsChannelData): Promise<FollowedChannel> {
+        return followNewsChannel(this, channel, followNewsChannelData);
+    }
 
     /**
      * Get Channel
@@ -843,7 +915,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<AnyChannel>} The channel
      */
-    getChannel = (channel: ChannelResolvable): Promise<AnyChannel> => getChannel(this, channel);
+    getChannel(channel: ChannelResolvable): Promise<AnyChannel> {
+        return getChannel(this, channel);
+    }
 
     /**
      * Get Channel Invites
@@ -854,7 +928,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Invite[]>} The invites
      */
-    getChannelInvites = (channel: ChannelResolvable): Promise<Invite[]> => getChannelInvites(this, channel);
+    getChannelInvites(channel: ChannelResolvable): Promise<Invite[]> {
+        return getChannelInvites(this, channel);
+    }
 
     /**
      * Get Channel Message
@@ -866,7 +942,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message>} The message
      */
-    getChannelMessage = (channel: ChannelResolvable, message: MessageResolvable): Promise<Message> => getChannelMessage(this, channel, message);
+    getChannelMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<Message> {
+        return getChannelMessage(this, channel, message);
+    }
 
     /**
      * Get Channel Messages
@@ -878,7 +956,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message[]>} The messages
      */
-    getChannelMessages = (channel: ChannelResolvable, getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> => getChannelMessages(this, channel, getChannelMessagesData);
+    getChannelMessages(channel: ChannelResolvable, getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> {
+        return getChannelMessages(this, channel, getChannelMessagesData);
+    }
 
     /**
      * Get Channel Webhooks
@@ -889,7 +969,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Webhook[]>} The channel's webhooks
      */
-    getChannelWebhooks = (channel: ChannelResolvable): Promise<Webhook[]> => getChannelWebhooks(this, channel);
+    getChannelWebhooks(channel: ChannelResolvable): Promise<Webhook[]> {
+        return getChannelWebhooks(this, channel);
+    }
 
     /**
      * Get Current User
@@ -898,7 +980,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<User>} The user
      */
-    getCurrentUser = (): Promise<User> => getCurrentUser(this);
+    getCurrentUser(): Promise<User> {
+        return getCurrentUser(this);
+    }
 
     /**
      * Get Current User Guilds
@@ -909,7 +993,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<PartialGuild[]>} The guilds
      */
-    getCurrentUserGuilds = (getCurrentUserGuildsData?: GetCurrentUserGuildsData): Promise<PartialGuild[]> => getCurrentUserGuilds(this, getCurrentUserGuildsData);
+    getCurrentUserGuilds(getCurrentUserGuildsData?: GetCurrentUserGuildsData): Promise<PartialGuild[]> {
+        return getCurrentUserGuilds(this, getCurrentUserGuildsData);
+    }
 
     /**
      * Get Guild
@@ -921,7 +1007,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Guild>} The guild
      */
-    getGuild = (guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild> => getGuild(this, guild, getGuildData);
+    getGuild(guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild> {
+        return getGuild(this, guild, getGuildData);
+    }
 
     /**
      * Get Guild Audit Log
@@ -933,7 +1021,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<AuditLog>} The audit log
      */
-    getGuildAuditLog = (guild: GuildResolvable, getGuildAuditLogData?: GetGuildAuditLogData): Promise<AuditLog> => getGuildAuditLog(this, guild, getGuildAuditLogData);
+    getGuildAuditLog(guild: GuildResolvable, getGuildAuditLogData?: GetGuildAuditLogData): Promise<AuditLog> {
+        return getGuildAuditLog(this, guild, getGuildAuditLogData);
+    }
 
     /**
      * Get Guild Ban
@@ -945,7 +1035,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Ban>} The ban
      */
-    getGuildBan = (guild: GuildResolvable, user: UserResolvable): Promise<Ban> => getGuildBan(this, guild, user);
+    getGuildBan(guild: GuildResolvable, user: UserResolvable): Promise<Ban> {
+        return getGuildBan(this, guild, user);
+    }
 
     /**
      * Get Guild Bans
@@ -956,7 +1048,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Ban[]>} The guild's bans
      */
-    getGuildBans = (guild: GuildResolvable): Promise<Ban[]> => getGuildBans(this, guild);
+    getGuildBans(guild: GuildResolvable): Promise<Ban[]> {
+        return getGuildBans(this, guild);
+    }
 
     /**
      * Get Guild Channels
@@ -967,7 +1061,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<GuildChannel[]>} The guild's channels
      */
-    getGuildChannels = (guild: GuildResolvable): Promise<GuildChannel[]> => getGuildChannels(this, guild);
+    getGuildChannels(guild: GuildResolvable): Promise<GuildChannel[]> {
+        return getGuildChannels(this, guild);
+    }
 
     /**
      * Get Guild Emoji
@@ -979,7 +1075,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Emoji>} The emoji
      */
-    getGuildEmoji = (guild: GuildResolvable, emoji: EmojiResolvable): Promise<Emoji> => getGuildEmoji(this, guild, emoji);
+    getGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable): Promise<Emoji> {
+        return getGuildEmoji(this, guild, emoji);
+    }
 
     /**
      * Get Guild Invites
@@ -990,7 +1088,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Invite[]>} The guild's invites
      */
-    getGuildInvites = (guild: GuildResolvable): Promise<Invite[]> => getGuildInvites(this, guild);
+    getGuildInvites(guild: GuildResolvable): Promise<Invite[]> {
+        return getGuildInvites(this, guild);
+    }
 
     /**
      * Get Guild Member
@@ -1002,7 +1102,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Member>} The member
      */
-    getGuildMember = (guild: GuildResolvable, user: UserResolvable): Promise<Member> => getGuildMember(this, guild, user);
+    getGuildMember(guild: GuildResolvable, user: UserResolvable): Promise<Member> {
+        return getGuildMember(this, guild, user);
+    }
 
     /**
      * Get Guild Preview
@@ -1013,7 +1115,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<GuildPreview>} The guild preview
      */
-    getGuildPreview = (guild: GuildResolvable): Promise<GuildPreview> => getGuildPreview(this, guild);
+    getGuildPreview(guild: GuildResolvable): Promise<GuildPreview> {
+        return getGuildPreview(this, guild);
+    }
 
     /**
      * Get Guild Roles
@@ -1024,7 +1128,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Role[]>} The guild's roles
      */
-    getGuildRoles = (guild: GuildResolvable): Promise<Role[]> => getGuildRoles(this, guild);
+    getGuildRoles(guild: GuildResolvable): Promise<Role[]> {
+        return getGuildRoles(this, guild);
+    }
 
     /**
      * Get Guild Templates
@@ -1035,7 +1141,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Template[]>} The guild's templates
      */
-    getGuildTemplates = (guild: GuildResolvable): Promise<Template[]> => getGuildTemplates(this, guild);
+    getGuildTemplates(guild: GuildResolvable): Promise<Template[]> {
+        return getGuildTemplates(this, guild);
+    }
 
     /**
      * Get Guild Vanity URL
@@ -1046,7 +1154,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<VanityInvite>} The vanity invite
      */
-    getGuildVanityURL = (guild: GuildResolvable): Promise<VanityInvite> => getGuildVanityURL(this, guild);
+    getGuildVanityURL(guild: GuildResolvable): Promise<VanityInvite> {
+        return getGuildVanityURL(this, guild);
+    }
 
     /**
      * Get Guild Voice Regions
@@ -1057,7 +1167,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<VoiceRegion[]>} The guild's voice regions
      */
-    getGuildVoiceRegions = (guild: GuildResolvable): Promise<VoiceRegion[]> => getGuildVoiceRegions(this, guild);
+    getGuildVoiceRegions(guild: GuildResolvable): Promise<VoiceRegion[]> {
+        return getGuildVoiceRegions(this, guild);
+    }
 
     /**
      * Get Guild Webhooks
@@ -1068,7 +1180,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Webhook[]>} The guild's webhooks
      */
-    getGuildWebhooks = (guild: GuildResolvable): Promise<Webhook[]> => getGuildWebhooks(this, guild);
+    getGuildWebhooks(guild: GuildResolvable): Promise<Webhook[]> {
+        return getGuildWebhooks(this, guild);
+    }
 
     /**
      * Get Guild Widget Settings
@@ -1079,7 +1193,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<GuildWidget>} The widget
      */
-    getGuildWidgetSettings = (guild: GuildResolvable): Promise<GuildWidget> => getGuildWidgetSettings(this, guild);
+    getGuildWidgetSettings(guild: GuildResolvable): Promise<GuildWidget> {
+        return getGuildWidgetSettings(this, guild);
+    }
 
     /**
      * Get Invite
@@ -1091,7 +1207,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Invite>} The invite
      */
-    getInvite = (invite: InviteResolvable, getInviteData?: GetInviteData): Promise<Invite> => getInvite(this, invite, getInviteData);
+    getInvite(invite: InviteResolvable, getInviteData?: GetInviteData): Promise<Invite> {
+        return getInvite(this, invite, getInviteData);
+    }
 
     /**
      * Get Pinned Messages
@@ -1102,7 +1220,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message[]>} The messages
      */
-    getPinnedMessages = (channel: ChannelResolvable): Promise<Message[]> => getPinnedMessages(this, channel);
+    getPinnedMessages(channel: ChannelResolvable): Promise<Message[]> {
+        return getPinnedMessages(this, channel);
+    }
 
     /**
      * Get Reactions
@@ -1116,7 +1236,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<User[]>} The users
      */
-    getReactions = (channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> => getReactions(this, channel, message, reactionEmoji, getReactionsData);
+    getReactions(channel: ChannelResolvable, message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> {
+        return getReactions(this, channel, message, reactionEmoji, getReactionsData);
+    }
 
     /**
      * Get Template
@@ -1127,7 +1249,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Template>} The template
      */
-    getTemplate = (template: TemplateResolvable): Promise<Template> => getTemplate(this, template);
+    getTemplate(template: TemplateResolvable): Promise<Template> {
+        return getTemplate(this, template);
+    }
 
     /**
      * Get User
@@ -1138,7 +1262,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<User>} The user
      */
-    getUser = (user: UserResolvable): Promise<User> => getUser(this, user);
+    getUser(user: UserResolvable): Promise<User> {
+        return getUser(this, user);
+    }
 
     /**
      * Get Webhook
@@ -1149,7 +1275,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Webhook>} The webhook
      */
-    getWebhook = (webhook: WebhookResolvable): Promise<Webhook> => getWebhook(this, webhook);
+    getWebhook(webhook: WebhookResolvable): Promise<Webhook> {
+        return getWebhook(this, webhook);
+    }
 
     /**
      * Leave Guild
@@ -1158,7 +1286,9 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to leave
      */
-    leaveGuild = (guild: GuildResolvable): Promise<void> => leaveGuild(this, guild);
+    leaveGuild(guild: GuildResolvable): Promise<void> {
+        return leaveGuild(this, guild);
+    }
 
     /**
      * List Guild Emojis
@@ -1169,7 +1299,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Emoji[]>} The emojis
      */
-    listGuildEmojis = (guild: GuildResolvable): Promise<Emoji[]> => listGuildEmojis(this, guild);
+    listGuildEmojis(guild: GuildResolvable): Promise<Emoji[]> {
+        return listGuildEmojis(this, guild);
+    }
 
     /**
      * List Guild Members
@@ -1181,7 +1313,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Member[]>} The members
      */
-    listGuildMembers = (guild: GuildResolvable, listGuildMembersData?: ListGuildMembersData): Promise<Member[]> => listGuildMembers(this, guild, listGuildMembersData);
+    listGuildMembers(guild: GuildResolvable, listGuildMembersData?: ListGuildMembersData): Promise<Member[]> {
+        return listGuildMembers(this, guild, listGuildMembersData);
+    }
 
     /**
      * List Voice Regions
@@ -1190,7 +1324,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<VoiceRegion[]>} The voice regions
      */
-    listVoiceRegions = (): Promise<VoiceRegion[]> => listVoiceRegions(this);
+    listVoiceRegions(): Promise<VoiceRegion[]> {
+        return listVoiceRegions(this);
+    }
 
     /**
      * Modify Channel
@@ -1202,7 +1338,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<AnyGuildChannel>} The modified channel
      */
-    modifyChannel = (channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannel> => modifyChannel(this, channel, modifyChannelData);
+    modifyChannel(channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannel> {
+        return modifyChannel(this, channel, modifyChannelData);
+    }
 
     /**
      * Modify Current User
@@ -1213,7 +1351,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<User>} The modified user
      */
-    modifyCurrentUser = (modifyCurrentUserData: ModifyCurrentUserData): Promise<User> => modifyCurrentUser(this, modifyCurrentUserData);
+    modifyCurrentUser(modifyCurrentUserData: ModifyCurrentUserData): Promise<User> {
+        return modifyCurrentUser(this, modifyCurrentUserData);
+    }
 
     /**
      * Modify Current User Nickname
@@ -1225,7 +1365,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<CurrentUserNickname>} The modified nickname data
      */
-    modifyCurrentUserNickname = (guild: GuildResolvable, modifyCurrentUserNicknameData?: ModifyCurrentUserNicknameData): Promise<CurrentUserNickname> => modifyCurrentUserNickname(this, guild, modifyCurrentUserNicknameData);
+    modifyCurrentUserNickname(guild: GuildResolvable, modifyCurrentUserNicknameData?: ModifyCurrentUserNicknameData): Promise<CurrentUserNickname> {
+        return modifyCurrentUserNickname(this, guild, modifyCurrentUserNicknameData);
+    }
 
     /**
      * Modify Guild
@@ -1237,7 +1379,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Guild>} The modified guild
      */
-    modifyGuild = (guild: GuildResolvable, modifyGuildData: ModifyGuildData): Promise<Guild> => modifyGuild(this, guild, modifyGuildData);
+    modifyGuild(guild: GuildResolvable, modifyGuildData: ModifyGuildData): Promise<Guild> {
+        return modifyGuild(this, guild, modifyGuildData);
+    }
 
     /**
      * Modify Guild Channel Positions
@@ -1247,7 +1391,9 @@ export default class Client extends EventEmitter {
      * @param guild The guild to modify channel positions in
      * @param modifyGuildChannelPositionsData The data to modify the channel positions
      */
-    modifyGuildChannelPositions = (guild: GuildResolvable, modifyGuildChannelPositionsData: ModifyGuildChannelPositionsData[]): Promise<void> => modifyGuildChannelPositions(this, guild, modifyGuildChannelPositionsData);
+    modifyGuildChannelPositions(guild: GuildResolvable, modifyGuildChannelPositionsData: ModifyGuildChannelPositionsData[]): Promise<void> {
+        return modifyGuildChannelPositions(this, guild, modifyGuildChannelPositionsData);
+    }
 
     /**
      * Modify Guild Emoji
@@ -1260,7 +1406,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Emoji>} The modified emoji
      */
-    modifyGuildEmoji = (guild: GuildResolvable, emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<Emoji> => modifyGuildEmoji(this, guild, emoji, modifyGuildEmojiData);
+    modifyGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<Emoji> {
+        return modifyGuildEmoji(this, guild, emoji, modifyGuildEmojiData);
+    }
 
     /**
      * Modify Guild Member
@@ -1273,7 +1421,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Member>} The modified member
      */
-    modifyGuildMember = (guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> => modifyGuildMember(this, guild, user, modifyGuildMemberData);
+    modifyGuildMember(guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> {
+        return modifyGuildMember(this, guild, user, modifyGuildMemberData);
+    }
 
     /**
      * Modify Guild Role
@@ -1286,7 +1436,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Role>} The modified role
      */
-    modifyGuildRole = (guild: GuildResolvable, role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData): Promise<Role> => modifyGuildRole(this, guild, role, modifyGuildRoleData);
+    modifyGuildRole(guild: GuildResolvable, role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData): Promise<Role> {
+        return modifyGuildRole(this, guild, role, modifyGuildRoleData);
+    }
 
     /**
      * Modify Guild Role Positions
@@ -1298,7 +1450,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Role[]>} The guild's roles
      */
-    modifyGuildRolePositions = (guild: GuildResolvable, modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> => modifyGuildRolePositions(this, guild, modifyGuildRolePositionsData);
+    modifyGuildRolePositions(guild: GuildResolvable, modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> {
+        return modifyGuildRolePositions(this, guild, modifyGuildRolePositionsData);
+    }
 
     /**
      * Modify Guild Template
@@ -1311,7 +1465,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Template>} The modified template
      */
-    modifyGuildTemplate = (guild: GuildResolvable, template: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<Template> => modifyGuildTemplate(this, guild, template, modifyGuildTemplateData);
+    modifyGuildTemplate(guild: GuildResolvable, template: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<Template> {
+        return modifyGuildTemplate(this, guild, template, modifyGuildTemplateData);
+    }
 
     /**
      * Modify Guild Widget
@@ -1323,7 +1479,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<GuildWidget>} The modified guild widget
      */
-    modifyGuildWidget = (guild: GuildResolvable, modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> => modifyGuildWidget(this, guild, modifyGuildWidgetData);
+    modifyGuildWidget(guild: GuildResolvable, modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> {
+        return modifyGuildWidget(this, guild, modifyGuildWidgetData);
+    }
 
     /**
      * Modify Webhook
@@ -1335,7 +1493,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Webhook>} The modified webhook
      */
-    modifyWebhook = (webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<Webhook> => modifyWebhook(this, webhook, modifyWebhookData);
+    modifyWebhook(webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<Webhook> {
+        return modifyWebhook(this, webhook, modifyWebhookData);
+    }
 
     /**
      * Remove Guild Ban
@@ -1345,7 +1505,9 @@ export default class Client extends EventEmitter {
      * @param guild The guild to unban the user from
      * @param user The user to unban
      */
-    removeGuildBan = (guild: GuildResolvable, user: UserResolvable): Promise<void> => removeGuildBan(this, guild, user);
+    removeGuildBan(guild: GuildResolvable, user: UserResolvable): Promise<void> {
+        return removeGuildBan(this, guild, user);
+    }
 
     /**
      * Remove Guild Member
@@ -1355,7 +1517,9 @@ export default class Client extends EventEmitter {
      * @param guild The guild to kick the member from
      * @param user The user resolvable for the member to kick
      */
-    removeGuildMember = (guild: GuildResolvable, user: UserResolvable): Promise<void> => removeGuildMember(this, guild, user);
+    removeGuildMember(guild: GuildResolvable, user: UserResolvable): Promise<void> {
+        return removeGuildMember(this, guild, user);
+    }
 
     /**
      * Remove Guild Member Role
@@ -1366,7 +1530,9 @@ export default class Client extends EventEmitter {
      * @param user The user resolvable for the member to remove the role from
      * @param role The role to remove
      */
-    removeGuildMemberRole = (guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> => removeGuildMemberRole(this, guild, user, role);
+    removeGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> {
+        return removeGuildMemberRole(this, guild, user, role);
+    }
 
     /**
      * Sync Guild Template
@@ -1378,7 +1544,9 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Template>} The synced template
      */
-    syncGuildTemplate = (guild: GuildResolvable, template: TemplateResolvable): Promise<Template> => syncGuildTemplate(this, guild, template);
+    syncGuildTemplate(guild: GuildResolvable, template: TemplateResolvable): Promise<Template> {
+        return syncGuildTemplate(this, guild, template);
+    }
 
     /**
      * Trigger Typing Indicator
@@ -1387,5 +1555,7 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to start typing in
      */
-    triggerTypingIndicator = (channel: ChannelResolvable): Promise<void> => triggerTypingIndicator(this, channel);
+    triggerTypingIndicator(channel: ChannelResolvable): Promise<void> {
+        return triggerTypingIndicator(this, channel);
+    }
 }

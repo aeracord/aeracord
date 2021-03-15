@@ -212,12 +212,16 @@ export default class Embed {
      *
      * @returns {Embed} The embed
      */
-    static _fromRawData = (client: Client, rawData: RawEmbedData): Embed => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawEmbedData): Embed {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * To JSON
      *
      * Convert this embed to a JSON object for sending to the API
      */
-    _toJSON = (): object => toJSON(this);
+    _toJSON(): object {
+        return toJSON(this);
+    }
 }

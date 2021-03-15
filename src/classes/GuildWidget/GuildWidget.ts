@@ -64,5 +64,7 @@ export default class GuildWidget {
      *
      * @returns {GuildWidget} The widget
      */
-    static _fromRawData = (client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidget => fromRawData(client, rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidget {
+        return fromRawData(client, rawData, guildID);
+    }
 }

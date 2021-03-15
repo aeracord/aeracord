@@ -119,5 +119,7 @@ export default class Sticker {
      *
      * @returns {Sticker} The sticker
      */
-    static _fromRawData = (client: Client, rawData: RawStickerData): Sticker => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawStickerData): Sticker {
+        return fromRawData(client, rawData);
+    }
 }

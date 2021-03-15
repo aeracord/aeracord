@@ -57,7 +57,9 @@ export default class Channel {
      *
      * @returns {Channel} The channel
      */
-    static _fromRawData = (client: Client, rawData: RawChannelData): Channel => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawChannelData): Channel {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve ID
@@ -68,5 +70,7 @@ export default class Channel {
      *
      * @returns {string | undefined} The resolved channel ID, or `undefined` if the channel resolvable is invalid
      */
-    static resolveID = (channelResolvable: ChannelResolvable): string | undefined => resolveID(channelResolvable);
+    static resolveID(channelResolvable: ChannelResolvable): string | undefined {
+        return resolveID(channelResolvable);
+    }
 }

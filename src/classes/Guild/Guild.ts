@@ -424,7 +424,9 @@ export default class Guild {
      *
      * @returns {Guild} The guild
      */
-    static _fromRawData = (client: Client, rawData: RawGuildData): Guild => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawGuildData): Guild {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve ID
@@ -435,5 +437,7 @@ export default class Guild {
      *
      * @returns {string | undefined} The resolved guild ID, or `undefined` if the guild resolvable is invalid
      */
-    static resolveID = (guildResolvable: GuildResolvable): string | undefined => resolveID(guildResolvable);
+    static resolveID(guildResolvable: GuildResolvable): string | undefined {
+        return resolveID(guildResolvable);
+    }
 }

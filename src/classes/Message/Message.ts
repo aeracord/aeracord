@@ -339,7 +339,9 @@ export default class Message {
      *
      * @returns {Message} The message
      */
-    static _fromRawData = (client: Client, rawData: RawMessageData): Message => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawMessageData): Message {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve ID
@@ -350,5 +352,7 @@ export default class Message {
      *
      * @returns {string | undefined} The resolved message ID, or `undefined` if the message resolvable is invalid
      */
-    static resolveID = (messageResolvable: MessageResolvable): string | undefined => resolveID(messageResolvable);
+    static resolveID(messageResolvable: MessageResolvable): string | undefined {
+        return resolveID(messageResolvable);
+    }
 }

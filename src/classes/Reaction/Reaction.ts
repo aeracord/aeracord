@@ -73,7 +73,9 @@ export default class Reaction {
      *
      * @returns {Reaction} The reaction
      */
-    static _fromRawData = (client: Client, rawData: RawReactionData): Reaction => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawReactionData): Reaction {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve String
@@ -84,5 +86,7 @@ export default class Reaction {
      *
      * @returns {string | undefined} The resolved reaction emoji string, or `undefined` if the reaction emoji resolvable is invalid
      */
-    static resolveString = (reactionEmojiResolvable: ReactionEmojiResolvable): string | undefined => resolveString(reactionEmojiResolvable);
+    static resolveString(reactionEmojiResolvable: ReactionEmojiResolvable): string | undefined {
+        return resolveString(reactionEmojiResolvable);
+    }
 }

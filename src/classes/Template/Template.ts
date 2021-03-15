@@ -183,7 +183,9 @@ export default class Template {
      *
      * @returns {Template} The template
      */
-    static _fromRawData = (client: Client, rawData: RawTemplateData): Template => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawTemplateData): Template {
+        return fromRawData(client, rawData);
+    }
 
     /**
      * Resolve Code
@@ -194,5 +196,7 @@ export default class Template {
      *
      * @returns {string | undefined} The resolved template code, or `undefined` if the template resolvable is invalid
      */
-    static resolveCode = (templateResolvable: TemplateResolvable): string | undefined => resolveCode(templateResolvable);
+    static resolveCode(templateResolvable: TemplateResolvable): string | undefined {
+        return resolveCode(templateResolvable);
+    }
 }

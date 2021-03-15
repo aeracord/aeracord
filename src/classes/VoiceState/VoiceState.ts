@@ -154,5 +154,7 @@ export default class VoiceState {
      *
      * @returns {VoiceState} The voice state
      */
-    static _fromRawData = (client: Client, rawData: RawVoiceStateData): VoiceState => fromRawData(client, rawData);
+    static _fromRawData(client: Client, rawData: RawVoiceStateData): VoiceState {
+        return fromRawData(client, rawData);
+    }
 }
