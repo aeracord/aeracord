@@ -1,4 +1,5 @@
 import { Client, GetResult } from "../../internal";
+import filter from "./filter";
 import get from "./get";
 
 export interface CacheManagerData<CachedObject> {
@@ -64,5 +65,18 @@ export default class CacheManager<CachedObject> {
      */
     get<Fetch extends boolean = false>(id: string, fetch?: Fetch): GetResult<CachedObject, Fetch> {
         return get<CachedObject, Fetch>(this, id, fetch);
+    }
+
+    /**
+     * Filter
+     *
+     * Filter the cache
+     *
+     * @param predicate The function to filter the cache
+     *
+     * @returns {Map<string, CachedObject>} The filtered cache
+     */
+    filter(predicate: (value: CachedObject, index: number) => any): Map<string, CachedObject> {
+        return filter<CachedObject>(this, predicate);
     }
 }
