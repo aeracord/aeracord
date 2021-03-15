@@ -59,6 +59,25 @@ export {
 } from "./classes/Ban/Ban";
 export { default as RawBanData } from "./classes/Ban/rawBanData";
 
+// Base
+export {
+    default as Base,
+    BaseData
+} from "./classes/Base/Base";
+
+// Cache Manager
+export {
+    default as CacheManager,
+    CacheManagerData
+} from "./classes/CacheManager/CacheManager";
+export { GetResult } from "./classes/CacheManager/get";
+
+// Cache Manager Interface
+export {
+    default as CacheManagerInterface,
+    CacheManagerInterfaceData
+} from "./classes/CacheManagerInterface/CacheManagerInterface";
+
 // Category Channel
 export {
     default as CategoryChannel,

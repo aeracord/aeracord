@@ -1,4 +1,4 @@
-import { Client, Member, RawUserData } from "../../internal";
+import { Base, Client, Member, RawUserData } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -27,21 +27,7 @@ export const ACTIVITY_TYPE_COMPETING = 5;
 
 export type UserResolvable = User | Member | string;
 
-export default class User {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The user's ID
-     */
-    id: string;
+export default class User extends Base<User> {
 
     /**
      * Username
@@ -100,9 +86,13 @@ export default class User {
      */
     constructor(client: Client, userData: UserData) {
 
+        // Super
+        super(client, {
+            id: userData.id,
+            cacheManager: client._users
+        });
+
         // Set data
-        this.client = client;
-        this.id = userData.id;
         this.username = userData.username;
         this.discriminator = userData.discriminator;
         this.avatar = userData.avatar;

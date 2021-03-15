@@ -10,6 +10,8 @@ import {
     ACTIVITY_TYPE_STREAMING,
     Ban,
     BulkDeleteMessagesData,
+    CacheManager,
+    CacheManagerInterface,
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
@@ -412,6 +414,48 @@ export default class Client extends EventEmitter {
     _fetchQueues: Map<string, FetchQueue>;
 
     /**
+     * Guilds
+     *
+     * The internal cache of guilds
+     */
+    _guilds: CacheManager<Guild>;
+
+    /**
+     * Channels
+     *
+     * The internal cache of channels
+     */
+    _channels: CacheManager<AnyChannel>;
+
+    /**
+     * Users
+     *
+     * The internal cache of users
+     */
+    _users: CacheManager<User>;
+
+    /**
+     * Guilds
+     *
+     * The cache of guilds
+     */
+    guilds: CacheManagerInterface<Guild>;
+
+    /**
+     * Channels
+     *
+     * The cache of channels
+     */
+    channels: CacheManagerInterface<AnyChannel>;
+
+    /**
+     * Users
+     *
+     * The cache of users
+     */
+    users: CacheManagerInterface<User>;
+
+    /**
      * Client
      *
      * @param clientData Options to initialize this client with
@@ -431,6 +475,24 @@ export default class Client extends EventEmitter {
         this._initialPresence = clientData.presence;
         this._intents = clientData.intents;
         this._fetchQueues = new Map();
+        this._guilds = new CacheManager<Guild>(this, {
+            fetchObject: (id: string): Promise<Guild> => this.getGuild(id)
+        });
+        this._channels = new CacheManager<AnyChannel>(this, {
+            fetchObject: (id: string): Promise<AnyChannel> => this.getChannel(id)
+        });
+        this._users = new CacheManager<User>(this, {
+            fetchObject: (id: string): Promise<User> => this.getUser(id)
+        });
+        this.guilds = new CacheManagerInterface<Guild>(this, {
+            cacheManager: this._guilds
+        });
+        this.channels = new CacheManagerInterface<AnyChannel>(this, {
+            cacheManager: this._channels
+        });
+        this.users = new CacheManagerInterface<User>(this, {
+            cacheManager: this._users
+        });
 
         // Connect
         this._connect();

@@ -1,4 +1,4 @@
-import { Ban, Client, Emoji, GuildChannel, GuildWidget, Invite, Member, RawGuildData, Role, Template, VanityInvite, Webhook, WelcomeScreen } from "../../internal";
+import { AnyChannel, Ban, Base, CacheManagerInterface, CategoryChannel, Client, Emoji, GuildChannel, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -79,21 +79,7 @@ export interface VoiceRegion {
 
 export type GuildResolvable = Guild | Ban | Emoji | GuildChannel | GuildWidget | Invite | Member | Role | Template | VanityInvite | Webhook | WelcomeScreen | string;
 
-export default class Guild {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The guild's ID
-     */
-    id: string;
+export default class Guild extends Base<Guild> {
 
     /**
      * Name
@@ -185,6 +171,13 @@ export default class Guild {
      * The guild's explicit content filter setting
      */
     explicitContentFilter: ExplicitContentFilter;
+
+    /**
+     * Channels
+     *
+     * The cache manager interface for the channels in this guild
+     */
+    channels: CacheManagerInterface<AnyChannel>;
 
     /**
      * Roles
@@ -376,9 +369,13 @@ export default class Guild {
      */
     constructor(client: Client, guildData: GuildData) {
 
+        // Super
+        super(client, {
+            id: guildData.id,
+            cacheManager: client._guilds
+        });
+
         // Set data
-        this.client = client;
-        this.id = guildData.id;
         this.name = guildData.name;
         this.icon = guildData.icon;
         this.splashImage = guildData.splashImage;
@@ -392,6 +389,10 @@ export default class Guild {
         this.verificationLevel = guildData.verificationLevel;
         this.defaultMessageNotifications = guildData.defaultMessageNotifications;
         this.explicitContentFilter = guildData.explicitContentFilter;
+        this.channels = new CacheManagerInterface<AnyChannel>(this.client, {
+            cacheManager: this.client._channels,
+            match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id)
+        });
         this.roles = guildData.roles;
         this.emojis = guildData.emojis;
         this.features = guildData.features;

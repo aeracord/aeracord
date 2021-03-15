@@ -1,4 +1,4 @@
-import { CategoryChannel, Client, DMChannel, GuildChannel, NewsChannel, RawChannelData, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import { Base, CategoryChannel, Client, DMChannel, GuildChannel, NewsChannel, RawChannelData, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -18,21 +18,7 @@ export const CHANNEL_TYPE_STORE = 6;
 
 export type ChannelResolvable = AnyChannel | string;
 
-export default class Channel {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The channel's ID
-     */
-    id: string;
+export default class Channel extends Base<AnyChannel> {
 
     /**
      * Channel
@@ -43,9 +29,11 @@ export default class Channel {
      */
     constructor(client: Client, channelData: ChannelData) {
 
-        // Set data
-        this.client = client;
-        this.id = channelData.id;
+        // Super
+        super(client, {
+            id: channelData.id,
+            cacheManager: client._channels
+        });
     }
 
     /**

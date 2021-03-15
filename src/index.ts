@@ -60,6 +60,16 @@ export {
     Ban
 } from "./internal";
 
+// Base
+export {
+    Base
+} from "./internal";
+
+// Cache Manager Interface
+export {
+    CacheManagerInterface
+} from "./internal";
+
 // Category Channel
 export {
     CategoryChannel
