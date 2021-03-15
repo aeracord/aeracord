@@ -90,10 +90,11 @@ export default class CacheManagerInterface<CachedObject> {
      * Filter the cache
      *
      * @param predicate The function to filter the cache
+     * @param modify Modify the cache to meet the filter's requirements
      *
      * @returns {Map<string, CachedObject>} The filtered cache
      */
-    filter(predicate: (value: CachedObject, index: number) => any): Map<string, CachedObject> {
-        return this._cacheManager.filter((value: CachedObject, index: number) => this._match ? (this._match(value) && predicate(value, index)) : (predicate(value, index)));
+    filter(predicate: (value: CachedObject, index: number) => any, modify?: boolean): Map<string, CachedObject> {
+        return this._cacheManager.filter((value: CachedObject, index: number) => this._match ? (this._match(value) && predicate(value, index)) : (predicate(value, index)), modify);
     }
 }
