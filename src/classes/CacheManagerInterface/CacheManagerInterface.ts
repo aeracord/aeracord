@@ -1,5 +1,6 @@
 import { CacheManager, Client, GetResult } from "../../internal";
 import get from "./get";
+import uncache from "./uncache";
 
 export interface CacheManagerInterfaceData<CachedObject> {
     cacheManager: CacheManager<CachedObject>;
@@ -70,6 +71,17 @@ export default class CacheManagerInterface<CachedObject> {
      */
     get<Fetch extends boolean = false>(id: string, fetch?: Fetch): GetResult<CachedObject, Fetch> {
         return get<CachedObject, Fetch>(this, id, fetch);
+    }
+
+    /**
+     * Uncache
+     *
+     * Remove an object from cache
+     *
+     * @param id The ID of the object
+     */
+    uncache(id: string) {
+        uncache<CachedObject>(this, id);
     }
 
     /**

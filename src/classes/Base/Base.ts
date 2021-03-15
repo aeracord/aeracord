@@ -67,6 +67,6 @@ export default class Base<ObjectType> {
      * Remove this object from cache
      */
     uncache() {
-        this._cacheManager._cache.delete(this.id);
+        this._cacheManager.uncache(this.id);
     }
 }

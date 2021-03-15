@@ -68,6 +68,17 @@ export default class CacheManager<CachedObject> {
     }
 
     /**
+     * Uncache
+     *
+     * Remove an object from cache
+     *
+     * @param id The ID of the object
+     */
+    uncache(id: string) {
+        this._cache.delete(id);
+    }
+
+    /**
      * Filter
      *
      * Filter the cache
