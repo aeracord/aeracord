@@ -29,14 +29,14 @@ export default class CacheManager<CachedObject> {
      *
      * The cache
      */
-    _cache: Map<string, CachedObject>;
+    cache: Map<string, CachedObject>;
 
     /**
      * Fetch Object
      *
      * A function to fetch an object from the API
      */
-    _fetchObject: (id: string) => Promise<CachedObject>;
+    fetchObject: (id: string) => Promise<CachedObject>;
 
     /**
      * Cache Manager
@@ -49,8 +49,8 @@ export default class CacheManager<CachedObject> {
 
         // Set data
         this.client = client;
-        this._cache = new Map();
-        this._fetchObject = cacheManagerData.fetchObject;
+        this.cache = new Map();
+        this.fetchObject = cacheManagerData.fetchObject;
     }
 
     /**
@@ -75,7 +75,7 @@ export default class CacheManager<CachedObject> {
      * @param id The ID of the object
      */
     uncache(id: string) {
-        this._cache.delete(id);
+        this.cache.delete(id);
     }
 
     /**

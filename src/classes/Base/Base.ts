@@ -58,7 +58,7 @@ export default class Base<ObjectType> {
      * Cache this object
      */
     cache() {
-        this._cacheManager._cache.set(this.id, this as unknown as ObjectType);
+        this._cacheManager.cache.set(this.id, this as unknown as ObjectType);
     }
 
     /**

@@ -7,7 +7,7 @@ export default function filter<CachedObject>(cacheManager: CacheManager<CachedOb
     const results: Map<string, CachedObject> = new Map();
 
     // Loop through entries
-    for (let entry of cacheManager._cache.entries()) {
+    for (let entry of cacheManager.cache.entries()) {
 
         // Entry doesnt match filter
         if (!predicate(entry[1], index++)) {
