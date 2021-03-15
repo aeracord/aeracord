@@ -320,11 +320,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Attachment` from a `RawAttachmentData` object\n",
-								"returns": "The attachment\n"
-							},
 							"signatures": [
 								{
 									"id": 4239,
@@ -363,7 +358,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -1132,11 +1127,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `AuditLog` from a `RawAuditLogData` object\n",
-								"returns": "The audit log\n"
-							},
 							"signatures": [
 								{
 									"id": 53,
@@ -1175,7 +1165,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -4776,11 +4766,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create a `Ban` from a `RawBanData` object\n",
-								"returns": "The ban\n"
-							},
 							"signatures": [
 								{
 									"id": 151,
@@ -4819,7 +4804,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -5555,11 +5540,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
 									"id": 256,
@@ -5598,7 +5578,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -5641,11 +5621,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 260,
@@ -5670,7 +5645,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -5702,7 +5677,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
@@ -6137,11 +6112,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
 									"id": 183,
@@ -6180,7 +6150,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -6213,11 +6183,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 187,
@@ -6242,7 +6207,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -6269,7 +6234,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							]
@@ -8301,10 +8266,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Connect",
-								"text": "Connect to the gateway\n"
-							},
 							"signatures": [
 								{
 									"id": 1895,
@@ -8346,11 +8307,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Get Fetch Queue",
-								"text": "Get a fetch queue for a route, and create one if it doesn't already exist\n",
-								"returns": "The fetch queue\n"
-							},
 							"signatures": [
 								{
 									"id": 1900,
@@ -8375,7 +8331,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The route for the fetch queue\n"
+												"text": "The route for the fetch queue\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -8393,7 +8349,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 470,
+									"line": 474,
 									"character": 18
 								}
 							]
@@ -8405,10 +8361,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Add Guild Member Role",
-								"text": "Add a role to a member\n"
 							},
 							"signatures": [
 								{
@@ -8433,7 +8385,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to add the role in"
+												"text": "The guild to add the role in"
 											},
 											"type": {
 												"type": "reference",
@@ -8450,7 +8402,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user resolvable for the member to add the role to"
+												"text": "The user resolvable for the member to add the role to"
 											},
 											"type": {
 												"type": "reference",
@@ -8467,7 +8419,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The role to add\n"
+												"text": "The role to add\n"
 											},
 											"type": {
 												"type": "reference",
@@ -8491,7 +8443,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 481,
+									"line": 487,
 									"character": 22
 								}
 							]
@@ -8631,10 +8583,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Add Pinned Channel Message",
-								"text": "Pin a message to a channel\n"
-							},
 							"signatures": [
 								{
 									"id": 1908,
@@ -8658,7 +8606,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to pin the messages in"
+												"text": "The channel to pin the messages in"
 											},
 											"type": {
 												"type": "reference",
@@ -8675,7 +8623,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to pin\n"
+												"text": "The message to pin\n"
 											},
 											"type": {
 												"type": "reference",
@@ -8699,7 +8647,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 491,
+									"line": 499,
 									"character": 27
 								}
 							]
@@ -8711,10 +8659,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Bulk Delete Messages",
-								"text": "Bulk delete messages\n"
 							},
 							"signatures": [
 								{
@@ -8739,7 +8683,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete the messages in"
+												"text": "The channel to delete the messages in"
 											},
 											"type": {
 												"type": "reference",
@@ -8756,7 +8700,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for bulk deleting messages\n"
+												"text": "The data for bulk deleting messages\n"
 											},
 											"type": {
 												"type": "reference",
@@ -8780,7 +8724,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 501,
+									"line": 511,
 									"character": 22
 								}
 							]
@@ -8792,11 +8736,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Channel Invite",
-								"text": "Create an invite\n",
-								"returns": "The invite\n"
 							},
 							"signatures": [
 								{
@@ -8822,7 +8761,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to create an invite in"
+												"text": "The channel to create an invite in"
 											},
 											"type": {
 												"type": "reference",
@@ -8840,7 +8779,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for the invite\n"
+												"text": "The data for the invite\n"
 											},
 											"type": {
 												"type": "reference",
@@ -8865,7 +8804,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 513,
+									"line": 525,
 									"character": 23
 								}
 							]
@@ -8877,11 +8816,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create DM",
-								"text": "Create a DM\n",
-								"returns": "The DM channel\n"
 							},
 							"signatures": [
 								{
@@ -8907,7 +8841,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the DM\n"
+												"text": "The data for the DM\n"
 											},
 											"type": {
 												"type": "reference",
@@ -8932,7 +8866,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 524,
+									"line": 538,
 									"character": 12
 								}
 							]
@@ -8944,11 +8878,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Guild",
-								"text": "Create a guild\n",
-								"returns": "The created guild\n"
 							},
 							"signatures": [
 								{
@@ -8974,7 +8903,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the guild\n"
+												"text": "The data for the guild\n"
 											},
 											"type": {
 												"type": "reference",
@@ -8999,7 +8928,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 535,
+									"line": 551,
 									"character": 15
 								}
 							]
@@ -9011,10 +8940,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Guild Ban",
-								"text": "Ban a user from a guild\n"
 							},
 							"signatures": [
 								{
@@ -9039,7 +8964,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to ban the user from"
+												"text": "The guild to ban the user from"
 											},
 											"type": {
 												"type": "reference",
@@ -9056,7 +8981,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user to ban"
+												"text": "The user to ban"
 											},
 											"type": {
 												"type": "reference",
@@ -9074,7 +8999,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for the ban\n"
+												"text": "The data for the ban\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9098,7 +9023,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 546,
+									"line": 564,
 									"character": 18
 								}
 							]
@@ -9110,11 +9035,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Guild Channel",
-								"text": "Create a channel in a guild\n",
-								"returns": "The created channel\n"
 							},
 							"signatures": [
 								{
@@ -9140,7 +9060,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to create a channel in"
+												"text": "The guild to create a channel in"
 											},
 											"type": {
 												"type": "reference",
@@ -9157,7 +9077,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the channel\n"
+												"text": "The data for the channel\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9182,7 +9102,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 558,
+									"line": 578,
 									"character": 22
 								}
 							]
@@ -9194,11 +9114,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Guild Emoji",
-								"text": "Create an emoji\n",
-								"returns": "The created emoji\n"
 							},
 							"signatures": [
 								{
@@ -9224,7 +9139,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to create an emoji in"
+												"text": "The guild to create an emoji in"
 											},
 											"type": {
 												"type": "reference",
@@ -9241,7 +9156,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the emoji\n"
+												"text": "The data for the emoji\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9266,7 +9181,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 570,
+									"line": 592,
 									"character": 20
 								}
 							]
@@ -9278,11 +9193,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Guild From Template",
-								"text": "Create a guild from a template\n",
-								"returns": "The created guild\n"
 							},
 							"signatures": [
 								{
@@ -9308,7 +9218,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The template to create the guild from"
+												"text": "The template to create the guild from"
 											},
 											"type": {
 												"type": "reference",
@@ -9325,7 +9235,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the ban\n"
+												"text": "The data for the ban\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9350,7 +9260,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 582,
+									"line": 606,
 									"character": 27
 								}
 							]
@@ -9362,11 +9272,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Guild Role",
-								"text": "Create a role\n",
-								"returns": "The created role\n"
 							},
 							"signatures": [
 								{
@@ -9392,7 +9297,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to create a role in"
+												"text": "The guild to create a role in"
 											},
 											"type": {
 												"type": "reference",
@@ -9409,7 +9314,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the role\n"
+												"text": "The data for the role\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9434,7 +9339,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 594,
+									"line": 620,
 									"character": 19
 								}
 							]
@@ -9446,11 +9351,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Guild Template",
-								"text": "Create a template\n",
-								"returns": "The created template\n"
 							},
 							"signatures": [
 								{
@@ -9476,7 +9376,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to create a template in"
+												"text": "The guild to create a template in"
 											},
 											"type": {
 												"type": "reference",
@@ -9493,7 +9393,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the template\n"
+												"text": "The data for the template\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9518,7 +9418,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 606,
+									"line": 634,
 									"character": 23
 								}
 							]
@@ -9530,11 +9430,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Message",
-								"text": "Send a message to a channel\n",
-								"returns": "The created message\n"
 							},
 							"signatures": [
 								{
@@ -9560,7 +9455,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to send this message to"
+												"text": "The channel to send this message to"
 											},
 											"type": {
 												"type": "reference",
@@ -9577,7 +9472,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the message\n"
+												"text": "The data for the message\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9602,7 +9497,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 618,
+									"line": 648,
 									"character": 17
 								}
 							]
@@ -9614,10 +9509,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Reaction",
-								"text": "Add a reaction to a message\n"
 							},
 							"signatures": [
 								{
@@ -9642,7 +9533,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to create the reaction in"
+												"text": "The channel to create the reaction in"
 											},
 											"type": {
 												"type": "reference",
@@ -9659,7 +9550,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to create the reaction on"
+												"text": "The message to create the reaction on"
 											},
 											"type": {
 												"type": "reference",
@@ -9676,7 +9567,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to react with\n"
+												"text": "The emoji to react with\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9700,7 +9591,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 629,
+									"line": 661,
 									"character": 18
 								}
 							]
@@ -9712,11 +9603,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Create Webhook",
-								"text": "Create a webhook\n",
-								"returns": "The created webhook\n"
 							},
 							"signatures": [
 								{
@@ -9742,7 +9628,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to create a webhook in"
+												"text": "The channel to create a webhook in"
 											},
 											"type": {
 												"type": "reference",
@@ -9759,7 +9645,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for the webhook\n"
+												"text": "The data for the webhook\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9784,7 +9670,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 641,
+									"line": 675,
 									"character": 17
 								}
 							]
@@ -9796,11 +9682,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Crosspost Message",
-								"text": "Publish a message in a news channel\n",
-								"returns": "The crossposted message\n"
 							},
 							"signatures": [
 								{
@@ -9826,7 +9707,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to crosspost from"
+												"text": "The channel to crosspost from"
 											},
 											"type": {
 												"type": "reference",
@@ -9843,7 +9724,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to crosspost\n"
+												"text": "The message to crosspost\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9868,7 +9749,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 653,
+									"line": 689,
 									"character": 20
 								}
 							]
@@ -9880,10 +9761,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete All Reactions",
-								"text": "Remove all reactions from a message\n"
 							},
 							"signatures": [
 								{
@@ -9908,7 +9785,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete the reactions in"
+												"text": "The channel to delete the reactions in"
 											},
 											"type": {
 												"type": "reference",
@@ -9925,7 +9802,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to delete the reactions from\n"
+												"text": "The message to delete the reactions from\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9949,7 +9826,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 663,
+									"line": 701,
 									"character": 22
 								}
 							]
@@ -9961,10 +9838,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete All Reactions for Emoji",
-								"text": "Remove all reactions from a message for a specific emoji\n"
 							},
 							"signatures": [
 								{
@@ -9989,7 +9862,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete the reactions in"
+												"text": "The channel to delete the reactions in"
 											},
 											"type": {
 												"type": "reference",
@@ -10006,7 +9879,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to delete the reactions from"
+												"text": "The message to delete the reactions from"
 											},
 											"type": {
 												"type": "reference",
@@ -10023,7 +9896,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to delete reactions for\n"
+												"text": "The emoji to delete reactions for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10047,7 +9920,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 674,
+									"line": 714,
 									"character": 30
 								}
 							]
@@ -10059,11 +9932,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Channel",
-								"text": "Delete a channel or close a DM channel\n",
-								"returns": "The deleted or closed channel\n"
 							},
 							"signatures": [
 								{
@@ -10089,7 +9957,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete or close\n"
+												"text": "The channel to delete or close\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10114,7 +9982,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 685,
+									"line": 727,
 									"character": 17
 								}
 							]
@@ -10126,10 +9994,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Channel Permission",
-								"text": "Delete a permission from a channel\n"
 							},
 							"signatures": [
 								{
@@ -10154,7 +10018,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete the permission from"
+												"text": "The channel to delete the permission from"
 											},
 											"type": {
 												"type": "reference",
@@ -10171,7 +10035,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The role or user's permissions to delete\n"
+												"text": "The role or user's permissions to delete\n"
 											},
 											"type": {
 												"type": "union",
@@ -10205,7 +10069,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 695,
+									"line": 739,
 									"character": 27
 								}
 							]
@@ -10217,10 +10081,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Guild",
-								"text": "Delete a guild\n"
 							},
 							"signatures": [
 								{
@@ -10245,7 +10105,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to delete\n"
+												"text": "The guild to delete\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10269,7 +10129,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 704,
+									"line": 750,
 									"character": 15
 								}
 							]
@@ -10281,10 +10141,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Guild Emoji",
-								"text": "Delete an emoji\n"
 							},
 							"signatures": [
 								{
@@ -10309,7 +10165,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to delete the emoji from"
+												"text": "The guild to delete the emoji from"
 											},
 											"type": {
 												"type": "reference",
@@ -10326,7 +10182,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to delete\n"
+												"text": "The emoji to delete\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10350,7 +10206,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 714,
+									"line": 762,
 									"character": 20
 								}
 							]
@@ -10362,10 +10218,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Guild Role",
-								"text": "Delete a role\n"
 							},
 							"signatures": [
 								{
@@ -10390,7 +10242,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to delete the role from"
+												"text": "The guild to delete the role from"
 											},
 											"type": {
 												"type": "reference",
@@ -10407,7 +10259,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The role to delete\n"
+												"text": "The role to delete\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10431,7 +10283,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 724,
+									"line": 774,
 									"character": 19
 								}
 							]
@@ -10443,11 +10295,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Guild Template",
-								"text": "Delete a template\n",
-								"returns": "The deleted template\n"
 							},
 							"signatures": [
 								{
@@ -10473,7 +10320,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to delete the template in"
+												"text": "The guild to delete the template in"
 											},
 											"type": {
 												"type": "reference",
@@ -10490,7 +10337,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The template to delete\n"
+												"text": "The template to delete\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10515,7 +10362,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 736,
+									"line": 788,
 									"character": 23
 								}
 							]
@@ -10527,11 +10374,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Invite",
-								"text": "Delete an invite\n",
-								"returns": "The deleted invite\n"
 							},
 							"signatures": [
 								{
@@ -10557,7 +10399,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The invite to delete\n"
+												"text": "The invite to delete\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10582,7 +10424,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 747,
+									"line": 801,
 									"character": 16
 								}
 							]
@@ -10594,10 +10436,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Message",
-								"text": "Delete a message\n"
 							},
 							"signatures": [
 								{
@@ -10622,7 +10460,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete the message in"
+												"text": "The channel to delete the message in"
 											},
 											"type": {
 												"type": "reference",
@@ -10639,7 +10477,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to delete\n"
+												"text": "The message to delete\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10663,7 +10501,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 757,
+									"line": 813,
 									"character": 17
 								}
 							]
@@ -10675,10 +10513,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Own Reaction",
-								"text": "Remove the client's reaction from a message\n"
 							},
 							"signatures": [
 								{
@@ -10703,7 +10537,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete the reaction in"
+												"text": "The channel to delete the reaction in"
 											},
 											"type": {
 												"type": "reference",
@@ -10720,7 +10554,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to delete the reaction from"
+												"text": "The message to delete the reaction from"
 											},
 											"type": {
 												"type": "reference",
@@ -10737,7 +10571,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to unreact with\n"
+												"text": "The emoji to unreact with\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10761,7 +10595,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 768,
+									"line": 826,
 									"character": 21
 								}
 							]
@@ -10773,10 +10607,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Pinned Channel Message",
-								"text": "Unpin a message from a channel\n"
 							},
 							"signatures": [
 								{
@@ -10801,7 +10631,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to unpin the messages from"
+												"text": "The channel to unpin the messages from"
 											},
 											"type": {
 												"type": "reference",
@@ -10818,7 +10648,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to unpin\n"
+												"text": "The message to unpin\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10842,7 +10672,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 778,
+									"line": 838,
 									"character": 30
 								}
 							]
@@ -10854,10 +10684,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete User Reaction",
-								"text": "Remove a user's reaction from a message\n"
 							},
 							"signatures": [
 								{
@@ -10882,7 +10708,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to delete the reaction in"
+												"text": "The channel to delete the reaction in"
 											},
 											"type": {
 												"type": "reference",
@@ -10899,7 +10725,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to delete the reaction from"
+												"text": "The message to delete the reaction from"
 											},
 											"type": {
 												"type": "reference",
@@ -10916,7 +10742,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to unreact with"
+												"text": "The emoji to unreact with"
 											},
 											"type": {
 												"type": "reference",
@@ -10933,7 +10759,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user to delete the reaction for\n"
+												"text": "The user to delete the reaction for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -10957,7 +10783,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 790,
+									"line": 852,
 									"character": 22
 								}
 							]
@@ -10969,10 +10795,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Delete Webhook",
-								"text": "Delete a webhook\n"
 							},
 							"signatures": [
 								{
@@ -10997,7 +10819,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The webhook to delete\n"
+												"text": "The webhook to delete\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11021,7 +10843,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 799,
+									"line": 863,
 									"character": 17
 								}
 							]
@@ -11033,10 +10855,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Edit Channel Permissions",
-								"text": "Edit the permissions for a channel\n"
 							},
 							"signatures": [
 								{
@@ -11061,7 +10879,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to edit the permissions for"
+												"text": "The channel to edit the permissions for"
 											},
 											"type": {
 												"type": "reference",
@@ -11078,7 +10896,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The role or user's permissions to edit"
+												"text": "The role or user's permissions to edit"
 											},
 											"type": {
 												"type": "union",
@@ -11105,7 +10923,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for editing the channel permissions\n"
+												"text": "The data for editing the channel permissions\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11129,7 +10947,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 810,
+									"line": 876,
 									"character": 26
 								}
 							]
@@ -11141,11 +10959,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Edit Message",
-								"text": "Edit a message\n",
-								"returns": "The edited message\n"
 							},
 							"signatures": [
 								{
@@ -11171,7 +10984,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to edit the message in"
+												"text": "The channel to edit the message in"
 											},
 											"type": {
 												"type": "reference",
@@ -11188,7 +11001,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to edit"
+												"text": "The message to edit"
 											},
 											"type": {
 												"type": "reference",
@@ -11205,7 +11018,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for editing the message\n"
+												"text": "The data for editing the message\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11230,7 +11043,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 823,
+									"line": 891,
 									"character": 15
 								}
 							]
@@ -11381,11 +11194,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Fetch",
-								"text": "Fetch data from the API\n",
-								"returns": "The fetched data\n"
-							},
 							"signatures": [
 								{
 									"id": 1897,
@@ -11410,7 +11218,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The options for the request"
+												"text": "The options for the request"
 											},
 											"type": {
 												"type": "reference",
@@ -11435,7 +11243,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 459,
+									"line": 461,
 									"character": 9
 								}
 							]
@@ -11447,11 +11255,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Follow News Channel",
-								"text": "Follows an announcement channel\n",
-								"returns": "The followed channel\n"
 							},
 							"signatures": [
 								{
@@ -11477,7 +11280,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to follow"
+												"text": "The channel to follow"
 											},
 											"type": {
 												"type": "reference",
@@ -11494,7 +11297,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data for following the news channel\n"
+												"text": "The data for following the news channel\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11519,7 +11322,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 835,
+									"line": 905,
 									"character": 21
 								}
 							]
@@ -11531,11 +11334,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Channel",
-								"text": "Get a channel\n",
-								"returns": "The channel\n"
 							},
 							"signatures": [
 								{
@@ -11561,7 +11359,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to get\n"
+												"text": "The channel to get\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11586,7 +11384,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 846,
+									"line": 918,
 									"character": 14
 								}
 							]
@@ -11598,11 +11396,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Channel Invites",
-								"text": "Get a channel's invites\n",
-								"returns": "The invites\n"
 							},
 							"signatures": [
 								{
@@ -11628,7 +11421,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to get the invites of\n"
+												"text": "The channel to get the invites of\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11656,7 +11449,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 857,
+									"line": 931,
 									"character": 21
 								}
 							]
@@ -11668,11 +11461,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Channel Message",
-								"text": "Get a message\n",
-								"returns": "The message\n"
 							},
 							"signatures": [
 								{
@@ -11698,7 +11486,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to get the message from"
+												"text": "The channel to get the message from"
 											},
 											"type": {
 												"type": "reference",
@@ -11715,7 +11503,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to get\n"
+												"text": "The message to get\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11740,7 +11528,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 869,
+									"line": 945,
 									"character": 21
 								}
 							]
@@ -11752,11 +11540,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Channel Messages",
-								"text": "Get a channel's messages\n",
-								"returns": "The messages\n"
 							},
 							"signatures": [
 								{
@@ -11782,7 +11565,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to get messages from"
+												"text": "The channel to get messages from"
 											},
 											"type": {
 												"type": "reference",
@@ -11800,7 +11583,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for getting messages from the channel\n"
+												"text": "The data for getting messages from the channel\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11828,7 +11611,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 881,
+									"line": 959,
 									"character": 22
 								}
 							]
@@ -11840,11 +11623,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Channel Webhooks",
-								"text": "Get a channel's webhooks\n",
-								"returns": "The channel's webhooks\n"
 							},
 							"signatures": [
 								{
@@ -11870,7 +11648,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to get the webhooks for\n"
+												"text": "The channel to get the webhooks for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -11898,7 +11676,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 892,
+									"line": 972,
 									"character": 22
 								}
 							]
@@ -11910,11 +11688,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Current User",
-								"text": "Get the current user\n",
-								"returns": "The user\n"
 							},
 							"signatures": [
 								{
@@ -11946,7 +11719,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 901,
+									"line": 983,
 									"character": 18
 								}
 							]
@@ -11958,11 +11731,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Current User Guilds",
-								"text": "Get the current user's guilds\n",
-								"returns": "The guilds\n"
 							},
 							"signatures": [
 								{
@@ -11989,7 +11757,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for getting the current user's guilds\n"
+												"text": "The data for getting the current user's guilds\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12017,7 +11785,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 912,
+									"line": 996,
 									"character": 24
 								}
 							]
@@ -12029,11 +11797,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild",
-								"text": "Get a guild\n",
-								"returns": "The guild\n"
 							},
 							"signatures": [
 								{
@@ -12059,7 +11822,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get"
+												"text": "The guild to get"
 											},
 											"type": {
 												"type": "reference",
@@ -12077,7 +11840,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for getting the guild\n"
+												"text": "The data for getting the guild\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12102,7 +11865,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 924,
+									"line": 1010,
 									"character": 12
 								}
 							]
@@ -12114,11 +11877,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Audit Log",
-								"text": "Get an audit log\n",
-								"returns": "The audit log\n"
 							},
 							"signatures": [
 								{
@@ -12144,7 +11902,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the ban for"
+												"text": "The guild to get the ban for"
 											},
 											"type": {
 												"type": "reference",
@@ -12162,7 +11920,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for getting the guild\n"
+												"text": "The data for getting the guild\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12187,7 +11945,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 936,
+									"line": 1024,
 									"character": 20
 								}
 							]
@@ -12199,11 +11957,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Ban",
-								"text": "Get a guild ban\n",
-								"returns": "The ban\n"
 							},
 							"signatures": [
 								{
@@ -12229,7 +11982,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the ban for"
+												"text": "The guild to get the ban for"
 											},
 											"type": {
 												"type": "reference",
@@ -12246,7 +11999,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user to get the ban for\n"
+												"text": "The user to get the ban for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12271,7 +12024,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 948,
+									"line": 1038,
 									"character": 15
 								}
 							]
@@ -12283,11 +12036,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Bans",
-								"text": "Get a guild's bans\n",
-								"returns": "The guild's bans\n"
 							},
 							"signatures": [
 								{
@@ -12313,7 +12061,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the bans for\n"
+												"text": "The guild to get the bans for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12341,7 +12089,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 959,
+									"line": 1051,
 									"character": 16
 								}
 							]
@@ -12353,11 +12101,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Channels",
-								"text": "Get a guild's channels\n",
-								"returns": "The guild's channels\n"
 							},
 							"signatures": [
 								{
@@ -12383,7 +12126,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the channels for\n"
+												"text": "The guild to get the channels for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12411,7 +12154,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 970,
+									"line": 1064,
 									"character": 20
 								}
 							]
@@ -12423,11 +12166,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Emoji",
-								"text": "Get an emoji from a guild\n",
-								"returns": "The emoji\n"
 							},
 							"signatures": [
 								{
@@ -12453,7 +12191,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the emoji from"
+												"text": "The guild to get the emoji from"
 											},
 											"type": {
 												"type": "reference",
@@ -12470,7 +12208,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to get\n"
+												"text": "The emoji to get\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12495,7 +12233,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 982,
+									"line": 1078,
 									"character": 17
 								}
 							]
@@ -12507,11 +12245,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Invites",
-								"text": "Get a guild's invites\n",
-								"returns": "The guild's invites\n"
 							},
 							"signatures": [
 								{
@@ -12537,7 +12270,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the invites for\n"
+												"text": "The guild to get the invites for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12565,7 +12298,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 993,
+									"line": 1091,
 									"character": 19
 								}
 							]
@@ -12577,11 +12310,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Member",
-								"text": "Get a member from a guild\n",
-								"returns": "The member\n"
 							},
 							"signatures": [
 								{
@@ -12607,7 +12335,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the member from"
+												"text": "The guild to get the member from"
 											},
 											"type": {
 												"type": "reference",
@@ -12624,7 +12352,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user resolvable for the member to get\n"
+												"text": "The user resolvable for the member to get\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12649,7 +12377,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1005,
+									"line": 1105,
 									"character": 18
 								}
 							]
@@ -12661,11 +12389,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Preview",
-								"text": "Get a guild preview\n",
-								"returns": "The guild preview\n"
 							},
 							"signatures": [
 								{
@@ -12691,7 +12414,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the preview from\n"
+												"text": "The guild to get the preview from\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12716,7 +12439,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1016,
+									"line": 1118,
 									"character": 19
 								}
 							]
@@ -12728,11 +12451,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Roles",
-								"text": "Get a guild's roles\n",
-								"returns": "The guild's roles\n"
 							},
 							"signatures": [
 								{
@@ -12758,7 +12476,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the roles for\n"
+												"text": "The guild to get the roles for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12786,7 +12504,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1027,
+									"line": 1131,
 									"character": 17
 								}
 							]
@@ -12798,11 +12516,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Templates",
-								"text": "Get a guild's templates\n",
-								"returns": "The guild's templates\n"
 							},
 							"signatures": [
 								{
@@ -12828,7 +12541,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the templates for\n"
+												"text": "The guild to get the templates for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12856,7 +12569,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1038,
+									"line": 1144,
 									"character": 21
 								}
 							]
@@ -12868,11 +12581,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Vanity URL",
-								"text": "Get a guild's vanity invite\n",
-								"returns": "The vanity invite\n"
 							},
 							"signatures": [
 								{
@@ -12898,7 +12606,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the vanity invite for\n"
+												"text": "The guild to get the vanity invite for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12923,7 +12631,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1049,
+									"line": 1157,
 									"character": 21
 								}
 							]
@@ -12935,11 +12643,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Voice Regions",
-								"text": "Get a guild's voice regions\n",
-								"returns": "The guild's voice regions\n"
 							},
 							"signatures": [
 								{
@@ -12965,7 +12668,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the voice regions for\n"
+												"text": "The guild to get the voice regions for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12993,7 +12696,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1060,
+									"line": 1170,
 									"character": 24
 								}
 							]
@@ -13005,11 +12708,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Webhooks",
-								"text": "Get a guild's webhooks\n",
-								"returns": "The guild's webhooks\n"
 							},
 							"signatures": [
 								{
@@ -13035,7 +12733,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the webhooks for\n"
+												"text": "The guild to get the webhooks for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13063,7 +12761,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1071,
+									"line": 1183,
 									"character": 20
 								}
 							]
@@ -13075,11 +12773,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Guild Widget Settings",
-								"text": "Get a guild's widget settings\n",
-								"returns": "The widget\n"
 							},
 							"signatures": [
 								{
@@ -13105,7 +12798,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the widget for\n"
+												"text": "The guild to get the widget for\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13130,7 +12823,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1082,
+									"line": 1196,
 									"character": 26
 								}
 							]
@@ -13142,11 +12835,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Invite",
-								"text": "Get an invite\n",
-								"returns": "The invite\n"
 							},
 							"signatures": [
 								{
@@ -13172,7 +12860,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The invite to get"
+												"text": "The invite to get"
 											},
 											"type": {
 												"type": "reference",
@@ -13190,7 +12878,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for getting the invite\n"
+												"text": "The data for getting the invite\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13215,7 +12903,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1094,
+									"line": 1210,
 									"character": 13
 								}
 							]
@@ -13269,11 +12957,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Get Pinned Messages",
-								"text": "Get a channel's pinned messages\n",
-								"returns": "The messages\n"
-							},
 							"signatures": [
 								{
 									"id": 2114,
@@ -13298,7 +12981,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to get the pinned messages of\n"
+												"text": "The channel to get the pinned messages of\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13326,7 +13009,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1105,
+									"line": 1223,
 									"character": 21
 								}
 							]
@@ -13338,11 +13021,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Reactions",
-								"text": "Get the users that reacted to a message with a specific emoji\n",
-								"returns": "The users\n"
 							},
 							"signatures": [
 								{
@@ -13368,7 +13046,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to get the reactions from"
+												"text": "The channel to get the reactions from"
 											},
 											"type": {
 												"type": "reference",
@@ -13385,7 +13063,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message to get the reactions from"
+												"text": "The message to get the reactions from"
 											},
 											"type": {
 												"type": "reference",
@@ -13402,7 +13080,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to get the reactions for"
+												"text": "The emoji to get the reactions for"
 											},
 											"type": {
 												"type": "reference",
@@ -13420,7 +13098,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for getting reactions\n"
+												"text": "The data for getting reactions\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13448,7 +13126,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1119,
+									"line": 1239,
 									"character": 16
 								}
 							]
@@ -13460,11 +13138,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Template",
-								"text": "Get a template\n",
-								"returns": "The template\n"
 							},
 							"signatures": [
 								{
@@ -13490,7 +13163,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The template to get\n"
+												"text": "The template to get\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13515,7 +13188,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1130,
+									"line": 1252,
 									"character": 15
 								}
 							]
@@ -13527,11 +13200,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get User",
-								"text": "Get a user\n",
-								"returns": "The user\n"
 							},
 							"signatures": [
 								{
@@ -13557,7 +13225,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user to get\n"
+												"text": "The user to get\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13582,7 +13250,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1141,
+									"line": 1265,
 									"character": 11
 								}
 							]
@@ -13594,11 +13262,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Get Webhook",
-								"text": "Get a webhook\n",
-								"returns": "The webhook\n"
 							},
 							"signatures": [
 								{
@@ -13624,7 +13287,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The webhook to get\n"
+												"text": "The webhook to get\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13649,7 +13312,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1152,
+									"line": 1278,
 									"character": 14
 								}
 							]
@@ -13661,10 +13324,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Leave Guild",
-								"text": "Leave a guild\n"
 							},
 							"signatures": [
 								{
@@ -13689,7 +13348,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to leave\n"
+												"text": "The guild to leave\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13713,7 +13372,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1161,
+									"line": 1289,
 									"character": 14
 								}
 							]
@@ -13725,11 +13384,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "List Guild Emojis",
-								"text": "Get the emojis in a guild\n",
-								"returns": "The emojis\n"
 							},
 							"signatures": [
 								{
@@ -13755,7 +13409,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the emojis from\n"
+												"text": "The guild to get the emojis from\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13783,7 +13437,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1172,
+									"line": 1302,
 									"character": 19
 								}
 							]
@@ -13795,11 +13449,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "List Guild Members",
-								"text": "Get members from a guild\n",
-								"returns": "The members\n"
 							},
 							"signatures": [
 								{
@@ -13825,7 +13474,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to get the members from"
+												"text": "The guild to get the members from"
 											},
 											"type": {
 												"type": "reference",
@@ -13843,7 +13492,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data for getting the members\n"
+												"text": "The data for getting the members\n"
 											},
 											"type": {
 												"type": "reference",
@@ -13871,7 +13520,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1184,
+									"line": 1316,
 									"character": 20
 								}
 							]
@@ -13883,11 +13532,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "List Voice Regions",
-								"text": "Get the voice regions that can be used when creating servers\n",
-								"returns": "The voice regions\n"
 							},
 							"signatures": [
 								{
@@ -13922,7 +13566,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1193,
+									"line": 1327,
 									"character": 20
 								}
 							]
@@ -14068,11 +13712,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Modify Channel",
-								"text": "Modify a channel\n",
-								"returns": "The modified channel\n"
-							},
 							"signatures": [
 								{
 									"id": 2144,
@@ -14097,7 +13736,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to modify"
+												"text": "The channel to modify"
 											},
 											"type": {
 												"type": "reference",
@@ -14114,7 +13753,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the channel\n"
+												"text": "The data to modify the channel\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14139,7 +13778,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1205,
+									"line": 1341,
 									"character": 17
 								}
 							]
@@ -14151,11 +13790,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Current User",
-								"text": "Modify the current user\n",
-								"returns": "The modified user\n"
 							},
 							"signatures": [
 								{
@@ -14181,7 +13815,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the current user\n"
+												"text": "The data to modify the current user\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14206,7 +13840,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1216,
+									"line": 1354,
 									"character": 21
 								}
 							]
@@ -14218,11 +13852,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Current User Nickname",
-								"text": "Set the client's nickname in a guild\n",
-								"returns": "The modified nickname data\n"
 							},
 							"signatures": [
 								{
@@ -14248,7 +13877,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to set the nickname in"
+												"text": "The guild to set the nickname in"
 											},
 											"type": {
 												"type": "reference",
@@ -14266,7 +13895,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"shortText": "The data to modify the nickname\n"
+												"text": "The data to modify the nickname\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14291,7 +13920,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1228,
+									"line": 1368,
 									"character": 29
 								}
 							]
@@ -14303,11 +13932,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild",
-								"text": "Modify a guild\n",
-								"returns": "The modified guild\n"
 							},
 							"signatures": [
 								{
@@ -14333,7 +13957,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify"
+												"text": "The guild to modify"
 											},
 											"type": {
 												"type": "reference",
@@ -14350,7 +13974,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the guild\n"
+												"text": "The data to modify the guild\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14375,7 +13999,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1240,
+									"line": 1382,
 									"character": 15
 								}
 							]
@@ -14387,10 +14011,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild Channel Positions",
-								"text": "Modify the positions of channels in a guild\n"
 							},
 							"signatures": [
 								{
@@ -14415,7 +14035,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify channel positions in"
+												"text": "The guild to modify channel positions in"
 											},
 											"type": {
 												"type": "reference",
@@ -14432,7 +14052,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the channel positions\n"
+												"text": "The data to modify the channel positions\n"
 											},
 											"type": {
 												"type": "array",
@@ -14459,7 +14079,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1250,
+									"line": 1394,
 									"character": 31
 								}
 							]
@@ -14471,11 +14091,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild Emoji",
-								"text": "Modify an emoji\n",
-								"returns": "The modified emoji\n"
 							},
 							"signatures": [
 								{
@@ -14501,7 +14116,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify the emoji in"
+												"text": "The guild to modify the emoji in"
 											},
 											"type": {
 												"type": "reference",
@@ -14518,7 +14133,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji to modify"
+												"text": "The emoji to modify"
 											},
 											"type": {
 												"type": "reference",
@@ -14535,7 +14150,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the emoji\n"
+												"text": "The data to modify the emoji\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14560,7 +14175,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1263,
+									"line": 1409,
 									"character": 20
 								}
 							]
@@ -14572,11 +14187,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild Member",
-								"text": "Modify a member\n",
-								"returns": "The modified member\n"
 							},
 							"signatures": [
 								{
@@ -14602,7 +14212,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify the member in"
+												"text": "The guild to modify the member in"
 											},
 											"type": {
 												"type": "reference",
@@ -14619,7 +14229,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user resolvable for the member to modify"
+												"text": "The user resolvable for the member to modify"
 											},
 											"type": {
 												"type": "reference",
@@ -14636,7 +14246,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the member\n"
+												"text": "The data to modify the member\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14661,7 +14271,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1276,
+									"line": 1424,
 									"character": 21
 								}
 							]
@@ -14673,11 +14283,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild Role",
-								"text": "Modify a role\n",
-								"returns": "The modified role\n"
 							},
 							"signatures": [
 								{
@@ -14703,7 +14308,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify the role in"
+												"text": "The guild to modify the role in"
 											},
 											"type": {
 												"type": "reference",
@@ -14720,7 +14325,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The role to modify"
+												"text": "The role to modify"
 											},
 											"type": {
 												"type": "reference",
@@ -14737,7 +14342,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the role\n"
+												"text": "The data to modify the role\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14762,7 +14367,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1289,
+									"line": 1439,
 									"character": 19
 								}
 							]
@@ -14774,11 +14379,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild Role Positions",
-								"text": "Modify the positions of roles in a guild\n",
-								"returns": "The guild's roles\n"
 							},
 							"signatures": [
 								{
@@ -14804,7 +14404,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify role positions in"
+												"text": "The guild to modify role positions in"
 											},
 											"type": {
 												"type": "reference",
@@ -14821,7 +14421,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the role positions\n"
+												"text": "The data to modify the role positions\n"
 											},
 											"type": {
 												"type": "array",
@@ -14852,7 +14452,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1301,
+									"line": 1453,
 									"character": 28
 								}
 							]
@@ -14864,11 +14464,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild Template",
-								"text": "Modify a template\n",
-								"returns": "The modified template\n"
 							},
 							"signatures": [
 								{
@@ -14894,7 +14489,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify the template in"
+												"text": "The guild to modify the template in"
 											},
 											"type": {
 												"type": "reference",
@@ -14911,7 +14506,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The template to modify"
+												"text": "The template to modify"
 											},
 											"type": {
 												"type": "reference",
@@ -14928,7 +14523,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the template\n"
+												"text": "The data to modify the template\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14953,7 +14548,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1314,
+									"line": 1468,
 									"character": 23
 								}
 							]
@@ -14965,11 +14560,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Guild Widget",
-								"text": "Modify a guild's widget\n",
-								"returns": "The modified guild widget\n"
 							},
 							"signatures": [
 								{
@@ -14995,7 +14585,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to modify the widget in"
+												"text": "The guild to modify the widget in"
 											},
 											"type": {
 												"type": "reference",
@@ -15012,7 +14602,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the guild's widget\n"
+												"text": "The data to modify the guild's widget\n"
 											},
 											"type": {
 												"type": "reference",
@@ -15037,7 +14627,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1326,
+									"line": 1482,
 									"character": 21
 								}
 							]
@@ -15049,11 +14639,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Modify Webhook",
-								"text": "Modify a webhook\n",
-								"returns": "The modified webhook\n"
 							},
 							"signatures": [
 								{
@@ -15079,7 +14664,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The webhook to modify"
+												"text": "The webhook to modify"
 											},
 											"type": {
 												"type": "reference",
@@ -15096,7 +14681,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The data to modify the webhook\n"
+												"text": "The data to modify the webhook\n"
 											},
 											"type": {
 												"type": "reference",
@@ -15121,7 +14706,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1338,
+									"line": 1496,
 									"character": 17
 								}
 							]
@@ -19608,10 +19193,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Remove Guild Ban",
-								"text": "Unban a user from a guild\n"
-							},
 							"signatures": [
 								{
 									"id": 2195,
@@ -19635,7 +19216,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to unban the user from"
+												"text": "The guild to unban the user from"
 											},
 											"type": {
 												"type": "reference",
@@ -19652,7 +19233,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user to unban\n"
+												"text": "The user to unban\n"
 											},
 											"type": {
 												"type": "reference",
@@ -19676,7 +19257,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1348,
+									"line": 1508,
 									"character": 18
 								}
 							]
@@ -19688,10 +19269,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Remove Guild Member",
-								"text": "Kick a member\n"
 							},
 							"signatures": [
 								{
@@ -19716,7 +19293,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to kick the member from"
+												"text": "The guild to kick the member from"
 											},
 											"type": {
 												"type": "reference",
@@ -19733,7 +19310,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user resolvable for the member to kick\n"
+												"text": "The user resolvable for the member to kick\n"
 											},
 											"type": {
 												"type": "reference",
@@ -19757,7 +19334,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1358,
+									"line": 1520,
 									"character": 21
 								}
 							]
@@ -19769,10 +19346,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Remove Guild Member Role",
-								"text": "Remove a role from a member\n"
 							},
 							"signatures": [
 								{
@@ -19797,7 +19370,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to remove the role in"
+												"text": "The guild to remove the role in"
 											},
 											"type": {
 												"type": "reference",
@@ -19814,7 +19387,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user resolvable for the member to remove the role from"
+												"text": "The user resolvable for the member to remove the role from"
 											},
 											"type": {
 												"type": "reference",
@@ -19831,7 +19404,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The role to remove\n"
+												"text": "The role to remove\n"
 											},
 											"type": {
 												"type": "reference",
@@ -19855,7 +19428,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1369,
+									"line": 1533,
 									"character": 25
 								}
 							]
@@ -20051,11 +19624,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Sync Guild Template",
-								"text": "Sync a template\n",
-								"returns": "The synced template\n"
-							},
 							"signatures": [
 								{
 									"id": 2208,
@@ -20080,7 +19648,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild to sync the template in"
+												"text": "The guild to sync the template in"
 											},
 											"type": {
 												"type": "reference",
@@ -20097,7 +19665,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The template to sync\n"
+												"text": "The template to sync\n"
 											},
 											"type": {
 												"type": "reference",
@@ -20122,7 +19690,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1381,
+									"line": 1547,
 									"character": 21
 								}
 							]
@@ -20134,10 +19702,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Trigger Typing Indicator",
-								"text": "Start typing in a channel\n"
 							},
 							"signatures": [
 								{
@@ -20162,7 +19726,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel to start typing in\n"
+												"text": "The channel to start typing in\n"
 											},
 											"type": {
 												"type": "reference",
@@ -20186,7 +19750,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1390,
+									"line": 1558,
 									"character": 26
 								}
 							]
@@ -51436,11 +51000,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
 									"id": 2340,
@@ -51479,7 +51038,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -51522,11 +51081,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 2344,
@@ -51551,7 +51105,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -51583,7 +51137,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
@@ -52320,10 +51874,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "To JSON",
-								"text": "Convert this embed to a JSON object for sending to the API\n"
-							},
 							"signatures": [
 								{
 									"id": 2425,
@@ -52346,7 +51896,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Embed/Embed.ts",
-									"line": 222,
+									"line": 224,
 									"character": 11
 								}
 							]
@@ -52359,11 +51909,6 @@
 							"flags": {
 								"isStatic": true,
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Embed` from a `RawEmbedData` object\n",
-								"returns": "The embed\n"
 							},
 							"signatures": [
 								{
@@ -52403,7 +51948,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -55626,11 +55171,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Emoji` from a `RawEmojiData` object\n",
-								"returns": "The emoji\n"
-							},
 							"signatures": [
 								{
 									"id": 2510,
@@ -55669,7 +55209,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -55715,11 +55255,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to an emoji ID\n",
-								"returns": "The resolved emoji ID, or `undefined` if the emoji resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 2515,
@@ -55744,7 +55279,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji resolvable\n"
+												"text": "The emoji resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -55771,7 +55306,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 141,
+									"line": 143,
 									"character": 20
 								}
 							]
@@ -56855,10 +56390,6 @@
 							"flags": {
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Process Requests",
-								"text": "Process the queued requests\n"
-							},
 							"signatures": [
 								{
 									"id": 2566,
@@ -56873,21 +56404,15 @@
 										"text": "Process the queued requests\n"
 									},
 									"type": {
-										"type": "reference",
-										"typeArguments": [
-											{
-												"type": "intrinsic",
-												"name": "void"
-											}
-										],
-										"name": "Promise"
+										"type": "intrinsic",
+										"name": "void"
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "src/classes/FetchQueue/FetchQueue.ts",
-									"line": 89,
+									"line": 91,
 									"character": 19
 								}
 							]
@@ -56899,10 +56424,6 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true
-							},
-							"comment": {
-								"shortText": "Request",
-								"text": "Make a request\n"
 							},
 							"signatures": [
 								{
@@ -56927,7 +56448,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The options for the request"
+												"text": "The options for the request"
 											},
 											"type": {
 												"type": "reference",
@@ -58697,11 +58218,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Guild` from a `RawGuildData` object\n",
-								"returns": "The guild\n"
-							},
 							"signatures": [
 								{
 									"id": 2662,
@@ -58740,7 +58256,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -58773,11 +58289,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a guild ID\n",
-								"returns": "The resolved guild ID, or `undefined` if the guild resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 2666,
@@ -58802,7 +58313,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The guild resolvable\n"
+												"text": "The guild resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -58829,7 +58340,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 438,
+									"line": 440,
 									"character": 20
 								}
 							]
@@ -62307,11 +61818,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
 									"id": 224,
@@ -62350,7 +61856,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -62393,11 +61899,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 228,
@@ -62422,7 +61923,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -62454,7 +61955,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
@@ -63283,11 +62784,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create a `GuildWidget` from a `RawGuildWidgetData` object\n",
-								"returns": "The widget\n"
-							},
 							"signatures": [
 								{
 									"id": 2749,
@@ -63326,7 +62822,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -64161,11 +63657,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Invite` from a `RawInviteData` object\n",
-								"returns": "The invite\n"
-							},
 							"signatures": [
 								{
 									"id": 2802,
@@ -64204,7 +63695,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -64237,11 +63728,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve Code",
-								"text": "Resolve an object to an invite code\n",
-								"returns": "The resolved invite code, or `undefined` if the invite resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 2806,
@@ -64266,7 +63752,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The invite resolvable\n"
+												"text": "The invite resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -64293,7 +63779,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 171,
+									"line": 173,
 									"character": 22
 								}
 							]
@@ -66187,11 +65673,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Member` from a `RawMemberData` object\n",
-								"returns": "The member\n"
-							},
 							"signatures": [
 								{
 									"id": 2876,
@@ -66230,7 +65711,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -68033,11 +67514,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Message` from a `RawMessageData` object\n",
-								"returns": "The message\n"
-							},
 							"signatures": [
 								{
 									"id": 2988,
@@ -68076,7 +67552,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -68109,11 +67585,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a message ID\n",
-								"returns": "The resolved message ID, or `undefined` if the message resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 2992,
@@ -68138,7 +67609,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The message resolvable\n"
+												"text": "The message resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -68165,7 +67636,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 353,
+									"line": 355,
 									"character": 20
 								}
 							]
@@ -71566,8 +71037,8 @@
 									},
 									"overwrites": {
 										"type": "reference",
-										"id": 217,
-										"name": "GuildChannel.__constructor"
+										"id": 2310,
+										"name": "TextBasedChannel.__constructor"
 									}
 								}
 							],
@@ -71580,12 +71051,12 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"id": 217,
-								"name": "GuildChannel.__constructor"
+								"id": 2310,
+								"name": "TextBasedChannel.__constructor"
 							}
 						},
 						{
-							"id": 3128,
+							"id": 3125,
 							"name": "client",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71608,6 +71079,11 @@
 								"id": 1622,
 								"name": "Client"
 							},
+							"overwrites": {
+								"type": "reference",
+								"id": 176,
+								"name": "Channel.client"
+							},
 							"inheritedFrom": {
 								"type": "reference",
 								"id": 176,
@@ -71615,7 +71091,7 @@
 							}
 						},
 						{
-							"id": 3124,
+							"id": 3138,
 							"name": "guildID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71644,7 +71120,7 @@
 							}
 						},
 						{
-							"id": 3129,
+							"id": 3126,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71666,6 +71142,11 @@
 								"type": "intrinsic",
 								"name": "string"
 							},
+							"overwrites": {
+								"type": "reference",
+								"id": 177,
+								"name": "Channel.id"
+							},
 							"inheritedFrom": {
 								"type": "reference",
 								"id": 177,
@@ -71673,7 +71154,7 @@
 							}
 						},
 						{
-							"id": 3137,
+							"id": 3123,
 							"name": "lastMessageID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71712,7 +71193,7 @@
 							}
 						},
 						{
-							"id": 3138,
+							"id": 3124,
 							"name": "lastPinTimestamp",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71751,7 +71232,7 @@
 							}
 						},
 						{
-							"id": 3123,
+							"id": 3137,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71780,7 +71261,7 @@
 							}
 						},
 						{
-							"id": 3140,
+							"id": 3135,
 							"name": "nsfw",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71804,12 +71285,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 3103,
+								"id": 3098,
 								"name": "TextChannel.nsfw"
 							}
 						},
 						{
-							"id": 3127,
+							"id": 3141,
 							"name": "parentID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71848,7 +71329,7 @@
 							}
 						},
 						{
-							"id": 3126,
+							"id": 3140,
 							"name": "permissionOverwrites",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71881,7 +71362,7 @@
 							}
 						},
 						{
-							"id": 3125,
+							"id": 3139,
 							"name": "position",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71910,7 +71391,7 @@
 							}
 						},
 						{
-							"id": 3141,
+							"id": 3136,
 							"name": "rateLimitPerUser",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71944,12 +71425,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 3104,
+								"id": 3099,
 								"name": "TextChannel.rateLimitPerUser"
 							}
 						},
 						{
-							"id": 3139,
+							"id": 3134,
 							"name": "topic",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71983,12 +71464,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 3102,
+								"id": 3097,
 								"name": "TextChannel.topic"
 							}
 						},
 						{
-							"id": 3130,
+							"id": 3127,
 							"name": "_fromRawData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -71996,14 +71477,9 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
-									"id": 3131,
+									"id": 3128,
 									"name": "_fromRawData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -72017,7 +71493,7 @@
 									},
 									"parameters": [
 										{
-											"id": 3132,
+											"id": 3129,
 											"name": "client",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -72031,7 +71507,7 @@
 											}
 										},
 										{
-											"id": 3133,
+											"id": 3130,
 											"name": "rawData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -72039,7 +71515,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -72052,6 +71528,11 @@
 										"type": "reference",
 										"id": 175,
 										"name": "Channel"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 182,
+										"name": "Channel._fromRawData"
 									},
 									"inheritedFrom": {
 										"type": "reference",
@@ -72067,6 +71548,11 @@
 									"character": 23
 								}
 							],
+							"overwrites": {
+								"type": "reference",
+								"id": 182,
+								"name": "Channel._fromRawData"
+							},
 							"inheritedFrom": {
 								"type": "reference",
 								"id": 182,
@@ -72074,7 +71560,7 @@
 							}
 						},
 						{
-							"id": 3134,
+							"id": 3131,
 							"name": "resolveID",
 							"kind": 2048,
 							"kindString": "Method",
@@ -72082,14 +71568,9 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
-									"id": 3135,
+									"id": 3132,
 									"name": "resolveID",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -72103,7 +71584,7 @@
 									},
 									"parameters": [
 										{
-											"id": 3136,
+											"id": 3133,
 											"name": "channelResolvable",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -72111,7 +71592,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -72133,6 +71614,11 @@
 											}
 										]
 									},
+									"overwrites": {
+										"type": "reference",
+										"id": 186,
+										"name": "Channel.resolveID"
+									},
 									"inheritedFrom": {
 										"type": "reference",
 										"id": 186,
@@ -72143,10 +71629,15 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
+							"overwrites": {
+								"type": "reference",
+								"id": 186,
+								"name": "Channel.resolveID"
+							},
 							"inheritedFrom": {
 								"type": "reference",
 								"id": 186,
@@ -72166,26 +71657,26 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								3128,
-								3124,
-								3129,
-								3137,
-								3138,
-								3123,
-								3140,
-								3127,
-								3126,
 								3125,
+								3138,
+								3126,
+								3123,
+								3124,
+								3137,
+								3135,
 								3141,
-								3139
+								3140,
+								3139,
+								3136,
+								3134
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								3130,
-								3134
+								3127,
+								3131
 							]
 						}
 					],
@@ -72846,11 +72337,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Presence` from a `RawPresenceData` object\n",
-								"returns": "The presence\n"
-							},
 							"signatures": [
 								{
 									"id": 3210,
@@ -72889,7 +72375,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -76250,11 +75736,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Reaction` from a `RawReactionData` object\n",
-								"returns": "The reaction\n"
-							},
 							"signatures": [
 								{
 									"id": 3293,
@@ -76293,7 +75774,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -76326,11 +75807,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve String",
-								"text": "Resolve an object to a reaction emoji string (`name:id` or unicode character)\n",
-								"returns": "The resolved reaction emoji string, or `undefined` if the reaction emoji resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 3297,
@@ -76355,7 +75831,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The emoji resolvable\n"
+												"text": "The emoji resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -76382,7 +75858,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 87,
+									"line": 89,
 									"character": 24
 								}
 							]
@@ -77486,11 +76962,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create a `Role` from a `RawRoleData` object\n",
-								"returns": "The role\n"
-							},
 							"signatures": [
 								{
 									"id": 3352,
@@ -77529,7 +77000,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -77575,11 +77046,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a role ID\n",
-								"returns": "The resolved role ID, or `undefined` if the role resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 3357,
@@ -77604,7 +77070,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The role resolvable\n"
+												"text": "The role resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -77631,7 +77097,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Role/Role.ts",
-									"line": 163,
+									"line": 165,
 									"character": 20
 								}
 							]
@@ -79048,11 +78514,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Sticker` from a `RawStickerData` object\n",
-								"returns": "The sticker\n"
-							},
 							"signatures": [
 								{
 									"id": 3406,
@@ -79091,7 +78552,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -80165,11 +79626,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
 									"id": 3444,
@@ -80208,7 +79664,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -80251,11 +79707,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 3448,
@@ -80280,7 +79731,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -80312,7 +79763,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
@@ -80975,11 +80426,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create a `Template` from a `RawTemplateData` object\n",
-								"returns": "The template\n"
-							},
 							"signatures": [
 								{
 									"id": 3526,
@@ -81018,7 +80464,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -81051,11 +80497,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve Code",
-								"text": "Resolve an object to a template code\n",
-								"returns": "The resolved template code, or `undefined` if the template resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 3530,
@@ -81080,7 +80521,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The template resolvable\n"
+												"text": "The template resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -81107,7 +80548,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Template/Template.ts",
-									"line": 197,
+									"line": 199,
 									"character": 22
 								}
 							]
@@ -84111,11 +83552,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
 									"id": 2317,
@@ -84154,7 +83590,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -84197,11 +83633,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 2321,
@@ -84226,7 +83657,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -84258,7 +83689,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
@@ -84501,7 +83932,7 @@
 					},
 					"children": [
 						{
-							"id": 3087,
+							"id": 3084,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -84509,21 +83940,21 @@
 								"isExported": true
 							},
 							"comment": {
-								"shortText": "Guild Channel\nText Channel\nText Channel"
+								"shortText": "Text Based Channel\nText Channel\nText Channel"
 							},
 							"signatures": [
 								{
-									"id": 3088,
+									"id": 3085,
 									"name": "new TextChannel",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Guild Channel"
+										"shortText": "Text Based Channel"
 									},
 									"parameters": [
 										{
-											"id": 3089,
+											"id": 3086,
 											"name": "client",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -84538,18 +83969,18 @@
 											}
 										},
 										{
-											"id": 3090,
-											"name": "guildChannelData",
+											"id": 3087,
+											"name": "textBasedChannelData",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"shortText": "Options to initialize this guild channel with"
+												"shortText": "Options to initialize this text based channel with"
 											},
 											"type": {
 												"type": "reference",
-												"id": 199,
-												"name": "GuildChannelData"
+												"id": 2303,
+												"name": "TextBasedChannelData"
 											}
 										}
 									],
@@ -84565,16 +83996,16 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"id": 217,
-										"name": "GuildChannel.__constructor"
+										"id": 2310,
+										"name": "TextBasedChannel.__constructor"
 									}
 								}
 							],
 							"sources": [
 								{
-									"fileName": "src/classes/GuildChannel/GuildChannel.ts",
-									"line": 62,
-									"character": 22
+									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
+									"line": 22,
+									"character": 30
 								},
 								{
 									"fileName": "src/classes/TextChannel/TextChannel.ts",
@@ -84589,12 +84020,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 217,
-								"name": "GuildChannel.__constructor"
+								"id": 2310,
+								"name": "TextBasedChannel.__constructor"
 							}
 						},
 						{
-							"id": 3091,
+							"id": 3088,
 							"name": "client",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84629,7 +84060,7 @@
 							}
 						},
 						{
-							"id": 3083,
+							"id": 3101,
 							"name": "guildID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84658,7 +84089,7 @@
 							}
 						},
 						{
-							"id": 3092,
+							"id": 3089,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84692,7 +84123,7 @@
 							}
 						},
 						{
-							"id": 3100,
+							"id": 3082,
 							"name": "lastMessageID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84731,7 +84162,7 @@
 							}
 						},
 						{
-							"id": 3101,
+							"id": 3083,
 							"name": "lastPinTimestamp",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84770,7 +84201,7 @@
 							}
 						},
 						{
-							"id": 3082,
+							"id": 3100,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84799,7 +84230,7 @@
 							}
 						},
 						{
-							"id": 3103,
+							"id": 3098,
 							"name": "nsfw",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84823,7 +84254,7 @@
 							}
 						},
 						{
-							"id": 3086,
+							"id": 3104,
 							"name": "parentID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84862,7 +84293,7 @@
 							}
 						},
 						{
-							"id": 3085,
+							"id": 3103,
 							"name": "permissionOverwrites",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84895,7 +84326,7 @@
 							}
 						},
 						{
-							"id": 3084,
+							"id": 3102,
 							"name": "position",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84924,7 +84355,7 @@
 							}
 						},
 						{
-							"id": 3104,
+							"id": 3099,
 							"name": "rateLimitPerUser",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84958,7 +84389,7 @@
 							}
 						},
 						{
-							"id": 3102,
+							"id": 3097,
 							"name": "topic",
 							"kind": 1024,
 							"kindString": "Property",
@@ -84992,7 +84423,7 @@
 							}
 						},
 						{
-							"id": 3093,
+							"id": 3090,
 							"name": "_fromRawData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -85000,14 +84431,9 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
-									"id": 3094,
+									"id": 3091,
 									"name": "_fromRawData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -85019,7 +84445,7 @@
 									},
 									"parameters": [
 										{
-											"id": 3095,
+											"id": 3092,
 											"name": "client",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -85031,13 +84457,13 @@
 											}
 										},
 										{
-											"id": 3096,
+											"id": 3093,
 											"name": "rawData",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -85082,7 +84508,7 @@
 							}
 						},
 						{
-							"id": 3097,
+							"id": 3094,
 							"name": "resolveID",
 							"kind": 2048,
 							"kindString": "Method",
@@ -85090,14 +84516,9 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
-									"id": 3098,
+									"id": 3095,
 									"name": "resolveID",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -85109,13 +84530,13 @@
 									},
 									"parameters": [
 										{
-											"id": 3099,
+											"id": 3096,
 											"name": "channelResolvable",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -85152,7 +84573,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
@@ -85173,33 +84594,33 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								3087
+								3084
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								3091,
-								3083,
-								3092,
-								3100,
+								3088,
 								3101,
+								3089,
 								3082,
-								3103,
-								3086,
-								3085,
-								3084,
+								3083,
+								3100,
+								3098,
 								3104,
-								3102
+								3103,
+								3102,
+								3099,
+								3097
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								3093,
-								3097
+								3090,
+								3094
 							]
 						}
 					],
@@ -85218,13 +84639,13 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"id": 211,
-							"name": "GuildChannel"
+							"id": 2307,
+							"name": "TextBasedChannel"
 						},
 						{
 							"type": "reference",
-							"id": 2307,
-							"name": "TextBasedChannel"
+							"id": 211,
+							"name": "GuildChannel"
 						}
 					],
 					"extendedBy": [
@@ -85954,11 +85375,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `User` from a `RawUserData` object\n",
-								"returns": "The user\n"
-							},
 							"signatures": [
 								{
 									"id": 3617,
@@ -85997,7 +85413,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -86030,11 +85446,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a user ID\n",
-								"returns": "The resolved user ID, or `undefined` if the user resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 3621,
@@ -86059,7 +85470,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The user resolvable\n"
+												"text": "The user resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -86086,7 +85497,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/User/User.ts",
-									"line": 134,
+									"line": 136,
 									"character": 20
 								}
 							]
@@ -87623,11 +87034,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create a `VanityInvite` from a `RawVanityInviteData` object\n",
-								"returns": "The vanity invite\n"
-							},
 							"signatures": [
 								{
 									"id": 3672,
@@ -87666,7 +87072,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -88468,11 +87874,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `Channel` from a `RawChannelData` object\n",
-								"returns": "The channel\n"
-							},
 							"signatures": [
 								{
 									"id": 3705,
@@ -88511,7 +87912,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -88554,11 +87955,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a channel ID\n",
-								"returns": "The resolved channel ID, or `undefined` if the channel resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 3709,
@@ -88583,7 +87979,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The channel resolvable\n"
+												"text": "The channel resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -88615,7 +88011,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 71,
+									"line": 73,
 									"character": 20
 								}
 							],
@@ -89379,11 +88775,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create an `VoiceState` from a `RawVoiceStateData` object\n",
-								"returns": "The voice state\n"
-							},
 							"signatures": [
 								{
 									"id": 3749,
@@ -89422,7 +88813,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -90678,11 +90069,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create a `Webhook` from a `RawWebhookData` object\n",
-								"returns": "The webhook\n"
-							},
 							"signatures": [
 								{
 									"id": 3802,
@@ -90721,7 +90107,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
@@ -90754,11 +90140,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "Resolve ID",
-								"text": "Resolve an object to a webhook ID\n",
-								"returns": "The resolved webhook ID, or `undefined` if the webhook resolvable is invalid\n"
-							},
 							"signatures": [
 								{
 									"id": 3806,
@@ -90783,7 +90164,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The webhook resolvable\n"
+												"text": "The webhook resolvable\n"
 											},
 											"type": {
 												"type": "reference",
@@ -90810,7 +90191,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Webhook/Webhook.ts",
-									"line": 145,
+									"line": 147,
 									"character": 20
 								}
 							]
@@ -91916,11 +91297,6 @@
 								"isStatic": true,
 								"isExported": true
 							},
-							"comment": {
-								"shortText": "From Raw Data",
-								"text": "Create a `WelcomeScreen` from a `RawWelcomeScreenData` object\n",
-								"returns": "The welcome screen\n"
-							},
 							"signatures": [
 								{
 									"id": 3849,
@@ -91959,7 +91335,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"shortText": "The raw data from the API\n"
+												"text": "The raw data from the API\n"
 											},
 											"type": {
 												"type": "reference",
