@@ -13,7 +13,10 @@ export default function guildCreate(client: Client, rawData: RawGuildCreateData)
         memberCount: rawData.member_count,
         voiceStates: rawData.voice_states.map((vs: RawVoiceStateData) => VoiceState._fromRawData(client, vs)),
         members: rawData.members.map((m: RawMemberData) => Member._fromRawData(client, m, rawData.id)),
-        channels: rawData.channels.map((c: RawChannelData) => Channel._fromRawData(client, c)),
+
+        // Note that channel objects dont have a guild ID in the `guildCreate` event
+        channels: rawData.channels.map((c: RawChannelData) => Channel._fromRawData(client, { ...c, guild_id: rawData.id })),
+
         presences: rawData.presences.map((p: RawPresenceData) => Presence._fromRawData(client, p))
     };
 
