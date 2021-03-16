@@ -1,4 +1,5 @@
 import { Client, RawRoleData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -143,14 +144,27 @@ export default class Role {
     /**
      * From Raw Data
      *
-     * Create a `Role` from a `RawRoleData` object
+     * Create a `RoleData` object from a `RawRoleData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {RoleData} The role data
+     */
+    static _fromRawData(rawData: RawRoleData, guildID: string): RoleData {
+        return fromRawData(rawData, guildID);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Role` from a `RoleData` object
+     *
+     * @param roleData The role data
+     *
      * @returns {Role} The role
      */
-    static _fromRawData(client: Client, rawData: RawRoleData, guildID: string): Role {
-        return fromRawData(client, rawData, guildID);
+    static fromData(client: Client, roleData: RoleData): Role {
+        return fromData(client, roleData);
     }
 
     /**

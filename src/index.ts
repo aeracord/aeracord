@@ -78,6 +78,7 @@ export {
 // Channel
 export {
     AnyChannel,
+    AnyChannelData,
     Channel,
     ChannelResolvable,
     ChannelType,
@@ -228,6 +229,7 @@ export {
 // Guild Channel
 export {
     AnyGuildChannel,
+    AnyGuildChannelData,
     GuildChannel,
     GuildChannelType,
     PermissionOverwrite,

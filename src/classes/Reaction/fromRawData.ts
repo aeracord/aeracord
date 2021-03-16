@@ -1,9 +1,9 @@
-import { Client, RawReactionData, Reaction } from "../../internal";
+import { RawReactionData, ReactionData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawReactionData): Reaction {
+export default function fromRawData(rawData: RawReactionData): ReactionData {
 
-    // Parse reaction
-    const reaction: Reaction = new Reaction(client, {
+    // Parse reaction data
+    return {
         count: rawData.count,
         me: rawData.me,
         emoji: {
@@ -11,8 +11,5 @@ export default function fromRawData(client: Client, rawData: RawReactionData): R
             name: rawData.emoji.name || undefined,
             animated: Boolean(rawData.emoji.animated)
         }
-    });
-
-    // Return
-    return reaction;
+    };
 }

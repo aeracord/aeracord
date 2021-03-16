@@ -1,4 +1,4 @@
-import { Attachment, ChannelMention, Embed, Member, Message, MessageActivity, MessageApplication, MessageReference, MessageType, MessageWebhook, Reaction, Sticker, User } from "../../../../internal";
+import { AttachmentData, ChannelMention, EmbedData, MemberData, MessageActivity, MessageApplication, MessageData, MessageReference, MessageType, MessageWebhook, ReactionData, StickerData, UserData } from "../../../../internal";
 
 export interface MessageUpdateData {
 
@@ -35,7 +35,7 @@ export interface MessageUpdateData {
      *
      * The user that sent this message
      */
-    author?: User;
+    author?: UserData;
 
     /**
      * Webhook
@@ -49,7 +49,7 @@ export interface MessageUpdateData {
      *
      * The member object of the user that sent this message
      */
-    member?: Member;
+    member?: MemberData;
 
     /**
      * Content
@@ -91,7 +91,7 @@ export interface MessageUpdateData {
      *
      * The members this message mentions
      */
-    mentions?: Member[];
+    mentions?: MemberData[];
 
     /**
      * Mentioned Roles
@@ -112,28 +112,28 @@ export interface MessageUpdateData {
      *
      * The message's attachments
      */
-    attachments?: Attachment[];
+    attachments?: AttachmentData[];
 
     /**
      * Embeds
      *
      * The message's embeds
      */
-    embeds?: Embed[];
+    embeds?: EmbedData[];
 
     /**
      * Stickers
      *
      * The message's stickers
      */
-    stickers?: Sticker[];
+    stickers?: StickerData[];
 
     /**
      * Reactions
      *
      * The message's reactions
      */
-    reactions?: Reaction[];
+    reactions?: ReactionData[];
 
     /**
      * Pinned
@@ -175,5 +175,5 @@ export interface MessageUpdateData {
      *
      * The message this message references
      */
-    referencedMessage?: Message;
+    referencedMessage?: MessageData;
 }

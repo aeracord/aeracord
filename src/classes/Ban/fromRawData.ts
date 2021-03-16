@@ -1,14 +1,11 @@
-import { Ban, Client, RawBanData, User } from "../../internal";
+import { BanData, RawBanData, User } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawBanData, guildID: string): Ban {
+export default function fromRawData(rawData: RawBanData, guildID: string): BanData {
 
-    // Parse ban
-    const ban: Ban = new Ban(client, {
+    // Parse ban data
+    return {
         guildID,
-        user: User._fromRawData(client, rawData.user),
+        user: User._fromRawData(rawData.user),
         reason: rawData.reason || undefined
-    });
-
-    // Return
-    return ban;
+    };
 }

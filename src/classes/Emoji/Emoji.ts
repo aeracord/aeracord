@@ -1,4 +1,5 @@
-import { Client, RawEmojiData, User } from "../../internal";
+import { Client, RawEmojiData, UserData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -9,7 +10,7 @@ export interface EmojiData {
     animated?: boolean;
     managed?: boolean;
     available?: boolean;
-    creator?: User;
+    creator?: UserData;
     requiresColons?: boolean;
     roles: string[];
 }
@@ -72,7 +73,7 @@ export default class Emoji {
      *
      * The user that created this emoji
      */
-    creator?: User;
+    creator?: UserData;
 
     /**
      * Requires Colons
@@ -121,14 +122,27 @@ export default class Emoji {
     /**
      * From Raw Data
      *
-     * Create an `Emoji` from a `RawEmojiData` object
+     * Create an `EmojiData` object from a `RawEmojiData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {EmojiData} The emoji data
+     */
+    static _fromRawData(rawData: RawEmojiData, guildID: string): EmojiData {
+        return fromRawData(rawData, guildID);
+    }
+
+    /**
+     * From Data
+     *
+     * Create an `Emoji` from an `EmojiData` object
+     *
+     * @param emojiData The emoji data
+     *
      * @returns {Emoji} The emoji
      */
-    static _fromRawData(client: Client, rawData: RawEmojiData, guildID: string): Emoji {
-        return fromRawData(client, rawData, guildID);
+    static fromData(client: Client, emojiData: EmojiData): Emoji {
+        return fromData(client, emojiData);
     }
 
     /**

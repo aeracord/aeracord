@@ -1,10 +1,10 @@
-import { Client, Presence, RawPresenceData } from "../../../../internal";
+import { Client, Presence, PresenceData, RawPresenceData } from "../../../../internal";
 
 export default function presenceUpdate(client: Client, rawData: RawPresenceData) {
 
-    // Parse data
-    const presence: Presence = Presence._fromRawData(client, rawData);
+    // Parse presence data
+    const presenceData: PresenceData = Presence._fromRawData(rawData);
 
     // Emit event
-    client.emit("presenceUpdate", presence, rawData);
+    client.emit("presenceUpdate", presenceData, rawData);
 }

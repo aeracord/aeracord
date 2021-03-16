@@ -1,13 +1,13 @@
-import { Client, Member, RawVoiceStateData, VoiceState } from "../../internal";
+import { Member, RawVoiceStateData, VoiceStateData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawVoiceStateData): VoiceState {
+export default function fromRawData(rawData: RawVoiceStateData): VoiceStateData {
 
-    // Parse voice state
-    const voiceState: VoiceState = new VoiceState(client, {
+    // Parse voice state data
+    return {
         guildID: rawData.guild_id,
         channelID: rawData.channel_id,
         userID: rawData.user_id,
-        member: Member._fromRawData(client, rawData.member, rawData.guild_id),
+        member: Member._fromRawData(rawData.member, rawData.guild_id),
         sessionID: rawData.session_id,
         muted: rawData.mute,
         deafened: rawData.deaf,
@@ -16,8 +16,5 @@ export default function fromRawData(client: Client, rawData: RawVoiceStateData):
         selfStream: rawData.self_stream,
         selfVideo: rawData.self_video,
         suppress: rawData.suppress
-    });
-
-    // Return
-    return voiceState;
+    };
 }

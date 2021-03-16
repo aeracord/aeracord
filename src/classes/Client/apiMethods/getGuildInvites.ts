@@ -1,7 +1,7 @@
-import { Client, FetchQueue, Guild, GuildResolvable, Invite, RawInviteData } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, Invite, InviteData, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGuildInvites(client: Client, guildResolvable: GuildResolvable): Promise<Invite[]> {
+export default async function getGuildInvites(client: Client, guildResolvable: GuildResolvable): Promise<InviteData[]> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -22,7 +22,7 @@ export default async function getGuildInvites(client: Client, guildResolvable: G
     });
 
     // Parse invites
-    const invites: Invite[] = result.map((i: RawInviteData) => Invite._fromRawData(client, i));
+    const invites: InviteData[] = result.map((i: RawInviteData) => Invite._fromRawData(i));
 
     // Return
     return invites;

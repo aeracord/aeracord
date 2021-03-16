@@ -10,7 +10,7 @@ export default function typingStart(client: Client, rawData: RawTypingStartData)
         channelID: rawData.channel_id,
         userID: rawData.user_id,
         timestamp: rawData.timestamp,
-        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(client, rawData.member, rawData.guild_id) : undefined
+        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(rawData.member, rawData.guild_id) : undefined
     };
 
     // Emit event

@@ -1,12 +1,12 @@
 import queryString from "query-string";
-import { Client, FetchQueue, Guild, GuildResolvable, RawGuildData } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildData, GuildResolvable, RawGuildData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface GetGuildData {
     withCounts?: boolean;
 }
 
-export default async function getGuild(client: Client, guildResolvable: GuildResolvable, getGuildData: GetGuildData = {}): Promise<Guild> {
+export default async function getGuild(client: Client, guildResolvable: GuildResolvable, getGuildData: GetGuildData = {}): Promise<GuildData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -28,9 +28,9 @@ export default async function getGuild(client: Client, guildResolvable: GuildRes
         method
     });
 
-    // Parse guild
-    const guild: Guild = Guild._fromRawData(client, result);
+    // Parse guild data
+    const guildData: GuildData = Guild._fromRawData(result);
 
     // Return
-    return guild;
+    return guildData;
 }

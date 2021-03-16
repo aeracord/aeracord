@@ -1,9 +1,9 @@
-import { AuditLog, AuditLogChangeType, Client, RawAuditLogData, RawAuditLogDataEntry, RawAuditLogDataEntryChange, RawAuditLogDataEntryChangeKey } from "../../internal";
+import { AuditLogChangeType, AuditLogData, RawAuditLogData, RawAuditLogDataEntry, RawAuditLogDataEntryChange, RawAuditLogDataEntryChangeKey } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawAuditLogData, guildID: string): AuditLog {
+export default function fromRawData(rawData: RawAuditLogData, guildID: string): AuditLogData {
 
-    // Parse audit log
-    const auditLog: AuditLog = new AuditLog(client, {
+    // Parse audit log data
+    return {
         guildID,
         entries: rawData.audit_log_entries.map((e: RawAuditLogDataEntry) => ({
             id: e.id,
@@ -27,10 +27,7 @@ export default function fromRawData(client: Client, rawData: RawAuditLogData, gu
             },
             reason: e.reason
         }))
-    });
-
-    // Return
-    return auditLog;
+    };
 }
 
 const parseEntryChangeType = (rawType: RawAuditLogDataEntryChangeKey): AuditLogChangeType => {
@@ -91,4 +88,4 @@ const parseEntryChangeType = (rawType: RawAuditLogDataEntryChangeKey): AuditLogC
     else if (rawType === "expire_grace_period") return "expireGracePeriod";
     else if (rawType === "user_limit") return "userLimit";
     else return rawType;
-}
+};

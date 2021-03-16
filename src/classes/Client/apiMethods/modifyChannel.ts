@@ -1,4 +1,4 @@
-import { AnyGuildChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite, RawChannelData } from "../../../internal";
+import { AnyGuildChannelData, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyChannelData {
@@ -16,7 +16,7 @@ export interface ModifyChannelData {
 
 export type ModifyChannelDataType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_NEWS;
 
-export default async function modifyChannel(client: Client, channelResolvable: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannel> {
+export default async function modifyChannel(client: Client, channelResolvable: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannelData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -50,9 +50,9 @@ export default async function modifyChannel(client: Client, channelResolvable: C
         }
     });
 
-    // Parse channel
-    const channel: AnyGuildChannel = Channel._fromRawData(client, result) as AnyGuildChannel;
+    // Parse guild channel data
+    const guildChannelData: AnyGuildChannelData = Channel._fromRawData(result) as AnyGuildChannelData;
 
     // Return
-    return channel;
+    return guildChannelData;
 }

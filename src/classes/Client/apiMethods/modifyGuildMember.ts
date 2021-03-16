@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, Member, RawMemberData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, Member, MemberData, RawMemberData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildMemberData {
@@ -9,7 +9,7 @@ export interface ModifyGuildMemberData {
     voiceChannelID?: ChannelResolvable | null;
 }
 
-export default async function modifyGuildMember(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<Member> {
+export default async function modifyGuildMember(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<MemberData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -42,9 +42,9 @@ export default async function modifyGuildMember(client: Client, guildResolvable:
         }
     });
 
-    // Parse member
-    const member: Member = Member._fromRawData(client, result, guildID);
+    // Parse member data
+    const memberData: MemberData = Member._fromRawData(result, guildID);
 
     // Return
-    return member;
+    return memberData;
 }

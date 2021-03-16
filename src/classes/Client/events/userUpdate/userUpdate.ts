@@ -1,10 +1,10 @@
-import { Client, RawUserData, User } from "../../../../internal";
+import { Client, RawUserData, User, UserData } from "../../../../internal";
 
 export default function userUpdate(client: Client, rawData: RawUserData) {
 
-    // Parse user
-    const user: User = User._fromRawData(client, rawData);
+    // Parse user data
+    const userData: UserData = User._fromRawData(rawData);
 
     // Emit event
-    client.emit("userUpdate", user, rawData);
+    client.emit("userUpdate", userData, rawData);
 }

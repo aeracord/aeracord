@@ -1,4 +1,5 @@
 import { Client, RawGuildWidgetData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface GuildWidgetData {
@@ -58,13 +59,26 @@ export default class GuildWidget {
     /**
      * From Raw Data
      *
-     * Create a `GuildWidget` from a `RawGuildWidgetData` object
+     * Create a `GuildWidgetData` object from a `RawGuildWidgetData` object
      *
      * @param rawData The raw data from the API
      *
-     * @returns {GuildWidget} The widget
+     * @returns {GuildWidgetData} The guild widget data
      */
-    static _fromRawData(client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidget {
-        return fromRawData(client, rawData, guildID);
+    static _fromRawData(rawData: RawGuildWidgetData, guildID: string): GuildWidgetData {
+        return fromRawData(rawData, guildID);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `GuildWidget` from a `GuildWidgetData` object
+     *
+     * @param guildWidgetData The guild widget data
+     *
+     * @returns {GuildWidget} The guild widget
+     */
+    static fromData(client: Client, guildWidgetData: GuildWidgetData): GuildWidget {
+        return fromData(client, guildWidgetData);
     }
 }

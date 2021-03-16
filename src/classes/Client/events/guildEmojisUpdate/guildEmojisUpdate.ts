@@ -7,7 +7,7 @@ export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmoji
     // Parse data
     const data: GuildEmojisUpdateData = {
         guildID: rawData.guild_id,
-        emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e, rawData.guild_id))
+        emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(e, rawData.guild_id))
     };
 
     // Emit event

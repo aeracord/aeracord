@@ -1,4 +1,5 @@
 import { Base, Client, Member, RawUserData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
@@ -100,14 +101,27 @@ export default class User extends Base<User> {
     /**
      * From Raw Data
      *
-     * Create an `User` from a `RawUserData` object
+     * Create a `UserData` object from a `RawUserData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {UserData} The user data
+     */
+    static _fromRawData(rawData: RawUserData): UserData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `User` from a `UserData` object
+     *
+     * @param userData The user data
+     *
      * @returns {User} The user
      */
-    static _fromRawData(client: Client, rawData: RawUserData): User {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, userData: UserData): User {
+        return fromData(client, userData);
     }
 
     /**

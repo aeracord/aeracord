@@ -1,7 +1,7 @@
-import { Client, FetchQueue, Invite, InviteResolvable, RawInviteData } from "../../../internal";
+import { Client, FetchQueue, Invite, InviteData, InviteResolvable, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function deleteInvite(client: Client, inviteResolvable: InviteResolvable): Promise<Invite> {
+export default async function deleteInvite(client: Client, inviteResolvable: InviteResolvable): Promise<InviteData> {
 
     // Resolve objects
     const inviteCode: string | undefined = Invite.resolveCode(inviteResolvable);
@@ -21,9 +21,9 @@ export default async function deleteInvite(client: Client, inviteResolvable: Inv
         method
     });
 
-    // Parse invite
-    const invite: Invite = Invite._fromRawData(client, result);
+    // Parse invite data
+    const inviteData: InviteData = Invite._fromRawData(result);
 
     // Return
-    return invite;
+    return inviteData;
 }

@@ -1,14 +1,11 @@
-import { Client, RawVanityInviteData, VanityInvite } from "../../internal";
+import { RawVanityInviteData, VanityInviteData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInvite {
+export default function fromRawData(rawData: RawVanityInviteData, guildID: string): VanityInviteData {
 
-    // Parse vanity invite
-    const vanityInvite: VanityInvite = new VanityInvite(client, {
+    // Parse vanity invite data
+    return {
         guildID,
         code: rawData.code || undefined,
         uses: rawData.uses
-    });
-
-    // Return
-    return vanityInvite;
+    };
 }

@@ -1,9 +1,9 @@
-import { Attachment, Client, RawAttachmentData } from "../../internal";
+import { AttachmentData, RawAttachmentData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawAttachmentData): Attachment {
+export default function fromRawData(rawData: RawAttachmentData): AttachmentData {
 
-    // Parse attachment
-    const attachment: Attachment = new Attachment(client, {
+    // Parse attachment data
+    return {
         id: rawData.id,
         filename: rawData.filename,
         size: rawData.size,
@@ -11,8 +11,5 @@ export default function fromRawData(client: Client, rawData: RawAttachmentData):
         proxyURL: rawData.proxy_url,
         width: rawData.width || undefined,
         height: rawData.height || undefined
-    });
-
-    // Return
-    return attachment;
+    };
 }

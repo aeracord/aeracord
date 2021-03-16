@@ -12,7 +12,7 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
         joinedAt: new Date(rawData.joined_at).getTime(),
         premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : undefined,
         pending: rawData.pending || false,
-        user: User._fromRawData(client, rawData.user)
+        user: User._fromRawData(rawData.user)
     };
 
     // Emit event

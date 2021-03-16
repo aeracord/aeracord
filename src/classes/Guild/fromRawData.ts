@@ -1,12 +1,9 @@
-import { Client, Emoji, Guild, GuildData, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
+import { Emoji, GuildData, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawGuildData): Guild {
-
-    // Get guild from cache
-    let guild: Guild | undefined = client.guilds.get(rawData.id);
+export default function fromRawData(rawData: RawGuildData): GuildData {
 
     // Parse guild data
-    const guildData: GuildData = {
+    return {
         id: rawData.id,
         name: rawData.name,
         icon: rawData.icon || undefined,
@@ -21,8 +18,8 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         verificationLevel: rawData.verification_level,
         defaultMessageNotifications: rawData.default_message_notifications,
         explicitContentFilter: rawData.explicit_content_filter,
-        roles: rawData.roles.map((r: RawRoleData) => Role._fromRawData(client, r, rawData.id)),
-        emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e, rawData.id)),
+        roles: rawData.roles.map((r: RawRoleData) => Role._fromRawData(r, rawData.id)),
+        emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(e, rawData.id)),
         features: rawData.features,
         mfaLevel: rawData.mfa_level,
         applicationID: rawData.application_id || undefined,
@@ -41,15 +38,6 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         maxVideoChannelUsers: rawData.max_video_channel_users,
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
-        welcomeScreen: rawData.welcome_screen && WelcomeScreen._fromRawData(client, rawData.welcome_screen, rawData.id)
+        welcomeScreen: rawData.welcome_screen && WelcomeScreen._fromRawData(rawData.welcome_screen, rawData.id)
     };
-
-    // Update guild object
-    if (guild) Guild._updateObject(guild, guildData);
-
-    // Create guild
-    else guild = new Guild(client, guildData);
-
-    // Return
-    return guild;
 }

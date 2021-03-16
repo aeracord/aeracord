@@ -1,13 +1,17 @@
-import { Base, CategoryChannel, Client, DMChannel, GuildChannel, NewsChannel, RawChannelData, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import { Base, CategoryChannel, CategoryChannelData, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 
 export interface ChannelData {
     id: string;
+    type: ChannelType;
 }
 
 export type AnyChannel = Channel | GuildChannel | DMChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel;
+
+export type AnyChannelData = ChannelData | GuildChannelData | DMChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData;
 
 export type ChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_DM | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE;
 export const CHANNEL_TYPE_TEXT = 0;
@@ -40,14 +44,27 @@ export default class Channel extends Base<AnyChannel> {
     /**
      * From Raw Data
      *
-     * Create an `Channel` from a `RawChannelData` object
+     * Create a `ChannelData` object from a `RawChannelData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {ChannelData} The channel data
+     */
+    static _fromRawData(rawData: RawChannelData): ChannelData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Channel` from a `ChannelData` object
+     *
+     * @param channelData The channel data
+     *
      * @returns {Channel} The channel
      */
-    static _fromRawData(client: Client, rawData: RawChannelData): Channel {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, channelData: ChannelData): Channel {
+        return fromData(client, channelData);
     }
 
     /**

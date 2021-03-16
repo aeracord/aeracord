@@ -1,4 +1,5 @@
 import { Client, RawStickerData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface StickerData {
@@ -113,13 +114,26 @@ export default class Sticker {
     /**
      * From Raw Data
      *
-     * Create an `Sticker` from a `RawStickerData` object
+     * Create a `StickerData` object from a `RawStickerData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {StickerData} The sticker data
+     */
+    static _fromRawData(rawData: RawStickerData): StickerData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Sticker` from a `StickerData` object
+     *
+     * @param stickerData The sticker data
+     *
      * @returns {Sticker} The sticker
      */
-    static _fromRawData(client: Client, rawData: RawStickerData): Sticker {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, stickerData: StickerData): Sticker {
+        return fromData(client, stickerData);
     }
 }

@@ -89,6 +89,7 @@ export {
 export {
     default as Channel,
     AnyChannel,
+    AnyChannelData,
     ChannelData,
     ChannelResolvable,
     ChannelType,
@@ -246,6 +247,7 @@ export { default as RawGuildData } from "./classes/Guild/rawGuildData";
 export {
     default as GuildChannel,
     AnyGuildChannel,
+    AnyGuildChannelData,
     GuildChannelData,
     GuildChannelType,
     PermissionOverwrite,

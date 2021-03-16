@@ -1,4 +1,4 @@
-import { CategoryChannel, ChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, NewsChannel, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import { CategoryChannel, CategoryChannelData, ChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, NewsChannel, NewsChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 import Channel from "../Channel/Channel";
 import updateObject from "./updateObject";
 
@@ -22,6 +22,8 @@ export const PERMISSION_TYPE_ROLE = 0;
 export const PERMISSION_TYPE_MEMBER = 1;
 
 export type AnyGuildChannel = GuildChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel;
+
+export type AnyGuildChannelData = GuildChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData;
 
 export type GuildChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE;
 

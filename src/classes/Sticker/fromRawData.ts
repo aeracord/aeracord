@@ -1,9 +1,9 @@
-import { Client, RawStickerData, Sticker } from "../../internal";
+import { RawStickerData, StickerData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawStickerData): Sticker {
+export default function fromRawData(rawData: RawStickerData): StickerData {
 
-    // Parse sticker
-    const sticker: Sticker = new Sticker(client, {
+    // Parse sticker data
+    return {
         id: rawData.id,
         packID: rawData.pack_id,
         name: rawData.name,
@@ -12,8 +12,5 @@ export default function fromRawData(client: Client, rawData: RawStickerData): St
         asset: rawData.asset,
         previewAsset: rawData.preview_asset,
         formatType: rawData.format_type
-    });
-
-    // Return
-    return sticker;
+    };
 }

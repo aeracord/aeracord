@@ -1,4 +1,5 @@
-import { Client, RawMemberData, User } from "../../internal";
+import { Client, RawMemberData, UserData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface MemberData {
@@ -10,7 +11,7 @@ export interface MemberData {
     joinedAt: number;
     premiumSince?: number;
     pending?: boolean;
-    user: User;
+    user: UserData;
 }
 
 export default class Member {
@@ -83,7 +84,7 @@ export default class Member {
      *
      * The member's user object
      */
-    user: User;
+    user: UserData;
 
     /**
      * Member
@@ -118,13 +119,26 @@ export default class Member {
     /**
      * From Raw Data
      *
-     * Create an `Member` from a `RawMemberData` object
+     * Create a `MemberData` object from a `RawMemberData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {MemberData} The member data
+     */
+    static _fromRawData(rawData: RawMemberData, guildID: string): MemberData {
+        return fromRawData(rawData, guildID);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Member` from a `MemberData` object
+     *
+     * @param memberData The member data
+     *
      * @returns {Member} The member
      */
-    static _fromRawData(client: Client, rawData: RawMemberData, guildID: string): Member {
-        return fromRawData(client, rawData, guildID);
+    static fromData(client: Client, memberData: MemberData): Member {
+        return fromData(client, memberData);
     }
 }

@@ -1,11 +1,12 @@
-import { Client, Member, RawVoiceStateData } from "../../internal";
+import { Client, MemberData, RawVoiceStateData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface VoiceStateData {
     guildID: string;
     channelID: string;
     userID: string;
-    member: Member;
+    member: MemberData;
     sessionID: string;
     muted?: boolean;
     deafened?: boolean;
@@ -51,7 +52,7 @@ export default class VoiceState {
      *
      * The member object of the user this voice state is for
      */
-    member: Member;
+    member: MemberData;
 
     /**
      * Session ID
@@ -148,13 +149,26 @@ export default class VoiceState {
     /**
      * From Raw Data
      *
-     * Create an `VoiceState` from a `RawVoiceStateData` object
+     * Create a `VoiceStateData` object from a `RawVoiceStateData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {VoiceStateData} The voice state data
+     */
+    static _fromRawData(rawData: RawVoiceStateData): VoiceStateData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `VoiceState` from a `VoiceStateData` object
+     *
+     * @param voiceStateData The voice state data
+     *
      * @returns {VoiceState} The voice state
      */
-    static _fromRawData(client: Client, rawData: RawVoiceStateData): VoiceState {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, voiceStateData: VoiceStateData): VoiceState {
+        return fromData(client, voiceStateData);
     }
 }

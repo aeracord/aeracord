@@ -1,4 +1,5 @@
 import { ActivityType, Client, RawPresenceData, Status } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface PresenceData {
@@ -359,13 +360,26 @@ export default class Presence {
     /**
      * From Raw Data
      *
-     * Create an `Presence` from a `RawPresenceData` object
+     * Create a `PresenceData` object from a `RawPresenceData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {PresenceData} The presence data
+     */
+    static _fromRawData(rawData: RawPresenceData): PresenceData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Presence` from a `PresenceData` object
+     *
+     * @param presenceData The presence data
+     *
      * @returns {Presence} The presence
      */
-    static _fromRawData(client: Client, rawData: RawPresenceData): Presence {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, presenceData: PresenceData): Presence {
+        return fromData(client, presenceData);
     }
 }

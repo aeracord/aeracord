@@ -1,10 +1,10 @@
-import { Client, Message, RawMessageData } from "../../../../internal";
+import { Client, Message, MessageData, RawMessageData } from "../../../../internal";
 
 export default function messageCreate(client: Client, rawData: RawMessageData) {
 
-    // Parse message
-    const message: Message = Message._fromRawData(client, rawData);
+    // Parse message data
+    const messageData: MessageData = Message._fromRawData(rawData);
 
     // Emit event
-    client.emit("messageCreate", message, rawData);
+    client.emit("messageCreate", messageData, rawData);
 }

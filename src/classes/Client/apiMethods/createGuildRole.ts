@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawRoleData, Role } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawRoleData, Role, RoleData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildRoleData {
@@ -9,7 +9,7 @@ export interface CreateGuildRoleData {
     mentionable?: boolean;
 }
 
-export default async function createGuildRole(client: Client, guildResolvable: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<Role> {
+export default async function createGuildRole(client: Client, guildResolvable: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<RoleData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -36,9 +36,9 @@ export default async function createGuildRole(client: Client, guildResolvable: G
         }
     });
 
-    // Parse role
-    const role: Role = Role._fromRawData(client, result, guildID);
+    // Parse role data
+    const roleData: RoleData = Role._fromRawData(result, guildID);
 
     // Return
-    return role;
+    return roleData;
 }

@@ -1,4 +1,5 @@
 import { Client, RawWelcomeScreenData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface WelcomeScreenData {
@@ -65,13 +66,26 @@ export default class WelcomeScreen {
     /**
      * From Raw Data
      *
-     * Create a `WelcomeScreen` from a `RawWelcomeScreenData` object
+     * Create a `WelcomeScreenData` object from a `RawWelcomeScreenData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {WelcomeScreenData} The welcome screen data
+     */
+    static _fromRawData(rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
+        return fromRawData(rawData, guildID);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `WelcomeScreen` from a `WelcomeScreenData` object
+     *
+     * @param welcomeScreenData The welcome screen data
+     *
      * @returns {WelcomeScreen} The welcome screen
      */
-    static _fromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreen {
-        return fromRawData(client, rawData, guildID);
+    static fromData(client: Client, welcomeScreenData: WelcomeScreenData): WelcomeScreen {
+        return fromData(client, welcomeScreenData);
     }
 }

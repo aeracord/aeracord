@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, RawWebhookData, Webhook, WebhookResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, RawWebhookData, Webhook, WebhookData, WebhookResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyWebhookData {
@@ -7,7 +7,7 @@ export interface ModifyWebhookData {
     channel?: ChannelResolvable;
 }
 
-export default async function modifyWebhook(client: Client, webhookResolvable: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<Webhook> {
+export default async function modifyWebhook(client: Client, webhookResolvable: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
 
     // Resolve objects
     const webhookID: string | undefined = Webhook.resolveID(webhookResolvable);
@@ -34,9 +34,9 @@ export default async function modifyWebhook(client: Client, webhookResolvable: W
         }
     });
 
-    // Parse webhook
-    const webhook: Webhook = Webhook._fromRawData(client, result);
+    // Parse webhook data
+    const webhookData: WebhookData = Webhook._fromRawData(result);
 
     // Return
-    return webhook;
+    return webhookData;
 }

@@ -1,11 +1,11 @@
-import { Channel, Client, DMChannel, FetchQueue, RawChannelData, User, UserResolvable } from "../../../internal";
+import { Channel, Client, DMChannelData, FetchQueue, RawChannelData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateDMData {
     recipient: UserResolvable;
 }
 
-export default async function createDM(client: Client, createDMData: CreateDMData): Promise<DMChannel> {
+export default async function createDM(client: Client, createDMData: CreateDMData): Promise<DMChannelData> {
 
     // Resolve objects
     const recipient: string | undefined = User.resolveID(createDMData.recipient);
@@ -28,9 +28,9 @@ export default async function createDM(client: Client, createDMData: CreateDMDat
         }
     });
 
-    // Parse channel
-    const channel: DMChannel = Channel._fromRawData(client, result) as DMChannel;
+    // Parse DM channel data
+    const dmChannelData: DMChannelData = Channel._fromRawData(result) as DMChannelData;
 
     // Return
-    return channel;
+    return dmChannelData;
 }

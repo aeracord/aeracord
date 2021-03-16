@@ -1,4 +1,4 @@
-import { Member, ReactionEmoji } from "../../../../internal";
+import { MemberData, ReactionEmoji } from "../../../../internal";
 
 export interface MessageReactionAddData {
 
@@ -35,7 +35,7 @@ export interface MessageReactionAddData {
      *
      * The member object of the user that added this reaction
      */
-    member?: Member;
+    member?: MemberData;
 
     /**
      * Emoji

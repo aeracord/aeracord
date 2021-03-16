@@ -1,9 +1,9 @@
-import { Client, RawWelcomeScreenData, RawWelcomeScreenDataChannel, WelcomeScreen } from "../../internal";
+import { RawWelcomeScreenData, RawWelcomeScreenDataChannel, WelcomeScreenData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreen {
+export default function fromRawData(rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
 
-    // Parse welcome screen
-    const welcomeScreen: WelcomeScreen = new WelcomeScreen(client, {
+    // Parse welcome screen data
+    return {
         guildID,
         description: rawData.description || undefined,
         channels: rawData.welcome_channels.map((c: RawWelcomeScreenDataChannel) => ({
@@ -12,8 +12,5 @@ export default function fromRawData(client: Client, rawData: RawWelcomeScreenDat
             emojiID: c.emoji_id || undefined,
             emojiName: c.emoji_name || undefined
         }))
-    });
-
-    // Return
-    return welcomeScreen;
+    };
 }

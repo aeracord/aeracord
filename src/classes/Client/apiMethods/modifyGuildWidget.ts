@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, GuildWidget, RawGuildWidgetData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, GuildWidget, GuildWidgetData, RawGuildWidgetData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildWidgetData {
@@ -6,7 +6,7 @@ export interface ModifyGuildWidgetData {
     channel?: string | null;
 }
 
-export default async function modifyGuildWidget(client: Client, guildResolvable: GuildResolvable, modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> {
+export default async function modifyGuildWidget(client: Client, guildResolvable: GuildResolvable, modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidgetData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -32,9 +32,9 @@ export default async function modifyGuildWidget(client: Client, guildResolvable:
         }
     });
 
-    // Parse guild widget
-    const guildWidget: GuildWidget = GuildWidget._fromRawData(client, result, guildID);
+    // Parse guild widget data
+    const guildWidgetData: GuildWidgetData = GuildWidget._fromRawData(result, guildID);
 
     // Return
-    return guildWidget;
+    return guildWidgetData;
 }

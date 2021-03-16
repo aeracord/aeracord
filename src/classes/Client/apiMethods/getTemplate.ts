@@ -1,7 +1,7 @@
-import { Client, FetchQueue, RawTemplateData, Template, TemplateResolvable } from "../../../internal";
+import { Client, FetchQueue, RawTemplateData, Template, TemplateData, TemplateResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getTemplate(client: Client, templateResolvable: TemplateResolvable): Promise<Template> {
+export default async function getTemplate(client: Client, templateResolvable: TemplateResolvable): Promise<TemplateData> {
 
     // Resolve objects
     const templateCode: string | undefined = Template.resolveCode(templateResolvable);
@@ -21,9 +21,9 @@ export default async function getTemplate(client: Client, templateResolvable: Te
         method
     });
 
-    // Parse template
-    const template: Template = Template._fromRawData(client, result);
+    // Parse template data
+    const templateData: TemplateData = Template._fromRawData(result);
 
     // Return
-    return template;
+    return templateData;
 }

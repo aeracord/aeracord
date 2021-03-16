@@ -1,4 +1,4 @@
-import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageData, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditMessageData {
@@ -8,7 +8,7 @@ export interface EditMessageData {
     flags?: number;
 }
 
-export default async function editMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, editMessageData: EditMessageData): Promise<Message> {
+export default async function editMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, editMessageData: EditMessageData): Promise<MessageData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -45,9 +45,9 @@ export default async function editMessage(client: Client, channelResolvable: Cha
         }
     });
 
-    // Parse message
-    const message: Message = Message._fromRawData(client, result);
+    // Parse message data
+    const messageData: MessageData = Message._fromRawData(result);
 
     // Return
-    return message;
+    return messageData;
 }

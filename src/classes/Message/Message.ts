@@ -1,4 +1,5 @@
-import { Attachment, Client, Embed, GuildChannelType, Member, RawMessageData, Reaction, Sticker, User, Webhook } from "../../internal";
+import { AttachmentData, Client, EmbedData, GuildChannelType, MemberData, RawMessageData, ReactionData, StickerData, UserData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -7,27 +8,27 @@ export interface MessageData {
     type: MessageType;
     channelID: string;
     guildID?: string;
-    author?: User;
+    author?: UserData;
     webhook?: MessageWebhook;
-    member?: Member;
+    member?: MemberData;
     content: string;
     timestamp: number;
     editedTimestamp?: number;
     tts?: boolean;
     mentionEveryone?: boolean;
-    mentions: Member[];
+    mentions: MemberData[];
     mentionedRoles: string[];
     mentionedChannels: ChannelMention[];
-    attachments: Attachment[];
-    embeds: Embed[];
-    stickers: Sticker[];
-    reactions: Reaction[];
+    attachments: AttachmentData[];
+    embeds: EmbedData[];
+    stickers: StickerData[];
+    reactions: ReactionData[];
     pinned?: boolean;
     activity?: MessageActivity;
     application?: MessageApplication;
     messageReference?: MessageReference;
     flags: number;
-    referencedMessage?: Message;
+    referencedMessage?: MessageData;
 }
 
 export type MessageType = typeof MESSAGE_TYPE_DEFAULT | typeof MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE | typeof MESSAGE_TYPE_GUILD_MEMBER_JOIN | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3 | typeof MESSAGE_TYPE_CHANNEL_FOLLOW_ADD | typeof MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED | typeof MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED | typeof MESSAGE_TYPE_REPLY | typeof MESSAGE_TYPE_APPLICATION_COMMAND;
@@ -126,7 +127,7 @@ export default class Message {
      *
      * The user that sent this message
      */
-    author?: User;
+    author?: UserData;
 
     /**
      * Webhook
@@ -140,7 +141,7 @@ export default class Message {
      *
      * The member object of the user that sent this message
      */
-    member?: Member;
+    member?: MemberData;
 
     /**
      * Content
@@ -182,7 +183,7 @@ export default class Message {
      *
      * The members this message mentions
      */
-    mentions: Member[];
+    mentions: MemberData[];
 
     /**
      * Mentioned Roles
@@ -203,28 +204,28 @@ export default class Message {
      *
      * The message's attachments
      */
-    attachments: Attachment[];
+    attachments: AttachmentData[];
 
     /**
      * Embeds
      *
      * The message's embeds
      */
-    embeds: Embed[];
+    embeds: EmbedData[];
 
     /**
      * Stickers
      *
      * The message's stickers
      */
-    stickers: Sticker[];
+    stickers: StickerData[];
 
     /**
      * Reactions
      *
      * The message's reactions
      */
-    reactions: Reaction[];
+    reactions: ReactionData[];
 
     /**
      * Pinned
@@ -266,7 +267,7 @@ export default class Message {
      *
      * The message this message references
      */
-    referencedMessage?: Message;
+    referencedMessage?: MessageData;
 
     /**
      * Message
@@ -333,14 +334,27 @@ export default class Message {
     /**
      * From Raw Data
      *
-     * Create an `Message` from a `RawMessageData` object
+     * Create a `MessageData` object from a `RawMessageData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {MessageData} The message data
+     */
+    static _fromRawData(rawData: RawMessageData): MessageData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Message` from a `MessageData` object
+     *
+     * @param messageData The message data
+     *
      * @returns {Message} The message
      */
-    static _fromRawData(client: Client, rawData: RawMessageData): Message {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, messageData: MessageData): Message {
+        return fromData(client, messageData);
     }
 
     /**

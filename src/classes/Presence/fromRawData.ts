@@ -1,9 +1,9 @@
-import { Client, Presence, RawPresenceData, RawPresenceDataActivity } from "../../internal";
+import { PresenceData, RawPresenceData, RawPresenceDataActivity } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawPresenceData): Presence {
+export default function fromRawData(rawData: RawPresenceData): PresenceData {
 
-    // Parse presence
-    const presence: Presence = new Presence(client, {
+    // Parse presence data
+    return {
         user: {
             id: rawData.user.id,
             username: rawData.user.username,
@@ -40,8 +40,5 @@ export default function fromRawData(client: Client, rawData: RawPresenceData): P
             flags: a.flags
         })),
         clientStatus: rawData.client_status
-    });
-
-    // Return
-    return presence;
+    };
 }

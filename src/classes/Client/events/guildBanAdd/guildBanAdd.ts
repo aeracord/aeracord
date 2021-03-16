@@ -1,11 +1,11 @@
-import { Client, User } from "../../../../internal";
+import { Client, User, UserData } from "../../../../internal";
 import { RawGuildBanAddData } from "./rawGuildBanAddData";
 
 export default function guildBanAdd(client: Client, rawData: RawGuildBanAddData) {
 
-    // Parse user
-    const user: User = User._fromRawData(client, rawData.user);
+    // Parse user data
+    const userData: UserData = User._fromRawData(rawData.user);
 
     // Emit event
-    client.emit("guildBanAdd", user, rawData);
+    client.emit("guildBanAdd", userData, rawData);
 }

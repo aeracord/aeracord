@@ -1,4 +1,5 @@
 import { Client, RawVanityInviteData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface VanityInviteData {
@@ -58,13 +59,26 @@ export default class VanityInvite {
     /**
      * From Raw Data
      *
-     * Create a `VanityInvite` from a `RawVanityInviteData` object
+     * Create a `VanityInviteData` object from a `RawVanityInviteData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {VanityInviteData} The vanity invite data
+     */
+    static _fromRawData(rawData: RawVanityInviteData, guildID: string): VanityInviteData {
+        return fromRawData(rawData, guildID);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `VanityInvite` from a `VanityInviteData` object
+     *
+     * @param vanityInviteData The vanity invite data
+     *
      * @returns {VanityInvite} The vanity invite
      */
-    static _fromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInvite {
-        return fromRawData(client, rawData, guildID);
+    static fromData(client: Client, vanityInviteData: VanityInviteData): VanityInvite {
+        return fromData(client, vanityInviteData);
     }
 }

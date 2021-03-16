@@ -1,4 +1,5 @@
-import { Client, DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, PermissionType, RawTemplateData, User, VerificationLevel } from "../../internal";
+import { Client, DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, RawTemplateData, UserData, VerificationLevel } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 
@@ -7,7 +8,7 @@ export interface TemplateData {
     name: string;
     description?: string;
     uses: number;
-    creator: User;
+    creator: UserData;
     createdAt: number;
     updatedAt: number;
     sourceGuildID: string;
@@ -105,7 +106,7 @@ export default class Template {
      *
      * The user that created this template
      */
-    creator: User;
+    creator: UserData;
 
     /**
      * Created At
@@ -177,14 +178,27 @@ export default class Template {
     /**
      * From Raw Data
      *
-     * Create a `Template` from a `RawTemplateData` object
+     * Create a `TemplateData` object from a `RawTemplateData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {TemplateData} The template data
+     */
+    static _fromRawData(rawData: RawTemplateData): TemplateData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Template` from a `TemplateData` object
+     *
+     * @param templateData The template data
+     *
      * @returns {Template} The template
      */
-    static _fromRawData(client: Client, rawData: RawTemplateData): Template {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, templateData: TemplateData): Template {
+        return fromData(client, templateData);
     }
 
     /**

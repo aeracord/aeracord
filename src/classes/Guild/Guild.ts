@@ -1,4 +1,5 @@
-import { AnyChannel, Ban, Base, CacheManagerInterface, CategoryChannel, Client, Emoji, GuildChannel, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen } from "../../internal";
+import { AnyChannel, Ban, Base, CacheManagerInterface, CategoryChannel, Client, Emoji, EmojiData, GuildChannel, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, RoleData, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
@@ -18,8 +19,8 @@ export interface GuildData {
     verificationLevel: VerificationLevel;
     defaultMessageNotifications: DefaultMessageNotifications;
     explicitContentFilter: ExplicitContentFilter;
-    roles: Role[];
-    emojis: Emoji[];
+    roles: RoleData[];
+    emojis: EmojiData[];
     features: Feature[];
     mfaLevel: MFALevel;
     applicationID?: string;
@@ -38,7 +39,7 @@ export interface GuildData {
     maxVideoChannelUsers?: number;
     approximateMemberCount?: number;
     approximatePresenceCount?: number;
-    welcomeScreen?: WelcomeScreen;
+    welcomeScreen?: WelcomeScreenData;
 }
 
 export type VerificationLevel = typeof VERIFICATION_LEVEL_NONE | typeof VERIFICATION_LEVEL_LOW | typeof VERIFICATION_LEVEL_MEDIUM | typeof VERIFICATION_LEVEL_HIGH | typeof VERIFICATION_LEVEL_VERY_HIGH;
@@ -185,14 +186,14 @@ export default class Guild extends Base<Guild> {
      *
      * The roles in this guild
      */
-    roles: Role[];
+    roles: RoleData[];
 
     /**
      * Emojis
      *
      * The emojis in this guild
      */
-    emojis: Emoji[];
+    emojis: EmojiData[];
 
     /**
      * Features
@@ -325,7 +326,7 @@ export default class Guild extends Base<Guild> {
      *
      * The guild's welcome screen
      */
-    welcomeScreen?: WelcomeScreen;
+    welcomeScreen?: WelcomeScreenData;
 
     /**
      * Guild
@@ -387,14 +388,27 @@ export default class Guild extends Base<Guild> {
     /**
      * From Raw Data
      *
-     * Create an `Guild` from a `RawGuildData` object
+     * Create a `GuildData` object from a `RawGuildData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {GuildData} The guild data
+     */
+    static _fromRawData(rawData: RawGuildData): GuildData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Guild` from a `GuildData` object
+     *
+     * @param guildData The guild data
+     *
      * @returns {Guild} The guild
      */
-    static _fromRawData(client: Client, rawData: RawGuildData): Guild {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, guildData: GuildData): Guild {
+        return fromData(client, guildData);
     }
 
     /**

@@ -1,60 +1,60 @@
-import { AnyChannel, Guild, Member, Presence, VoiceState } from "../../../../internal";
+import { AnyChannelData, GuildData, MemberData, PresenceData, VoiceStateData } from "../../../../internal";
 
 export interface GuildCreateData {
 
     /**
      * Guild
      *
-     * The guild object
+     * The guild data object
      */
-    guild: Guild;
+    guild: GuildData;
 
     /**
      * Joined At
      *
-     * The guild object
+     * The timestamp for when the client joined the guild
      */
     joinedAt: number;
 
     /**
      * Large
      *
-     * The guild object
+     * Whether or not the guild is large
      */
     large: boolean;
 
     /**
      * Member Count
      *
-     * The guild object
+     * The guild's member count
      */
     memberCount: number;
 
     /**
      * Voice States
      *
-     * The guild object
+     * The guild's voice states
      */
-    voiceStates: VoiceState[];
+    voiceStates: VoiceStateData[];
 
     /**
      * Members
      *
-     * The guild object
+     * The guild's members
      */
-    members: Member[];
+    members: MemberData[];
 
     /**
      * Channels
      *
-     * The guild object
+     * The guild's channels
      */
-    channels: AnyChannel[];
+    channels: AnyChannelData[];
 
     /**
      * Presences
      *
-     * The guild object
+     * The guild's presences
      */
-    presences: Presence[];
+    presences: PresenceData[];
 }

@@ -1,9 +1,9 @@
-import { Client, RawRoleData, Role } from "../../internal";
+import { RawRoleData, RoleData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawRoleData, guildID: string): Role {
+export default function fromRawData(rawData: RawRoleData, guildID: string): RoleData {
 
-    // Parse role
-    const role: Role = new Role(client, {
+    // Parse role data
+    return {
         id: rawData.id,
         name: rawData.name,
         guildID,
@@ -21,8 +21,5 @@ export default function fromRawData(client: Client, rawData: RawRoleData, guildI
             // Look, I didnt make the damn api
             premiumRole: rawData.tags?.premium_subscriber === null
         }
-    });
-
-    // Return
-    return role;
+    };
 }

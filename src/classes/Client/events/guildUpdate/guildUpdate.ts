@@ -1,10 +1,10 @@
-import { Client, Guild, RawGuildData } from "../../../../internal";
+import { Client, Guild, GuildData, RawGuildData } from "../../../../internal";
 
 export default function guildUpdate(client: Client, rawData: RawGuildData) {
 
-    // Parse guild
-    const guild: Guild = Guild._fromRawData(client, rawData);
+    // Parse guild data
+    const guildData: GuildData = Guild._fromRawData(rawData);
 
     // Emit event
-    client.emit("guildUpdate", guild, rawData);
+    client.emit("guildUpdate", guildData, rawData);
 }

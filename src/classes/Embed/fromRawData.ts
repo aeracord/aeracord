@@ -1,9 +1,9 @@
-import { Client, Embed, RawEmbedData, RawEmbedDataField } from "../../internal";
+import { EmbedData, RawEmbedData, RawEmbedDataField } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawEmbedData): Embed {
+export default function fromRawData(rawData: RawEmbedData): EmbedData {
 
-    // Parse embed
-    const embed: Embed = new Embed(client, {
+    // Parse embed data
+    return {
         title: rawData.title,
         type: rawData.type,
         description: rawData.description,
@@ -48,8 +48,5 @@ export default function fromRawData(client: Client, rawData: RawEmbedData): Embe
             value: f.value,
             inline: Boolean(f.inline)
         })) : []
-    });
-
-    // Return
-    return embed;
+    };
 }

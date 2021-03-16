@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { Client, FetchQueue, Guild, GuildResolvable, Member, RawMemberData } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, Member, MemberData, RawMemberData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ListGuildMembersData {
@@ -7,7 +7,7 @@ export interface ListGuildMembersData {
     after?: string;
 }
 
-export default async function listGuildMembers(client: Client, guildResolvable: GuildResolvable, listGuildMembersData: ListGuildMembersData = {}): Promise<Member[]> {
+export default async function listGuildMembers(client: Client, guildResolvable: GuildResolvable, listGuildMembersData: ListGuildMembersData = {}): Promise<MemberData[]> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -31,7 +31,7 @@ export default async function listGuildMembers(client: Client, guildResolvable: 
     });
 
     // Parse members
-    const members: Member[] = result.map((m: RawMemberData) => Member._fromRawData(client, m, guildID));
+    const members: MemberData[] = result.map((m: RawMemberData) => Member._fromRawData(m, guildID));
 
     // Return
     return members;

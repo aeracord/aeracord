@@ -1,12 +1,9 @@
-import { Client, RawUserData, User, UserData } from "../../internal";
+import { RawUserData, UserData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawUserData): User {
-
-    // Get user from cache
-    let user: User | undefined = client.users.get(rawData.id);
+export default function fromRawData(rawData: RawUserData): UserData {
 
     // Parse user data
-    const userData: UserData = {
+    return {
         id: rawData.id,
         username: rawData.username,
         discriminator: rawData.discriminator,
@@ -14,14 +11,5 @@ export default function fromRawData(client: Client, rawData: RawUserData): User 
         bot: rawData.bot,
         system: rawData.system,
         publicFlags: rawData.public_flags || 0
-    };
-
-    // Update user object
-    if (user) User._updateObject(user, userData);
-
-    // Create user
-    else user = new User(client, userData);
-
-    // Return
-    return user;
+    };;
 }

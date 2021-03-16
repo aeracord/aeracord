@@ -1,4 +1,4 @@
-import { Client, Emoji, FetchQueue, Guild, GuildResolvable, RawEmojiData, Role, RoleResolvable } from "../../../internal";
+import { Client, Emoji, EmojiData, FetchQueue, Guild, GuildResolvable, RawEmojiData, Role, RoleResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildEmojiData {
@@ -7,7 +7,7 @@ export interface CreateGuildEmojiData {
     roles?: RoleResolvable[];
 }
 
-export default async function createGuildEmoji(client: Client, guildResolvable: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<Emoji> {
+export default async function createGuildEmoji(client: Client, guildResolvable: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<EmojiData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -34,9 +34,9 @@ export default async function createGuildEmoji(client: Client, guildResolvable: 
         }
     });
 
-    // Parse emoji
-    const emoji: Emoji = Emoji._fromRawData(client, result, guildID);
+    // Parse emoji data
+    const emojiData: EmojiData = Emoji._fromRawData(result, guildID);
 
     // Return
-    return emoji;
+    return emojiData;
 }

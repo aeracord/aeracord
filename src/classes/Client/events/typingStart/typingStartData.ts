@@ -1,4 +1,4 @@
-import { Member } from "../../../../internal";
+import { MemberData } from "../../../../internal";
 
 export interface TypingStartData {
 
@@ -35,5 +35,5 @@ export interface TypingStartData {
      *
      * The member object of the user that started typing
      */
-    member?: Member;
+    member?: MemberData;
 }

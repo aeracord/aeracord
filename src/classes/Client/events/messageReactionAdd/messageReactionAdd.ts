@@ -10,7 +10,7 @@ export default function messageReactionAdd(client: Client, rawData: RawMessageRe
         channelID: rawData.channel_id,
         guildID: rawData.guild_id,
         userID: rawData.user_id,
-        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(client, rawData.member, rawData.guild_id) : undefined,
+        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(rawData.member, rawData.guild_id) : undefined,
         emoji: {
             id: rawData.emoji.id || undefined,
             name: rawData.emoji.name || undefined,

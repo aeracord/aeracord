@@ -1,4 +1,5 @@
 import { Client, RawAttachmentData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface AttachmentData {
@@ -98,13 +99,26 @@ export default class Attachment {
     /**
      * From Raw Data
      *
-     * Create an `Attachment` from a `RawAttachmentData` object
+     * Create an `AttachmentData` object from a `RawAttachmentData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {AttachmentData} The attachment data
+     */
+    static _fromRawData(rawData: RawAttachmentData): AttachmentData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create an `Attachment` from an `AttachmentData` object
+     *
+     * @param attachmentData The attachment data
+     *
      * @returns {Attachment} The attachment
      */
-    static _fromRawData(client: Client, rawData: RawAttachmentData): Attachment {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, attachmentData: AttachmentData): Attachment {
+        return fromData(client, attachmentData);
     }
 }

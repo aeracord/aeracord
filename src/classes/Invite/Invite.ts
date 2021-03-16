@@ -1,4 +1,5 @@
-import { Client, RawInviteData, User } from "../../internal";
+import { Client, RawInviteData, UserData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 
@@ -7,7 +8,7 @@ export interface InviteData {
     channelID: string;
     guildID: string;
     createdAt: number;
-    inviter?: User;
+    inviter?: UserData;
     maxAge?: number;
     maxUses?: number;
     temporary?: boolean;
@@ -70,7 +71,7 @@ export default class Invite {
      *
      * The user that created this invite
      */
-    inviter?: User;
+    inviter?: UserData;
 
     /**
      * Max Age
@@ -151,14 +152,27 @@ export default class Invite {
     /**
      * From Raw Data
      *
-     * Create an `Invite` from a `RawInviteData` object
+     * Create an `InviteData` object from a `RawInviteData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {InviteData} The invite data
+     */
+    static _fromRawData(rawData: RawInviteData): InviteData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create an `Invite` from an `InviteData` object
+     *
+     * @param inviteData The invite data
+     *
      * @returns {Invite} The invite
      */
-    static _fromRawData(client: Client, rawData: RawInviteData): Invite {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, inviteData: InviteData): Invite {
+        return fromData(client, inviteData);
     }
 
     /**

@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, RawInviteData, TargetUserType, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, InviteData, RawInviteData, TargetUserType, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateChannelInviteData {
@@ -10,7 +10,7 @@ export interface CreateChannelInviteData {
     targetUserType?: TargetUserType;
 }
 
-export default async function createChannelInvite(client: Client, channelResolvable: ChannelResolvable, createChannelInviteData: CreateChannelInviteData = {}): Promise<Invite> {
+export default async function createChannelInvite(client: Client, channelResolvable: ChannelResolvable, createChannelInviteData: CreateChannelInviteData = {}): Promise<InviteData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -40,9 +40,9 @@ export default async function createChannelInvite(client: Client, channelResolva
         }
     });
 
-    // Parse invite
-    const invite: Invite = Invite._fromRawData(client, result);
+    // Parse invite data
+    const inviteData: InviteData = Invite._fromRawData(result);
 
     // Return
-    return invite;
+    return inviteData;
 }

@@ -1,10 +1,10 @@
-import { AnyGuildChannel, Channel, Client, RawChannelData } from "../../../../internal";
+import { Channel, ChannelData, Client, RawChannelData } from "../../../../internal";
 
 export default function channelDelete(client: Client, rawData: RawChannelData) {
 
-    // Parse channel
-    const channel: AnyGuildChannel = Channel._fromRawData(client, rawData) as AnyGuildChannel;
+    // Parse channel data
+    const channelData: ChannelData = Channel._fromRawData(rawData) as ChannelData;
 
     // Emit event
-    client.emit("channelDelete", channel, rawData);
+    client.emit("channelDelete", channelData, rawData);
 }

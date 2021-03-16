@@ -1,20 +1,17 @@
-import { Client, Emoji, RawEmojiData, User } from "../../internal";
+import { EmojiData, RawEmojiData, User } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawEmojiData, guildID: string): Emoji {
+export default function fromRawData(rawData: RawEmojiData, guildID: string): EmojiData {
 
-    // Parse emoji
-    const emoji: Emoji = new Emoji(client, {
+    // Parse emoji data
+    return {
         id: rawData.id,
         name: rawData.name,
         guildID,
         animated: rawData.animated,
         managed: rawData.managed,
         available: rawData.available,
-        creator: rawData.user && User._fromRawData(client, rawData.user),
+        creator: rawData.user && User._fromRawData(rawData.user),
         requiresColons: rawData.require_colons,
         roles: rawData.roles || []
-    });
-
-    // Return
-    return emoji;
+    };
 }

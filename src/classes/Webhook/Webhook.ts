@@ -1,4 +1,5 @@
-import { Client, RawWebhookData, User } from "../../internal";
+import { Client, RawWebhookData, UserData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 
@@ -9,7 +10,7 @@ export interface WebhookData {
     channelID: string;
     name: string;
     avatar?: string;
-    creator: User;
+    creator: UserData;
     token?: string;
     applicationID?: string;
 }
@@ -76,7 +77,7 @@ export default class Webhook {
      *
      * The user that created this webhook
      */
-    creator: User;
+    creator: UserData;
 
     /**
      * Token
@@ -125,14 +126,27 @@ export default class Webhook {
     /**
      * From Raw Data
      *
-     * Create a `Webhook` from a `RawWebhookData` object
+     * Create a `WebhookData` object from a `RawWebhookData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {WebhookData} The webhook data
+     */
+    static _fromRawData(rawData: RawWebhookData): WebhookData {
+        return fromRawData(rawData);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Webhook` from a `WebhookData` object
+     *
+     * @param webhookData The webhook data
+     *
      * @returns {Webhook} The webhook
      */
-    static _fromRawData(client: Client, rawData: RawWebhookData): Webhook {
-        return fromRawData(client, rawData);
+    static fromData(client: Client, webhookData: WebhookData): Webhook {
+        return fromData(client, webhookData);
     }
 
     /**

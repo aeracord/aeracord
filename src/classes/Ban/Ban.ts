@@ -1,9 +1,10 @@
-import { Client, RawBanData, User } from "../../internal";
+import { Client, RawBanData, UserData } from "../../internal";
+import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface BanData {
     guildID: string;
-    user: User;
+    user: UserData;
     reason?: string;
 }
 
@@ -28,7 +29,7 @@ export default class Ban {
      *
      * The user object for the user this ban is for
      */
-    user: User;
+    user: UserData;
 
     /**
      * Reason
@@ -58,13 +59,26 @@ export default class Ban {
     /**
      * From Raw Data
      *
-     * Create a `Ban` from a `RawBanData` object
+     * Create a `BanData` object from a `RawBanData` object
      *
      * @param rawData The raw data from the API
      *
+     * @returns {BanData} The ban data
+     */
+    static _fromRawData(rawData: RawBanData, guildID: string): BanData {
+        return fromRawData(rawData, guildID);
+    }
+
+    /**
+     * From Data
+     *
+     * Create a `Ban` from a `BanData` object
+     *
+     * @param banData The ban data
+     *
      * @returns {Ban} The ban
      */
-    static _fromRawData(client: Client, rawData: RawBanData, guildID: string): Ban {
-        return fromRawData(client, rawData, guildID);
+    static fromData(client: Client, banData: BanData): Ban {
+        return fromData(client, banData);
     }
 }

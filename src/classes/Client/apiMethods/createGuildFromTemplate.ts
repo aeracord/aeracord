@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, RawGuildData, Template, TemplateResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildData, RawGuildData, Template, TemplateResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildFromTemplateData {
@@ -6,7 +6,7 @@ export interface CreateGuildFromTemplateData {
     icon?: string;
 }
 
-export default async function createGuildFromTemplate(client: Client, templateResolvable: TemplateResolvable, createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<Guild> {
+export default async function createGuildFromTemplate(client: Client, templateResolvable: TemplateResolvable, createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<GuildData> {
 
     // Resolve objects
     const templateCode: string | undefined = Template.resolveCode(templateResolvable);
@@ -30,9 +30,9 @@ export default async function createGuildFromTemplate(client: Client, templateRe
         }
     });
 
-    // Parse guild
-    const guild: Guild = Guild._fromRawData(client, result);
+    // Parse guild data
+    const guildData: GuildData = Guild._fromRawData(result);
 
     // Return
-    return guild;
+    return guildData;
 }

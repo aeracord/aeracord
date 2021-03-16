@@ -1,12 +1,12 @@
 import queryString from "query-string";
-import { Client, FetchQueue, Invite, InviteResolvable, RawInviteData } from "../../../internal";
+import { Client, FetchQueue, Invite, InviteData, InviteResolvable, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface GetInviteData {
     withCounts?: boolean;
 }
 
-export default async function getInvite(client: Client, inviteResolvable: InviteResolvable, getInviteData: GetInviteData = {}): Promise<Invite> {
+export default async function getInvite(client: Client, inviteResolvable: InviteResolvable, getInviteData: GetInviteData = {}): Promise<InviteData> {
 
     // Resolve objects
     const inviteCode: string | undefined = Invite.resolveCode(inviteResolvable);
@@ -28,9 +28,9 @@ export default async function getInvite(client: Client, inviteResolvable: Invite
         method
     });
 
-    // Parse invite
-    const invite: Invite = Invite._fromRawData(client, result);
+    // Parse invite data
+    const inviteData: InviteData = Invite._fromRawData(result);
 
     // Return
-    return invite;
+    return inviteData;
 }
