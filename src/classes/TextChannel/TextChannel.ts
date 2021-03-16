@@ -2,6 +2,7 @@ import { Client, GuildChannelData, TextBasedChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
+import updateObject from "./updateObject";
 
 export interface TextChannelData extends GuildChannelData, TextBasedChannelData {
     topic?: string;
@@ -51,16 +52,20 @@ class TextChannel extends GuildChannel {
         super(client, textChannelData);
 
         // Set data
-        this.name = textChannelData.name;
-        this.guildID = textChannelData.guildID;
-        this.position = textChannelData.position;
-        this.permissionOverwrites = textChannelData.permissionOverwrites;
-        this.parentID = textChannelData.parentID;
-        this.topic = textChannelData.topic;
-        this.nsfw = Boolean(textChannelData.nsfw);
-        this.rateLimitPerUser = textChannelData.rateLimitPerUser;
-        this.lastMessageID = textChannelData.lastMessageID;
-        this.lastPinTimestamp = textChannelData.lastPinTimestamp;
+        TextChannel._updateObject(this, textChannelData, true);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `TextChannel` object with data from a `TextChannelData` object
+     *
+     * @param textChannel The text channel to update
+     * @param textChannelData The data to update the text channel with
+     * @param fromConstructor Should only be `true` when called from this class's constructor
+     */
+    static _updateObject(textChannel: TextChannel, textChannelData: TextChannelData, fromConstructor?: boolean) {
+        updateObject(textChannel, textChannelData, fromConstructor);
     }
 }
 

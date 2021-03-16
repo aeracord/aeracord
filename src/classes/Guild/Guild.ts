@@ -1,6 +1,7 @@
 import { AnyChannel, Ban, Base, CacheManagerInterface, CategoryChannel, Client, Emoji, GuildChannel, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import updateObject from "./updateObject";
 
 export interface GuildData {
     id: string;
@@ -330,7 +331,7 @@ export default class Guild extends Base<Guild> {
      * Guild
      *
      * @param client The client
-     * @param guildData Options to initialize this role with
+     * @param guildData Options to initialize this guild with
      * @param guildData.id The guild's ID
      * @param guildData.name The guild's name
      * @param guildData.icon The guild's icon hash
@@ -376,44 +377,11 @@ export default class Guild extends Base<Guild> {
         });
 
         // Set data
-        this.name = guildData.name;
-        this.icon = guildData.icon;
-        this.splashImage = guildData.splashImage;
-        this.discoverySplashImage = guildData.discoverySplashImage;
-        this.ownerID = guildData.ownerID;
-        this.region = guildData.region;
-        this.afkChannelID = guildData.afkChannelID;
-        this.afkTimeout = guildData.afkTimeout;
-        this.widgetEnabled = Boolean(guildData.widgetEnabled);
-        this.widgetChannelID = guildData.widgetChannelID;
-        this.verificationLevel = guildData.verificationLevel;
-        this.defaultMessageNotifications = guildData.defaultMessageNotifications;
-        this.explicitContentFilter = guildData.explicitContentFilter;
+        Guild._updateObject(this, guildData);
         this.channels = new CacheManagerInterface<AnyChannel>(this.client, {
             cacheManager: this.client._channels,
             match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id)
         });
-        this.roles = guildData.roles;
-        this.emojis = guildData.emojis;
-        this.features = guildData.features;
-        this.mfaLevel = guildData.mfaLevel;
-        this.applicationID = guildData.applicationID;
-        this.systemChannelID = guildData.systemChannelID;
-        this.systemChannelFlags = guildData.systemChannelFlags;
-        this.rulesChannelID = guildData.rulesChannelID;
-        this.maxPresences = guildData.maxPresences || 25000;
-        this.maxMembers = guildData.maxMembers;
-        this.vanityURLCode = guildData.vanityURLCode;
-        this.description = guildData.description;
-        this.banner = guildData.banner;
-        this.premiumTier = guildData.premiumTier;
-        this.premiumSubscriptionCount = guildData.premiumSubscriptionCount;
-        this.preferredLocale = guildData.preferredLocale;
-        this.publicUpdatesChannelID = guildData.publicUpdatesChannelID;
-        this.maxVideoChannelUsers = guildData.maxVideoChannelUsers;
-        this.approximateMemberCount = guildData.approximateMemberCount;
-        this.approximatePresenceCount = guildData.approximatePresenceCount;
-        this.welcomeScreen = guildData.welcomeScreen;
     }
 
     /**
@@ -440,5 +408,16 @@ export default class Guild extends Base<Guild> {
      */
     static resolveID(guildResolvable: GuildResolvable): string | undefined {
         return resolveID(guildResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Guild` object with data from a `GuildData` object
+     *
+     * @param guildData The data to update this guild with
+     */
+    static _updateObject(guild: Guild, guildData: GuildData) {
+        updateObject(guild, guildData);
     }
 }

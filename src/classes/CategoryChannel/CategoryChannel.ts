@@ -1,5 +1,6 @@
 import { Client, GuildChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
+import updateObject from "./updateObject";
 
 export interface CategoryChannelData extends GuildChannelData { }
 
@@ -15,5 +16,21 @@ export default class CategoryChannel extends GuildChannel {
 
         // Super
         super(client, categoryChannelData);
+
+        // Set data
+        CategoryChannel._updateObject(this, categoryChannelData, true);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `CategoryChannel` object with data from a `CategoryChannelData` object
+     *
+     * @param categoryChannel The category channel to update
+     * @param categoryChannelData The data to update the category channel with
+     * @param fromConstructor Should only be `true` when called from this class's constructor
+     */
+    static _updateObject(categoryChannel: CategoryChannel, categoryChannelData: CategoryChannelData, fromConstructor?: boolean) {
+        updateObject(categoryChannel, categoryChannelData, fromConstructor);
     }
 }

@@ -1,6 +1,7 @@
 import { Base, Client, Member, RawUserData } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import updateObject from "./updateObject";
 
 export interface UserData {
     id: string;
@@ -93,12 +94,7 @@ export default class User extends Base<User> {
         });
 
         // Set data
-        this.username = userData.username;
-        this.discriminator = userData.discriminator;
-        this.avatar = userData.avatar;
-        this.bot = Boolean(userData.bot);
-        this.system = Boolean(userData.system);
-        this.publicFlags = userData.publicFlags;
+        User._updateObject(this, userData);
     }
 
     /**
@@ -125,5 +121,16 @@ export default class User extends Base<User> {
      */
     static resolveID(userResolvable: UserResolvable): string | undefined {
         return resolveID(userResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `User` object with data from a `UserData` object
+     *
+     * @param userData The data to update this user with
+     */
+    static _updateObject(user: User, userData: UserData) {
+        updateObject(user, userData);
     }
 }

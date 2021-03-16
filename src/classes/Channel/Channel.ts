@@ -1,6 +1,7 @@
 import { Base, CategoryChannel, Client, DMChannel, GuildChannel, NewsChannel, RawChannelData, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import updateObject from "./updateObject";
 
 export interface ChannelData {
     id: string;
@@ -60,5 +61,17 @@ export default class Channel extends Base<AnyChannel> {
      */
     static resolveID(channelResolvable: ChannelResolvable): string | undefined {
         return resolveID(channelResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Channel` object with data from a `ChannelData` object
+     *
+     * @param channel The channel to update
+     * @param channelData The data to update the channel with
+     */
+    static _updateObject(channel: Channel, channelData: ChannelData) {
+        updateObject(channel, channelData);
     }
 }

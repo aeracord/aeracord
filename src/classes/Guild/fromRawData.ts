@@ -1,9 +1,12 @@
-import { Client, Emoji, Guild, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
+import { Client, Emoji, Guild, GuildData, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
 
 export default function fromRawData(client: Client, rawData: RawGuildData): Guild {
 
-    // Parse guild
-    const guild: Guild = new Guild(client, {
+    // Get guild from cache
+    let guild: Guild | undefined = client.guilds.get(rawData.id);
+
+    // Parse guild data
+    const guildData: GuildData = {
         id: rawData.id,
         name: rawData.name,
         icon: rawData.icon || undefined,
@@ -39,7 +42,13 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
         welcomeScreen: rawData.welcome_screen && WelcomeScreen._fromRawData(client, rawData.welcome_screen, rawData.id)
-    });
+    };
+
+    // Update guild object
+    if (guild) Guild._updateObject(guild, guildData);
+
+    // Create guild
+    else guild = new Guild(client, guildData);
 
     // Return
     return guild;

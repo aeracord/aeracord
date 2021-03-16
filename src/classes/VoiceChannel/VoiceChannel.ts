@@ -1,5 +1,6 @@
 import { Client, GuildChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
+import updateObject from "./updateObject";
 
 export interface VoiceChannelData extends GuildChannelData {
     bitrate?: number;
@@ -36,7 +37,19 @@ export default class VoiceChannel extends GuildChannel {
         super(client, voiceChannelData);
 
         // Set data
-        this.bitrate = voiceChannelData.bitrate;
-        this.userLimit = voiceChannelData.userLimit;
+        VoiceChannel._updateObject(this, voiceChannelData, true);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `VoiceChannel` object with data from a `VoiceChannelData` object
+     *
+     * @param voiceChannel The voice channel to update
+     * @param voiceChannelData The data to update the voice channel with
+     * @param fromConstructor Should only be `true` when called from this class's constructor
+     */
+    static _updateObject(voiceChannel: VoiceChannel, voiceChannelData: VoiceChannelData, fromConstructor?: boolean) {
+        updateObject(voiceChannel, voiceChannelData, fromConstructor);
     }
 }

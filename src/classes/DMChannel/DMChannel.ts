@@ -1,5 +1,6 @@
 import { Client, TextBasedChannelData } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
+import updateObject from "./updateObject";
 
 export interface DMChannelData extends TextBasedChannelData {
     recipient: string;
@@ -27,6 +28,17 @@ export default class DMChannel extends TextBasedChannel {
         super(client, dmChannelData);
 
         // Set data
-        this.recipient = dmChannelData.recipient;
+        this._updateObject(dmChannelData);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `DMChannel` object with data from a `DMChannelData` object
+     *
+     * @param dmChannelData The data to update this DM channel with
+     */
+    _updateObject(dmChannelData: DMChannelData) {
+        updateObject(this, dmChannelData);
     }
 }

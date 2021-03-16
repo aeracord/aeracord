@@ -1,5 +1,6 @@
 import { CategoryChannel, ChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, NewsChannel, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
 import Channel from "../Channel/Channel";
+import updateObject from "./updateObject";
 
 export interface GuildChannelData extends ChannelData {
     name: string;
@@ -78,10 +79,19 @@ export default class GuildChannel extends Channel {
         super(client, guildChannelData);
 
         // Set data
-        this.name = guildChannelData.name;
-        this.guildID = guildChannelData.guildID;
-        this.position = guildChannelData.position;
-        this.permissionOverwrites = guildChannelData.permissionOverwrites;
-        this.parentID = guildChannelData.parentID;
+        GuildChannel._updateObject(this, guildChannelData, true);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `GuildChannel` object with data from a `GuildChannelData` object
+     *
+     * @param guildChannel The guild channel to update
+     * @param guildChannelData The data to update the guild channel with
+     * @param fromConstructor Should only be `true` when called from this class's constructor
+     */
+    static _updateObject(guildChannel: GuildChannel, guildChannelData: GuildChannelData, fromConstructor?: boolean) {
+        updateObject(guildChannel, guildChannelData, fromConstructor);
     }
 }

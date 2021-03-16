@@ -1,4 +1,5 @@
 import { Channel, ChannelData, Client } from "../../internal";
+import updateObject from "./updateObject";
 
 export interface TextBasedChannelData extends ChannelData {
     lastMessageID?: string;
@@ -35,7 +36,19 @@ export default class TextBasedChannel extends Channel {
         super(client, textBasedChannelData);
 
         // Set data
-        this.lastMessageID = textBasedChannelData.lastMessageID;
-        this.lastPinTimestamp = textBasedChannelData.lastPinTimestamp;
+        TextBasedChannel._updateObject(this, textBasedChannelData, true);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `TextBasedChannel` object with data from a `TextBasedChannelData` object
+     *
+     * @param textBasedChannel The text based channel to update
+     * @param textBasedChannelData The data to update the text based channel with
+     * @param fromConstructor Should only be `true` when called from this class's constructor
+     */
+    static _updateObject(textBasedChannel: TextBasedChannel, textBasedChannelData: TextBasedChannelData, fromConstructor?: boolean) {
+        updateObject(textBasedChannel, textBasedChannelData, fromConstructor);
     }
 }
