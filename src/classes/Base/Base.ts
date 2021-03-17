@@ -1,12 +1,12 @@
 import { CacheManager, Client } from "../../internal";
 
-export interface BaseData<ObjectType> {
+export interface BaseData<ObjectType extends Base<ObjectType>> {
     id: string;
     cacheManager: CacheManager<ObjectType>;
     expiresFromCacheAt?: number | null;
 }
 
-export default class Base<ObjectType> {
+export default class Base<ObjectType extends Base<ObjectType>> {
 
     /**
      * Client

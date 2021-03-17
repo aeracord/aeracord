@@ -1,9 +1,10 @@
-import { CacheManager, Client, GetResult } from "../../internal";
+import { Base, CacheManager, Client } from "../../internal";
 import clear from "./clear";
-import get from "./get";
+import garbageCollect from "./garbageCollect";
+import get, { GetResult } from "./get";
 import uncache from "./uncache";
 
-export interface CacheManagerInterfaceData<CachedObject> {
+export interface CacheManagerInterfaceData<CachedObject extends Base<CachedObject>> {
     cacheManager: CacheManager<CachedObject>;
     match?: MatchFunction<CachedObject>;
 }
@@ -19,7 +20,7 @@ export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
  *
  * Note that the `Client` uses `CacheManager`s as a central location for cached data
  */
-export default class CacheManagerInterface<CachedObject> {
+export default class CacheManagerInterface<CachedObject extends Base<CachedObject>> {
 
     /**
      * Client
@@ -108,5 +109,14 @@ export default class CacheManagerInterface<CachedObject> {
      */
     clear() {
         clear<CachedObject>(this);
+    }
+
+    /**
+     * Garbage Collect
+     *
+     * Garbage collect the cached objects
+     */
+    garbageCollect() {
+        garbageCollect<CachedObject>(this);
     }
 }

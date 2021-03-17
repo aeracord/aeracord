@@ -1,6 +1,6 @@
-import { Client, GetResult } from "../../internal";
+import { Base, Client } from "../../internal";
 import filter from "./filter";
-import get from "./get";
+import get, { GetResult } from "./get";
 
 export interface CacheManagerData<CachedObject> {
     cacheFor?: number;
@@ -17,7 +17,7 @@ export interface CacheManagerData<CachedObject> {
  *
  * Note that other class properties such as `Guild.channels` use `CacheManagerInterfaces`
  */
-export default class CacheManager<CachedObject> {
+export default class CacheManager<CachedObject extends Base<CachedObject>> {
 
     /**
      * Client
@@ -133,5 +133,14 @@ export default class CacheManager<CachedObject> {
      */
     clear() {
         this._cache.clear();
+    }
+
+    /**
+     * Garbage Collect
+     *
+     * Garbage collect the cached objects
+     */
+    garbageCollect() {
+        this.filter((value: CachedObject) => !value.expiresFromCacheAt || (value.expiresFromCacheAt > Date.now()), true);
     }
 }

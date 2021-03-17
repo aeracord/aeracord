@@ -1,6 +1,6 @@
-import { CacheManager } from "../../internal";
+import { Base, CacheManager } from "../../internal";
 
-export default function filter<CachedObject>(cacheManager: CacheManager<CachedObject>, predicate: (value: CachedObject, index: number) => any, modify?: boolean): Map<string, CachedObject> {
+export default function filter<CachedObject extends Base<CachedObject>>(cacheManager: CacheManager<CachedObject>, predicate: (value: CachedObject, index: number) => any, modify?: boolean): Map<string, CachedObject> {
 
     // Define index and results
     let index = 0;

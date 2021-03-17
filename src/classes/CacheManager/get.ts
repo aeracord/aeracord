@@ -1,8 +1,8 @@
-import { CacheManager } from "../../internal";
+import { Base, CacheManager } from "../../internal";
 
 export type GetResult<CachedObject, Fetch> = Fetch extends true ? Promise<CachedObject> : (CachedObject | undefined);
 
-export default function get<CachedObject, Fetch extends boolean = false>(cacheManager: CacheManager<CachedObject>, id: string, fetch?: Fetch): GetResult<CachedObject, Fetch> {
+export default function get<CachedObject extends Base<CachedObject>, Fetch extends boolean = false>(cacheManager: CacheManager<CachedObject>, id: string, fetch?: Fetch): GetResult<CachedObject, Fetch> {
 
     // Start by checking the cache for the object
     const object: CachedObject | undefined = cacheManager._cache.get(id);

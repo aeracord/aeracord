@@ -70,7 +70,6 @@ export {
     default as CacheManager,
     CacheManagerData
 } from "./classes/CacheManager/CacheManager";
-export { GetResult } from "./classes/CacheManager/get";
 
 // Cache Manager Interface
 export {
