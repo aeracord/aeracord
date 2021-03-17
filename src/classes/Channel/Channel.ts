@@ -39,6 +39,9 @@ export default class Channel extends Base<AnyChannel> {
             id: channelData.id,
             cacheManager: client._channels
         });
+
+        // Cache channel
+        this.client._channels.cache(this.id, this);
     }
 
     /**

@@ -96,6 +96,9 @@ export default class User extends Base<User> {
 
         // Set data
         User._updateObject(this, userData);
+
+        // Cache user
+        this.client._users.cache(this.id, this);
     }
 
     /**

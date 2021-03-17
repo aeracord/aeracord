@@ -3,6 +3,7 @@ import { CacheManager, Client } from "../../internal";
 export interface BaseData<ObjectType> {
     id: string;
     cacheManager: CacheManager<ObjectType>;
+    expiresFromCacheAt?: number | null;
 }
 
 export default class Base<ObjectType> {
@@ -29,13 +30,12 @@ export default class Base<ObjectType> {
     _cacheManager: CacheManager<ObjectType>;
 
     /**
-     * Cached
+     * Expires From Cache At
      *
-     * Whether or not this object is cached
+     * The timestamp for when this object can be garbage collected
+     * `undefined` if it should never expire from cache
      */
-    get cached(): boolean {
-        return Boolean(this._cacheManager.get(this.id));
-    }
+    expiresFromCacheAt?: number;
 
     /**
      * Base
@@ -43,6 +43,8 @@ export default class Base<ObjectType> {
      * @param client The client
      * @param baseData Options to initialize this base with
      * @param baseData.id The ID of the object
+     * @param baseData.cacheManager The cache manager for the object that extends this `Base`
+     * @param baseData.expiresFromCacheAt The timestamp for when this object can be garbage collected
      */
     constructor(client: Client, baseData: BaseData<ObjectType>) {
 
@@ -50,15 +52,8 @@ export default class Base<ObjectType> {
         this.client = client;
         this.id = baseData.id;
         this._cacheManager = baseData.cacheManager;
-    }
-
-    /**
-     * Cache
-     *
-     * Cache this object
-     */
-    cache() {
-        this._cacheManager.cache.set(this.id, this as unknown as ObjectType);
+        if (typeof baseData.expiresFromCacheAt === "number") this.expiresFromCacheAt = baseData.expiresFromCacheAt;
+        else if ((baseData.expiresFromCacheAt === undefined) && (this._cacheManager.cacheFor !== undefined)) this.expiresFromCacheAt = Date.now() + this._cacheManager.cacheFor;
     }
 
     /**

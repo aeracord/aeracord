@@ -3,6 +3,8 @@ import filter from "./filter";
 import get from "./get";
 
 export interface CacheManagerData<CachedObject> {
+    cacheFor?: number;
+    garbageCollectionInterval?: number;
     fetchObject: (id: string) => Promise<CachedObject>;
 }
 
@@ -29,7 +31,23 @@ export default class CacheManager<CachedObject> {
      *
      * The cache
      */
-    cache: Map<string, CachedObject>;
+    _cache: Map<string, CachedObject>;
+
+    /**
+     * Cache For
+     *
+     * The amount of time in milliseconds to keep objects cached
+     * `undefined` if objects should never expire from cache
+     */
+    cacheFor?: number;
+
+    /**
+     * Garbage Collection Interval
+     *
+     * The interval in milliseconds for garbage collecting cached objects
+     * `undefined` if objects should never be garbage collected
+     */
+    garbageCollectionInterval?: number;
 
     /**
      * Fetch Object
@@ -43,13 +61,17 @@ export default class CacheManager<CachedObject> {
      *
      * @param client The client
      * @param cacheManagerData Options to initialize this cache manager with
+     * @param cacheManagerData.cacheFor The amount of time in milliseconds to keep objects cached
+     * @param cacheManagerData.garbageCollectionInterval The interval in milliseconds for garbage collecting cached objects
      * @param cacheManagerData.fetchObject A function to fetch an object from the API
      */
     constructor(client: Client, cacheManagerData: CacheManagerData<CachedObject>) {
 
         // Set data
         this.client = client;
-        this.cache = new Map();
+        this._cache = new Map();
+        this.cacheFor = cacheManagerData.cacheFor;
+        this.garbageCollectionInterval = cacheManagerData.garbageCollectionInterval;
         this.fetchObject = cacheManagerData.fetchObject;
     }
 
@@ -68,6 +90,18 @@ export default class CacheManager<CachedObject> {
     }
 
     /**
+     * Cache
+     *
+     * Cache an object
+     *
+     * @param id The ID of the object
+     * @param object The object
+     */
+    cache(id: string, object: CachedObject) {
+        this._cache.set(id, object);
+    }
+
+    /**
      * Uncache
      *
      * Remove an object from cache
@@ -75,7 +109,7 @@ export default class CacheManager<CachedObject> {
      * @param id The ID of the object
      */
     uncache(id: string) {
-        this.cache.delete(id);
+        this._cache.delete(id);
     }
 
     /**
@@ -98,6 +132,6 @@ export default class CacheManager<CachedObject> {
      * Clear the cache
      */
     clear() {
-        this.cache.clear();
+        this._cache.clear();
     }
 }

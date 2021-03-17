@@ -383,6 +383,9 @@ export default class Guild extends Base<Guild> {
             cacheManager: this.client._channels,
             match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id)
         });
+
+        // Cache guild
+        this.client._guilds.cache(this.id, this);
     }
 
     /**

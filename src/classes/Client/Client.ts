@@ -193,6 +193,7 @@ export interface ClientData {
     token: string;
     presence?: ClientPresence;
     intents: Intent[];
+    cacheStrategies?: CacheStrategies;
 }
 
 export interface ClientPresence {
@@ -211,6 +212,21 @@ export interface ClientActivity {
 }
 
 export type ClientActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_COMPETING;
+
+export interface CacheStrategies {
+    objects?: ObjectCacheStrategies;
+}
+
+export interface ObjectCacheStrategies {
+    guilds?: CacheStrategy;
+    channels?: CacheStrategy;
+    users?: CacheStrategy;
+}
+
+export interface CacheStrategy {
+    cacheFor: number | null;
+    garbageCollectionInterval?: number;
+}
 
 export interface EventQueueEvent {
     type: string;
@@ -418,6 +434,13 @@ export default class Client extends EventEmitter {
     _fetchQueues: Map<string, FetchQueue>;
 
     /**
+     * Cache Strategies
+     *
+     * How objects should be cached
+     */
+    cacheStrategies: CacheStrategies;
+
+    /**
      * Guilds
      *
      * The internal cache of guilds
@@ -479,13 +502,32 @@ export default class Client extends EventEmitter {
         this._initialPresence = clientData.presence;
         this._intents = clientData.intents;
         this._fetchQueues = new Map();
+        this.cacheStrategies = clientData.cacheStrategies || {};
         this._guilds = new CacheManager<Guild>(this, {
+            cacheFor: this.cacheStrategies.objects?.guilds ?
+                (this.cacheStrategies.objects.guilds.cacheFor === null ? undefined : this.cacheStrategies.objects.guilds.cacheFor) :
+                60000,
+            garbageCollectionInterval: this.cacheStrategies.objects?.guilds ?
+                this.cacheStrategies.objects.guilds.garbageCollectionInterval :
+                60000,
             fetchObject: async (id: string): Promise<Guild> => Guild.fromData(this, await this.getGuild(id))
         });
         this._channels = new CacheManager<AnyChannel>(this, {
+            cacheFor: this.cacheStrategies.objects?.channels ?
+                (this.cacheStrategies.objects.channels.cacheFor === null ? undefined : this.cacheStrategies.objects.channels.cacheFor) :
+                60000,
+            garbageCollectionInterval: this.cacheStrategies.objects?.channels ?
+                this.cacheStrategies.objects.channels.garbageCollectionInterval :
+                60000,
             fetchObject: async (id: string): Promise<AnyChannel> => Channel.fromData(this, await this.getChannel(id))
         });
         this._users = new CacheManager<User>(this, {
+            cacheFor: this.cacheStrategies.objects?.users ?
+                (this.cacheStrategies.objects.users.cacheFor === null ? undefined : this.cacheStrategies.objects.users.cacheFor) :
+                60000,
+            garbageCollectionInterval: this.cacheStrategies.objects?.users ?
+                this.cacheStrategies.objects.users.garbageCollectionInterval :
+                60000,
             fetchObject: async (id: string): Promise<User> => User.fromData(this, await this.getUser(id))
         });
         this.guilds = new CacheManagerInterface<Guild>(this, {
