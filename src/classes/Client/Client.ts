@@ -224,8 +224,8 @@ export interface ObjectCacheStrategies {
 }
 
 export interface CacheStrategy {
-    cacheFor: number | null;
-    garbageCollectionInterval?: number;
+    cacheFor?: number | null;
+    garbageCollectionInterval?: number | null;
 }
 
 export interface EventQueueEvent {
@@ -508,7 +508,7 @@ export default class Client extends EventEmitter {
                 (this.cacheStrategies.objects.guilds.cacheFor === null ? undefined : this.cacheStrategies.objects.guilds.cacheFor) :
                 60000,
             garbageCollectionInterval: this.cacheStrategies.objects?.guilds ?
-                this.cacheStrategies.objects.guilds.garbageCollectionInterval :
+                (this.cacheStrategies.objects.guilds.garbageCollectionInterval === null ? undefined : this.cacheStrategies.objects.guilds.garbageCollectionInterval) :
                 60000,
             fetchObject: async (id: string): Promise<Guild> => Guild.fromData(this, await this.getGuild(id))
         });
@@ -517,7 +517,7 @@ export default class Client extends EventEmitter {
                 (this.cacheStrategies.objects.channels.cacheFor === null ? undefined : this.cacheStrategies.objects.channels.cacheFor) :
                 60000,
             garbageCollectionInterval: this.cacheStrategies.objects?.channels ?
-                this.cacheStrategies.objects.channels.garbageCollectionInterval :
+                (this.cacheStrategies.objects.channels.garbageCollectionInterval === null ? undefined : this.cacheStrategies.objects.channels.garbageCollectionInterval) :
                 60000,
             fetchObject: async (id: string): Promise<AnyChannel> => Channel.fromData(this, await this.getChannel(id))
         });
@@ -526,7 +526,7 @@ export default class Client extends EventEmitter {
                 (this.cacheStrategies.objects.users.cacheFor === null ? undefined : this.cacheStrategies.objects.users.cacheFor) :
                 60000,
             garbageCollectionInterval: this.cacheStrategies.objects?.users ?
-                this.cacheStrategies.objects.users.garbageCollectionInterval :
+                (this.cacheStrategies.objects.users.garbageCollectionInterval === null ? undefined : this.cacheStrategies.objects.users.garbageCollectionInterval) :
                 60000,
             fetchObject: async (id: string): Promise<User> => User.fromData(this, await this.getUser(id))
         });
