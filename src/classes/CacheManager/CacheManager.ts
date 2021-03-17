@@ -73,6 +73,9 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
         this.cacheFor = cacheManagerData.cacheFor;
         this.garbageCollectionInterval = cacheManagerData.garbageCollectionInterval;
         this.fetchObject = cacheManagerData.fetchObject;
+
+        // Set garbage collection interval
+        if (this.garbageCollectionInterval) setInterval(() => this.garbageCollect(), this.garbageCollectionInterval);
     }
 
     /**
