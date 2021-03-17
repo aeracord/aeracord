@@ -57,6 +57,18 @@ export default class Base<ObjectType> {
     }
 
     /**
+     * Expire From Cache In
+     *
+     * Set the amount of time in milliseconds to keep this object cached
+     *
+     * @param amount The amount of time
+     * `undefined` if it should never expire from cache
+     */
+    expireFromCacheIn(amount?: number) {
+        this.expiresFromCacheAt = amount !== undefined ? Date.now() + amount : undefined;
+    }
+
+    /**
      * Uncache
      *
      * Remove this object from cache
