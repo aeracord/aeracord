@@ -1,7 +1,8 @@
-import { Client, DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, RawTemplateData, UserData, VerificationLevel } from "../../internal";
+import { Base, Client, DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, RawTemplateData, UserData, VerificationLevel } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
+import updateObject from "./updateObject";
 
 export interface TemplateData {
     code: string;
@@ -64,21 +65,16 @@ export interface TemplateGuildChannelPermissionOverwrite {
 
 export type TemplateResolvable = Template | string;
 
-export default class Template {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class Template extends Base<Template> {
 
     /**
      * Code
      *
      * The template's code
      */
-    code: string;
+    get code(): string {
+        return this.id;
+    }
 
     /**
      * Name
@@ -161,18 +157,17 @@ export default class Template {
      */
     constructor(client: Client, templateData: TemplateData) {
 
+        // Super
+        super(client, {
+            id: templateData.code,
+            cacheManager: client._templates
+        });
+
         // Set data
-        this.client = client;
-        this.code = templateData.code;
-        this.name = templateData.name;
-        this.description = templateData.description;
-        this.uses = templateData.uses;
-        this.creator = templateData.creator;
-        this.createdAt = templateData.createdAt;
-        this.updatedAt = templateData.updatedAt;
-        this.sourceGuildID = templateData.sourceGuildID;
-        this.sourceGuild = templateData.sourceGuild;
-        this.dirty = Boolean(templateData.dirty);
+        Template._updateObject(this, templateData);
+
+        // Cache template
+        this.client._templates.cache(this.id, this);
     }
 
     /**
@@ -212,5 +207,16 @@ export default class Template {
      */
     static resolveCode(templateResolvable: TemplateResolvable): string | undefined {
         return resolveCode(templateResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Template` object with data from a `TemplateData` object
+     *
+     * @param templateData The data to update this template with
+     */
+    static _updateObject(template: Template, templateData: TemplateData) {
+        updateObject(template, templateData);
     }
 }

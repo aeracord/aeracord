@@ -55,6 +55,7 @@ import {
     GuildPreview,
     GuildResolvable,
     GuildRoleDeleteData,
+    GuildWidget,
     GuildWidgetData,
     Intent,
     Invite,
@@ -86,6 +87,7 @@ import {
     ModifyGuildWidgetData,
     ModifyWebhookData,
     PartialGuild,
+    Presence,
     PresenceData,
     ReactionEmojiResolvable,
     ReadyData,
@@ -94,18 +96,23 @@ import {
     RoleData,
     RoleResolvable,
     Status,
+    Template,
     TemplateData,
     TemplateResolvable,
     TypingStartData,
     User,
     UserData,
     UserResolvable,
+    VanityInvite,
     VanityInviteData,
     VoiceRegion,
     VoiceStateData,
+    Webhook,
     WebhooksUpdateData,
     WebhookData,
-    WebhookResolvable
+    WebhookResolvable,
+    WelcomeScreen,
+    WelcomeScreenData
 } from "../../internal";
 import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
@@ -222,13 +229,19 @@ export interface CacheStrategies {
 }
 
 export interface ObjectCacheStrategies {
-    guilds?: CacheStrategy;
     channels?: CacheStrategy;
-    users?: CacheStrategy;
-    messages?: CacheStrategy;
-    roles?: CacheStrategy;
     emojis?: CacheStrategy;
+    guilds?: CacheStrategy;
+    guildWidgets?: CacheStrategy;
     invites?: CacheStrategy;
+    messages?: CacheStrategy;
+    presences?: CacheStrategy;
+    roles?: CacheStrategy;
+    templates?: CacheStrategy;
+    vanityInvites?: CacheStrategy;
+    webhooks?: CacheStrategy;
+    welcomeScreens?: CacheStrategy;
+    users?: CacheStrategy;
 }
 
 export interface CacheStrategy {
@@ -449,39 +462,11 @@ export default class Client extends EventEmitter {
     cacheStrategies: CacheStrategies;
 
     /**
-     * Guilds
-     *
-     * The internal cache of guilds
-     */
-    _guilds: CacheManager<Guild>;
-
-    /**
      * Channels
      *
      * The internal cache of channels
      */
     _channels: CacheManager<AnyChannel>;
-
-    /**
-     * Users
-     *
-     * The internal cache of users
-     */
-    _users: CacheManager<User>;
-
-    /**
-     * Messages
-     *
-     * The internal cache of messages
-     */
-    _messages: CacheManager<Message>;
-
-    /**
-     * Roles
-     *
-     * The internal cache of roles
-     */
-    _roles: CacheManager<Role>;
 
     /**
      * Emojis
@@ -491,6 +476,20 @@ export default class Client extends EventEmitter {
     _emojis: CacheManager<Emoji>;
 
     /**
+     * Guilds
+     *
+     * The internal cache of guilds
+     */
+    _guilds: CacheManager<Guild>;
+
+    /**
+     * Guild Widgets
+     *
+     * The internal cache of guild widgets
+     */
+    _guildWidgets: CacheManager<GuildWidget>;
+
+    /**
      * Invites
      *
      * The internal cache of invites
@@ -498,11 +497,60 @@ export default class Client extends EventEmitter {
     _invites: CacheManager<Invite>;
 
     /**
-     * Guilds
+     * Messages
      *
-     * The cache of guilds
+     * The internal cache of messages
      */
-    guilds: CacheManagerInterface<Guild>;
+    _messages: CacheManager<Message>;
+
+    /**
+     * Presences
+     *
+     * The internal cache of presences
+     */
+    _presences: CacheManager<Presence>;
+
+    /**
+     * Roles
+     *
+     * The internal cache of roles
+     */
+    _roles: CacheManager<Role>;
+
+    /**
+     * Templates
+     *
+     * The internal cache of templates
+     */
+    _templates: CacheManager<Template>;
+
+    /**
+     * Vanity Invites
+     *
+     * The internal cache of vanity invites
+     */
+    _vanityInvites: CacheManager<VanityInvite>;
+
+    /**
+     * Webhooks
+     *
+     * The internal cache of webhooks
+     */
+    _webhooks: CacheManager<Webhook>;
+
+    /**
+     * Welcome Screens
+     *
+     * The internal cache of welcome screens
+     */
+    _welcomeScreens: CacheManager<WelcomeScreen>;
+
+    /**
+     * Users
+     *
+     * The internal cache of users
+     */
+    _users: CacheManager<User>;
 
     /**
      * Channels
@@ -512,11 +560,32 @@ export default class Client extends EventEmitter {
     channels: CacheManagerInterface<AnyChannel>;
 
     /**
-     * Users
+     * Emojis
      *
-     * The cache of users
+     * The cache of emojis
      */
-    users: CacheManagerInterface<User>;
+    emojis: CacheManagerInterface<Emoji, false>;
+
+    /**
+     * Guilds
+     *
+     * The cache of guilds
+     */
+    guilds: CacheManagerInterface<Guild>;
+
+    /**
+     * Guild Widgets
+     *
+     * The cache of guild widgets
+     */
+    guildWidgets: CacheManagerInterface<GuildWidget>;
+
+    /**
+     * Invites
+     *
+     * The cache of invites
+     */
+    invites: CacheManagerInterface<Invite>;
 
     /**
      * Messages
@@ -526,6 +595,13 @@ export default class Client extends EventEmitter {
     messages: CacheManagerInterface<Message, false>;
 
     /**
+     * Presences
+     *
+     * The cache of presences
+     */
+    presences: CacheManagerInterface<Presence, false>;
+
+    /**
      * Roles
      *
      * The cache of roles
@@ -533,18 +609,39 @@ export default class Client extends EventEmitter {
     roles: CacheManagerInterface<Role, false>;
 
     /**
-     * Emojis
+     * Templates
      *
-     * The cache of emojis
+     * The cache of templates
      */
-    emojis: CacheManagerInterface<Emoji, false>;
+    templates: CacheManagerInterface<Template>;
 
     /**
-     * Invites
+     * Vanity Invites
      *
-     * The cache of invites
+     * The cache of vanity invites
      */
-    invites: CacheManagerInterface<Invite>;
+    vanityInvites: CacheManagerInterface<VanityInvite>;
+
+    /**
+     * Webhooks
+     *
+     * The cache of webhooks
+     */
+    webhooks: CacheManagerInterface<Webhook>;
+
+    /**
+     * Welcome Screens
+     *
+     * The cache of welcome screens
+     */
+    welcomeScreens: CacheManagerInterface<WelcomeScreen>;
+
+    /**
+     * Users
+     *
+     * The cache of users
+     */
+    users: CacheManagerInterface<User>;
 
     /**
      * Client
@@ -567,37 +664,74 @@ export default class Client extends EventEmitter {
         this._intents = clientData.intents;
         this._fetchQueues = new Map();
         this.cacheStrategies = clientData.cacheStrategies || {};
-        this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guilds));
         this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.channels));
-        this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.users));
-        this._messages = new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.messages));
-        this._roles = new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.roles));
         this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.emojis));
+        this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guilds));
+        this._guildWidgets = new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guildWidgets));
         this._invites = new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.invites));
-        this.guilds = new CacheManagerInterface<Guild>(this, {
-            cacheManager: this._guilds,
-            fetchObject: async (id: string): Promise<Guild> => Guild.fromData(this, await this.getGuild(id))
-        });
+        this._messages = new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.messages));
+        this._presences = new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.presences));
+        this._roles = new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.roles));
+        this._templates = new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.templates));
+        this._vanityInvites = new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.vanityInvites));
+        this._webhooks = new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.webhooks));
+        this._welcomeScreens = new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.welcomeScreens));
+        this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.users));
         this.channels = new CacheManagerInterface<AnyChannel>(this, {
             cacheManager: this._channels,
             fetchObject: async (id: string): Promise<AnyChannel> => Channel.fromData(this, await this.getChannel(id))
         });
-        this.users = new CacheManagerInterface<User>(this, {
-            cacheManager: this._users,
-            fetchObject: async (id: string): Promise<User> => User.fromData(this, await this.getUser(id))
-        });
-        this.messages = new CacheManagerInterface<Message, false>(this, {
-            cacheManager: this._messages
-        });
-        this.roles = new CacheManagerInterface<Role, false>(this, {
-            cacheManager: this._roles
-        });
         this.emojis = new CacheManagerInterface<Emoji, false>(this, {
             cacheManager: this._emojis
+        });
+        this.guilds = new CacheManagerInterface<Guild>(this, {
+            cacheManager: this._guilds,
+            fetchObject: async (id: string): Promise<Guild> => Guild.fromData(this, await this.getGuild(id))
+        });
+        this.guildWidgets = new CacheManagerInterface<GuildWidget>(this, {
+            cacheManager: this._guildWidgets,
+            fetchObject: async (id: string): Promise<GuildWidget> => GuildWidget.fromData(this, await this.getGuildWidgetSettings(id))
         });
         this.invites = new CacheManagerInterface<Invite>(this, {
             cacheManager: this._invites,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this, await this.getInvite(id))
+        });
+        this.messages = new CacheManagerInterface<Message, false>(this, {
+            cacheManager: this._messages
+        });
+        this.presences = new CacheManagerInterface<Presence, false>(this, {
+            cacheManager: this._presences
+        });
+        this.roles = new CacheManagerInterface<Role, false>(this, {
+            cacheManager: this._roles
+        });
+        this.templates = new CacheManagerInterface<Template>(this, {
+            cacheManager: this._templates,
+            fetchObject: async (id: string): Promise<Template> => Template.fromData(this, await this.getTemplate(id))
+        });
+        this.vanityInvites = new CacheManagerInterface<VanityInvite>(this, {
+            cacheManager: this._vanityInvites,
+            fetchObject: async (id: string): Promise<VanityInvite> => VanityInvite.fromData(this, await this.getGuildVanityURL(id))
+        });
+        this.webhooks = new CacheManagerInterface<Webhook>(this, {
+            cacheManager: this._webhooks,
+            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this, await this.getWebhook(id))
+        });
+        this.welcomeScreens = new CacheManagerInterface<WelcomeScreen>(this, {
+            cacheManager: this._welcomeScreens,
+            fetchObject: async (id: string): Promise<WelcomeScreen> => {
+
+                // Get welcome screen data
+                const welcomeScreenData: WelcomeScreenData | undefined = (await this.guilds.get(id, true)).welcomeScreen;
+                if (!welcomeScreenData) throw new Error("Couldn't find a welcome screen in that guild");
+
+                // Return
+                return WelcomeScreen.fromData(this, welcomeScreenData);
+            }
+        });
+        this.users = new CacheManagerInterface<User>(this, {
+            cacheManager: this._users,
+            fetchObject: async (id: string): Promise<User> => User.fromData(this, await this.getUser(id))
         });
 
         // Connect
@@ -610,7 +744,7 @@ export default class Client extends EventEmitter {
      * Connect to the gateway
      */
     _connect() {
-        return connect(this);
+        connect(this);
     }
 
     /**

@@ -1,6 +1,7 @@
-import { ActivityType, Client, RawPresenceData, Status } from "../../internal";
+import { ActivityType, Base, Client, RawPresenceData, Status } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import updateObject from "./updateObject";
 
 export interface PresenceData {
     user: PresenceUser;
@@ -300,14 +301,7 @@ export interface PresenceClientStatus {
     web?: Status;
 }
 
-export default class Presence {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class Presence extends Base<Presence> {
 
     /**
      * User
@@ -349,12 +343,17 @@ export default class Presence {
      */
     constructor(client: Client, presenceData: PresenceData) {
 
+        // Super
+        super(client, {
+            id: presenceData.user.id,
+            cacheManager: client._presences
+        });
+
         // Set data
-        this.client = client;
-        this.user = presenceData.user;
-        this.status = presenceData.status;
-        this.activities = presenceData.activities;
-        this.clientStatus = presenceData.clientStatus;
+        Presence._updateObject(this, presenceData);
+
+        // Cache presence
+        this.client._presences.cache(this.id, this);
     }
 
     /**
@@ -381,5 +380,16 @@ export default class Presence {
      */
     static fromData(client: Client, presenceData: PresenceData): Presence {
         return fromData(client, presenceData);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Presence` object with data from a `PresenceData` object
+     *
+     * @param presenceData The data to update this presence with
+     */
+    static _updateObject(presence: Presence, presenceData: PresenceData) {
+        updateObject(presence, presenceData);
     }
 }

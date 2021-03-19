@@ -1,6 +1,7 @@
-import { Client, RawWelcomeScreenData } from "../../internal";
+import { Base, Client, RawWelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import updateObject from "./updateObject";
 
 export interface WelcomeScreenData {
     guildID: string;
@@ -15,21 +16,16 @@ export interface WelcomeScreenChannel {
     emojiName?: string;
 }
 
-export default class WelcomeScreen {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class WelcomeScreen extends Base<WelcomeScreen> {
 
     /**
      * Guild ID
      *
      * The ID of the guild this welcome screen is for
      */
-    guildID: string;
+    get guildID(): string {
+        return this.id;
+    }
 
     /**
      * Description
@@ -56,11 +52,17 @@ export default class WelcomeScreen {
      */
     constructor(client: Client, welcomeScreenData: WelcomeScreenData) {
 
+        // Super
+        super(client, {
+            id: welcomeScreenData.guildID,
+            cacheManager: client._welcomeScreens
+        });
+
         // Set data
-        this.client = client;
-        this.guildID = welcomeScreenData.guildID;
-        this.description = welcomeScreenData.description;
-        this.channels = welcomeScreenData.channels;
+        WelcomeScreen._updateObject(this, welcomeScreenData);
+
+        // Cache welcome screen
+        this.client._welcomeScreens.cache(this.id, this);
     }
 
     /**
@@ -87,5 +89,16 @@ export default class WelcomeScreen {
      */
     static fromData(client: Client, welcomeScreenData: WelcomeScreenData): WelcomeScreen {
         return fromData(client, welcomeScreenData);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `WelcomeScreen` object with data from a `WelcomeScreenData` object
+     *
+     * @param welcomeScreenData The data to update this welcome screen with
+     */
+    static _updateObject(welcomeScreen: WelcomeScreen, welcomeScreenData: WelcomeScreenData) {
+        updateObject(welcomeScreen, welcomeScreenData);
     }
 }

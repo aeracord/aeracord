@@ -1,7 +1,8 @@
-import { Client, RawWebhookData, UserData } from "../../internal";
+import { Base, Client, RawWebhookData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import updateObject from "./updateObject";
 
 export interface WebhookData {
     id: string;
@@ -21,21 +22,7 @@ export const WEBHOOK_TYPE_CHANNEL_FOLLOWER = 2;
 
 export type WebhookResolvable = Webhook | string;
 
-export default class Webhook {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The webhook's ID
-     */
-    id: string;
+export default class Webhook extends Base<Webhook> {
 
     /**
      * Type
@@ -110,17 +97,17 @@ export default class Webhook {
      */
     constructor(client: Client, webhookData: WebhookData) {
 
+        // Super
+        super(client, {
+            id: webhookData.id,
+            cacheManager: client._webhooks
+        });
+
         // Set data
-        this.client = client;
-        this.id = webhookData.id;
-        this.type = webhookData.type;
-        this.guildID = webhookData.guildID;
-        this.channelID = webhookData.channelID;
-        this.name = webhookData.name;
-        this.avatar = webhookData.avatar;
-        this.creator = webhookData.creator;
-        this.token = webhookData.token;
-        this.applicationID = webhookData.applicationID;
+        Webhook._updateObject(this, webhookData);
+
+        // Cache webhook
+        this.client._webhooks.cache(this.id, this);
     }
 
     /**
@@ -160,5 +147,16 @@ export default class Webhook {
      */
     static resolveID(webhookResolvable: WebhookResolvable): string | undefined {
         return resolveID(webhookResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Webhook` object with data from a `WebhookData` object
+     *
+     * @param webhookData The data to update this webhook with
+     */
+    static _updateObject(webhook: Webhook, webhookData: WebhookData) {
+        updateObject(webhook, webhookData);
     }
 }

@@ -1,6 +1,7 @@
-import { Client, RawGuildWidgetData } from "../../internal";
+import { Base, Client, RawGuildWidgetData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import updateObject from "./updateObject";
 
 export interface GuildWidgetData {
     guildID: string;
@@ -8,21 +9,16 @@ export interface GuildWidgetData {
     channelID?: string;
 }
 
-export default class GuildWidget {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class GuildWidget extends Base<GuildWidget> {
 
     /**
      * Guild ID
      *
      * The ID of the guild this widget is for
      */
-    guildID: string;
+    get guildID(): string {
+        return this.id;
+    }
 
     /**
      * Enabled
@@ -49,11 +45,17 @@ export default class GuildWidget {
      */
     constructor(client: Client, guildWidgetData: GuildWidgetData) {
 
+        // Super
+        super(client, {
+            id: guildWidgetData.guildID,
+            cacheManager: client._guildWidgets
+        });
+
         // Set data
-        this.client = client;
-        this.guildID = guildWidgetData.guildID;
-        this.enabled = Boolean(guildWidgetData.enabled);
-        this.channelID = guildWidgetData.channelID;
+        GuildWidget._updateObject(this, guildWidgetData);
+
+        // Cache guild widget
+        this.client._guildWidgets.cache(this.id, this);
     }
 
     /**
@@ -80,5 +82,16 @@ export default class GuildWidget {
      */
     static fromData(client: Client, guildWidgetData: GuildWidgetData): GuildWidget {
         return fromData(client, guildWidgetData);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `GuildWidget` object with data from a `GuildWidgetData` object
+     *
+     * @param guildWidgetData The data to update this guildWidget with
+     */
+    static _updateObject(guildWidget: GuildWidget, guildWidgetData: GuildWidgetData) {
+        updateObject(guildWidget, guildWidgetData);
     }
 }

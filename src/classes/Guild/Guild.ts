@@ -217,6 +217,20 @@ export default class Guild extends Base<Guild> {
     invites: CacheManagerInterface<Invite>;
 
     /**
+     * Templates
+     *
+     * The cache manager interface for the templates in this guild
+     */
+    templates: CacheManagerInterface<Template>;
+
+    /**
+     * Webhooks
+     *
+     * The cache manager interface for the webhooks in this guild
+     */
+    webhooks: CacheManagerInterface<Webhook>;
+
+    /**
      * Features
      *
      * The guild's features
@@ -437,6 +451,16 @@ export default class Guild extends Base<Guild> {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.guildID === this.id,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
+        });
+        this.templates = new CacheManagerInterface<Template>(this.client, {
+            cacheManager: this.client._templates,
+            match: (t: Template) => t.sourceGuildID === this.id,
+            fetchObject: async (id: string): Promise<Template> => Template.fromData(this.client, await this.client.getTemplate(id))
+        });
+        this.webhooks = new CacheManagerInterface<Webhook>(this.client, {
+            cacheManager: this.client._webhooks,
+            match: (w: Webhook) => w.guildID === this.id,
+            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(id))
         });
 
         // Cache guild

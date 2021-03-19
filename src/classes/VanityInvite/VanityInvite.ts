@@ -1,6 +1,7 @@
-import { Client, RawVanityInviteData } from "../../internal";
+import { Base, Client, RawVanityInviteData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import updateObject from "./updateObject";
 
 export interface VanityInviteData {
     guildID: string;
@@ -8,21 +9,16 @@ export interface VanityInviteData {
     uses: number;
 }
 
-export default class VanityInvite {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class VanityInvite extends Base<VanityInvite> {
 
     /**
      * Guild ID
      *
      * The ID of the guild this vanity invite is for
      */
-    guildID: string;
+    get guildID(): string {
+        return this.id;
+    }
 
     /**
      * Code
@@ -49,11 +45,17 @@ export default class VanityInvite {
      */
     constructor(client: Client, vanityInviteData: VanityInviteData) {
 
+        // Super
+        super(client, {
+            id: vanityInviteData.guildID,
+            cacheManager: client._vanityInvites
+        });
+
         // Set data
-        this.client = client;
-        this.guildID = vanityInviteData.guildID;
-        this.code = vanityInviteData.code;
-        this.uses = vanityInviteData.uses;
+        VanityInvite._updateObject(this, vanityInviteData);
+
+        // Cache vanity invite
+        this.client._vanityInvites.cache(this.id, this);
     }
 
     /**
@@ -80,5 +82,16 @@ export default class VanityInvite {
      */
     static fromData(client: Client, vanityInviteData: VanityInviteData): VanityInvite {
         return fromData(client, vanityInviteData);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `VanityInvite` object with data from a `VanityInviteData` object
+     *
+     * @param vanityInviteData The data to update this vanityInvite with
+     */
+    static _updateObject(vanityInvite: VanityInvite, vanityInviteData: VanityInviteData) {
+        updateObject(vanityInvite, vanityInviteData);
     }
 }

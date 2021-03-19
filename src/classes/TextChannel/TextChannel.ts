@@ -1,4 +1,4 @@
-import { CacheManagerInterface, Client, GuildChannelData, Invite, Message, TextBasedChannelData } from "../../internal";
+import { CacheManagerInterface, Client, GuildChannelData, Invite, Message, TextBasedChannelData, Webhook } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -45,6 +45,13 @@ class TextChannel extends GuildChannel {
     invites: CacheManagerInterface<Invite>;
 
     /**
+     * Webhooks
+     *
+     * The cache manager interface for the webhooks in this channel
+     */
+    webhooks: CacheManagerInterface<Webhook>;
+
+    /**
      * Text Channel
      *
      * @param client The client
@@ -69,6 +76,11 @@ class TextChannel extends GuildChannel {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.channelID === this.id,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
+        });
+        this.webhooks = new CacheManagerInterface<Webhook>(this.client, {
+            cacheManager: this.client._webhooks,
+            match: (w: Webhook) => w.channelID === this.id,
+            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(id))
         });
     }
 
