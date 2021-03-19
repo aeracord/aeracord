@@ -6,5 +6,5 @@ export default function resolveCode(inviteResolvable: InviteResolvable): string 
     if (inviteResolvable instanceof Invite) return inviteResolvable.code;
 
     // Invite code
-    else if (/^[a-zA-Z0-9]$/.test(inviteResolvable)) return inviteResolvable;
+    else if (/^[a-zA-Z0-9]+$/.test(inviteResolvable)) return inviteResolvable;
 }

@@ -6,5 +6,5 @@ export default function resolveCode(templateResolvable: TemplateResolvable): str
     if (templateResolvable instanceof Template) return templateResolvable.code;
 
     // Template code
-    else if (/^[a-zA-Z0-9]$/.test(templateResolvable)) return templateResolvable;
+    else if (/^[a-zA-Z0-9]+$/.test(templateResolvable)) return templateResolvable;
 }
