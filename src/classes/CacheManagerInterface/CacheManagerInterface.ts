@@ -1,12 +1,13 @@
 import { Base, CacheManager, Client } from "../../internal";
 import clear from "./clear";
 import garbageCollect from "./garbageCollect";
-import get, { GetResult } from "./get";
+import get, { GetFetch, GetResult } from "./get";
 import uncache from "./uncache";
 
 export interface CacheManagerInterfaceData<CachedObject extends Base<CachedObject>> {
     cacheManager: CacheManager<CachedObject>;
     match?: MatchFunction<CachedObject>;
+    fetchObject?: (id: string) => Promise<CachedObject>;
 }
 
 export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
@@ -20,7 +21,7 @@ export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
  *
  * Note that the `Client` uses `CacheManager`s as a central location for cached data
  */
-export default class CacheManagerInterface<CachedObject extends Base<CachedObject>> {
+export default class CacheManagerInterface<CachedObject extends Base<CachedObject>, FetchObject = true> {
 
     /**
      * Client
@@ -48,12 +49,20 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
     _match?: MatchFunction<CachedObject>;
 
     /**
+     * Fetch Object
+     *
+     * A function to fetch an object from the API
+     */
+    fetchObject?: (id: string) => Promise<CachedObject>;
+
+    /**
      * Cache Manager Interface
      *
      * @param client The client
      * @param cacheManagerInterfaceData Options to initialize this cache manager interface with
      * @param cacheManagerInterfaceData.cacheManager The cache manager
      * @param cacheManagerInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
+     * @param cacheManagerInterfaceData.fetchObject A function to fetch an object from the API
      */
     constructor(client: Client, cacheManagerInterfaceData: CacheManagerInterfaceData<CachedObject>) {
 
@@ -61,6 +70,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
         this.client = client;
         this._cacheManager = cacheManagerInterfaceData.cacheManager;
         this._match = cacheManagerInterfaceData.match;
+        this.fetchObject = cacheManagerInterfaceData.fetchObject;
     }
 
     /**
@@ -73,8 +83,8 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      *
      * @returns {CachedObject | Promise<CachedObject> | undefined} The cached object or `undefined` if it doesn't exist
      */
-    get<Fetch extends boolean = false>(id: string, fetch?: Fetch): GetResult<CachedObject, Fetch> {
-        return get<CachedObject, Fetch>(this, id, fetch);
+    get<Fetch extends boolean = false>(id: string, fetch?: GetFetch<FetchObject, Fetch>): GetResult<CachedObject, Fetch> {
+        return get<CachedObject, FetchObject, Fetch>(this, id, fetch);
     }
 
     /**
@@ -85,7 +95,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      * @param id The ID of the object
      */
     uncache(id: string) {
-        uncache<CachedObject>(this, id);
+        uncache<CachedObject, FetchObject>(this, id);
     }
 
     /**
@@ -108,7 +118,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      * Clear the cache
      */
     clear() {
-        clear<CachedObject>(this);
+        clear<CachedObject, FetchObject>(this);
     }
 
     /**
@@ -117,6 +127,6 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      * Garbage collect the cached objects
      */
     garbageCollect() {
-        garbageCollect<CachedObject>(this);
+        garbageCollect<CachedObject, FetchObject>(this);
     }
 }

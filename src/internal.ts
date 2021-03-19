@@ -70,6 +70,7 @@ export {
     default as CacheManager,
     CacheManagerData
 } from "./classes/CacheManager/CacheManager";
+export { ParsedCacheStrategy } from "./classes/CacheManager/parseCacheStrategy";
 
 // Cache Manager Interface
 export {
@@ -104,11 +105,14 @@ export { default as RawChannelData, RawChannelDataPermissionOverwrite } from "./
 // Client
 export {
     default as Client,
+    CacheStrategies,
+    CacheStrategy,
     ClientActivity,
     ClientActivityType,
     ClientData,
     ClientPresence,
     ClientStatus,
+    ObjectCacheStrategies,
     READY_STATE_INITIAL_GUILDS,
     READY_STATE_NONE,
     READY_STATE_READY,

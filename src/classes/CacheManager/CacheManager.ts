@@ -1,11 +1,10 @@
-import { Base, Client } from "../../internal";
+import { Base, CacheStrategy, Client, ParsedCacheStrategy } from "../../internal";
 import filter from "./filter";
-import get, { GetResult } from "./get";
+import parseCacheStrategy from "./parseCacheStrategy";
 
-export interface CacheManagerData<CachedObject> {
+export interface CacheManagerData {
     cacheFor?: number;
     garbageCollectionInterval?: number;
-    fetchObject: (id: string) => Promise<CachedObject>;
 }
 
 /**
@@ -50,32 +49,36 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
     garbageCollectionInterval?: number;
 
     /**
-     * Fetch Object
-     *
-     * A function to fetch an object from the API
-     */
-    fetchObject: (id: string) => Promise<CachedObject>;
-
-    /**
      * Cache Manager
      *
      * @param client The client
      * @param cacheManagerData Options to initialize this cache manager with
      * @param cacheManagerData.cacheFor The amount of time in milliseconds to keep objects cached
      * @param cacheManagerData.garbageCollectionInterval The interval in milliseconds for garbage collecting cached objects
-     * @param cacheManagerData.fetchObject A function to fetch an object from the API
      */
-    constructor(client: Client, cacheManagerData: CacheManagerData<CachedObject>) {
+    constructor(client: Client, cacheManagerData: CacheManagerData) {
 
         // Set data
         this.client = client;
         this._cache = new Map();
         this.cacheFor = cacheManagerData.cacheFor;
         this.garbageCollectionInterval = cacheManagerData.garbageCollectionInterval;
-        this.fetchObject = cacheManagerData.fetchObject;
 
         // Set garbage collection interval
         if (this.garbageCollectionInterval) setInterval(() => this.garbageCollect(), this.garbageCollectionInterval);
+    }
+
+    /**
+     * Parse Cache Strategy
+     *
+     * Create a `ParsedCacheStrategy` object from a `CacheStrategy` object
+     *
+     * @param cacheStrategy The cache strategy
+     *
+     * @returns {ParsedCacheStrategy} The parsed cache strategy
+     */
+    static parseCacheStrategy(cacheStrategy?: CacheStrategy): ParsedCacheStrategy {
+        return parseCacheStrategy(cacheStrategy);
     }
 
     /**
@@ -84,12 +87,11 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      * Get an object from cache
      *
      * @param id The ID of the object
-     * @param fetch Whether or not to fetch this object from the API if it isn't cached
      *
-     * @returns {CachedObject | Promise<CachedObject> | undefined} The cached object or `undefined` if it doesn't exist
+     * @returns {CachedObject | undefined} The object or `undefined` if it doesn't exist
      */
-    get<Fetch extends boolean = false>(id: string, fetch?: Fetch): GetResult<CachedObject, Fetch> {
-        return get<CachedObject, Fetch>(this, id, fetch);
+    get(id: string): CachedObject | undefined {
+        return this._cache.get(id);
     }
 
     /**

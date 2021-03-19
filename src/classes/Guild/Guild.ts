@@ -381,7 +381,18 @@ export default class Guild extends Base<Guild> {
         Guild._updateObject(this, guildData);
         this.channels = new CacheManagerInterface<AnyChannel>(this.client, {
             cacheManager: this.client._channels,
-            match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id)
+            match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id),
+            fetchObject: async (id: string): Promise<AnyChannel> => {
+
+                // Get channel data
+                const channelData: AnyChannelData = await this.client.getChannel(id);
+
+                // Match
+                if ((!("guildID" in channelData)) || (channelData.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
+
+                // Return
+                return Channel.fromData(this.client, channelData);
+            }
         });
 
         // Cache guild

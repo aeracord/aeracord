@@ -87,6 +87,7 @@ import {
     ReactionEmojiResolvable,
     ReadyData,
     RequestOptions,
+    Role,
     RoleData,
     RoleResolvable,
     Status,
@@ -221,6 +222,7 @@ export interface ObjectCacheStrategies {
     guilds?: CacheStrategy;
     channels?: CacheStrategy;
     users?: CacheStrategy;
+    roles?: CacheStrategy;
 }
 
 export interface CacheStrategy {
@@ -462,6 +464,13 @@ export default class Client extends EventEmitter {
     _users: CacheManager<User>;
 
     /**
+     * Roles
+     *
+     * The internal cache of roles
+     */
+    _roles: CacheManager<Role>;
+
+    /**
      * Guilds
      *
      * The cache of guilds
@@ -481,6 +490,13 @@ export default class Client extends EventEmitter {
      * The cache of users
      */
     users: CacheManagerInterface<User>;
+
+    /**
+     * Roles
+     *
+     * The cache of roles
+     */
+    roles: CacheManagerInterface<Role, false>;
 
     /**
      * Client
@@ -503,41 +519,24 @@ export default class Client extends EventEmitter {
         this._intents = clientData.intents;
         this._fetchQueues = new Map();
         this.cacheStrategies = clientData.cacheStrategies || {};
-        this._guilds = new CacheManager<Guild>(this, {
-            cacheFor: this.cacheStrategies.objects?.guilds ?
-                (this.cacheStrategies.objects.guilds.cacheFor === null ? undefined : this.cacheStrategies.objects.guilds.cacheFor) :
-                60000,
-            garbageCollectionInterval: this.cacheStrategies.objects?.guilds ?
-                (this.cacheStrategies.objects.guilds.garbageCollectionInterval === null ? undefined : this.cacheStrategies.objects.guilds.garbageCollectionInterval) :
-                60000,
+        this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guilds));
+        this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.channels));
+        this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.users));
+        this._roles = new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.roles));
+        this.guilds = new CacheManagerInterface<Guild>(this, {
+            cacheManager: this._guilds,
             fetchObject: async (id: string): Promise<Guild> => Guild.fromData(this, await this.getGuild(id))
         });
-        this._channels = new CacheManager<AnyChannel>(this, {
-            cacheFor: this.cacheStrategies.objects?.channels ?
-                (this.cacheStrategies.objects.channels.cacheFor === null ? undefined : this.cacheStrategies.objects.channels.cacheFor) :
-                60000,
-            garbageCollectionInterval: this.cacheStrategies.objects?.channels ?
-                (this.cacheStrategies.objects.channels.garbageCollectionInterval === null ? undefined : this.cacheStrategies.objects.channels.garbageCollectionInterval) :
-                60000,
+        this.channels = new CacheManagerInterface<AnyChannel>(this, {
+            cacheManager: this._channels,
             fetchObject: async (id: string): Promise<AnyChannel> => Channel.fromData(this, await this.getChannel(id))
         });
-        this._users = new CacheManager<User>(this, {
-            cacheFor: this.cacheStrategies.objects?.users ?
-                (this.cacheStrategies.objects.users.cacheFor === null ? undefined : this.cacheStrategies.objects.users.cacheFor) :
-                60000,
-            garbageCollectionInterval: this.cacheStrategies.objects?.users ?
-                (this.cacheStrategies.objects.users.garbageCollectionInterval === null ? undefined : this.cacheStrategies.objects.users.garbageCollectionInterval) :
-                60000,
+        this.users = new CacheManagerInterface<User>(this, {
+            cacheManager: this._users,
             fetchObject: async (id: string): Promise<User> => User.fromData(this, await this.getUser(id))
         });
-        this.guilds = new CacheManagerInterface<Guild>(this, {
-            cacheManager: this._guilds
-        });
-        this.channels = new CacheManagerInterface<AnyChannel>(this, {
-            cacheManager: this._channels
-        });
-        this.users = new CacheManagerInterface<User>(this, {
-            cacheManager: this._users
+        this.roles = new CacheManagerInterface<Role, false>(this, {
+            cacheManager: this._roles
         });
 
         // Connect

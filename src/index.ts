@@ -92,12 +92,15 @@ export {
 
 // Client
 export {
+    CacheStrategies,
+    CacheStrategy,
     Client,
     ClientActivity,
     ClientActivityType,
     ClientData,
     ClientPresence,
     ClientStatus,
+    ObjectCacheStrategies,
     Intent
 } from "./internal";
 

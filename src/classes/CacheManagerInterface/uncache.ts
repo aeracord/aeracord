@@ -1,6 +1,6 @@
 import { Base, CacheManagerInterface } from "../../internal";
 
-export default function uncache<CachedObject extends Base<CachedObject>>(cacheManagerInterface: CacheManagerInterface<CachedObject>, id: string) {
+export default function uncache<CachedObject extends Base<CachedObject>, FetchObject>(cacheManagerInterface: CacheManagerInterface<CachedObject, FetchObject>, id: string) {
 
     // Get the object from cache
     const object: CachedObject | undefined = cacheManagerInterface._cacheManager.get(id);

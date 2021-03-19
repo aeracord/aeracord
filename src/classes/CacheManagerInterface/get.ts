@@ -1,14 +1,16 @@
 import { Base, CacheManagerInterface } from "../../internal";
 
+export type GetFetch<FetchObject, Fetch> = FetchObject extends true ? Fetch : never;
+
 export type GetResult<CachedObject, Fetch> = Fetch extends true ? Promise<CachedObject | undefined> : (CachedObject | undefined);
 
-export default function get<CachedObject extends Base<CachedObject>, Fetch extends boolean = false>(cacheManagerInterface: CacheManagerInterface<CachedObject>, id: string, fetch?: Fetch): GetResult<CachedObject, Fetch> {
+export default function get<CachedObject extends Base<CachedObject>, FetchObject, Fetch extends boolean = false>(cacheManagerInterface: CacheManagerInterface<CachedObject, FetchObject>, id: string, fetch?: GetFetch<FetchObject, Fetch>): GetResult<CachedObject, Fetch> {
 
     // Start by checking the cache for the object
-    const object: CachedObject | Promise<CachedObject> | undefined = cacheManagerInterface._cacheManager.get(id, fetch);
+    const object: CachedObject | undefined = cacheManagerInterface._cacheManager._cache.get(id);
 
-    // If the object was already cached or we don't need to fetch data from the API
-    if (((object) && (!(object instanceof Promise))) || (!fetch)) {
+    // If the object was found or we don't need to fetch data from the API, return it
+    if ((object) || (!fetch)) {
 
         // Check if the object is a valid match for the cache manager interface
         if ((object) && (cacheManagerInterface._match) && (!cacheManagerInterface._match(object as CachedObject))) return undefined as GetResult<CachedObject, Fetch>;
@@ -21,10 +23,10 @@ export default function get<CachedObject extends Base<CachedObject>, Fetch exten
     return new Promise(async (resolve) => {
 
         // Fetch the object from the API
-        const fetchedObject: CachedObject = await (object as Promise<CachedObject>);
+        const fetchedObject: CachedObject | undefined = await cacheManagerInterface.fetchObject?.(id);
 
         // Check if the object is a valid match for the cache manager interface
-        if ((cacheManagerInterface._match) && (!cacheManagerInterface._match(fetchedObject))) return resolve(undefined);
+        if ((!fetchedObject) || ((cacheManagerInterface._match) && (!cacheManagerInterface._match(fetchedObject)))) return resolve(undefined);
 
         // Resolve the promise with the object that was fetched
         resolve(fetchedObject);

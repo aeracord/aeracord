@@ -1,7 +1,8 @@
-import { Client, RawRoleData } from "../../internal";
+import { Base, Client, RawRoleData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import updateObject from "./updateObject";
 
 export interface RoleData {
     id: string;
@@ -26,7 +27,7 @@ export type RoleTags = RoleDataTags;
 
 export type RoleResolvable = Role | string;
 
-export default class Role {
+export default class Role extends Base<Role> {
 
     /**
      * Client
@@ -127,18 +128,17 @@ export default class Role {
      */
     constructor(client: Client, roleData: RoleData) {
 
+        // Super
+        super(client, {
+            id: roleData.id,
+            cacheManager: client._roles
+        });
+
         // Set data
-        this.client = client;
-        this.id = roleData.id;
-        this.name = roleData.name;
-        this.guildID = roleData.guildID;
-        this.color = roleData.color;
-        this.hoist = Boolean(roleData.hoist);
-        this.position = roleData.position;
-        this.permissions = roleData.permissions;
-        this.mentionable = Boolean(roleData.mentionable);
-        this.managed = Boolean(roleData.managed);
-        this.tags = roleData.tags;
+        Role._updateObject(this, roleData);
+
+        // Cache role
+        this.client._roles.cache(this.id, this);
     }
 
     /**
@@ -178,5 +178,16 @@ export default class Role {
      */
     static resolveID(roleResolvable: RoleResolvable): string | undefined {
         return resolveID(roleResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Role` object with data from a `RoleData` object
+     *
+     * @param roleData The data to update this role with
+     */
+    static _updateObject(role: Role, roleData: RoleData) {
+        updateObject(role, roleData);
     }
 }
