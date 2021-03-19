@@ -1,6 +1,6 @@
 import { Client, Embed, EmbedData } from "../../internal";
 
-export default function fromRawData(client: Client, embedData: EmbedData): Embed {
+export default function fromData(client: Client, embedData: EmbedData): Embed {
 
     // Create embed
     const embed: Embed = new Embed(client, embedData);

@@ -1,6 +1,6 @@
 import { AnyChannel, AnyChannelData, CategoryChannel, CategoryChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, DMChannelData, NewsChannel, NewsChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 
-export default function fromRawData(client: Client, channelData: AnyChannelData): AnyChannel {
+export default function fromData(client: Client, channelData: AnyChannelData): AnyChannel {
 
     // Get channel from cache
     let channel: AnyChannel | undefined = client.channels.get(channelData.id);

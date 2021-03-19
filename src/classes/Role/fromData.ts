@@ -1,6 +1,6 @@
 import { Client, Role, RoleData } from "../../internal";
 
-export default function fromRawData(client: Client, roleData: RoleData): Role {
+export default function fromData(client: Client, roleData: RoleData): Role {
 
     // Get role from cache
     let role: Role | undefined = client.roles.get(roleData.id);
