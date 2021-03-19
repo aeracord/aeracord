@@ -30,20 +30,6 @@ export type RoleResolvable = Role | string;
 export default class Role extends Base<Role> {
 
     /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The role's ID
-     */
-    id: string;
-
-    /**
      * Name
      *
      * The role's name

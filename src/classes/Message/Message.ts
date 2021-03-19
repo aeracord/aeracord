@@ -1,7 +1,8 @@
-import { AttachmentData, Client, EmbedData, GuildChannelType, MemberData, RawMessageData, ReactionData, StickerData, UserData } from "../../internal";
+import { AttachmentData, Base, Client, EmbedData, GuildChannelType, MemberData, RawMessageData, ReactionData, StickerData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import updateObject from "./updateObject";
 
 export interface MessageData {
     id: string;
@@ -85,21 +86,7 @@ export interface MessageReference {
 
 export type MessageResolvable = Message | string;
 
-export default class Message {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The message's ID
-     */
-    id: string;
+export default class Message extends Base<Message> {
 
     /**
      * Type
@@ -302,33 +289,17 @@ export default class Message {
      */
     constructor(client: Client, messageData: MessageData) {
 
+        // Super
+        super(client, {
+            id: messageData.id,
+            cacheManager: client._messages
+        });
+
         // Set data
-        this.client = client;
-        this.id = messageData.id;
-        this.type = messageData.type;
-        this.channelID = messageData.channelID;
-        this.guildID = messageData.guildID;
-        this.author = messageData.author;
-        this.webhook = messageData.webhook;
-        this.member = messageData.member;
-        this.content = messageData.content;
-        this.timestamp = messageData.timestamp;
-        this.editedTimestamp = messageData.editedTimestamp;
-        this.tts = Boolean(messageData.tts);
-        this.mentionEveryone = Boolean(messageData.mentionEveryone);
-        this.mentions = messageData.mentions;
-        this.mentionedRoles = messageData.mentionedRoles;
-        this.mentionedChannels = messageData.mentionedChannels;
-        this.attachments = messageData.attachments;
-        this.embeds = messageData.embeds;
-        this.stickers = messageData.stickers;
-        this.reactions = messageData.reactions;
-        this.pinned = Boolean(messageData.pinned);
-        this.activity = messageData.activity;
-        this.application = messageData.application;
-        this.messageReference = messageData.messageReference;
-        this.flags = messageData.flags;
-        this.referencedMessage = messageData.referencedMessage;
+        Message._updateObject(this, messageData);
+
+        // Cache message
+        this.client._messages.cache(this.id, this);
     }
 
     /**
@@ -368,5 +339,16 @@ export default class Message {
      */
     static resolveID(messageResolvable: MessageResolvable): string | undefined {
         return resolveID(messageResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Message` object with data from a `MessageData` object
+     *
+     * @param messageData The data to update this message with
+     */
+    static _updateObject(message: Message, messageData: MessageData) {
+        updateObject(message, messageData);
     }
 }

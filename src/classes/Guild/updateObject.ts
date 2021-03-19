@@ -16,8 +16,8 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.verificationLevel = guildData.verificationLevel;
     guild.defaultMessageNotifications = guildData.defaultMessageNotifications;
     guild.explicitContentFilter = guildData.explicitContentFilter;
-    guild.roles = guildData.roles;
-    guild.emojis = guildData.emojis;
+    guild.roleData = guildData.roleData;
+    guild.emojiData = guildData.emojiData;
     guild.features = guildData.features;
     guild.mfaLevel = guildData.mfaLevel;
     guild.applicationID = guildData.applicationID;

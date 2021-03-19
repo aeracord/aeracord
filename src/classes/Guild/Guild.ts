@@ -1,4 +1,4 @@
-import { AnyChannel, Ban, Base, CacheManagerInterface, CategoryChannel, Client, Emoji, EmojiData, GuildChannel, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, RoleData, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyChannelData, Ban, Base, CacheManagerInterface, CategoryChannel, Channel, Client, Emoji, EmojiData, GuildChannel, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, RoleData, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -19,8 +19,8 @@ export interface GuildData {
     verificationLevel: VerificationLevel;
     defaultMessageNotifications: DefaultMessageNotifications;
     explicitContentFilter: ExplicitContentFilter;
-    roles: RoleData[];
-    emojis: EmojiData[];
+    roleData: RoleData[];
+    emojiData: EmojiData[];
     features: Feature[];
     mfaLevel: MFALevel;
     applicationID?: string;
@@ -186,14 +186,35 @@ export default class Guild extends Base<Guild> {
      *
      * The roles in this guild
      */
-    roles: RoleData[];
+    roleData: RoleData[];
+
+    /**
+     * Roles
+     *
+     * The cache manager interface for the roles in this guild
+     */
+    roles: CacheManagerInterface<Role>;
 
     /**
      * Emojis
      *
      * The emojis in this guild
      */
-    emojis: EmojiData[];
+    emojiData: EmojiData[];
+
+    /**
+     * Emojis
+     *
+     * The cache manager interface for the emojis in this guild
+     */
+    emojis: CacheManagerInterface<Emoji>;
+
+    /**
+     * Invites
+     *
+     * The cache manager interface for the invites in this guild
+     */
+    invites: CacheManagerInterface<Invite>;
 
     /**
      * Features
@@ -347,8 +368,8 @@ export default class Guild extends Base<Guild> {
      * @param guildData.verificationLevel The guild's verification level
      * @param guildData.defaultMessageNotifications The guild's default message notifications setting
      * @param guildData.explicitContentFilter The guild's explicit content filter setting
-     * @param guildData.roles The roles in this guild
-     * @param guildData.emojis The emojis in this guild
+     * @param guildData.roleData The roles in this guild
+     * @param guildData.emojiData The emojis in this guild
      * @param guildData.features The guild's features
      * @param guildData.mfaLevel The guild's MFA level
      * @param guildData.applicationID The ID of the bot that created this guild
@@ -393,6 +414,29 @@ export default class Guild extends Base<Guild> {
                 // Return
                 return Channel.fromData(this.client, channelData);
             }
+        });
+        this.roles = new CacheManagerInterface<Role>(this.client, {
+            cacheManager: this.client._roles,
+            match: (r: Role) => r.guildID === this.id,
+            fetchObject: async (id: string): Promise<Role> => {
+
+                // Get role data
+                const roleData: RoleData | undefined = (await this.client.getGuildRoles(this.id)).find((r: RoleData) => r.id === id);
+                if (!roleData) throw new Error("Couldn't find a role with that ID in this guild");
+
+                // Return
+                return Role.fromData(this.client, roleData);
+            }
+        });
+        this.emojis = new CacheManagerInterface<Emoji>(this.client, {
+            cacheManager: this.client._emojis,
+            match: (e: Emoji) => e.guildID === this.id,
+            fetchObject: async (id: string): Promise<Emoji> => Emoji.fromData(this.client, await this.client.getGuildEmoji(this.id, id))
+        });
+        this.invites = new CacheManagerInterface<Invite>(this.client, {
+            cacheManager: this.client._invites,
+            match: (i: Invite) => i.guildID === this.id,
+            fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
         });
 
         // Cache guild

@@ -28,7 +28,7 @@ export default class DMChannel extends TextBasedChannel {
         super(client, dmChannelData);
 
         // Set data
-        this._updateObject(dmChannelData);
+        DMChannel._updateObject(this, dmChannelData, true);
     }
 
     /**
@@ -36,9 +36,11 @@ export default class DMChannel extends TextBasedChannel {
      *
      * Update the `DMChannel` object with data from a `DMChannelData` object
      *
-     * @param dmChannelData The data to update this DM channel with
+     * @param dmChannel The DM channel to update
+     * @param dmChannelData The data to update the DM channel with
+     * @param fromConstructor Should only be `true` when called from this class's constructor
      */
-    _updateObject(dmChannelData: DMChannelData) {
-        updateObject(this, dmChannelData);
+    static _updateObject(dmChannel: DMChannel, dmChannelData: DMChannelData, fromConstructor?: boolean) {
+        updateObject(dmChannel, dmChannelData, fromConstructor);
     }
 }

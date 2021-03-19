@@ -1,7 +1,8 @@
-import { Client, RawInviteData, UserData } from "../../internal";
+import { Base, Client, RawInviteData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
+import updateObject from "./updateObject";
 
 export interface InviteData {
     code: string;
@@ -29,21 +30,16 @@ export const TARGET_USER_TYPE_STREAM = 1;
 
 export type InviteResolvable = Invite | string;
 
-export default class Invite {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class Invite extends Base<Invite> {
 
     /**
      * Code
      *
      * The invite's code
      */
-    code: string;
+    get code(): string {
+        return this.id;
+    }
 
     /**
      * Channel ID
@@ -134,19 +130,17 @@ export default class Invite {
      */
     constructor(client: Client, inviteData: InviteData) {
 
+        // Super
+        super(client, {
+            id: inviteData.code,
+            cacheManager: client._invites
+        });
+
         // Set data
-        this.client = client;
-        this.code = inviteData.code;
-        this.channelID = inviteData.channelID;
-        this.guildID = inviteData.guildID;
-        this.createdAt = inviteData.createdAt;
-        this.inviter = inviteData.inviter;
-        this.maxAge = inviteData.maxAge;
-        this.maxUses = inviteData.maxUses;
-        this.temporary = Boolean(inviteData.temporary);
-        this.uses = inviteData.uses;
-        this.targetUser = inviteData.targetUser;
-        this.targetUserType = inviteData.targetUserType;
+        Invite._updateObject(this, inviteData);
+
+        // Cache invite
+        this.client._invites.cache(this.id, this);
     }
 
     /**
@@ -186,5 +180,16 @@ export default class Invite {
      */
     static resolveCode(inviteResolvable: InviteResolvable): string | undefined {
         return resolveCode(inviteResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Invite` object with data from an `InviteData` object
+     *
+     * @param inviteData The data to update this invite with
+     */
+    static _updateObject(invite: Invite, inviteData: InviteData) {
+        updateObject(invite, inviteData);
     }
 }

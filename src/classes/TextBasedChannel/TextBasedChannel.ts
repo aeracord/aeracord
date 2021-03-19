@@ -1,4 +1,4 @@
-import { Channel, ChannelData, Client } from "../../internal";
+import { CacheManagerInterface, Channel, ChannelData, Client, Message } from "../../internal";
 import updateObject from "./updateObject";
 
 export interface TextBasedChannelData extends ChannelData {
@@ -7,6 +7,13 @@ export interface TextBasedChannelData extends ChannelData {
 }
 
 export default class TextBasedChannel extends Channel {
+
+    /**
+     * Messages
+     *
+     * The cache manager interface for the messages in this channel
+     */
+    messages: CacheManagerInterface<Message>;
 
     /**
      * Last Message ID
@@ -37,6 +44,11 @@ export default class TextBasedChannel extends Channel {
 
         // Set data
         TextBasedChannel._updateObject(this, textBasedChannelData, true);
+        this.messages = new CacheManagerInterface<Message>(this.client, {
+            cacheManager: this.client._messages,
+            match: (m: Message) => m.channelID === this.id,
+            fetchObject: async (id: string): Promise<Message> => Message.fromData(this.client, await this.client.getChannelMessage(this.id, id))
+        });
     }
 
     /**

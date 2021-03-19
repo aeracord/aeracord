@@ -1,7 +1,8 @@
-import { Client, RawEmojiData, UserData } from "../../internal";
+import { Base, Client, RawEmojiData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import updateObject from "./updateObject";
 
 export interface EmojiData {
     id: string;
@@ -17,21 +18,7 @@ export interface EmojiData {
 
 export type EmojiResolvable = Emoji | string;
 
-export default class Emoji {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The emoji's ID
-     */
-    id: string;
+export default class Emoji extends Base<Emoji> {
 
     /**
      * Name
@@ -106,17 +93,17 @@ export default class Emoji {
      */
     constructor(client: Client, emojiData: EmojiData) {
 
+        // Super
+        super(client, {
+            id: emojiData.id,
+            cacheManager: client._emojis
+        });
+
         // Set data
-        this.client = client;
-        this.id = emojiData.id;
-        this.name = emojiData.name;
-        this.guildID = emojiData.guildID;
-        this.animated = Boolean(emojiData.animated);
-        this.managed = Boolean(emojiData.managed);
-        this.available = Boolean(emojiData.available);
-        this.creator = emojiData.creator;
-        this.requiresColons = Boolean(emojiData.requiresColons);
-        this.roles = emojiData.roles;
+        Emoji._updateObject(this, emojiData);
+
+        // Cache emoji
+        this.client._emojis.cache(this.id, this);
     }
 
     /**
@@ -156,5 +143,16 @@ export default class Emoji {
      */
     static resolveID(emojiResolvable: EmojiResolvable): string | undefined {
         return resolveID(emojiResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Emoji` object with data from a `EmojiData` object
+     *
+     * @param emojiData The data to update this emoji with
+     */
+    static _updateObject(emoji: Emoji, emojiData: EmojiData) {
+        updateObject(emoji, emojiData);
     }
 }

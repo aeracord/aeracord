@@ -1,4 +1,4 @@
-import { Client, GuildChannelData, TextBasedChannelData } from "../../internal";
+import { CacheManagerInterface, Client, GuildChannelData, Invite, Message, TextBasedChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -38,6 +38,13 @@ class TextChannel extends GuildChannel {
     rateLimitPerUser?: number;
 
     /**
+     * Invites
+     *
+     * The cache manager interface for the invites in this channel
+     */
+    invites: CacheManagerInterface<Invite>;
+
+    /**
      * Text Channel
      *
      * @param client The client
@@ -53,6 +60,16 @@ class TextChannel extends GuildChannel {
 
         // Set data
         TextChannel._updateObject(this, textChannelData, true);
+        this.messages = new CacheManagerInterface<Message>(this.client, {
+            cacheManager: this.client._messages,
+            match: (m: Message) => m.channelID === this.id,
+            fetchObject: async (id: string): Promise<Message> => Message.fromData(this.client, await this.client.getChannelMessage(this.id, id))
+        });
+        this.invites = new CacheManagerInterface<Invite>(this.client, {
+            cacheManager: this.client._invites,
+            match: (i: Invite) => i.channelID === this.id,
+            fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
+        });
     }
 
     /**

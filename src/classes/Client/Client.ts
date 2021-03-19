@@ -32,6 +32,7 @@ import {
     DMChannelData,
     EditChannelPermissionsData,
     EditMessageData,
+    Emoji,
     EmojiData,
     EmojiResolvable,
     FetchedData,
@@ -56,11 +57,13 @@ import {
     GuildRoleDeleteData,
     GuildWidgetData,
     Intent,
+    Invite,
     InviteData,
     InviteDeleteData,
     InviteResolvable,
     ListGuildMembersData,
     MemberData,
+    Message,
     MessageData,
     MessageDeleteBulkData,
     MessageDeleteData,
@@ -222,7 +225,10 @@ export interface ObjectCacheStrategies {
     guilds?: CacheStrategy;
     channels?: CacheStrategy;
     users?: CacheStrategy;
+    messages?: CacheStrategy;
     roles?: CacheStrategy;
+    emojis?: CacheStrategy;
+    invites?: CacheStrategy;
 }
 
 export interface CacheStrategy {
@@ -464,11 +470,32 @@ export default class Client extends EventEmitter {
     _users: CacheManager<User>;
 
     /**
+     * Messages
+     *
+     * The internal cache of messages
+     */
+    _messages: CacheManager<Message>;
+
+    /**
      * Roles
      *
      * The internal cache of roles
      */
     _roles: CacheManager<Role>;
+
+    /**
+     * Emojis
+     *
+     * The internal cache of emojis
+     */
+    _emojis: CacheManager<Emoji>;
+
+    /**
+     * Invites
+     *
+     * The internal cache of invites
+     */
+    _invites: CacheManager<Invite>;
 
     /**
      * Guilds
@@ -492,11 +519,32 @@ export default class Client extends EventEmitter {
     users: CacheManagerInterface<User>;
 
     /**
+     * Messages
+     *
+     * The cache of messages
+     */
+    messages: CacheManagerInterface<Message, false>;
+
+    /**
      * Roles
      *
      * The cache of roles
      */
     roles: CacheManagerInterface<Role, false>;
+
+    /**
+     * Emojis
+     *
+     * The cache of emojis
+     */
+    emojis: CacheManagerInterface<Emoji, false>;
+
+    /**
+     * Invites
+     *
+     * The cache of invites
+     */
+    invites: CacheManagerInterface<Invite>;
 
     /**
      * Client
@@ -522,7 +570,10 @@ export default class Client extends EventEmitter {
         this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guilds));
         this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.channels));
         this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.users));
+        this._messages = new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.messages));
         this._roles = new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.roles));
+        this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.emojis));
+        this._invites = new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.invites));
         this.guilds = new CacheManagerInterface<Guild>(this, {
             cacheManager: this._guilds,
             fetchObject: async (id: string): Promise<Guild> => Guild.fromData(this, await this.getGuild(id))
@@ -535,8 +586,18 @@ export default class Client extends EventEmitter {
             cacheManager: this._users,
             fetchObject: async (id: string): Promise<User> => User.fromData(this, await this.getUser(id))
         });
+        this.messages = new CacheManagerInterface<Message, false>(this, {
+            cacheManager: this._messages
+        });
         this.roles = new CacheManagerInterface<Role, false>(this, {
             cacheManager: this._roles
+        });
+        this.emojis = new CacheManagerInterface<Emoji, false>(this, {
+            cacheManager: this._emojis
+        });
+        this.invites = new CacheManagerInterface<Invite>(this, {
+            cacheManager: this._invites,
+            fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this, await this.getInvite(id))
         });
 
         // Connect
