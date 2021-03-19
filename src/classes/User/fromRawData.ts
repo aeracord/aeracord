@@ -11,5 +11,5 @@ export default function fromRawData(rawData: RawUserData): UserData {
         bot: rawData.bot,
         system: rawData.system,
         publicFlags: rawData.public_flags || 0
-    };;
+    };
 }
