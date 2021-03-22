@@ -95,6 +95,17 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
     }
 
     /**
+     * Get Items
+     *
+     * Get all the objects from cache
+     *
+     * @returns {Map<string, CachedObject>} The objects
+     */
+    getItems(): Map<string, CachedObject> {
+        return new Map(this._cache);
+    }
+
+    /**
      * Cache
      *
      * Cache an object

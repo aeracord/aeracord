@@ -88,6 +88,17 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
     }
 
     /**
+     * Get Items
+     *
+     * Get all the objects from cache
+     *
+     * @returns {Map<string, CachedObject>} The objects
+     */
+    getItems(): Map<string, CachedObject> {
+        return this._match ? this._cacheManager.filter((value: CachedObject) => (this._match as MatchFunction<CachedObject>)(value)) : this._cacheManager.getItems();
+    }
+
+    /**
      * Uncache
      *
      * Remove an object from cache

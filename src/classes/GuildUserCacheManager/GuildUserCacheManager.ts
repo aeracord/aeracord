@@ -76,6 +76,17 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
     }
 
     /**
+     * Get Items
+     *
+     * Get all the objects from cache
+     *
+     * @returns {Map<string, CachedObject>} The objects
+     */
+    getItems(): Map<string, CachedObject> {
+        return this._cacheManager.getItems();
+    }
+
+    /**
      * Cache
      *
      * Cache an object
