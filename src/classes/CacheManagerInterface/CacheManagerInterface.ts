@@ -2,12 +2,14 @@ import { Base, CacheManager, Client } from "../../internal";
 import clear from "./clear";
 import garbageCollect from "./garbageCollect";
 import get, { GetFetch, GetResult } from "./get";
+import getItems from "./getItems";
 import uncache from "./uncache";
 
 export interface CacheManagerInterfaceData<CachedObject extends Base<CachedObject>> {
     cacheManager: CacheManager<CachedObject>;
     match?: MatchFunction<CachedObject>;
     fetchObject?: (id: string) => Promise<CachedObject>;
+    getIDs?: () => string[];
 }
 
 export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
@@ -56,6 +58,14 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
     _fetchObject?: (id: string) => Promise<CachedObject>;
 
     /**
+     * Fetch Object
+     *
+     * A function to get the IDs of objects that could be in cache
+     * For example, `CacheManagerInterface<Role>` could get IDs from `Guild.roleData`
+     */
+    _getIDs?: () => string[];
+
+    /**
      * Cache Manager Interface
      *
      * @param client The client
@@ -63,6 +73,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      * @param cacheManagerInterfaceData.cacheManager The cache manager
      * @param cacheManagerInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
      * @param cacheManagerInterfaceData.fetchObject A function to fetch an object from the API
+     * @param cacheManagerInterfaceData.getIDs A function to get the IDs of objects that could be in cache
      */
     constructor(client: Client, cacheManagerInterfaceData: CacheManagerInterfaceData<CachedObject>) {
 
@@ -71,6 +82,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
         this._cacheManager = cacheManagerInterfaceData.cacheManager;
         this._match = cacheManagerInterfaceData.match;
         this._fetchObject = cacheManagerInterfaceData.fetchObject;
+        this._getIDs = cacheManagerInterfaceData.getIDs;
     }
 
     /**
@@ -95,7 +107,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      * @returns {Map<string, CachedObject>} The objects
      */
     getItems(): Map<string, CachedObject> {
-        return this._match ? this._cacheManager.filter((value: CachedObject) => (this._match as MatchFunction<CachedObject>)(value)) : this._cacheManager.getItems();
+        return getItems<CachedObject, FetchObject>(this);
     }
 
     /**

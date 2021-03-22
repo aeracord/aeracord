@@ -454,12 +454,14 @@ export default class Guild extends Base<Guild> {
 
                 // Return
                 return Role.fromData(this.client, roleData);
-            }
+            },
+            getIDs: () => this.roleData.map((r: RoleData) => r.id)
         });
         this.emojis = new CacheManagerInterface<Emoji>(this.client, {
             cacheManager: this.client._emojis,
             match: (e: Emoji) => e.guildID === this.id,
-            fetchObject: async (id: string): Promise<Emoji> => Emoji.fromData(this.client, await this.client.getGuildEmoji(this.id, id))
+            fetchObject: async (id: string): Promise<Emoji> => Emoji.fromData(this.client, await this.client.getGuildEmoji(this.id, id)),
+            getIDs: () => this.emojiData.map((e: EmojiData) => e.id)
         });
         this.members = new GuildUserCacheManagerInterface<Member>(this.client, {
             cacheManager: this.client._members._cacheManager,
