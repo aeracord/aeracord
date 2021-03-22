@@ -28,6 +28,15 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
     _cacheManager: CacheManager<CachedObject>;
 
     /**
+     * Size
+     *
+     * The size of the cache
+     */
+    get size(): number {
+        return this._cacheManager.size;
+    }
+
+    /**
      * Cache For
      *
      * The amount of time in milliseconds to keep objects cached

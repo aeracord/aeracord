@@ -33,6 +33,15 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
     _cache: Map<string, CachedObject>;
 
     /**
+     * Size
+     *
+     * The size of the cache
+     */
+    get size(): number {
+        return this._cache.size;
+    }
+
+    /**
      * Cache For
      *
      * The amount of time in milliseconds to keep objects cached

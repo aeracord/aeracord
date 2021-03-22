@@ -29,6 +29,15 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
     _cacheManagerInterface: CacheManagerInterface<CachedObject, FetchObject>;
 
     /**
+     * Size
+     *
+     * The size of the cache
+     */
+    get size(): number {
+        return this._cacheManagerInterface.size;
+    }
+
+    /**
      * Guild User Cache Manager Interface
      *
      * @param client The client

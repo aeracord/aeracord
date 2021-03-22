@@ -40,6 +40,15 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
     _cacheManager: CacheManager<CachedObject>;
 
     /**
+     * Size
+     *
+     * The size of the cache
+     */
+    get size(): number {
+        return this._match ? this.getItems().size : this._cacheManager.size;
+    }
+
+    /**
      * Match
      *
      * The function to use to check if an object is a valid match for the cache manager interface
