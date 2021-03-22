@@ -241,6 +241,11 @@ export {
     PERMISSION_TYPE_MEMBER
 } from "./internal";
 
+// Guild User Cache Manager Interface
+export {
+    GuildUserCacheManagerInterface
+} from "./internal";
+
 // Guild Widget
 export {
     GuildWidget

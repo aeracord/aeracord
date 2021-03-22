@@ -1,3 +1,9 @@
+// Base
+export {
+    default as Base,
+    BaseData
+} from "./classes/Base/Base";
+
 // Attachment
 export {
     default as Attachment,
@@ -58,12 +64,6 @@ export {
     BanData
 } from "./classes/Ban/Ban";
 export { default as RawBanData } from "./classes/Ban/rawBanData";
-
-// Base
-export {
-    default as Base,
-    BaseData
-} from "./classes/Base/Base";
 
 // Cache Manager
 export {
@@ -258,6 +258,16 @@ export {
     PERMISSION_TYPE_ROLE,
     PERMISSION_TYPE_MEMBER
 } from "./classes/GuildChannel/GuildChannel";
+
+// Guild User Cache Manager
+export {
+    default as GuildUserCacheManager
+} from "./classes/GuildUserCacheManager/GuildUserCacheManager";
+
+// Guild User Cache Manager Interface
+export {
+    default as GuildUserCacheManagerInterface
+} from "./classes/GuildUserCacheManagerInterface/GuildUserCacheManagerInterface";
 
 // Guild Widget
 export {

@@ -1,6 +1,7 @@
-import { Client, RawBanData, UserData } from "../../internal";
+import { Base, Client, RawBanData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import updateObject from "./updateObject";
 
 export interface BanData {
     guildID: string;
@@ -8,14 +9,7 @@ export interface BanData {
     reason?: string;
 }
 
-export default class Ban {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class Ban extends Base<Ban> {
 
     /**
      * Guild ID
@@ -49,11 +43,17 @@ export default class Ban {
      */
     constructor(client: Client, banData: BanData) {
 
+        // Super
+        super(client, {
+            id: `${banData.guildID}_${banData.user.id}`,
+            cacheManager: client._bans._cacheManager
+        });
+
         // Set data
-        this.client = client;
-        this.guildID = banData.guildID;
-        this.user = banData.user;
-        this.reason = banData.reason;
+        Ban._updateObject(this, banData);
+
+        // Cache ban
+        this.client._bans.cache(this.guildID, this.user.id, this);
     }
 
     /**
@@ -80,5 +80,16 @@ export default class Ban {
      */
     static fromData(client: Client, banData: BanData): Ban {
         return fromData(client, banData);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Ban` object with data from a `BanData` object
+     *
+     * @param banData The data to update this ban with
+     */
+    static _updateObject(ban: Ban, banData: BanData) {
+        updateObject(ban, banData);
     }
 }

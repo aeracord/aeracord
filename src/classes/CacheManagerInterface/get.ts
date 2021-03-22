@@ -23,7 +23,7 @@ export default function get<CachedObject extends Base<CachedObject>, FetchObject
     return new Promise(async (resolve) => {
 
         // Fetch the object from the API
-        const fetchedObject: CachedObject | undefined = await cacheManagerInterface.fetchObject?.(id);
+        const fetchedObject: CachedObject | undefined = await cacheManagerInterface._fetchObject?.(id);
 
         // Check if the object is a valid match for the cache manager interface
         if ((!fetchedObject) || ((cacheManagerInterface._match) && (!cacheManagerInterface._match(fetchedObject)))) throw new Error("Couldn't find an object with that ID");

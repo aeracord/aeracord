@@ -53,7 +53,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      *
      * A function to fetch an object from the API
      */
-    fetchObject?: (id: string) => Promise<CachedObject>;
+    _fetchObject?: (id: string) => Promise<CachedObject>;
 
     /**
      * Cache Manager Interface
@@ -70,7 +70,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
         this.client = client;
         this._cacheManager = cacheManagerInterfaceData.cacheManager;
         this._match = cacheManagerInterfaceData.match;
-        this.fetchObject = cacheManagerInterfaceData.fetchObject;
+        this._fetchObject = cacheManagerInterfaceData.fetchObject;
     }
 
     /**

@@ -1,6 +1,7 @@
-import { Client, RawMemberData, UserData } from "../../internal";
+import { Base, Client, RawMemberData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import updateObject from "./updateObject";
 
 export interface MemberData {
     guildID: string;
@@ -14,14 +15,7 @@ export interface MemberData {
     user: UserData;
 }
 
-export default class Member {
-
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
+export default class Member extends Base<Member> {
 
     /**
      * Guild ID
@@ -103,17 +97,17 @@ export default class Member {
      */
     constructor(client: Client, memberData: MemberData) {
 
+        // Super
+        super(client, {
+            id: `${memberData.guildID}_${memberData.user.id}`,
+            cacheManager: client._members._cacheManager
+        });
+
         // Set data
-        this.client = client;
-        this.guildID = memberData.guildID;
-        this.nickname = memberData.nickname;
-        this.roles = memberData.roles;
-        this.muted = Boolean(memberData.muted);
-        this.deafened = Boolean(memberData.deafened);
-        this.joinedAt = memberData.joinedAt;
-        this.premiumSince = memberData.premiumSince;
-        this.pending = Boolean(memberData.pending);
-        this.user = memberData.user;
+        Member._updateObject(this, memberData);
+
+        // Cache member
+        this.client._members.cache(this.guildID, this.user.id, this);
     }
 
     /**
@@ -140,5 +134,16 @@ export default class Member {
      */
     static fromData(client: Client, memberData: MemberData): Member {
         return fromData(client, memberData);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Member` object with data from a `MemberData` object
+     *
+     * @param memberData The data to update this member with
+     */
+    static _updateObject(member: Member, memberData: MemberData) {
+        updateObject(member, memberData);
     }
 }

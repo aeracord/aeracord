@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, Ban, Base, CacheManagerInterface, CategoryChannel, Channel, Client, Emoji, EmojiData, GuildChannel, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, RoleData, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyChannelData, Ban, Base, CacheManagerInterface, CategoryChannel, Channel, Client, Emoji, EmojiData, GuildChannel, GuildUserCacheManagerInterface, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, RoleData, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -184,13 +184,6 @@ export default class Guild extends Base<Guild> {
     /**
      * Roles
      *
-     * The roles in this guild
-     */
-    roleData: RoleData[];
-
-    /**
-     * Roles
-     *
      * The cache manager interface for the roles in this guild
      */
     roles: CacheManagerInterface<Role>;
@@ -198,16 +191,23 @@ export default class Guild extends Base<Guild> {
     /**
      * Emojis
      *
-     * The emojis in this guild
-     */
-    emojiData: EmojiData[];
-
-    /**
-     * Emojis
-     *
      * The cache manager interface for the emojis in this guild
      */
     emojis: CacheManagerInterface<Emoji>;
+
+    /**
+     * Members
+     *
+     * The guild user cache manager interface for the members in this guild
+     */
+    members: GuildUserCacheManagerInterface<Member>;
+
+    /**
+     * Bans
+     *
+     * The guild user cache manager interface for the bans in this guild
+     */
+    bans: GuildUserCacheManagerInterface<Ban>;
 
     /**
      * Invites
@@ -229,6 +229,20 @@ export default class Guild extends Base<Guild> {
      * The cache manager interface for the webhooks in this guild
      */
     webhooks: CacheManagerInterface<Webhook>;
+
+    /**
+     * Roles
+     *
+     * The roles in this guild
+     */
+    roleData: RoleData[];
+
+    /**
+     * Emojis
+     *
+     * The emojis in this guild
+     */
+    emojiData: EmojiData[];
 
     /**
      * Features
@@ -446,6 +460,16 @@ export default class Guild extends Base<Guild> {
             cacheManager: this.client._emojis,
             match: (e: Emoji) => e.guildID === this.id,
             fetchObject: async (id: string): Promise<Emoji> => Emoji.fromData(this.client, await this.client.getGuildEmoji(this.id, id))
+        });
+        this.members = new GuildUserCacheManagerInterface<Member>(this.client, {
+            cacheManager: this.client._members._cacheManager,
+            match: (m: Member) => m.guildID === this.id,
+            fetchObject: async (id: string): Promise<Member> => Member.fromData(this.client, await this.client.getGuildMember(id.split("_")[0], id.split("_")[1]))
+        });
+        this.bans = new GuildUserCacheManagerInterface<Ban>(this.client, {
+            cacheManager: this.client._bans._cacheManager,
+            match: (b: Ban) => b.guildID === this.id,
+            fetchObject: async (id: string): Promise<Ban> => Ban.fromData(this.client, await this.client.getGuildBan(id.split("_")[0], id.split("_")[1]))
         });
         this.invites = new CacheManagerInterface<Invite>(this.client, {
             cacheManager: this.client._invites,

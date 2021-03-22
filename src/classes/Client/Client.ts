@@ -9,6 +9,7 @@ import {
     ACTIVITY_TYPE_LISTENING,
     ACTIVITY_TYPE_PLAYING,
     ACTIVITY_TYPE_STREAMING,
+    Ban,
     BanData,
     BulkDeleteMessagesData,
     CacheManager,
@@ -55,6 +56,8 @@ import {
     GuildPreview,
     GuildResolvable,
     GuildRoleDeleteData,
+    GuildUserCacheManager,
+    GuildUserCacheManagerInterface,
     GuildWidget,
     GuildWidgetData,
     Intent,
@@ -63,6 +66,7 @@ import {
     InviteDeleteData,
     InviteResolvable,
     ListGuildMembersData,
+    Member,
     MemberData,
     Message,
     MessageData,
@@ -229,11 +233,13 @@ export interface CacheStrategies {
 }
 
 export interface ObjectCacheStrategies {
+    bans?: CacheStrategy;
     channels?: CacheStrategy;
     emojis?: CacheStrategy;
     guilds?: CacheStrategy;
     guildWidgets?: CacheStrategy;
     invites?: CacheStrategy;
+    members?: CacheStrategy;
     messages?: CacheStrategy;
     presences?: CacheStrategy;
     roles?: CacheStrategy;
@@ -462,6 +468,13 @@ export default class Client extends EventEmitter {
     cacheStrategies: CacheStrategies;
 
     /**
+     * Bans
+     *
+     * The internal cache of bans
+     */
+    _bans: GuildUserCacheManager<Ban>;
+
+    /**
      * Channels
      *
      * The internal cache of channels
@@ -495,6 +508,13 @@ export default class Client extends EventEmitter {
      * The internal cache of invites
      */
     _invites: CacheManager<Invite>;
+
+    /**
+     * Members
+     *
+     * The internal cache of members
+     */
+    _members: GuildUserCacheManager<Member>;
 
     /**
      * Messages
@@ -553,6 +573,13 @@ export default class Client extends EventEmitter {
     _users: CacheManager<User>;
 
     /**
+     * Bans
+     *
+     * The cache of bans
+     */
+    bans: GuildUserCacheManagerInterface<Ban>;
+
+    /**
      * Channels
      *
      * The cache of channels
@@ -586,6 +613,13 @@ export default class Client extends EventEmitter {
      * The cache of invites
      */
     invites: CacheManagerInterface<Invite>;
+
+    /**
+     * Members
+     *
+     * The cache of members
+     */
+    members: GuildUserCacheManagerInterface<Member>;
 
     /**
      * Messages
@@ -664,11 +698,13 @@ export default class Client extends EventEmitter {
         this._intents = clientData.intents;
         this._fetchQueues = new Map();
         this.cacheStrategies = clientData.cacheStrategies || {};
+        this._bans = new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.bans));
         this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.channels));
         this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.emojis));
         this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guilds));
         this._guildWidgets = new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guildWidgets));
         this._invites = new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.invites));
+        this._members = new GuildUserCacheManager<Member>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.members));
         this._messages = new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.messages));
         this._presences = new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.presences));
         this._roles = new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.roles));
@@ -677,6 +713,10 @@ export default class Client extends EventEmitter {
         this._webhooks = new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.webhooks));
         this._welcomeScreens = new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.welcomeScreens));
         this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.users));
+        this.bans = new GuildUserCacheManagerInterface<Ban>(this, {
+            cacheManager: this._bans._cacheManager,
+            fetchObject: async (id: string): Promise<Ban> => Ban.fromData(this, await this.getGuildBan(id.split("_")[0], id.split("_")[1]))
+        });
         this.channels = new CacheManagerInterface<AnyChannel>(this, {
             cacheManager: this._channels,
             fetchObject: async (id: string): Promise<AnyChannel> => Channel.fromData(this, await this.getChannel(id))
@@ -695,6 +735,10 @@ export default class Client extends EventEmitter {
         this.invites = new CacheManagerInterface<Invite>(this, {
             cacheManager: this._invites,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this, await this.getInvite(id))
+        });
+        this.members = new GuildUserCacheManagerInterface<Member>(this, {
+            cacheManager: this._members._cacheManager,
+            fetchObject: async (id: string): Promise<Member> => Member.fromData(this, await this.getGuildMember(id.split("_")[0], id.split("_")[1]))
         });
         this.messages = new CacheManagerInterface<Message, false>(this, {
             cacheManager: this._messages
