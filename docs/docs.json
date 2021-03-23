@@ -497,6 +497,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -531,7 +534,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 149,
+									"line": 150,
 									"character": 19
 								}
 							]
@@ -1570,7 +1573,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -1585,6 +1588,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this audit log is in\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1602,7 +1608,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/AuditLog/AuditLog.ts",
-									"line": 124,
+									"line": 125,
 									"character": 23
 								}
 							]
@@ -1639,6 +1645,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -1673,7 +1682,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/AuditLog/AuditLog.ts",
-									"line": 137,
+									"line": 139,
 									"character": 19
 								}
 							]
@@ -5584,7 +5593,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -5599,6 +5608,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this ban is in\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -5616,7 +5628,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Ban/Ban.ts",
-									"line": 68,
+									"line": 69,
 									"character": 23
 								}
 							]
@@ -5652,6 +5664,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The ban to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 182,
@@ -5685,7 +5700,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Ban/Ban.ts",
-									"line": 92,
+									"line": 95,
 									"character": 24
 								}
 							]
@@ -5722,6 +5737,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -5756,7 +5774,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Ban/Ban.ts",
-									"line": 81,
+									"line": 83,
 									"character": 19
 								}
 							]
@@ -11365,6 +11383,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -11404,7 +11425,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -11479,7 +11500,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -12391,7 +12412,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 94,
+									"line": 95,
 									"character": 24
 								}
 							]
@@ -12428,6 +12449,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -12462,7 +12486,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							]
@@ -12527,7 +12551,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							]
@@ -59558,6 +59582,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -59597,7 +59624,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -59672,7 +59699,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -60712,7 +60739,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Embed/Embed.ts",
-									"line": 266,
+									"line": 267,
 									"character": 11
 								}
 							]
@@ -60823,6 +60850,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -60857,7 +60887,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Embed/Embed.ts",
-									"line": 257,
+									"line": 258,
 									"character": 19
 								}
 							]
@@ -64605,7 +64635,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -64620,6 +64650,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this emoji is in\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -64637,7 +64670,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 118,
+									"line": 119,
 									"character": 23
 								}
 							]
@@ -64673,6 +64706,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The emoji to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 2906,
@@ -64706,7 +64742,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 155,
+									"line": 158,
 									"character": 24
 								}
 							]
@@ -64743,6 +64779,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -64777,7 +64816,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 131,
+									"line": 133,
 									"character": 19
 								}
 							]
@@ -64842,7 +64881,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 144,
+									"line": 146,
 									"character": 20
 								}
 							]
@@ -68446,6 +68485,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The guild to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 3055,
@@ -68479,7 +68521,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 542,
+									"line": 544,
 									"character": 24
 								}
 							]
@@ -68516,6 +68558,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -68550,7 +68595,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 518,
+									"line": 519,
 									"character": 19
 								}
 							]
@@ -68615,7 +68660,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 531,
+									"line": 532,
 									"character": 20
 								}
 							]
@@ -72663,6 +72708,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -72702,7 +72750,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -72777,7 +72825,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -75902,7 +75950,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -75917,6 +75965,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this widget is for\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -75934,7 +75985,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/GuildWidget/GuildWidget.ts",
-									"line": 70,
+									"line": 71,
 									"character": 23
 								}
 							]
@@ -75970,6 +76021,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The guild widget to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 3285,
@@ -76003,7 +76057,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/GuildWidget/GuildWidget.ts",
-									"line": 94,
+									"line": 97,
 									"character": 24
 								}
 							]
@@ -76040,6 +76094,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -76074,7 +76131,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/GuildWidget/GuildWidget.ts",
-									"line": 83,
+									"line": 85,
 									"character": 19
 								}
 							]
@@ -77444,6 +77501,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The invite to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 3355,
@@ -77477,7 +77537,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 192,
+									"line": 194,
 									"character": 24
 								}
 							]
@@ -77514,6 +77574,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -77548,7 +77611,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 168,
+									"line": 169,
 									"character": 19
 								}
 							]
@@ -77613,7 +77676,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 181,
+									"line": 182,
 									"character": 22
 								}
 							]
@@ -80056,7 +80119,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -80071,6 +80134,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this member is in\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -80088,7 +80154,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Member/Member.ts",
-									"line": 122,
+									"line": 123,
 									"character": 23
 								}
 							]
@@ -80124,6 +80190,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The member to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 3456,
@@ -80157,7 +80226,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Member/Member.ts",
-									"line": 146,
+									"line": 149,
 									"character": 24
 								}
 							]
@@ -80194,6 +80263,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -80228,7 +80300,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Member/Member.ts",
-									"line": 135,
+									"line": 137,
 									"character": 19
 								}
 							]
@@ -82489,6 +82561,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The message to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 3576,
@@ -82522,7 +82597,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 351,
+									"line": 353,
 									"character": 24
 								}
 							]
@@ -82559,6 +82634,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -82593,7 +82671,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 327,
+									"line": 328,
 									"character": 19
 								}
 							]
@@ -82658,7 +82736,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 340,
+									"line": 341,
 									"character": 20
 								}
 							]
@@ -87233,6 +87311,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -87277,7 +87358,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -87362,7 +87443,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -88520,6 +88601,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The presence to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 3892,
@@ -88553,7 +88637,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Presence/Presence.ts",
-									"line": 392,
+									"line": 394,
 									"character": 24
 								}
 							]
@@ -88590,6 +88674,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -88624,7 +88711,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Presence/Presence.ts",
-									"line": 381,
+									"line": 382,
 									"character": 19
 								}
 							]
@@ -92387,6 +92474,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -92421,7 +92511,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 118,
+									"line": 119,
 									"character": 19
 								}
 							]
@@ -92486,7 +92576,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 131,
+									"line": 132,
 									"character": 24
 								}
 							]
@@ -94079,7 +94169,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -94094,6 +94184,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this role is in\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -94111,7 +94204,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Role/Role.ts",
-									"line": 139,
+									"line": 140,
 									"character": 23
 								}
 							]
@@ -94147,6 +94240,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The role to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 4071,
@@ -94180,7 +94276,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Role/Role.ts",
-									"line": 176,
+									"line": 179,
 									"character": 24
 								}
 							]
@@ -94217,6 +94313,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -94251,7 +94350,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Role/Role.ts",
-									"line": 152,
+									"line": 154,
 									"character": 19
 								}
 							]
@@ -94316,7 +94415,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Role/Role.ts",
-									"line": 165,
+									"line": 167,
 									"character": 20
 								}
 							]
@@ -95948,6 +96047,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -95982,7 +96084,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Sticker/Sticker.ts",
-									"line": 136,
+									"line": 137,
 									"character": 19
 								}
 							]
@@ -97526,6 +97628,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -97565,7 +97670,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -97640,7 +97745,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -98782,6 +98887,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The template to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 4297,
@@ -98815,7 +98923,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Template/Template.ts",
-									"line": 219,
+									"line": 221,
 									"character": 24
 								}
 							]
@@ -98852,6 +98960,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -98886,7 +98997,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Template/Template.ts",
-									"line": 195,
+									"line": 196,
 									"character": 19
 								}
 							]
@@ -98951,7 +99062,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Template/Template.ts",
-									"line": 208,
+									"line": 209,
 									"character": 22
 								}
 							]
@@ -102507,6 +102618,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -102546,7 +102660,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -102621,7 +102735,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -104042,6 +104156,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -104084,7 +104201,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -104165,7 +104282,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -105397,6 +105514,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The user to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 4416,
@@ -105430,7 +105550,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/User/User.ts",
-									"line": 150,
+									"line": 152,
 									"character": 24
 								}
 							]
@@ -105467,6 +105587,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -105501,7 +105624,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/User/User.ts",
-									"line": 126,
+									"line": 127,
 									"character": 19
 								}
 							]
@@ -105566,7 +105689,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/User/User.ts",
-									"line": 139,
+									"line": 140,
 									"character": 20
 								}
 							]
@@ -107535,7 +107658,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -107550,6 +107673,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this vanity invite is for\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -107567,7 +107693,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VanityInvite/VanityInvite.ts",
-									"line": 70,
+									"line": 71,
 									"character": 23
 								}
 							]
@@ -107603,6 +107729,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The vanity invite to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 4498,
@@ -107636,7 +107765,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VanityInvite/VanityInvite.ts",
-									"line": 94,
+									"line": 97,
 									"character": 24
 								}
 							]
@@ -107673,6 +107802,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -107707,7 +107839,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VanityInvite/VanityInvite.ts",
-									"line": 83,
+									"line": 85,
 									"character": 19
 								}
 							]
@@ -109061,6 +109193,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -109100,7 +109235,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 69,
+									"line": 70,
 									"character": 19
 								}
 							],
@@ -109175,7 +109310,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Channel/Channel.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							],
@@ -110165,6 +110300,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -110199,7 +110337,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VoiceState/VoiceState.ts",
-									"line": 171,
+									"line": 172,
 									"character": 19
 								}
 							]
@@ -111705,6 +111843,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The webhook to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 4676,
@@ -111738,7 +111879,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Webhook/Webhook.ts",
-									"line": 159,
+									"line": 161,
 									"character": 24
 								}
 							]
@@ -111775,6 +111916,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -111809,7 +111953,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Webhook/Webhook.ts",
-									"line": 135,
+									"line": 136,
 									"character": 19
 								}
 							]
@@ -111874,7 +112018,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Webhook/Webhook.ts",
-									"line": 148,
+									"line": 149,
 									"character": 20
 								}
 							]
@@ -113438,7 +113582,7 @@
 												"isExported": true
 											},
 											"comment": {
-												"text": "The raw data from the API\n"
+												"text": "The raw data from the API"
 											},
 											"type": {
 												"type": "reference",
@@ -113453,6 +113597,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "The ID of the guild this welcome screen is for\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -113470,7 +113617,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/WelcomeScreen/WelcomeScreen.ts",
-									"line": 77,
+									"line": 78,
 									"character": 23
 								}
 							]
@@ -113506,6 +113653,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The welcome screen to update"
+											},
 											"type": {
 												"type": "reference",
 												"id": 4752,
@@ -113539,7 +113689,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/WelcomeScreen/WelcomeScreen.ts",
-									"line": 101,
+									"line": 104,
 									"character": 24
 								}
 							]
@@ -113576,6 +113726,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "The client"
+											},
 											"type": {
 												"type": "reference",
 												"id": 1929,
@@ -113610,7 +113763,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/WelcomeScreen/WelcomeScreen.ts",
-									"line": 90,
+									"line": 92,
 									"character": 19
 								}
 							]
