@@ -7,10 +7,10 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
     // Parse data
     const data: GuildMemberUpdateData = {
         guildID: rawData.guild_id,
-        nickname: rawData.nick || undefined,
+        nickname: rawData.nick || null,
         roles: rawData.roles,
         joinedAt: new Date(rawData.joined_at).getTime(),
-        premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : undefined,
+        premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : null,
         pending: rawData.pending || false,
         user: User._fromRawData(rawData.user)
     };

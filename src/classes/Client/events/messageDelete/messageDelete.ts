@@ -8,7 +8,7 @@ export default function messageDelete(client: Client, rawData: RawMessageDeleteD
     const data: MessageDeleteData = {
         id: rawData.id,
         channelID: rawData.channel_id,
-        guildID: rawData.guild_id
+        guildID: rawData.guild_id || null
     };
 
     // Emit event

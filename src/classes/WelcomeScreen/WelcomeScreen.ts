@@ -5,15 +5,15 @@ import updateObject from "./updateObject";
 
 export interface WelcomeScreenData {
     guildID: string;
-    description?: string;
+    description: string | null;
     channels: WelcomeScreenChannel[];
 }
 
 export interface WelcomeScreenChannel {
     channelID: string;
     description: string;
-    emojiID?: string;
-    emojiName?: string;
+    emojiID: string | null;
+    emojiName: string | null;
 }
 
 export default class WelcomeScreen extends Base<WelcomeScreen> {
@@ -32,7 +32,7 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      *
      * The welcome screen's description
      */
-    description?: string;
+    description: string | null;
 
     /**
      * Channels

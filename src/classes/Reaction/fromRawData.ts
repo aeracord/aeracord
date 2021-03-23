@@ -7,8 +7,8 @@ export default function fromRawData(rawData: RawReactionData): ReactionData {
         count: rawData.count,
         me: rawData.me,
         emoji: {
-            id: rawData.emoji.id || undefined,
-            name: rawData.emoji.name || undefined,
+            id: rawData.emoji.id,
+            name: rawData.emoji.name,
             animated: Boolean(rawData.emoji.animated)
         }
     };

@@ -13,20 +13,20 @@ export default function fromRawData(rawData: RawChannelData): AnyChannelData {
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
         permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
-        parentID: rawData.parent_id || undefined,
-        topic: rawData.topic || undefined,
+        parentID: rawData.parent_id,
+        topic: rawData.topic,
         nsfw: rawData.nsfw,
         rateLimitPerUser: rawData.rate_limit_per_user,
-        lastMessageID: rawData.last_message_id || undefined,
-        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : undefined
+        lastMessageID: rawData.last_message_id,
+        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null
     };
 
     // DM channel
     else if (rawData.type === CHANNEL_TYPE_DM) channelData = {
         id: rawData.id,
         type: rawData.type,
-        lastMessageID: rawData.last_message_id || undefined,
-        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : undefined,
+        lastMessageID: rawData.last_message_id,
+        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
         recipient: (rawData.recipients as RawUserData[])[0].id
     };
 
@@ -38,7 +38,7 @@ export default function fromRawData(rawData: RawChannelData): AnyChannelData {
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
         permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
-        parentID: rawData.parent_id || undefined,
+        parentID: rawData.parent_id,
         bitrate: rawData.bitrate,
         userLimit: rawData.user_limit
     };
@@ -51,7 +51,7 @@ export default function fromRawData(rawData: RawChannelData): AnyChannelData {
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
         permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
-        parentID: rawData.parent_id || undefined
+        parentID: rawData.parent_id
     };
 
     // News channel
@@ -62,12 +62,12 @@ export default function fromRawData(rawData: RawChannelData): AnyChannelData {
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
         permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
-        parentID: rawData.parent_id || undefined,
-        topic: rawData.topic || undefined,
+        parentID: rawData.parent_id,
+        topic: rawData.topic,
         nsfw: rawData.nsfw,
         rateLimitPerUser: rawData.rate_limit_per_user,
-        lastMessageID: rawData.last_message_id || undefined,
-        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : undefined
+        lastMessageID: rawData.last_message_id,
+        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null
     };
 
     // Store channel
@@ -78,7 +78,7 @@ export default function fromRawData(rawData: RawChannelData): AnyChannelData {
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
         permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
-        parentID: rawData.parent_id || undefined
+        parentID: rawData.parent_id
     };
 
     // Unknown channel type

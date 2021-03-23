@@ -7,7 +7,7 @@ export interface TypingStartData {
      *
      * The ID of the guild the user started typing in
      */
-    guildID?: string;
+    guildID: string | null;
 
     /**
      * Channel ID
@@ -35,5 +35,5 @@ export interface TypingStartData {
      *
      * The member object of the user that started typing
      */
-    member?: MemberData;
+    member: MemberData | null;
 }

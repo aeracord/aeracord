@@ -14,8 +14,8 @@ export default function fromRawData(rawData: RawRoleData, guildID: string): Role
         mentionable: rawData.mentionable,
         managed: rawData.managed,
         tags: {
-            botID: rawData.tags?.bot_id,
-            integrationID: rawData.tags?.integration_id,
+            botID: rawData.tags?.bot_id || null,
+            integrationID: rawData.tags?.integration_id || null,
 
             // `tags.premium_subscriber` is either `undefined` (false) or `null` (true)
             // Look, I didnt make the damn api

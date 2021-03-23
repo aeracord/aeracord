@@ -6,7 +6,7 @@ export default function fromRawData(rawData: RawTemplateData): TemplateData {
     return {
         code: rawData.code,
         name: rawData.name,
-        description: rawData.description || undefined,
+        description: rawData.description,
         uses: rawData.usage_count,
         creator: User._fromRawData(rawData.creator),
         createdAt: new Date(rawData.created_at).getTime(),
@@ -14,9 +14,9 @@ export default function fromRawData(rawData: RawTemplateData): TemplateData {
         sourceGuildID: rawData.source_guild_id,
         sourceGuild: {
             name: rawData.serialized_source_guild.name,
-            icon: rawData.serialized_source_guild.icon_hash || undefined,
+            icon: rawData.serialized_source_guild.icon_hash,
             region: rawData.serialized_source_guild.region,
-            afkChannelID: rawData.serialized_source_guild.afk_channel_id || undefined,
+            afkChannelID: rawData.serialized_source_guild.afk_channel_id,
             afkTimeout: rawData.serialized_source_guild.afk_timeout,
             verificationLevel: rawData.serialized_source_guild.verification_level,
             defaultMessageNotifications: rawData.serialized_source_guild.default_message_notifications,
@@ -33,7 +33,7 @@ export default function fromRawData(rawData: RawTemplateData): TemplateData {
                 id: c.id,
                 type: c.type,
                 name: c.name,
-                topic: c.topic || undefined,
+                topic: c.topic,
                 position: c.position,
                 nsfw: c.nsfw,
                 permissionOverwrites: c.permission_overwrites.map((p: RawTemplateDataGuildChannelPermissionOverwrite) => ({
@@ -41,14 +41,14 @@ export default function fromRawData(rawData: RawTemplateData): TemplateData {
                     allow: p.allow,
                     deny: p.deny
                 })),
-                bitrate: c.bitrate,
-                userLimit: c.user_limit,
-                rateLimitPerUser: c.rate_limit_per_user,
-                parentID: c.parent_id || undefined
+                bitrate: c.bitrate || null,
+                userLimit: c.user_limit || null,
+                rateLimitPerUser: c.rate_limit_per_user || null,
+                parentID: c.parent_id
             })),
-            systemChannelID: rawData.serialized_source_guild.system_channel_id || undefined,
+            systemChannelID: rawData.serialized_source_guild.system_channel_id,
             systemChannelFlags: rawData.serialized_source_guild.system_channel_flags,
-            description: rawData.serialized_source_guild.description || undefined,
+            description: rawData.serialized_source_guild.description,
             preferredLocale: rawData.serialized_source_guild.preferred_locale
         },
         dirty: Boolean(rawData.is_dirty)

@@ -8,11 +8,11 @@ export interface EmojiData {
     id: string;
     name: string;
     guildID: string;
-    animated?: boolean;
-    managed?: boolean;
-    available?: boolean;
-    creator?: UserData;
-    requiresColons?: boolean;
+    animated: boolean;
+    managed: boolean;
+    available: boolean;
+    creator: UserData | null;
+    requiresColons: boolean;
     roles: string[];
 }
 
@@ -60,7 +60,7 @@ export default class Emoji extends Base<Emoji> {
      *
      * The user that created this emoji
      */
-    creator?: UserData;
+    creator: UserData | null;
 
     /**
      * Requires Colons

@@ -19,5 +19,5 @@ export interface MessageDeleteBulkData {
      *
      * The ID of the guild these messages were in
      */
-    guildID?: string;
+    guildID: string | null;
 }

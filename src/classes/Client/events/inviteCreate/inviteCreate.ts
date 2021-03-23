@@ -9,18 +9,18 @@ export default function inviteCreate(client: Client, rawData: RawInviteCreateDat
         channelID: rawData.channel_id,
         guildID: rawData.guild_id,
         createdAt: new Date(rawData.created_at).getTime(),
-        inviter: rawData.inviter && User._fromRawData(rawData.inviter),
-        maxAge: rawData.max_age || undefined,
-        maxUses: rawData.max_uses || undefined,
+        inviter: rawData.inviter ? User._fromRawData(rawData.inviter) : null,
+        maxAge: rawData.max_age,
+        maxUses: rawData.max_uses,
         temporary: rawData.temporary,
         uses: rawData.uses,
-        targetUser: rawData.target_user && {
+        targetUser: rawData.target_user ? {
             id: rawData.target_user.id,
             username: rawData.target_user.username,
             discriminator: rawData.target_user.discriminator,
-            avatar: rawData.target_user.avatar || undefined
-        },
-        targetUserType: rawData.target_user_type
+            avatar: rawData.target_user.avatar
+        } : null,
+        targetUserType: rawData.target_user_type || null
     };
 
     // Emit event

@@ -8,8 +8,8 @@ export interface AttachmentData {
     size: number;
     url: string;
     proxyURL: string;
-    width?: number;
-    height?: number;
+    width: number | null;
+    height: number | null;
 }
 
 export default class Attachment {
@@ -61,14 +61,14 @@ export default class Attachment {
      *
      * The attachment's width
      */
-    width?: number;
+    width: number | null;
 
     /**
      * Height
      *
      * The attachment's height
      */
-    height?: number;
+    height: number | null;
 
     /**
      * Attachment

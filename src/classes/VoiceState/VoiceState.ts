@@ -8,13 +8,13 @@ export interface VoiceStateData {
     userID: string;
     member: MemberData;
     sessionID: string;
-    muted?: boolean;
-    deafened?: boolean;
-    selfMuted?: boolean;
-    selfDeafened?: boolean;
-    selfStream?: boolean;
-    selfVideo?: boolean;
-    suppress?: boolean;
+    muted: boolean;
+    deafened: boolean;
+    selfMuted: boolean;
+    selfDeafened: boolean;
+    selfStream: boolean;
+    selfVideo: boolean;
+    suppress: boolean;
 }
 
 export default class VoiceState {
@@ -137,13 +137,13 @@ export default class VoiceState {
         this.userID = voiceStateData.userID;
         this.member = voiceStateData.member;
         this.sessionID = voiceStateData.sessionID;
-        this.muted = Boolean(voiceStateData.muted);
-        this.deafened = Boolean(voiceStateData.deafened);
-        this.selfMuted = Boolean(voiceStateData.selfMuted);
-        this.selfDeafened = Boolean(voiceStateData.selfDeafened);
-        this.selfStream = Boolean(voiceStateData.selfStream);
-        this.selfVideo = Boolean(voiceStateData.selfVideo);
-        this.suppress = Boolean(voiceStateData.suppress);
+        this.muted = voiceStateData.muted;
+        this.deafened = voiceStateData.deafened;
+        this.selfMuted = voiceStateData.selfMuted;
+        this.selfDeafened = voiceStateData.selfDeafened;
+        this.selfStream = voiceStateData.selfStream;
+        this.selfVideo = voiceStateData.selfVideo;
+        this.suppress = voiceStateData.suppress;
     }
 
     /**

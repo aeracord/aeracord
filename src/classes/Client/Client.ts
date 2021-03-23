@@ -345,7 +345,7 @@ export default class Client extends EventEmitter {
      *
      * The client's avatar hash
      */
-    avatar?: string;
+    avatar: string | null;
 
     /**
      * Session ID
@@ -766,7 +766,7 @@ export default class Client extends EventEmitter {
             fetchObject: async (id: string): Promise<WelcomeScreen> => {
 
                 // Get welcome screen data
-                const welcomeScreenData: WelcomeScreenData | undefined = (await this.guilds.get(id, true)).welcomeScreen;
+                const welcomeScreenData: WelcomeScreenData | null = (await this.guilds.get(id, true)).welcomeScreen;
                 if (!welcomeScreenData) throw new Error("Couldn't find a welcome screen in that guild");
 
                 // Return

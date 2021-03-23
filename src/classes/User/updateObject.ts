@@ -6,7 +6,7 @@ export default function updateObject(user: User, userData: UserData) {
     user.username = userData.username;
     user.discriminator = userData.discriminator;
     user.avatar = userData.avatar;
-    user.bot = Boolean(userData.bot);
-    user.system = Boolean(userData.system);
+    user.bot = userData.bot;
+    user.system = userData.system;
     user.publicFlags = userData.publicFlags;
 }

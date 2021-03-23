@@ -5,13 +5,13 @@ import updateObject from "./updateObject";
 
 export interface MemberData {
     guildID: string;
-    nickname?: string;
+    nickname: string | null;
     roles: string[];
-    muted?: boolean;
-    deafened?: boolean;
+    muted: boolean;
+    deafened: boolean;
     joinedAt: number;
-    premiumSince?: number;
-    pending?: boolean;
+    premiumSince: number | null;
+    pending: boolean;
     user: UserData;
 }
 
@@ -29,7 +29,7 @@ export default class Member extends Base<Member> {
      *
      * The member's nickname
      */
-    nickname?: string;
+    nickname: string | null;
 
     /**
      * Roles
@@ -64,7 +64,7 @@ export default class Member extends Base<Member> {
      *
      * The timestamp for when the member started boosting the guild
      */
-    premiumSince?: number;
+    premiumSince: number | null;
 
     /**
      * Pending

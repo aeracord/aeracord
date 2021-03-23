@@ -21,7 +21,7 @@ export interface MessageReactionAddData {
      *
      * The ID of the guild this reaction was added in
      */
-    guildID?: string;
+    guildID: string | null;
 
     /**
      * User ID
@@ -35,7 +35,7 @@ export interface MessageReactionAddData {
      *
      * The member object of the user that added this reaction
      */
-    member?: MemberData;
+    member: MemberData | null;
 
     /**
      * Emoji

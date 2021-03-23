@@ -7,7 +7,7 @@ export interface GuildChannelData extends ChannelData {
     guildID: string;
     position: number;
     permissionOverwrites: PermissionOverwrite[];
-    parentID?: string;
+    parentID: string | null;
 }
 
 export interface PermissionOverwrite {
@@ -62,7 +62,7 @@ export default class GuildChannel extends Channel {
      *
      * The ID of this channel's parent channel
      */
-    parentID?: string;
+    parentID: string | null;
 
     /**
      * Guild Channel

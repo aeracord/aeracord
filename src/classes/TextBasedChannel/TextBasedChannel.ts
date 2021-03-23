@@ -2,8 +2,8 @@ import { CacheManagerInterface, Channel, ChannelData, Client, Message } from "..
 import updateObject from "./updateObject";
 
 export interface TextBasedChannelData extends ChannelData {
-    lastMessageID?: string;
-    lastPinTimestamp?: number;
+    lastMessageID: string | null;
+    lastPinTimestamp: number | null;
 }
 
 export default class TextBasedChannel extends Channel {
@@ -20,14 +20,14 @@ export default class TextBasedChannel extends Channel {
      *
      * The ID of the last message in this channel
      */
-    lastMessageID?: string;
+    lastMessageID: string | null;
 
     /**
      * Last Pin Timestamp
      *
      * The timestamp of when the last pin in this channel was
      */
-    lastPinTimestamp?: number;
+    lastPinTimestamp: number | null;
 
     /**
      * Text Based Channel

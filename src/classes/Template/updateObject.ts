@@ -11,5 +11,5 @@ export default function updateObject(template: Template, templateData: TemplateD
     template.updatedAt = templateData.updatedAt;
     template.sourceGuildID = templateData.sourceGuildID;
     template.sourceGuild = templateData.sourceGuild;
-    template.dirty = Boolean(templateData.dirty);
+    template.dirty = templateData.dirty;
 }

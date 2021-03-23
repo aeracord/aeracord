@@ -4,18 +4,18 @@ import fromRawData from "./fromRawData";
 import toJSON from "./toJSON";
 
 export interface EmbedData {
-    title?: string;
-    type?: EmbedType;
-    description?: string;
-    url?: string;
-    timestamp?: number;
-    color?: number;
-    footer?: EmbedFooter;
-    image?: EmbedImage;
-    thumbnail?: EmbedThumbnail;
-    video?: EmbedVideo;
-    provider?: EmbedProvider;
-    author?: EmbedAuthor;
+    title: string | null;
+    type: EmbedType | null;
+    description: string | null;
+    url: string | null;
+    timestamp: number | null;
+    color: number | null;
+    footer: EmbedFooter | null;
+    image: EmbedImage | null;
+    thumbnail: EmbedThumbnail | null;
+    video: EmbedVideo | null;
+    provider: EmbedProvider | null;
+    author: EmbedAuthor | null;
     fields: EmbedField[];
 }
 
@@ -23,41 +23,41 @@ export type EmbedType = "rich" | "image" | "video" | "gifv" | "article" | "link"
 
 export interface EmbedFooter {
     text: string;
-    iconURL?: string;
-    proxyIconURL?: string;
+    iconURL: string | null;
+    proxyIconURL: string | null;
 }
 
 export interface EmbedImage {
-    url?: string;
-    proxyURL?: string;
-    width?: number;
-    height?: number;
+    url: string | null;
+    proxyURL: string | null;
+    width: number | null;
+    height: number | null;
 }
 
 export interface EmbedThumbnail {
-    url?: string;
-    proxyURL?: string;
-    width?: number;
-    height?: number;
+    url: string | null;
+    proxyURL: string | null;
+    width: number | null;
+    height: number | null;
 }
 
 export interface EmbedVideo {
-    url?: string;
-    proxyURL?: string;
-    width?: number;
-    height?: number;
+    url: string | null;
+    proxyURL: string | null;
+    width: number | null;
+    height: number | null;
 }
 
 export interface EmbedProvider {
-    name?: string;
-    url?: string;
+    name: string | null;
+    url: string | null;
 }
 
 export interface EmbedAuthor {
-    name?: string;
-    url?: string;
-    iconURL?: string;
-    proxyIconURL?: string;
+    name: string | null;
+    url: string | null;
+    iconURL: string | null;
+    proxyIconURL: string | null;
 }
 
 export interface EmbedField {
@@ -80,84 +80,84 @@ export default class Embed {
      *
      * The embed's title
      */
-    title?: string;
+    title: string | null;
 
     /**
      * Type
      *
      * The embed's type
      */
-    type?: EmbedType;
+    type: EmbedType | null;
 
     /**
      * Description
      *
      * The embed's description
      */
-    description?: string;
+    description: string | null;
 
     /**
      * URL
      *
      * The embed's URL
      */
-    url?: string;
+    url: string | null;
 
     /**
      * Timestamp
      *
      * The embed's timestamp
      */
-    timestamp?: number;
+    timestamp: number | null;
 
     /**
      * Color
      *
      * The embed's color
      */
-    color?: number;
+    color: number | null;
 
     /**
      * Footer
      *
      * The embed's footer
      */
-    footer?: EmbedFooter;
+    footer: EmbedFooter | null;
 
     /**
      * Image
      *
      * The embed's image
      */
-    image?: EmbedImage;
+    image: EmbedImage | null;
 
     /**
      * Thumbnail
      *
      * The embed's thumbnail
      */
-    thumbnail?: EmbedThumbnail;
+    thumbnail: EmbedThumbnail | null;
 
     /**
      * Video
      *
      * The embed's video
      */
-    video?: EmbedVideo;
+    video: EmbedVideo | null;
 
     /**
      * Provider
      *
      * The embed's provider
      */
-    provider?: EmbedProvider;
+    provider: EmbedProvider | null;
 
     /**
      * Author
      *
      * The embed's author
      */
-    author?: EmbedAuthor;
+    author: EmbedAuthor | null;
 
     /**
      * Fields

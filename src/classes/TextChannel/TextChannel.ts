@@ -5,9 +5,9 @@ import applyMixins from "../applyMixins";
 import updateObject from "./updateObject";
 
 export interface TextChannelData extends GuildChannelData, TextBasedChannelData {
-    topic?: string;
-    nsfw?: boolean;
-    rateLimitPerUser?: number;
+    topic: string | null;
+    nsfw: boolean;
+    rateLimitPerUser: number | null;
 }
 
 interface TextChannel extends TextBasedChannel {
@@ -21,7 +21,7 @@ class TextChannel extends GuildChannel {
      *
      * The channel's topic
      */
-    topic?: string;
+    topic: string | null;
 
     /**
      * NSFW
@@ -35,7 +35,7 @@ class TextChannel extends GuildChannel {
      *
      * The slowmode for this channel in milliseconds
      */
-    rateLimitPerUser?: number;
+    rateLimitPerUser: number | null;
 
     /**
      * Invites

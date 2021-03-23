@@ -8,12 +8,12 @@ export default function messageReactionAdd(client: Client, rawData: RawMessageRe
     const data: MessageReactionAddData = {
         messageID: rawData.message_id,
         channelID: rawData.channel_id,
-        guildID: rawData.guild_id,
+        guildID: rawData.guild_id || null,
         userID: rawData.user_id,
-        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(rawData.member, rawData.guild_id) : undefined,
+        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(rawData.member, rawData.guild_id) : null,
         emoji: {
-            id: rawData.emoji.id || undefined,
-            name: rawData.emoji.name || undefined,
+            id: rawData.emoji.id,
+            name: rawData.emoji.name,
             animated: Boolean(rawData.emoji.animated)
         }
     };

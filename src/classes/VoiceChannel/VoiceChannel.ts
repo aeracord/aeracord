@@ -3,8 +3,8 @@ import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
 export interface VoiceChannelData extends GuildChannelData {
-    bitrate?: number;
-    userLimit?: number;
+    bitrate: number | null;
+    userLimit: number | null;
 }
 
 export default class VoiceChannel extends GuildChannel {
@@ -14,14 +14,14 @@ export default class VoiceChannel extends GuildChannel {
      *
      * The channel's bitrate
      */
-    bitrate?: number;
+    bitrate: number | null;
 
     /**
      * User Limit
      *
      * The channel's user limit
      */
-    userLimit?: number;
+    userLimit: number | null;
 
     /**
      * Voice Channel

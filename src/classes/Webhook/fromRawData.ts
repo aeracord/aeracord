@@ -9,9 +9,9 @@ export default function fromRawData(rawData: RawWebhookData): WebhookData {
         guildID: rawData.guild_id,
         channelID: rawData.channel_id,
         name: rawData.name,
-        avatar: rawData.avatar || undefined,
+        avatar: rawData.avatar,
         creator: rawData.user && User._fromRawData(rawData.user),
-        token: rawData.token,
-        applicationID: rawData.application_id || undefined
+        token: rawData.token || null,
+        applicationID: rawData.application_id
     };
 }

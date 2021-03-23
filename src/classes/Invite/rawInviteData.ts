@@ -4,12 +4,12 @@ export default interface RawInviteData {
     code: string;
     channel: RawInviteDataChannel;
     guild: RawInviteDataGuild;
-    created_at: string;
+    created_at?: string;
     inviter?: RawUserData;
-    max_age: number;
-    max_uses: number;
-    temporary: boolean;
-    uses: number;
+    max_age?: number;
+    max_uses?: number;
+    temporary?: boolean;
+    uses?: number;
     target_user?: RawInviteDataTargetUser;
     target_user_type?: TargetUserType;
 }

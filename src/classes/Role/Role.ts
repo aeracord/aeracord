@@ -9,18 +9,18 @@ export interface RoleData {
     name: string;
     guildID: string;
     color: number;
-    hoist?: boolean;
+    hoist: boolean;
     position: number;
     permissions: string;
-    managed?: boolean;
-    mentionable?: boolean;
+    managed: boolean;
+    mentionable: boolean;
     tags: RoleDataTags;
 }
 
 export interface RoleDataTags {
-    botID?: string;
-    integrationID?: string;
-    premiumRole?: boolean;
+    botID: string | null;
+    integrationID: string | null;
+    premiumRole: boolean;
 }
 
 export type RoleTags = RoleDataTags;

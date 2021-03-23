@@ -7,6 +7,6 @@ export default interface RawStickerData {
     description: string;
     tags?: string;
     asset: string;
-    preview_asset: string;
+    preview_asset: string | null;
     format_type: StickerFormatType;
 }

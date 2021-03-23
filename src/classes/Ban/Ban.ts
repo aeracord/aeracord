@@ -6,7 +6,7 @@ import updateObject from "./updateObject";
 export interface BanData {
     guildID: string;
     user: UserData;
-    reason?: string;
+    reason: string | null;
 }
 
 export default class Ban extends Base<Ban> {
@@ -30,7 +30,7 @@ export default class Ban extends Base<Ban> {
      *
      * The ban's reason
      */
-    reason?: string;
+    reason: string | null;
 
     /**
      * Ban

@@ -7,18 +7,18 @@ export default function fromRawData(rawData: RawInviteData): InviteData {
         code: rawData.code,
         channelID: rawData.channel.id,
         guildID: rawData.guild.id,
-        createdAt: new Date(rawData.created_at).getTime(),
-        inviter: rawData.inviter && User._fromRawData(rawData.inviter),
-        maxAge: rawData.max_age || undefined,
-        maxUses: rawData.max_uses || undefined,
+        createdAt: rawData.created_at ? new Date(rawData.created_at).getTime() : undefined,
+        inviter: rawData.inviter ? User._fromRawData(rawData.inviter) : null,
+        maxAge: rawData.max_age,
+        maxUses: rawData.max_uses,
         temporary: rawData.temporary,
         uses: rawData.uses,
-        targetUser: rawData.target_user && {
+        targetUser: rawData.target_user ? {
             id: rawData.target_user.id,
             username: rawData.target_user.username,
             discriminator: rawData.target_user.discriminator,
-            avatar: rawData.target_user.avatar || undefined
-        },
-        targetUserType: rawData.target_user_type
+            avatar: rawData.target_user.avatar
+        } : null,
+        targetUserType: rawData.target_user_type || null
     };
 }

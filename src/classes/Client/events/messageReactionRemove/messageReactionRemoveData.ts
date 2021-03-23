@@ -21,7 +21,7 @@ export interface MessageReactionRemoveData {
      *
      * The ID of the guild this reaction was removed in
      */
-    guildID?: string;
+    guildID: string | null;
 
     /**
      * User ID

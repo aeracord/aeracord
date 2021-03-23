@@ -6,10 +6,10 @@ export default function updateObject(role: Role, roleData: RoleData) {
     role.name = roleData.name;
     role.guildID = roleData.guildID;
     role.color = roleData.color;
-    role.hoist = Boolean(roleData.hoist);
+    role.hoist = roleData.hoist;
     role.position = roleData.position;
     role.permissions = roleData.permissions;
-    role.mentionable = Boolean(roleData.mentionable);
-    role.managed = Boolean(roleData.managed);
+    role.mentionable = roleData.mentionable;
+    role.managed = roleData.managed;
     role.tags = roleData.tags;
 }

@@ -4,7 +4,7 @@ export default function updateObject(textChannel: TextChannel, textChannelData: 
 
     // Set data
     textChannel.topic = textChannelData.topic;
-    textChannel.nsfw = Boolean(textChannelData.nsfw);
+    textChannel.nsfw = textChannelData.nsfw;
     textChannel.rateLimitPerUser = textChannelData.rateLimitPerUser;
     textChannel.lastMessageID = textChannelData.lastMessageID;
     textChannel.lastPinTimestamp = textChannelData.lastPinTimestamp;

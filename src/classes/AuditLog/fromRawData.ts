@@ -8,24 +8,24 @@ export default function fromRawData(rawData: RawAuditLogData, guildID: string): 
         entries: rawData.audit_log_entries.map((e: RawAuditLogDataEntry) => ({
             id: e.id,
             event: e.action_type,
-            targetID: e.target_id || undefined,
+            targetID: e.target_id,
             actorID: e.user_id,
-            changes: e.changes && e.changes.map((c: RawAuditLogDataEntryChange) => ({
+            changes: e.changes ? e.changes.map((c: RawAuditLogDataEntryChange) => ({
                 type: parseEntryChangeType(c.key),
-                oldValue: c.old_value,
-                newValue: c.new_value
-            })),
-            options: e.options && {
-                deleteMemberDays: e.options.delete_member_days !== undefined ? parseInt(e.options.delete_member_days) : undefined,
-                membersRemoved: e.options.members_removed !== undefined ? parseInt(e.options.members_removed) : undefined,
-                channelID: e.options.channel_id,
-                messageID: e.options.message_id,
-                count: e.options.count !== undefined ? parseInt(e.options.count) : undefined,
-                id: e.options.id,
-                type: e.options.type,
-                roleName: e.options.role_name
-            },
-            reason: e.reason
+                oldValue: c.old_value || null,
+                newValue: c.new_value || null
+            })) : null,
+            options: e.options ? {
+                deleteMemberDays: e.options.delete_member_days !== undefined ? parseInt(e.options.delete_member_days) : null,
+                membersRemoved: e.options.members_removed !== undefined ? parseInt(e.options.members_removed) : null,
+                channelID: e.options.channel_id || null,
+                messageID: e.options.message_id || null,
+                count: e.options.count !== undefined ? parseInt(e.options.count) : null,
+                id: e.options.id || null,
+                type: e.options.type || null,
+                roleName: e.options.role_name || null
+            } : null,
+            reason: e.reason || null
         }))
     };
 }

@@ -38,7 +38,7 @@ export interface PresenceUser {
      *
      * The user's avatar hash
      */
-    avatar?: string;
+    avatar?: string | null;
 
     /**
      * Bot
@@ -83,7 +83,7 @@ export interface Activity {
      *
      * The stream's URL
      */
-    url?: string;
+    url: string | null;
 
     /**
      * Created At
@@ -97,56 +97,56 @@ export interface Activity {
      *
      * The timestamps for when this activity was started and ended
      */
-    timestamps?: ActivityTimestamps;
+    timestamps: ActivityTimestamps | null;
 
     /**
      * Application ID
      *
      * The activity's application ID
      */
-    applicationID?: string;
+    applicationID: string | null;
 
     /**
      * Details
      *
      * The activity's details
      */
-    details?: string;
+    details: string | null;
 
     /**
      * State
      *
      * The activity's state
      */
-    state?: string;
+    state: string | null;
 
     /**
      * Emoji
      *
      * The emoji in a custom status
      */
-    emoji?: ActivityEmoji;
+    emoji: ActivityEmoji | null;
 
     /**
      * Party
      *
      * The activity's party
      */
-    party?: ActivityParty;
+    party: ActivityParty | null;
 
     /**
      * Assets
      *
      * The activity's assets
      */
-    assets?: ActivityAssets;
+    assets: ActivityAssets | null;
 
     /**
      * Secrets
      *
      * The activity's secrets
      */
-    secrets?: ActivitySecrets;
+    secrets: ActivitySecrets | null;
 
     /**
      * Instance
@@ -160,7 +160,7 @@ export interface Activity {
      *
      * The activity's flags
      */
-    flags?: number;
+    flags: number | null;
 }
 
 export interface ActivityTimestamps {
@@ -170,14 +170,14 @@ export interface ActivityTimestamps {
      *
      * The timestamp of when this activity started
      */
-    start?: number;
+    start: number | null;
 
     /**
      * End
      *
      * The timestamp of when this activity ended
      */
-    end?: number;
+    end: number | null;
 }
 
 export interface ActivityEmoji {
@@ -187,7 +187,7 @@ export interface ActivityEmoji {
      *
      * The emoji's ID
      */
-    id?: string;
+    id: string | null;
 
     /**
      * Name
@@ -211,14 +211,14 @@ export interface ActivityParty {
      *
      * The party's ID
      */
-    id?: string;
+    id: string | null;
 
     /**
      * Size
      *
      * The party's current and maximum size
      */
-    size?: number[];
+    size: number[] | null;
 }
 
 export interface ActivityAssets {
@@ -228,28 +228,28 @@ export interface ActivityAssets {
      *
      * The large image's ID
      */
-    largeImage?: string;
+    largeImage: string | null;
 
     /**
      * Large Text
      *
      * The large image's text
      */
-    largeText?: string;
+    largeText: string | null;
 
     /**
      * Small Image
      *
      * The small image's ID
      */
-    smallImage?: string;
+    smallImage: string | null;
 
     /**
      * Small Text
      *
      * The small image's text
      */
-    smallText?: string;
+    smallText: string | null;
 }
 
 export interface ActivitySecrets {
@@ -259,21 +259,21 @@ export interface ActivitySecrets {
      *
      * The secret for joining a party
      */
-    join?: string;
+    join: string | null;
 
     /**
      * Spectate
      *
      * The secret for spectating a game
      */
-    spectate?: string;
+    spectate: string | null;
 
     /**
      * Match
      *
      * The secret for the instanced match
      */
-    match?: string;
+    match: string | null;
 }
 
 export interface PresenceClientStatus {
@@ -283,14 +283,14 @@ export interface PresenceClientStatus {
      *
      * The user's status on the desktop app
      */
-    desktop?: Status;
+    desktop: Status | null;
 
     /**
      * Mobile
      *
      * The user's status on the mobile app
      */
-    mobile?: Status;
+    mobile: Status | null;
 
     /**
      * Web
@@ -298,7 +298,7 @@ export interface PresenceClientStatus {
      * The user's status on the web client
      * Bots will have their statuses as web statuses
      */
-    web?: Status;
+    web: Status | null;
 }
 
 export default class Presence extends Base<Presence> {

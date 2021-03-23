@@ -5,10 +5,10 @@ export default function updateObject(emoji: Emoji, emojiData: EmojiData) {
     // Set data
     emoji.name = emojiData.name;
     emoji.guildID = emojiData.guildID;
-    emoji.animated = Boolean(emojiData.animated);
-    emoji.managed = Boolean(emojiData.managed);
-    emoji.available = Boolean(emojiData.available);
+    emoji.animated = emojiData.animated;
+    emoji.managed = emojiData.managed;
+    emoji.available = emojiData.available;
     emoji.creator = emojiData.creator;
-    emoji.requiresColons = Boolean(emojiData.requiresColons);
+    emoji.requiresColons = emojiData.requiresColons;
     emoji.roles = emojiData.roles;
 }

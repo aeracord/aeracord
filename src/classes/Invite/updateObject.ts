@@ -9,7 +9,7 @@ export default function updateObject(invite: Invite, inviteData: InviteData) {
     invite.inviter = inviteData.inviter;
     invite.maxAge = inviteData.maxAge;
     invite.maxUses = inviteData.maxUses;
-    invite.temporary = Boolean(inviteData.temporary);
+    invite.temporary = inviteData.temporary;
     invite.uses = inviteData.uses;
     invite.targetUser = inviteData.targetUser;
     invite.targetUserType = inviteData.targetUserType;

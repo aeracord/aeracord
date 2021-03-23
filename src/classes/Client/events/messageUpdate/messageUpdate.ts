@@ -14,7 +14,7 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         webhook: (rawData.webhook_id && rawData.author) ? {
             id: rawData.author.id,
             name: rawData.author.username,
-            avatar: rawData.author.avatar || undefined
+            avatar: rawData.author.avatar
         } : undefined,
         member: (rawData.member && rawData.guild_id) ? Member._fromRawData({ ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
         content: rawData.content,
@@ -40,19 +40,19 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         pinned: rawData.pinned,
         activity: rawData.activity && {
             type: rawData.activity.type,
-            partyID: rawData.activity.party_id
+            partyID: rawData.activity.party_id || null
         },
         application: rawData.application && {
             id: rawData.application.id,
             name: rawData.application.name,
             description: rawData.application.description,
-            icon: rawData.application.icon || undefined,
-            coverImage: rawData.application.cover_image
+            icon: rawData.application.icon,
+            coverImage: rawData.application.cover_image || null
         },
         messageReference: rawData.message_reference && {
-            messageID: rawData.message_reference.message_id,
+            messageID: rawData.message_reference.message_id || null,
             channelID: rawData.message_reference.channel_id,
-            guildID: rawData.message_reference.guild_id
+            guildID: rawData.message_reference.guild_id || null
         },
         flags: rawData.flags,
         referencedMessage: rawData.referenced_message ? Message._fromRawData(rawData.referenced_message) : undefined

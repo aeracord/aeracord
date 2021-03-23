@@ -5,7 +5,7 @@ import updateObject from "./updateObject";
 
 export interface VanityInviteData {
     guildID: string;
-    code?: string;
+    code: string | null;
     uses: number;
 }
 
@@ -25,7 +25,7 @@ export default class VanityInvite extends Base<VanityInvite> {
      *
      * The vanity invite's code
      */
-    code?: string;
+    code: string | null;
 
     /**
      * Uses

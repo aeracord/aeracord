@@ -8,15 +8,15 @@ export interface MessageData {
     id: string;
     type: MessageType;
     channelID: string;
-    guildID?: string;
-    author?: UserData;
-    webhook?: MessageWebhook;
-    member?: MemberData;
+    guildID: string | null;
+    author: UserData | null;
+    webhook: MessageWebhook | null;
+    member: MemberData | null;
     content: string;
     timestamp: number;
-    editedTimestamp?: number;
-    tts?: boolean;
-    mentionEveryone?: boolean;
+    editedTimestamp: number | null;
+    tts: boolean;
+    mentionEveryone: boolean;
     mentions: MemberData[];
     mentionedRoles: string[];
     mentionedChannels: ChannelMention[];
@@ -24,12 +24,12 @@ export interface MessageData {
     embeds: EmbedData[];
     stickers: StickerData[];
     reactions: ReactionData[];
-    pinned?: boolean;
-    activity?: MessageActivity;
-    application?: MessageApplication;
-    messageReference?: MessageReference;
+    pinned: boolean;
+    activity: MessageActivity | null;
+    application: MessageApplication | null;
+    messageReference: MessageReference | null;
     flags: number;
-    referencedMessage?: MessageData;
+    referencedMessage?: MessageData | null;
 }
 
 export type MessageType = typeof MESSAGE_TYPE_DEFAULT | typeof MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE | typeof MESSAGE_TYPE_GUILD_MEMBER_JOIN | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3 | typeof MESSAGE_TYPE_CHANNEL_FOLLOW_ADD | typeof MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED | typeof MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED | typeof MESSAGE_TYPE_REPLY | typeof MESSAGE_TYPE_APPLICATION_COMMAND;
@@ -49,7 +49,7 @@ export const MESSAGE_TYPE_APPLICATION_COMMAND = 20;
 export interface MessageWebhook {
     id: string;
     name: string;
-    avatar?: string;
+    avatar: string | null;
 }
 
 export interface ChannelMention {
@@ -61,7 +61,7 @@ export interface ChannelMention {
 
 export interface MessageActivity {
     type: MessageActivityType;
-    partyID?: string;
+    partyID: string | null;
 }
 
 export type MessageActivityType = typeof MESSAGE_ACTIVITY_TYPE_JOIN | typeof MESSAGE_ACTIVITY_TYPE_SPECTATE | typeof MESSAGE_ACTIVITY_TYPE_LISTEN | typeof MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST;
@@ -74,14 +74,14 @@ export interface MessageApplication {
     id: string;
     name: string;
     description: string;
-    icon?: string;
-    coverImage?: string;
+    icon: string | null;
+    coverImage: string | null;
 }
 
 export interface MessageReference {
-    messageID?: string;
+    messageID: string | null;
     channelID: string;
-    guildID?: string;
+    guildID: string | null;
 }
 
 export type MessageResolvable = Message | string;
@@ -107,28 +107,28 @@ export default class Message extends Base<Message> {
      *
      * The ID of the guild this message is in
      */
-    guildID?: string;
+    guildID: string | null;
 
     /**
      * Author
      *
      * The user that sent this message
      */
-    author?: UserData;
+    author: UserData | null;
 
     /**
      * Webhook
      *
      * The webhook that sent this message
      */
-    webhook?: MessageWebhook;
+    webhook: MessageWebhook | null;
 
     /**
      * Member
      *
      * The member object of the user that sent this message
      */
-    member?: MemberData;
+    member: MemberData | null;
 
     /**
      * Content
@@ -149,7 +149,7 @@ export default class Message extends Base<Message> {
      *
      * The timestamp for when the message was last edited
      */
-    editedTimestamp?: number;
+    editedTimestamp: number | null;
 
     /**
      * TTS
@@ -226,21 +226,21 @@ export default class Message extends Base<Message> {
      *
      * The message's activity
      */
-    activity?: MessageActivity;
+    activity: MessageActivity | null;
 
     /**
      * Application
      *
      * The message's application
      */
-    application?: MessageApplication;
+    application: MessageApplication | null;
 
     /**
      * Message Reference
      *
      * The data for the message this message references
      */
-    messageReference?: MessageReference;
+    messageReference: MessageReference | null;
 
     /**
      * Flags
@@ -254,7 +254,7 @@ export default class Message extends Base<Message> {
      *
      * The message this message references
      */
-    referencedMessage?: MessageData;
+    referencedMessage?: MessageData | null;
 
     /**
      * Message

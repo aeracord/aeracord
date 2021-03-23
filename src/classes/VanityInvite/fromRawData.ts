@@ -5,7 +5,7 @@ export default function fromRawData(rawData: RawVanityInviteData, guildID: strin
     // Parse vanity invite data
     return {
         guildID,
-        code: rawData.code || undefined,
+        code: rawData.code,
         uses: rawData.uses
     };
 }

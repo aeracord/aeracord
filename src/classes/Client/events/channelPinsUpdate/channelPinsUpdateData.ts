@@ -5,7 +5,7 @@ export interface ChannelPinsUpdateData {
      *
      * The ID of the guild where the pins were updated
      */
-    guildID?: string;
+    guildID: string | null;
 
     /**
      * Channel ID
@@ -19,5 +19,5 @@ export interface ChannelPinsUpdateData {
      *
      * The timestamp of when the last pin in the channel was
      */
-    lastPinTimestamp?: number;
+    lastPinTimestamp: number | null;
 }

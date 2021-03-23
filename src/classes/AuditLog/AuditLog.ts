@@ -10,11 +10,11 @@ export interface AuditLogData {
 export interface AuditLogEntry {
     id: string;
     event: AuditLogEvent;
-    targetID?: string;
+    targetID: string | null;
     actorID: string;
-    changes?: AuditLogChange[];
-    options?: AuditLogOptions;
-    reason?: string;
+    changes: AuditLogChange[] | null;
+    options: AuditLogOptions | null;
+    reason: string | null;
 }
 
 export type AuditLogEvent = typeof AUDIT_LOG_EVENT_GUILD_UPDATE | typeof AUDIT_LOG_EVENT_CHANNEL_CREATE | typeof AUDIT_LOG_EVENT_CHANNEL_UPDATE | typeof AUDIT_LOG_EVENT_CHANNEL_DELETE | typeof AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_CREATE | typeof AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_UPDATE | typeof AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_DELETE | typeof AUDIT_LOG_EVENT_MEMBER_KICK | typeof AUDIT_LOG_EVENT_MEMBER_PRUNE | typeof AUDIT_LOG_EVENT_MEMBER_BAN_ADD | typeof AUDIT_LOG_EVENT_MEMBER_BAN_REMOVE | typeof AUDIT_LOG_EVENT_MEMBER_UPDATE | typeof AUDIT_LOG_EVENT_MEMBER_ROLE_UPDATE | typeof AUDIT_LOG_EVENT_MEMBER_MOVE | typeof AUDIT_LOG_EVENT_MEMBER_DISCONNECT | typeof AUDIT_LOG_EVENT_BOT_ADD | typeof AUDIT_LOG_EVENT_ROLE_CREATE | typeof AUDIT_LOG_EVENT_ROLE_UPDATE | typeof AUDIT_LOG_EVENT_ROLE_DELETE | typeof AUDIT_LOG_EVENT_INVITE_CREATE | typeof AUDIT_LOG_EVENT_INVITE_UPDATE | typeof AUDIT_LOG_EVENT_INVITE_DELETE | typeof AUDIT_LOG_EVENT_WEBHOOK_CREATE | typeof AUDIT_LOG_EVENT_WEBHOOK_UPDATE | typeof AUDIT_LOG_EVENT_WEBHOOK_DELETE | typeof AUDIT_LOG_EVENT_EMOJI_CREATE | typeof AUDIT_LOG_EVENT_EMOJI_UPDATE | typeof AUDIT_LOG_EVENT_EMOJI_DELETE | typeof AUDIT_LOG_EVENT_MESSAGE_DELETE | typeof AUDIT_LOG_EVENT_MESSAGE_BULK_DELETE | typeof AUDIT_LOG_EVENT_MESSAGE_PIN | typeof AUDIT_LOG_EVENT_MESSAGE_UNPIN | typeof AUDIT_LOG_EVENT_INTEGRATION_CREATE | typeof AUDIT_LOG_EVENT_INTEGRATION_UPDATE | typeof AUDIT_LOG_EVENT_INTEGRATION_DELETE;
@@ -56,21 +56,21 @@ export const AUDIT_LOG_EVENT_INTEGRATION_DELETE = 82;
 
 export interface AuditLogChange {
     type: AuditLogChangeType;
-    oldValue?: any;
-    newValue?: any;
+    oldValue: any;
+    newValue: any;
 }
 
 export type AuditLogChangeType = "name" | "description" | "icon" | "splash" | "discoverySplash" | "banner" | "ownerID" | "region" | "preferredLocale" | "afkChannelID" | "afkTimeout" | "rulesChannelID" | "publicUpdatesChannelID" | "mfaLevel" | "verificationLevel" | "explicitContentFilter" | "defaultMessageNotifications" | "vanityURLCode" | "add" | "remove" | "pruneDeleteDays" | "widgetEnabled" | "widgetChannelID" | "systemChannelID" | "position" | "topic" | "bitrate" | "permissionOverwrites" | "nsfw" | "applicationID" | "rateLimitPerUser" | "permissions" | "color" | "hoist" | "mentionable" | "allow" | "deny" | "code" | "channelID" | "inviterID" | "maxUses" | "uses" | "maxAge" | "temporary" | "deaf" | "mute" | "nick" | "avatar" | "id" | "type" | "enableEmoticons" | "expireBehavior" | "expireGracePeriod" | "userLimit";
 
 export interface AuditLogOptions {
-    deleteMemberDays?: number;
-    membersRemoved?: number;
-    channelID?: string;
-    messageID?: string;
-    count?: number;
-    id?: string;
-    type?: string;
-    roleName?: string;
+    deleteMemberDays: number | null;
+    membersRemoved: number | null;
+    channelID: string | null;
+    messageID: string | null;
+    count: number | null;
+    id: string | null;
+    type: string | null;
+    roleName: string | null;
 }
 
 export default class AuditLog {

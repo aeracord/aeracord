@@ -11,7 +11,7 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.region = guildData.region;
     guild.afkChannelID = guildData.afkChannelID;
     guild.afkTimeout = guildData.afkTimeout;
-    guild.widgetEnabled = Boolean(guildData.widgetEnabled);
+    guild.widgetEnabled = guildData.widgetEnabled;
     guild.widgetChannelID = guildData.widgetChannelID;
     guild.verificationLevel = guildData.verificationLevel;
     guild.defaultMessageNotifications = guildData.defaultMessageNotifications;
@@ -24,7 +24,7 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.systemChannelID = guildData.systemChannelID;
     guild.systemChannelFlags = guildData.systemChannelFlags;
     guild.rulesChannelID = guildData.rulesChannelID;
-    guild.maxPresences = guildData.maxPresences || 25000;
+    guild.maxPresences = guildData.maxPresences;
     guild.maxMembers = guildData.maxMembers;
     guild.vanityURLCode = guildData.vanityURLCode;
     guild.description = guildData.description;

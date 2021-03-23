@@ -7,9 +7,9 @@ export interface StickerData {
     packID: string;
     name: string;
     description: string;
-    tags?: string;
+    tags: string | null;
     asset: string;
-    previewAsset: string;
+    previewAsset: string | null;
     formatType: StickerFormatType;
 }
 
@@ -60,7 +60,7 @@ export default class Sticker {
      *
      * The sticker's tags
      */
-    tags?: string;
+    tags: string | null;
 
     /**
      * Asset
@@ -74,7 +74,7 @@ export default class Sticker {
      *
      * The sticker's preview asset hash
      */
-    previewAsset: string;
+    previewAsset: string | null;
 
     /**
      * Format Type

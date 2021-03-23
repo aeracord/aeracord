@@ -10,10 +10,10 @@ export interface WebhookData {
     guildID: string;
     channelID: string;
     name: string;
-    avatar?: string;
+    avatar: string | null;
     creator: UserData;
-    token?: string;
-    applicationID?: string;
+    token: string | null;
+    applicationID: string | null;
 }
 
 export type WebhookType = typeof WEBHOOK_TYPE_INCOMING | typeof WEBHOOK_TYPE_CHANNEL_FOLLOWER;
@@ -57,7 +57,7 @@ export default class Webhook extends Base<Webhook> {
      *
      * The webhook's avatar
      */
-    avatar?: string;
+    avatar: string | null;
 
     /**
      * User
@@ -71,14 +71,14 @@ export default class Webhook extends Base<Webhook> {
      *
      * The webhook's token
      */
-    token?: string;
+    token: string | null;
 
     /**
      * Application ID
      *
      * The webhook's application ID
      */
-    applicationID?: string;
+    applicationID: string | null;
 
     /**
      * Webhook

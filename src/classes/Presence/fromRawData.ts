@@ -8,7 +8,7 @@ export default function fromRawData(rawData: RawPresenceData): PresenceData {
             id: rawData.user.id,
             username: rawData.user.username,
             discriminator: rawData.user.discriminator,
-            avatar: rawData.user.avatar || undefined,
+            avatar: rawData.user.avatar,
             bot: rawData.user.bot,
             system: rawData.user.system,
             publicFlags: rawData.user.public_flags
@@ -17,28 +17,42 @@ export default function fromRawData(rawData: RawPresenceData): PresenceData {
         activities: rawData.activities.map((a: RawPresenceDataActivity) => ({
             name: a.name,
             type: a.type,
-            url: a.url || undefined,
+            url: a.url || null,
             createdAt: a.created_at,
-            timestamps: a.timestamps,
-            applicationID: a.application_id,
-            details: a.details || undefined,
-            state: a.state || undefined,
+            timestamps: a.timestamps ? {
+                start: a.timestamps.start || null,
+                end: a.timestamps.end || null
+            } : null,
+            applicationID: a.application_id || null,
+            details: a.details || null,
+            state: a.state || null,
             emoji: a.emoji ? {
-                id: a.emoji.id,
+                id: a.emoji.id || null,
                 name: a.emoji.name,
                 animated: Boolean(a.emoji.animated)
-            } : undefined,
-            party: a.party || undefined,
-            assets: a.assets && {
-                largeImage: a.assets.large_image,
-                largeText: a.assets.large_text,
-                smallImage: a.assets.small_image,
-                smallText: a.assets.small_text
-            },
-            secrets: a.secrets,
+            } : null,
+            party: a.party ? {
+                id: a.party.id || null,
+                size: a.party.size || null
+            } : null,
+            assets: a.assets ? {
+                largeImage: a.assets.large_image || null,
+                largeText: a.assets.large_text || null,
+                smallImage: a.assets.small_image || null,
+                smallText: a.assets.small_text || null
+            } : null,
+            secrets: a.secrets ? {
+                join: a.secrets.join || null,
+                spectate: a.secrets.spectate || null,
+                match: a.secrets.match || null
+            } : null,
             instance: Boolean(a.instance),
-            flags: a.flags
+            flags: a.flags || null
         })),
-        clientStatus: rawData.client_status
+        clientStatus: {
+            desktop: rawData.client_status.desktop || null,
+            mobile: rawData.client_status.mobile || null,
+            web: rawData.client_status.web || null
+        }
     };
 }

@@ -8,9 +8,9 @@ export interface UserData {
     id: string;
     username: string;
     discriminator: string;
-    avatar?: string;
-    bot?: boolean;
-    system?: boolean;
+    avatar: string | null;
+    bot: boolean;
+    system: boolean;
     publicFlags: number;
 }
 
@@ -50,7 +50,7 @@ export default class User extends Base<User> {
      *
      * The user's avatar hash
      */
-    avatar?: string;
+    avatar: string | null;
 
     /**
      * Bot

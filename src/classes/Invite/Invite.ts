@@ -8,21 +8,21 @@ export interface InviteData {
     code: string;
     channelID: string;
     guildID: string;
-    createdAt: number;
-    inviter?: UserData;
+    createdAt?: number;
+    inviter: UserData | null;
     maxAge?: number;
     maxUses?: number;
     temporary?: boolean;
-    uses: number;
-    targetUser?: TargetUser;
-    targetUserType?: TargetUserType;
+    uses?: number;
+    targetUser: TargetUser | null;
+    targetUserType: TargetUserType | null;
 }
 
 export interface TargetUser {
     id: string;
     username: string;
     discriminator: string;
-    avatar?: string;
+    avatar: string | null;
 }
 
 export type TargetUserType = typeof TARGET_USER_TYPE_STREAM;
@@ -60,14 +60,14 @@ export default class Invite extends Base<Invite> {
      *
      * The timestamp for when the invite was created
      */
-    createdAt: number;
+    createdAt?: number;
 
     /**
      * Inviter
      *
      * The user that created this invite
      */
-    inviter?: UserData;
+    inviter: UserData | null;
 
     /**
      * Max Age
@@ -88,28 +88,28 @@ export default class Invite extends Base<Invite> {
      *
      * Whether or not the invite is temporary
      */
-    temporary: boolean;
+    temporary?: boolean;
 
     /**
      * Uses
      *
      * The amount of times this invite has been used
      */
-    uses: number;
+    uses?: number;
 
     /**
      * Target User
      *
      * The target user for this invite
      */
-    targetUser?: TargetUser;
+    targetUser: TargetUser | null;
 
     /**
      * Target User Type
      *
      * The type of target user for this invite
      */
-    targetUserType?: TargetUserType;
+    targetUserType: TargetUserType | null;
 
     /**
      * Invite

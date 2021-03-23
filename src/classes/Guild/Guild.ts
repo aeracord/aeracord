@@ -7,15 +7,15 @@ import updateObject from "./updateObject";
 export interface GuildData {
     id: string;
     name: string;
-    icon?: string;
-    splashImage?: string;
-    discoverySplashImage?: string;
+    icon: string | null;
+    splashImage: string | null;
+    discoverySplashImage: string | null;
     ownerID: string;
     region: string;
-    afkChannelID?: string;
+    afkChannelID: string | null;
     afkTimeout: number;
-    widgetEnabled?: boolean;
-    widgetChannelID?: string;
+    widgetEnabled: boolean;
+    widgetChannelID: string | null;
     verificationLevel: VerificationLevel;
     defaultMessageNotifications: DefaultMessageNotifications;
     explicitContentFilter: ExplicitContentFilter;
@@ -23,23 +23,23 @@ export interface GuildData {
     emojiData: EmojiData[];
     features: Feature[];
     mfaLevel: MFALevel;
-    applicationID?: string;
-    systemChannelID?: string;
+    applicationID: string | null;
+    systemChannelID: string | null;
     systemChannelFlags: number;
-    rulesChannelID?: string;
-    maxPresences?: number;
-    maxMembers?: number;
-    vanityURLCode?: string;
-    description?: string;
-    banner?: string;
+    rulesChannelID: string | null;
+    maxPresences?: number | null;
+    maxMembers?: number | null;
+    vanityURLCode: string | null;
+    description: string | null;
+    banner: string | null;
     premiumTier: PremiumTier;
     premiumSubscriptionCount: number;
     preferredLocale: string;
-    publicUpdatesChannelID?: string;
+    publicUpdatesChannelID: string | null;
     maxVideoChannelUsers?: number;
     approximateMemberCount?: number;
     approximatePresenceCount?: number;
-    welcomeScreen?: WelcomeScreenData;
+    welcomeScreen: WelcomeScreenData | null;
 }
 
 export type VerificationLevel = typeof VERIFICATION_LEVEL_NONE | typeof VERIFICATION_LEVEL_LOW | typeof VERIFICATION_LEVEL_MEDIUM | typeof VERIFICATION_LEVEL_HIGH | typeof VERIFICATION_LEVEL_VERY_HIGH;
@@ -95,21 +95,21 @@ export default class Guild extends Base<Guild> {
      *
      * The guild's icon hash
      */
-    icon?: string;
+    icon: string | null;
 
     /**
      * Splash Image
      *
      * The guild's splash image hash
      */
-    splashImage?: string;
+    splashImage: string | null;
 
     /**
      * Discovery Splash Image
      *
      * The guild's discovery splash image hash
      */
-    discoverySplashImage?: string;
+    discoverySplashImage: string | null;
 
     /**
      * Owner ID
@@ -130,7 +130,7 @@ export default class Guild extends Base<Guild> {
      *
      * The ID of the guild's AFK channel
      */
-    afkChannelID?: string;
+    afkChannelID: string | null;
 
     /**
      * AFK Timeout
@@ -151,7 +151,7 @@ export default class Guild extends Base<Guild> {
      *
      * The ID of the guild's widget channel
      */
-    widgetChannelID?: string;
+    widgetChannelID: string | null;
 
     /**
      * Verification Level
@@ -263,14 +263,14 @@ export default class Guild extends Base<Guild> {
      *
      * The ID of the bot that created this guild
      */
-    applicationID?: string;
+    applicationID: string | null;
 
     /**
      * System Channel ID
      *
      * The ID of the guild's system channel
      */
-    systemChannelID?: string;
+    systemChannelID: string | null;
 
     /**
      * System Channel Flags
@@ -284,42 +284,42 @@ export default class Guild extends Base<Guild> {
      *
      * The ID of the guild's rules channel
      */
-    rulesChannelID?: string;
+    rulesChannelID: string | null;
 
     /**
      * Max Presences
      *
      * The maximum number of online members this guild can have
      */
-    maxPresences: number;
+    maxPresences?: number | null;
 
     /**
      * Max Members
      *
      * The maximum number of members this guild can have
      */
-    maxMembers?: number;
+    maxMembers?: number | null;
 
     /**
      * Vanity URL Code
      *
      * The guild's vanity URL code
      */
-    vanityURLCode?: string;
+    vanityURLCode: string | null;
 
     /**
      * Description
      *
      * The guild's description
      */
-    description?: string;
+    description: string | null;
 
     /**
      * Banner
      *
      * The guild's banner hash
      */
-    banner?: string;
+    banner: string | null;
 
     /**
      * Premium Tier
@@ -347,7 +347,7 @@ export default class Guild extends Base<Guild> {
      *
      * The ID of the guild's public updates channel
      */
-    publicUpdatesChannelID?: string;
+    publicUpdatesChannelID: string | null;
 
     /**
      * Max Video Channel Users
@@ -375,7 +375,7 @@ export default class Guild extends Base<Guild> {
      *
      * The guild's welcome screen
      */
-    welcomeScreen?: WelcomeScreenData;
+    welcomeScreen: WelcomeScreenData | null;
 
     /**
      * Guild

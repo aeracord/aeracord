@@ -7,30 +7,30 @@ import updateObject from "./updateObject";
 export interface TemplateData {
     code: string;
     name: string;
-    description?: string;
+    description: string | null;
     uses: number;
     creator: UserData;
     createdAt: number;
     updatedAt: number;
     sourceGuildID: string;
     sourceGuild: TemplateGuild;
-    dirty?: boolean;
+    dirty: boolean;
 }
 
 export interface TemplateGuild {
     name: string;
-    icon?: string;
+    icon: string | null;
     region: string;
-    afkChannelID?: number;
+    afkChannelID: number | null;
     afkTimeout: number;
     verificationLevel: VerificationLevel;
     defaultMessageNotifications: DefaultMessageNotifications;
     explicitContentFilter: ExplicitContentFilter;
     roles: TemplateGuildRole[];
     channels: TemplateGuildChannel[];
-    systemChannelID?: number;
+    systemChannelID: number | null;
     systemChannelFlags: number;
-    description?: string;
+    description: string | null;
     preferredLocale: string;
 }
 
@@ -38,23 +38,23 @@ export interface TemplateGuildRole {
     id: number;
     name: string;
     color: number;
-    hoist?: boolean;
+    hoist: boolean;
     permissions: string;
-    mentionable?: boolean;
+    mentionable: boolean;
 }
 
 export interface TemplateGuildChannel {
     id: number;
     type: GuildChannelType;
     name: string;
-    topic?: string;
+    topic: string | null;
     position: number;
-    nsfw?: boolean;
+    nsfw: boolean;
     permissionOverwrites: TemplateGuildChannelPermissionOverwrite[];
-    bitrate?: number;
-    userLimit?: number;
-    rateLimitPerUser?: number;
-    parentID?: number;
+    bitrate: number | null;
+    userLimit: number | null;
+    rateLimitPerUser: number | null;
+    parentID: number | null;
 }
 
 export interface TemplateGuildChannelPermissionOverwrite {
@@ -88,7 +88,7 @@ export default class Template extends Base<Template> {
      *
      * The template's description
      */
-    description?: string;
+    description: string | null;
 
     /**
      * Uses

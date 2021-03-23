@@ -8,11 +8,11 @@ export default function messageReactionRemove(client: Client, rawData: RawMessag
     const data: MessageReactionRemoveData = {
         messageID: rawData.message_id,
         channelID: rawData.channel_id,
-        guildID: rawData.guild_id,
+        guildID: rawData.guild_id || null,
         userID: rawData.user_id,
         emoji: {
-            id: rawData.emoji.id || undefined,
-            name: rawData.emoji.name || undefined,
+            id: rawData.emoji.id,
+            name: rawData.emoji.name,
             animated: Boolean(rawData.emoji.animated)
         }
     };

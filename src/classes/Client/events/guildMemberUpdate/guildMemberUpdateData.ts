@@ -14,7 +14,7 @@ export interface GuildMemberUpdateData {
      *
      * The member's nickname
      */
-    nickname?: string;
+    nickname: string | null;
 
     /**
      * Roles
@@ -35,7 +35,7 @@ export interface GuildMemberUpdateData {
      *
      * The timestamp for when the member started boosting the guild
      */
-    premiumSince?: number;
+    premiumSince: number | null;
 
     /**
      * Pending

@@ -7,11 +7,11 @@ export default function fromRawData(rawData: RawEmojiData, guildID: string): Emo
         id: rawData.id,
         name: rawData.name,
         guildID,
-        animated: rawData.animated,
-        managed: rawData.managed,
-        available: rawData.available,
-        creator: rawData.user && User._fromRawData(rawData.user),
-        requiresColons: rawData.require_colons,
+        animated: Boolean(rawData.animated),
+        managed: Boolean(rawData.managed),
+        available: Boolean(rawData.available),
+        creator: rawData.user ? User._fromRawData(rawData.user) : null,
+        requiresColons: Boolean(rawData.require_colons),
         roles: rawData.roles || []
     };
 }

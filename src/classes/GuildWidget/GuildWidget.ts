@@ -5,8 +5,8 @@ import updateObject from "./updateObject";
 
 export interface GuildWidgetData {
     guildID: string;
-    enabled?: boolean;
-    channelID?: string;
+    enabled: boolean;
+    channelID: string | null;
 }
 
 export default class GuildWidget extends Base<GuildWidget> {
@@ -32,7 +32,7 @@ export default class GuildWidget extends Base<GuildWidget> {
      *
      * The ID of the channel this widget is for
      */
-    channelID?: string;
+    channelID: string | null;
 
     /**
      * Guild Widget

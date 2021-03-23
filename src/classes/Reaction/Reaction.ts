@@ -5,13 +5,13 @@ import resolveString from "./resolveString";
 
 export interface ReactionData {
     count: number;
-    me?: boolean;
+    me: boolean;
     emoji: ReactionEmoji;
 }
 
 export interface ReactionEmoji {
-    id?: string;
-    name?: string;
+    id: string | null;
+    name: string | null;
     animated: boolean;
 }
 
@@ -61,7 +61,7 @@ export default class Reaction {
         // Set data
         this.client = client;
         this.count = reactionData.count;
-        this.me = Boolean(reactionData.me);
+        this.me = reactionData.me;
         this.emoji = reactionData.emoji;
     }
 

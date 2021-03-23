@@ -12,8 +12,8 @@ export default function updateObject(message: Message, messageData: MessageData)
     message.content = messageData.content;
     message.timestamp = messageData.timestamp;
     message.editedTimestamp = messageData.editedTimestamp;
-    message.tts = Boolean(messageData.tts);
-    message.mentionEveryone = Boolean(messageData.mentionEveryone);
+    message.tts = messageData.tts;
+    message.mentionEveryone = messageData.mentionEveryone;
     message.mentions = messageData.mentions;
     message.mentionedRoles = messageData.mentionedRoles;
     message.mentionedChannels = messageData.mentionedChannels;
@@ -21,7 +21,7 @@ export default function updateObject(message: Message, messageData: MessageData)
     message.embeds = messageData.embeds;
     message.stickers = messageData.stickers;
     message.reactions = messageData.reactions;
-    message.pinned = Boolean(messageData.pinned);
+    message.pinned = messageData.pinned;
     message.activity = messageData.activity;
     message.application = messageData.application;
     message.messageReference = messageData.messageReference;

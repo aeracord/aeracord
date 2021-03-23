@@ -13,7 +13,7 @@ export default function fromRawData(rawData: RawVoiceStateData): VoiceStateData 
         deafened: rawData.deaf,
         selfMuted: rawData.self_mute,
         selfDeafened: rawData.self_deaf,
-        selfStream: rawData.self_stream,
+        selfStream: Boolean(rawData.self_stream),
         selfVideo: rawData.self_video,
         suppress: rawData.suppress
     };
