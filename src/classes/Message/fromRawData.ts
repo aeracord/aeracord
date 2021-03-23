@@ -31,10 +31,22 @@ export default function fromRawData(rawData: RawMessageData): MessageData {
             type: c.type,
             name: c.name
         })) : [],
-        attachments: rawData.attachments.map((a: RawAttachmentData) => Attachment._fromRawData(a)),
-        embeds: rawData.embeds.map((e: RawEmbedData) => Embed._fromRawData(e)),
+        attachments: rawData.attachments.map((a: RawAttachmentData) => Attachment._fromRawData(a, {
+            messageID: rawData.id,
+            channelID: rawData.channel_id,
+            guildID: rawData.guild_id || null
+        })),
+        embeds: rawData.embeds.map((e: RawEmbedData) => Embed._fromRawData(e, {
+            messageID: rawData.id,
+            channelID: rawData.channel_id,
+            guildID: rawData.guild_id || null
+        })),
         stickers: rawData.stickers ? rawData.stickers.map((s: RawStickerData) => Sticker._fromRawData(s)) : [],
-        reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._fromRawData(r)) : [],
+        reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._fromRawData(r, {
+            messageID: rawData.id,
+            channelID: rawData.channel_id,
+            guildID: rawData.guild_id || null
+        })) : [],
         pinned: rawData.pinned,
         activity: rawData.activity ? {
             type: rawData.activity.type,

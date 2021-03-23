@@ -1,9 +1,12 @@
-import { Client, Emoji, RawReactionData } from "../../internal";
+import { Client, Emoji, RawReactionData, RawReactionMetadata } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveString from "./resolveString";
 
 export interface ReactionData {
+    messageID: string;
+    channelID: string;
+    guildID?: string | null;
     count: number;
     me: boolean;
     emoji: ReactionEmoji;
@@ -25,6 +28,27 @@ export default class Reaction {
      * The client
      */
     client: Client;
+
+    /**
+     * Message ID
+     *
+     * The ID of the message this reaction is in
+     */
+    messageID: string;
+
+    /**
+     * Channel ID
+     *
+     * The ID of the channel this reaction is in
+     */
+    channelID: string;
+
+    /**
+     * Guild ID
+     *
+     * The ID of the guild this reaction is in
+     */
+    guildID?: string | null;
 
     /**
      * Count
@@ -60,6 +84,9 @@ export default class Reaction {
 
         // Set data
         this.client = client;
+        this.messageID = reactionData.messageID;
+        this.channelID = reactionData.channelID;
+        this.guildID = reactionData.guildID;
         this.count = reactionData.count;
         this.me = reactionData.me;
         this.emoji = reactionData.emoji;
@@ -71,11 +98,12 @@ export default class Reaction {
      * Create a `ReactionData` object from a `RawReactionData` object
      *
      * @param rawData The raw data from the API
+     * @param metadata Metadata about the object
      *
      * @returns {ReactionData} The reaction data
      */
-    static _fromRawData(rawData: RawReactionData): ReactionData {
-        return fromRawData(rawData);
+    static _fromRawData(rawData: RawReactionData, metadata: RawReactionMetadata): ReactionData {
+        return fromRawData(rawData, metadata);
     }
 
     /**

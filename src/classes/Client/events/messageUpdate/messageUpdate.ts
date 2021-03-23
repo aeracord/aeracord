@@ -33,10 +33,22 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
             type: c.type,
             name: c.name
         })) : undefined,
-        attachments: rawData.attachments ? rawData.attachments.map((a: RawAttachmentData) => Attachment._fromRawData(a)) : undefined,
-        embeds: rawData.embeds ? rawData.embeds.map((e: RawEmbedData) => Embed._fromRawData(e)) : undefined,
+        attachments: rawData.attachments ? rawData.attachments.map((a: RawAttachmentData) => Attachment._fromRawData(a, {
+            messageID: rawData.id,
+            channelID: rawData.channel_id,
+            guildID: rawData.guild_id
+        })) : undefined,
+        embeds: rawData.embeds ? rawData.embeds.map((e: RawEmbedData) => Embed._fromRawData(e, {
+            messageID: rawData.id,
+            channelID: rawData.channel_id,
+            guildID: rawData.guild_id
+        })) : undefined,
         stickers: rawData.stickers ? rawData.stickers.map((s: RawStickerData) => Sticker._fromRawData(s)) : undefined,
-        reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._fromRawData(r)) : undefined,
+        reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._fromRawData(r, {
+            messageID: rawData.id,
+            channelID: rawData.channel_id,
+            guildID: rawData.guild_id
+        })) : undefined,
         pinned: rawData.pinned,
         activity: rawData.activity && {
             type: rawData.activity.type,

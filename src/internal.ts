@@ -9,7 +9,7 @@ export {
     default as Attachment,
     AttachmentData
 } from "./classes/Attachment/Attachment";
-export { default as RawAttachmentData } from "./classes/Attachment/rawAttachmentData";
+export { default as RawAttachmentData, RawAttachmentMetadata } from "./classes/Attachment/rawAttachmentData";
 
 // Audit Log
 export {
@@ -199,7 +199,7 @@ export {
     EmbedType,
     EmbedVideo
 } from "./classes/Embed/Embed";
-export { default as RawEmbedData, RawEmbedDataAuthor, RawEmbedDataField, RawEmbedDataFooter, RawEmbedDataImage, RawEmbedDataProvider, RawEmbedDataThumbnail, RawEmbedDataVideo } from "./classes/Embed/rawEmbedData";
+export { default as RawEmbedData, RawEmbedDataAuthor, RawEmbedDataField, RawEmbedDataFooter, RawEmbedDataImage, RawEmbedMetadata, RawEmbedDataProvider, RawEmbedDataThumbnail, RawEmbedDataVideo } from "./classes/Embed/rawEmbedData";
 
 // Emoji
 export {
@@ -352,7 +352,7 @@ export {
     ReactionEmoji,
     ReactionEmojiResolvable
 } from "./classes/Reaction/Reaction";
-export { default as RawReactionData, RawReactionDataEmoji } from "./classes/Reaction/rawReactionData";
+export { default as RawReactionData, RawReactionDataEmoji, RawReactionMetadata } from "./classes/Reaction/rawReactionData";
 
 // Role
 export {

@@ -9,3 +9,9 @@ export interface RawReactionDataEmoji {
     name: string | null;
     animated?: boolean;
 }
+
+export interface RawReactionMetadata {
+    messageID: string;
+    channelID: string;
+    guildID?: string | null;
+}

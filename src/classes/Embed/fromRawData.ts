@@ -1,9 +1,12 @@
-import { EmbedData, RawEmbedData, RawEmbedDataField } from "../../internal";
+import { EmbedData, RawEmbedData, RawEmbedDataField, RawEmbedMetadata } from "../../internal";
 
-export default function fromRawData(rawData: RawEmbedData): EmbedData {
+export default function fromRawData(rawData: RawEmbedData, metadata: RawEmbedMetadata): EmbedData {
 
     // Parse embed data
     return {
+        messageID: metadata.messageID,
+        channelID: metadata.channelID,
+        guildID: metadata.guildID,
         title: rawData.title || null,
         type: rawData.type || null,
         description: rawData.description || null,

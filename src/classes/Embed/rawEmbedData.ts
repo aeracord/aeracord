@@ -60,3 +60,9 @@ export interface RawEmbedDataField {
     value: string;
     inline?: boolean;
 }
+
+export interface RawEmbedMetadata {
+    messageID: string;
+    channelID: string;
+    guildID?: string | null;
+}

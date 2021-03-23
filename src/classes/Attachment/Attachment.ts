@@ -1,9 +1,12 @@
-import { Client, RawAttachmentData } from "../../internal";
+import { Client, RawAttachmentData, RawAttachmentMetadata } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 
 export interface AttachmentData {
     id: string;
+    messageID: string;
+    channelID: string;
+    guildID?: string | null;
     filename: string;
     size: number;
     url: string;
@@ -27,6 +30,27 @@ export default class Attachment {
      * The attachment's ID
      */
     id: string;
+
+    /**
+     * Message ID
+     *
+     * The ID of the message this attachment is in
+     */
+    messageID: string;
+
+    /**
+     * Channel ID
+     *
+     * The ID of the channel this attachment is in
+     */
+    channelID: string;
+
+    /**
+     * Guild ID
+     *
+     * The ID of the guild this attachment is in
+     */
+    guildID?: string | null;
 
     /**
      * Filename
@@ -88,6 +112,9 @@ export default class Attachment {
         // Set data
         this.client = client;
         this.id = attachmentData.id;
+        this.messageID = attachmentData.messageID;
+        this.channelID = attachmentData.channelID;
+        this.guildID = attachmentData.guildID;
         this.filename = attachmentData.filename;
         this.size = attachmentData.size;
         this.url = attachmentData.url;
@@ -102,11 +129,12 @@ export default class Attachment {
      * Create an `AttachmentData` object from a `RawAttachmentData` object
      *
      * @param rawData The raw data from the API
+     * @param metadata Metadata about the object
      *
      * @returns {AttachmentData} The attachment data
      */
-    static _fromRawData(rawData: RawAttachmentData): AttachmentData {
-        return fromRawData(rawData);
+    static _fromRawData(rawData: RawAttachmentData, metadata: RawAttachmentMetadata): AttachmentData {
+        return fromRawData(rawData, metadata);
     }
 
     /**

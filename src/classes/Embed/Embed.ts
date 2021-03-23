@@ -1,9 +1,12 @@
-import { Client, RawEmbedData } from "../../internal";
+import { Client, RawEmbedData, RawEmbedMetadata } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import toJSON from "./toJSON";
 
 export interface EmbedData {
+    messageID: string;
+    channelID: string;
+    guildID?: string | null;
     title: string | null;
     type: EmbedType | null;
     description: string | null;
@@ -74,6 +77,27 @@ export default class Embed {
      * The client
      */
     client: Client;
+
+    /**
+     * Message ID
+     *
+     * The ID of the message this embed is in
+     */
+    messageID: string;
+
+    /**
+     * Channel ID
+     *
+     * The ID of the channel this embed is in
+     */
+    channelID: string;
+
+    /**
+     * Guild ID
+     *
+     * The ID of the guild this embed is in
+     */
+    guildID?: string | null;
 
     /**
      * Title
@@ -189,6 +213,9 @@ export default class Embed {
 
         // Set data
         this.client = client;
+        this.messageID = embedData.messageID;
+        this.channelID = embedData.channelID;
+        this.guildID = embedData.guildID;
         this.title = embedData.title;
         this.type = embedData.type;
         this.description = embedData.description;
@@ -210,11 +237,12 @@ export default class Embed {
      * Create an `EmbedData` object from a `RawEmbedData` object
      *
      * @param rawData The raw data from the API
+     * @param metadata Metadata about the object
      *
      * @returns {EmbedData} The embed data
      */
-    static _fromRawData(rawData: RawEmbedData): EmbedData {
-        return fromRawData(rawData);
+    static _fromRawData(rawData: RawEmbedData, metadata: RawEmbedMetadata): EmbedData {
+        return fromRawData(rawData, metadata);
     }
 
     /**

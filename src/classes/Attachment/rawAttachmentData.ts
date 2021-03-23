@@ -7,3 +7,9 @@ export default interface RawAttachmentData {
     width: number | null;
     height: number | null;
 }
+
+export interface RawAttachmentMetadata {
+    messageID: string;
+    channelID: string;
+    guildID?: string | null;
+}
