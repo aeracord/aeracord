@@ -320,6 +320,7 @@ export default class Message extends Base<Message> {
      *
      * Create a `Message` from a `MessageData` object
      *
+     * @param client The client
      * @param messageData The message data
      *
      * @returns {Message} The message
@@ -346,6 +347,7 @@ export default class Message extends Base<Message> {
      *
      * Update the `Message` object with data from a `MessageData` object
      *
+     * @param message The message to update
      * @param messageData The data to update this message with
      */
     static _updateObject(message: Message, messageData: MessageData) {

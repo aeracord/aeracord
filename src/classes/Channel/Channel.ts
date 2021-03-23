@@ -62,6 +62,7 @@ export default class Channel extends Base<AnyChannel> {
      *
      * Create a `Channel` from a `ChannelData` object
      *
+     * @param client The client
      * @param channelData The channel data
      *
      * @returns {Channel} The channel

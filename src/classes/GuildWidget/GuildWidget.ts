@@ -64,6 +64,7 @@ export default class GuildWidget extends Base<GuildWidget> {
      * Create a `GuildWidgetData` object from a `RawGuildWidgetData` object
      *
      * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this widget is for
      *
      * @returns {GuildWidgetData} The guild widget data
      */
@@ -76,6 +77,7 @@ export default class GuildWidget extends Base<GuildWidget> {
      *
      * Create a `GuildWidget` from a `GuildWidgetData` object
      *
+     * @param client The client
      * @param guildWidgetData The guild widget data
      *
      * @returns {GuildWidget} The guild widget
@@ -89,6 +91,7 @@ export default class GuildWidget extends Base<GuildWidget> {
      *
      * Update the `GuildWidget` object with data from a `GuildWidgetData` object
      *
+     * @param guildWidget The guild widget to update
      * @param guildWidgetData The data to update this guildWidget with
      */
     static _updateObject(guildWidget: GuildWidget, guildWidgetData: GuildWidgetData) {

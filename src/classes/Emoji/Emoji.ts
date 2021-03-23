@@ -112,6 +112,7 @@ export default class Emoji extends Base<Emoji> {
      * Create an `EmojiData` object from a `RawEmojiData` object
      *
      * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this emoji is in
      *
      * @returns {EmojiData} The emoji data
      */
@@ -124,6 +125,7 @@ export default class Emoji extends Base<Emoji> {
      *
      * Create an `Emoji` from an `EmojiData` object
      *
+     * @param client The client
      * @param emojiData The emoji data
      *
      * @returns {Emoji} The emoji
@@ -150,6 +152,7 @@ export default class Emoji extends Base<Emoji> {
      *
      * Update the `Emoji` object with data from a `EmojiData` object
      *
+     * @param emoji The emoji to update
      * @param emojiData The data to update this emoji with
      */
     static _updateObject(emoji: Emoji, emojiData: EmojiData) {

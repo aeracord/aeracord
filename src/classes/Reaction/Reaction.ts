@@ -111,6 +111,7 @@ export default class Reaction {
      *
      * Create a `Reaction` from a `ReactionData` object
      *
+     * @param client The client
      * @param reactionData The reaction data
      *
      * @returns {Reaction} The reaction

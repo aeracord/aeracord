@@ -116,6 +116,7 @@ export default class Member extends Base<Member> {
      * Create a `MemberData` object from a `RawMemberData` object
      *
      * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this member is in
      *
      * @returns {MemberData} The member data
      */
@@ -128,6 +129,7 @@ export default class Member extends Base<Member> {
      *
      * Create a `Member` from a `MemberData` object
      *
+     * @param client The client
      * @param memberData The member data
      *
      * @returns {Member} The member
@@ -141,6 +143,7 @@ export default class Member extends Base<Member> {
      *
      * Update the `Member` object with data from a `MemberData` object
      *
+     * @param member The member to update
      * @param memberData The data to update this member with
      */
     static _updateObject(member: Member, memberData: MemberData) {

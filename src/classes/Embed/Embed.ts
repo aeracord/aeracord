@@ -250,6 +250,7 @@ export default class Embed {
      *
      * Create an `Embed` from an `EmbedData` object
      *
+     * @param client The client
      * @param embedData The embed data
      *
      * @returns {Embed} The embed

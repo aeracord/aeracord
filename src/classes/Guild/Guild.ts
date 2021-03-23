@@ -511,6 +511,7 @@ export default class Guild extends Base<Guild> {
      *
      * Create a `Guild` from a `GuildData` object
      *
+     * @param client The client
      * @param guildData The guild data
      *
      * @returns {Guild} The guild
@@ -537,6 +538,7 @@ export default class Guild extends Base<Guild> {
      *
      * Update the `Guild` object with data from a `GuildData` object
      *
+     * @param guild The guild to update
      * @param guildData The data to update this guild with
      */
     static _updateObject(guild: Guild, guildData: GuildData) {

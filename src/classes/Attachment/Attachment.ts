@@ -142,6 +142,7 @@ export default class Attachment {
      *
      * Create an `Attachment` from an `AttachmentData` object
      *
+     * @param client The client
      * @param attachmentData The attachment data
      *
      * @returns {Attachment} The attachment

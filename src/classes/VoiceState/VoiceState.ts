@@ -164,6 +164,7 @@ export default class VoiceState {
      *
      * Create a `VoiceState` from a `VoiceStateData` object
      *
+     * @param client The client
      * @param voiceStateData The voice state data
      *
      * @returns {VoiceState} The voice state

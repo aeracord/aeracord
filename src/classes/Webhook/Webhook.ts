@@ -128,6 +128,7 @@ export default class Webhook extends Base<Webhook> {
      *
      * Create a `Webhook` from a `WebhookData` object
      *
+     * @param client The client
      * @param webhookData The webhook data
      *
      * @returns {Webhook} The webhook
@@ -154,6 +155,7 @@ export default class Webhook extends Base<Webhook> {
      *
      * Update the `Webhook` object with data from a `WebhookData` object
      *
+     * @param webhook The webhook to update
      * @param webhookData The data to update this webhook with
      */
     static _updateObject(webhook: Webhook, webhookData: WebhookData) {

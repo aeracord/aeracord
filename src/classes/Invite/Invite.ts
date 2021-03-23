@@ -161,6 +161,7 @@ export default class Invite extends Base<Invite> {
      *
      * Create an `Invite` from an `InviteData` object
      *
+     * @param client The client
      * @param inviteData The invite data
      *
      * @returns {Invite} The invite
@@ -187,6 +188,7 @@ export default class Invite extends Base<Invite> {
      *
      * Update the `Invite` object with data from an `InviteData` object
      *
+     * @param invite The invite to update
      * @param inviteData The data to update this invite with
      */
     static _updateObject(invite: Invite, inviteData: InviteData) {

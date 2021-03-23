@@ -129,6 +129,7 @@ export default class Sticker {
      *
      * Create a `Sticker` from a `StickerData` object
      *
+     * @param client The client
      * @param stickerData The sticker data
      *
      * @returns {Sticker} The sticker

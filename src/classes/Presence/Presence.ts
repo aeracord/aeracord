@@ -374,6 +374,7 @@ export default class Presence extends Base<Presence> {
      *
      * Create a `Presence` from a `PresenceData` object
      *
+     * @param client The client
      * @param presenceData The presence data
      *
      * @returns {Presence} The presence
@@ -387,6 +388,7 @@ export default class Presence extends Base<Presence> {
      *
      * Update the `Presence` object with data from a `PresenceData` object
      *
+     * @param presence The presence to update
      * @param presenceData The data to update this presence with
      */
     static _updateObject(presence: Presence, presenceData: PresenceData) {

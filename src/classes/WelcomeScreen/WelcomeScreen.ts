@@ -71,6 +71,7 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      * Create a `WelcomeScreenData` object from a `RawWelcomeScreenData` object
      *
      * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this welcome screen is for
      *
      * @returns {WelcomeScreenData} The welcome screen data
      */
@@ -83,6 +84,7 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      *
      * Create a `WelcomeScreen` from a `WelcomeScreenData` object
      *
+     * @param client The client
      * @param welcomeScreenData The welcome screen data
      *
      * @returns {WelcomeScreen} The welcome screen
@@ -96,6 +98,7 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      *
      * Update the `WelcomeScreen` object with data from a `WelcomeScreenData` object
      *
+     * @param welcomeScreen The welcome screen to update
      * @param welcomeScreenData The data to update this welcome screen with
      */
     static _updateObject(welcomeScreen: WelcomeScreen, welcomeScreenData: WelcomeScreenData) {

@@ -188,6 +188,7 @@ export default class Template extends Base<Template> {
      *
      * Create a `Template` from a `TemplateData` object
      *
+     * @param client The client
      * @param templateData The template data
      *
      * @returns {Template} The template
@@ -214,6 +215,7 @@ export default class Template extends Base<Template> {
      *
      * Update the `Template` object with data from a `TemplateData` object
      *
+     * @param template The template to update
      * @param templateData The data to update this template with
      */
     static _updateObject(template: Template, templateData: TemplateData) {

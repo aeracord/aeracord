@@ -119,6 +119,7 @@ export default class User extends Base<User> {
      *
      * Create a `User` from a `UserData` object
      *
+     * @param client The client
      * @param userData The user data
      *
      * @returns {User} The user
@@ -145,6 +146,7 @@ export default class User extends Base<User> {
      *
      * Update the `User` object with data from a `UserData` object
      *
+     * @param user The user to update
      * @param userData The data to update this user with
      */
     static _updateObject(user: User, userData: UserData) {

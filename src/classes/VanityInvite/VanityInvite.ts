@@ -64,6 +64,7 @@ export default class VanityInvite extends Base<VanityInvite> {
      * Create a `VanityInviteData` object from a `RawVanityInviteData` object
      *
      * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this vanity invite is for
      *
      * @returns {VanityInviteData} The vanity invite data
      */
@@ -76,6 +77,7 @@ export default class VanityInvite extends Base<VanityInvite> {
      *
      * Create a `VanityInvite` from a `VanityInviteData` object
      *
+     * @param client The client
      * @param vanityInviteData The vanity invite data
      *
      * @returns {VanityInvite} The vanity invite
@@ -89,6 +91,7 @@ export default class VanityInvite extends Base<VanityInvite> {
      *
      * Update the `VanityInvite` object with data from a `VanityInviteData` object
      *
+     * @param vanityInvite The vanity invite to update
      * @param vanityInviteData The data to update this vanityInvite with
      */
     static _updateObject(vanityInvite: VanityInvite, vanityInviteData: VanityInviteData) {
