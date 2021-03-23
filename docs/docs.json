@@ -94,7 +94,7 @@
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
 									"line": 71,
-									"character": 20
+									"character": 26
 								}
 							]
 						},
@@ -153,8 +153,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Height",
@@ -172,11 +171,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -283,8 +282,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Width",
@@ -302,11 +300,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -514,8 +512,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -529,11 +526,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -624,8 +621,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -639,11 +635,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -1443,8 +1439,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1464,8 +1459,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1627,8 +1621,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1638,12 +1631,21 @@
 								}
 							],
 							"type": {
-								"type": "array",
-								"elementType": {
-									"type": "reference",
-									"id": 56,
-									"name": "AuditLogChange"
-								}
+								"type": "union",
+								"types": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"id": 56,
+											"name": "AuditLogChange"
+										}
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -1693,8 +1695,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1704,9 +1705,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 60,
-								"name": "AuditLogOptions"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 60,
+										"name": "AuditLogOptions"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -1715,8 +1725,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1730,11 +1739,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -1745,8 +1754,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1760,11 +1768,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -1808,8 +1816,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1823,11 +1830,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -1838,8 +1845,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1853,11 +1859,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -1868,8 +1874,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1883,11 +1888,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -1898,8 +1903,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1913,11 +1917,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -1928,8 +1932,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1943,11 +1946,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -1958,8 +1961,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -1973,11 +1975,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -1988,8 +1990,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -2003,11 +2004,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -2018,8 +2019,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -2033,11 +2033,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -4918,7 +4918,7 @@
 								{
 									"fileName": "src/classes/Ban/Ban.ts",
 									"line": 33,
-									"character": 20
+									"character": 26
 								}
 							],
 							"overwrites": {
@@ -5092,8 +5092,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Reason",
@@ -5111,11 +5110,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -5564,8 +5563,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -5579,11 +5577,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -10655,8 +10653,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Parent ID",
@@ -10674,11 +10671,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -11345,8 +11342,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -11360,11 +11356,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -14707,8 +14703,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Avatar",
@@ -14726,11 +14721,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -45255,8 +45250,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -45274,11 +45268,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -45289,8 +45283,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
@@ -45308,11 +45301,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -49239,8 +49232,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Nickname",
@@ -49258,11 +49250,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -49297,8 +49289,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Premium Since",
@@ -49316,11 +49307,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -51470,8 +51461,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -51489,11 +51479,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -51825,8 +51815,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -51844,11 +51833,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -52211,8 +52200,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -52230,11 +52218,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -52245,8 +52233,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Member",
@@ -52260,9 +52247,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3430,
-								"name": "MemberData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3430,
+										"name": "MemberData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -52710,8 +52706,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -52729,11 +52724,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -53514,8 +53509,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -53533,11 +53527,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -56868,8 +56862,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -56887,11 +56880,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -56902,8 +56895,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Member",
@@ -56917,9 +56909,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3430,
-								"name": "MemberData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3430,
+										"name": "MemberData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -58808,8 +58809,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Message ID",
@@ -58827,11 +58827,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -58847,8 +58847,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
@@ -58866,11 +58865,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -59485,8 +59484,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -59500,11 +59498,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -59520,8 +59518,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -59535,11 +59532,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -59864,8 +59861,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Author",
@@ -59879,9 +59875,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2776,
-								"name": "EmbedAuthor"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2776,
+										"name": "EmbedAuthor"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -59915,8 +59920,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Color",
@@ -59934,11 +59938,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -59949,8 +59953,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Description",
@@ -59968,11 +59971,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60011,8 +60014,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Footer",
@@ -60026,9 +60028,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2754,
-								"name": "EmbedFooter"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2754,
+										"name": "EmbedFooter"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60037,8 +60048,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Image",
@@ -60052,9 +60062,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2758,
-								"name": "EmbedImage"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2758,
+										"name": "EmbedImage"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60063,8 +60082,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Provider",
@@ -60078,9 +60096,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2773,
-								"name": "EmbedProvider"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2773,
+										"name": "EmbedProvider"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60089,8 +60116,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Thumbnail",
@@ -60104,9 +60130,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2763,
-								"name": "EmbedThumbnail"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2763,
+										"name": "EmbedThumbnail"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60115,8 +60150,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Timestamp",
@@ -60134,11 +60168,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -60149,8 +60183,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Title",
@@ -60168,11 +60201,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60183,8 +60216,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Type",
@@ -60198,9 +60230,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2813,
-								"name": "EmbedType"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2813,
+										"name": "EmbedType"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60209,8 +60250,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "URL",
@@ -60228,11 +60268,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60243,8 +60283,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Video",
@@ -60258,9 +60297,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2768,
-								"name": "EmbedVideo"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2768,
+										"name": "EmbedVideo"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60488,8 +60536,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60503,11 +60550,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60518,8 +60565,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60533,11 +60579,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60548,8 +60594,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60563,11 +60608,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60578,8 +60623,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60593,11 +60637,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60638,8 +60682,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60649,9 +60692,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2776,
-								"name": "EmbedAuthor"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2776,
+										"name": "EmbedAuthor"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60660,8 +60712,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60675,11 +60726,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -60690,8 +60741,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60705,11 +60755,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60744,8 +60794,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60755,9 +60804,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2754,
-								"name": "EmbedFooter"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2754,
+										"name": "EmbedFooter"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60766,8 +60824,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60777,9 +60834,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2758,
-								"name": "EmbedImage"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2758,
+										"name": "EmbedImage"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60788,8 +60854,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60799,9 +60864,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2773,
-								"name": "EmbedProvider"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2773,
+										"name": "EmbedProvider"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60810,8 +60884,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60821,9 +60894,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2763,
-								"name": "EmbedThumbnail"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2763,
+										"name": "EmbedThumbnail"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60832,8 +60914,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60847,11 +60928,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -60862,8 +60943,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60877,11 +60957,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60892,8 +60972,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60903,9 +60982,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2813,
-								"name": "EmbedType"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2813,
+										"name": "EmbedType"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -60914,8 +61002,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60929,11 +61016,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -60944,8 +61031,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -60955,9 +61041,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 2768,
-								"name": "EmbedVideo"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 2768,
+										"name": "EmbedVideo"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						}
 					],
@@ -61094,8 +61189,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61109,11 +61203,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61124,8 +61218,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61139,11 +61232,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61203,8 +61296,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61218,11 +61310,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -61233,8 +61325,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61248,11 +61339,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61263,8 +61354,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61278,11 +61368,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61293,8 +61383,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61308,11 +61397,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -61353,8 +61442,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61368,11 +61456,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61383,8 +61471,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61398,11 +61485,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61441,8 +61528,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61456,11 +61542,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -61471,8 +61557,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61486,11 +61571,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61501,8 +61586,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61516,11 +61600,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61531,8 +61615,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61546,11 +61629,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -61591,8 +61674,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61606,11 +61688,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -61621,8 +61703,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61636,11 +61717,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61651,8 +61732,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61666,11 +61746,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -61681,8 +61761,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -61696,11 +61775,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -63578,8 +63657,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Creator",
@@ -63593,9 +63671,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4380,
-								"name": "UserData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4380,
+										"name": "UserData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -64259,8 +64346,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -64270,21 +64356,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -64293,8 +64366,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -64304,21 +64376,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -64327,8 +64386,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -64338,9 +64396,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4380,
-								"name": "UserData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4380,
+										"name": "UserData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -64389,8 +64456,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -64400,21 +64466,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -64443,8 +64496,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -64454,21 +64506,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -66222,7 +66261,7 @@
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
 									"line": 378,
-									"character": 38
+									"character": 44
 								}
 							],
 							"overwrites": {
@@ -66274,8 +66313,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "AFK Channel ID",
@@ -66293,11 +66331,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -66332,8 +66370,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Application ID",
@@ -66351,11 +66388,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -66434,8 +66471,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Banner",
@@ -66453,11 +66489,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -66587,8 +66623,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Description",
@@ -66606,11 +66641,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -66621,8 +66656,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Discovery Splash Image",
@@ -66640,11 +66674,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -66807,8 +66841,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Icon",
@@ -66826,11 +66859,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -66921,11 +66954,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -66936,7 +66969,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"comment": {
 								"shortText": "Max Presences",
@@ -66950,8 +66984,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -67172,8 +67215,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Public Updates Channel ID",
@@ -67191,11 +67233,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -67290,8 +67332,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Rules Channel ID",
@@ -67309,11 +67350,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -67324,8 +67365,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Splash Image",
@@ -67343,11 +67383,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -67382,8 +67422,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "System Channel ID",
@@ -67401,11 +67440,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -67448,8 +67487,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Vanity URL Code",
@@ -67467,11 +67505,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -67539,8 +67577,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Welcome Screen",
@@ -67554,9 +67591,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4715,
-								"name": "WelcomeScreenData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4715,
+										"name": "WelcomeScreenData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -67565,8 +67611,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Widget Channel ID",
@@ -67584,11 +67629,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68108,8 +68153,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68123,11 +68167,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68158,8 +68202,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68173,11 +68216,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68248,8 +68291,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68263,11 +68305,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68299,8 +68341,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68314,11 +68355,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68329,8 +68370,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68344,11 +68384,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68428,8 +68468,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68443,11 +68482,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68493,11 +68532,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -68523,11 +68562,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -68690,8 +68729,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68705,11 +68743,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68764,8 +68802,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68779,11 +68816,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68794,8 +68831,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68809,11 +68845,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68844,8 +68880,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68859,11 +68894,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68874,8 +68909,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68889,11 +68923,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68925,8 +68959,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68936,9 +68969,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4715,
-								"name": "WelcomeScreenData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4715,
+										"name": "WelcomeScreenData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -68947,8 +68989,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68962,11 +69003,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -68977,8 +69018,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -68988,21 +69028,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						}
 					],
@@ -71452,7 +71479,7 @@
 								{
 									"fileName": "src/classes/GuildChannel/GuildChannel.ts",
 									"line": 65,
-									"character": 22
+									"character": 28
 								}
 							],
 							"overwrites": {
@@ -71650,8 +71677,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Parent ID",
@@ -71669,11 +71695,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -72337,8 +72363,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -72352,11 +72377,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -74908,7 +74933,7 @@
 								{
 									"fileName": "src/classes/GuildWidget/GuildWidget.ts",
 									"line": 35,
-									"character": 23
+									"character": 29
 								}
 							],
 							"overwrites": {
@@ -74960,8 +74985,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Channel ID",
@@ -74979,11 +75003,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -75554,8 +75578,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -75569,11 +75592,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -75584,8 +75607,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -75595,21 +75617,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -76144,7 +76153,7 @@
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
 									"line": 112,
-									"character": 36
+									"character": 42
 								}
 							],
 							"overwrites": {
@@ -76250,7 +76259,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"comment": {
 								"shortText": "Created At",
@@ -76264,8 +76274,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						},
 						{
@@ -76366,8 +76385,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Inviter",
@@ -76381,9 +76399,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4380,
-								"name": "UserData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4380,
+										"name": "UserData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -76460,8 +76487,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Target User",
@@ -76475,9 +76501,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3334,
-								"name": "TargetUser"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3334,
+										"name": "TargetUser"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -76486,8 +76521,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Target User Type",
@@ -76501,9 +76535,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3379,
-								"name": "TargetUserType"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3379,
+										"name": "TargetUserType"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -76512,7 +76555,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"comment": {
 								"shortText": "Temporary",
@@ -76526,8 +76570,21 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "false"
+									},
+									{
+										"type": "intrinsic",
+										"name": "true"
+									}
+								]
 							}
 						},
 						{
@@ -76536,7 +76593,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"comment": {
 								"shortText": "Uses",
@@ -76550,8 +76608,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						},
 						{
@@ -77099,7 +77166,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"sources": [
 								{
@@ -77109,8 +77177,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						},
 						{
@@ -77139,8 +77216,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -77150,9 +77226,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4380,
-								"name": "UserData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4380,
+										"name": "UserData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -77221,8 +77306,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -77232,9 +77316,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3334,
-								"name": "TargetUser"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3334,
+										"name": "TargetUser"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -77243,8 +77336,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -77254,9 +77346,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3379,
-								"name": "TargetUserType"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3379,
+										"name": "TargetUserType"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -77299,7 +77400,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"sources": [
 								{
@@ -77309,8 +77411,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						}
 					],
@@ -77356,8 +77467,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -77371,11 +77481,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -77810,7 +77920,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"sources": [
 								{
@@ -77820,8 +77931,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "string"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
 							}
 						},
 						{
@@ -77873,7 +77993,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"sources": [
 								{
@@ -77883,8 +78004,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						},
 						{
@@ -77893,7 +78023,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"sources": [
 								{
@@ -77903,8 +78034,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						},
 						{
@@ -77957,7 +78097,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"sources": [
 								{
@@ -77967,8 +78108,21 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "false"
+									},
+									{
+										"type": "intrinsic",
+										"name": "true"
+									}
+								]
 							}
 						},
 						{
@@ -77977,7 +78131,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"sources": [
 								{
@@ -77987,8 +78142,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						}
 					],
@@ -79027,8 +79191,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Nickname",
@@ -79046,11 +79209,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -79085,8 +79248,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Premium Since",
@@ -79104,11 +79266,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -79570,8 +79732,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -79581,21 +79742,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -79644,8 +79792,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -79655,21 +79802,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -79678,8 +79812,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -79693,11 +79826,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -79708,8 +79841,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -79719,21 +79851,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -79742,8 +79861,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -79757,11 +79875,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -80750,7 +80868,7 @@
 								{
 									"fileName": "src/classes/Message/Message.ts",
 									"line": 257,
-									"character": 36
+									"character": 43
 								}
 							],
 							"overwrites": {
@@ -80802,8 +80920,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Activity",
@@ -80817,9 +80934,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3547,
-								"name": "MessageActivity"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3547,
+										"name": "MessageActivity"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -80828,8 +80954,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Application",
@@ -80843,9 +80968,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3550,
-								"name": "MessageApplication"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3550,
+										"name": "MessageApplication"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -80882,8 +81016,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Author",
@@ -80897,9 +81030,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4380,
-								"name": "UserData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4380,
+										"name": "UserData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -80986,8 +81128,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Edited Timestamp",
@@ -81005,11 +81146,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -81111,8 +81252,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Guild ID",
@@ -81130,11 +81270,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -81174,8 +81314,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Member",
@@ -81189,9 +81328,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3430,
-								"name": "MemberData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3430,
+										"name": "MemberData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -81307,8 +81455,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Message Reference",
@@ -81322,9 +81469,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3556,
-								"name": "MessageReference"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3556,
+										"name": "MessageReference"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -81400,9 +81556,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3512,
-								"name": "MessageData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3512,
+										"name": "MessageData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -81512,8 +81677,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Webhook",
@@ -81527,9 +81691,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3538,
-								"name": "MessageWebhook"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3538,
+										"name": "MessageWebhook"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -82116,8 +82289,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82131,11 +82303,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -82195,8 +82367,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82210,11 +82381,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -82245,8 +82416,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82260,11 +82430,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -82346,8 +82516,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82357,9 +82526,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3547,
-								"name": "MessageActivity"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3547,
+										"name": "MessageActivity"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -82368,8 +82546,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82379,9 +82556,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3550,
-								"name": "MessageApplication"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3550,
+										"name": "MessageApplication"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -82414,8 +82600,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82425,9 +82610,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4380,
-								"name": "UserData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4380,
+										"name": "UserData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -82476,8 +82670,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82491,11 +82684,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -82550,8 +82743,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82565,11 +82757,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -82600,8 +82792,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82611,9 +82802,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3430,
-								"name": "MemberData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3430,
+										"name": "MemberData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -82622,8 +82822,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82633,21 +82832,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -82727,8 +82913,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82738,9 +82923,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3556,
-								"name": "MessageReference"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3556,
+										"name": "MessageReference"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -82749,8 +82943,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82760,21 +82953,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -82818,9 +82998,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3512,
-								"name": "MessageData"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3512,
+										"name": "MessageData"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -82873,8 +83062,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82884,21 +83072,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -82928,8 +83103,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -82939,9 +83113,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3538,
-								"name": "MessageWebhook"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3538,
+										"name": "MessageWebhook"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						}
 					],
@@ -83021,8 +83204,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -83036,11 +83218,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -83051,8 +83233,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -83066,11 +83247,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -83110,8 +83291,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -83125,11 +83305,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -85738,8 +85918,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Message ID",
@@ -85757,11 +85936,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -85777,8 +85956,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
@@ -85796,11 +85974,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -85911,8 +86089,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Parent ID",
@@ -85930,11 +86107,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -86012,8 +86189,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Rate Limit Per User",
@@ -86031,11 +86207,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -86051,8 +86227,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Topic",
@@ -86070,11 +86245,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -86749,8 +86924,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -86764,11 +86938,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -86784,8 +86958,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -86799,11 +86972,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -86844,8 +87017,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -86855,21 +87027,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -86883,8 +87042,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -86898,11 +87056,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -86972,8 +87130,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -86987,11 +87144,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -87007,8 +87164,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -87022,11 +87178,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -87967,8 +88123,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Application ID",
@@ -87986,11 +88141,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88001,8 +88156,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Assets",
@@ -88016,9 +88170,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3863,
-								"name": "ActivityAssets"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3863,
+										"name": "ActivityAssets"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -88051,8 +88214,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Details",
@@ -88070,11 +88232,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88085,8 +88247,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Emoji",
@@ -88100,9 +88261,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3856,
-								"name": "ActivityEmoji"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3856,
+										"name": "ActivityEmoji"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -88111,8 +88281,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Flags",
@@ -88130,11 +88299,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -88193,8 +88362,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Party",
@@ -88208,9 +88376,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3860,
-								"name": "ActivityParty"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3860,
+										"name": "ActivityParty"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -88219,8 +88396,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Secrets",
@@ -88234,9 +88410,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3868,
-								"name": "ActivitySecrets"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3868,
+										"name": "ActivitySecrets"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -88245,8 +88430,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "State",
@@ -88264,11 +88448,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88279,8 +88463,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Timestamps",
@@ -88294,9 +88477,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 3853,
-								"name": "ActivityTimestamps"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 3853,
+										"name": "ActivityTimestamps"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -88330,8 +88522,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "URL",
@@ -88349,11 +88540,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88404,8 +88595,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Large Image",
@@ -88423,11 +88613,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88438,8 +88628,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Large Text",
@@ -88457,11 +88646,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88472,8 +88661,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Small Image",
@@ -88491,11 +88679,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88506,8 +88694,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Small Text",
@@ -88525,11 +88712,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88594,8 +88781,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "ID",
@@ -88613,11 +88799,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88681,8 +88867,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "ID",
@@ -88700,11 +88885,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88715,8 +88900,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Size",
@@ -88730,11 +88914,20 @@
 								}
 							],
 							"type": {
-								"type": "array",
-								"elementType": {
-									"type": "intrinsic",
-									"name": "number"
-								}
+								"type": "union",
+								"types": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						}
 					],
@@ -88771,8 +88964,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Join",
@@ -88790,11 +88982,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88805,8 +88997,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Match",
@@ -88824,11 +89015,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88839,8 +89030,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Spectate",
@@ -88858,11 +89048,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -88902,8 +89092,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "End",
@@ -88921,11 +89110,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -88936,8 +89125,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Start",
@@ -88955,11 +89143,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -88998,8 +89186,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Desktop",
@@ -89013,9 +89200,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4422,
-								"name": "Status"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4422,
+										"name": "Status"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -89024,8 +89220,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Mobile",
@@ -89039,9 +89234,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4422,
-								"name": "Status"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4422,
+										"name": "Status"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -89050,8 +89254,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Web",
@@ -89065,9 +89268,18 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"id": 4422,
-								"name": "Status"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 4422,
+										"name": "Status"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						}
 					],
@@ -89241,11 +89453,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -91695,8 +91907,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -91706,21 +91917,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						}
 					],
@@ -91778,8 +91976,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -91793,11 +91990,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -91808,8 +92005,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -91823,11 +92019,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -93376,8 +93572,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -93387,21 +93582,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -93430,8 +93612,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -93441,21 +93622,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -93464,8 +93632,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -93475,21 +93642,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -93615,8 +93769,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -93630,11 +93783,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -93645,8 +93798,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -93660,11 +93812,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -93675,8 +93827,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -93686,21 +93837,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						}
 					],
@@ -94808,8 +94946,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "string"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -94818,8 +94965,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Tags",
@@ -94837,11 +94983,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -95161,8 +95307,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "string"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -95171,8 +95326,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -95186,11 +95340,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -95694,8 +95848,17 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "string"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -96073,8 +96236,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Parent ID",
@@ -96092,11 +96254,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -96763,8 +96925,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -96778,11 +96939,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -97269,8 +97430,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Description",
@@ -97288,11 +97448,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -98075,8 +98235,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98090,11 +98249,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -98105,8 +98264,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98116,21 +98274,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -98276,8 +98421,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98291,11 +98435,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -98371,8 +98515,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98386,11 +98529,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -98422,8 +98565,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98437,11 +98579,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -98556,8 +98698,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98571,11 +98712,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -98647,8 +98788,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98662,11 +98802,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -98717,8 +98857,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98728,21 +98867,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -98751,8 +98877,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98766,11 +98891,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -98825,8 +98950,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98840,11 +98964,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -98855,8 +98979,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98870,11 +98993,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -98906,8 +99029,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -98921,11 +99043,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -99082,8 +99204,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -99093,21 +99214,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -99136,8 +99244,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -99147,21 +99254,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -100975,7 +101069,7 @@
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
 									"line": 30,
-									"character": 30
+									"character": 36
 								}
 							],
 							"overwrites": {
@@ -101125,8 +101219,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Message ID",
@@ -101144,11 +101237,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -101159,8 +101252,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
@@ -101178,11 +101270,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -101774,8 +101866,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -101789,11 +101880,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -101804,8 +101895,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -101819,11 +101909,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -102128,7 +102218,7 @@
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
 									"line": 30,
-									"character": 30
+									"character": 36
 								},
 								{
 									"fileName": "src/classes/TextChannel/TextChannel.ts",
@@ -102369,8 +102459,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Message ID",
@@ -102388,11 +102477,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -102408,8 +102497,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
@@ -102427,11 +102515,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -102537,8 +102625,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Parent ID",
@@ -102556,11 +102643,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -102638,8 +102725,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Rate Limit Per User",
@@ -102657,11 +102743,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -102672,8 +102758,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Topic",
@@ -102691,11 +102776,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -103375,8 +103460,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -103390,11 +103474,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -103410,8 +103494,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -103425,11 +103508,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							},
@@ -103470,8 +103553,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -103481,21 +103563,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -103504,8 +103573,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -103519,11 +103587,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -103593,8 +103661,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -103608,11 +103675,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -103623,8 +103690,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -103638,11 +103704,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -104013,8 +104079,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Avatar",
@@ -104032,11 +104097,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -104714,8 +104779,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -104729,11 +104793,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -104744,8 +104808,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -104755,21 +104818,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -104838,8 +104888,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -104849,21 +104898,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -106323,8 +106359,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Code",
@@ -106342,11 +106377,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -106887,8 +106922,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -106902,11 +106936,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -107463,7 +107497,7 @@
 								{
 									"fileName": "src/classes/VoiceChannel/VoiceChannel.ts",
 									"line": 24,
-									"character": 23
+									"character": 29
 								}
 							],
 							"overwrites": {
@@ -107515,8 +107549,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Bitrate",
@@ -107534,11 +107567,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -107705,8 +107738,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Parent ID",
@@ -107724,11 +107756,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -107806,8 +107838,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "User Limit",
@@ -107825,11 +107856,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -108356,8 +108387,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -108371,11 +108401,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -108461,8 +108491,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -108476,11 +108505,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							},
@@ -108576,8 +108605,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -108591,11 +108619,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "number"
 									},
 									{
 										"type": "intrinsic",
-										"name": "number"
+										"name": "null"
 									}
 								]
 							}
@@ -109389,8 +109417,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -109400,21 +109427,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -109464,8 +109478,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -109475,21 +109488,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -109498,8 +109498,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -109509,21 +109508,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -109532,8 +109518,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -109543,21 +109528,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -109566,8 +109538,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -109577,21 +109548,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -109600,8 +109558,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -109611,21 +109568,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -109654,8 +109598,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -109665,21 +109608,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "false"
-									},
-									{
-										"type": "intrinsic",
-										"name": "true"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						},
 						{
@@ -110337,7 +110267,7 @@
 								{
 									"fileName": "src/classes/Webhook/Webhook.ts",
 									"line": 81,
-									"character": 27
+									"character": 33
 								}
 							],
 							"overwrites": {
@@ -110389,8 +110319,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Application ID",
@@ -110408,11 +110337,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -110423,8 +110352,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Avatar",
@@ -110442,11 +110370,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -110652,8 +110580,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Token",
@@ -110671,11 +110598,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -111162,8 +111089,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -111177,11 +111103,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -111192,8 +111118,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -111207,11 +111132,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -111323,8 +111248,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -111338,11 +111262,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -112362,8 +112286,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"comment": {
 								"shortText": "Description",
@@ -112381,11 +112304,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -112942,8 +112865,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -112957,11 +112879,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -112972,8 +112894,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -112987,11 +112908,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
@@ -113056,8 +112977,7 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true,
-								"isOptional": true
+								"isExported": true
 							},
 							"sources": [
 								{
@@ -113071,11 +112991,11 @@
 								"types": [
 									{
 										"type": "intrinsic",
-										"name": "undefined"
+										"name": "string"
 									},
 									{
 										"type": "intrinsic",
-										"name": "string"
+										"name": "null"
 									}
 								]
 							}
