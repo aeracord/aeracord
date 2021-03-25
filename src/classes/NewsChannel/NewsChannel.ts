@@ -1,10 +1,17 @@
-import { Client, TextChannelData } from "../../internal";
+import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, FollowedChannel, Invite, MessageData, MessageResolvable, TextChannelData, WebhookData } from "../../internal";
 import TextChannel from "../TextChannel/TextChannel";
 import updateObject from "./updateObject";
 
 export interface NewsChannelData extends TextChannelData { }
 
 export default class NewsChannel extends TextChannel {
+
+    /**
+     * Invites
+     *
+     * The cache manager interface for the invites in this channel
+     */
+    invites: CacheManagerInterface<Invite>;
 
     /**
      * News Channel
@@ -19,6 +26,11 @@ export default class NewsChannel extends TextChannel {
 
         // Set data
         NewsChannel._updateObject(this, newsChannelData, true);
+        this.invites = new CacheManagerInterface<Invite>(this.client, {
+            cacheManager: this.client._invites,
+            match: (i: Invite) => i.channelID === this.id,
+            fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
+        });
     }
 
     /**
