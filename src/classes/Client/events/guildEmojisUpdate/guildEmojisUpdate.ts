@@ -11,5 +11,8 @@ export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmoji
     };
 
     // Emit event
-    client.emit("guildEmojisUpdate", data, rawData);
+    client.emit("guildEmojisUpdate", data, {
+        rawData,
+        guild: client.guilds.get(data.guildID)
+    });
 }

@@ -7,5 +7,9 @@ export default function guildRoleUpdate(client: Client, rawData: RawGuildRoleUpd
     const roleData: RoleData = Role._fromRawData(rawData.role, rawData.guild_id);
 
     // Emit event
-    client.emit("guildRoleUpdate", roleData, rawData);
+    client.emit("guildRoleUpdate", roleData, {
+        rawData,
+        role: client.roles.get(roleData.id),
+        guild: client.guilds.get(roleData.guildID)
+    });
 }

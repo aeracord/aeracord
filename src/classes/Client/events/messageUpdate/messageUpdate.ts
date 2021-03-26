@@ -71,5 +71,10 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
     };
 
     // Emit event
-    client.emit("messageUpdate", data, rawData);
+    client.emit("messageUpdate", data, {
+        rawData,
+        message: client.messages.get(data.id),
+        guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
+        channel: client.channels.get(data.channelID)
+    });
 }

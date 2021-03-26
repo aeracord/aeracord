@@ -6,5 +6,8 @@ export default function userUpdate(client: Client, rawData: RawUserData) {
     const userData: UserData = User._fromRawData(rawData);
 
     // Emit event
-    client.emit("userUpdate", userData, rawData);
+    client.emit("userUpdate", userData, {
+        rawData,
+        user: client.users.get(userData.id)
+    });
 }

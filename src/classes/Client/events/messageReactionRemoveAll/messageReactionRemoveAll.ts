@@ -12,5 +12,10 @@ export default function messageReactionRemoveAll(client: Client, rawData: RawMes
     };
 
     // Emit event
-    client.emit("messageReactionRemoveAll", data, rawData);
+    client.emit("messageReactionRemoveAll", data, {
+        rawData,
+        message: client.messages.get(data.messageID),
+        guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
+        channel: client.channels.get(data.channelID)
+    });
 }

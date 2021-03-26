@@ -12,5 +12,10 @@ export default function messageDelete(client: Client, rawData: RawMessageDeleteD
     };
 
     // Emit event
-    client.emit("messageDelete", data, rawData);
+    client.emit("messageDelete", data, {
+        rawData,
+        message: client.messages.get(data.id),
+        guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
+        channel: client.channels.get(data.channelID)
+    });
 }

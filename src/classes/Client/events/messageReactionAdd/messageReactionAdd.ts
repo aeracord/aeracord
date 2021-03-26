@@ -19,5 +19,11 @@ export default function messageReactionAdd(client: Client, rawData: RawMessageRe
     };
 
     // Emit event
-    client.emit("messageReactionAdd", data, rawData);
+    client.emit("messageReactionAdd", data, {
+        rawData,
+        message: client.messages.get(data.messageID),
+        guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
+        channel: client.channels.get(data.channelID),
+        user: client.users.get(data.userID)
+    });
 }

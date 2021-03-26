@@ -11,5 +11,9 @@ export default function webhooksUpdate(client: Client, rawData: RawWebhooksUpdat
     };
 
     // Emit event
-    client.emit("webhooksUpdate", data, rawData);
+    client.emit("webhooksUpdate", data, {
+        rawData,
+        channel: client.channels.get(data.channelID),
+        guild: client.guilds.get(data.guildID)
+    });
 }

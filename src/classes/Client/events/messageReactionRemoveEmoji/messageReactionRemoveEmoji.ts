@@ -17,5 +17,10 @@ export default function messageReactionRemoveEmoji(client: Client, rawData: RawM
     };
 
     // Emit event
-    client.emit("messageReactionRemoveEmoji", data, rawData);
+    client.emit("messageReactionRemoveEmoji", data, {
+        rawData,
+        message: client.messages.get(data.messageID),
+        guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
+        channel: client.channels.get(data.channelID)
+    });
 }

@@ -6,5 +6,8 @@ export default function channelDelete(client: Client, rawData: RawChannelData) {
     const channelData: ChannelData = Channel._fromRawData(rawData) as ChannelData;
 
     // Emit event
-    client.emit("channelDelete", channelData, rawData);
+    client.emit("channelDelete", channelData, {
+        rawData,
+        channel: client.channels.get(channelData.id)
+    });
 }

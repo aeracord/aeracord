@@ -3,6 +3,7 @@ import WebSocket from "ws";
 import {
     AnyChannel,
     AnyChannelData,
+    AnyGuildChannel,
     AnyGuildChannelData,
     AuditLogData,
     ACTIVITY_TYPE_COMPETING,
@@ -47,11 +48,14 @@ import {
     GetInviteData,
     GetReactionsData,
     Guild,
+    GuildBanAddData,
+    GuildBanRemoveData,
     GuildCreateData,
     GuildData,
     GuildDeleteData,
     GuildEmojisUpdateData,
     GuildIntegrationsUpdateData,
+    GuildMemberRemoveData,
     GuildMemberUpdateData,
     GuildPreview,
     GuildResolvable,
@@ -271,41 +275,120 @@ export interface UnemittedReadyData {
 }
 
 export default interface Client {
-    on(event: "ready", listener: (data: ReadyData, rawData: any) => void): this;
-    on(event: "channelCreate", listener: (channelData: ChannelData, rawData: any) => void): this;
-    on(event: "channelDelete", listener: (channelData: ChannelData, rawData: any) => void): this;
-    on(event: "channelPinsUpdate", listener: (data: ChannelPinsUpdateData, rawData: any) => void): this;
-    on(event: "channelUpdate", listener: (channelData: ChannelData, rawData: any) => void): this;
-    on(event: "guildAvailable", listener: (data: GuildCreateData, rawData: any) => void): this;
-    on(event: "guildBanAdd", listener: (userData: UserData, rawData: any) => void): this;
-    on(event: "guildBanRemove", listener: (userData: UserData, rawData: any) => void): this;
-    on(event: "guildCreate", listener: (data: GuildCreateData, rawData: any) => void): this;
-    on(event: "guildDelete", listener: (data: GuildDeleteData, rawData: any) => void): this;
-    on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, rawData: any) => void): this;
-    on(event: "guildIntegrationsUpdate", listener: (data: GuildIntegrationsUpdateData, rawData: any) => void): this;
-    on(event: "guildMemberAdd", listener: (memberData: MemberData, rawData: any) => void): this;
-    on(event: "guildMemberRemove", listener: (userData: UserData, rawData: any) => void): this;
-    on(event: "guildMemberUpdate", listener: (data: GuildMemberUpdateData, rawData: any) => void): this;
-    on(event: "guildRoleCreate", listener: (roleData: RoleData, rawData: any) => void): this;
-    on(event: "guildRoleDelete", listener: (data: GuildRoleDeleteData, rawData: any) => void): this;
-    on(event: "guildRoleUpdate", listener: (roleData: RoleData, rawData: any) => void): this;
-    on(event: "guildUnavailable", listener: (data: GuildDeleteData, rawData: any) => void): this;
-    on(event: "guildUpdate", listener: (guildData: GuildData, rawData: any) => void): this;
-    on(event: "inviteCreate", listener: (inviteData: InviteData, rawData: any) => void): this;
-    on(event: "inviteDelete", listener: (data: InviteDeleteData, rawData: any) => void): this;
-    on(event: "messageCreate", listener: (messageData: MessageData, rawData: any) => void): this;
-    on(event: "messageDelete", listener: (data: MessageDeleteData, rawData: any) => void): this;
-    on(event: "messageDeleteBulk", listener: (data: MessageDeleteBulkData, rawData: any) => void): this;
-    on(event: "messageReactionAdd", listener: (data: MessageReactionAddData, rawData: any) => void): this;
-    on(event: "messageReactionRemove", listener: (data: MessageReactionRemoveData, rawData: any) => void): this;
-    on(event: "messageReactionRemoveAll", listener: (data: MessageReactionRemoveAllData, rawData: any) => void): this;
-    on(event: "messageReactionRemoveEmoji", listener: (data: MessageReactionRemoveEmojiData, rawData: any) => void): this;
-    on(event: "messageUpdate", listener: (data: MessageUpdateData, rawData: any) => void): this;
-    on(event: "presenceUpdate", listener: (presenceData: PresenceData, rawData: any) => void): this;
-    on(event: "typingStart", listener: (data: TypingStartData, rawData: any) => void): this;
-    on(event: "userUpdate", listener: (userData: UserData, rawData: any) => void): this;
-    on(event: "voiceStateUpdate", listener: (voiceStateData: VoiceStateData, rawData: any) => void): this;
-    on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, rawData: any) => void): this;
+    on(event: "ready", listener: (data: ReadyData, options: EventOptions) => void): this;
+    on(event: "channelCreate", listener: (channelData: ChannelData, options: ChannelEventOptions) => void): this;
+    on(event: "channelDelete", listener: (channelData: ChannelData, options: ChannelEventOptions) => void): this;
+    on(event: "channelPinsUpdate", listener: (data: ChannelPinsUpdateData, options: ChannelEventOptions) => void): this;
+    on(event: "channelUpdate", listener: (channelData: ChannelData, options: ChannelEventOptions) => void): this;
+    on(event: "guildAvailable", listener: (data: GuildCreateData, options: GuildEventOptions) => void): this;
+    on(event: "guildBanAdd", listener: (data: GuildBanAddData, options: MemberEventOptions) => void): this;
+    on(event: "guildBanRemove", listener: (data: GuildBanRemoveData, options: MemberEventOptions) => void): this;
+    on(event: "guildCreate", listener: (data: GuildCreateData, options: GuildEventOptions) => void): this;
+    on(event: "guildDelete", listener: (data: GuildDeleteData, options: GuildEventOptions) => void): this;
+    on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, options: GuildEventOptions) => void): this;
+    on(event: "guildIntegrationsUpdate", listener: (data: GuildIntegrationsUpdateData, options: GuildEventOptions) => void): this;
+    on(event: "guildMemberAdd", listener: (memberData: MemberData, options: MemberEventOptions) => void): this;
+    on(event: "guildMemberRemove", listener: (data: GuildMemberRemoveData, options: MemberEventOptions) => void): this;
+    on(event: "guildMemberUpdate", listener: (data: GuildMemberUpdateData, options: MemberEventOptions) => void): this;
+    on(event: "guildRoleCreate", listener: (roleData: RoleData, options: RoleEventOptions) => void): this;
+    on(event: "guildRoleDelete", listener: (data: GuildRoleDeleteData, options: RoleEventOptions) => void): this;
+    on(event: "guildRoleUpdate", listener: (roleData: RoleData, options: RoleEventOptions) => void): this;
+    on(event: "guildUnavailable", listener: (data: GuildDeleteData, options: GuildEventOptions) => void): this;
+    on(event: "guildUpdate", listener: (guildData: GuildData, options: GuildEventOptions) => void): this;
+    on(event: "inviteCreate", listener: (inviteData: InviteData, options: InviteEventOptions) => void): this;
+    on(event: "inviteDelete", listener: (data: InviteDeleteData, options: InviteEventOptions) => void): this;
+    on(event: "messageCreate", listener: (messageData: MessageData, options: MessageEventOptions) => void): this;
+    on(event: "messageDelete", listener: (data: MessageDeleteData, options: MessageEventOptions) => void): this;
+    on(event: "messageDeleteBulk", listener: (data: MessageDeleteBulkData, options: MessageDeleteBulkEventOptions) => void): this;
+    on(event: "messageReactionAdd", listener: (data: MessageReactionAddData, options: ReactionEventOptions) => void): this;
+    on(event: "messageReactionRemove", listener: (data: MessageReactionRemoveData, options: ReactionEventOptions) => void): this;
+    on(event: "messageReactionRemoveAll", listener: (data: MessageReactionRemoveAllData, options: MessageEventOptions) => void): this;
+    on(event: "messageReactionRemoveEmoji", listener: (data: MessageReactionRemoveEmojiData, options: MessageEventOptions) => void): this;
+    on(event: "messageUpdate", listener: (data: MessageUpdateData, options: MessageEventOptions) => void): this;
+    on(event: "presenceUpdate", listener: (presenceData: PresenceData, options: PresenceEventOptions) => void): this;
+    on(event: "typingStart", listener: (data: TypingStartData, options: TypingStartEventOptions) => void): this;
+    on(event: "userUpdate", listener: (userData: UserData, options: UserEventOptions) => void): this;
+    on(event: "voiceStateUpdate", listener: (voiceStateData: VoiceStateData, options: VoiceStateEventOptions) => void): this;
+    on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, options: WebhooksUpdateEventOptions) => void): this;
+}
+
+export interface EventOptions {
+    rawData: any;
+}
+
+export interface ChannelEventOptions extends EventOptions {
+    channel?: AnyChannel;
+}
+
+export interface EmojiEventOptions extends EventOptions {
+    emoji?: Emoji;
+    guild?: Guild;
+}
+
+export interface GuildEventOptions extends EventOptions {
+    guild?: Guild;
+}
+
+export interface InviteEventOptions extends EventOptions {
+    invite?: Invite;
+    guild?: Guild;
+    channel?: AnyGuildChannel;
+}
+
+export interface MemberEventOptions extends EventOptions {
+    member?: Member;
+    guild?: Guild;
+    user?: User;
+}
+
+export interface MessageEventOptions extends EventOptions {
+    message?: Message;
+    guild?: Guild;
+    channel?: AnyChannel;
+}
+
+export interface MessageDeleteBulkEventOptions extends EventOptions {
+    messages?: Message[];
+    guild?: Guild;
+    channel?: AnyChannel;
+}
+
+export interface PresenceEventOptions extends EventOptions {
+    presence?: Presence;
+    user?: User;
+}
+
+export interface ReactionEventOptions extends EventOptions {
+    message?: Message;
+    guild?: Guild;
+    channel?: AnyChannel;
+    user?: User;
+}
+
+export interface RoleEventOptions extends EventOptions {
+    role?: Role;
+    guild?: Guild;
+}
+
+export interface TypingStartEventOptions extends EventOptions {
+    channel?: AnyChannel;
+    user?: User;
+}
+
+export interface UserEventOptions extends EventOptions {
+    user?: User;
+}
+
+export interface VoiceStateEventOptions extends EventOptions {
+    guild?: Guild;
+    channel?: AnyGuildChannel;
+    member?: Member;
+    user?: User;
+}
+
+export interface WebhooksUpdateEventOptions extends EventOptions {
+    channel?: AnyChannel;
+    guild?: Guild;
 }
 
 export default class Client extends EventEmitter {

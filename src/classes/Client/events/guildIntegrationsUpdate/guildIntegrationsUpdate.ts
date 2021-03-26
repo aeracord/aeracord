@@ -10,5 +10,8 @@ export default function guildIntegrationsUpdate(client: Client, rawData: RawGuil
     };
 
     // Emit event
-    client.emit("guildIntegrationsUpdate", data, rawData);
+    client.emit("guildIntegrationsUpdate", data, {
+        rawData,
+        guild: client.guilds.get(data.guildID)
+    });
 }

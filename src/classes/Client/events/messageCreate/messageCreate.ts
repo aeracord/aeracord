@@ -6,5 +6,10 @@ export default function messageCreate(client: Client, rawData: RawMessageData) {
     const messageData: MessageData = Message._fromRawData(rawData);
 
     // Emit event
-    client.emit("messageCreate", messageData, rawData);
+    client.emit("messageCreate", messageData, {
+        rawData,
+        message: client.messages.get(messageData.id),
+        guild: messageData.guildID ? client.guilds.get(messageData.guildID) : undefined,
+        channel: client.channels.get(messageData.channelID)
+    });
 }

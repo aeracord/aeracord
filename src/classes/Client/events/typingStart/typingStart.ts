@@ -14,5 +14,9 @@ export default function typingStart(client: Client, rawData: RawTypingStartData)
     };
 
     // Emit event
-    client.emit("typingStart", data, rawData);
+    client.emit("typingStart", data, {
+        rawData,
+        channel: client.channels.get(data.channelID),
+        user: client.users.get(data.userID)
+    });
 }

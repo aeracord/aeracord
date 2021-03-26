@@ -1,11 +1,20 @@
-import { Client, User, UserData } from "../../../../internal";
+import { Client, User } from "../../../../internal";
+import { GuildBanRemoveData } from "./guildBanRemoveData";
 import { RawGuildBanRemoveData } from "./rawGuildBanRemoveData";
 
 export default function guildBanRemove(client: Client, rawData: RawGuildBanRemoveData) {
 
-    // Parse user data
-    const userData: UserData = User._fromRawData(rawData.user);
+    // Parse data
+    const data: GuildBanRemoveData = {
+        guildID: rawData.guild_id,
+        user: User._fromRawData(rawData.user)
+    };
 
     // Emit event
-    client.emit("guildBanRemove", userData, rawData);
+    client.emit("guildBanRemove", data, {
+        rawData,
+        member: client.members.get(data.guildID, data.user.id),
+        guild: client.guilds.get(data.guildID),
+        user: client.users.get(data.user.id)
+    });
 }

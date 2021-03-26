@@ -12,5 +12,10 @@ export default function inviteDelete(client: Client, rawData: RawInviteDeleteDat
     };
 
     // Emit event
-    client.emit("inviteDelete", data, rawData);
+    client.emit("inviteDelete", data, {
+        rawData,
+        invite: client.invites.get(data.code),
+        guild: client.guilds.get(data.guildID),
+        channel: client.channels.get(data.channelID)
+    });
 }

@@ -6,5 +6,8 @@ export default function channelCreate(client: Client, rawData: RawChannelData) {
     const channelData: ChannelData = Channel._fromRawData(rawData) as ChannelData;
 
     // Emit event
-    client.emit("channelCreate", channelData, rawData);
+    client.emit("channelCreate", channelData, {
+        rawData,
+        channel: client.channels.get(channelData.id)
+    });
 }

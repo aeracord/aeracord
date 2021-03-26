@@ -122,10 +122,13 @@ export { Intent } from "./classes/Client/connect";
 
 // Client: Events
 export { ChannelPinsUpdateData } from "./classes/Client/events/channelPinsUpdate/channelPinsUpdateData";
+export { GuildBanAddData } from "./classes/Client/events/guildBanAdd/guildBanAddData";
+export { GuildBanRemoveData } from "./classes/Client/events/guildBanRemove/guildBanRemoveData";
 export { GuildCreateData } from "./classes/Client/events/guildCreate/guildCreateData";
 export { GuildDeleteData } from "./classes/Client/events/guildDelete/guildDeleteData";
 export { GuildEmojisUpdateData } from "./classes/Client/events/guildEmojisUpdate/guildEmojisUpdateData";
 export { GuildIntegrationsUpdateData } from "./classes/Client/events/guildIntegrationsUpdate/guildIntegrationsUpdateData";
+export { GuildMemberRemoveData } from "./classes/Client/events/guildMemberRemove/guildMemberRemoveData";
 export { GuildMemberUpdateData } from "./classes/Client/events/guildMemberUpdate/guildMemberUpdateData";
 export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
 export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";

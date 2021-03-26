@@ -6,5 +6,11 @@ export default function voiceStateUpdate(client: Client, rawData: RawVoiceStateD
     const voiceStateData: VoiceStateData = VoiceState._fromRawData(rawData);
 
     // Emit event
-    client.emit("voiceStateUpdate", voiceStateData, rawData);
+    client.emit("voiceStateUpdate", voiceStateData, {
+        rawData,
+        guild: client.guilds.get(voiceStateData.guildID),
+        channel: client.channels.get(voiceStateData.channelID),
+        member: client.members.get(voiceStateData.guildID, voiceStateData.userID),
+        user: client.users.get(voiceStateData.userID)
+    });
 }

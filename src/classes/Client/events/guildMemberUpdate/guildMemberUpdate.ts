@@ -16,5 +16,10 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
     };
 
     // Emit event
-    client.emit("guildMemberUpdate", data, rawData);
+    client.emit("guildMemberUpdate", data, {
+        rawData,
+        member: client.members.get(data.guildID, data.user.id),
+        guild: client.guilds.get(data.guildID),
+        user: client.users.get(data.user.id)
+    });
 }

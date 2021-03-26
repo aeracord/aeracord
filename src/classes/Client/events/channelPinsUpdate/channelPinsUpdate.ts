@@ -12,5 +12,8 @@ export default function channelPinsUpdate(client: Client, rawData: RawChannelPin
     };
 
     // Emit event
-    client.emit("channelPinsUpdate", data, rawData);
+    client.emit("channelPinsUpdate", data, {
+        rawData,
+        channel: client.channels.get(data.channelID)
+    });
 }

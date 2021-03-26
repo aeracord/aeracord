@@ -6,5 +6,9 @@ export default function presenceUpdate(client: Client, rawData: RawPresenceData)
     const presenceData: PresenceData = Presence._fromRawData(rawData);
 
     // Emit event
-    client.emit("presenceUpdate", presenceData, rawData);
+    client.emit("presenceUpdate", presenceData, {
+        rawData,
+        presence: client.presences.get(presenceData.user.id),
+        user: client.users.get(presenceData.user.id)
+    });
 }

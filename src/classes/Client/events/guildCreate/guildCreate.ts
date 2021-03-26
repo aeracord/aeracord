@@ -40,9 +40,15 @@ export default function guildCreate(client: Client, rawData: RawGuildCreateData)
         client._unavailableGuilds.delete(data.guild.id);
 
         // Emit event
-        client.emit("guildAvailable", data, rawData);
+        client.emit("guildAvailable", data, {
+            rawData,
+            guild: client.guilds.get(data.guild.id)
+        });
     }
 
     // Emit event
-    else client.emit("guildCreate", data, rawData);
+    else client.emit("guildCreate", data, {
+        rawData,
+        guild: client.guilds.get(data.guild.id)
+    });
 }

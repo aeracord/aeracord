@@ -6,5 +6,8 @@ export default function guildUpdate(client: Client, rawData: RawGuildData) {
     const guildData: GuildData = Guild._fromRawData(rawData);
 
     // Emit event
-    client.emit("guildUpdate", guildData, rawData);
+    client.emit("guildUpdate", guildData, {
+        rawData,
+        guild: client.guilds.get(guildData.id)
+    });
 }

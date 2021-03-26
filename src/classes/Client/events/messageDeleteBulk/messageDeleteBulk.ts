@@ -1,4 +1,4 @@
-import { Client } from "../../../../internal";
+import { Client, Message } from "../../../../internal";
 import { MessageDeleteBulkData } from "./messageDeleteBulkData";
 import { RawMessageDeleteBulkData } from "./rawMessageDeleteBulkData";
 
@@ -12,5 +12,10 @@ export default function messageDeleteBulk(client: Client, rawData: RawMessageDel
     };
 
     // Emit event
-    client.emit("messageDeleteBulk", data, rawData);
+    client.emit("messageDeleteBulk", data, {
+        rawData,
+        messages: data.ids.map((id: string) => client.messages.get(id)).filter((m: Message | undefined) => m),
+        guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
+        channel: client.channels.get(data.channelID)
+    });
 }

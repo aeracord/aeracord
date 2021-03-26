@@ -12,7 +12,9 @@ export default function ready(client: Client) {
     client._readyState = READY_STATE_READY;
 
     // Emit event
-    client.emit("ready", client._readyData?.data, client._readyData?.rawData);
+    client.emit("ready", client._readyData?.data, {
+        rawData: client._readyData?.rawData
+    });
 
     // Remove ready data
     delete client._readyData;

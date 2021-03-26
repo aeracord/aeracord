@@ -24,5 +24,10 @@ export default function inviteCreate(client: Client, rawData: RawInviteCreateDat
     };
 
     // Emit event
-    client.emit("inviteCreate", inviteData, rawData);
+    client.emit("inviteCreate", inviteData, {
+        rawData,
+        invite: client.invites.get(inviteData.code),
+        guild: client.guilds.get(inviteData.guildID),
+        channel: client.channels.get(inviteData.channelID)
+    });
 }

@@ -11,5 +11,9 @@ export default function guildRoleDelete(client: Client, rawData: RawGuildRoleDel
     };
 
     // Emit event
-    client.emit("guildRoleDelete", data, rawData);
+    client.emit("guildRoleDelete", data, {
+        rawData,
+        role: client.roles.get(data.id),
+        guild: client.guilds.get(data.guildID)
+    });
 }

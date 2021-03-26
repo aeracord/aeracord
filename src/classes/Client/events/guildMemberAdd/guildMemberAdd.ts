@@ -7,5 +7,10 @@ export default function guildMemberAdd(client: Client, rawData: RawGuildMemberAd
     const memberData: MemberData = Member._fromRawData(rawData, rawData.guild_id);
 
     // Emit event
-    client.emit("guildMemberAdd", memberData, rawData);
+    client.emit("guildMemberAdd", memberData, {
+        rawData,
+        member: client.members.get(memberData.guildID, memberData.user.id),
+        guild: client.guilds.get(memberData.guildID),
+        user: client.users.get(memberData.user.id)
+    });
 }
