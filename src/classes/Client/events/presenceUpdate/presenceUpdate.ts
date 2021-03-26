@@ -3,7 +3,7 @@ import { Client, Presence, PresenceData, RawPresenceData } from "../../../../int
 export default function presenceUpdate(client: Client, rawData: RawPresenceData) {
 
     // Parse presence data
-    const presenceData: PresenceData = Presence._fromRawData(rawData);
+    const presenceData: PresenceData = Presence._fromRawData(client, rawData);
 
     // Emit event
     client.emit("presenceUpdate", presenceData, {

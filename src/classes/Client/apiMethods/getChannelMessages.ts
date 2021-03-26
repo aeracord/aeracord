@@ -35,7 +35,7 @@ export default async function getChannelMessages(client: Client, channelResolvab
     });
 
     // Parse messages
-    const messages: MessageData[] = result.map((m: RawMessageData) => Message._fromRawData(m));
+    const messages: MessageData[] = result.map((m: RawMessageData) => Message._fromRawData(client, m));
 
     // Return
     return messages;

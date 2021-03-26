@@ -51,7 +51,7 @@ export default async function modifyChannel(client: Client, channelResolvable: C
     });
 
     // Parse guild channel data
-    const guildChannelData: AnyGuildChannelData = Channel._fromRawData(result) as AnyGuildChannelData;
+    const guildChannelData: AnyGuildChannelData = Channel._fromRawData(client, result) as AnyGuildChannelData;
 
     // Return
     return guildChannelData;

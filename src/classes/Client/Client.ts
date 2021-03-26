@@ -257,6 +257,7 @@ export interface ObjectCacheStrategies {
 export interface CacheStrategy {
     cacheFor?: number | null;
     garbageCollectionInterval?: number | null;
+    cacheAll?: boolean;
 }
 
 export interface EventQueueEvent {

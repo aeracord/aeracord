@@ -22,7 +22,7 @@ export default async function getChannelWebhooks(client: Client, channelResolvab
     });
 
     // Parse webhooks
-    const webhooks: WebhookData[] = result.map((w: RawWebhookData) => Webhook._fromRawData(w));
+    const webhooks: WebhookData[] = result.map((w: RawWebhookData) => Webhook._fromRawData(client, w));
 
     // Return
     return webhooks;

@@ -7,7 +7,7 @@ export default function guildBanRemove(client: Client, rawData: RawGuildBanRemov
     // Parse data
     const data: GuildBanRemoveData = {
         guildID: rawData.guild_id,
-        user: User._fromRawData(rawData.user)
+        user: User._fromRawData(client, rawData.user)
     };
 
     // Emit event

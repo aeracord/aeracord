@@ -10,19 +10,19 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         type: rawData.type,
         channelID: rawData.channel_id,
         guildID: rawData.guild_id,
-        author: (rawData.webhook_id || !rawData.author) ? undefined : User._fromRawData(rawData.author as RawUserData),
+        author: (rawData.webhook_id || !rawData.author) ? undefined : User._fromRawData(client, rawData.author as RawUserData),
         webhook: (rawData.webhook_id && rawData.author) ? {
             id: rawData.author.id,
             name: rawData.author.username,
             avatar: rawData.author.avatar
         } : undefined,
-        member: (rawData.member && rawData.guild_id) ? Member._fromRawData({ ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
+        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(client, { ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
         content: rawData.content,
         timestamp: rawData.timestamp ? new Date(rawData.timestamp).getTime() : undefined,
         editedTimestamp: rawData.edited_timestamp ? new Date(rawData.edited_timestamp).getTime() : undefined,
         tts: rawData.tts,
         mentionEveryone: rawData.mention_everyone,
-        mentions: (rawData.mentions && rawData.guild_id) ? rawData.mentions.map((u: RawUserWithMemberData) => Member._fromRawData({
+        mentions: (rawData.mentions && rawData.guild_id) ? rawData.mentions.map((u: RawUserWithMemberData) => Member._fromRawData(client, {
             ...u.member,
             user: u
         }, rawData.guild_id as string)) : undefined,
@@ -67,7 +67,7 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
             guildID: rawData.message_reference.guild_id || null
         },
         flags: rawData.flags,
-        referencedMessage: rawData.referenced_message ? Message._fromRawData(rawData.referenced_message) : undefined
+        referencedMessage: rawData.referenced_message ? Message._fromRawData(client, rawData.referenced_message) : undefined
     };
 
     // Emit event

@@ -22,7 +22,7 @@ export default async function deleteInvite(client: Client, inviteResolvable: Inv
     });
 
     // Parse invite data
-    const inviteData: InviteData = Invite._fromRawData(result);
+    const inviteData: InviteData = Invite._fromRawData(client, result);
 
     // Return
     return inviteData;

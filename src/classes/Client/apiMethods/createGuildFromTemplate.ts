@@ -31,7 +31,7 @@ export default async function createGuildFromTemplate(client: Client, templateRe
     });
 
     // Parse guild data
-    const guildData: GuildData = Guild._fromRawData(result);
+    const guildData: GuildData = Guild._fromRawData(client, result);
 
     // Return
     return guildData;

@@ -46,7 +46,7 @@ export default async function editMessage(client: Client, channelResolvable: Cha
     });
 
     // Parse message data
-    const messageData: MessageData = Message._fromRawData(result);
+    const messageData: MessageData = Message._fromRawData(client, result);
 
     // Return
     return messageData;

@@ -22,7 +22,7 @@ export default async function getGuildVanityURL(client: Client, guildResolvable:
     });
 
     // Parse vanity invite data
-    const vanityInviteData: VanityInviteData = VanityInvite._fromRawData(result, guildID);
+    const vanityInviteData: VanityInviteData = VanityInvite._fromRawData(client, result, guildID);
 
     // Return
     return vanityInviteData;

@@ -35,7 +35,7 @@ export default async function modifyWebhook(client: Client, webhookResolvable: W
     });
 
     // Parse webhook data
-    const webhookData: WebhookData = Webhook._fromRawData(result);
+    const webhookData: WebhookData = Webhook._fromRawData(client, result);
 
     // Return
     return webhookData;

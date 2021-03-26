@@ -502,8 +502,8 @@ export default class Guild extends Base<Guild> {
      *
      * @returns {GuildData} The guild data
      */
-    static _fromRawData(rawData: RawGuildData): GuildData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawGuildData): GuildData {
+        return fromRawData(client, rawData);
     }
 
     /**

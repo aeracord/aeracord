@@ -27,7 +27,7 @@ export default async function modifyCurrentUser(client: Client, modifyCurrentUse
     });
 
     // Parse user data
-    const userData: UserData = User._fromRawData(result);
+    const userData: UserData = User._fromRawData(client, result);
 
     // Return
     return userData;

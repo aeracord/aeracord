@@ -1,9 +1,9 @@
-import { Emoji, GuildData, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
+import { Client, Emoji, Guild, GuildData, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
 
-export default function fromRawData(rawData: RawGuildData): GuildData {
+export default function fromRawData(client: Client, rawData: RawGuildData): GuildData {
 
     // Parse guild data
-    return {
+    const guildData: GuildData = {
         id: rawData.id,
         name: rawData.name,
         icon: rawData.icon,
@@ -18,8 +18,8 @@ export default function fromRawData(rawData: RawGuildData): GuildData {
         verificationLevel: rawData.verification_level,
         defaultMessageNotifications: rawData.default_message_notifications,
         explicitContentFilter: rawData.explicit_content_filter,
-        roleData: rawData.roles.map((r: RawRoleData) => Role._fromRawData(r, rawData.id)),
-        emojiData: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(e, rawData.id)),
+        roleData: rawData.roles.map((r: RawRoleData) => Role._fromRawData(client, r, rawData.id)),
+        emojiData: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e, rawData.id)),
         features: rawData.features,
         mfaLevel: rawData.mfa_level,
         applicationID: rawData.application_id,
@@ -38,6 +38,12 @@ export default function fromRawData(rawData: RawGuildData): GuildData {
         maxVideoChannelUsers: rawData.max_video_channel_users,
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
-        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._fromRawData(rawData.welcome_screen, rawData.id) : null
+        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._fromRawData(client, rawData.welcome_screen, rawData.id) : null
     };
+
+    // Create guild object
+    if (client._guilds.cacheAll) Guild.fromData(client, guildData);
+
+    // Return
+    return guildData;
 }

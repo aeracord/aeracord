@@ -5,6 +5,7 @@ import parseCacheStrategy from "./parseCacheStrategy";
 export interface CacheManagerData {
     cacheFor?: number;
     garbageCollectionInterval?: number;
+    cacheAll?: boolean;
 }
 
 /**
@@ -58,12 +59,20 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
     garbageCollectionInterval?: number;
 
     /**
+     * Cache All
+     *
+     * Whether or not to cache all objects
+     */
+    cacheAll: boolean;
+
+    /**
      * Cache Manager
      *
      * @param client The client
      * @param cacheManagerData Options to initialize this cache manager with
      * @param cacheManagerData.cacheFor The amount of time in milliseconds to keep objects cached
      * @param cacheManagerData.garbageCollectionInterval The interval in milliseconds for garbage collecting cached objects
+     * @param cacheManagerData.cacheAll Whether or not to cache all objects
      */
     constructor(client: Client, cacheManagerData: CacheManagerData) {
 
@@ -72,6 +81,7 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
         this._cache = new Map();
         this.cacheFor = cacheManagerData.cacheFor;
         this.garbageCollectionInterval = cacheManagerData.garbageCollectionInterval;
+        this.cacheAll = Boolean(cacheManagerData.cacheAll);
 
         // Set garbage collection interval
         if (this.garbageCollectionInterval) setInterval(() => this.garbageCollect(), this.garbageCollectionInterval);

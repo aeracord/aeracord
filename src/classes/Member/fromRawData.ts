@@ -1,9 +1,9 @@
-import { MemberData, RawMemberData, User } from "../../internal";
+import { Client, Member, MemberData, RawMemberData, User } from "../../internal";
 
-export default function fromRawData(rawData: RawMemberData, guildID: string): MemberData {
+export default function fromRawData(client: Client, rawData: RawMemberData, guildID: string): MemberData {
 
     // Parse member data
-    return {
+    const memberData: MemberData = {
         guildID,
         nickname: rawData.nick || null,
         roles: rawData.roles,
@@ -12,6 +12,12 @@ export default function fromRawData(rawData: RawMemberData, guildID: string): Me
         joinedAt: new Date(rawData.joined_at).getTime(),
         premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : null,
         pending: rawData.pending || false,
-        user: User._fromRawData(rawData.user)
+        user: User._fromRawData(client, rawData.user)
     };
+
+    // Create member object
+    if (client._members.cacheAll) Member.fromData(client, memberData);
+
+    // Return
+    return memberData;
 }

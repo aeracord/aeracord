@@ -31,7 +31,7 @@ export default async function listGuildMembers(client: Client, guildResolvable: 
     });
 
     // Parse members
-    const members: MemberData[] = result.map((m: RawMemberData) => Member._fromRawData(m, guildID));
+    const members: MemberData[] = result.map((m: RawMemberData) => Member._fromRawData(client, m, guildID));
 
     // Return
     return members;

@@ -22,7 +22,7 @@ export default async function getUser(client: Client, userResolvable: UserResolv
     });
 
     // Parse user data
-    const userData: UserData = User._fromRawData(result);
+    const userData: UserData = User._fromRawData(client, result);
 
     // Return
     return userData;

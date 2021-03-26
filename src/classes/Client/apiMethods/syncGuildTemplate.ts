@@ -24,7 +24,7 @@ export default async function syncGuildTemplate(client: Client, guildResolvable:
     });
 
     // Parse template data
-    const templateData: TemplateData = Template._fromRawData(result);
+    const templateData: TemplateData = Template._fromRawData(client, result);
 
     // Return
     return templateData;

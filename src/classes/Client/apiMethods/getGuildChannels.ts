@@ -22,7 +22,7 @@ export default async function getGuildChannels(client: Client, guildResolvable: 
     });
 
     // Parse guild channels
-    const guildChannels: AnyGuildChannelData[] = result.map((c: RawChannelData) => Channel._fromRawData(c)) as AnyGuildChannelData[];
+    const guildChannels: AnyGuildChannelData[] = result.map((c: RawChannelData) => Channel._fromRawData(client, c)) as AnyGuildChannelData[];
 
     // Return
     return guildChannels;

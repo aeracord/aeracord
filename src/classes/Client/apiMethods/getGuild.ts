@@ -29,7 +29,7 @@ export default async function getGuild(client: Client, guildResolvable: GuildRes
     });
 
     // Parse guild data
-    const guildData: GuildData = Guild._fromRawData(result);
+    const guildData: GuildData = Guild._fromRawData(client, result);
 
     // Return
     return guildData;

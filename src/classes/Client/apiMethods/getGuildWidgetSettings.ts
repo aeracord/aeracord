@@ -22,7 +22,7 @@ export default async function getGuildWidgetSettings(client: Client, guildResolv
     });
 
     // Parse guild widget data
-    const guildWidgetData: GuildWidgetData = GuildWidget._fromRawData(result, guildID);
+    const guildWidgetData: GuildWidgetData = GuildWidget._fromRawData(client, result, guildID);
 
     // Return
     return guildWidgetData;

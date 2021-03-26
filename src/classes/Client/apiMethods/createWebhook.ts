@@ -31,7 +31,7 @@ export default async function createWebhook(client: Client, channelResolvable: C
     });
 
     // Parse webhook data
-    const webhookData: WebhookData = Webhook._fromRawData(result);
+    const webhookData: WebhookData = Webhook._fromRawData(client, result);
 
     // Return
     return webhookData;

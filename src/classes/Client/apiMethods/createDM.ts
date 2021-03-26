@@ -29,7 +29,7 @@ export default async function createDM(client: Client, createDMData: CreateDMDat
     });
 
     // Parse DM channel data
-    const dmChannelData: DMChannelData = Channel._fromRawData(result) as DMChannelData;
+    const dmChannelData: DMChannelData = Channel._fromRawData(client, result) as DMChannelData;
 
     // Return
     return dmChannelData;

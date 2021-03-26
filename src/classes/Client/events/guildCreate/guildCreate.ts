@@ -7,17 +7,17 @@ export default function guildCreate(client: Client, rawData: RawGuildCreateData)
 
     // Parse data
     const data: GuildCreateData = {
-        guild: Guild._fromRawData(rawData),
+        guild: Guild._fromRawData(client, rawData),
         joinedAt: new Date(rawData.joined_at).getTime(),
         large: rawData.large,
         memberCount: rawData.member_count,
-        voiceStates: rawData.voice_states.map((vs: RawVoiceStateData) => VoiceState._fromRawData(vs)),
-        members: rawData.members.map((m: RawMemberData) => Member._fromRawData(m, rawData.id)),
+        voiceStates: rawData.voice_states.map((vs: RawVoiceStateData) => VoiceState._fromRawData(client, vs)),
+        members: rawData.members.map((m: RawMemberData) => Member._fromRawData(client, m, rawData.id)),
 
         // Note that channel objects dont have a guild ID in the `guildCreate` event
-        channels: rawData.channels.map((c: RawChannelData) => Channel._fromRawData({ ...c, guild_id: rawData.id })),
+        channels: rawData.channels.map((c: RawChannelData) => Channel._fromRawData(client, { ...c, guild_id: rawData.id })),
 
-        presences: rawData.presences.map((p: RawPresenceData) => Presence._fromRawData(p))
+        presences: rawData.presences.map((p: RawPresenceData) => Presence._fromRawData(client, p))
     };
 
     // Initial guild create event

@@ -116,8 +116,8 @@ export default class Emoji extends Base<Emoji> {
      *
      * @returns {EmojiData} The emoji data
      */
-    static _fromRawData(rawData: RawEmojiData, guildID: string): EmojiData {
-        return fromRawData(rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawEmojiData, guildID: string): EmojiData {
+        return fromRawData(client, rawData, guildID);
     }
 
     /**

@@ -120,8 +120,8 @@ export default class Member extends Base<Member> {
      *
      * @returns {MemberData} The member data
      */
-    static _fromRawData(rawData: RawMemberData, guildID: string): MemberData {
-        return fromRawData(rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawMemberData, guildID: string): MemberData {
+        return fromRawData(client, rawData, guildID);
     }
 
     /**

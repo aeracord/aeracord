@@ -7,7 +7,7 @@ export default function guildBanAdd(client: Client, rawData: RawGuildBanAddData)
     // Parse data
     const data: GuildBanAddData = {
         guildID: rawData.guild_id,
-        user: User._fromRawData(rawData.user)
+        user: User._fromRawData(client, rawData.user)
     };
 
     // Emit event

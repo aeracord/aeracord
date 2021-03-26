@@ -22,7 +22,7 @@ export default async function getTemplate(client: Client, templateResolvable: Te
     });
 
     // Parse template data
-    const templateData: TemplateData = Template._fromRawData(result);
+    const templateData: TemplateData = Template._fromRawData(client, result);
 
     // Return
     return templateData;

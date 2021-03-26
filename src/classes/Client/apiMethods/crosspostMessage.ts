@@ -24,7 +24,7 @@ export default async function crosspostMessage(client: Client, channelResolvable
     });
 
     // Parse message data
-    const messageData: MessageData = Message._fromRawData(result);
+    const messageData: MessageData = Message._fromRawData(client, result);
 
     // Return
     return messageData;

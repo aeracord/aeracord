@@ -22,7 +22,7 @@ export default async function deleteChannel(client: Client, channelResolvable: C
     });
 
     // Parse channel data
-    const channelData: AnyChannelData = Channel._fromRawData(result);
+    const channelData: AnyChannelData = Channel._fromRawData(client, result);
 
     // Return
     return channelData;

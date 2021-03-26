@@ -1,14 +1,14 @@
-import { RawTemplateData, RawTemplateDataGuildChannel, RawTemplateDataGuildChannelPermissionOverwrite, RawTemplateDataGuildRole, TemplateData, User } from "../../internal";
+import { Client, RawTemplateData, RawTemplateDataGuildChannel, RawTemplateDataGuildChannelPermissionOverwrite, RawTemplateDataGuildRole, Template, TemplateData, User } from "../../internal";
 
-export default function fromRawData(rawData: RawTemplateData): TemplateData {
+export default function fromRawData(client: Client, rawData: RawTemplateData): TemplateData {
 
     // Parse template data
-    return {
+    const templateData: TemplateData = {
         code: rawData.code,
         name: rawData.name,
         description: rawData.description,
         uses: rawData.usage_count,
-        creator: User._fromRawData(rawData.creator),
+        creator: User._fromRawData(client, rawData.creator),
         createdAt: new Date(rawData.created_at).getTime(),
         updatedAt: new Date(rawData.updated_at).getTime(),
         sourceGuildID: rawData.source_guild_id,
@@ -53,4 +53,10 @@ export default function fromRawData(rawData: RawTemplateData): TemplateData {
         },
         dirty: Boolean(rawData.is_dirty)
     };
+
+    // Create template object
+    if (client._templates.cacheAll) Template.fromData(client, templateData);
+
+    // Return
+    return templateData;
 }

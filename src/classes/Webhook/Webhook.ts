@@ -119,8 +119,8 @@ export default class Webhook extends Base<Webhook> {
      *
      * @returns {WebhookData} The webhook data
      */
-    static _fromRawData(rawData: RawWebhookData): WebhookData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawWebhookData): WebhookData {
+        return fromRawData(client, rawData);
     }
 
     /**

@@ -68,8 +68,8 @@ export default class GuildWidget extends Base<GuildWidget> {
      *
      * @returns {GuildWidgetData} The guild widget data
      */
-    static _fromRawData(rawData: RawGuildWidgetData, guildID: string): GuildWidgetData {
-        return fromRawData(rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidgetData {
+        return fromRawData(client, rawData, guildID);
     }
 
     /**

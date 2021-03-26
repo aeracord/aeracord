@@ -22,7 +22,7 @@ export default async function getGuildTemplates(client: Client, guildResolvable:
     });
 
     // Parse templates
-    const templates: TemplateData[] = result.map((t: RawTemplateData) => Template._fromRawData(t));
+    const templates: TemplateData[] = result.map((t: RawTemplateData) => Template._fromRawData(client, t));
 
     // Return
     return templates;

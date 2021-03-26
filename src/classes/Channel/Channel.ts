@@ -53,8 +53,8 @@ export default class Channel extends Base<AnyChannel> {
      *
      * @returns {ChannelData} The channel data
      */
-    static _fromRawData(rawData: RawChannelData): ChannelData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawChannelData): ChannelData {
+        return fromRawData(client, rawData);
     }
 
     /**

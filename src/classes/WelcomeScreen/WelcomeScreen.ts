@@ -75,8 +75,8 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      *
      * @returns {WelcomeScreenData} The welcome screen data
      */
-    static _fromRawData(rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
-        return fromRawData(rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
+        return fromRawData(client, rawData, guildID);
     }
 
     /**

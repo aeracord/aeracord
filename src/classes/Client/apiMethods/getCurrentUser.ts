@@ -18,7 +18,7 @@ export default async function getCurrentUser(client: Client): Promise<UserData> 
     });
 
     // Parse user data
-    const userData: UserData = User._fromRawData(result);
+    const userData: UserData = User._fromRawData(client, result);
 
     // Return
     return userData;

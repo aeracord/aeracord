@@ -37,7 +37,7 @@ export default async function createGuildRole(client: Client, guildResolvable: G
     });
 
     // Parse role data
-    const roleData: RoleData = Role._fromRawData(result, guildID);
+    const roleData: RoleData = Role._fromRawData(client, result, guildID);
 
     // Return
     return roleData;

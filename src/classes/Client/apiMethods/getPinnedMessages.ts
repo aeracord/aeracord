@@ -22,7 +22,7 @@ export default async function getPinnedMessages(client: Client, channelResolvabl
     });
 
     // Parse messages
-    const messages: MessageData[] = result.map((m: RawMessageData) => Message._fromRawData(m));
+    const messages: MessageData[] = result.map((m: RawMessageData) => Message._fromRawData(client, m));
 
     // Return
     return messages;

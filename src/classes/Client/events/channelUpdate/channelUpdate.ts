@@ -3,7 +3,7 @@ import { Channel, ChannelData, Client, RawChannelData } from "../../../../intern
 export default function channelUpdate(client: Client, rawData: RawChannelData) {
 
     // Parse channel data
-    const channelData: ChannelData = Channel._fromRawData(rawData) as ChannelData;
+    const channelData: ChannelData = Channel._fromRawData(client, rawData) as ChannelData;
 
     // Emit event
     client.emit("channelUpdate", channelData, {

@@ -7,7 +7,7 @@ export default function guildMemberRemove(client: Client, rawData: RawGuildMembe
     // Parse data
     const data: GuildMemberRemoveData = {
         guildID: rawData.guild_id,
-        user: User._fromRawData(rawData.user)
+        user: User._fromRawData(client, rawData.user)
     };
 
     // Emit event

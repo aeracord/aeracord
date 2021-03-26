@@ -1,9 +1,9 @@
-import { RawRoleData, RoleData } from "../../internal";
+import { Client, RawRoleData, Role, RoleData } from "../../internal";
 
-export default function fromRawData(rawData: RawRoleData, guildID: string): RoleData {
+export default function fromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
 
     // Parse role data
-    return {
+    const roleData: RoleData = {
         id: rawData.id,
         name: rawData.name,
         guildID,
@@ -22,4 +22,10 @@ export default function fromRawData(rawData: RawRoleData, guildID: string): Role
             premiumRole: rawData.tags?.premium_subscriber === null
         }
     };
+
+    // Create role object
+    if (client._roles.cacheAll) Role.fromData(client, roleData);
+
+    // Return
+    return roleData;
 }

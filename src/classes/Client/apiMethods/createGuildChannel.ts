@@ -49,7 +49,7 @@ export default async function createGuildChannel(client: Client, guildResolvable
     });
 
     // Parse guild channel data
-    const guildChannelData: AnyGuildChannelData = Channel._fromRawData(result) as AnyGuildChannelData;
+    const guildChannelData: AnyGuildChannelData = Channel._fromRawData(client, result) as AnyGuildChannelData;
 
     // Return
     return guildChannelData;

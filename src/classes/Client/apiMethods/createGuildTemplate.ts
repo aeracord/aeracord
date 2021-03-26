@@ -31,7 +31,7 @@ export default async function createGuildTemplate(client: Client, guildResolvabl
     });
 
     // Parse template data
-    const templateData: TemplateData = Template._fromRawData(result);
+    const templateData: TemplateData = Template._fromRawData(client, result);
 
     // Return
     return templateData;

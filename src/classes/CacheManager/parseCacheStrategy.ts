@@ -3,6 +3,7 @@ import { CacheStrategy } from "../../internal";
 export interface ParsedCacheStrategy {
     cacheFor?: number;
     garbageCollectionInterval?: number;
+    cacheAll?: boolean;
 }
 
 export default function parseCacheStrategy(cacheStrategy?: CacheStrategy): ParsedCacheStrategy {
@@ -22,6 +23,7 @@ export default function parseCacheStrategy(cacheStrategy?: CacheStrategy): Parse
             (cacheStrategy.garbageCollectionInterval === null ? undefined : cacheStrategy.garbageCollectionInterval) :
 
             // Otherwise, use the default
-            60000
+            60000,
+        cacheAll: cacheStrategy?.cacheAll
     };
 }

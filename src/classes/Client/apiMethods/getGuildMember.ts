@@ -24,7 +24,7 @@ export default async function getGuildMember(client: Client, guildResolvable: Gu
     });
 
     // Parse member data
-    const memberData: MemberData = Member._fromRawData(result, guildID);
+    const memberData: MemberData = Member._fromRawData(client, result, guildID);
 
     // Return
     return memberData;

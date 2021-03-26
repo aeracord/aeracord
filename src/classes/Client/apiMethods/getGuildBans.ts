@@ -22,7 +22,7 @@ export default async function getGuildBans(client: Client, guildResolvable: Guil
     });
 
     // Parse bans
-    const bans: BanData[] = result.map((b: RawBanData) => Ban._fromRawData(b, guildID));
+    const bans: BanData[] = result.map((b: RawBanData) => Ban._fromRawData(client, b, guildID));
 
     // Return
     return bans;

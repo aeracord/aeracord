@@ -24,7 +24,7 @@ export default async function getGuildBan(client: Client, guildResolvable: Guild
     });
 
     // Parse ban data
-    const banData: BanData = Ban._fromRawData(result, guildID);
+    const banData: BanData = Ban._fromRawData(client, result, guildID);
 
     // Return
     return banData;

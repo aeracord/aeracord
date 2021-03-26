@@ -22,7 +22,7 @@ export default async function getGuildInvites(client: Client, guildResolvable: G
     });
 
     // Parse invites
-    const invites: InviteData[] = result.map((i: RawInviteData) => Invite._fromRawData(i));
+    const invites: InviteData[] = result.map((i: RawInviteData) => Invite._fromRawData(client, i));
 
     // Return
     return invites;

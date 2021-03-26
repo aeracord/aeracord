@@ -3,7 +3,7 @@ import { Client, Message, MessageData, RawMessageData } from "../../../../intern
 export default function messageCreate(client: Client, rawData: RawMessageData) {
 
     // Parse message data
-    const messageData: MessageData = Message._fromRawData(rawData);
+    const messageData: MessageData = Message._fromRawData(client, rawData);
 
     // Emit event
     client.emit("messageCreate", messageData, {

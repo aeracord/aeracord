@@ -179,8 +179,8 @@ export default class Template extends Base<Template> {
      *
      * @returns {TemplateData} The template data
      */
-    static _fromRawData(rawData: RawTemplateData): TemplateData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawTemplateData): TemplateData {
+        return fromRawData(client, rawData);
     }
 
     /**

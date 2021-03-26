@@ -137,8 +137,8 @@ export default class Role extends Base<Role> {
      *
      * @returns {RoleData} The role data
      */
-    static _fromRawData(rawData: RawRoleData, guildID: string): RoleData {
-        return fromRawData(rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
+        return fromRawData(client, rawData, guildID);
     }
 
     /**

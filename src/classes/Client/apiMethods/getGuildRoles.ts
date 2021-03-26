@@ -22,7 +22,7 @@ export default async function getGuildRoles(client: Client, guildResolvable: Gui
     });
 
     // Parse roles
-    const roles: RoleData[] = result.map((r: RawRoleData) => Role._fromRawData(r, guildID));
+    const roles: RoleData[] = result.map((r: RawRoleData) => Role._fromRawData(client, r, guildID));
 
     // Return
     return roles;

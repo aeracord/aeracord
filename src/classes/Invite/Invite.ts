@@ -152,8 +152,8 @@ export default class Invite extends Base<Invite> {
      *
      * @returns {InviteData} The invite data
      */
-    static _fromRawData(rawData: RawInviteData): InviteData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawInviteData): InviteData {
+        return fromRawData(client, rawData);
     }
 
     /**

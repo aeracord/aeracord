@@ -37,7 +37,7 @@ export default async function getReactions(client: Client, channelResolvable: Ch
     });
 
     // Parse users
-    const users: UserData[] = result.map((u: RawUserData) => User._fromRawData(u));
+    const users: UserData[] = result.map((u: RawUserData) => User._fromRawData(client, u));
 
     // Return
     return users;

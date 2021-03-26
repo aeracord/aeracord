@@ -24,7 +24,7 @@ export default async function getChannelMessage(client: Client, channelResolvabl
     });
 
     // Parse message data
-    const messageData: MessageData = Message._fromRawData(result);
+    const messageData: MessageData = Message._fromRawData(client, result);
 
     // Return
     return messageData;

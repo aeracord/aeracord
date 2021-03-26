@@ -29,7 +29,7 @@ export default async function getInvite(client: Client, inviteResolvable: Invite
     });
 
     // Parse invite data
-    const inviteData: InviteData = Invite._fromRawData(result);
+    const inviteData: InviteData = Invite._fromRawData(client, result);
 
     // Return
     return inviteData;

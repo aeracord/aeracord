@@ -57,12 +57,22 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
     }
 
     /**
+     * Cache All
+     *
+     * Whether or not to cache all objects
+     */
+    get cacheAll(): boolean {
+        return this._cacheManager.cacheAll;
+    }
+
+    /**
      * Guild User Cache Manager
      *
      * @param client The client
      * @param cacheManagerData Options to initialize this cache manager with
      * @param cacheManagerData.cacheFor The amount of time in milliseconds to keep objects cached
      * @param cacheManagerData.garbageCollectionInterval The interval in milliseconds for garbage collecting cached objects
+     * @param cacheManagerData.cacheAll Whether or not to cache all objects
      */
     constructor(client: Client, cacheManagerData: CacheManagerData) {
 

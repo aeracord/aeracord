@@ -66,8 +66,8 @@ export default class Ban extends Base<Ban> {
      *
      * @returns {BanData} The ban data
      */
-    static _fromRawData(rawData: RawBanData, guildID: string): BanData {
-        return fromRawData(rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawBanData, guildID: string): BanData {
+        return fromRawData(client, rawData, guildID);
     }
 
     /**

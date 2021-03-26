@@ -1,6 +1,6 @@
-import { AnyChannelData, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, PermissionOverwrite, RawChannelData, RawUserData } from "../../internal";
+import { AnyChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, PermissionOverwrite, RawChannelData, RawUserData } from "../../internal";
 
-export default function fromRawData(rawData: RawChannelData): AnyChannelData {
+export default function fromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
     // Get channel from cache
     let channelData: AnyChannelData;
@@ -83,6 +83,9 @@ export default function fromRawData(rawData: RawChannelData): AnyChannelData {
 
     // Unknown channel type
     else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
+
+    // Create channel object
+    if (client._channels.cacheAll) Channel.fromData(client, channelData);
 
     // Return
     return channelData;

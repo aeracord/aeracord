@@ -365,8 +365,8 @@ export default class Presence extends Base<Presence> {
      *
      * @returns {PresenceData} The presence data
      */
-    static _fromRawData(rawData: RawPresenceData): PresenceData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawPresenceData): PresenceData {
+        return fromRawData(client, rawData);
     }
 
     /**

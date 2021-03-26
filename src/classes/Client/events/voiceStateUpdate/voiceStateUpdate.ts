@@ -3,7 +3,7 @@ import { Client, RawVoiceStateData, VoiceState, VoiceStateData } from "../../../
 export default function voiceStateUpdate(client: Client, rawData: RawVoiceStateData) {
 
     // Parse voice state data
-    const voiceStateData: VoiceStateData = VoiceState._fromRawData(rawData);
+    const voiceStateData: VoiceStateData = VoiceState._fromRawData(client, rawData);
 
     // Emit event
     client.emit("voiceStateUpdate", voiceStateData, {

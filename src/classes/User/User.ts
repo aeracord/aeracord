@@ -110,8 +110,8 @@ export default class User extends Base<User> {
      *
      * @returns {UserData} The user data
      */
-    static _fromRawData(rawData: RawUserData): UserData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawUserData): UserData {
+        return fromRawData(client, rawData);
     }
 
     /**

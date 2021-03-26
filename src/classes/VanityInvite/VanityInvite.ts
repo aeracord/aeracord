@@ -68,8 +68,8 @@ export default class VanityInvite extends Base<VanityInvite> {
      *
      * @returns {VanityInviteData} The vanity invite data
      */
-    static _fromRawData(rawData: RawVanityInviteData, guildID: string): VanityInviteData {
-        return fromRawData(rawData, guildID);
+    static _fromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInviteData {
+        return fromRawData(client, rawData, guildID);
     }
 
     /**

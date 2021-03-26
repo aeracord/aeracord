@@ -38,7 +38,7 @@ export default async function modifyGuildRolePositions(client: Client, guildReso
     });
 
     // Parse roles
-    const roles: RoleData[] = result.map((r: RawRoleData) => Role._fromRawData(r, guildID));
+    const roles: RoleData[] = result.map((r: RawRoleData) => Role._fromRawData(client, r, guildID));
 
     // Return
     return roles;

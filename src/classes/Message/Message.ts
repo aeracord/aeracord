@@ -312,8 +312,8 @@ export default class Message extends Base<Message> {
      *
      * @returns {MessageData} The message data
      */
-    static _fromRawData(rawData: RawMessageData): MessageData {
-        return fromRawData(rawData);
+    static _fromRawData(client: Client, rawData: RawMessageData): MessageData {
+        return fromRawData(client, rawData);
     }
 
     /**
