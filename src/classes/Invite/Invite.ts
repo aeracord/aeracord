@@ -194,4 +194,15 @@ export default class Invite extends Base<Invite> {
     static _updateObject(invite: Invite, inviteData: InviteData) {
         updateObject(invite, inviteData);
     }
+
+    /**
+     * Delete
+     *
+     * Delete this invite
+     *
+     * @returns {Promise<InviteData>} The deleted invite's data
+     */
+    delete(): Promise<InviteData> {
+        return this.client.deleteInvite(this);
+    }
 }

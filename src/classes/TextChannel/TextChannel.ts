@@ -1,4 +1,4 @@
-import { CacheManagerInterface, Client, GuildChannelData, Invite, Message, TextBasedChannelData, Webhook } from "../../internal";
+import { CacheManagerInterface, Client, CreateWebhookData, GuildChannelData, Invite, InviteData, Message, TextBasedChannelData, Webhook, WebhookData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -95,6 +95,30 @@ class TextChannel extends GuildChannel {
      */
     static _updateObject(textChannel: TextChannel, textChannelData: TextChannelData, fromConstructor?: boolean) {
         updateObject(textChannel, textChannelData, fromConstructor);
+    }
+
+    /**
+     * Create Webhook
+     *
+     * Create a webhook in this channel
+     *
+     * @param createWebhookData The data for the webhook
+     *
+     * @returns {Promise<WebhookData>} The created webhook's data
+     */
+    createWebhook(createWebhookData: CreateWebhookData): Promise<WebhookData> {
+        return this.client.createWebhook(this, createWebhookData);
+    }
+
+    /**
+     * Get Invites
+     *
+     * Get this channel's invites
+     *
+     * @returns {Promise<InviteData[]>} The invites
+     */
+    getInvites(): Promise<InviteData[]> {
+        return this.client.getChannelInvites(this);
     }
 }
 

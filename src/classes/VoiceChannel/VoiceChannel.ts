@@ -1,4 +1,4 @@
-import { CacheManagerInterface, Client, GuildChannelData, Invite } from "../../internal";
+import { CacheManagerInterface, Client, GuildChannelData, Invite, InviteData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
@@ -63,5 +63,16 @@ export default class VoiceChannel extends GuildChannel {
      */
     static _updateObject(voiceChannel: VoiceChannel, voiceChannelData: VoiceChannelData, fromConstructor?: boolean) {
         updateObject(voiceChannel, voiceChannelData, fromConstructor);
+    }
+
+    /**
+     * Get Invites
+     *
+     * Get this channel's invites
+     *
+     * @returns {Promise<InviteData[]>} The invites
+     */
+    getInvites(): Promise<InviteData[]> {
+        return this.client.getChannelInvites(this);
     }
 }

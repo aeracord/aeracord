@@ -132,4 +132,13 @@ export default class Reaction {
     static resolveString(reactionEmojiResolvable: ReactionEmojiResolvable): string | undefined {
         return resolveString(reactionEmojiResolvable);
     }
+
+    /**
+     * Delete
+     *
+     * Remove these reactions
+     */
+    delete(): Promise<void> {
+        return this.client.deleteAllReactionsForEmoji(this.channelID, this.messageID, this);
+    }
 }

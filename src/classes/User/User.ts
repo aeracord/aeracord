@@ -1,4 +1,4 @@
-import { Base, Client, Member, RawUserData } from "../../internal";
+import { Base, Client, DMChannelData, Member, RawUserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -151,5 +151,16 @@ export default class User extends Base<User> {
      */
     static _updateObject(user: User, userData: UserData) {
         updateObject(user, userData);
+    }
+
+    /**
+     * Create DM
+     *
+     * Create a DM channel with this user
+     *
+     * @returns {Promise<DMChannelData>} The DM channel data
+     */
+    createDM(): Promise<DMChannelData> {
+        return this.client.createDM({ recipient: this });
     }
 }

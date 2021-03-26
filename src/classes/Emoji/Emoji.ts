@@ -1,4 +1,4 @@
-import { Base, Client, RawEmojiData, UserData } from "../../internal";
+import { Base, Client, ModifyGuildEmojiData, RawEmojiData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -157,5 +157,18 @@ export default class Emoji extends Base<Emoji> {
      */
     static _updateObject(emoji: Emoji, emojiData: EmojiData) {
         updateObject(emoji, emojiData);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this emoji
+     *
+     * @param modifyGuildEmojiData The data to modify the emoji
+     *
+     * @returns {Promise<EmojiData>} The modified emoji's data
+     */
+    edit(modifyGuildEmojiData: ModifyGuildEmojiData): Promise<EmojiData> {
+        return this.client.modifyGuildEmoji(this.guildID, this, modifyGuildEmojiData);
     }
 }

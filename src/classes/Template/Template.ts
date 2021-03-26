@@ -1,4 +1,4 @@
-import { Base, Client, DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, RawTemplateData, UserData, VerificationLevel } from "../../internal";
+import { Base, Client, CreateGuildFromTemplateData, DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, GuildData, ModifyGuildTemplateData, RawTemplateData, UserData, VerificationLevel } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
@@ -220,5 +220,42 @@ export default class Template extends Base<Template> {
      */
     static _updateObject(template: Template, templateData: TemplateData) {
         updateObject(template, templateData);
+    }
+
+    /**
+     * Create Guild
+     *
+     * Create a guild from this template
+     *
+     * @param createGuildFromTemplateData The data for the guild
+     *
+     * @returns {Promise<GuildData>} The created guild's data
+     */
+    createGuild(createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<GuildData> {
+        return this.client.createGuildFromTemplate(this, createGuildFromTemplateData);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this template
+     *
+     * @param modifyGuildTemplateData The data to modify the template
+     *
+     * @returns {Promise<TemplateData>} The modified template's data
+     */
+    edit(modifyGuildTemplateData: ModifyGuildTemplateData): Promise<TemplateData> {
+        return this.client.modifyGuildTemplate(this.sourceGuildID, this, modifyGuildTemplateData);
+    }
+
+    /**
+     * Sync
+     *
+     * Sync this template
+     *
+     * @returns {Promise<TemplateData>} The synced template's data
+     */
+    sync(): Promise<TemplateData> {
+        return this.client.syncGuildTemplate(this.sourceGuildID, this);
     }
 }

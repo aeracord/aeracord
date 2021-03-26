@@ -1,4 +1,5 @@
-import { AttachmentData, Base, Client, EmbedData, GuildChannelType, MemberData, RawMessageData, ReactionData, StickerData, UserData } from "../../internal";
+import { AttachmentData, Base, Client, EditMessageData, Embed, EmbedData, GetReactionsData, GuildChannelType, MemberData, RawMessageData, ReactionData, ReactionEmojiResolvable, StickerData, UserData, UserResolvable } from "../../internal";
+import edit from "./edit";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -352,5 +353,125 @@ export default class Message extends Base<Message> {
      */
     static _updateObject(message: Message, messageData: MessageData) {
         updateObject(message, messageData);
+    }
+
+    /**
+     * Pin
+     *
+     * Pin this message
+     */
+    pin(): Promise<void> {
+        return this.client.addPinnedChannelMessage(this.channelID, this);
+    }
+
+    /**
+     * React
+     *
+     * Add a reaction to this message
+     *
+     * @param reactionEmoji The emoji to react with
+     */
+    react(reactionEmoji: ReactionEmojiResolvable): Promise<void> {
+        return this.client.createReaction(this.channelID, this, reactionEmoji);
+    }
+
+    /**
+     * Crosspost
+     *
+     * Publish this message
+     *
+     * @returns {Promise<MessageData>} The crossposted message's data
+     */
+    crosspost(): Promise<MessageData> {
+        return this.client.crosspostMessage(this.channelID, this);
+    }
+
+    /**
+     * Delete All Reactions
+     *
+     * Remove all reactions from this message
+     */
+    deleteAllReactions(): Promise<void> {
+        return this.client.deleteAllReactions(this.channelID, this);
+    }
+
+    /**
+     * Delete All Reactions for Emoji
+     *
+     * Remove all reactions from this message for a specific emoji
+     *
+     * @param reactionEmoji The emoji to delete reactions for
+     */
+    deleteAllReactionsForEmoji(reactionEmoji: ReactionEmojiResolvable): Promise<void> {
+        return this.client.deleteAllReactionsForEmoji(this.channelID, this, reactionEmoji);
+    }
+
+    /**
+     * Delete
+     *
+     * Delete this message
+     */
+    delete(): Promise<void> {
+        return this.client.deleteMessage(this.channelID, this);
+    }
+
+    /**
+     * Delete Own Reaction
+     *
+     * Remove the client's reaction from this message
+     *
+     * @param reactionEmoji The emoji to unreact with
+     */
+    deleteOwnReaction(reactionEmoji: ReactionEmojiResolvable): Promise<void> {
+        return this.client.deleteOwnReaction(this.channelID, this, reactionEmoji);
+    }
+
+    /**
+     * Unpin
+     *
+     * Unpin this message
+     */
+    unpin(): Promise<void> {
+        return this.client.deletePinnedChannelMessage(this.channelID, this);
+    }
+
+    /**
+     * Delete User Reaction
+     *
+     * Remove a user's reaction from this message
+     *
+     * @param reactionEmoji The emoji to unreact with
+     * @param user The user to delete the reaction for
+     */
+    deleteUserReaction(reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> {
+        return this.client.deleteUserReaction(this.channelID, this, reactionEmoji, user);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this message
+     *
+     * @param contentOrEmbed The content or embed for the message
+     * @param editMessageData The data for editing the message
+     *
+     * @returns {Promise<MessageData>} The edited message's data
+     */
+    edit(contentOrEmbed: string | Embed | undefined, editMessageData?: EditMessageData): Promise<MessageData> {
+        return edit(this, this.channelID, contentOrEmbed, editMessageData);
+    }
+
+    /**
+     * Get Reactions
+     *
+     * Get the users that reacted to this message with a specific emoji
+     *
+     * @param reactionEmoji The emoji to get the reactions for
+     * @param getReactionsData The data for getting reactions
+     *
+     * @returns {Promise<UserData[]>} The users
+     */
+    getReactions(reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<UserData[]> {
+        return this.client.getReactions(this.channelID, this, reactionEmoji, getReactionsData);
     }
 }

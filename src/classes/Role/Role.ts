@@ -1,4 +1,4 @@
-import { Base, Client, RawRoleData } from "../../internal";
+import { Base, Client, ModifyGuildRoleData, RawRoleData, UserResolvable } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -178,5 +178,40 @@ export default class Role extends Base<Role> {
      */
     static _updateObject(role: Role, roleData: RoleData) {
         updateObject(role, roleData);
+    }
+
+    /**
+     * Add to Member
+     *
+     * Add this role to a member
+     *
+     * @param user The user resolvable for the member to add this role to
+     */
+    addToMember(user: UserResolvable): Promise<void> {
+        return this.client.addGuildMemberRole(this.guildID, user, this);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this role
+     *
+     * @param modifyGuildRoleData The data to modify the role
+     *
+     * @returns {Promise<RoleData>} The modified role's data
+     */
+    edit(modifyGuildRoleData: ModifyGuildRoleData): Promise<RoleData> {
+        return this.client.modifyGuildRole(this.guildID, this, modifyGuildRoleData);
+    }
+
+    /**
+     * Remove from Member
+     *
+     * Remove this role from a member
+     *
+     * @param user The user resolvable for the member to remove the role from
+     */
+    removeFromMember(user: UserResolvable): Promise<void> {
+        return this.client.removeGuildMemberRole(this.guildID, user, this);
     }
 }

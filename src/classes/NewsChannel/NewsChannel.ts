@@ -1,4 +1,4 @@
-import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, FollowedChannel, Invite, MessageData, MessageResolvable, TextChannelData, WebhookData } from "../../internal";
+import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, FollowedChannel, Invite, InviteData, MessageData, MessageResolvable, TextChannelData, WebhookData } from "../../internal";
 import TextChannel from "../TextChannel/TextChannel";
 import updateObject from "./updateObject";
 
@@ -44,5 +44,53 @@ export default class NewsChannel extends TextChannel {
      */
     static _updateObject(newsChannel: NewsChannel, newsChannelData: NewsChannelData, fromConstructor?: boolean) {
         updateObject(newsChannel, newsChannelData, fromConstructor);
+    }
+
+    /**
+     * Create Webhook
+     *
+     * Create a webhook in this channel
+     *
+     * @param createWebhookData The data for the webhook
+     *
+     * @returns {Promise<WebhookData>} The created webhook's data
+     */
+    createWebhook(createWebhookData: CreateWebhookData): Promise<WebhookData> {
+        return this.client.createWebhook(this, createWebhookData);
+    }
+
+    /**
+     * Crosspost Message
+     *
+     * Publish a message in this channel
+     *
+     * @param message The message to crosspost
+     *
+     * @returns {Promise<MessageData>} The crossposted message's data
+     */
+    crosspostMessage(message: MessageResolvable): Promise<MessageData> {
+        return this.client.crosspostMessage(this, message);
+    }
+
+    /**
+     * Follow
+     *
+     * Follow this channel
+     *
+     * @param targetChannel The target channel
+     */
+    follow(targetChannel: ChannelResolvable): Promise<FollowedChannel> {
+        return this.client.followNewsChannel(this, { targetChannel });
+    }
+
+    /**
+     * Get Invites
+     *
+     * Get this channel's invites
+     *
+     * @returns {Promise<InviteData[]>} The invites
+     */
+    getInvites(): Promise<InviteData[]> {
+        return this.client.getChannelInvites(this);
     }
 }

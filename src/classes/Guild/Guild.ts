@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, Ban, Base, CacheManagerInterface, CategoryChannel, Channel, Client, Emoji, EmojiData, GuildChannel, GuildUserCacheManagerInterface, GuildWidget, Invite, Member, NewsChannel, RawGuildData, Role, RoleData, StoreChannel, Template, TextChannel, VanityInvite, VoiceChannel, Webhook, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheManagerInterface, CategoryChannel, Channel, Client, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, Emoji, EmojiData, EmojiResolvable, GetGuildAuditLogData, GuildChannel, GuildPreview, GuildUserCacheManagerInterface, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWidgetData, NewsChannel, RawGuildData, Role, RoleData, RoleResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VoiceChannel, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -543,5 +543,486 @@ export default class Guild extends Base<Guild> {
      */
     static _updateObject(guild: Guild, guildData: GuildData) {
         updateObject(guild, guildData);
+    }
+
+    /**
+     * Add Role to Member
+     *
+     * Add a role to a member in this guild
+     *
+     * @param user The user resolvable for the member to add the role to
+     * @param role The role to add
+     */
+    addRoleToMember(user: UserResolvable, role: RoleResolvable): Promise<void> {
+        return this.client.addGuildMemberRole(this, user, role);
+    }
+
+    /**
+     * Ban User
+     *
+     * Ban a user from this guild
+     *
+     * @param user The user to ban
+     * @param createGuildBanData The data for the ban
+     */
+    banUser(user: UserResolvable, createGuildBanData?: CreateGuildBanData): Promise<void> {
+        return this.client.createGuildBan(this, user, createGuildBanData);
+    }
+
+    /**
+     * Create Channel
+     *
+     * Create a channel in this guild
+     *
+     * @param createGuildChannelData The data for the channel
+     *
+     * @returns {Promise<AnyGuildChannelData>} The created channel's data
+     */
+    createChannel(createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannelData> {
+        return this.client.createGuildChannel(this, createGuildChannelData);
+    }
+
+    /**
+     * Create Emoji
+     *
+     * Create an emoji in this guild
+     *
+     * @param createGuildEmojiData The data for the emoji
+     *
+     * @returns {Promise<EmojiData>} The created emoji's data
+     */
+    createEmoji(createGuildEmojiData: CreateGuildEmojiData): Promise<EmojiData> {
+        return this.client.createGuildEmoji(this, createGuildEmojiData);
+    }
+
+    /**
+     * Create Role
+     *
+     * Create a role in this guild
+     *
+     * @param createGuildRoleData The data for the role
+     *
+     * @returns {Promise<RoleData>} The created role's data
+     */
+    createRole(createGuildRoleData: CreateGuildRoleData): Promise<RoleData> {
+        return this.client.createGuildRole(this, createGuildRoleData);
+    }
+
+    /**
+     * Create Template
+     *
+     * Create a template in this guild
+     *
+     * @param createGuildTemplateData The data for the template
+     *
+     * @returns {Promise<TemplateData>} The created template's data
+     */
+    createTemplate(createGuildTemplateData: CreateGuildTemplateData): Promise<TemplateData> {
+        return this.client.createGuildTemplate(this, createGuildTemplateData);
+    }
+
+    /**
+     * Delete
+     *
+     * Delete this guild
+     */
+    delete(): Promise<void> {
+        return this.client.deleteGuild(this);
+    }
+
+    /**
+     * Delete Emoji
+     *
+     * Delete an emoji from this guild
+     *
+     * @param emoji The emoji to delete
+     */
+    deleteEmoji(emoji: EmojiResolvable): Promise<void> {
+        return this.client.deleteGuildEmoji(this, emoji);
+    }
+
+    /**
+     * Delete Role
+     *
+     * Delete a role from this guild
+     *
+     * @param role The role to delete
+     */
+    deleteRole(role: RoleResolvable): Promise<void> {
+        return this.client.deleteGuildRole(this, role);
+    }
+
+    /**
+     * Delete Template
+     *
+     * Delete a template from this guild
+     *
+     * @param template The template to delete
+     *
+     * @returns {Promise<TemplateData>} The deleted template's data
+     */
+    deleteTemplate(template: TemplateResolvable): Promise<TemplateData> {
+        return this.client.deleteGuildTemplate(this, template);
+    }
+
+    /**
+     * Get Audit Log
+     *
+     * Get an audit log from this guild
+     *
+     * @param getGuildAuditLogData The data for getting the audit log
+     *
+     * @returns {Promise<AuditLogData>} The audit log data
+     */
+    getAuditLog(getGuildAuditLogData?: GetGuildAuditLogData): Promise<AuditLogData> {
+        return this.client.getGuildAuditLog(this, getGuildAuditLogData);
+    }
+
+    /**
+     * Get Ban
+     *
+     * Get a ban from this guild
+     *
+     * @param user The user to get the ban for
+     *
+     * @returns {Promise<BanData>} The ban data
+     */
+    getBan(user: UserResolvable): Promise<BanData> {
+        return this.client.getGuildBan(this, user);
+    }
+
+    /**
+     * Get Bans
+     *
+     * Get the bans from this guild
+     *
+     * @returns {Promise<BanData[]>} The guild's bans
+     */
+    getBans(): Promise<BanData[]> {
+        return this.client.getGuildBans(this);
+    }
+
+    /**
+     * Get Channels
+     *
+     * Get this guild's channels
+     *
+     * @returns {Promise<AnyGuildChannelData[]>} The guild's channels
+     */
+    getChannels(): Promise<AnyGuildChannelData[]> {
+        return this.client.getGuildChannels(this);
+    }
+
+    /**
+     * Get Emoji
+     *
+     * Get an emoji from this guild
+     *
+     * @param emoji The emoji to get
+     *
+     * @returns {Promise<EmojiData>} The emoji data
+     */
+    getEmoji(emoji: EmojiResolvable): Promise<EmojiData> {
+        return this.client.getGuildEmoji(this, emoji);
+    }
+
+    /**
+     * Get Emojis
+     *
+     * Get this guild's emojis
+     *
+     * @returns {Promise<EmojiData[]>} The emojis
+     */
+    getEmojis(): Promise<EmojiData[]> {
+        return this.client.listGuildEmojis(this);
+    }
+
+    /**
+     * Get Invites
+     *
+     * Get this guild's invites
+     *
+     * @returns {Promise<InviteData[]>} The invites
+     */
+    getInvites(): Promise<InviteData[]> {
+        return this.client.getGuildInvites(this);
+    }
+
+    /**
+     * Get Member
+     *
+     * Get a member from this guild
+     *
+     * @param user The user resolvable for the member to get
+     *
+     * @returns {Promise<MemberData>} The member data
+     */
+    getMember(user: UserResolvable): Promise<MemberData> {
+        return this.client.getGuildMember(this, user);
+    }
+
+    /**
+     * Get Members
+     *
+     * Get the members from this guild
+     *
+     * @param listGuildMembersData The data for getting the members
+     *
+     * @returns {Promise<MemberData[]>} The members
+     */
+    getMembers(listGuildMembersData?: ListGuildMembersData): Promise<MemberData[]> {
+        return this.client.listGuildMembers(this, listGuildMembersData);
+    }
+
+    /**
+     * Get Preview
+     *
+     * Get this guild's preview
+     *
+     * @returns {Promise<GuildPreview>} The guild preview
+     */
+    getPreview(): Promise<GuildPreview> {
+        return this.client.getGuildPreview(this);
+    }
+
+    /**
+     * Get Roles
+     *
+     * Get this guild's roles
+     *
+     * @returns {Promise<RoleData[]>} The guild's roles
+     */
+    getRoles(): Promise<RoleData[]> {
+        return this.client.getGuildRoles(this);
+    }
+
+    /**
+     * Get Templates
+     *
+     * Get this guild's templates
+     *
+     * @returns {Promise<TemplateData[]>} The guild's templates
+     */
+    getTemplates(): Promise<TemplateData[]> {
+        return this.client.getGuildTemplates(this);
+    }
+
+    /**
+     * Get Vanity URL
+     *
+     * Get this guild's vanity URL
+     *
+     * @returns {Promise<VanityInviteData>} The vanity invite data
+     */
+    getVanityURL(): Promise<VanityInviteData> {
+        return this.client.getGuildVanityURL(this);
+    }
+
+    /**
+     * Get Voice Regions
+     *
+     * Get this guild's voice regions
+     *
+     * @returns {Promise<VoiceRegion[]>} The guild's voice regions
+     */
+    getVoiceRegions(): Promise<VoiceRegion[]> {
+        return this.client.getGuildVoiceRegions(this);
+    }
+
+    /**
+     * Get Webhooks
+     *
+     * Get this guild's webhooks
+     *
+     * @returns {Promise<WebhookData[]>} The guild's webhooks
+     */
+    getWebhooks(): Promise<WebhookData[]> {
+        return this.client.getGuildWebhooks(this);
+    }
+
+    /**
+     * Get Widget Settings
+     *
+     * Get this guild's widget settings
+     *
+     * @returns {Promise<GuildWidgetData>} The guild widget data
+     */
+    getWidgetSettings(): Promise<GuildWidgetData> {
+        return this.client.getGuildWidgetSettings(this);
+    }
+
+    /**
+     * Leave
+     *
+     * Leave this guild
+     */
+    leave(): Promise<void> {
+        return this.client.leaveGuild(this);
+    }
+
+    /**
+     * Set Nickname
+     *
+     * Set the client's nickname in this guild
+     *
+     * @param nickname The nickname
+     *
+     * @returns {Promise<CurrentUserNickname>} The modified nickname data
+     */
+    setNickname(nickname?: string): Promise<CurrentUserNickname> {
+        return this.client.modifyCurrentUserNickname(this, { nickname });
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this guild
+     *
+     * @param modifyGuildData The data to modify the guild
+     *
+     * @returns {Promise<GuildData>} The modified guild's data
+     */
+    edit(modifyGuildData: ModifyGuildData): Promise<GuildData> {
+        return this.client.modifyGuild(this, modifyGuildData);
+    }
+
+    /**
+     * Edit Channel Positions
+     *
+     * Edit the positions of channels in this guild
+     *
+     * @param modifyGuildChannelPositionsData The data to modify the channel positions
+     */
+    editChannelPositions(modifyGuildChannelPositionsData: ModifyGuildChannelPositionsData[]): Promise<void> {
+        return this.client.modifyGuildChannelPositions(this, modifyGuildChannelPositionsData);
+    }
+
+    /**
+     * Edit Emoji
+     *
+     * Edit an emoji in this guild
+     *
+     * @param emoji The emoji to modify
+     * @param modifyGuildEmojiData The data to modify the emoji
+     *
+     * @returns {Promise<EmojiData>} The modified emoji's data
+     */
+    editEmoji(emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<EmojiData> {
+        return this.client.modifyGuildEmoji(this, emoji, modifyGuildEmojiData);
+    }
+
+    /**
+     * Edit Member
+     *
+     * Edit a member in this guild
+     *
+     * @param user The user resolvable for the member to modify
+     * @param modifyGuildMemberData The data to modify the member
+     *
+     * @returns {Promise<MemberData>} The modified member's data
+     */
+    editMember(user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<MemberData> {
+        return this.client.modifyGuildMember(this, user, modifyGuildMemberData);
+    }
+
+    /**
+     * Edit Role
+     *
+     * Edit a role in this guild
+     *
+     * @param role The role to modify
+     * @param modifyGuildRoleData The data to modify the role
+     *
+     * @returns {Promise<RoleData>} The modified role's data
+     */
+    editRole(role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData): Promise<RoleData> {
+        return this.client.modifyGuildRole(this, role, modifyGuildRoleData);
+    }
+
+    /**
+     * Edit Role Positions
+     *
+     * Edit the positions of roles in this guild
+     *
+     * @param modifyGuildRolePositionsData The data to modify the role positions
+     *
+     * @returns {Promise<RoleData[]>} The guild's roles
+     */
+    editRolePositions(modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<RoleData[]> {
+        return this.client.modifyGuildRolePositions(this, modifyGuildRolePositionsData);
+    }
+
+    /**
+     * Edit Template
+     *
+     * Edit a template in this guild
+     *
+     * @param template The template to modify
+     * @param modifyGuildTemplateData The data to modify the template
+     *
+     * @returns {Promise<TemplateData>} The modified template's data
+     */
+    editTemplate(template: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<TemplateData> {
+        return this.client.modifyGuildTemplate(this, template, modifyGuildTemplateData);
+    }
+
+    /**
+     * Edit Guild Widget
+     *
+     * Edit this guild's widget
+     *
+     * @param modifyGuildWidgetData The data to modify the guild's widget
+     *
+     * @returns {Promise<GuildWidgetData>} The modified guild widget's data
+     */
+    editGuildWidget(modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidgetData> {
+        return this.client.modifyGuildWidget(this, modifyGuildWidgetData);
+    }
+
+    /**
+     * Unban User
+     *
+     * Unban a user from this guild
+     *
+     * @param user The user to unban
+     */
+    unbanUser(user: UserResolvable): Promise<void> {
+        return this.client.removeGuildBan(this, user);
+    }
+
+    /**
+     * Kick Member
+     *
+     * Kick a user from this guild
+     *
+     * @param user The user resolvable for the member to kick
+     */
+    kickMember(user: UserResolvable): Promise<void> {
+        return this.client.removeGuildMember(this, user);
+    }
+
+    /**
+     * Remove Role from Member
+     *
+     * Remove a role from a member in this guild
+     *
+     * @param user The user resolvable for the member to remove the role from
+     * @param role The role to remove
+     */
+    removeRoleFromMember(user: UserResolvable, role: RoleResolvable): Promise<void> {
+        return this.client.removeGuildMemberRole(this, user, role);
+    }
+
+    /**
+     * Sync Template
+     *
+     * Sync a template in this guild
+     *
+     * @param template The template to sync
+     *
+     * @returns {Promise<TemplateData>} The synced template's data
+     */
+    syncTemplate(template: TemplateResolvable): Promise<TemplateData> {
+        return this.client.syncGuildTemplate(this, template);
     }
 }

@@ -945,7 +945,7 @@ export default class Client extends EventEmitter {
      * Create a guild from a template
      *
      * @param template The template to create the guild from
-     * @param createGuildFromTemplateData The data for the ban
+     * @param createGuildFromTemplateData The data for the guild
      *
      * @returns {Promise<GuildData>} The created guild's data
      */
@@ -1064,7 +1064,7 @@ export default class Client extends EventEmitter {
     /**
      * Delete Channel
      *
-     * Delete a channel or close a DM channel
+     * Delete a guild channel or close a DM channel
      *
      * @param channel The channel to delete or close
      *
@@ -1298,7 +1298,7 @@ export default class Client extends EventEmitter {
      * Get a channel's messages
      *
      * @param channel The channel to get messages from
-     * @param getChannelMessagesData The data for getting messages from the channel
+     * @param getChannelMessagesData The data for getting messages
      *
      * @returns {Promise<MessageData[]>} The messages
      */
@@ -1363,7 +1363,7 @@ export default class Client extends EventEmitter {
      * Get an audit log
      *
      * @param guild The guild to get the ban for
-     * @param getGuildAuditLogData The data for getting the guild
+     * @param getGuildAuditLogData The data for getting the audit log
      *
      * @returns {Promise<AuditLogData>} The audit log data
      */
@@ -1432,7 +1432,7 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to get the invites for
      *
-     * @returns {Promise<InviteData[]>} The guild's invites
+     * @returns {Promise<InviteData[]>} The invites
      */
     getGuildInvites(guild: GuildResolvable): Promise<InviteData[]> {
         return getGuildInvites(this, guild);

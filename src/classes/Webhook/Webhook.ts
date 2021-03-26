@@ -1,4 +1,4 @@
-import { Base, Client, RawWebhookData, UserData } from "../../internal";
+import { Base, Client, ModifyWebhookData, RawWebhookData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -160,5 +160,27 @@ export default class Webhook extends Base<Webhook> {
      */
     static _updateObject(webhook: Webhook, webhookData: WebhookData) {
         updateObject(webhook, webhookData);
+    }
+
+    /**
+     * Delete
+     *
+     * Delete this webhook
+     */
+    delete(): Promise<void> {
+        return this.client.deleteWebhook(this);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this webhook
+     *
+     * @param modifyWebhookData The data to modify the webhook
+     *
+     * @returns {Promise<WebhookData>} The modified webhook's data
+     */
+    edit(modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
+        return this.client.modifyWebhook(this, modifyWebhookData);
     }
 }

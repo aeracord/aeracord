@@ -1,4 +1,4 @@
-import { Base, Client, RawMemberData, UserData } from "../../internal";
+import { Base, Client, CreateGuildBanData, ModifyGuildMemberData, RawMemberData, RoleResolvable, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
@@ -148,5 +148,69 @@ export default class Member extends Base<Member> {
      */
     static _updateObject(member: Member, memberData: MemberData) {
         updateObject(member, memberData);
+    }
+
+    /**
+     * Add Role
+     *
+     * Add a role to this member
+     *
+     * @param role The role to add
+     */
+    addRole(role: RoleResolvable): Promise<void> {
+        return this.client.addGuildMemberRole(this.guildID, this, role);
+    }
+
+    /**
+     * Ban
+     *
+     * Ban this member from the guild
+     *
+     * @param createGuildBanData The data for the ban
+     */
+    ban(createGuildBanData?: CreateGuildBanData): Promise<void> {
+        return this.client.createGuildBan(this.guildID, this, createGuildBanData);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this member
+     *
+     * @param modifyGuildMemberData The data to modify the member
+     *
+     * @returns {Promise<MemberData>} The modified member's data
+     */
+    edit(modifyGuildMemberData: ModifyGuildMemberData): Promise<MemberData> {
+        return this.client.modifyGuildMember(this.guildID, this, modifyGuildMemberData);
+    }
+
+    /**
+     * Unban
+     *
+     * Unban this member from the guild
+     */
+    unban(): Promise<void> {
+        return this.client.removeGuildBan(this.guildID, this);
+    }
+
+    /**
+     * Kick
+     *
+     * Kick this member from the guild
+     */
+    kick(): Promise<void> {
+        return this.client.removeGuildMember(this.guildID, this);
+    }
+
+    /**
+     * Remove Role
+     *
+     * Remove a role from this member
+     *
+     * @param role The role to remove
+     */
+    removeRole(role: RoleResolvable): Promise<void> {
+        return this.client.removeGuildMemberRole(this.guildID, this, role);
     }
 }

@@ -1,4 +1,4 @@
-import { Base, Client, RawGuildWidgetData } from "../../internal";
+import { Base, Client, ModifyGuildWidgetData, RawGuildWidgetData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
@@ -96,5 +96,18 @@ export default class GuildWidget extends Base<GuildWidget> {
      */
     static _updateObject(guildWidget: GuildWidget, guildWidgetData: GuildWidgetData) {
         updateObject(guildWidget, guildWidgetData);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this guild widget
+     *
+     * @param modifyGuildWidgetData The data to modify the guild's widget
+     *
+     * @returns {Promise<GuildWidgetData>} The modified guild widget's data
+     */
+    edit(modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidgetData> {
+        return this.client.modifyGuildWidget(this.guildID, modifyGuildWidgetData);
     }
 }

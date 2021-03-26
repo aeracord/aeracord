@@ -1,4 +1,4 @@
-import { Base, CategoryChannel, CategoryChannelData, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import { Base, CategoryChannel, CategoryChannelData, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, RoleResolvable, StoreChannel, StoreChannelData, TextChannel, TextChannelData, UserResolvable, VoiceChannel, VoiceChannelData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -94,5 +94,16 @@ export default class Channel extends Base<AnyChannel> {
      */
     static _updateObject(channel: Channel, channelData: ChannelData) {
         updateObject(channel, channelData);
+    }
+
+    /**
+     * Delete
+     *
+     * Delete a guild channel or close a DM channel
+     *
+     * @returns {Promise<AnyChannelData>} The deleted or closed channel's data
+     */
+    delete(): Promise<AnyChannelData> {
+        return this.client.deleteChannel(this);
     }
 }
