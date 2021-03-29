@@ -206,6 +206,7 @@ import syncGuildTemplate from "./apiMethods/syncGuildTemplate";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import connect from "./connect";
 import fetch from "./fetch";
+import garbageCollect from "./garbageCollect";
 import getFetchQueue from "./getFetchQueue";
 
 export interface ClientData {
@@ -880,6 +881,9 @@ export default class Client extends EventEmitter {
 
         // Connect
         this._connect();
+
+        // Garbage collection interval
+        setInterval(() => this._garbageCollect(), 30000);
     }
 
     /**
@@ -889,6 +893,15 @@ export default class Client extends EventEmitter {
      */
     _connect() {
         connect(this);
+    }
+
+    /**
+     * Garbage Collect
+     *
+     * Garbage collect the client's properties
+     */
+    _garbageCollect() {
+        garbageCollect(this);
     }
 
     /**
