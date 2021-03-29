@@ -25,6 +25,7 @@ export default async function processRequests(fetchQueue: FetchQueue) {
             contentType: request.contentType,
             body: request.data
         }).catch((err: Error) => request.reject(err));
+        if (!result) continue;
 
         // Rate limited
         if (result.rateLimited) {

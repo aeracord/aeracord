@@ -14,8 +14,7 @@ export interface GuildData {
     region: string;
     afkChannelID: string | null;
     afkTimeout: number;
-    widgetEnabled: boolean;
-    widgetChannelID: string | null;
+    widget: GuildWidgetData;
     verificationLevel: VerificationLevel;
     defaultMessageNotifications: DefaultMessageNotifications;
     explicitContentFilter: ExplicitContentFilter;
@@ -140,18 +139,11 @@ export default class Guild extends Base<Guild> {
     afkTimeout: number;
 
     /**
-     * Widget Enabled
+     * Widget
      *
-     * Whether or not this guild's widget is enabled
+     * The guild's widget
      */
-    widgetEnabled: boolean;
-
-    /**
-     * Widget Channel ID
-     *
-     * The ID of the guild's widget channel
-     */
-    widgetChannelID: string | null;
+    widget: GuildWidgetData;
 
     /**
      * Verification Level
@@ -391,8 +383,7 @@ export default class Guild extends Base<Guild> {
      * @param guildData.region The guild's region
      * @param guildData.afkChannelID The ID of the guild's AFK channel
      * @param guildData.afkTimeout The guild's AFK timeout
-     * @param guildData.widgetEnabled Whether or not this guild's widget is enabled
-     * @param guildData.widgetChannelID The ID of the guild's widget channel
+     * @param guildData.widget The guild's widget
      * @param guildData.verificationLevel The guild's verification level
      * @param guildData.defaultMessageNotifications The guild's default message notifications setting
      * @param guildData.explicitContentFilter The guild's explicit content filter setting

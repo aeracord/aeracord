@@ -1,4 +1,4 @@
-import { Base, CacheStrategy, Client, ParsedCacheStrategy } from "../../internal";
+import { Base, CacheStrategyData, Client, ParsedCacheStrategy } from "../../internal";
 import filter from "./filter";
 import parseCacheStrategy from "./parseCacheStrategy";
 
@@ -92,12 +92,12 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      *
      * Create a `ParsedCacheStrategy` object from a `CacheStrategy` object
      *
-     * @param cacheStrategy The cache strategy
+     * @param cacheStrategyData The cache strategy data
      *
      * @returns {ParsedCacheStrategy} The parsed cache strategy
      */
-    static parseCacheStrategy(cacheStrategy?: CacheStrategy): ParsedCacheStrategy {
-        return parseCacheStrategy(cacheStrategy);
+    static parseCacheStrategy(cacheStrategyData?: CacheStrategyData): ParsedCacheStrategy {
+        return parseCacheStrategy(cacheStrategyData);
     }
 
     /**

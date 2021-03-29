@@ -100,6 +100,11 @@ export {
     ClientData,
     ClientPresence,
     ClientStatus,
+    InitialCacheType,
+    InitialCacheTypeChannels,
+    InitialCacheTypeGuilds,
+    InitialCacheTypeIDs,
+    InitialCacheTypeMessages,
     ObjectCacheStrategies,
     Intent
 } from "./internal";

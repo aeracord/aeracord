@@ -1,4 +1,4 @@
-import { Client, Emoji, Guild, GuildData, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
+import { Client, Emoji, Guild, GuildData, GuildWidget, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
 
 export default function fromRawData(client: Client, rawData: RawGuildData): GuildData {
 
@@ -13,8 +13,10 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         region: rawData.region,
         afkChannelID: rawData.afk_channel_id,
         afkTimeout: rawData.afk_timeout,
-        widgetEnabled: Boolean(rawData.widget_enabled),
-        widgetChannelID: rawData.widget_channel_id || null,
+        widget: GuildWidget._fromRawData(client, {
+            channel_id: rawData.widget_channel_id || null,
+            enabled: Boolean(rawData.widget_enabled)
+        }, rawData.id),
         verificationLevel: rawData.verification_level,
         defaultMessageNotifications: rawData.default_message_notifications,
         explicitContentFilter: rawData.explicit_content_filter,

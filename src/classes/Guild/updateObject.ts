@@ -11,8 +11,7 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.region = guildData.region;
     guild.afkChannelID = guildData.afkChannelID;
     guild.afkTimeout = guildData.afkTimeout;
-    guild.widgetEnabled = guildData.widgetEnabled;
-    guild.widgetChannelID = guildData.widgetChannelID;
+    guild.widget = guildData.widget;
     guild.verificationLevel = guildData.verificationLevel;
     guild.defaultMessageNotifications = guildData.defaultMessageNotifications;
     guild.explicitContentFilter = guildData.explicitContentFilter;

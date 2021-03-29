@@ -1,4 +1,8 @@
-import { CacheStrategy } from "../../internal";
+export interface CacheStrategyData {
+    cacheFor?: number | null;
+    garbageCollectionInterval?: number | null;
+    cacheAll?: boolean;
+}
 
 export interface ParsedCacheStrategy {
     cacheFor?: number;
@@ -6,24 +10,24 @@ export interface ParsedCacheStrategy {
     cacheAll?: boolean;
 }
 
-export default function parseCacheStrategy(cacheStrategy?: CacheStrategy): ParsedCacheStrategy {
+export default function parseCacheStrategy(cacheStrategyData?: CacheStrategyData): ParsedCacheStrategy {
 
     // Return
     return {
-        cacheFor: cacheStrategy ?
+        cacheFor: cacheStrategyData ?
 
             // If theres a cache strategy, map `null` to `undefined` (never expire from cache)
-            (cacheStrategy.cacheFor === null ? undefined : cacheStrategy.cacheFor) :
+            (cacheStrategyData.cacheFor === null ? undefined : cacheStrategyData.cacheFor) :
 
             // Otherwise, use the default
             60000,
-        garbageCollectionInterval: cacheStrategy ?
+        garbageCollectionInterval: cacheStrategyData ?
 
             // If theres a cache strategy, map `null` to `undefined` (never garbage collect objects)
-            (cacheStrategy.garbageCollectionInterval === null ? undefined : cacheStrategy.garbageCollectionInterval) :
+            (cacheStrategyData.garbageCollectionInterval === null ? undefined : cacheStrategyData.garbageCollectionInterval) :
 
             // Otherwise, use the default
             60000,
-        cacheAll: cacheStrategy?.cacheAll
+        cacheAll: cacheStrategyData?.cacheAll
     };
 }

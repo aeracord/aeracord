@@ -70,7 +70,7 @@ export {
     default as CacheManager,
     CacheManagerData
 } from "./classes/CacheManager/CacheManager";
-export { ParsedCacheStrategy } from "./classes/CacheManager/parseCacheStrategy";
+export { CacheStrategyData, ParsedCacheStrategy } from "./classes/CacheManager/parseCacheStrategy";
 
 // Cache Manager Interface
 export {
@@ -112,6 +112,11 @@ export {
     ClientData,
     ClientPresence,
     ClientStatus,
+    InitialCacheType,
+    InitialCacheTypeChannels,
+    InitialCacheTypeGuilds,
+    InitialCacheTypeIDs,
+    InitialCacheTypeMessages,
     ObjectCacheStrategies,
     READY_STATE_INITIAL_GUILDS,
     READY_STATE_NONE,

@@ -237,27 +237,43 @@ export interface CacheStrategies {
 }
 
 export interface ObjectCacheStrategies {
-    bans?: CacheStrategy;
-    channels?: CacheStrategy;
-    emojis?: CacheStrategy;
-    guilds?: CacheStrategy;
-    guildWidgets?: CacheStrategy;
-    invites?: CacheStrategy;
-    members?: CacheStrategy;
-    messages?: CacheStrategy;
-    presences?: CacheStrategy;
-    roles?: CacheStrategy;
-    templates?: CacheStrategy;
-    vanityInvites?: CacheStrategy;
-    webhooks?: CacheStrategy;
-    welcomeScreens?: CacheStrategy;
-    users?: CacheStrategy;
+    bans?: CacheStrategy<InitialCacheTypeGuilds>;
+    channels?: CacheStrategy<InitialCacheTypeGuilds>;
+    emojis?: CacheStrategy<InitialCacheTypeGuilds>;
+    guilds?: CacheStrategy<InitialCacheTypeIDs>;
+    guildWidgets?: CacheStrategy<InitialCacheTypeIDs>;
+    invites?: CacheStrategy<InitialCacheTypeChannels>;
+    members?: CacheStrategy<InitialCacheTypeGuilds>;
+    messages?: CacheStrategy<InitialCacheTypeMessages>;
+    presences?: CacheStrategy<InitialCacheTypeIDs>;
+    roles?: CacheStrategy<InitialCacheTypeGuilds>;
+    templates?: CacheStrategy<InitialCacheTypeGuilds>;
+    vanityInvites?: CacheStrategy<InitialCacheTypeIDs>;
+    webhooks?: CacheStrategy<InitialCacheTypeChannels>;
+    welcomeScreens?: CacheStrategy<InitialCacheTypeIDs>;
+    users?: CacheStrategy<InitialCacheTypeIDs>;
 }
 
-export interface CacheStrategy {
+export interface CacheStrategy<CacheStrategyInitialCacheType extends InitialCacheType> {
     cacheFor?: number | null;
     garbageCollectionInterval?: number | null;
     cacheAll?: boolean;
+    initialCache?: CacheStrategyInitialCacheType | boolean;
+}
+
+export type InitialCacheType = InitialCacheTypeIDs | InitialCacheTypeGuilds | InitialCacheTypeChannels;
+export type InitialCacheTypeIDs = string[];
+export interface InitialCacheTypeGuilds {
+    ids?: string[];
+    guilds?: string[];
+}
+export interface InitialCacheTypeChannels {
+    ids?: string[];
+    channels?: string[];
+    guilds?: string[];
+}
+export interface InitialCacheTypeMessages extends InitialCacheTypeChannels {
+    count?: number;
 }
 
 export interface EventQueueEvent {
