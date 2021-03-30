@@ -2,6 +2,7 @@ import { Base, Client, CreateGuildBanData, ModifyGuildMemberData, RawMemberData,
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface MemberData {
     guildID: string;
@@ -148,6 +149,20 @@ export default class Member extends Base<Member> {
      */
     static _updateObject(member: Member, memberData: MemberData) {
         updateObject(member, memberData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Member` object with data from a `MemberData` object if it's cached
+     *
+     * @param client The client
+     * @param memberData The member data
+     *
+     * @returns {Member | undefined} The member
+     */
+    static _updateObjectFromData(client: Client, memberData: MemberData): Member | undefined {
+        return updateObjectFromData(client, memberData);
     }
 
     /**

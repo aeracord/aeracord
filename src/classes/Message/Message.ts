@@ -4,6 +4,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface MessageData {
     id: string;
@@ -353,6 +354,20 @@ export default class Message extends Base<Message> {
      */
     static _updateObject(message: Message, messageData: MessageData) {
         updateObject(message, messageData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Message` object with data from a `MessageData` object if it's cached
+     *
+     * @param client The client
+     * @param messageData The message data
+     *
+     * @returns {Message | undefined} The message
+     */
+    static _updateObjectFromData(client: Client, messageData: MessageData): Message | undefined {
+        return updateObjectFromData(client, messageData);
     }
 
     /**

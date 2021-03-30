@@ -23,8 +23,9 @@ export default function fromRawData(client: Client, rawData: RawRoleData, guildI
         }
     };
 
-    // Create role object
+    // Create role or update object
     if (client._roles.cacheAll) Role.fromData(client, roleData);
+    else Role._updateObjectFromData(client, roleData);
 
     // Return
     return roleData;

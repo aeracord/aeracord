@@ -3,6 +3,7 @@ import Channel from "../Channel/Channel";
 import updateObject from "./updateObject";
 
 export interface GuildChannelData extends ChannelData {
+    type: GuildChannelType;
     name: string;
     guildID: string;
     position: number;
@@ -28,6 +29,13 @@ export type AnyGuildChannelData = GuildChannelData | TextChannelData | VoiceChan
 export type GuildChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE;
 
 export default class GuildChannel extends Channel {
+
+    /**
+     * Type
+     *
+     * The channel's type
+     */
+    type: GuildChannelType;
 
     /**
      * Name

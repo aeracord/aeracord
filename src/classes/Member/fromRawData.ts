@@ -15,8 +15,9 @@ export default function fromRawData(client: Client, rawData: RawMemberData, guil
         user: User._fromRawData(client, rawData.user)
     };
 
-    // Create member object
+    // Create member or update object
     if (client._members.cacheAll) Member.fromData(client, memberData);
+    else Member._updateObjectFromData(client, memberData);
 
     // Return
     return memberData;

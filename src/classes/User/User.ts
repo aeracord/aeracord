@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface UserData {
     id: string;
@@ -151,6 +152,20 @@ export default class User extends Base<User> {
      */
     static _updateObject(user: User, userData: UserData) {
         updateObject(user, userData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `User` object with data from a `UserData` object if it's cached
+     *
+     * @param client The client
+     * @param userData The user data
+     *
+     * @returns {User | undefined} The user
+     */
+    static _updateObjectFromData(client: Client, userData: UserData): User | undefined {
+        return updateObjectFromData(client, userData);
     }
 
     /**

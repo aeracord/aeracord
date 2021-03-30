@@ -9,8 +9,9 @@ export default function fromRawData(client: Client, rawData: RawBanData, guildID
         reason: rawData.reason
     };
 
-    // Create ban object
+    // Create or update ban object
     if (client._bans.cacheAll) Ban.fromData(client, banData);
+    else Ban._updateObjectFromData(client, banData);
 
     // Return
     return banData;

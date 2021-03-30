@@ -2,6 +2,7 @@ import { ActivityType, Base, Client, RawPresenceData, Status } from "../../inter
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface PresenceData {
     user: PresenceUser;
@@ -393,5 +394,19 @@ export default class Presence extends Base<Presence> {
      */
     static _updateObject(presence: Presence, presenceData: PresenceData) {
         updateObject(presence, presenceData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Presence` object with data from a `PresenceData` object if it's cached
+     *
+     * @param client The client
+     * @param presenceData The presence data
+     *
+     * @returns {Presence | undefined} The presence
+     */
+    static _updateObjectFromData(client: Client, presenceData: PresenceData): Presence | undefined {
+        return updateObjectFromData(client, presenceData);
     }
 }

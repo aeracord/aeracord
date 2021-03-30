@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface ChannelData {
     id: string;
@@ -26,6 +27,13 @@ export type ChannelResolvable = AnyChannel | string;
 export default class Channel extends Base<AnyChannel> {
 
     /**
+     * Type
+     *
+     * The channel's type
+     */
+    type: ChannelType;
+
+    /**
      * Channel
      *
      * @param client The client
@@ -40,6 +48,9 @@ export default class Channel extends Base<AnyChannel> {
             cacheManager: client._channels
         });
 
+        // Set data
+        Channel._updateObject(this, channelData);
+
         // Cache channel
         this.client._channels.cache(this.id, this);
     }
@@ -51,9 +62,9 @@ export default class Channel extends Base<AnyChannel> {
      *
      * @param rawData The raw data from the API
      *
-     * @returns {ChannelData} The channel data
+     * @returns {AnyChannelData} The channel data
      */
-    static _fromRawData(client: Client, rawData: RawChannelData): ChannelData {
+    static _fromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
         return fromRawData(client, rawData);
     }
 
@@ -67,7 +78,7 @@ export default class Channel extends Base<AnyChannel> {
      *
      * @returns {Channel} The channel
      */
-    static fromData(client: Client, channelData: ChannelData): Channel {
+    static fromData(client: Client, channelData: AnyChannelData): Channel {
         return fromData(client, channelData);
     }
 
@@ -94,6 +105,20 @@ export default class Channel extends Base<AnyChannel> {
      */
     static _updateObject(channel: Channel, channelData: ChannelData) {
         updateObject(channel, channelData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Channel` object with data from a `ChannelData` object if it's cached
+     *
+     * @param client The client
+     * @param channelData The channel data
+     *
+     * @returns {Channel | undefined} The channel
+     */
+    static _updateObjectFromData(client: Client, channelData: ChannelData): Channel | undefined {
+        return updateObjectFromData(client, channelData);
     }
 
     /**

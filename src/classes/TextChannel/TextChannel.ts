@@ -1,10 +1,11 @@
-import { CacheManagerInterface, Client, CreateWebhookData, GuildChannelData, Invite, InviteData, Message, TextBasedChannelData, Webhook, WebhookData } from "../../internal";
+import { CacheManagerInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, GuildChannelData, Invite, InviteData, Message, TextBasedChannelData, Webhook, WebhookData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
 import updateObject from "./updateObject";
 
 export interface TextChannelData extends GuildChannelData, TextBasedChannelData {
+    type: typeof CHANNEL_TYPE_TEXT;
     topic: string | null;
     nsfw: boolean;
     rateLimitPerUser: number | null;
@@ -15,6 +16,13 @@ interface TextChannel extends TextBasedChannel {
 }
 
 class TextChannel extends GuildChannel {
+
+    /**
+     * Type
+     *
+     * The channel's type
+     */
+    type: typeof CHANNEL_TYPE_TEXT;
 
     /**
      * Topic

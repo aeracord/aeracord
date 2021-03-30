@@ -16,7 +16,6 @@ import {
     CacheManager,
     CacheManagerInterface,
     Channel,
-    ChannelData,
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
@@ -64,7 +63,6 @@ import {
     GuildUserCacheManagerInterface,
     GuildWidget,
     GuildWidgetData,
-    Intent,
     Invite,
     InviteData,
     InviteDeleteData,
@@ -212,7 +210,8 @@ import getFetchQueue from "./getFetchQueue";
 export interface ClientData {
     token: string;
     presence?: ClientPresence;
-    intents: Intent[];
+    membersIntent?: boolean;
+    presencesIntent?: boolean;
     cacheStrategies?: CacheStrategies;
 }
 
@@ -294,13 +293,13 @@ export interface UnemittedReadyData {
 
 export default interface Client {
     on(event: "ready", listener: (data: ReadyData, options: EventOptions) => void): this;
-    on(event: "channelCreate", listener: (channelData: ChannelData, options: ChannelEventOptions) => void): this;
-    on(event: "channelDelete", listener: (channelData: ChannelData, options: ChannelEventOptions) => void): this;
+    on(event: "channelCreate", listener: (channelData: AnyChannelData, options: ChannelEventOptions) => void): this;
+    on(event: "channelDelete", listener: (channelData: AnyChannelData, options: ChannelEventOptions) => void): this;
     on(event: "channelPinsUpdate", listener: (data: ChannelPinsUpdateData, options: ChannelEventOptions) => void): this;
-    on(event: "channelUpdate", listener: (channelData: ChannelData, options: ChannelEventOptions) => void): this;
+    on(event: "channelUpdate", listener: (channelData: AnyChannelData, options: ChannelEventOptions) => void): this;
     on(event: "guildAvailable", listener: (data: GuildCreateData, options: GuildEventOptions) => void): this;
-    on(event: "guildBanAdd", listener: (data: GuildBanAddData, options: MemberEventOptions) => void): this;
-    on(event: "guildBanRemove", listener: (data: GuildBanRemoveData, options: MemberEventOptions) => void): this;
+    on(event: "guildBanAdd", listener: (data: GuildBanAddData, options: BanEventOptions) => void): this;
+    on(event: "guildBanRemove", listener: (data: GuildBanRemoveData, options: BanEventOptions) => void): this;
     on(event: "guildCreate", listener: (data: GuildCreateData, options: GuildEventOptions) => void): this;
     on(event: "guildDelete", listener: (data: GuildDeleteData, options: GuildEventOptions) => void): this;
     on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, options: GuildEventOptions) => void): this;
@@ -332,6 +331,10 @@ export default interface Client {
 
 export interface EventOptions {
     rawData: any;
+}
+
+export interface BanEventOptions extends MemberEventOptions {
+    ban?: Ban;
 }
 
 export interface ChannelEventOptions extends EventOptions {
@@ -366,7 +369,7 @@ export interface MessageEventOptions extends EventOptions {
 }
 
 export interface MessageDeleteBulkEventOptions extends EventOptions {
-    messages?: Message[];
+    messages: Message[];
     guild?: Guild;
     channel?: AnyChannel;
 }
@@ -548,11 +551,18 @@ export default class Client extends EventEmitter {
     _initialPresence?: ClientPresence;
 
     /**
-     * Intents
+     * Members Intent
      *
-     * The bot's intents
+     * Whether or not the bot needs the members intent
      */
-    _intents: Intent[];
+    _membersIntent: boolean;
+
+    /**
+     * Presences Intent
+     *
+     * Whether or not the bot needs the presences intent
+     */
+    _presencesIntent: boolean;
 
     /**
      * Fetch Queues
@@ -796,7 +806,8 @@ export default class Client extends EventEmitter {
         this._uninitializedGuilds = new Set();
         this._unavailableGuilds = new Set();
         this._initialPresence = clientData.presence;
-        this._intents = clientData.intents;
+        this._membersIntent = Boolean(clientData.membersIntent);
+        this._presencesIntent = Boolean(clientData.presencesIntent);
         this._fetchQueues = new Map();
         this.cacheStrategies = clientData.cacheStrategies || {};
         this._bans = new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.bans));

@@ -105,8 +105,7 @@ export {
     InitialCacheTypeGuilds,
     InitialCacheTypeIDs,
     InitialCacheTypeMessages,
-    ObjectCacheStrategies,
-    Intent
+    ObjectCacheStrategies
 } from "./internal";
 
 // Client: Events

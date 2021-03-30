@@ -1,9 +1,9 @@
-import { Channel, ChannelData, Client, RawChannelData } from "../../../../internal";
+import { AnyChannelData, Channel, Client, RawChannelData } from "../../../../internal";
 
 export default function channelCreate(client: Client, rawData: RawChannelData) {
 
     // Parse channel data
-    const channelData: ChannelData = Channel._fromRawData(client, rawData) as ChannelData;
+    const channelData: AnyChannelData = Channel._fromRawData(client, rawData);
 
     // Emit event
     client.emit("channelCreate", channelData, {

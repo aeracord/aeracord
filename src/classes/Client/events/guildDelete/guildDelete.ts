@@ -1,4 +1,4 @@
-import { Client } from "../../../../internal";
+import { Client, Guild } from "../../../../internal";
 import ready from "../ready";
 import { GuildDeleteData } from "./guildDeleteData";
 import { RawGuildDeleteData } from "./rawGuildDeleteData";
@@ -36,9 +36,19 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
         });
     }
 
-    // Emit event
-    else client.emit("guildDelete", data, {
-        rawData,
-        guild: client.guilds.get(data.id)
-    });
+    // Removed from guild
+    else {
+
+        // Get guild
+        const guild: Guild | undefined = client.guilds.get(data.id);
+
+        // Remove from cache
+        if (guild) guild.uncache();
+
+        // Emit event
+        client.emit("guildDelete", data, {
+            rawData,
+            guild
+        });
+    }
 }

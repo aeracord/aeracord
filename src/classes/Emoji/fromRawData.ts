@@ -15,8 +15,9 @@ export default function fromRawData(client: Client, rawData: RawEmojiData, guild
         roles: rawData.roles || []
     };
 
-    // Create emoji object
+    // Create emoji or update object
     if (client._emojis.cacheAll) Emoji.fromData(client, emojiData);
+    else Emoji._updateObjectFromData(client, emojiData);
 
     // Return
     return emojiData;

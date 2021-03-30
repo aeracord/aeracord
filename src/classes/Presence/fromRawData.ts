@@ -56,8 +56,9 @@ export default function fromRawData(client: Client, rawData: RawPresenceData): P
         }
     };
 
-    // Create presence object
+    // Create presence or update object
     if (client._presences.cacheAll) Presence.fromData(client, presenceData);
+    else Presence._updateObjectFromData(client, presenceData);
 
     // Return
     return presenceData;

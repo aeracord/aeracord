@@ -9,8 +9,9 @@ export default function fromRawData(client: Client, rawData: RawGuildWidgetData,
         channelID: rawData.channel_id
     };
 
-    // Create guild widget object
+    // Create guild widget or update object
     if (client._guildWidgets.cacheAll) GuildWidget.fromData(client, guildWidgetData);
+    else GuildWidget._updateObjectFromData(client, guildWidgetData);
 
     // Return
     return guildWidgetData;

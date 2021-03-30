@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface EmojiData {
     id: string;
@@ -157,6 +158,20 @@ export default class Emoji extends Base<Emoji> {
      */
     static _updateObject(emoji: Emoji, emojiData: EmojiData) {
         updateObject(emoji, emojiData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Emoji` object with data from a `EmojiData` object if it's cached
+     *
+     * @param client The client
+     * @param emojiData The emoji data
+     *
+     * @returns {Emoji | undefined} The emoji
+     */
+    static _updateObjectFromData(client: Client, emojiData: EmojiData): Emoji | undefined {
+        return updateObjectFromData(client, emojiData);
     }
 
     /**

@@ -22,8 +22,9 @@ export default function fromRawData(client: Client, rawData: RawInviteData): Inv
         targetUserType: rawData.target_user_type || null
     };
 
-    // Create invite object
+    // Create invite or update object
     if (client._invites.cacheAll) Invite.fromData(client, inviteData);
+    else Invite._updateObjectFromData(client, inviteData);
 
     // Return
     return inviteData;

@@ -15,8 +15,9 @@ export default function fromRawData(client: Client, rawData: RawWebhookData): We
         applicationID: rawData.application_id
     };
 
-    // Create webhook object
+    // Create webhook or update object
     if (client._webhooks.cacheAll) Webhook.fromData(client, webhookData);
+    else Webhook._updateObjectFromData(client, webhookData);
 
     // Return
     return webhookData;

@@ -9,8 +9,9 @@ export default function fromRawData(client: Client, rawData: RawVanityInviteData
         uses: rawData.uses
     };
 
-    // Create vanity invite object
+    // Create vanity invite or update object
     if (client._vanityInvites.cacheAll) VanityInvite.fromData(client, vanityInviteData);
+    else VanityInvite._updateObjectFromData(client, vanityInviteData);
 
     // Return
     return vanityInviteData;

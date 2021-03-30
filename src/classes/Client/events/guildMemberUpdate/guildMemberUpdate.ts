@@ -1,4 +1,4 @@
-import { Client, User } from "../../../../internal";
+import { Client, Member, User } from "../../../../internal";
 import { GuildMemberUpdateData } from "./guildMemberUpdateData";
 import { RawGuildMemberUpdateData } from "./rawGuildMemberUpdateData";
 
@@ -15,10 +15,22 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
         user: User._fromRawData(client, rawData.user)
     };
 
+    // Get member
+    const member: Member | undefined = client.members.get(data.guildID, data.user.id);
+
+    // Update data
+    if (member) {
+        member.nickname = data.nickname;
+        member.roles = data.roles;
+        member.joinedAt = data.joinedAt;
+        member.premiumSince = data.premiumSince;
+        member.pending = data.pending;
+    }
+
     // Emit event
     client.emit("guildMemberUpdate", data, {
         rawData,
-        member: client.members.get(data.guildID, data.user.id),
+        member,
         guild: client.guilds.get(data.guildID),
         user: client.users.get(data.user.id)
     });

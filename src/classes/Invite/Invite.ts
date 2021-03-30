@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface InviteData {
     code: string;
@@ -193,6 +194,20 @@ export default class Invite extends Base<Invite> {
      */
     static _updateObject(invite: Invite, inviteData: InviteData) {
         updateObject(invite, inviteData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Invite` object with data from an `InviteData` object if it's cached
+     *
+     * @param client The client
+     * @param inviteData The invite data
+     *
+     * @returns {Invite | undefined} The invite
+     */
+    static _updateObjectFromData(client: Client, inviteData: InviteData): Invite | undefined {
+        return updateObjectFromData(client, inviteData);
     }
 
     /**

@@ -1,4 +1,4 @@
-import { Client } from "../../../../internal";
+import { Client, Message, ReactionData } from "../../../../internal";
 import { MessageReactionRemoveEmojiData } from "./messageReactionRemoveEmojiData";
 import { RawMessageReactionRemoveEmojiData } from "./rawMessageReactionRemoveEmojiData";
 
@@ -16,10 +16,23 @@ export default function messageReactionRemoveEmoji(client: Client, rawData: RawM
         }
     };
 
+    // Get message
+    const message: Message | undefined = client.messages.get(data.messageID);
+
+    // Remove from reactions
+    if (message) {
+
+        // Get reaction index
+        const reactionIndex: number = message.reactions.findIndex((r: ReactionData) => r.emoji.id === data.emoji.id && r.emoji.name === data.emoji.name);
+
+        // Remove reaction
+        if (reactionIndex !== -1) message.reactions.splice(reactionIndex, 1);
+    }
+
     // Emit event
     client.emit("messageReactionRemoveEmoji", data, {
         rawData,
-        message: client.messages.get(data.messageID),
+        message,
         guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
         channel: client.channels.get(data.channelID)
     });

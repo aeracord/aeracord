@@ -1,15 +1,21 @@
-import { Client, Message, MessageData, RawMessageData } from "../../../../internal";
+import { Client, Message, MessageData, RawMessageData, TextBasedChannel } from "../../../../internal";
 
 export default function messageCreate(client: Client, rawData: RawMessageData) {
 
     // Parse message data
     const messageData: MessageData = Message._fromRawData(client, rawData);
 
+    // Get channel
+    const channel: TextBasedChannel | undefined = client.channels.get(messageData.channelID) as TextBasedChannel | undefined;
+
+    // Update last message ID
+    if (channel) channel.lastMessageID = messageData.id;
+
     // Emit event
     client.emit("messageCreate", messageData, {
         rawData,
         message: client.messages.get(messageData.id),
         guild: messageData.guildID ? client.guilds.get(messageData.guildID) : undefined,
-        channel: client.channels.get(messageData.channelID)
+        channel
     });
 }

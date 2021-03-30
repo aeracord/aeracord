@@ -43,8 +43,9 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         welcomeScreen: rawData.welcome_screen ? WelcomeScreen._fromRawData(client, rawData.welcome_screen, rawData.id) : null
     };
 
-    // Create guild object
+    // Create guild or update object
     if (client._guilds.cacheAll) Guild.fromData(client, guildData);
+    else Guild._updateObjectFromData(client, guildData);
 
     // Return
     return guildData;

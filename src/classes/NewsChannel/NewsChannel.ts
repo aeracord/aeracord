@@ -1,10 +1,49 @@
-import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, FollowedChannel, Invite, InviteData, MessageData, MessageResolvable, TextChannelData, WebhookData } from "../../internal";
-import TextChannel from "../TextChannel/TextChannel";
+import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, GuildChannelData, Invite, InviteData, Message, MessageData, MessageResolvable, TextBasedChannelData, Webhook, WebhookData } from "../../internal";
+import GuildChannel from "../GuildChannel/GuildChannel";
+import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
+import applyMixins from "../applyMixins";
 import updateObject from "./updateObject";
 
-export interface NewsChannelData extends TextChannelData { }
+export interface NewsChannelData extends GuildChannelData, TextBasedChannelData {
+    type: typeof CHANNEL_TYPE_NEWS;
+    topic: string | null;
+    nsfw: boolean;
+    rateLimitPerUser: number | null;
+}
 
-export default class NewsChannel extends TextChannel {
+interface NewsChannel extends TextBasedChannel {
+
+}
+
+class NewsChannel extends GuildChannel {
+
+    /**
+     * Type
+     *
+     * The channel's type
+     */
+    type: typeof CHANNEL_TYPE_NEWS;
+
+    /**
+     * Topic
+     *
+     * The channel's topic
+     */
+    topic: string | null;
+
+    /**
+     * NSFW
+     *
+     * Whether or not the channel is marked as NSFW
+     */
+    nsfw: boolean;
+
+    /**
+     * Rate Limit Per User
+     *
+     * The slowmode for this channel in milliseconds
+     */
+    rateLimitPerUser: number | null;
 
     /**
      * Invites
@@ -14,10 +53,20 @@ export default class NewsChannel extends TextChannel {
     invites: CacheManagerInterface<Invite>;
 
     /**
+     * Webhooks
+     *
+     * The cache manager interface for the webhooks in this channel
+     */
+    webhooks: CacheManagerInterface<Webhook>;
+
+    /**
      * News Channel
      *
      * @param client The client
      * @param newsChannelData Options to initialize this category channel with
+     * @param newsChannelData.topic The channel's topic
+     * @param newsChannelData.nsfw Whether or not the channel is marked as NSFW
+     * @param newsChannelData.rateLimitPerUser The slowmode for this channel in milliseconds
      */
     constructor(client: Client, newsChannelData: NewsChannelData) {
 
@@ -26,10 +75,20 @@ export default class NewsChannel extends TextChannel {
 
         // Set data
         NewsChannel._updateObject(this, newsChannelData, true);
+        this.messages = new CacheManagerInterface<Message>(this.client, {
+            cacheManager: this.client._messages,
+            match: (m: Message) => m.channelID === this.id,
+            fetchObject: async (id: string): Promise<Message> => Message.fromData(this.client, await this.client.getChannelMessage(this.id, id))
+        });
         this.invites = new CacheManagerInterface<Invite>(this.client, {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.channelID === this.id,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
+        });
+        this.webhooks = new CacheManagerInterface<Webhook>(this.client, {
+            cacheManager: this.client._webhooks,
+            match: (w: Webhook) => w.channelID === this.id,
+            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(id))
         });
     }
 
@@ -94,3 +153,7 @@ export default class NewsChannel extends TextChannel {
         return this.client.getChannelInvites(this);
     }
 }
+
+applyMixins(NewsChannel, [TextBasedChannel]);
+
+export default NewsChannel;

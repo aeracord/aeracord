@@ -13,8 +13,9 @@ export default function fromRawData(client: Client, rawData: RawUserData): UserD
         publicFlags: rawData.public_flags || 0
     };
 
-    // Create user object
+    // Create or update user object
     if (client._users.cacheAll) User.fromData(client, userData);
+    else User._updateObjectFromData(client, userData);
 
     // Return
     return userData;

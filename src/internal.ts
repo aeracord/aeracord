@@ -123,7 +123,6 @@ export {
     READY_STATE_READY,
     ReadyState
 } from "./classes/Client/Client";
-export { Intent } from "./classes/Client/connect";
 
 // Client: Events
 export { ChannelPinsUpdateData } from "./classes/Client/events/channelPinsUpdate/channelPinsUpdateData";

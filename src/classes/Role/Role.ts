@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface RoleData {
     id: string;
@@ -178,6 +179,20 @@ export default class Role extends Base<Role> {
      */
     static _updateObject(role: Role, roleData: RoleData) {
         updateObject(role, roleData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Role` object with data from a `RoleData` object if it's cached
+     *
+     * @param client The client
+     * @param roleData The role data
+     *
+     * @returns {Role | undefined} The role
+     */
+    static _updateObjectFromData(client: Client, roleData: RoleData): Role | undefined {
+        return updateObjectFromData(client, roleData);
     }
 
     /**

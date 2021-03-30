@@ -1,3 +1,5 @@
+import { WebhookData } from "../../../../internal";
+
 export interface WebhooksUpdateData {
 
     /**
@@ -13,4 +15,11 @@ export interface WebhooksUpdateData {
      * The ID of the channel the webhooks were updated in
      */
     channelID: string;
+
+    /**
+     * Webhooks
+     *
+     * The webhooks
+     */
+    webhooks: WebhookData[];
 }

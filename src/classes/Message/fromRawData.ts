@@ -68,8 +68,9 @@ export default function fromRawData(client: Client, rawData: RawMessageData): Me
         referencedMessage: rawData.referenced_message && Message._fromRawData(client, rawData.referenced_message)
     };
 
-    // Create message object
+    // Create message or update object
     if (client._messages.cacheAll) Message.fromData(client, messageData);
+    else Message._updateObjectFromData(client, messageData);
 
     // Return
     return messageData;

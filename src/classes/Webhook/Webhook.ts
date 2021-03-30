@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface WebhookData {
     id: string;
@@ -160,6 +161,20 @@ export default class Webhook extends Base<Webhook> {
      */
     static _updateObject(webhook: Webhook, webhookData: WebhookData) {
         updateObject(webhook, webhookData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Webhook` object with data from a `WebhookData` object if it's cached
+     *
+     * @param client The client
+     * @param webhookData The webhook data
+     *
+     * @returns {Webhook | undefined} The webhook
+     */
+    static _updateObjectFromData(client: Client, webhookData: WebhookData): Webhook | undefined {
+        return updateObjectFromData(client, webhookData);
     }
 
     /**

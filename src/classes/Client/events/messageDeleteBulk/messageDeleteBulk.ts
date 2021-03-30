@@ -11,10 +11,16 @@ export default function messageDeleteBulk(client: Client, rawData: RawMessageDel
         guildID: rawData.guild_id || null
     };
 
+    // Get messages
+    const messages: Message[] = data.ids.map((id: string) => client.messages.get(id)).filter((m: Message | undefined) => m) as Message[];
+
+    // Remove from cache
+    messages.forEach((m: Message) => m.uncache());
+
     // Emit event
     client.emit("messageDeleteBulk", data, {
         rawData,
-        messages: data.ids.map((id: string) => client.messages.get(id)).filter((m: Message | undefined) => m),
+        messages,
         guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
         channel: client.channels.get(data.channelID)
     });

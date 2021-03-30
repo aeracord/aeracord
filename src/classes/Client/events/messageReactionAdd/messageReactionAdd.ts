@@ -1,4 +1,4 @@
-import { Client, Member } from "../../../../internal";
+import { Client, Member, Message, ReactionData } from "../../../../internal";
 import { MessageReactionAddData } from "./messageReactionAddData";
 import { RawMessageReactionAddData } from "./rawMessageReactionAddData";
 
@@ -18,10 +18,36 @@ export default function messageReactionAdd(client: Client, rawData: RawMessageRe
         }
     };
 
+    // Get message
+    const message: Message | undefined = client.messages.get(data.messageID);
+
+    // Add to reactions
+    if (message) {
+
+        // Get reaction
+        const reaction: ReactionData | undefined = message.reactions.find((r: ReactionData) => r.emoji.id === data.emoji.id && r.emoji.name === data.emoji.name);
+
+        // Update reaction
+        if (reaction) {
+            reaction.count++;
+            if (data.userID === client.id) reaction.me = true;
+        }
+
+        // Add to reactions
+        else message.reactions.push({
+            messageID: message.id,
+            channelID: message.channelID,
+            guildID: message.guildID,
+            count: 1,
+            me: data.userID === client.id,
+            emoji: data.emoji
+        });
+    }
+
     // Emit event
     client.emit("messageReactionAdd", data, {
         rawData,
-        message: client.messages.get(data.messageID),
+        message,
         guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
         channel: client.channels.get(data.channelID),
         user: client.users.get(data.userID)

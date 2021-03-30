@@ -70,10 +70,33 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         referencedMessage: rawData.referenced_message ? Message._fromRawData(client, rawData.referenced_message) : undefined
     };
 
+    // Get message
+    const message: Message | undefined = client.messages.get(data.id);
+
+    // Update data
+    if (message) {
+        if (data.type !== undefined) message.type = data.type;
+        if (data.content !== undefined) message.content = data.content;
+        if (data.editedTimestamp !== undefined) message.editedTimestamp = data.editedTimestamp;
+        if (data.tts !== undefined) message.tts = data.tts;
+        if (data.mentionEveryone !== undefined) message.mentionEveryone = data.mentionEveryone;
+        if (data.mentions !== undefined) message.mentions = data.mentions;
+        if (data.mentionedRoles !== undefined) message.mentionedRoles = data.mentionedRoles;
+        if (data.mentionedChannels !== undefined) message.mentionedChannels = data.mentionedChannels;
+        if (data.attachments !== undefined) message.attachments = data.attachments;
+        if (data.embeds !== undefined) message.embeds = data.embeds;
+        if (data.stickers !== undefined) message.stickers = data.stickers;
+        if (data.reactions !== undefined) message.reactions = data.reactions;
+        if (data.pinned !== undefined) message.pinned = data.pinned;
+        if (data.activity !== undefined) message.activity = data.activity;
+        if (data.application !== undefined) message.application = data.application;
+        if (data.flags !== undefined) message.flags = data.flags;
+    }
+
     // Emit event
     client.emit("messageUpdate", data, {
         rawData,
-        message: client.messages.get(data.id),
+        message,
         guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
         channel: client.channels.get(data.channelID)
     });

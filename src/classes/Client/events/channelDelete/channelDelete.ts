@@ -1,13 +1,19 @@
-import { Channel, ChannelData, Client, RawChannelData } from "../../../../internal";
+import { AnyChannel, AnyChannelData, Channel, Client, RawChannelData } from "../../../../internal";
 
 export default function channelDelete(client: Client, rawData: RawChannelData) {
 
     // Parse channel data
-    const channelData: ChannelData = Channel._fromRawData(client, rawData) as ChannelData;
+    const channelData: AnyChannelData = Channel._fromRawData(client, rawData);
+
+    // Get channel
+    const channel: AnyChannel | undefined = client.channels.get(channelData.id);
+
+    // Remove from cache
+    if (channel) channel.uncache();
 
     // Emit event
     client.emit("channelDelete", channelData, {
         rawData,
-        channel: client.channels.get(channelData.id)
+        channel
     });
 }

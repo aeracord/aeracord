@@ -2,6 +2,7 @@ import { Base, Client, RawVanityInviteData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface VanityInviteData {
     guildID: string;
@@ -92,9 +93,23 @@ export default class VanityInvite extends Base<VanityInvite> {
      * Update the `VanityInvite` object with data from a `VanityInviteData` object
      *
      * @param vanityInvite The vanity invite to update
-     * @param vanityInviteData The data to update this vanityInvite with
+     * @param vanityInviteData The data to update this vanity invite with
      */
     static _updateObject(vanityInvite: VanityInvite, vanityInviteData: VanityInviteData) {
         updateObject(vanityInvite, vanityInviteData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `VanityInvite` object with data from a `VanityInviteData` object if it's cached
+     *
+     * @param client The client
+     * @param vanityInviteData The vanity invite data
+     *
+     * @returns {VanityInvite | undefined} The vanity invite
+     */
+    static _updateObjectFromData(client: Client, vanityInviteData: VanityInviteData): VanityInvite | undefined {
+        return updateObjectFromData(client, vanityInviteData);
     }
 }

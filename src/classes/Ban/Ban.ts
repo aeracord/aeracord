@@ -2,6 +2,7 @@ import { Base, Client, RawBanData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface BanData {
     guildID: string;
@@ -94,5 +95,19 @@ export default class Ban extends Base<Ban> {
      */
     static _updateObject(ban: Ban, banData: BanData) {
         updateObject(ban, banData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Ban` object with data from a `BanData` object if it's cached
+     *
+     * @param client The client
+     * @param banData The ban data
+     *
+     * @returns {Ban | undefined} The ban
+     */
+    static _updateObjectFromData(client: Client, banData: BanData): Ban | undefined {
+        return updateObjectFromData(client, banData);
     }
 }

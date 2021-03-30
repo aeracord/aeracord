@@ -84,8 +84,9 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
     // Unknown channel type
     else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
 
-    // Create channel object
+    // Create channel or update object
     if (client._channels.cacheAll) Channel.fromData(client, channelData);
+    else Channel._updateObjectFromData(client, channelData);
 
     // Return
     return channelData;

@@ -1,13 +1,21 @@
-import { CacheManagerInterface, Client, GuildChannelData, Invite, InviteData } from "../../internal";
+import { CacheManagerInterface, Client, CHANNEL_TYPE_VOICE, GuildChannelData, Invite, InviteData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
 export interface VoiceChannelData extends GuildChannelData {
+    type: typeof CHANNEL_TYPE_VOICE;
     bitrate: number | null;
     userLimit: number | null;
 }
 
 export default class VoiceChannel extends GuildChannel {
+
+    /**
+     * Type
+     *
+     * The channel's type
+     */
+    type: typeof CHANNEL_TYPE_VOICE;
 
     /**
      * Bitrate

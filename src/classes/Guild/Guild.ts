@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface GuildData {
     id: string;
@@ -534,6 +535,20 @@ export default class Guild extends Base<Guild> {
      */
     static _updateObject(guild: Guild, guildData: GuildData) {
         updateObject(guild, guildData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Guild` object with data from a `GuildData` object if it's cached
+     *
+     * @param client The client
+     * @param guildData The guild data
+     *
+     * @returns {Guild | undefined} The guild
+     */
+    static _updateObjectFromData(client: Client, guildData: GuildData): Guild | undefined {
+        return updateObjectFromData(client, guildData);
     }
 
     /**

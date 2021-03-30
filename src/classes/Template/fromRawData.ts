@@ -54,8 +54,9 @@ export default function fromRawData(client: Client, rawData: RawTemplateData): T
         dirty: Boolean(rawData.is_dirty)
     };
 
-    // Create template object
+    // Create template or update object
     if (client._templates.cacheAll) Template.fromData(client, templateData);
+    else Template._updateObjectFromData(client, templateData);
 
     // Return
     return templateData;

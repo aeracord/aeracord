@@ -2,6 +2,7 @@ import { Base, Client, ModifyGuildWidgetData, RawGuildWidgetData } from "../../i
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface GuildWidgetData {
     guildID: string;
@@ -92,10 +93,24 @@ export default class GuildWidget extends Base<GuildWidget> {
      * Update the `GuildWidget` object with data from a `GuildWidgetData` object
      *
      * @param guildWidget The guild widget to update
-     * @param guildWidgetData The data to update this guildWidget with
+     * @param guildWidgetData The data to update this guild widget with
      */
     static _updateObject(guildWidget: GuildWidget, guildWidgetData: GuildWidgetData) {
         updateObject(guildWidget, guildWidgetData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `GuildWidget` object with data from a `GuildWidgetData` object if it's cached
+     *
+     * @param client The client
+     * @param guildWidgetData The guild widget data
+     *
+     * @returns {GuildWidget | undefined} The guild widget
+     */
+    static _updateObjectFromData(client: Client, guildWidgetData: GuildWidgetData): GuildWidget | undefined {
+        return updateObjectFromData(client, guildWidgetData);
     }
 
     /**

@@ -2,6 +2,7 @@ import { Base, Client, RawWelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface WelcomeScreenData {
     guildID: string;
@@ -103,5 +104,19 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      */
     static _updateObject(welcomeScreen: WelcomeScreen, welcomeScreenData: WelcomeScreenData) {
         updateObject(welcomeScreen, welcomeScreenData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `WelcomeScreen` object with data from a `WelcomeScreenData` object if it's cached
+     *
+     * @param client The client
+     * @param welcomeScreenData The welcome screen data
+     *
+     * @returns {WelcomeScreen | undefined} The welcome screen
+     */
+    static _updateObjectFromData(client: Client, welcomeScreenData: WelcomeScreenData): WelcomeScreen | undefined {
+        return updateObjectFromData(client, welcomeScreenData);
     }
 }

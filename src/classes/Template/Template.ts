@@ -3,6 +3,7 @@ import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
 export interface TemplateData {
     code: string;
@@ -220,6 +221,20 @@ export default class Template extends Base<Template> {
      */
     static _updateObject(template: Template, templateData: TemplateData) {
         updateObject(template, templateData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Template` object with data from a `TemplateData` object if it's cached
+     *
+     * @param client The client
+     * @param templateData The template data
+     *
+     * @returns {Template | undefined} The template
+     */
+    static _updateObjectFromData(client: Client, templateData: TemplateData): Template | undefined {
+        return updateObjectFromData(client, templateData);
     }
 
     /**

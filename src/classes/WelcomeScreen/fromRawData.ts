@@ -14,8 +14,9 @@ export default function fromRawData(client: Client, rawData: RawWelcomeScreenDat
         }))
     };
 
-    // Create welcome screen object
+    // Create welcome screen or update object
     if (client._welcomeScreens.cacheAll) WelcomeScreen.fromData(client, welcomeScreenData);
+    else WelcomeScreen._updateObjectFromData(client, welcomeScreenData);
 
     // Return
     return welcomeScreenData;
