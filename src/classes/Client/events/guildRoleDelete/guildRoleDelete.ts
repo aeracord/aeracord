@@ -1,6 +1,4 @@
-import { Client, Role } from "../../../../internal";
-import { GuildRoleDeleteData } from "./guildRoleDeleteData";
-import { RawGuildRoleDeleteData } from "./rawGuildRoleDeleteData";
+import { Client, GuildRoleDeleteData, RawGuildRoleDeleteData, Role } from "../../../../internal";
 
 export default function guildRoleDelete(client: Client, rawData: RawGuildRoleDeleteData) {
 

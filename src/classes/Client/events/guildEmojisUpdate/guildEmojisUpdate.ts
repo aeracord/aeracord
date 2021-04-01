@@ -1,6 +1,4 @@
-import { Client, Emoji, Guild, RawEmojiData } from "../../../../internal";
-import { GuildEmojisUpdateData } from "./guildEmojisUpdateData";
-import { RawGuildEmojisUpdateData } from "./rawGuildEmojisUpdateData";
+import { Client, Emoji, Guild, GuildEmojisUpdateData, RawEmojiData, RawGuildEmojisUpdateData } from "../../../../internal";
 
 export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmojisUpdateData) {
 

@@ -1,6 +1,4 @@
-import { Client, Member, User } from "../../../../internal";
-import { GuildMemberRemoveData } from "./guildMemberRemoveData";
-import { RawGuildMemberRemoveData } from "./rawGuildMemberRemoveData";
+import { Client, GuildMemberRemoveData, Member, RawGuildMemberRemoveData, User } from "../../../../internal";
 
 export default function guildMemberRemove(client: Client, rawData: RawGuildMemberRemoveData) {
 

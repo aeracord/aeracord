@@ -1,5 +1,4 @@
-import { Client, Member, MemberData } from "../../../../internal";
-import { RawGuildMemberAddData } from "./rawGuildMemberAddData";
+import { Client, Member, MemberData, RawGuildMemberAddData } from "../../../../internal";
 
 export default function guildMemberAdd(client: Client, rawData: RawGuildMemberAddData) {
 

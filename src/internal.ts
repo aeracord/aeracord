@@ -105,87 +105,109 @@ export { default as RawChannelData, RawChannelDataPermissionOverwrite } from "./
 // Client
 export {
     default as Client,
-    CacheStrategies,
-    CacheStrategy,
     ClientActivity,
     ClientActivityType,
     ClientData,
     ClientPresence,
-    ClientStatus,
-    InitialCacheType,
-    InitialCacheTypeChannels,
-    InitialCacheTypeGuilds,
-    InitialCacheTypeIDs,
-    InitialCacheTypeMessages,
-    ObjectCacheStrategies,
-    READY_STATE_INITIAL_GUILDS,
-    READY_STATE_NONE,
-    READY_STATE_READY,
-    ReadyState
+    ClientStatus
 } from "./classes/Client/Client";
 
+// Client: API Methods
+export * from "./classes/Client/apiMethods/bulkDeleteMessages";
+export * from "./classes/Client/apiMethods/createChannelInvite";
+export * from "./classes/Client/apiMethods/createDM";
+export * from "./classes/Client/apiMethods/createGuild";
+export * from "./classes/Client/apiMethods/createGuildBan";
+export * from "./classes/Client/apiMethods/createGuildChannel";
+export * from "./classes/Client/apiMethods/createGuildEmoji";
+export * from "./classes/Client/apiMethods/createGuildFromTemplate";
+export * from "./classes/Client/apiMethods/createGuildRole";
+export * from "./classes/Client/apiMethods/createGuildTemplate";
+export * from "./classes/Client/apiMethods/createMessage";
+export * from "./classes/Client/apiMethods/createWebhook";
+export * from "./classes/Client/apiMethods/editChannelPermissions";
+export * from "./classes/Client/apiMethods/editMessage";
+export * from "./classes/Client/apiMethods/followNewsChannel";
+export * from "./classes/Client/apiMethods/getChannelMessages";
+export * from "./classes/Client/apiMethods/getCurrentUserGuilds";
+export * from "./classes/Client/apiMethods/getGuild";
+export * from "./classes/Client/apiMethods/getGuildAuditLog";
+export * from "./classes/Client/apiMethods/getGuildPreview";
+export * from "./classes/Client/apiMethods/getInvite";
+export * from "./classes/Client/apiMethods/getReactions";
+export * from "./classes/Client/apiMethods/listGuildMembers";
+export * from "./classes/Client/apiMethods/modifyChannel";
+export * from "./classes/Client/apiMethods/modifyCurrentUser";
+export * from "./classes/Client/apiMethods/modifyCurrentUserNickname";
+export * from "./classes/Client/apiMethods/modifyGuild";
+export * from "./classes/Client/apiMethods/modifyGuildChannelPositions";
+export * from "./classes/Client/apiMethods/modifyGuildEmoji";
+export * from "./classes/Client/apiMethods/modifyGuildMember";
+export * from "./classes/Client/apiMethods/modifyGuildRole";
+export * from "./classes/Client/apiMethods/modifyGuildRolePositions";
+export * from "./classes/Client/apiMethods/modifyGuildTemplate";
+export * from "./classes/Client/apiMethods/modifyGuildWidget";
+export * from "./classes/Client/apiMethods/modifyWebhook";
+
+// Client: Cache Strategies
+export * from "./classes/Client/CacheStrategies";
+
+// Client: Event Options
+export * from "./classes/Client/EventOptions";
+
 // Client: Events
-export { ChannelPinsUpdateData } from "./classes/Client/events/channelPinsUpdate/channelPinsUpdateData";
-export { GuildBanAddData } from "./classes/Client/events/guildBanAdd/guildBanAddData";
-export { GuildBanRemoveData } from "./classes/Client/events/guildBanRemove/guildBanRemoveData";
-export { GuildCreateData } from "./classes/Client/events/guildCreate/guildCreateData";
-export { GuildDeleteData } from "./classes/Client/events/guildDelete/guildDeleteData";
-export { GuildEmojisUpdateData } from "./classes/Client/events/guildEmojisUpdate/guildEmojisUpdateData";
-export { GuildIntegrationsUpdateData } from "./classes/Client/events/guildIntegrationsUpdate/guildIntegrationsUpdateData";
-export { GuildMemberRemoveData } from "./classes/Client/events/guildMemberRemove/guildMemberRemoveData";
-export { GuildMemberUpdateData } from "./classes/Client/events/guildMemberUpdate/guildMemberUpdateData";
-export { GuildRoleDeleteData } from "./classes/Client/events/guildRoleDelete/guildRoleDeleteData";
-export { InviteDeleteData } from "./classes/Client/events/inviteDelete/inviteDeleteData";
-export { MessageDeleteBulkData } from "./classes/Client/events/messageDeleteBulk/messageDeleteBulkData";
-export { MessageDeleteData } from "./classes/Client/events/messageDelete/messageDeleteData";
-export { MessageReactionAddData } from "./classes/Client/events/messageReactionAdd/messageReactionAddData";
-export { MessageReactionRemoveAllData } from "./classes/Client/events/messageReactionRemoveAll/messageReactionRemoveAllData";
-export { MessageReactionRemoveData } from "./classes/Client/events/messageReactionRemove/messageReactionRemoveData";
-export { MessageReactionRemoveEmojiData } from "./classes/Client/events/messageReactionRemoveEmoji/messageReactionRemoveEmojiData";
-export { MessageUpdateData } from "./classes/Client/events/messageUpdate/messageUpdateData";
-export { ReadyData } from "./classes/Client/events/ready/readyData";
-export { TypingStartData } from "./classes/Client/events/typingStart/typingStartData";
-export { WebhooksUpdateData } from "./classes/Client/events/webhooksUpdate/webhooksUpdateData";
+export * from "./classes/Client/events/channelPinsUpdate/ChannelPinsUpdateData";
+export * from "./classes/Client/events/channelPinsUpdate/RawChannelPinsUpdateData";
+export * from "./classes/Client/events/guildBanAdd/GuildBanAddData";
+export * from "./classes/Client/events/guildBanAdd/RawGuildBanAddData";
+export * from "./classes/Client/events/guildBanRemove/GuildBanRemoveData";
+export * from "./classes/Client/events/guildBanRemove/RawGuildBanRemoveData";
+export * from "./classes/Client/events/guildCreate/GuildCreateData";
+export * from "./classes/Client/events/guildCreate/RawGuildCreateData";
+export * from "./classes/Client/events/guildDelete/GuildDeleteData";
+export * from "./classes/Client/events/guildDelete/RawGuildDeleteData";
+export * from "./classes/Client/events/guildEmojisUpdate/GuildEmojisUpdateData";
+export * from "./classes/Client/events/guildEmojisUpdate/RawGuildEmojisUpdateData";
+export * from "./classes/Client/events/guildIntegrationsUpdate/GuildIntegrationsUpdateData";
+export * from "./classes/Client/events/guildIntegrationsUpdate/RawGuildIntegrationsUpdateData";
+export * from "./classes/Client/events/guildMemberAdd/RawGuildMemberAddData";
+export * from "./classes/Client/events/guildMemberRemove/GuildMemberRemoveData";
+export * from "./classes/Client/events/guildMemberRemove/RawGuildMemberRemoveData";
+export * from "./classes/Client/events/guildMemberUpdate/GuildMemberUpdateData";
+export * from "./classes/Client/events/guildMemberUpdate/RawGuildMemberUpdateData";
+export * from "./classes/Client/events/guildRoleCreate/RawGuildRoleCreateData";
+export * from "./classes/Client/events/guildRoleDelete/GuildRoleDeleteData";
+export * from "./classes/Client/events/guildRoleDelete/RawGuildRoleDeleteData";
+export * from "./classes/Client/events/guildRoleUpdate/RawGuildRoleUpdateData";
+export * from "./classes/Client/events/inviteCreate/RawInviteCreateData";
+export * from "./classes/Client/events/inviteDelete/InviteDeleteData";
+export * from "./classes/Client/events/inviteDelete/RawInviteDeleteData";
+export * from "./classes/Client/events/messageDeleteBulk/MessageDeleteBulkData";
+export * from "./classes/Client/events/messageDeleteBulk/RawMessageDeleteBulkData";
+export * from "./classes/Client/events/messageDelete/MessageDeleteData";
+export * from "./classes/Client/events/messageDelete/RawMessageDeleteData";
+export * from "./classes/Client/events/messageReactionAdd/MessageReactionAddData";
+export * from "./classes/Client/events/messageReactionAdd/RawMessageReactionAddData";
+export * from "./classes/Client/events/messageReactionRemoveAll/MessageReactionRemoveAllData";
+export * from "./classes/Client/events/messageReactionRemoveAll/RawMessageReactionRemoveAllData";
+export * from "./classes/Client/events/messageReactionRemove/MessageReactionRemoveData";
+export * from "./classes/Client/events/messageReactionRemove/RawMessageReactionRemoveData";
+export * from "./classes/Client/events/messageReactionRemoveEmoji/MessageReactionRemoveEmojiData";
+export * from "./classes/Client/events/messageReactionRemoveEmoji/RawMessageReactionRemoveEmojiData";
+export * from "./classes/Client/events/messageUpdate/MessageUpdateData";
+export * from "./classes/Client/events/messageUpdate/RawMessageUpdateData";
+export * from "./classes/Client/events/ready/RawReadyData";
+export * from "./classes/Client/events/ready/ReadyData";
+export * from "./classes/Client/events/typingStart/RawTypingStartData";
+export * from "./classes/Client/events/typingStart/TypingStartData";
+export * from "./classes/Client/events/webhooksUpdate/RawWebhooksUpdateData";
+export * from "./classes/Client/events/webhooksUpdate/WebhooksUpdateData";
 
 // Client: Methods
-export { FetchedData, RateLimit, RequestOptions } from "./classes/Client/fetch";
+export * from "./classes/Client/fetch";
 
-// Client: API Methods
-export { BulkDeleteMessagesData } from "./classes/Client/apiMethods/bulkDeleteMessages";
-export { CreateChannelInviteData } from "./classes/Client/apiMethods/createChannelInvite";
-export { CreateDMData } from "./classes/Client/apiMethods/createDM";
-export { CreateGuildData, CreateGuildDataChannel, CreateGuildDataChannelPermissionOverwrite, CreateGuildDataRole } from "./classes/Client/apiMethods/createGuild";
-export { CreateGuildBanData } from "./classes/Client/apiMethods/createGuildBan";
-export { CreateGuildChannelData } from "./classes/Client/apiMethods/createGuildChannel";
-export { CreateGuildEmojiData } from "./classes/Client/apiMethods/createGuildEmoji";
-export { CreateGuildFromTemplateData } from "./classes/Client/apiMethods/createGuildFromTemplate";
-export { CreateGuildRoleData } from "./classes/Client/apiMethods/createGuildRole";
-export { CreateGuildTemplateData } from "./classes/Client/apiMethods/createGuildTemplate";
-export { AllowedMentionType, AllowedMentions, CreateMessageData, CreateMessageFile, CreateMessageReference } from "./classes/Client/apiMethods/createMessage";
-export { CreateWebhookData } from "./classes/Client/apiMethods/createWebhook";
-export { EditChannelPermissionsData } from "./classes/Client/apiMethods/editChannelPermissions";
-export { EditMessageData } from "./classes/Client/apiMethods/editMessage";
-export { FollowedChannel, FollowNewsChannelData } from "./classes/Client/apiMethods/followNewsChannel";
-export { GetChannelMessagesData } from "./classes/Client/apiMethods/getChannelMessages";
-export { GetCurrentUserGuildsData, PartialGuild } from "./classes/Client/apiMethods/getCurrentUserGuilds";
-export { GetGuildData } from "./classes/Client/apiMethods/getGuild";
-export { GetGuildAuditLogData } from "./classes/Client/apiMethods/getGuildAuditLog";
-export { GuildPreview } from "./classes/Client/apiMethods/getGuildPreview";
-export { GetInviteData } from "./classes/Client/apiMethods/getInvite";
-export { GetReactionsData } from "./classes/Client/apiMethods/getReactions";
-export { ListGuildMembersData } from "./classes/Client/apiMethods/listGuildMembers";
-export { ModifyChannelData, ModifyChannelDataType } from "./classes/Client/apiMethods/modifyChannel";
-export { ModifyCurrentUserData } from "./classes/Client/apiMethods/modifyCurrentUser";
-export { CurrentUserNickname, ModifyCurrentUserNicknameData } from "./classes/Client/apiMethods/modifyCurrentUserNickname";
-export { ModifyGuildData } from "./classes/Client/apiMethods/modifyGuild";
-export { ModifyGuildChannelPositionsData } from "./classes/Client/apiMethods/modifyGuildChannelPositions";
-export { ModifyGuildEmojiData } from "./classes/Client/apiMethods/modifyGuildEmoji";
-export { ModifyGuildMemberData } from "./classes/Client/apiMethods/modifyGuildMember";
-export { ModifyGuildRoleData } from "./classes/Client/apiMethods/modifyGuildRole";
-export { ModifyGuildRolePositionsData } from "./classes/Client/apiMethods/modifyGuildRolePositions";
-export { ModifyGuildTemplateData } from "./classes/Client/apiMethods/modifyGuildTemplate";
-export { ModifyGuildWidgetData } from "./classes/Client/apiMethods/modifyGuildWidget";
-export { ModifyWebhookData } from "./classes/Client/apiMethods/modifyWebhook";
+// Client: Ready State
+export * from "./classes/Client/ReadyState";
 
 // DM Channel
 export {

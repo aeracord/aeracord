@@ -1,8 +1,6 @@
-import { Client, READY_STATE_INITIAL_GUILDS } from "../../../../internal";
+import { Client, RawReadyData, RawReadyDataGuild, ReadyData, READY_STATE_INITIAL_GUILDS } from "../../../../internal";
 import { EventQueueEvent } from "../../Client";
 import event from "../../event";
-import { RawReadyData, RawReadyDataGuild } from "./rawReadyData";
-import { ReadyData } from "./readyData";
 
 export default function ready(client: Client, rawData: RawReadyData) {
 

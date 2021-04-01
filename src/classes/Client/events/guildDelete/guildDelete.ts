@@ -1,7 +1,5 @@
-import { Client, Guild } from "../../../../internal";
+import { Client, Guild, GuildDeleteData, RawGuildDeleteData } from "../../../../internal";
 import ready from "../ready";
-import { GuildDeleteData } from "./guildDeleteData";
-import { RawGuildDeleteData } from "./rawGuildDeleteData";
 
 export default function guildDelete(client: Client, rawData: RawGuildDeleteData) {
 

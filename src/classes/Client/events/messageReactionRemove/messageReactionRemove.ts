@@ -1,6 +1,4 @@
-import { Client, Message, ReactionData } from "../../../../internal";
-import { MessageReactionRemoveData } from "./messageReactionRemoveData";
-import { RawMessageReactionRemoveData } from "./rawMessageReactionRemoveData";
+import { Client, Message, MessageReactionRemoveData, RawMessageReactionRemoveData, ReactionData } from "../../../../internal";
 
 export default function messageReactionRemove(client: Client, rawData: RawMessageReactionRemoveData) {
 

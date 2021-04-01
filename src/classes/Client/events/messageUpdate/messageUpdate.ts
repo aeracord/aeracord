@@ -1,6 +1,4 @@
-import { Attachment, Client, Embed, Member, Message, RawAttachmentData, RawEmbedData, RawMessageDataChannelMention, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData, Reaction, Sticker, User, Webhook } from "../../../../internal";
-import { MessageUpdateData } from "./messageUpdateData";
-import { RawMessageUpdateData } from "./rawMessageUpdateData";
+import { Attachment, Client, Embed, Member, Message, MessageUpdateData, RawAttachmentData, RawEmbedData, RawMessageDataChannelMention, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData, Reaction, Sticker, User, Webhook } from "../../../../internal";
 
 export default function messageUpdate(client: Client, rawData: RawMessageUpdateData) {
 

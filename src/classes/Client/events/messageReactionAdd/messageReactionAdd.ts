@@ -1,6 +1,4 @@
-import { Client, Member, Message, ReactionData } from "../../../../internal";
-import { MessageReactionAddData } from "./messageReactionAddData";
-import { RawMessageReactionAddData } from "./rawMessageReactionAddData";
+import { Client, Member, Message, MessageReactionAddData, RawMessageReactionAddData, ReactionData } from "../../../../internal";
 
 export default function messageReactionAdd(client: Client, rawData: RawMessageReactionAddData) {
 

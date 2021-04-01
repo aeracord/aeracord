@@ -1,6 +1,4 @@
-import { Client, WebhookData } from "../../../../internal";
-import { RawWebhooksUpdateData } from "./rawWebhooksUpdateData";
-import { WebhooksUpdateData } from "./webhooksUpdateData";
+import { Client, RawWebhooksUpdateData, WebhooksUpdateData, WebhookData } from "../../../../internal";
 
 export default async function webhooksUpdate(client: Client, rawData: RawWebhooksUpdateData) {
 

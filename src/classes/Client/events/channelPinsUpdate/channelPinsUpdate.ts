@@ -1,6 +1,4 @@
-import { Client, TextBasedChannel } from "../../../../internal";
-import { ChannelPinsUpdateData } from "./channelPinsUpdateData";
-import { RawChannelPinsUpdateData } from "./rawChannelPinsUpdateData";
+import { ChannelPinsUpdateData, Client, RawChannelPinsUpdateData, TextBasedChannel } from "../../../../internal";
 
 export default function channelPinsUpdate(client: Client, rawData: RawChannelPinsUpdateData) {
 

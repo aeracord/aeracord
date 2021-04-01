@@ -1,5 +1,4 @@
-import { Client, InviteData, User } from "../../../../internal";
-import { RawInviteCreateData } from "./rawInviteCreateData";
+import { Client, InviteData, RawInviteCreateData, User } from "../../../../internal";
 
 export default function inviteCreate(client: Client, rawData: RawInviteCreateData) {
 

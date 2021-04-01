@@ -1,6 +1,4 @@
-import { Client, Message } from "../../../../internal";
-import { MessageDeleteData } from "./messageDeleteData";
-import { RawMessageDeleteData } from "./rawMessageDeleteData";
+import { Client, Message, MessageDeleteData, RawMessageDeleteData } from "../../../../internal";
 
 export default function messageDelete(client: Client, rawData: RawMessageDeleteData) {
 

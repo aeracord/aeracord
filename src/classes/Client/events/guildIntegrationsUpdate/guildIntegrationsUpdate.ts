@@ -1,6 +1,4 @@
-import { Client } from "../../../../internal";
-import { GuildIntegrationsUpdateData } from "./guildIntegrationsUpdateData";
-import { RawGuildIntegrationsUpdateData } from "./rawGuildIntegrationsUpdateData";
+import { Client, GuildIntegrationsUpdateData, RawGuildIntegrationsUpdateData } from "../../../../internal";
 
 export default function guildIntegrationsUpdate(client: Client, rawData: RawGuildIntegrationsUpdateData) {
 

@@ -1,6 +1,4 @@
-import { Client, Invite } from "../../../../internal";
-import { InviteDeleteData } from "./inviteDeleteData";
-import { RawInviteDeleteData } from "./rawInviteDeleteData";
+import { Client, Invite, InviteDeleteData, RawInviteDeleteData } from "../../../../internal";
 
 export default function inviteDelete(client: Client, rawData: RawInviteDeleteData) {
 

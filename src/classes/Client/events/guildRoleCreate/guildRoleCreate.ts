@@ -1,5 +1,4 @@
-import { Client, Role, RoleData } from "../../../../internal";
-import { RawGuildRoleCreateData } from "./rawGuildRoleCreateData";
+import { Client, RawGuildRoleCreateData, Role, RoleData } from "../../../../internal";
 
 export default function guildRoleCreate(client: Client, rawData: RawGuildRoleCreateData) {
 

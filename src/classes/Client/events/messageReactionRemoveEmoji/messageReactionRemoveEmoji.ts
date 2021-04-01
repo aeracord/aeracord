@@ -1,6 +1,4 @@
-import { Client, Message, ReactionData } from "../../../../internal";
-import { MessageReactionRemoveEmojiData } from "./messageReactionRemoveEmojiData";
-import { RawMessageReactionRemoveEmojiData } from "./rawMessageReactionRemoveEmojiData";
+import { Client, Message, MessageReactionRemoveEmojiData, RawMessageReactionRemoveEmojiData, ReactionData } from "../../../../internal";
 
 export default function messageReactionRemoveEmoji(client: Client, rawData: RawMessageReactionRemoveEmojiData) {
 

@@ -1,6 +1,4 @@
-import { Ban, Client, User } from "../../../../internal";
-import { GuildBanRemoveData } from "./guildBanRemoveData";
-import { RawGuildBanRemoveData } from "./rawGuildBanRemoveData";
+import { Ban, Client, GuildBanRemoveData, RawGuildBanRemoveData, User } from "../../../../internal";
 
 export default function guildBanRemove(client: Client, rawData: RawGuildBanRemoveData) {
 

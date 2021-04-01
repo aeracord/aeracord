@@ -1,8 +1,6 @@
-import { Channel, Client, Guild, Member, Presence, RawChannelData, RawMemberData, RawPresenceData, RawVoiceStateData, VoiceState } from "../../../../internal";
+import { Channel, Client, Guild, GuildCreateData, Member, Presence, RawChannelData, RawGuildCreateData, RawMemberData, RawPresenceData, RawVoiceStateData, VoiceState } from "../../../../internal";
 import ready from "../ready";
 import cacheInitialObjects from "./cacheInitialObjects";
-import { GuildCreateData } from "./guildCreateData";
-import { RawGuildCreateData } from "./rawGuildCreateData";
 
 export default async function guildCreate(client: Client, rawData: RawGuildCreateData) {
 

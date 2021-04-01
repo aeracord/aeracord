@@ -1,5 +1,4 @@
-import { AnyChannelData, Ban, BanData, Channel, Client, Emoji, EmojiData, Guild, GuildWidget, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, InviteData, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, Template, TemplateData, User, VanityInvite, VanityInviteData, Webhook, WebhookData, WelcomeScreen } from "../../../../internal";
-import { GuildCreateData } from "./guildCreateData";
+import { AnyChannelData, Ban, BanData, Channel, Client, Emoji, EmojiData, Guild, GuildCreateData, GuildWidget, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, InviteData, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, Template, TemplateData, User, VanityInvite, VanityInviteData, Webhook, WebhookData, WelcomeScreen } from "../../../../internal";
 
 /**
  * Cache Initial Objects

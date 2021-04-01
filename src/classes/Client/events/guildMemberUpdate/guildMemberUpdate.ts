@@ -1,6 +1,4 @@
-import { Client, Member, User } from "../../../../internal";
-import { GuildMemberUpdateData } from "./guildMemberUpdateData";
-import { RawGuildMemberUpdateData } from "./rawGuildMemberUpdateData";
+import { Client, GuildMemberUpdateData, Member, RawGuildMemberUpdateData, User } from "../../../../internal";
 
 export default function guildMemberUpdate(client: Client, rawData: RawGuildMemberUpdateData) {
 

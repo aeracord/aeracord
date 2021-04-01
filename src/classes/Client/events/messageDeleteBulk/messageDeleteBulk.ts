@@ -1,6 +1,4 @@
-import { Client, Message } from "../../../../internal";
-import { MessageDeleteBulkData } from "./messageDeleteBulkData";
-import { RawMessageDeleteBulkData } from "./rawMessageDeleteBulkData";
+import { Client, Message, MessageDeleteBulkData, RawMessageDeleteBulkData } from "../../../../internal";
 
 export default function messageDeleteBulk(client: Client, rawData: RawMessageDeleteBulkData) {
 

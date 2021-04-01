@@ -1,6 +1,4 @@
-import { Client, Member } from "../../../../internal";
-import { RawTypingStartData } from "./rawTypingStartData";
-import { TypingStartData } from "./typingStartData";
+import { Client, Member, RawTypingStartData, TypingStartData } from "../../../../internal";
 
 export default function typingStart(client: Client, rawData: RawTypingStartData) {
 

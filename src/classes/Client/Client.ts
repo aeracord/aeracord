@@ -3,7 +3,6 @@ import WebSocket from "ws";
 import {
     AnyChannel,
     AnyChannelData,
-    AnyGuildChannel,
     AnyGuildChannelData,
     AuditLogData,
     ACTIVITY_TYPE_COMPETING,
@@ -12,10 +11,13 @@ import {
     ACTIVITY_TYPE_STREAMING,
     Ban,
     BanData,
+    BanEventOptions,
     BulkDeleteMessagesData,
     CacheManager,
     CacheManagerInterface,
+    CacheStrategies,
     Channel,
+    ChannelEventOptions,
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
@@ -36,6 +38,7 @@ import {
     Emoji,
     EmojiData,
     EmojiResolvable,
+    EventOptions,
     FetchedData,
     FetchQueue,
     FollowedChannel,
@@ -53,6 +56,7 @@ import {
     GuildData,
     GuildDeleteData,
     GuildEmojisUpdateData,
+    GuildEventOptions,
     GuildIntegrationsUpdateData,
     GuildMemberRemoveData,
     GuildMemberUpdateData,
@@ -66,14 +70,18 @@ import {
     Invite,
     InviteData,
     InviteDeleteData,
+    InviteEventOptions,
     InviteResolvable,
     ListGuildMembersData,
     Member,
     MemberData,
+    MemberEventOptions,
     Message,
     MessageData,
     MessageDeleteBulkData,
+    MessageDeleteBulkEventOptions,
     MessageDeleteData,
+    MessageEventOptions,
     MessageReactionAddData,
     MessageReactionRemoveAllData,
     MessageReactionRemoveData,
@@ -95,26 +103,35 @@ import {
     PartialGuild,
     Presence,
     PresenceData,
+    PresenceEventOptions,
     ReactionEmojiResolvable,
+    ReactionEventOptions,
     ReadyData,
+    ReadyState,
     RequestOptions,
     Role,
     RoleData,
+    RoleEventOptions,
     RoleResolvable,
+    READY_STATE_NONE,
     Status,
     Template,
     TemplateData,
     TemplateResolvable,
     TypingStartData,
+    TypingStartEventOptions,
     User,
     UserData,
+    UserEventOptions,
     UserResolvable,
     VanityInvite,
     VanityInviteData,
     VoiceRegion,
     VoiceStateData,
+    VoiceStateEventOptions,
     Webhook,
     WebhooksUpdateData,
+    WebhooksUpdateEventOptions,
     WebhookData,
     WebhookResolvable,
     WelcomeScreen,
@@ -207,209 +224,412 @@ import fetch from "./fetch";
 import garbageCollect from "./garbageCollect";
 import getFetchQueue from "./getFetchQueue";
 
+/**
+ * Client Data
+ *
+ * Data to initialize a `Client`
+ */
 export interface ClientData {
+
+    /**
+     * Token
+     *
+     * The bot's token
+     */
     token: string;
+
+    /**
+     * Presence
+     *
+     * The bot's presence
+     */
     presence?: ClientPresence;
+
+    /**
+     * Members Intent
+     *
+     * Whether or not to use the members intent
+     */
     membersIntent?: boolean;
+
+    /**
+     * Presences Intent
+     *
+     * Whether or not to use the presences intent
+     */
     presencesIntent?: boolean;
+
+    /**
+     * Cache Strategies
+     *
+     * How the client should cache objects
+     */
     cacheStrategies?: CacheStrategies;
 }
 
+/**
+ * Client Presence
+ *
+ * The client's presence
+ */
 export interface ClientPresence {
+
+    /**
+     * Status
+     *
+     * The client's status
+     */
     status?: ClientStatus;
+
+    /**
+     * AFK
+     *
+     * Whether or not the presence should be marked as AFK
+     */
     afk?: boolean;
+
+    /**
+     * Activities
+     *
+     * The client's activities
+     */
     activities?: ClientActivity[];
+
+    /**
+     * Since
+     *
+     * The timestamp in milliseconds for when the client went idle
+     */
     since?: number;
 }
 
+/**
+ * Client Status
+ *
+ * The statuses a client can have, ie. online, idle, dnd, etc.
+ */
 export type ClientStatus = Status | "invisible";
 
+/**
+ * Client Activity
+ *
+ * The client's activity
+ */
 export interface ClientActivity {
+
+    /**
+     * Name
+     *
+     * The activity's name
+     */
     name: string;
+
+    /**
+     * Type
+     *
+     * The type of activity
+     */
     type: ClientActivityType;
+
+    /**
+     * URL
+     *
+     * The activity's Twitch URL
+     */
     url?: string;
 }
 
+/**
+ * Client Activity Type
+ *
+ * The types of client activities
+ */
 export type ClientActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_COMPETING;
 
-export interface CacheStrategies {
-    objects?: ObjectCacheStrategies;
-}
-
-export interface ObjectCacheStrategies {
-    bans?: CacheStrategy<InitialCacheTypeGuilds>;
-    channels?: CacheStrategy<InitialCacheTypeGuilds>;
-    emojis?: CacheStrategy<InitialCacheTypeGuilds>;
-    guilds?: CacheStrategy<InitialCacheTypeIDs>;
-    guildWidgets?: CacheStrategy<InitialCacheTypeIDs>;
-    invites?: CacheStrategy<InitialCacheTypeChannels>;
-    members?: CacheStrategy<InitialCacheTypeGuilds>;
-    messages?: CacheStrategy<InitialCacheTypeMessages>;
-    presences?: CacheStrategy<InitialCacheTypeIDs>;
-    roles?: CacheStrategy<InitialCacheTypeGuilds>;
-    templates?: CacheStrategy<InitialCacheTypeGuilds>;
-    vanityInvites?: CacheStrategy<InitialCacheTypeIDs>;
-    webhooks?: CacheStrategy<InitialCacheTypeChannels>;
-    welcomeScreens?: CacheStrategy<InitialCacheTypeIDs>;
-    users?: CacheStrategy<InitialCacheTypeIDs>;
-}
-
-export interface CacheStrategy<CacheStrategyInitialCacheType extends InitialCacheType> {
-    cacheFor?: number | null;
-    garbageCollectionInterval?: number | null;
-    cacheAll?: boolean;
-    initialCache?: CacheStrategyInitialCacheType | boolean;
-}
-
-export type InitialCacheType = InitialCacheTypeIDs | InitialCacheTypeGuilds | InitialCacheTypeChannels;
-export type InitialCacheTypeIDs = string[];
-export interface InitialCacheTypeGuilds {
-    ids?: string[];
-    guilds?: string[];
-}
-export interface InitialCacheTypeChannels {
-    ids?: string[];
-    channels?: string[];
-    guilds?: string[];
-}
-export interface InitialCacheTypeMessages extends InitialCacheTypeChannels {
-    count?: number;
-}
-
+/**
+ * Event Queue Event
+ *
+ * A queued event
+ */
 export interface EventQueueEvent {
+
+    /**
+     * Type
+     *
+     * The event's type
+     */
     type: string;
+
+    /**
+     * Data
+     *
+     * The event's data
+     */
     data: any;
 }
 
-export type ReadyState = typeof READY_STATE_NONE | typeof READY_STATE_INITIAL_GUILDS | typeof READY_STATE_READY;
-export const READY_STATE_NONE = 0;
-export const READY_STATE_INITIAL_GUILDS = 1;
-export const READY_STATE_READY = 2;
-
+/**
+ * Unemitted Ready Data
+ *
+ * The data for the `ready` event
+ */
 export interface UnemittedReadyData {
     data: ReadyData;
     rawData: any;
 }
 
+/**
+ * Client
+ *
+ * The events the client emits
+ */
 export default interface Client {
+
+    /**
+     * Ready
+     *
+     * Emitted when the client is ready
+     * The client shouldn't attempt to make requests to the API until this event is emitted
+     */
     on(event: "ready", listener: (data: ReadyData, options: EventOptions) => void): this;
+
+    /**
+     * Channel Create
+     *
+     * Emitted when a channel is created
+     */
     on(event: "channelCreate", listener: (channelData: AnyChannelData, options: ChannelEventOptions) => void): this;
+
+    /**
+     * Channel Delete
+     *
+     * Emitted when a channel is deleted
+     */
     on(event: "channelDelete", listener: (channelData: AnyChannelData, options: ChannelEventOptions) => void): this;
+
+    /**
+     * Channel Pins Update
+     *
+     * Emitted when a channel's pins are updated
+     */
     on(event: "channelPinsUpdate", listener: (data: ChannelPinsUpdateData, options: ChannelEventOptions) => void): this;
+
+    /**
+     * Channel Update
+     *
+     * Emitted when a channel is updated
+     */
     on(event: "channelUpdate", listener: (channelData: AnyChannelData, options: ChannelEventOptions) => void): this;
+
+    /**
+     * Guild Available
+     *
+     * Emitted when a guild becomes available
+     */
     on(event: "guildAvailable", listener: (data: GuildCreateData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Guild Ban Add
+     *
+     * Emitted when a user is banned from a guild
+     */
     on(event: "guildBanAdd", listener: (data: GuildBanAddData, options: BanEventOptions) => void): this;
+
+    /**
+     * Guild Ban Remove
+     *
+     * Emitted when a user is unbanned from a guild
+     */
     on(event: "guildBanRemove", listener: (data: GuildBanRemoveData, options: BanEventOptions) => void): this;
+
+    /**
+     * Guild Create
+     *
+     * Emitted when the client joins a new guild
+     */
     on(event: "guildCreate", listener: (data: GuildCreateData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Guild Delete
+     *
+     * Emitted when the client is removed from a guild
+     */
     on(event: "guildDelete", listener: (data: GuildDeleteData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Guild Emojis Update
+     *
+     * Emitted when a guild's emojis are updated
+     */
     on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Guild Integrations Update
+     *
+     * Emitted when a guild's integrations are updated
+     */
     on(event: "guildIntegrationsUpdate", listener: (data: GuildIntegrationsUpdateData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Guild Member Add
+     *
+     * Emitted when a user joins a guild
+     */
     on(event: "guildMemberAdd", listener: (memberData: MemberData, options: MemberEventOptions) => void): this;
+
+    /**
+     * Guild Member Remove
+     *
+     * Emitted when a member leaves a guild or gets kicked from a guild
+     */
     on(event: "guildMemberRemove", listener: (data: GuildMemberRemoveData, options: MemberEventOptions) => void): this;
+
+    /**
+     * Guild Member Update
+     *
+     * Emitted when a guild member is updated
+     */
     on(event: "guildMemberUpdate", listener: (data: GuildMemberUpdateData, options: MemberEventOptions) => void): this;
+
+    /**
+     * Guild Role Create
+     *
+     * Emitted when a role is created
+     */
     on(event: "guildRoleCreate", listener: (roleData: RoleData, options: RoleEventOptions) => void): this;
+
+    /**
+     * Guild Role Delete
+     *
+     * Emitted when a role is deleted
+     */
     on(event: "guildRoleDelete", listener: (data: GuildRoleDeleteData, options: RoleEventOptions) => void): this;
+
+    /**
+     * Guild Role Update
+     *
+     * Emitted when a role is updated
+     */
     on(event: "guildRoleUpdate", listener: (roleData: RoleData, options: RoleEventOptions) => void): this;
+
+    /**
+     * Guild Unavailable
+     *
+     * Emitted when a guild becomes unavailable
+     */
     on(event: "guildUnavailable", listener: (data: GuildDeleteData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Guild Update
+     *
+     * Emitted when a guild is updated
+     */
     on(event: "guildUpdate", listener: (guildData: GuildData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Invite Create
+     *
+     * Emitted when an invite is created
+     */
     on(event: "inviteCreate", listener: (inviteData: InviteData, options: InviteEventOptions) => void): this;
+
+    /**
+     * Invite Delete
+     *
+     * Emitted when an invite is deleted
+     */
     on(event: "inviteDelete", listener: (data: InviteDeleteData, options: InviteEventOptions) => void): this;
+
+    /**
+     * Message Create
+     *
+     * Emitted when a message is created
+     */
     on(event: "messageCreate", listener: (messageData: MessageData, options: MessageEventOptions) => void): this;
+
+    /**
+     * Message Delete
+     *
+     * Emitted when a message is deleted
+     */
     on(event: "messageDelete", listener: (data: MessageDeleteData, options: MessageEventOptions) => void): this;
+
+    /**
+     * Message Delete Bulk
+     *
+     * Emitted when messages are bulk deleted
+     */
     on(event: "messageDeleteBulk", listener: (data: MessageDeleteBulkData, options: MessageDeleteBulkEventOptions) => void): this;
+
+    /**
+     * Message Reaction Add
+     *
+     * Emitted when a reaction is added
+     */
     on(event: "messageReactionAdd", listener: (data: MessageReactionAddData, options: ReactionEventOptions) => void): this;
+
+    /**
+     * Message Reaction Remove
+     *
+     * Emitted when a reaction is removed
+     */
     on(event: "messageReactionRemove", listener: (data: MessageReactionRemoveData, options: ReactionEventOptions) => void): this;
+
+    /**
+     * Message Reaction Remove All
+     *
+     * Emitted when all the reactions on a message are removed
+     */
     on(event: "messageReactionRemoveAll", listener: (data: MessageReactionRemoveAllData, options: MessageEventOptions) => void): this;
+
+    /**
+     * Message Reaction Remove Emoji
+     *
+     * Emitted when all the reactions on a message for a specific emoji are removed
+     */
     on(event: "messageReactionRemoveEmoji", listener: (data: MessageReactionRemoveEmojiData, options: MessageEventOptions) => void): this;
+
+    /**
+     * Message Update
+     *
+     * Emitted when a message is updated
+     */
     on(event: "messageUpdate", listener: (data: MessageUpdateData, options: MessageEventOptions) => void): this;
+
+    /**
+     * Presence Update
+     *
+     * Emitted when a presence is updated
+     */
     on(event: "presenceUpdate", listener: (presenceData: PresenceData, options: PresenceEventOptions) => void): this;
+
+    /**
+     * Typing Start
+     *
+     * Emitted when a user starts typing in a channel
+     */
     on(event: "typingStart", listener: (data: TypingStartData, options: TypingStartEventOptions) => void): this;
+
+    /**
+     * User Update
+     *
+     * Emitted when a user is updated
+     */
     on(event: "userUpdate", listener: (userData: UserData, options: UserEventOptions) => void): this;
+
+    /**
+     * Voice State Update
+     *
+     * Emitted when a voice state is updated
+     */
     on(event: "voiceStateUpdate", listener: (voiceStateData: VoiceStateData, options: VoiceStateEventOptions) => void): this;
+
+    /**
+     * Webhooks Update
+     *
+     * Emitted when a channel's webhooks are updated
+     */
     on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, options: WebhooksUpdateEventOptions) => void): this;
-}
-
-export interface EventOptions {
-    rawData: any;
-}
-
-export interface BanEventOptions extends MemberEventOptions {
-    ban?: Ban;
-}
-
-export interface ChannelEventOptions extends EventOptions {
-    channel?: AnyChannel;
-}
-
-export interface EmojiEventOptions extends EventOptions {
-    emoji?: Emoji;
-    guild?: Guild;
-}
-
-export interface GuildEventOptions extends EventOptions {
-    guild?: Guild;
-}
-
-export interface InviteEventOptions extends EventOptions {
-    invite?: Invite;
-    guild?: Guild;
-    channel?: AnyGuildChannel;
-}
-
-export interface MemberEventOptions extends EventOptions {
-    member?: Member;
-    guild?: Guild;
-    user?: User;
-}
-
-export interface MessageEventOptions extends EventOptions {
-    message?: Message;
-    guild?: Guild;
-    channel?: AnyChannel;
-}
-
-export interface MessageDeleteBulkEventOptions extends EventOptions {
-    messages: Message[];
-    guild?: Guild;
-    channel?: AnyChannel;
-}
-
-export interface PresenceEventOptions extends EventOptions {
-    presence?: Presence;
-    user?: User;
-}
-
-export interface ReactionEventOptions extends EventOptions {
-    message?: Message;
-    guild?: Guild;
-    channel?: AnyChannel;
-    user?: User;
-}
-
-export interface RoleEventOptions extends EventOptions {
-    role?: Role;
-    guild?: Guild;
-}
-
-export interface TypingStartEventOptions extends EventOptions {
-    channel?: AnyChannel;
-    user?: User;
-}
-
-export interface UserEventOptions extends EventOptions {
-    user?: User;
-}
-
-export interface VoiceStateEventOptions extends EventOptions {
-    guild?: Guild;
-    channel?: AnyGuildChannel;
-    member?: Member;
-    user?: User;
-}
-
-export interface WebhooksUpdateEventOptions extends EventOptions {
-    channel?: AnyChannel;
-    guild?: Guild;
 }
 
 export default class Client extends EventEmitter {
