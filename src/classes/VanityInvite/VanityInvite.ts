@@ -1,14 +1,8 @@
-import { Base, Client, RawVanityInviteData } from "../../internal";
+import { Base, Client, RawVanityInviteData, VanityInviteData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
-
-export interface VanityInviteData {
-    guildID: string;
-    code: string | null;
-    uses: number;
-}
 
 export default class VanityInvite extends Base<VanityInvite> {
 

@@ -1,14 +1,8 @@
-import { Base, Client, ModifyGuildWidgetData, RawGuildWidgetData } from "../../internal";
+import { Base, Client, GuildWidgetData, ModifyGuildWidgetData, RawGuildWidgetData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
-
-export interface GuildWidgetData {
-    guildID: string;
-    enabled: boolean;
-    channelID: string | null;
-}
 
 export default class GuildWidget extends Base<GuildWidget> {
 

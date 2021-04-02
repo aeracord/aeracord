@@ -6,64 +6,24 @@ export {
 
 // Attachment
 export {
-    default as Attachment,
-    AttachmentData
+    default as Attachment
 } from "./classes/Attachment/Attachment";
-export { default as RawAttachmentData, RawAttachmentMetadata } from "./classes/Attachment/rawAttachmentData";
+export * from "./classes/Attachment/AttachmentData";
+export * from "./classes/Attachment/RawAttachmentData";
 
 // Audit Log
 export {
-    default as AuditLog,
-    AUDIT_LOG_EVENT_BOT_ADD,
-    AUDIT_LOG_EVENT_CHANNEL_CREATE,
-    AUDIT_LOG_EVENT_CHANNEL_DELETE,
-    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_CREATE,
-    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_DELETE,
-    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_UPDATE,
-    AUDIT_LOG_EVENT_CHANNEL_UPDATE,
-    AUDIT_LOG_EVENT_EMOJI_CREATE,
-    AUDIT_LOG_EVENT_EMOJI_DELETE,
-    AUDIT_LOG_EVENT_EMOJI_UPDATE,
-    AUDIT_LOG_EVENT_GUILD_UPDATE,
-    AUDIT_LOG_EVENT_INTEGRATION_CREATE,
-    AUDIT_LOG_EVENT_INTEGRATION_DELETE,
-    AUDIT_LOG_EVENT_INTEGRATION_UPDATE,
-    AUDIT_LOG_EVENT_INVITE_CREATE,
-    AUDIT_LOG_EVENT_INVITE_DELETE,
-    AUDIT_LOG_EVENT_INVITE_UPDATE,
-    AUDIT_LOG_EVENT_MEMBER_BAN_ADD,
-    AUDIT_LOG_EVENT_MEMBER_BAN_REMOVE,
-    AUDIT_LOG_EVENT_MEMBER_DISCONNECT,
-    AUDIT_LOG_EVENT_MEMBER_KICK,
-    AUDIT_LOG_EVENT_MEMBER_MOVE,
-    AUDIT_LOG_EVENT_MEMBER_PRUNE,
-    AUDIT_LOG_EVENT_MEMBER_ROLE_UPDATE,
-    AUDIT_LOG_EVENT_MEMBER_UPDATE,
-    AUDIT_LOG_EVENT_MESSAGE_BULK_DELETE,
-    AUDIT_LOG_EVENT_MESSAGE_DELETE,
-    AUDIT_LOG_EVENT_MESSAGE_PIN,
-    AUDIT_LOG_EVENT_MESSAGE_UNPIN,
-    AUDIT_LOG_EVENT_ROLE_CREATE,
-    AUDIT_LOG_EVENT_ROLE_DELETE,
-    AUDIT_LOG_EVENT_ROLE_UPDATE,
-    AUDIT_LOG_EVENT_WEBHOOK_CREATE,
-    AUDIT_LOG_EVENT_WEBHOOK_DELETE,
-    AUDIT_LOG_EVENT_WEBHOOK_UPDATE,
-    AuditLogChange,
-    AuditLogChangeType,
-    AuditLogData,
-    AuditLogEntry,
-    AuditLogEvent,
-    AuditLogOptions
+    default as AuditLog
 } from "./classes/AuditLog/AuditLog";
-export { default as RawAuditLogData, RawAuditLogDataEntry, RawAuditLogDataEntryChange, RawAuditLogDataEntryChangeKey, RawAuditLogDataEntryOptions, RawAuditLogDataIntegration, RawAuditLogDataIntegrationAccount } from "./classes/AuditLog/rawAuditLogData";
+export * from "./classes/AuditLog/AuditLogData";
+export * from "./classes/AuditLog/RawAuditLogData";
 
 // Ban
 export {
-    default as Ban,
-    BanData
+    default as Ban
 } from "./classes/Ban/Ban";
-export { default as RawBanData } from "./classes/Ban/rawBanData";
+export * from "./classes/Ban/BanData";
+export * from "./classes/Ban/RawBanData";
 
 // Cache Manager
 export {
@@ -81,26 +41,19 @@ export {
 
 // Category Channel
 export {
-    default as CategoryChannel,
-    CategoryChannelData
+    default as CategoryChannel
 } from "./classes/CategoryChannel/CategoryChannel";
+export * from "./classes/CategoryChannel/CategoryChannelData";
 
 // Channel
 export {
     default as Channel,
     AnyChannel,
     AnyChannelData,
-    ChannelData,
-    ChannelResolvable,
-    ChannelType,
-    CHANNEL_TYPE_CATEGORY,
-    CHANNEL_TYPE_DM,
-    CHANNEL_TYPE_NEWS,
-    CHANNEL_TYPE_STORE,
-    CHANNEL_TYPE_TEXT,
-    CHANNEL_TYPE_VOICE
+    ChannelResolvable
 } from "./classes/Channel/Channel";
-export { default as RawChannelData, RawChannelDataPermissionOverwrite } from "./classes/Channel/rawChannelData";
+export * from "./classes/Channel/ChannelData";
+export * from "./classes/Channel/RawChannelData";
 
 // Client
 export {
@@ -211,32 +164,24 @@ export * from "./classes/Client/ReadyState";
 
 // DM Channel
 export {
-    default as DMChannel,
-    DMChannelData
+    default as DMChannel
 } from "./classes/DMChannel/DMChannel";
+export * from "./classes/DMChannel/DMChannelData";
 
 // Embed
 export {
-    default as Embed,
-    EmbedAuthor,
-    EmbedData,
-    EmbedField,
-    EmbedFooter,
-    EmbedImage,
-    EmbedProvider,
-    EmbedThumbnail,
-    EmbedType,
-    EmbedVideo
+    default as Embed
 } from "./classes/Embed/Embed";
-export { default as RawEmbedData, RawEmbedDataAuthor, RawEmbedDataField, RawEmbedDataFooter, RawEmbedDataImage, RawEmbedMetadata, RawEmbedDataProvider, RawEmbedDataThumbnail, RawEmbedDataVideo } from "./classes/Embed/rawEmbedData";
+export * from "./classes/Embed/EmbedData";
+export * from "./classes/Embed/RawEmbedData";
 
 // Emoji
 export {
     default as Emoji,
-    EmojiData,
     EmojiResolvable
 } from "./classes/Emoji/Emoji";
-export { default as RawEmojiData } from "./classes/Emoji/rawEmojiData";
+export * from "./classes/Emoji/EmojiData";
+export * from "./classes/Emoji/RawEmojiData";
 
 // Fetch Queue
 export {
@@ -247,46 +192,19 @@ export {
 // Guild
 export {
     default as Guild,
-    DefaultMessageNotifications,
-    DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES,
-    DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS,
-    ExplicitContentFilter,
-    EXPLICIT_CONTENT_FILTER_DISABLED,
-    EXPLICIT_CONTENT_FILTER_ALL_MEMBERS,
-    EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES,
-    Feature,
-    GuildData,
-    GuildResolvable,
-    MFALevel,
-    MFA_LEVEL_ELEVATED,
-    MFA_LEVEL_NONE,
-    PremiumTier,
-    PREMIUM_TIER_NONE,
-    PREMIUM_TIER_TIER_1,
-    PREMIUM_TIER_TIER_2,
-    PREMIUM_TIER_TIER_3,
-    VerificationLevel,
-    VERIFICATION_LEVEL_HIGH,
-    VERIFICATION_LEVEL_LOW,
-    VERIFICATION_LEVEL_MEDIUM,
-    VERIFICATION_LEVEL_NONE,
-    VERIFICATION_LEVEL_VERY_HIGH,
-    VoiceRegion
+    GuildResolvable
 } from "./classes/Guild/Guild";
-export { default as RawGuildData } from "./classes/Guild/rawGuildData";
+export * from "./classes/Guild/GuildData";
+export * from "./classes/Guild/RawGuildData";
 
 // Guild Channel
 export {
     default as GuildChannel,
     AnyGuildChannel,
     AnyGuildChannelData,
-    GuildChannelData,
-    GuildChannelType,
-    PermissionOverwrite,
-    PermissionType,
-    PERMISSION_TYPE_ROLE,
-    PERMISSION_TYPE_MEMBER
+    GuildChannelType
 } from "./classes/GuildChannel/GuildChannel";
+export * from "./classes/GuildChannel/GuildChannelData";
 
 // Guild User Cache Manager
 export {
@@ -300,190 +218,136 @@ export {
 
 // Guild Widget
 export {
-    default as GuildWidget,
-    GuildWidgetData
+    default as GuildWidget
 } from "./classes/GuildWidget/GuildWidget";
-export { default as RawGuildWidgetData } from "./classes/GuildWidget/rawGuildWidgetData";
+export * from "./classes/GuildWidget/GuildWidgetData";
+export * from "./classes/GuildWidget/RawGuildWidgetData";
 
 // Invite
 export {
     default as Invite,
-    InviteData,
-    InviteResolvable,
-    TARGET_USER_TYPE_STREAM,
-    TargetUserType
+    InviteResolvable
 } from "./classes/Invite/Invite";
-export { default as RawInviteData, RawInviteDataChannel, RawInviteDataGuild, RawInviteDataTargetUser } from "./classes/Invite/rawInviteData";
+export * from "./classes/Invite/InviteData";
+export * from "./classes/Invite/RawInviteData";
 
 // Member
 export {
-    default as Member,
-    MemberData
+    default as Member
 } from "./classes/Member/Member";
-export { default as RawMemberData, RawUserlessMemberData } from "./classes/Member/rawMemberData";
+export * from "./classes/Member/MemberData";
+export * from "./classes/Member/RawMemberData";
 
 // Message
 export {
     default as Message,
-    ChannelMention,
-    MessageData,
-    MessageActivity,
-    MessageActivityType,
-    MESSAGE_ACTIVITY_TYPE_JOIN,
-    MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST,
-    MESSAGE_ACTIVITY_TYPE_LISTEN,
-    MESSAGE_ACTIVITY_TYPE_SPECTATE,
-    MessageApplication,
-    MessageReference,
-    MessageResolvable,
-    MessageType,
-    MESSAGE_TYPE_APPLICATION_COMMAND,
-    MESSAGE_TYPE_CHANNEL_FOLLOW_ADD,
-    MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE,
-    MESSAGE_TYPE_DEFAULT,
-    MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED,
-    MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED,
-    MESSAGE_TYPE_GUILD_MEMBER_JOIN,
-    MESSAGE_TYPE_REPLY,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3,
-    MessageWebhook
+    MessageResolvable
 } from "./classes/Message/Message";
-export { default as RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataMessageReference, RawMessageDataWebhook } from "./classes/Message/rawMessageData";
+export * from "./classes/Message/MessageData";
+export * from "./classes/Message/RawMessageData";
 
 // News Channel
 export {
-    default as NewsChannel,
-    NewsChannelData
+    default as NewsChannel
 } from "./classes/NewsChannel/NewsChannel";
+export * from "./classes/NewsChannel/NewsChannelData";
 
 // Presence
 export {
-    default as Presence,
-    Activity,
-    ActivityAssets,
-    ActivityEmoji,
-    ActivityParty,
-    ActivitySecrets,
-    ActivityTimestamps,
-    PresenceClientStatus,
-    PresenceData,
-    PresenceUser
+    default as Presence
 } from "./classes/Presence/Presence";
-export { default as RawPresenceData, RawPresenceDataActivity, RawPresenceDataActivityAssets, RawPresenceDataActivityEmoji, RawPresenceDataActivityParty, RawPresenceDataActivitySecrets, RawPresenceDataActivityTimestamps, RawPresenceDataClientStatus, RawPresenceDataUser } from "./classes/Presence/rawPresenceData";
+export * from "./classes/Presence/PresenceData";
+export * from "./classes/Presence/RawPresenceData";
 
 // Reaction
 export {
     default as Reaction,
-    ReactionData,
-    ReactionEmoji,
     ReactionEmojiResolvable
 } from "./classes/Reaction/Reaction";
-export { default as RawReactionData, RawReactionDataEmoji, RawReactionMetadata } from "./classes/Reaction/rawReactionData";
+export * from "./classes/Reaction/RawReactionData";
+export * from "./classes/Reaction/ReactionData";
 
 // Role
 export {
     default as Role,
-    RoleData,
-    RoleDataTags,
-    RoleResolvable,
-    RoleTags
+    RoleResolvable
 } from "./classes/Role/Role";
-export { default as RawRoleData, RawRoleDataTags } from "./classes/Role/rawRoleData";
+export * from "./classes/Role/RawRoleData";
+export * from "./classes/Role/RoleData";
 
 // Sticker
 export {
-    default as Sticker,
-    StickerData,
-    StickerFormatType,
-    STICKER_FORMAT_TYPE_APNG,
-    STICKER_FORMAT_TYPE_LOTTIE,
-    STICKER_FORMAT_TYPE_PNG
+    default as Sticker
 } from "./classes/Sticker/Sticker";
-export { default as RawStickerData } from "./classes/Sticker/rawStickerData";
+export * from "./classes/Sticker/RawStickerData";
+export * from "./classes/Sticker/StickerData";
 
 // Store Channel
 export {
-    default as StoreChannel,
-    StoreChannelData
+    default as StoreChannel
 } from "./classes/StoreChannel/StoreChannel";
+export * from "./classes/StoreChannel/StoreChannelData";
 
 // Template
 export {
     default as Template,
-    TemplateData,
-    TemplateGuild,
-    TemplateGuildChannel,
-    TemplateGuildChannelPermissionOverwrite,
-    TemplateGuildRole,
     TemplateResolvable
 } from "./classes/Template/Template";
-export { default as RawTemplateData, RawTemplateDataGuild, RawTemplateDataGuildChannel, RawTemplateDataGuildChannelPermissionOverwrite, RawTemplateDataGuildRole } from "./classes/Template/rawTemplateData";
+export * from "./classes/Template/RawTemplateData";
+export * from "./classes/Template/TemplateData";
 
 // Text Based Channel
 export {
     default as TextBasedChannel,
-    TextBasedChannelData
+    TextBasedChannelType
 } from "./classes/TextBasedChannel/TextBasedChannel";
+export * from "./classes/TextBasedChannel/TextBasedChannelData";
 
 // Text Channel
 export {
-    default as TextChannel,
-    TextChannelData
+    default as TextChannel
 } from "./classes/TextChannel/TextChannel";
+export * from "./classes/TextChannel/TextChannelData";
 
 // User
 export {
     default as User,
-    ACTIVITY_TYPE_COMPETING,
-    ACTIVITY_TYPE_CUSTOM,
-    ACTIVITY_TYPE_LISTENING,
-    ACTIVITY_TYPE_PLAYING,
-    ACTIVITY_TYPE_STREAMING,
-    ActivityType,
-    Status,
-    UserData,
     UserResolvable
 } from "./classes/User/User";
-export { default as RawUserData, RawUserWithMemberData } from "./classes/User/rawUserData";
+export * from "./classes/User/RawUserData";
+export * from "./classes/User/UserData";
 
 // Vanity Invite
 export {
-    default as VanityInvite,
-    VanityInviteData
+    default as VanityInvite
 } from "./classes/VanityInvite/VanityInvite";
-export { default as RawVanityInviteData } from "./classes/VanityInvite/rawVanityInviteData";
+export * from "./classes/VanityInvite/RawVanityInviteData";
+export * from "./classes/VanityInvite/VanityInviteData";
 
 // Voice Channel
 export {
-    default as VoiceChannel,
-    VoiceChannelData
+    default as VoiceChannel
 } from "./classes/VoiceChannel/VoiceChannel";
+export * from "./classes/VoiceChannel/VoiceChannelData";
 
 // Voice State
 export {
-    default as VoiceState,
-    VoiceStateData
+    default as VoiceState
 } from "./classes/VoiceState/VoiceState";
-export { default as RawVoiceStateData } from "./classes/VoiceState/rawVoiceStateData";
+export * from "./classes/VoiceState/RawVoiceStateData";
+export * from "./classes/VoiceState/VoiceStateData";
 
 // Webhook
 export {
     default as Webhook,
-    WebhookData,
-    WebhookResolvable,
-    WEBHOOK_TYPE_CHANNEL_FOLLOWER,
-    WEBHOOK_TYPE_INCOMING,
-    WebhookType
+    WebhookResolvable
 } from "./classes/Webhook/Webhook";
-export { default as RawWebhookData } from "./classes/Webhook/rawWebhookData";
+export * from "./classes/Webhook/RawWebhookData";
+export * from "./classes/Webhook/WebhookData";
 
 // Welcome Screen
 export {
-    default as WelcomeScreen,
-    WelcomeScreenChannel,
-    WelcomeScreenData
+    default as WelcomeScreen
 } from "./classes/WelcomeScreen/WelcomeScreen";
-export { default as RawWelcomeScreenData, RawWelcomeScreenDataChannel } from "./classes/WelcomeScreen/rawWelcomeScreenData";
+export * from "./classes/WelcomeScreen/RawWelcomeScreenData";
+export * from "./classes/WelcomeScreen/WelcomeScreenData";

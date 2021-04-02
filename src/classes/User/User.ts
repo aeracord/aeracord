@@ -1,33 +1,15 @@
-import { Base, Client, DMChannelData, Member, RawUserData } from "../../internal";
+import { Base, Client, DMChannelData, Member, RawUserData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface UserData {
-    id: string;
-    username: string;
-    discriminator: string;
-    avatar: string | null;
-    bot: boolean;
-    system: boolean;
-    publicFlags: number;
-}
-
-export type Status = "online" | "idle" | "dnd" | "offline";
-
 /**
- * Activity types
- * https://discord.com/developers/docs/topics/gateway#activity-object-activity-types
+ * User Resolvable
+ *
+ * The types that can be resolved to a user
  */
-export type ActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_CUSTOM | typeof ACTIVITY_TYPE_COMPETING;
-export const ACTIVITY_TYPE_PLAYING = 0;
-export const ACTIVITY_TYPE_STREAMING = 1;
-export const ACTIVITY_TYPE_LISTENING = 2;
-export const ACTIVITY_TYPE_CUSTOM = 4;
-export const ACTIVITY_TYPE_COMPETING = 5;
-
 export type UserResolvable = User | Member | string;
 
 export default class User extends Base<User> {

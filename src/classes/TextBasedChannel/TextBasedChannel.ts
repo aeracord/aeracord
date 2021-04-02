@@ -1,13 +1,7 @@
-import { CacheManagerInterface, Channel, ChannelData, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Message, MessageData, MessageResolvable, ReactionEmojiResolvable, UserData, UserResolvable, WebhookData } from "../../internal";
+import { CacheManagerInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Message, MessageData, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, UserData, UserResolvable, WebhookData } from "../../internal";
 import editMessage from "./editMessage";
 import send from "./send";
 import updateObject from "./updateObject";
-
-export interface TextBasedChannelData extends ChannelData {
-    type: TextBasedChannelType;
-    lastMessageID: string | null;
-    lastPinTimestamp: number | null;
-}
 
 export type TextBasedChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_DM | typeof CHANNEL_TYPE_NEWS;
 

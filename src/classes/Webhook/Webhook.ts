@@ -1,26 +1,15 @@
-import { Base, Client, ModifyWebhookData, RawWebhookData, UserData } from "../../internal";
+import { Base, Client, ModifyWebhookData, RawWebhookData, UserData, WebhookData, WebhookType } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface WebhookData {
-    id: string;
-    type: WebhookType;
-    guildID: string;
-    channelID: string;
-    name: string;
-    avatar: string | null;
-    creator: UserData;
-    token: string | null;
-    applicationID: string | null;
-}
-
-export type WebhookType = typeof WEBHOOK_TYPE_INCOMING | typeof WEBHOOK_TYPE_CHANNEL_FOLLOWER;
-export const WEBHOOK_TYPE_INCOMING = 1;
-export const WEBHOOK_TYPE_CHANNEL_FOLLOWER = 2;
-
+/**
+ * Webhook Resolvable
+ *
+ * The types that can be resolved to a webhook
+ */
 export type WebhookResolvable = Webhook | string;
 
 export default class Webhook extends Base<Webhook> {

@@ -1,27 +1,19 @@
-import { Base, CategoryChannel, CategoryChannelData, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, RoleResolvable, StoreChannel, StoreChannelData, TextChannel, TextChannelData, UserResolvable, VoiceChannel, VoiceChannelData } from "../../internal";
+import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface ChannelData {
-    id: string;
-    type: ChannelType;
-}
-
 export type AnyChannel = Channel | GuildChannel | DMChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel;
 
 export type AnyChannelData = ChannelData | GuildChannelData | DMChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData;
 
-export type ChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_DM | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE;
-export const CHANNEL_TYPE_TEXT = 0;
-export const CHANNEL_TYPE_DM = 1;
-export const CHANNEL_TYPE_VOICE = 2;
-export const CHANNEL_TYPE_CATEGORY = 4;
-export const CHANNEL_TYPE_NEWS = 5;
-export const CHANNEL_TYPE_STORE = 6;
-
+/**
+ * Channel Resolvable
+ *
+ * The types that can be resolved to a channel
+ */
 export type ChannelResolvable = AnyChannel | string;
 
 export default class Channel extends Base<AnyChannel> {

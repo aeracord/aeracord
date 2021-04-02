@@ -1,31 +1,15 @@
-import { Base, Client, ModifyGuildRoleData, RawRoleData, UserResolvable } from "../../internal";
+import { Base, Client, ModifyGuildRoleData, RawRoleData, RoleData, RoleTags, UserResolvable } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface RoleData {
-    id: string;
-    name: string;
-    guildID: string;
-    color: number;
-    hoist: boolean;
-    position: number;
-    permissions: string;
-    managed: boolean;
-    mentionable: boolean;
-    tags: RoleDataTags;
-}
-
-export interface RoleDataTags {
-    botID: string | null;
-    integrationID: string | null;
-    premiumRole: boolean;
-}
-
-export type RoleTags = RoleDataTags;
-
+/**
+ * Role Resolvable
+ *
+ * The types that can be resolved to a role
+ */
 export type RoleResolvable = Role | string;
 
 export default class Role extends Base<Role> {

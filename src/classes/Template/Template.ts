@@ -1,69 +1,15 @@
-import { Base, Client, CreateGuildFromTemplateData, DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, GuildData, ModifyGuildTemplateData, RawTemplateData, UserData, VerificationLevel } from "../../internal";
+import { Base, Client, CreateGuildFromTemplateData, GuildData, ModifyGuildTemplateData, RawTemplateData, TemplateData, TemplateGuild, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface TemplateData {
-    code: string;
-    name: string;
-    description: string | null;
-    uses: number;
-    creator: UserData;
-    createdAt: number;
-    updatedAt: number;
-    sourceGuildID: string;
-    sourceGuild: TemplateGuild;
-    dirty: boolean;
-}
-
-export interface TemplateGuild {
-    name: string;
-    icon: string | null;
-    region: string;
-    afkChannelID: number | null;
-    afkTimeout: number;
-    verificationLevel: VerificationLevel;
-    defaultMessageNotifications: DefaultMessageNotifications;
-    explicitContentFilter: ExplicitContentFilter;
-    roles: TemplateGuildRole[];
-    channels: TemplateGuildChannel[];
-    systemChannelID: number | null;
-    systemChannelFlags: number;
-    description: string | null;
-    preferredLocale: string;
-}
-
-export interface TemplateGuildRole {
-    id: number;
-    name: string;
-    color: number;
-    hoist: boolean;
-    permissions: string;
-    mentionable: boolean;
-}
-
-export interface TemplateGuildChannel {
-    id: number;
-    type: GuildChannelType;
-    name: string;
-    topic: string | null;
-    position: number;
-    nsfw: boolean;
-    permissionOverwrites: TemplateGuildChannelPermissionOverwrite[];
-    bitrate: number | null;
-    userLimit: number | null;
-    rateLimitPerUser: number | null;
-    parentID: number | null;
-}
-
-export interface TemplateGuildChannelPermissionOverwrite {
-    id: number;
-    allow: string;
-    deny: string;
-}
-
+/**
+ * Template Resolvable
+ *
+ * The types that can be resolved to a template
+ */
 export type TemplateResolvable = Template | string;
 
 export default class Template extends Base<Template> {

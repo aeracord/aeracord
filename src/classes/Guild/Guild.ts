@@ -1,84 +1,15 @@
-import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheManagerInterface, CategoryChannel, Channel, Client, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, Emoji, EmojiData, EmojiResolvable, GetGuildAuditLogData, GuildChannel, GuildPreview, GuildUserCacheManagerInterface, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWidgetData, NewsChannel, RawGuildData, Role, RoleData, RoleResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VoiceChannel, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheManagerInterface, CategoryChannel, Channel, Client, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildData, GuildPreview, GuildUserCacheManagerInterface, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface GuildData {
-    id: string;
-    name: string;
-    icon: string | null;
-    splashImage: string | null;
-    discoverySplashImage: string | null;
-    ownerID: string;
-    region: string;
-    afkChannelID: string | null;
-    afkTimeout: number;
-    widget: GuildWidgetData;
-    verificationLevel: VerificationLevel;
-    defaultMessageNotifications: DefaultMessageNotifications;
-    explicitContentFilter: ExplicitContentFilter;
-    roleData: RoleData[];
-    emojiData: EmojiData[];
-    features: Feature[];
-    mfaLevel: MFALevel;
-    applicationID: string | null;
-    systemChannelID: string | null;
-    systemChannelFlags: number;
-    rulesChannelID: string | null;
-    maxPresences?: number | null;
-    maxMembers?: number | null;
-    vanityURLCode: string | null;
-    description: string | null;
-    banner: string | null;
-    premiumTier: PremiumTier;
-    premiumSubscriptionCount: number;
-    preferredLocale: string;
-    publicUpdatesChannelID: string | null;
-    maxVideoChannelUsers?: number;
-    approximateMemberCount?: number;
-    approximatePresenceCount?: number;
-    welcomeScreen: WelcomeScreenData | null;
-}
-
-export type VerificationLevel = typeof VERIFICATION_LEVEL_NONE | typeof VERIFICATION_LEVEL_LOW | typeof VERIFICATION_LEVEL_MEDIUM | typeof VERIFICATION_LEVEL_HIGH | typeof VERIFICATION_LEVEL_VERY_HIGH;
-export const VERIFICATION_LEVEL_NONE = 0;
-export const VERIFICATION_LEVEL_LOW = 1;
-export const VERIFICATION_LEVEL_MEDIUM = 2;
-export const VERIFICATION_LEVEL_HIGH = 3;
-export const VERIFICATION_LEVEL_VERY_HIGH = 4;
-
-export type DefaultMessageNotifications = typeof DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES | typeof DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS;
-export const DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES = 0;
-export const DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS = 1;
-
-export type ExplicitContentFilter = typeof EXPLICIT_CONTENT_FILTER_DISABLED | typeof EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES | typeof EXPLICIT_CONTENT_FILTER_ALL_MEMBERS;
-export const EXPLICIT_CONTENT_FILTER_DISABLED = 0;
-export const EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES = 1;
-export const EXPLICIT_CONTENT_FILTER_ALL_MEMBERS = 2;
-
-export type Feature = "INVITE_SPLASH" | "VIP_REGIONS" | "VANITY_URL" | "VERIFIED" | "PARTNERED" | "COMMUNITY" | "COMMERCE" | "NEWS" | "DISCOVERABLE" | "FEATURABLE" | "ANIMATED_ICON" | "BANNER" | "WELCOME_SCREEN_ENABLED" | "MEMBER_VERIFICATION_GATE_ENABLED" | "PREVIEW_ENABLED";
-
-export type MFALevel = typeof MFA_LEVEL_NONE | typeof MFA_LEVEL_ELEVATED;
-export const MFA_LEVEL_NONE = 0;
-export const MFA_LEVEL_ELEVATED = 1;
-
-export type PremiumTier = typeof PREMIUM_TIER_NONE | typeof PREMIUM_TIER_TIER_1 | typeof PREMIUM_TIER_TIER_2 | typeof PREMIUM_TIER_TIER_3;
-export const PREMIUM_TIER_NONE = 0;
-export const PREMIUM_TIER_TIER_1 = 1;
-export const PREMIUM_TIER_TIER_2 = 2;
-export const PREMIUM_TIER_TIER_3 = 3;
-
-export interface VoiceRegion {
-    id: string;
-    name: string;
-    vip: boolean;
-    optimal: boolean;
-    deprecated: boolean;
-    custom: boolean;
-}
-
+/**
+ * Guild Resolvable
+ *
+ * The types that can be resolved to a guild
+ */
 export type GuildResolvable = Guild | Ban | Emoji | GuildChannel | GuildWidget | Invite | Member | Role | Template | VanityInvite | Webhook | WelcomeScreen | string;
 
 export default class Guild extends Base<Guild> {

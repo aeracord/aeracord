@@ -1,11 +1,6 @@
-import { Client, CHANNEL_TYPE_DM, TextBasedChannelData } from "../../internal";
+import { Client, CHANNEL_TYPE_DM, DMChannelData } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import updateObject from "./updateObject";
-
-export interface DMChannelData extends TextBasedChannelData {
-    type: typeof CHANNEL_TYPE_DM;
-    recipient: string;
-}
 
 export default class DMChannel extends TextBasedChannel {
 

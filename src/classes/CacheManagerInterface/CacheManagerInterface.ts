@@ -5,13 +5,47 @@ import get, { GetFetch, GetResult } from "./get";
 import getItems from "./getItems";
 import uncache from "./uncache";
 
+/**
+ * Cache Manager Interface Data
+ *
+ * Data to create a `CacheManagerInterface`
+ */
 export interface CacheManagerInterfaceData<CachedObject extends Base<CachedObject>> {
+
+    /**
+     * Cache Manager
+     *
+     * The cache manager
+     */
     cacheManager: CacheManager<CachedObject>;
+
+    /**
+     * Match
+     *
+     * The function to use to check if an object is a valid match for the cache manager interface
+     */
     match?: MatchFunction<CachedObject>;
+
+    /**
+     * Fetch Object
+     *
+     * A function to fetch an object from the API
+     */
     fetchObject?: (id: string) => Promise<CachedObject>;
+
+    /**
+     * Fetch Object
+     *
+     * A function to get the IDs of objects that could be in cache
+     */
     getIDs?: () => string[];
 }
 
+/**
+ * Match Function
+ *
+ * A function used to check if an object is a valid match for the cache manager interface
+ */
 export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
 
 /**

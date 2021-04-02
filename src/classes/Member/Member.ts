@@ -1,20 +1,8 @@
-import { Base, Client, CreateGuildBanData, ModifyGuildMemberData, RawMemberData, RoleResolvable, UserData } from "../../internal";
+import { Base, Client, CreateGuildBanData, MemberData, ModifyGuildMemberData, RawMemberData, RoleResolvable, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
-
-export interface MemberData {
-    guildID: string;
-    nickname: string | null;
-    roles: string[];
-    muted: boolean;
-    deafened: boolean;
-    joinedAt: number;
-    premiumSince: number | null;
-    pending: boolean;
-    user: UserData;
-}
 
 export default class Member extends Base<Member> {
 

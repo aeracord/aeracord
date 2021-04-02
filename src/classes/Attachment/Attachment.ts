@@ -1,19 +1,6 @@
-import { Client, RawAttachmentData, RawAttachmentMetadata } from "../../internal";
+import { AttachmentData, Client, RawAttachmentData, RawAttachmentMetadata } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
-
-export interface AttachmentData {
-    id: string;
-    messageID: string;
-    channelID: string;
-    guildID?: string | null;
-    filename: string;
-    size: number;
-    url: string;
-    proxyURL: string;
-    width: number | null;
-    height: number | null;
-}
 
 export default class Attachment {
 

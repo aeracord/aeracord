@@ -1,4 +1,4 @@
-import { AttachmentData, Base, Client, EditMessageData, Embed, EmbedData, GetReactionsData, GuildChannelType, MemberData, RawMessageData, ReactionData, ReactionEmojiResolvable, StickerData, UserData, UserResolvable } from "../../internal";
+import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, EmbedData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, StickerData, UserData, UserResolvable } from "../../internal";
 import edit from "./edit";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
@@ -6,86 +6,11 @@ import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface MessageData {
-    id: string;
-    type: MessageType;
-    channelID: string;
-    guildID: string | null;
-    author: UserData | null;
-    webhook: MessageWebhook | null;
-    member: MemberData | null;
-    content: string;
-    timestamp: number;
-    editedTimestamp: number | null;
-    tts: boolean;
-    mentionEveryone: boolean;
-    mentions: MemberData[];
-    mentionedRoles: string[];
-    mentionedChannels: ChannelMention[];
-    attachments: AttachmentData[];
-    embeds: EmbedData[];
-    stickers: StickerData[];
-    reactions: ReactionData[];
-    pinned: boolean;
-    activity: MessageActivity | null;
-    application: MessageApplication | null;
-    messageReference: MessageReference | null;
-    flags: number;
-    referencedMessage?: MessageData | null;
-}
-
-export type MessageType = typeof MESSAGE_TYPE_DEFAULT | typeof MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE | typeof MESSAGE_TYPE_GUILD_MEMBER_JOIN | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3 | typeof MESSAGE_TYPE_CHANNEL_FOLLOW_ADD | typeof MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED | typeof MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED | typeof MESSAGE_TYPE_REPLY | typeof MESSAGE_TYPE_APPLICATION_COMMAND;
-export const MESSAGE_TYPE_DEFAULT = 0;
-export const MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE = 6;
-export const MESSAGE_TYPE_GUILD_MEMBER_JOIN = 7;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION = 8;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1 = 9;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2 = 10;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3 = 11;
-export const MESSAGE_TYPE_CHANNEL_FOLLOW_ADD = 12;
-export const MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED = 14;
-export const MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED = 15;
-export const MESSAGE_TYPE_REPLY = 19;
-export const MESSAGE_TYPE_APPLICATION_COMMAND = 20;
-
-export interface MessageWebhook {
-    id: string;
-    name: string;
-    avatar: string | null;
-}
-
-export interface ChannelMention {
-    id: string;
-    guildID: string;
-    type: GuildChannelType;
-    name: string;
-}
-
-export interface MessageActivity {
-    type: MessageActivityType;
-    partyID: string | null;
-}
-
-export type MessageActivityType = typeof MESSAGE_ACTIVITY_TYPE_JOIN | typeof MESSAGE_ACTIVITY_TYPE_SPECTATE | typeof MESSAGE_ACTIVITY_TYPE_LISTEN | typeof MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST;
-export const MESSAGE_ACTIVITY_TYPE_JOIN = 1;
-export const MESSAGE_ACTIVITY_TYPE_SPECTATE = 2;
-export const MESSAGE_ACTIVITY_TYPE_LISTEN = 3;
-export const MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST = 5;
-
-export interface MessageApplication {
-    id: string;
-    name: string;
-    description: string;
-    icon: string | null;
-    coverImage: string | null;
-}
-
-export interface MessageReference {
-    messageID: string | null;
-    channelID: string;
-    guildID: string | null;
-}
-
+/**
+ * Message Resolvable
+ *
+ * The types that can be resolved to a message
+ */
 export type MessageResolvable = Message | string;
 
 export default class Message extends Base<Message> {

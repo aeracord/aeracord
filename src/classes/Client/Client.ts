@@ -227,7 +227,7 @@ import getFetchQueue from "./getFetchQueue";
 /**
  * Client Data
  *
- * Data to initialize a `Client`
+ * Data to create a `Client`
  */
 export interface ClientData {
 

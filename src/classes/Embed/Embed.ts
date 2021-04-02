@@ -1,73 +1,7 @@
-import { Client, RawEmbedData, RawEmbedMetadata } from "../../internal";
+import { Client, EmbedAuthor, EmbedData, EmbedField, EmbedFooter, EmbedImage, EmbedProvider, EmbedThumbnail, EmbedType, EmbedVideo, RawEmbedData, RawEmbedMetadata } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import toJSON from "./toJSON";
-
-export interface EmbedData {
-    messageID: string;
-    channelID: string;
-    guildID?: string | null;
-    title: string | null;
-    type: EmbedType | null;
-    description: string | null;
-    url: string | null;
-    timestamp: number | null;
-    color: number | null;
-    footer: EmbedFooter | null;
-    image: EmbedImage | null;
-    thumbnail: EmbedThumbnail | null;
-    video: EmbedVideo | null;
-    provider: EmbedProvider | null;
-    author: EmbedAuthor | null;
-    fields: EmbedField[];
-}
-
-export type EmbedType = "rich" | "image" | "video" | "gifv" | "article" | "link";
-
-export interface EmbedFooter {
-    text: string;
-    iconURL: string | null;
-    proxyIconURL: string | null;
-}
-
-export interface EmbedImage {
-    url: string | null;
-    proxyURL: string | null;
-    width: number | null;
-    height: number | null;
-}
-
-export interface EmbedThumbnail {
-    url: string | null;
-    proxyURL: string | null;
-    width: number | null;
-    height: number | null;
-}
-
-export interface EmbedVideo {
-    url: string | null;
-    proxyURL: string | null;
-    width: number | null;
-    height: number | null;
-}
-
-export interface EmbedProvider {
-    name: string | null;
-    url: string | null;
-}
-
-export interface EmbedAuthor {
-    name: string | null;
-    url: string | null;
-    iconURL: string | null;
-    proxyIconURL: string | null;
-}
-
-export interface EmbedField {
-    name: string;
-    value: string;
-    inline: boolean;
-}
 
 export default class Embed {
 

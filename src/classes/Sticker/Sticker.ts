@@ -1,22 +1,6 @@
-import { Client, RawStickerData } from "../../internal";
+import { Client, RawStickerData, StickerData, StickerFormatType } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
-
-export interface StickerData {
-    id: string;
-    packID: string;
-    name: string;
-    description: string;
-    tags: string | null;
-    asset: string;
-    previewAsset: string | null;
-    formatType: StickerFormatType;
-}
-
-export type StickerFormatType = typeof STICKER_FORMAT_TYPE_PNG | typeof STICKER_FORMAT_TYPE_APNG | typeof STICKER_FORMAT_TYPE_LOTTIE;
-export const STICKER_FORMAT_TYPE_PNG = 1;
-export const STICKER_FORMAT_TYPE_APNG = 2;
-export const STICKER_FORMAT_TYPE_LOTTIE = 3;
 
 export default class Sticker {
 

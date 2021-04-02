@@ -1,34 +1,15 @@
-import { Base, Client, RawInviteData, UserData } from "../../internal";
+import { Base, Client, InviteData, RawInviteData, TargetUser, TargetUserType, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface InviteData {
-    code: string;
-    channelID: string;
-    guildID: string;
-    createdAt?: number;
-    inviter: UserData | null;
-    maxAge?: number;
-    maxUses?: number;
-    temporary?: boolean;
-    uses?: number;
-    targetUser: TargetUser | null;
-    targetUserType: TargetUserType | null;
-}
-
-export interface TargetUser {
-    id: string;
-    username: string;
-    discriminator: string;
-    avatar: string | null;
-}
-
-export type TargetUserType = typeof TARGET_USER_TYPE_STREAM;
-export const TARGET_USER_TYPE_STREAM = 1;
-
+/**
+ * Invite Resolvable
+ *
+ * The types that can be resolved to an invite
+ */
 export type InviteResolvable = Invite | string;
 
 export default class Invite extends Base<Invite> {

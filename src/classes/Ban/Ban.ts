@@ -1,14 +1,8 @@
-import { Base, Client, RawBanData, UserData } from "../../internal";
+import { BanData, Base, Client, RawBanData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
-
-export interface BanData {
-    guildID: string;
-    user: UserData;
-    reason: string | null;
-}
 
 export default class Ban extends Base<Ban> {
 

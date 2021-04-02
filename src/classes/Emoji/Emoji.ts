@@ -1,22 +1,15 @@
-import { Base, Client, ModifyGuildEmojiData, RawEmojiData, UserData } from "../../internal";
+import { Base, Client, EmojiData, ModifyGuildEmojiData, RawEmojiData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export interface EmojiData {
-    id: string;
-    name: string;
-    guildID: string;
-    animated: boolean;
-    managed: boolean;
-    available: boolean;
-    creator: UserData | null;
-    requiresColons: boolean;
-    roles: string[];
-}
-
+/**
+ * Emoji Resolvable
+ *
+ * The types that can be resolved to an emoji
+ */
 export type EmojiResolvable = Emoji | string;
 
 export default class Emoji extends Base<Emoji> {

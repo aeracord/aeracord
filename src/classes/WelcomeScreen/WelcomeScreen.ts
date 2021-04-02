@@ -1,21 +1,8 @@
-import { Base, Client, RawWelcomeScreenData } from "../../internal";
+import { Base, Client, RawWelcomeScreenData, WelcomeScreenChannel, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
-
-export interface WelcomeScreenData {
-    guildID: string;
-    description: string | null;
-    channels: WelcomeScreenChannel[];
-}
-
-export interface WelcomeScreenChannel {
-    channelID: string;
-    description: string;
-    emojiID: string | null;
-    emojiName: string | null;
-}
 
 export default class WelcomeScreen extends Base<WelcomeScreen> {
 

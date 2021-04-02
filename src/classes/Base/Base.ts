@@ -1,8 +1,33 @@
 import { CacheManager, Client } from "../../internal";
 
+/**
+ * Base Data
+ *
+ * Data to create a `Base`
+ */
 export interface BaseData<ObjectType extends Base<ObjectType>> {
+
+    /**
+     * ID
+     *
+     * The ID of the object
+     */
     id: string;
+
+    /**
+     * Cache Manager
+     *
+     * The cache manager for the object that extends this `Base`
+     */
     cacheManager: CacheManager<ObjectType>;
+
+    /**
+     * Expires From Cache At
+     *
+     * The timestamp for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` if it should be based on `cacheManager.cacheFor`
+     */
     expiresFromCacheAt?: number | null;
 }
 

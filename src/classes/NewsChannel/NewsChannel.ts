@@ -1,15 +1,8 @@
-import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, GuildChannelData, Invite, InviteData, Message, MessageData, MessageResolvable, TextBasedChannelData, Webhook, WebhookData } from "../../internal";
+import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, InviteData, Message, MessageData, MessageResolvable, NewsChannelData, Webhook, WebhookData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
 import updateObject from "./updateObject";
-
-export interface NewsChannelData extends GuildChannelData, TextBasedChannelData {
-    type: typeof CHANNEL_TYPE_NEWS;
-    topic: string | null;
-    nsfw: boolean;
-    rateLimitPerUser: number | null;
-}
 
 interface NewsChannel extends TextBasedChannel {
 

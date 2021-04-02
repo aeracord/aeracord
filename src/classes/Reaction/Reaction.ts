@@ -1,23 +1,13 @@
-import { Client, Emoji, RawReactionData, RawReactionMetadata } from "../../internal";
+import { Client, Emoji, RawReactionData, RawReactionMetadata, ReactionData, ReactionEmoji } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveString from "./resolveString";
 
-export interface ReactionData {
-    messageID: string;
-    channelID: string;
-    guildID?: string | null;
-    count: number;
-    me: boolean;
-    emoji: ReactionEmoji;
-}
-
-export interface ReactionEmoji {
-    id: string | null;
-    name: string | null;
-    animated: boolean;
-}
-
+/**
+ * Reaction Emoji Resolvable
+ *
+ * The types that can be resolved to a reaction emoji
+ */
 export type ReactionEmojiResolvable = Reaction | Emoji | string;
 
 export default class Reaction {

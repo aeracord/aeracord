@@ -1,21 +1,6 @@
-import { Client, MemberData, RawVoiceStateData } from "../../internal";
+import { Client, MemberData, RawVoiceStateData, VoiceStateData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
-
-export interface VoiceStateData {
-    guildID: string;
-    channelID: string;
-    userID: string;
-    member: MemberData;
-    sessionID: string;
-    muted: boolean;
-    deafened: boolean;
-    selfMuted: boolean;
-    selfDeafened: boolean;
-    selfStream: boolean;
-    selfVideo: boolean;
-    suppress: boolean;
-}
 
 export default class VoiceState {
 

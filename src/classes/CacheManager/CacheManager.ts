@@ -2,9 +2,34 @@ import { Base, CacheStrategyData, Client, ParsedCacheStrategy } from "../../inte
 import filter from "./filter";
 import parseCacheStrategy from "./parseCacheStrategy";
 
+/**
+ * Cache Manager Data
+ *
+ * Data to create a `CacheManager`
+ */
 export interface CacheManagerData {
+
+    /**
+     * Cache For
+     *
+     * The amount of time in milliseconds to keep objects cached
+     * `undefined` if objects should never expire from cache
+     */
     cacheFor?: number;
+
+    /**
+     * Garbage Collection Interval
+     *
+     * The interval in milliseconds for garbage collecting cached objects
+     * `undefined` if objects should never be garbage collected
+     */
     garbageCollectionInterval?: number;
+
+    /**
+     * Cache All
+     *
+     * Whether or not to cache all objects
+     */
     cacheAll?: boolean;
 }
 

@@ -2,16 +2,68 @@ import { Client, RateLimit } from "../../internal";
 import processRequests from "./processRequests";
 import request, { RequestOptions } from "./request";
 
+/**
+ * Fetch Queue Data
+ *
+ * Represents a `FetchQueue`
+ */
 export interface FetchQueueData {
+
+    /**
+     * Route
+     *
+     * The route for requests
+     */
     route: string;
 }
 
+/**
+ * Request
+ *
+ * A request in the fetch queue
+ */
 export interface Request {
+
+    /**
+     * Path
+     *
+     * The request's path
+     */
     path: string;
+
+    /**
+     * Method
+     *
+     * The request's method
+     */
     method: string;
+
+    /**
+     * Content Type
+     *
+     * The request's `Content-Type` header
+     */
     contentType?: string;
+
+    /**
+     * Data
+     *
+     * The request's body
+     */
     data?: object;
+
+    /**
+     * Resolve
+     *
+     * The method to resolve the promise
+     */
     resolve: Function;
+
+    /**
+     * Reject
+     *
+     * The method to reject the promise
+     */
     reject: Function;
 }
 
