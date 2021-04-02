@@ -46,6 +46,14 @@ export interface CacheStrategy<CacheStrategyInitialCacheType extends InitialCach
     cacheFor?: number | null;
 
     /**
+     * Cache Deleted For
+     *
+     * The amount of time in milliseconds to keep the object cached after its been deleted
+     * `null` if the object should never expire from cache
+     */
+    cacheDeletedFor?: number | null;
+
+    /**
      * Garbage Collection Interval
      *
      * The interval in milliseconds for garbage collecting cached objects

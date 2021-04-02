@@ -2,6 +2,9 @@ import { Member, MemberData } from "../../internal";
 
 export default function updateObject(member: Member, memberData: MemberData) {
 
+    // Unmark as deleted
+    if (member.deleted) member._unmarkAsDeleted();
+
     // Set data
     member.guildID = memberData.guildID;
     member.nickname = memberData.nickname;

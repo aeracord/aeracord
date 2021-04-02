@@ -2,6 +2,9 @@ import { Guild, GuildData } from "../../internal";
 
 export default function updateObject(guild: Guild, guildData: GuildData) {
 
+    // Unmark as deleted
+    if (guild.deleted) guild._unmarkAsDeleted();
+
     // Set data
     guild.name = guildData.name;
     guild.icon = guildData.icon;

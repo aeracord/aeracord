@@ -2,6 +2,9 @@ import { Template, TemplateData } from "../../internal";
 
 export default function updateObject(template: Template, templateData: TemplateData) {
 
+    // Unmark as deleted
+    if (template.deleted) template._unmarkAsDeleted();
+
     // Set data
     template.name = templateData.name;
     template.description = templateData.description;

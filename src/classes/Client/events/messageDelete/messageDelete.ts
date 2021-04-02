@@ -12,8 +12,8 @@ export default function messageDelete(client: Client, rawData: RawMessageDeleteD
     // Get message
     const message: Message | undefined = client.messages.get(data.id);
 
-    // Remove from cache
-    if (message) message.uncache();
+    // Mark as deleted
+    if (message) message._markAsDeleted();
 
     // Emit event
     client.emit("messageDelete", data, {

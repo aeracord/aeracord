@@ -1,4 +1,6 @@
 import { CacheManager, Client } from "../../internal";
+import markAsDeleted from "./markAsDeleted";
+import unmarkAsDeleted from "./unmarkAsDeleted";
 
 /**
  * Base Data
@@ -13,6 +15,13 @@ export interface BaseData<ObjectType extends Base<ObjectType>> {
      * The ID of the object
      */
     id: string;
+
+    /**
+     * Deleted
+     *
+     * Whether or not the object is deleted
+     */
+    deleted?: boolean;
 
     /**
      * Cache Manager
@@ -48,6 +57,13 @@ export default class Base<ObjectType extends Base<ObjectType>> {
     id: string;
 
     /**
+     * Deleted
+     *
+     * Whether or not the object is deleted
+     */
+    deleted: boolean;
+
+    /**
      * Cache Manager
      *
      * The cache manager for the object that extends this `Base`
@@ -76,9 +92,10 @@ export default class Base<ObjectType extends Base<ObjectType>> {
         // Set data
         this.client = client;
         this.id = baseData.id;
+        this.deleted = Boolean(baseData.deleted);
         this._cacheManager = baseData.cacheManager;
         if (typeof baseData.expiresFromCacheAt === "number") this.expiresFromCacheAt = baseData.expiresFromCacheAt;
-        else if ((baseData.expiresFromCacheAt === undefined) && (this._cacheManager.cacheFor !== undefined)) this.expiresFromCacheAt = Date.now() + this._cacheManager.cacheFor;
+        else if (baseData.expiresFromCacheAt === undefined) this.expireFromCacheIn(this._cacheManager.cacheFor);
     }
 
     /**
@@ -91,6 +108,24 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      */
     expireFromCacheIn(amount?: number) {
         this.expiresFromCacheAt = amount !== undefined ? Date.now() + amount : undefined;
+    }
+
+    /**
+     * Mark as Delete
+     *
+     * Mark this object as deleted
+     */
+    _markAsDeleted() {
+        markAsDeleted<ObjectType>(this);
+    }
+
+    /**
+     * Unmark as Delete
+     *
+     * Unmark this object as deleted
+     */
+    _unmarkAsDeleted() {
+        unmarkAsDeleted<ObjectType>(this);
     }
 
     /**

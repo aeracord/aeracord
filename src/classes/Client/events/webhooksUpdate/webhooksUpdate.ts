@@ -1,4 +1,4 @@
-import { Client, RawWebhooksUpdateData, WebhooksUpdateData, WebhookData } from "../../../../internal";
+import { Client, RawWebhooksUpdateData, Webhook, WebhooksUpdateData, WebhookData } from "../../../../internal";
 
 export default async function webhooksUpdate(client: Client, rawData: RawWebhooksUpdateData) {
 
@@ -11,6 +11,13 @@ export default async function webhooksUpdate(client: Client, rawData: RawWebhook
         channelID: rawData.channel_id,
         webhooks
     };
+
+    // Get webhook IDs
+    const webhookIDs: string[] = data.webhooks.map((w: WebhookData) => w.id);
+
+    // Mark as deleted
+    const deletedWebhooks: Webhook[] = [...client.webhooks.filter((w: Webhook) => w.guildID === data.guildID && !webhookIDs.includes(w.id)).values()];
+    deletedWebhooks.forEach((w: Webhook) => w._markAsDeleted());
 
     // Emit event
     client.emit("webhooksUpdate", data, {

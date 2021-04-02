@@ -2,6 +2,9 @@ import { Role, RoleData } from "../../internal";
 
 export default function updateObject(role: Role, roleData: RoleData) {
 
+    // Unmark as deleted
+    if (role.deleted) role._unmarkAsDeleted();
+
     // Set data
     role.name = roleData.name;
     role.guildID = roleData.guildID;

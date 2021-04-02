@@ -12,8 +12,8 @@ export default function inviteDelete(client: Client, rawData: RawInviteDeleteDat
     // Get invite
     const invite: Invite | undefined = client.invites.get(data.code);
 
-    // Remove from cache
-    if (invite) invite.uncache();
+    // Mark as deleted
+    if (invite) invite._markAsDeleted();
 
     // Emit event
     client.emit("inviteDelete", data, {

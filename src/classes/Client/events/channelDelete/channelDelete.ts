@@ -8,8 +8,8 @@ export default function channelDelete(client: Client, rawData: RawChannelData) {
     // Get channel
     const channel: AnyChannel | undefined = client.channels.get(channelData.id);
 
-    // Remove from cache
-    if (channel) channel.uncache();
+    // Mark as deleted
+    if (channel) channel._markAsDeleted();
 
     // Emit event
     client.emit("channelDelete", channelData, {

@@ -1,4 +1,4 @@
-import { Client, Emoji, Guild, GuildEmojisUpdateData, RawEmojiData, RawGuildEmojisUpdateData } from "../../../../internal";
+import { Client, Emoji, EmojiData, Guild, GuildEmojisUpdateData, RawEmojiData, RawGuildEmojisUpdateData } from "../../../../internal";
 
 export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmojisUpdateData) {
 
@@ -8,11 +8,18 @@ export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmoji
         emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e, rawData.guild_id))
     };
 
+    // Get emoji IDs
+    const emojiIDs: string[] = data.emojis.map((e: EmojiData) => e.id);
+
     // Get guild
     const guild: Guild | undefined = client.guilds.get(data.guildID);
 
     // Update emojis
     if (guild) guild.emojiData = data.emojis;
+
+    // Mark as deleted
+    const deletedEmojis: Emoji[] = [...client.emojis.filter((e: Emoji) => e.guildID === data.guildID && !emojiIDs.includes(e.id)).values()];
+    deletedEmojis.forEach((e: Emoji) => e._markAsDeleted());
 
     // Emit event
     client.emit("guildEmojisUpdate", data, {

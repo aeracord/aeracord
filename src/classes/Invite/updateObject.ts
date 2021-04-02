@@ -2,6 +2,9 @@ import { Invite, InviteData } from "../../internal";
 
 export default function updateObject(invite: Invite, inviteData: InviteData) {
 
+    // Unmark as deleted
+    if (invite.deleted) invite._unmarkAsDeleted();
+
     // Set data
     invite.channelID = inviteData.channelID;
     invite.guildID = inviteData.guildID;

@@ -2,6 +2,9 @@ import { Message, MessageData } from "../../internal";
 
 export default function updateObject(message: Message, messageData: MessageData) {
 
+    // Unmark as deleted
+    if (message.deleted) message._unmarkAsDeleted();
+
     // Set data
     message.type = messageData.type;
     message.channelID = messageData.channelID;

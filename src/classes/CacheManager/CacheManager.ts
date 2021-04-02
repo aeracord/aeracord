@@ -18,6 +18,14 @@ export interface CacheManagerData {
     cacheFor?: number;
 
     /**
+     * Cache Deleted For
+     *
+     * The amount of time in milliseconds to keep the object cached after its been deleted
+     * `null` if the object should never expire from cache
+     */
+    cacheDeletedFor?: number;
+
+    /**
      * Garbage Collection Interval
      *
      * The interval in milliseconds for garbage collecting cached objects
@@ -76,6 +84,14 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
     cacheFor?: number;
 
     /**
+     * Cache Deleted For
+     *
+     * The amount of time in milliseconds to keep the object cached after its been deleted
+     * `null` if the object should never expire from cache
+     */
+    cacheDeletedFor?: number;
+
+    /**
      * Garbage Collection Interval
      *
      * The interval in milliseconds for garbage collecting cached objects
@@ -96,6 +112,7 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      * @param client The client
      * @param cacheManagerData Options to initialize this cache manager with
      * @param cacheManagerData.cacheFor The amount of time in milliseconds to keep objects cached
+     * @param cacheManagerData.cacheDeletedFor The amount of time in milliseconds to keep the object cached after its been deleted
      * @param cacheManagerData.garbageCollectionInterval The interval in milliseconds for garbage collecting cached objects
      * @param cacheManagerData.cacheAll Whether or not to cache all objects
      */
@@ -105,6 +122,7 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
         this.client = client;
         this._cache = new Map();
         this.cacheFor = cacheManagerData.cacheFor;
+        this.cacheDeletedFor = cacheManagerData.cacheDeletedFor;
         this.garbageCollectionInterval = cacheManagerData.garbageCollectionInterval;
         this.cacheAll = Boolean(cacheManagerData.cacheAll);
 

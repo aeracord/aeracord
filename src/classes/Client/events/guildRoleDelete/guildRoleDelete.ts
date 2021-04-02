@@ -11,8 +11,8 @@ export default function guildRoleDelete(client: Client, rawData: RawGuildRoleDel
     // Get role
     const role: Role | undefined = client.roles.get(data.id);
 
-    // Remove from cache
-    if (role) role.uncache();
+    // Mark as deleted
+    if (role) role._markAsDeleted();
 
     // Emit event
     client.emit("guildRoleDelete", data, {

@@ -11,8 +11,8 @@ export default function guildMemberRemove(client: Client, rawData: RawGuildMembe
     // Get member
     const member: Member | undefined = client.members.get(data.guildID, data.user.id);
 
-    // Remove from cache
-    if (member) member.uncache();
+    // Mark as deleted
+    if (member) member._markAsDeleted();
 
     // Emit event
     client.emit("guildMemberRemove", data, {

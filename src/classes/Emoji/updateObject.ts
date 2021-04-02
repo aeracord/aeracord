@@ -2,6 +2,9 @@ import { Emoji, EmojiData } from "../../internal";
 
 export default function updateObject(emoji: Emoji, emojiData: EmojiData) {
 
+    // Unmark as deleted
+    if (emoji.deleted) emoji._unmarkAsDeleted();
+
     // Set data
     emoji.name = emojiData.name;
     emoji.guildID = emojiData.guildID;

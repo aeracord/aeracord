@@ -12,8 +12,8 @@ export default function messageDeleteBulk(client: Client, rawData: RawMessageDel
     // Get messages
     const messages: Message[] = data.ids.map((id: string) => client.messages.get(id)).filter((m: Message | undefined) => m) as Message[];
 
-    // Remove from cache
-    messages.forEach((m: Message) => m.uncache());
+    // Mark as deleted
+    messages.forEach((m: Message) => m._markAsDeleted());
 
     // Emit event
     client.emit("messageDeleteBulk", data, {

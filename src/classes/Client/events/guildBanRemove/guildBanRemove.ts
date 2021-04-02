@@ -11,8 +11,8 @@ export default function guildBanRemove(client: Client, rawData: RawGuildBanRemov
     // Get ban
     const ban: Ban | undefined = client.bans.get(data.guildID, data.user.id);
 
-    // Remove from cache
-    if (ban) ban.uncache();
+    // Mark as deleted
+    if (ban) ban._markAsDeleted();
 
     // Emit event
     client.emit("guildBanRemove", data, {
