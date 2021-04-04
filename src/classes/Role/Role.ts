@@ -1,4 +1,4 @@
-import { Base, Client, ModifyGuildRoleData, RawRoleData, RoleData, RoleTags, UserResolvable } from "../../internal";
+import { Base, Client, ModifyGuildRoleData, Permissions, RawRoleData, RoleData, RoleTags, UserResolvable } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -55,7 +55,7 @@ export default class Role extends Base<Role> {
      *
      * The role's permissions
      */
-    permissions: string;
+    permissions: Permissions;
 
     /**
      * Mentionable

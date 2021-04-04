@@ -1,4 +1,4 @@
-import { Client, RawRoleData, Role, RoleData } from "../../internal";
+import { Client, Permissions, RawRoleData, Role, RoleData } from "../../internal";
 
 export default function fromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
 
@@ -10,7 +10,7 @@ export default function fromRawData(client: Client, rawData: RawRoleData, guildI
         color: rawData.color,
         hoist: rawData.hoist,
         position: rawData.position,
-        permissions: rawData.permissions,
+        permissions: new Permissions(rawData.permissions),
         mentionable: rawData.mentionable,
         managed: rawData.managed,
         tags: {

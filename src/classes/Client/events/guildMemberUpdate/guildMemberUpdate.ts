@@ -25,6 +25,9 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
         member.pending = data.pending;
     }
 
+    // Set client roles
+    if ((data.user.id === client.id) && (client._clientRoles)) client._clientRoles.set(data.guildID, data.roles);
+
     // Emit event
     client.emit("guildMemberUpdate", data, {
         rawData,

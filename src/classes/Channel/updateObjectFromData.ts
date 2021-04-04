@@ -30,6 +30,9 @@ export default function updateObjectFromData(client: Client, channelData: AnyCha
         else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
     }
 
+    // Set channel permissions
+    if ((client._channelPermissions) && ("guildID" in channelData)) client._channelPermissions.set(channelData.id, channelData.permissionOverwrites);
+
     // Return
     return channel;
 }

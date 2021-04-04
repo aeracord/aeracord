@@ -1,4 +1,4 @@
-import { AnyChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, PermissionOverwrite, RawChannelData, RawUserData } from "../../internal";
+import { AnyChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, PermissionOverwrite, RawChannelData, RawChannelDataPermissionOverwrite, RawUserData } from "../../internal";
 
 export default function fromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
@@ -12,7 +12,12 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         name: rawData.name as string,
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
-        permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
+        permissionOverwrites: (rawData.permission_overwrites as RawChannelDataPermissionOverwrite[]).map((p: RawChannelDataPermissionOverwrite) => ({
+            id: p.id,
+            type: p.type,
+            allow: new Permissions(p.allow),
+            deny: new Permissions(p.deny)
+        })),
         parentID: rawData.parent_id,
         topic: rawData.topic,
         nsfw: rawData.nsfw,
@@ -37,7 +42,12 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         name: rawData.name as string,
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
-        permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
+        permissionOverwrites: (rawData.permission_overwrites as RawChannelDataPermissionOverwrite[]).map((p: RawChannelDataPermissionOverwrite) => ({
+            id: p.id,
+            type: p.type,
+            allow: new Permissions(p.allow),
+            deny: new Permissions(p.deny)
+        })),
         parentID: rawData.parent_id,
         bitrate: rawData.bitrate,
         userLimit: rawData.user_limit
@@ -50,7 +60,12 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         name: rawData.name as string,
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
-        permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
+        permissionOverwrites: (rawData.permission_overwrites as RawChannelDataPermissionOverwrite[]).map((p: RawChannelDataPermissionOverwrite) => ({
+            id: p.id,
+            type: p.type,
+            allow: new Permissions(p.allow),
+            deny: new Permissions(p.deny)
+        })),
         parentID: rawData.parent_id
     };
 
@@ -61,7 +76,12 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         name: rawData.name as string,
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
-        permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
+        permissionOverwrites: (rawData.permission_overwrites as RawChannelDataPermissionOverwrite[]).map((p: RawChannelDataPermissionOverwrite) => ({
+            id: p.id,
+            type: p.type,
+            allow: new Permissions(p.allow),
+            deny: new Permissions(p.deny)
+        })),
         parentID: rawData.parent_id,
         topic: rawData.topic,
         nsfw: rawData.nsfw,
@@ -77,7 +97,12 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         name: rawData.name as string,
         guildID: rawData.guild_id as string,
         position: rawData.position as number,
-        permissionOverwrites: rawData.permission_overwrites as PermissionOverwrite[],
+        permissionOverwrites: (rawData.permission_overwrites as RawChannelDataPermissionOverwrite[]).map((p: RawChannelDataPermissionOverwrite) => ({
+            id: p.id,
+            type: p.type,
+            allow: new Permissions(p.allow),
+            deny: new Permissions(p.deny)
+        })),
         parentID: rawData.parent_id
     };
 

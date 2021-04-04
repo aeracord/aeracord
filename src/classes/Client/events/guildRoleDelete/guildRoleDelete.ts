@@ -14,6 +14,15 @@ export default function guildRoleDelete(client: Client, rawData: RawGuildRoleDel
     // Mark as deleted
     if (role) role._markAsDeleted();
 
+    // Remove from guild roles
+    if (client._guildRoles) {
+        const guildRoles: string[] | undefined = client._guildRoles.get(data.guildID);
+        if ((guildRoles) && (guildRoles.includes(data.id))) guildRoles.splice(guildRoles.indexOf(data.id), 1);
+    }
+
+    // Remove from role permissions
+    if (client._rolePermissions) client._rolePermissions.delete(data.id);
+
     // Emit event
     client.emit("guildRoleDelete", data, {
         rawData,

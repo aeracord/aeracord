@@ -315,6 +315,13 @@ export {
     PresenceUser
 } from "./internal";
 
+// Permissions
+export {
+    PermissionName,
+    Permissions,
+    PermissionsResolvable
+} from "./internal";
+
 // Reaction
 export {
     Reaction,

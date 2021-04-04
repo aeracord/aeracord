@@ -8,6 +8,12 @@ export default function updateObjectFromData(client: Client, roleData: RoleData)
     // Update role object
     if (role) Role._updateObject(role, roleData);
 
+    // Set role permissions
+    if (client._rolePermissions) client._rolePermissions.set(roleData.id, {
+        position: roleData.position,
+        permissions: roleData.permissions
+    });
+
     // Return
     return role;
 }

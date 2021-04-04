@@ -101,6 +101,9 @@ import {
     ModifyGuildWidgetData,
     ModifyWebhookData,
     PartialGuild,
+    Permissions,
+    PermissionsResolvable,
+    PermissionOverwrite,
     Presence,
     PresenceData,
     PresenceEventOptions,
@@ -223,6 +226,7 @@ import connect from "./connect";
 import fetch from "./fetch";
 import garbageCollect from "./garbageCollect";
 import getFetchQueue from "./getFetchQueue";
+import hasPermission from "./hasPermission";
 
 /**
  * Client Data
@@ -376,6 +380,28 @@ export interface EventQueueEvent {
 export interface UnemittedReadyData {
     data: ReadyData;
     rawData: any;
+}
+
+/**
+ * Role Permission Data
+ *
+ * How the client should cache objects
+ */
+export interface RolePermissionData {
+
+    /**
+     * Position
+     *
+     * The role's position
+     */
+    position: number;
+
+    /**
+     * Permissions
+     *
+     * The role's permissions
+     */
+    permissions: Permissions;
 }
 
 /**
@@ -799,6 +825,41 @@ export default class Client extends EventEmitter {
     cacheStrategies: CacheStrategies;
 
     /**
+     * Guild Roles
+     *
+     * A map of guild IDs to an array of the guild's role IDs
+     */
+    _guildRoles?: Map<string, string[]>;
+
+    /**
+     * Guild Channels
+     *
+     * A map of guild IDs to an array of the guild's channel IDs
+     */
+    _guildChannels?: Map<string, string[]>;
+
+    /**
+     * Role Permissions
+     *
+     * A map of role IDs to their permission data
+     */
+    _rolePermissions?: Map<string, RolePermissionData>;
+
+    /**
+     * Channel Permissions
+     *
+     * A map of channel IDs to the permission overwrites in that channel
+     */
+    _channelPermissions?: Map<string, PermissionOverwrite[]>;
+
+    /**
+     * Client Roles
+     *
+     * A map of guild IDs to an array of the client's roles' IDs in that guild
+     */
+    _clientRoles?: Map<string, string[]>;
+
+    /**
      * Bans
      *
      * The internal cache of bans
@@ -1030,6 +1091,14 @@ export default class Client extends EventEmitter {
         this._presencesIntent = Boolean(clientData.presencesIntent);
         this._fetchQueues = new Map();
         this.cacheStrategies = clientData.cacheStrategies || {};
+        if (this.cacheStrategies.permissions === undefined) this.cacheStrategies.permissions = true;
+        if (this.cacheStrategies.permissions) {
+            this._guildRoles = new Map();
+            this._guildChannels = new Map();
+            this._rolePermissions = new Map();
+            this._channelPermissions = new Map();
+            this._clientRoles = new Map();
+        }
         this._bans = new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.bans));
         this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.channels));
         this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.emojis));
@@ -1133,6 +1202,21 @@ export default class Client extends EventEmitter {
      */
     _garbageCollect() {
         garbageCollect(this);
+    }
+
+    /**
+     * Has Permission
+     *
+     * Check if the client has a permission
+     *
+     * @param permission The permission
+     * @param guild The guild to check the permissions in
+     * @param channel The channel to check the permissions in
+     *
+     * @returns {boolean} Whether or not the client has the permission
+     */
+    hasPermission(permission: PermissionsResolvable, guild: GuildResolvable, channel?: ChannelResolvable): boolean {
+        return hasPermission(this, permission, guild, channel);
     }
 
     /**

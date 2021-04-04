@@ -1,4 +1,4 @@
-import { Channel, Client, Guild, GuildCreateData, Member, Presence, RawChannelData, RawGuildCreateData, RawMemberData, RawPresenceData, RawVoiceStateData, VoiceState } from "../../../../internal";
+import { AnyChannelData, Channel, Client, Guild, GuildCreateData, Member, MemberData, Presence, RawChannelData, RawGuildCreateData, RawMemberData, RawPresenceData, RawVoiceStateData, RoleData, VoiceState } from "../../../../internal";
 import ready from "../ready";
 import cacheInitialObjects from "./cacheInitialObjects";
 
@@ -18,6 +18,16 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
 
         presences: rawData.presences.map((p: RawPresenceData) => Presence._fromRawData(client, p))
     };
+
+    // Set guild roles
+    if (client._guildRoles) client._guildRoles.set(data.guild.id, data.guild.roleData.map((r: RoleData) => r.id));
+
+    // Set guild channels
+    if (client._guildChannels) client._guildChannels.set(data.guild.id, data.channels.map((c: AnyChannelData) => c.id));
+
+    // Set client roles
+    const clientMember: MemberData = data.members.find((m: MemberData) => m.user.id === client.id) as MemberData;
+    if (client._clientRoles) client._clientRoles.set(data.guild.id, clientMember.roles);
 
     // Initial guild create event
     if (client._uninitializedGuilds.has(data.guild.id)) {

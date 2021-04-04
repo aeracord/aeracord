@@ -1,4 +1,4 @@
-import { ChannelData, GuildChannelType } from "../../internal";
+import { ChannelData, GuildChannelType, Permissions } from "../../internal";
 
 /**
  * Guild Channel Data
@@ -76,14 +76,14 @@ export interface PermissionOverwrite {
      *
      * The allowed permissions
      */
-    allow: string;
+    allow: Permissions;
 
     /**
      * Deny
      *
      * The denied permissions
      */
-    deny: string;
+    deny: Permissions;
 }
 
 /**

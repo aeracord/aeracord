@@ -62,7 +62,8 @@ export {
     ClientActivityType,
     ClientData,
     ClientPresence,
-    ClientStatus
+    ClientStatus,
+    RolePermissionData
 } from "./classes/Client/Client";
 
 // Client: API Methods
@@ -251,6 +252,13 @@ export {
     default as NewsChannel
 } from "./classes/NewsChannel/NewsChannel";
 export * from "./classes/NewsChannel/NewsChannelData";
+
+// Permissions
+export {
+    default as Permissions,
+    PermissionName,
+    PermissionsResolvable
+} from "./classes/Permissions/Permissions";
 
 // Presence
 export {

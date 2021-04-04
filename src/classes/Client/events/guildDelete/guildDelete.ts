@@ -44,15 +44,15 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
         if (guild) guild._markAsDeleted();
 
         // Mark bans as deleted
-        const bans: Ban[] = [...client.bans.filter((e: Ban) => e.guildID === data.id).values()];
-        bans.forEach((e: Ban) => e._markAsDeleted());
+        const bans: Ban[] = [...client.bans.filter((b: Ban) => b.guildID === data.id).values()];
+        bans.forEach((b: Ban) => b._markAsDeleted());
 
         // Mark channels as deleted
-        const channels: AnyChannel[] = [...client.channels.filter((e: AnyChannel) => {
-            if ("guildID" in e) return e.guildID === data.id;
+        const channels: AnyChannel[] = [...client.channels.filter((c: AnyChannel) => {
+            if ("guildID" in c) return c.guildID === data.id;
             else return false;
         }).values()];
-        channels.forEach((e: AnyChannel) => e._markAsDeleted());
+        channels.forEach((c: AnyChannel) => c._markAsDeleted());
 
         // Mark emojis as deleted
         const emojis: Emoji[] = [...client.emojis.filter((e: Emoji) => e.guildID === data.id).values()];
@@ -63,36 +63,57 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
         if (guildWidget) guildWidget._markAsDeleted();
 
         // Mark invites as deleted
-        const invites: Invite[] = [...client.invites.filter((e: Invite) => e.guildID === data.id).values()];
-        invites.forEach((e: Invite) => e._markAsDeleted());
+        const invites: Invite[] = [...client.invites.filter((i: Invite) => i.guildID === data.id).values()];
+        invites.forEach((i: Invite) => i._markAsDeleted());
 
         // Mark members as deleted
-        const members: Member[] = [...client.members.filter((e: Member) => e.guildID === data.id).values()];
-        members.forEach((e: Member) => e._markAsDeleted());
+        const members: Member[] = [...client.members.filter((m: Member) => m.guildID === data.id).values()];
+        members.forEach((m: Member) => m._markAsDeleted());
 
         // Mark messages as deleted
-        const messages: Message[] = [...client.messages.filter((e: Message) => e.guildID === data.id).values()];
-        messages.forEach((e: Message) => e._markAsDeleted());
+        const messages: Message[] = [...client.messages.filter((m: Message) => m.guildID === data.id).values()];
+        messages.forEach((m: Message) => m._markAsDeleted());
 
         // Mark roles as deleted
-        const roles: Role[] = [...client.roles.filter((e: Role) => e.guildID === data.id).values()];
-        roles.forEach((e: Role) => e._markAsDeleted());
+        const roles: Role[] = [...client.roles.filter((r: Role) => r.guildID === data.id).values()];
+        roles.forEach((r: Role) => r._markAsDeleted());
 
         // Mark templates as deleted
-        const templates: Template[] = [...client.templates.filter((e: Template) => e.sourceGuildID === data.id).values()];
-        templates.forEach((e: Template) => e._markAsDeleted());
+        const templates: Template[] = [...client.templates.filter((t: Template) => t.sourceGuildID === data.id).values()];
+        templates.forEach((t: Template) => t._markAsDeleted());
 
         // Mark vanity invite as deleted
         const vanityInvite: VanityInvite | undefined = client.vanityInvites.get(data.id);
         if (vanityInvite) vanityInvite._markAsDeleted();
 
         // Mark webhooks as deleted
-        const webhooks: Webhook[] = [...client.webhooks.filter((e: Webhook) => e.guildID === data.id).values()];
-        webhooks.forEach((e: Webhook) => e._markAsDeleted());
+        const webhooks: Webhook[] = [...client.webhooks.filter((w: Webhook) => w.guildID === data.id).values()];
+        webhooks.forEach((w: Webhook) => w._markAsDeleted());
 
         // Mark welcome screen as deleted
         const welcomeScreen: WelcomeScreen | undefined = client.welcomeScreens.get(data.id);
         if (welcomeScreen) welcomeScreen._markAsDeleted();
+
+        // Remove from role permissions
+        if ((client._rolePermissions) && (client._guildRoles)) {
+            const guildRoles: string[] | undefined = client._guildRoles.get(data.id);
+            if (guildRoles) guildRoles.forEach((r: string) => client._rolePermissions?.delete(r));
+        }
+
+        // Remove from channel permissions
+        if ((client._channelPermissions) && (client._guildChannels)) {
+            const guildChannels: string[] | undefined = client._guildChannels.get(data.id);
+            if (guildChannels) guildChannels.forEach((c: string) => client._channelPermissions?.delete(c));
+        }
+
+        // Remove from guild roles
+        if (client._guildRoles) client._guildRoles.delete(data.id);
+
+        // Remove from guild channels
+        if (client._guildChannels) client._guildChannels.delete(data.id);
+
+        // Remove from client roles
+        if (client._clientRoles) client._clientRoles.delete(data.id);
 
         // Emit event
         client.emit("guildDelete", data, {

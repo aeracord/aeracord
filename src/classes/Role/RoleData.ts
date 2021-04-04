@@ -1,3 +1,5 @@
+import { Permissions } from "../../internal";
+
 /**
  * Role Data
  *
@@ -53,7 +55,7 @@ export interface RoleData {
      *
      * The role's permissions
      */
-    permissions: string;
+    permissions: Permissions;
 
     /**
      * Mentionable

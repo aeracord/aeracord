@@ -11,6 +11,15 @@ export default function channelDelete(client: Client, rawData: RawChannelData) {
     // Mark as deleted
     if (channel) channel._markAsDeleted();
 
+    // Remove from guild channels
+    if ((client._guildChannels) && ("guildID" in channelData)) {
+        const guildChannels: string[] | undefined = client._guildChannels.get(channelData.guildID);
+        if ((guildChannels) && (guildChannels.includes(channelData.id))) guildChannels.splice(guildChannels.indexOf(channelData.id), 1);
+    }
+
+    // Remove from channel permissions
+    if (client._channelPermissions) client._channelPermissions.delete(channelData.id);
+
     // Emit event
     client.emit("channelDelete", channelData, {
         rawData,

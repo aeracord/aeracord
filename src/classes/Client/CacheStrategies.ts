@@ -5,6 +5,7 @@
  */
 export interface CacheStrategies {
     objects?: ObjectCacheStrategies;
+    permissions?: boolean;
 }
 
 /**
