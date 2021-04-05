@@ -1,4 +1,4 @@
-import { ChannelPermissionData, Client, Permissions, PermissionsResolvable, PermissionOverwrite, PERMISSION_TYPE_ROLE, RolePermissionData } from "../../internal";
+import { ChannelPermissionData, Client, Permissions, PermissionsResolvable, PermissionOverwrite, RolePermissionData } from "../../internal";
 import checkPermission from "./checkPermission";
 
 export default function hasPermission(client: Client, permission: PermissionsResolvable, guildOrChannel: string): boolean {
@@ -35,8 +35,8 @@ export default function hasPermission(client: Client, permission: PermissionsRes
     // Get the permission overwrites of the channel
     let channelPermissionOverwrites: PermissionOverwrite[] | undefined = channelID ? (client._channelPermissions?.get(channelID) as ChannelPermissionData).permissionOverwrites : undefined;
 
-    // Filter out permission overwrite members that arent the client
-    channelPermissionOverwrites = channelPermissionOverwrites ? channelPermissionOverwrites.filter((p: PermissionOverwrite) => p.type === PERMISSION_TYPE_ROLE || p.id === client.id) : undefined;
+    // Filter out permission overwrite roles that the client doesnt have and permission overwrite members that arent the client
+    channelPermissionOverwrites = channelPermissionOverwrites ? channelPermissionOverwrites.filter((p: PermissionOverwrite) => clientRoles.includes(p.id) || p.id === client.id) : undefined;
 
     // If one of the roles have the admin permission, return `true`
     if (rolePermissions.some((r: RolePermissionData) => r.permissions.has("ADMINISTRATOR"))) return true;
