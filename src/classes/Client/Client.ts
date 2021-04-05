@@ -18,6 +18,7 @@ import {
     CacheStrategies,
     Channel,
     ChannelEventOptions,
+    ChannelPermissionData,
     ChannelPinsUpdateData,
     ChannelResolvable,
     CreateChannelInviteData,
@@ -101,9 +102,7 @@ import {
     ModifyGuildWidgetData,
     ModifyWebhookData,
     PartialGuild,
-    Permissions,
     PermissionsResolvable,
-    PermissionOverwrite,
     Presence,
     PresenceData,
     PresenceEventOptions,
@@ -115,6 +114,7 @@ import {
     Role,
     RoleData,
     RoleEventOptions,
+    RolePermissionData,
     RoleResolvable,
     READY_STATE_NONE,
     Status,
@@ -380,28 +380,6 @@ export interface EventQueueEvent {
 export interface UnemittedReadyData {
     data: ReadyData;
     rawData: any;
-}
-
-/**
- * Role Permission Data
- *
- * How the client should cache objects
- */
-export interface RolePermissionData {
-
-    /**
-     * Position
-     *
-     * The role's position
-     */
-    position: number;
-
-    /**
-     * Permissions
-     *
-     * The role's permissions
-     */
-    permissions: Permissions;
 }
 
 /**
@@ -848,9 +826,9 @@ export default class Client extends EventEmitter {
     /**
      * Channel Permissions
      *
-     * A map of channel IDs to the permission overwrites in that channel
+     * A map of channel IDs to their permission data
      */
-    _channelPermissions?: Map<string, PermissionOverwrite[]>;
+    _channelPermissions?: Map<string, ChannelPermissionData>;
 
     /**
      * Client Roles
@@ -1210,13 +1188,12 @@ export default class Client extends EventEmitter {
      * Check if the client has a permission
      *
      * @param permission The permission
-     * @param guild The guild to check the permissions in
-     * @param channel The channel to check the permissions in
+     * @param guildOrChannel The guild or channel to check the permissions in
      *
      * @returns {boolean} Whether or not the client has the permission
      */
-    hasPermission(permission: PermissionsResolvable, guild: GuildResolvable, channel?: ChannelResolvable): boolean {
-        return hasPermission(this, permission, guild, channel);
+    hasPermission(permission: PermissionsResolvable, guildOrChannel: string): boolean {
+        return hasPermission(this, permission, guildOrChannel);
     }
 
     /**

@@ -1,41 +1,39 @@
-import { Channel, ChannelResolvable, Client, Guild, GuildResolvable, Permissions, PermissionsResolvable, PermissionOverwrite, PERMISSION_TYPE_ROLE, RolePermissionData } from "../../internal";
+import { ChannelPermissionData, Client, Permissions, PermissionsResolvable, PermissionOverwrite, PERMISSION_TYPE_ROLE, RolePermissionData } from "../../internal";
 import checkPermission from "./checkPermission";
 
-export default function hasPermission(client: Client, permission: PermissionsResolvable, guild: GuildResolvable, channel?: ChannelResolvable): boolean {
+export default function hasPermission(client: Client, permission: PermissionsResolvable, guildOrChannel: string): boolean {
 
     // If permission caching isnt enabled, this method cant be used
     if (!client.cacheStrategies.permissions) throw new Error("Permission caching isn't enabled");
 
-    // Resolve objects
-    const guildID: string | undefined = Guild.resolveID(guild);
-    if (!guildID) throw new Error("Invalid guild resolvable");
-    const channelID: string | undefined | null = channel ? Channel.resolveID(channel) : null;
-    if (channelID === undefined) throw new Error("Invalid channel resolvable");
+    // Define guild and channel IDs
+    let guildID: string;
+    let channelID: string | undefined;
+
+    // Check client roles cache for guild ID
+    if (client._clientRoles?.get(guildOrChannel)) guildID = guildOrChannel;
+    else {
+
+        const channelIDData: ChannelPermissionData | undefined = client._channelPermissions?.get(guildOrChannel);
+
+        // Check channel permissions cache for channel ID
+        if (channelIDData) {
+            channelID = guildOrChannel;
+            guildID = channelIDData.guildID;
+        }
+
+        // Invalid guild or channel ID
+        else throw new Error("Invalid guild or channel ID");
+    }
 
     // Get the client's roles in the guild
-    const clientRoles: string[] | undefined = client._clientRoles?.get(guildID);
-
-    // If the roles cant be found, the bot isnt in the guild
-    if (!clientRoles) throw new Error("Unknown guild");
+    const clientRoles: string[] = client._clientRoles?.get(guildID) as string[];
 
     // Get the permissions of the roles the client has
     const rolePermissions: RolePermissionData[] = clientRoles.map((r: string) => client._rolePermissions?.get(r)) as RolePermissionData[];
 
     // Get the permission overwrites of the channel
-    let channelPermissionOverwrites: PermissionOverwrite[] | undefined | null = channelID ? client._channelPermissions?.get(channelID) : null;
-    if (
-
-        // If theres a channel ID
-        channelID &&
-        (
-
-            // If the permission overwrites cant be found, the channel doesnt exist
-            channelPermissionOverwrites === undefined ||
-
-            // Or if the channel isnt in the guild
-            !client._guildChannels?.get(guildID)?.includes(channelID)
-        )
-    ) throw new Error("Unknown channel");
+    let channelPermissionOverwrites: PermissionOverwrite[] | undefined = channelID ? (client._channelPermissions?.get(channelID) as ChannelPermissionData).permissionOverwrites : undefined;
 
     // Filter out permission overwrite members that arent the client
     channelPermissionOverwrites = channelPermissionOverwrites ? channelPermissionOverwrites.filter((p: PermissionOverwrite) => p.type === PERMISSION_TYPE_ROLE || p.id === client.id) : undefined;

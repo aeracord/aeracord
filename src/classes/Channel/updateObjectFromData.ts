@@ -31,7 +31,10 @@ export default function updateObjectFromData(client: Client, channelData: AnyCha
     }
 
     // Set channel permissions
-    if ((client._channelPermissions) && ("guildID" in channelData)) client._channelPermissions.set(channelData.id, channelData.permissionOverwrites);
+    if ((client._channelPermissions) && ("guildID" in channelData)) client._channelPermissions.set(channelData.id, {
+        guildID: channelData.guildID,
+        permissionOverwrites: channelData.permissionOverwrites
+    });
 
     // Return
     return channel;

@@ -62,8 +62,7 @@ export {
     ClientActivityType,
     ClientData,
     ClientPresence,
-    ClientStatus,
-    RolePermissionData
+    ClientStatus
 } from "./classes/Client/Client";
 
 // Client: API Methods
@@ -159,6 +158,9 @@ export * from "./classes/Client/events/webhooksUpdate/WebhooksUpdateData";
 
 // Client: Methods
 export * from "./classes/Client/fetch";
+
+// Client: Permission Data
+export * from "./classes/Client/PermissionData";
 
 // Client: Ready State
 export * from "./classes/Client/ReadyState";
