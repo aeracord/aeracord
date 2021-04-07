@@ -22,6 +22,9 @@ export default async function createGuildChannel(client: Client, guildResolvable
     const parentID: string | undefined | null = createGuildChannelData.parent ? Channel.resolveID(createGuildChannelData.parent) : null;
     if (parentID === undefined) throw new Error("Invalid channel resolvable for parent");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", guildID))) throw new Error("Missing manage channels permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/channels`;
     const method: string = "POST";

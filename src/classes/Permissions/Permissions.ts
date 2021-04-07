@@ -1,3 +1,4 @@
+import getAll from "./getAll";
 import has from "./has";
 import resolveBits from "./resolveBits";
 
@@ -73,6 +74,17 @@ export default class Permissions {
      */
     has(permissions: PermissionsResolvable): boolean {
         return has(this, permissions);
+    }
+
+    /**
+     * Get All
+     *
+     * Get the permissions as an array of permission bits
+     *
+     * @returns {bigint[]} The permission bits
+     */
+    getAll(): Array<bigint> {
+        return getAll(this);
     }
 
     /**

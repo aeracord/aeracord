@@ -24,6 +24,12 @@ export default async function modifyChannel(client: Client, channelResolvable: C
     const parentID: string | undefined | null = modifyChannelData.parent ? Channel.resolveID(modifyChannelData.parent) : null;
     if (parentID === undefined) throw new Error("Invalid channel resolvable for parent");
 
+    // Missing permissions
+    if (client._cacheStrategies.permissions.enabled) {
+        if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new Error("Missing manage channels permissions");
+        if ((modifyChannelData.permissionOverwrites) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new Error("Missing manage roles permissions");
+    }
+
     // Define fetch data
     const path: string = `/channels/${channelID}`;
     const method: string = "PATCH";

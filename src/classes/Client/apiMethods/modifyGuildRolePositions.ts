@@ -22,6 +22,15 @@ export default async function modifyGuildRolePositions(client: Client, guildReso
     }));
     if (positions.find((p: PositionsData) => !p.id)) throw new Error("Invalid role resolvable in array of role positions");
 
+    // Missing permissions
+    if (
+        client._cacheStrategies.permissions.enabled &&
+        (
+            !client.hasPermission("MANAGE_ROLES", guildID) ||
+            !client.canManageRoles(guildID, positions.map((p: PositionsData) => p.id) as string[])
+        )
+    ) throw new Error("Missing permissions to manage the roles");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/roles`;
     const method: string = "PATCH";

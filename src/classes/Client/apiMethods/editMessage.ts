@@ -20,6 +20,9 @@ export default async function editMessage(client: Client, channelResolvable: Cha
     const allowedMentionsRoles: Array<string | undefined> | undefined = editMessageData.allowedMentions?.roles?.map((r: RoleResolvable) => Role.resolveID(r));
     if (allowedMentionsRoles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed mentions roles");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (editMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new Error("Missing embed links permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}`;
     const method: string = "PATCH";

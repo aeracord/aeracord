@@ -199,6 +199,6 @@ export default class Invite extends Base<Invite> {
      * @returns {Promise<InviteData>} The deleted invite's data
      */
     delete(): Promise<InviteData> {
-        return this.client.deleteInvite(this);
+        return this.client.deleteInvite(this.channelID, this);
     }
 }

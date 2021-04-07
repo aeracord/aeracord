@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelPermissionData, ChannelResolvable, Client, FetchQueue, Permissions, PermissionOverwrite, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function deleteChannelPermission(client: Client, channelResolvable: ChannelResolvable, roleOrUserResolvable: RoleResolvable | UserResolvable): Promise<void> {
@@ -8,6 +8,22 @@ export default async function deleteChannelPermission(client: Client, channelRes
     if (!channelID) throw new Error("Invalid channel resolvable");
     const roleOrUserID: string | undefined = roleOrUserResolvable instanceof Role ? Role.resolveID(roleOrUserResolvable) : User.resolveID(roleOrUserResolvable);
     if (!roleOrUserID) throw new Error("Invalid role or user resolvable");
+
+    // Missing permissions
+    if (client._cacheStrategies.permissions.enabled) {
+
+        // Get channel permission data
+        const channelPermissionData: ChannelPermissionData = client._channelPermissions?.get(channelID) as ChannelPermissionData;
+        const permissionOverwrite: PermissionOverwrite | undefined = channelPermissionData.permissionOverwrites.find((p: PermissionOverwrite) => p.id === roleOrUserID);
+
+        // Missing permissions
+        if (!client.hasPermission(
+            permissionOverwrite ?
+                ["MANAGE_ROLES", ...(new Permissions(permissionOverwrite.allow).getAll()), ...(new Permissions(permissionOverwrite.deny).getAll())] :
+                ["MANAGE_ROLES"],
+            channelID
+        )) throw new Error("Missing permissions to delete this channel permission");
+    }
 
     // Define fetch data
     const path: string = `/channels/${channelID}/permissions/${roleOrUserID}`;

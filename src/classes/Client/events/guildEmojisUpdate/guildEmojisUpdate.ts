@@ -21,6 +21,22 @@ export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmoji
     const deletedEmojis: Emoji[] = [...client.emojis.filter((e: Emoji) => e.guildID === data.guildID && !emojiIDs.includes(e.id)).values()];
     deletedEmojis.forEach((e: Emoji) => e._markAsDeleted());
 
+    // Remove emoji guilds
+    if (client._emojiGuilds) {
+
+        // Get guild emojis
+        const guildEmojis: string[] | undefined = client._guildEmojis?.get(data.guildID);
+
+        // Remove emoji guilds
+        if (guildEmojis) guildEmojis.forEach((e: string) => client._emojiGuilds?.delete(e));
+    }
+
+    // Set emoji guilds
+    if (client._emojiGuilds) emojiIDs.forEach((e: string) => client._emojiGuilds?.set(e, data.guildID));
+
+    // Set guild emojis
+    if (client._guildEmojis) client._guildEmojis.set(data.guildID, emojiIDs);
+
     // Emit event
     client.emit("guildEmojisUpdate", data, {
         rawData,

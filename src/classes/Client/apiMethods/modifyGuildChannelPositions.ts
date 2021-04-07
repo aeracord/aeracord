@@ -22,6 +22,9 @@ export default async function modifyGuildChannelPositions(client: Client, guildR
     }));
     if (positions.find((p: PositionsData) => !p.id)) throw new Error("Invalid channel resolvable in array of channel positions");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", guildID))) throw new Error("Missing manage channels permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/channels`;
     const method: string = "PATCH";

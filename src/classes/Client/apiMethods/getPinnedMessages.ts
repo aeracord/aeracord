@@ -7,6 +7,9 @@ export default async function getPinnedMessages(client: Client, channelResolvabl
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_CHANNEL", channelID))) throw new Error("Missing view channel permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/pins`;
     const method: string = "GET";

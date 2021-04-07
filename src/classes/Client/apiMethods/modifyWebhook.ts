@@ -7,13 +7,21 @@ export interface ModifyWebhookData {
     channel?: ChannelResolvable;
 }
 
-export default async function modifyWebhook(client: Client, webhookResolvable: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
+export default async function modifyWebhook(client: Client, channelResolvable: ChannelResolvable, webhookResolvable: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
 
     // Resolve objects
+    const channelID: string | undefined = Channel.resolveID(channelResolvable);
+    if (!channelID) throw new Error("Invalid channel resolvable");
     const webhookID: string | undefined = Webhook.resolveID(webhookResolvable);
     if (!webhookID) throw new Error("Invalid webhook resolvable");
-    const channelID: string | undefined | null = modifyWebhookData.channel ? Channel.resolveID(modifyWebhookData.channel) : null;
-    if (channelID === undefined) throw new Error("Invalid channel resolvable for webhook channel");
+    const targetChannelID: string | undefined | null = modifyWebhookData.channel ? Channel.resolveID(modifyWebhookData.channel) : null;
+    if (targetChannelID === undefined) throw new Error("Invalid channel resolvable for webhook channel");
+
+    // Missing permissions
+    if (client._cacheStrategies.permissions.enabled) {
+        if (!client.hasPermission("MANAGE_WEBHOOKS", channelID)) throw new Error("Missing manage webhooks permissions");
+        if ((targetChannelID) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannelID))) throw new Error("Missing manage webhooks permissions in the target channel");
+    }
 
     // Define fetch data
     const path: string = `/webhooks/${webhookID}`;
@@ -30,7 +38,7 @@ export default async function modifyWebhook(client: Client, webhookResolvable: W
         data: {
             name: modifyWebhookData.name,
             avatar: modifyWebhookData.avatar,
-            channel_id: channelID || undefined
+            channel_id: targetChannelID || undefined
         }
     });
 

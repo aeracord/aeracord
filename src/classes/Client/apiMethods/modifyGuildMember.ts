@@ -21,6 +21,16 @@ export default async function modifyGuildMember(client: Client, guildResolvable:
     const voiceChannelID: string | undefined | null = modifyGuildMemberData.voiceChannelID ? Channel.resolveID(modifyGuildMemberData.voiceChannelID) : null;
     if ((voiceChannelID === undefined) && (modifyGuildMemberData.voiceChannelID !== undefined)) throw new Error("Invalid channel resolvable for voice channel");
 
+    // Missing permissions
+    if (client._cacheStrategies.permissions.enabled) {
+        if ((userResolvable instanceof Member) && (!client.canManageMember(userResolvable))) throw new Error("Missing permissions to manage this member");
+        if ((modifyGuildMemberData.roles) && (!client.canManageRoles(guildID, modifyGuildMemberData.roles))) throw new Error("Missing permissions to manage the roles");
+        if ((modifyGuildMemberData.nickname !== undefined) && (!client.hasPermission("MANAGE_NICKNAMES", guildID))) throw new Error("Missing manage nicknames permissions");
+        if ((modifyGuildMemberData.muted !== undefined) && (!client.hasPermission("MUTE_MEMBERS", guildID))) throw new Error("Missing mute members permissions");
+        if ((modifyGuildMemberData.deafened !== undefined) && (!client.hasPermission("DEAFEN_MEMBERS", guildID))) throw new Error("Missing deafen members permissions");
+        if ((modifyGuildMemberData.voiceChannelID !== undefined) && (!client.hasPermission("MOVE_MEMBERS", guildID))) throw new Error("Missing move members permissions");
+    }
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/${userID}`;
     const method: string = "PATCH";

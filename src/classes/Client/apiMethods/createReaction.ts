@@ -11,6 +11,25 @@ export default async function createReaction(client: Client, channelResolvable: 
     const reactionEmoji: string | undefined = Reaction.resolveString(reactionEmojiResolvable);
     if (!reactionEmoji) throw new Error("Invalid reaction emoji resolvable");
 
+    // Missing permissions
+    if (client._cacheStrategies.permissions.enabled) {
+        if (!client.hasPermission("ADD_REACTIONS", channelID)) throw new Error("Missing add reactions permissions");
+        if (
+
+            // If external emoji permissions are cached
+            client._cacheStrategies.permissions.externalEmojis &&
+
+            // And the reaction emoji is a custom emoji
+            reactionEmoji.includes(":") &&
+
+            // And the emoji isnt in the guild
+            client._emojiGuilds?.get(reactionEmoji.split(":")[1]) !== client._channelPermissions?.get(channelID)?.guildID &&
+
+            // And the client doesnt have the use external emojis permissions
+            !client.hasPermission("USE_EXTERNAL_EMOJIS", channelID)
+        ) throw new Error("Missing use external emojis permissions");
+    }
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}/reactions/${encodeURIComponent(reactionEmoji)}/@me`;
     const method: string = "PUT";

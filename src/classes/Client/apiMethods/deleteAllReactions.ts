@@ -9,6 +9,9 @@ export default async function deleteAllReactions(client: Client, channelResolvab
     const messageID: string | undefined = Message.resolveID(messageResolvable);
     if (!messageID) throw new Error("Invalid message resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new Error("Missing manage messages permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}/reactions`;
     const method: string = "DELETE";

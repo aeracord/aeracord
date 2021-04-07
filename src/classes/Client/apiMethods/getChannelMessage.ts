@@ -9,6 +9,9 @@ export default async function getChannelMessage(client: Client, channelResolvabl
     const messageID: string | undefined = Message.resolveID(messageResolvable);
     if (!messageID) throw new Error("Invalid message resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("READ_MESSAGE_HISTORY", channelID))) throw new Error("Missing read message history permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}`;
     const method: string = "GET";

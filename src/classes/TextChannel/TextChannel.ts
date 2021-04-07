@@ -81,7 +81,7 @@ class TextChannel extends GuildChannel {
         this.webhooks = new CacheManagerInterface<Webhook>(this.client, {
             cacheManager: this.client._webhooks,
             match: (w: Webhook) => w.channelID === this.id,
-            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(id))
+            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(this, id))
         });
     }
 

@@ -14,6 +14,9 @@ export default async function modifyGuildWidget(client: Client, guildResolvable:
     const channelID: string | undefined | null = modifyGuildWidgetData.channel ? Channel.resolveID(modifyGuildWidgetData.channel) : null;
     if (channelID === undefined) throw new Error("Invalid channel resolvable for widget channel");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/widget`;
     const method: string = "PATCH";

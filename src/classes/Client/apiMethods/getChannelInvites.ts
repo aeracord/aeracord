@@ -7,6 +7,9 @@ export default async function getChannelInvites(client: Client, channelResolvabl
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", channelID))) throw new Error("Missing manage channels permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/invites`;
     const method: string = "GET";

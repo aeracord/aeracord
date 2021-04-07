@@ -35,6 +35,9 @@ export default async function modifyGuild(client: Client, guildResolvable: Guild
     const publicUpdatesChannelID: string | undefined | null = modifyGuildData.publicUpdatesChannel ? Channel.resolveID(modifyGuildData.publicUpdatesChannel) : null;
     if (publicUpdatesChannelID === undefined) throw new Error("Invalid channel resolvable for public updates channel");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}`;
     const method: string = "PATCH";

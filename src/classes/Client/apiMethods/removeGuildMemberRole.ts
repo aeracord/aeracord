@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, Member, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function removeGuildMemberRole(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, roleResolvable: RoleResolvable): Promise<void> {
@@ -10,6 +10,19 @@ export default async function removeGuildMemberRole(client: Client, guildResolva
     if (!userID) throw new Error("Invalid user resolvable");
     const roleID: string | undefined = Role.resolveID(roleResolvable);
     if (!roleID) throw new Error("Invalid role resolvable");
+
+    // Missing permissions
+    if (
+        client._cacheStrategies.permissions.enabled &&
+        (
+            !client.hasPermission("MANAGE_ROLES", guildID) ||
+            (
+                userResolvable instanceof Member &&
+                !client.canManageMember(userResolvable)
+            ) ||
+            !client.canManageRoles(guildID, roleID)
+        )
+    ) throw new Error("Missing permissions to manage this member or role");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/${userID}/roles/${roleID}`;

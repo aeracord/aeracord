@@ -408,8 +408,7 @@ export default class Guild extends Base<Guild> {
         });
         this.webhooks = new CacheManagerInterface<Webhook>(this.client, {
             cacheManager: this.client._webhooks,
-            match: (w: Webhook) => w.guildID === this.id,
-            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(id))
+            match: (w: Webhook) => w.guildID === this.id
         });
 
         // Cache guild

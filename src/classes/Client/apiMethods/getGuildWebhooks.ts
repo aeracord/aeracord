@@ -7,6 +7,9 @@ export default async function getGuildWebhooks(client: Client, guildResolvable: 
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", guildID))) throw new Error("Missing manage webhooks permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/webhooks`;
     const method: string = "GET";

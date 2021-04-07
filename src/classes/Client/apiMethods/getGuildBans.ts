@@ -7,6 +7,9 @@ export default async function getGuildBans(client: Client, guildResolvable: Guil
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
     if (!guildID) throw new Error("Invalid guild resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("BAN_MEMBERS", guildID))) throw new Error("Missing ban members permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/bans`;
     const method: string = "GET";

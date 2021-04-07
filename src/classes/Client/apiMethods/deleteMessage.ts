@@ -9,6 +9,9 @@ export default async function deleteMessage(client: Client, channelResolvable: C
     const messageID: string | undefined = Message.resolveID(messageResolvable);
     if (!messageID) throw new Error("Invalid message resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new Error("Missing manage messages permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}`;
     const method: string = "DELETE";

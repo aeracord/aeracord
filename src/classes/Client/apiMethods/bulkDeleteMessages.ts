@@ -13,6 +13,9 @@ export default async function bulkDeleteMessages(client: Client, channelResolvab
     const messages: Array<string | undefined> = bulkDeleteMessagesData.messages.map((m: MessageResolvable) => Message.resolveID(m));
     if (messages.find((m: string | undefined) => !m)) throw new Error("Invalid message resolvable in array of messages to bulk delete");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new Error("Missing manage messages permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/bulk-delete`;
     const method: string = "POST";

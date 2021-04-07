@@ -15,6 +15,9 @@ export default async function createGuildEmoji(client: Client, guildResolvable: 
     const roles: Array<string | undefined> | undefined = createGuildEmojiData.roles?.map((r: RoleResolvable) => Role.resolveID(r));
     if (roles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed roles");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_EMOJIS", guildID))) throw new Error("Missing manage emojis permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/emojis`;
     const method: string = "POST";

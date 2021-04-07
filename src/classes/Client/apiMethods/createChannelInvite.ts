@@ -18,6 +18,9 @@ export default async function createChannelInvite(client: Client, channelResolva
     const targetUser: string | undefined | null = createChannelInviteData.targetUser ? User.resolveID(createChannelInviteData.targetUser) : null;
     if (targetUser === undefined) throw new Error("Invalid user resolvable for target user");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("CREATE_INSTANT_INVITE", channelID))) throw new Error("Missing create instant invite permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/invites`;
     const method: string = "POST";

@@ -9,6 +9,9 @@ export default async function removeGuildBan(client: Client, guildResolvable: Gu
     const userID: string | undefined = User.resolveID(userResolvable);
     if (!userID) throw new Error("Invalid user resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("BAN_MEMBERS", guildID))) throw new Error("Missing ban members permissions");
+
     // Define fetch data
     const path: string = `/guilds/${guildID}/bans/${userID}`;
     const method: string = "DELETE";

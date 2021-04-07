@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, User, UserResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, Member, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function removeGuildMember(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable): Promise<void> {
@@ -8,6 +8,18 @@ export default async function removeGuildMember(client: Client, guildResolvable:
     if (!guildID) throw new Error("Invalid guild resolvable");
     const userID: string | undefined = User.resolveID(userResolvable);
     if (!userID) throw new Error("Invalid user resolvable");
+
+    // Missing permissions
+    if (
+        client._cacheStrategies.permissions.enabled &&
+        (
+            !client.hasPermission("KICK_MEMBERS", guildID) ||
+            (
+                userResolvable instanceof Member &&
+                !client.canManageMember(userResolvable)
+            )
+        )
+    ) throw new Error("Missing permissions to kick this member");
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/${userID}`;

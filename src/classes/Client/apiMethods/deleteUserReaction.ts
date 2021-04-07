@@ -13,6 +13,9 @@ export default async function deleteUserReaction(client: Client, channelResolvab
     const userID: string | undefined = User.resolveID(userResolvable);
     if (!userID) throw new Error("Invalid user resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new Error("Missing manage messages permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}/reactions/${encodeURIComponent(reactionEmoji)}/${userID}`;
     const method: string = "DELETE";

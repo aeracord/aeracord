@@ -12,6 +12,9 @@ export default async function createWebhook(client: Client, channelResolvable: C
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", channelID))) throw new Error("Missing manage webhooks permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/webhooks`;
     const method: string = "POST";

@@ -4,8 +4,8 @@
  * How the client should cache objects
  */
 export interface CacheStrategies {
-    objects?: ObjectCacheStrategies;
-    permissions?: boolean;
+    objects: ObjectCacheStrategies;
+    permissions: PermissionsCacheStrategies;
 }
 
 /**
@@ -157,4 +157,28 @@ export interface InitialCacheTypeMessages extends InitialCacheTypeChannels {
      * The amount of messages to fetch from channels
      */
     count?: number;
+}
+
+/**
+ * Permissions Cache Strategies
+ *
+ * How the client should cache permissions
+ */
+export interface PermissionsCacheStrategies {
+
+    /**
+     * Enabled
+     *
+     * Whether or not to cache permissions
+     * This needs to be `true` in order for other properties to take effect
+     */
+    enabled: boolean;
+
+    /**
+     * External Emojis
+     *
+     * Whether or not to cache a map of emoji IDs to guild IDs
+     * This is used to determine if an external emoji is about to be used without having permissions
+     */
+    externalEmojis: boolean;
 }

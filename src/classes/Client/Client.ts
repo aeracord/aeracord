@@ -21,6 +21,7 @@ import {
     ChannelPermissionData,
     ChannelPinsUpdateData,
     ChannelResolvable,
+    ClientCacheStrategyData,
     CreateChannelInviteData,
     CreateDMData,
     CreateGuildBanData,
@@ -222,6 +223,8 @@ import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
 import syncGuildTemplate from "./apiMethods/syncGuildTemplate";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
+import canManageMember from "./canManageMember";
+import canManageRoles from "./canManageRoles";
 import connect from "./connect";
 import fetch from "./fetch";
 import garbageCollect from "./garbageCollect";
@@ -268,7 +271,7 @@ export interface ClientData {
      *
      * How the client should cache objects
      */
-    cacheStrategies?: CacheStrategies;
+    cacheStrategies?: ClientCacheStrategyData;
 }
 
 /**
@@ -800,7 +803,14 @@ export default class Client extends EventEmitter {
      *
      * How objects should be cached
      */
-    cacheStrategies: CacheStrategies;
+    _cacheStrategies: CacheStrategies;
+
+    /**
+     * Guild Owners
+     *
+     * A map of guild IDs to the guild's owner's IDs
+     */
+    _guildOwners?: Map<string, string>;
 
     /**
      * Guild Roles
@@ -815,6 +825,13 @@ export default class Client extends EventEmitter {
      * A map of guild IDs to an array of the guild's channel IDs
      */
     _guildChannels?: Map<string, string[]>;
+
+    /**
+     * Guild Emojis
+     *
+     * A map of guild IDs to an array of the guild's emoji IDs
+     */
+    _guildEmojis?: Map<string, string[]>;
 
     /**
      * Role Permissions
@@ -836,6 +853,13 @@ export default class Client extends EventEmitter {
      * A map of guild IDs to an array of the client's roles' IDs in that guild
      */
     _clientRoles?: Map<string, string[]>;
+
+    /**
+     * Emoji Guilds
+     *
+     * A map of emoji IDs to the ID of the guild the emoji is in
+     */
+    _emojiGuilds?: Map<string, string>;
 
     /**
      * Bans
@@ -1031,7 +1055,7 @@ export default class Client extends EventEmitter {
      *
      * The cache of webhooks
      */
-    webhooks: CacheManagerInterface<Webhook>;
+    webhooks: CacheManagerInterface<Webhook, false>;
 
     /**
      * Welcome Screens
@@ -1068,30 +1092,42 @@ export default class Client extends EventEmitter {
         this._membersIntent = Boolean(clientData.membersIntent);
         this._presencesIntent = Boolean(clientData.presencesIntent);
         this._fetchQueues = new Map();
-        this.cacheStrategies = clientData.cacheStrategies || {};
-        if (this.cacheStrategies.permissions === undefined) this.cacheStrategies.permissions = true;
-        if (this.cacheStrategies.permissions) {
+        this._cacheStrategies = {
+            objects: clientData.cacheStrategies?.objects || {},
+            permissions: {
+                enabled: clientData.cacheStrategies?.permissions?.enabled === undefined ? true : clientData.cacheStrategies.permissions.enabled,
+                externalEmojis: Boolean(clientData.cacheStrategies?.permissions?.externalEmojis)
+            }
+        };
+        if (this._cacheStrategies.permissions.enabled === undefined) this._cacheStrategies.permissions.enabled = true;
+        this._cacheStrategies.permissions.externalEmojis = Boolean(this._cacheStrategies.permissions.externalEmojis);
+        if (this._cacheStrategies.permissions.enabled) {
+            this._guildOwners = new Map();
             this._guildRoles = new Map();
             this._guildChannels = new Map();
             this._rolePermissions = new Map();
             this._channelPermissions = new Map();
             this._clientRoles = new Map();
         }
-        this._bans = new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.bans));
-        this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.channels));
-        this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.emojis));
-        this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guilds));
-        this._guildWidgets = new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.guildWidgets));
-        this._invites = new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.invites));
-        this._members = new GuildUserCacheManager<Member>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.members));
-        this._messages = new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.messages));
-        this._presences = new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.presences));
-        this._roles = new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.roles));
-        this._templates = new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.templates));
-        this._vanityInvites = new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.vanityInvites));
-        this._webhooks = new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.webhooks));
-        this._welcomeScreens = new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.welcomeScreens));
-        this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this.cacheStrategies.objects?.users));
+        if (this._cacheStrategies.permissions.externalEmojis) {
+            this._guildEmojis = new Map();
+            this._emojiGuilds = new Map();
+        }
+        this._bans = new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans));
+        this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.channels));
+        this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.emojis));
+        this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guilds));
+        this._guildWidgets = new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guildWidgets));
+        this._invites = new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.invites));
+        this._members = new GuildUserCacheManager<Member>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.members));
+        this._messages = new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.messages));
+        this._presences = new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.presences));
+        this._roles = new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.roles));
+        this._templates = new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.templates));
+        this._vanityInvites = new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.vanityInvites));
+        this._webhooks = new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.webhooks));
+        this._welcomeScreens = new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.welcomeScreens));
+        this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.users));
         this.bans = new GuildUserCacheManagerInterface<Ban>(this, {
             cacheManager: this._bans._cacheManager,
             fetchObject: async (id: string): Promise<Ban> => Ban.fromData(this, await this.getGuildBan(id.split("_")[0], id.split("_")[1]))
@@ -1136,9 +1172,8 @@ export default class Client extends EventEmitter {
             cacheManager: this._vanityInvites,
             fetchObject: async (id: string): Promise<VanityInvite> => VanityInvite.fromData(this, await this.getGuildVanityURL(id))
         });
-        this.webhooks = new CacheManagerInterface<Webhook>(this, {
-            cacheManager: this._webhooks,
-            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this, await this.getWebhook(id))
+        this.webhooks = new CacheManagerInterface<Webhook, false>(this, {
+            cacheManager: this._webhooks
         });
         this.welcomeScreens = new CacheManagerInterface<WelcomeScreen>(this, {
             cacheManager: this._welcomeScreens,
@@ -1194,6 +1229,33 @@ export default class Client extends EventEmitter {
      */
     hasPermission(permission: PermissionsResolvable, guildOrChannel: string): boolean {
         return hasPermission(this, permission, guildOrChannel);
+    }
+
+    /**
+     * Can Manage Roles
+     *
+     * Check if the client has permissions to manage roles
+     *
+     * @param guild The guild the roles are in
+     * @param roles The roles
+     *
+     * @returns {boolean} Whether or not the client has permissions to manage the role
+     */
+    canManageRoles(guild: GuildResolvable, roles: RoleResolvable | RoleResolvable[]): boolean {
+        return canManageRoles(this, guild, roles);
+    }
+
+    /**
+     * Can Manage Member
+     *
+     * Check if the client has permissions to manage a member
+     *
+     * @param member The member
+     *
+     * @returns {boolean} Whether or not the client has permissions to manage the member
+     */
+    canManageMember(member: Member): boolean {
+        return canManageMember(this, member);
     }
 
     /**
@@ -1545,12 +1607,13 @@ export default class Client extends EventEmitter {
      *
      * Delete an invite
      *
+     * @param channel The channel to delete the invite in
      * @param invite The invite to delete
      *
      * @returns {Promise<InviteData>} The deleted invite's data
      */
-    deleteInvite(invite: InviteResolvable): Promise<InviteData> {
-        return deleteInvite(this, invite);
+    deleteInvite(channel: ChannelResolvable, invite: InviteResolvable): Promise<InviteData> {
+        return deleteInvite(this, channel, invite);
     }
 
     /**
@@ -1609,10 +1672,11 @@ export default class Client extends EventEmitter {
      *
      * Delete a webhook
      *
+     * @param channel The channel to delete the webhook in
      * @param webhook The webhook to delete
      */
-    deleteWebhook(webhook: WebhookResolvable): Promise<void> {
-        return deleteWebhook(this, webhook);
+    deleteWebhook(channel: ChannelResolvable, webhook: WebhookResolvable): Promise<void> {
+        return deleteWebhook(this, channel, webhook);
     }
 
     /**
@@ -2022,12 +2086,13 @@ export default class Client extends EventEmitter {
      *
      * Get a webhook
      *
+     * @param channel The channel to get the webhook from
      * @param webhook The webhook to get
      *
      * @returns {Promise<WebhookData>} The webhook data
      */
-    getWebhook(webhook: WebhookResolvable): Promise<WebhookData> {
-        return getWebhook(this, webhook);
+    getWebhook(channel: ChannelResolvable, webhook: WebhookResolvable): Promise<WebhookData> {
+        return getWebhook(this, channel, webhook);
     }
 
     /**
@@ -2239,13 +2304,14 @@ export default class Client extends EventEmitter {
      *
      * Modify a webhook
      *
+     * @param channel The channel to modify the webhook in
      * @param webhook The webhook to modify
      * @param modifyWebhookData The data to modify the webhook
      *
      * @returns {Promise<WebhookData>} The modified webhook's data
      */
-    modifyWebhook(webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
-        return modifyWebhook(this, webhook, modifyWebhookData);
+    modifyWebhook(channel: ChannelResolvable, webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
+        return modifyWebhook(this, channel, webhook, modifyWebhookData);
     }
 
     /**

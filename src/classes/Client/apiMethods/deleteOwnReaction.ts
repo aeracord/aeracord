@@ -11,6 +11,9 @@ export default async function deleteOwnReaction(client: Client, channelResolvabl
     const reactionEmoji: string | undefined = Reaction.resolveString(reactionEmojiResolvable);
     if (!reactionEmoji) throw new Error("Invalid reaction emoji resolvable");
 
+    // Missing permissions
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_CHANNEL", channelID))) throw new Error("Missing view channel permissions");
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}/reactions/${encodeURIComponent(reactionEmoji)}/@me`;
     const method: string = "DELETE";

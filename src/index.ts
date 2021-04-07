@@ -97,7 +97,9 @@ export {
     Client,
     ClientActivity,
     ClientActivityType,
+    ClientCacheStrategyData,
     ClientData,
+    ClientPermissionsCacheStrategyData,
     ClientPresence,
     ClientStatus,
     InitialCacheType,
@@ -105,7 +107,8 @@ export {
     InitialCacheTypeGuilds,
     InitialCacheTypeIDs,
     InitialCacheTypeMessages,
-    ObjectCacheStrategies
+    ObjectCacheStrategies,
+    PermissionsCacheStrategies
 } from "./internal";
 
 // Client: Events

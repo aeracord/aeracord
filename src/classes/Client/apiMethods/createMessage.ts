@@ -41,6 +41,14 @@ export default async function createMessage(client: Client, channelResolvable: C
     const allowedMentionsRoles: Array<string | undefined> | undefined = createMessageData.allowedMentions?.roles?.map((r: RoleResolvable) => Role.resolveID(r));
     if (allowedMentionsRoles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed mentions roles");
 
+    // Missing permissions
+    if (client._cacheStrategies.permissions.enabled) {
+        if (!client.hasPermission("SEND_MESSAGES", channelID)) throw new Error("Missing send messages permissions");
+        if ((createMessageData.tts) && (!client.hasPermission("SEND_TTS_MESSAGES", channelID))) throw new Error("Missing send TTS messages permissions");
+        if ((createMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new Error("Missing embed links permissions");
+        if ((createMessageData.file) && (!client.hasPermission("ATTACH_FILES", channelID))) throw new Error("Missing attach files permissions");
+    }
+
     // Define fetch data
     const path: string = `/channels/${channelID}/messages`;
     const method: string = "POST";

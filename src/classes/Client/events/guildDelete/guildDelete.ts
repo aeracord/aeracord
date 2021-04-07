@@ -94,6 +94,9 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
         const welcomeScreen: WelcomeScreen | undefined = client.welcomeScreens.get(data.id);
         if (welcomeScreen) welcomeScreen._markAsDeleted();
 
+        // Remove from guild owners
+        if (client._guildOwners) client._guildOwners.delete(data.id);
+
         // Remove from role permissions
         if ((client._rolePermissions) && (client._guildRoles)) {
             const guildRoles: string[] | undefined = client._guildRoles.get(data.id);
@@ -106,11 +109,20 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
             if (guildChannels) guildChannels.forEach((c: string) => client._channelPermissions?.delete(c));
         }
 
+        // Remove from emoji guilds
+        if ((client._emojiGuilds) && (client._guildEmojis)) {
+            const guildEmojis: string[] | undefined = client._guildEmojis.get(data.id);
+            if (guildEmojis) guildEmojis.forEach((e: string) => client._emojiGuilds?.delete(e));
+        }
+
         // Remove from guild roles
         if (client._guildRoles) client._guildRoles.delete(data.id);
 
         // Remove from guild channels
         if (client._guildChannels) client._guildChannels.delete(data.id);
+
+        // Remove from guild emojis
+        if (client._guildEmojis) client._guildEmojis.delete(data.id);
 
         // Remove from client roles
         if (client._clientRoles) client._clientRoles.delete(data.id);
