@@ -1,4 +1,4 @@
-import { Attachment, Client, Embed, Member, Message, MessageUpdateData, RawAttachmentData, RawEmbedData, RawMessageDataChannelMention, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData, Reaction, Sticker, User, Webhook } from "../../../../internal";
+import { Attachment, Client, Embed, Member, Message, MessageData, MessageUpdateData, RawAttachmentData, RawEmbedData, RawMessageDataChannelMention, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData, Reaction, Sticker, User, Webhook } from "../../../../internal";
 
 export default function messageUpdate(client: Client, rawData: RawMessageUpdateData) {
 
@@ -71,6 +71,9 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
     // Get message
     const message: Message | undefined = client.messages.get(data.id);
 
+    // Get old message data
+    const oldMessageData: MessageData | undefined = message && Message.toData(message);
+
     // Update data
     if (message) {
         if (data.type !== undefined) message.type = data.type;
@@ -96,6 +99,7 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         rawData,
         message,
         guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
-        channel: client.channels.get(data.channelID)
+        channel: client.channels.get(data.channelID),
+        oldMessageData
     });
 }

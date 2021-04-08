@@ -2,6 +2,7 @@ import { Base, Client, InviteData, RawInviteData, TargetUser, TargetUserType, Us
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -150,6 +151,19 @@ export default class Invite extends Base<Invite> {
      */
     static fromData(client: Client, inviteData: InviteData): Invite {
         return fromData(client, inviteData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create an `InviteData` object from an `Invite`
+     *
+     * @param invite The invite
+     *
+     * @returns {InviteData} The invite data
+     */
+    static toData(invite: Invite): InviteData {
+        return toData(invite);
     }
 
     /**

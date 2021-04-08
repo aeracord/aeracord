@@ -3,6 +3,7 @@ import edit from "./edit";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -254,6 +255,19 @@ export default class Message extends Base<Message> {
      */
     static fromData(client: Client, messageData: MessageData): Message {
         return fromData(client, messageData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `MessageData` object from a `Message`
+     *
+     * @param message The message
+     *
+     * @returns {MessageData} The message data
+     */
+    static toData(message: Message): MessageData {
+        return toData(message);
     }
 
     /**

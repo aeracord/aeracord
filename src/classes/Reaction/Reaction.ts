@@ -2,6 +2,7 @@ import { Client, Emoji, RawReactionData, RawReactionMetadata, ReactionData, Reac
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveString from "./resolveString";
+import toData from "./toData";
 
 /**
  * Reaction Emoji Resolvable
@@ -108,6 +109,19 @@ export default class Reaction {
      */
     static fromData(client: Client, reactionData: ReactionData): Reaction {
         return fromData(client, reactionData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `ReactionData` object from a `Reaction`
+     *
+     * @param reaction The reaction
+     *
+     * @returns {ReactionData} The reaction data
+     */
+    static toData(reaction: Reaction): ReactionData {
+        return toData(reaction);
     }
 
     /**

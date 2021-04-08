@@ -1,6 +1,7 @@
 import { Activity, Base, Client, PresenceClientStatus, PresenceData, PresenceUser, RawPresenceData, Status } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -84,6 +85,19 @@ export default class Presence extends Base<Presence> {
      */
     static fromData(client: Client, presenceData: PresenceData): Presence {
         return fromData(client, presenceData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `PresenceData` object from a `Presence`
+     *
+     * @param presence The presence
+     *
+     * @returns {PresenceData} The presence data
+     */
+    static toData(presence: Presence): PresenceData {
+        return toData(presence);
     }
 
     /**

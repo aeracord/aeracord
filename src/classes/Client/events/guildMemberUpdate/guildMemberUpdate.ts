@@ -1,4 +1,4 @@
-import { Client, GuildMemberUpdateData, Member, RawGuildMemberUpdateData, User } from "../../../../internal";
+import { Client, GuildMemberUpdateData, Member, MemberData, RawGuildMemberUpdateData, User } from "../../../../internal";
 
 export default function guildMemberUpdate(client: Client, rawData: RawGuildMemberUpdateData) {
 
@@ -15,6 +15,9 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
 
     // Get member
     const member: Member | undefined = client.members.get(data.guildID, data.user.id);
+
+    // Get old member data
+    const oldMemberData: MemberData | undefined = member && Member.toData(member);
 
     // Update data
     if (member) {
@@ -33,6 +36,7 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
         rawData,
         member,
         guild: client.guilds.get(data.guildID),
-        user: client.users.get(data.user.id)
+        user: client.users.get(data.user.id),
+        oldMemberData
     });
 }

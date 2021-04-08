@@ -1,6 +1,7 @@
 import { Base, Client, GuildWidgetData, ModifyGuildWidgetData, RawGuildWidgetData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -79,6 +80,19 @@ export default class GuildWidget extends Base<GuildWidget> {
      */
     static fromData(client: Client, guildWidgetData: GuildWidgetData): GuildWidget {
         return fromData(client, guildWidgetData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `GuildWidgetData` object from a `GuildWidget`
+     *
+     * @param guildWidget The guild widget
+     *
+     * @returns {GuildWidgetData} The guild widget data
+     */
+    static toData(guildWidget: GuildWidget): GuildWidgetData {
+        return toData(guildWidget);
     }
 
     /**

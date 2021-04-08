@@ -2,6 +2,10 @@ import { Client, Guild, GuildData, RawGuildData, WelcomeScreen } from "../../../
 
 export default function guildUpdate(client: Client, rawData: RawGuildData) {
 
+    // Get old guild data
+    const oldGuild: Guild | undefined = client.guilds.get(rawData.id);
+    const oldGuildData: GuildData | undefined = oldGuild && Guild.toData(oldGuild);
+
     // Parse guild data
     const guildData: GuildData = Guild._fromRawData(client, rawData);
 
@@ -18,6 +22,7 @@ export default function guildUpdate(client: Client, rawData: RawGuildData) {
     // Emit event
     client.emit("guildUpdate", guildData, {
         rawData,
-        guild: client.guilds.get(guildData.id)
+        guild: client.guilds.get(guildData.id),
+        oldGuildData
     });
 }

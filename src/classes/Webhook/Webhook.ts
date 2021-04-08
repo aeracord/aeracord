@@ -2,6 +2,7 @@ import { Base, Client, ModifyWebhookData, RawWebhookData, UserData, WebhookData,
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -125,6 +126,19 @@ export default class Webhook extends Base<Webhook> {
      */
     static fromData(client: Client, webhookData: WebhookData): Webhook {
         return fromData(client, webhookData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `WebhookData` object from a `Webhook`
+     *
+     * @param webhook The webhook
+     *
+     * @returns {WebhookData} The webhook data
+     */
+    static toData(webhook: Webhook): WebhookData {
+        return toData(webhook);
     }
 
     /**

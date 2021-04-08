@@ -1,6 +1,7 @@
 import { AuditLogData, AuditLogEntry, Client, RawAuditLogData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 
 export default class AuditLog {
 
@@ -67,5 +68,18 @@ export default class AuditLog {
      */
     static fromData(client: Client, auditLogData: AuditLogData): AuditLog {
         return fromData(client, auditLogData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create an `AuditLogData` object from an `AuditLog`
+     *
+     * @param auditLog The audit log
+     *
+     * @returns {AuditLogData} The audit log data
+     */
+    static toData(auditLog: AuditLog): AuditLogData {
+        return toData(auditLog);
     }
 }

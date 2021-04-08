@@ -2,6 +2,7 @@ import { Base, Client, CreateGuildFromTemplateData, GuildData, ModifyGuildTempla
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -142,6 +143,19 @@ export default class Template extends Base<Template> {
      */
     static fromData(client: Client, templateData: TemplateData): Template {
         return fromData(client, templateData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `TemplateData` object from a `Template`
+     *
+     * @param template The template
+     *
+     * @returns {TemplateData} The template data
+     */
+    static toData(template: Template): TemplateData {
+        return toData(template);
     }
 
     /**

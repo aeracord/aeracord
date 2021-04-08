@@ -2,6 +2,7 @@ import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, Ban
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -440,6 +441,19 @@ export default class Guild extends Base<Guild> {
      */
     static fromData(client: Client, guildData: GuildData): Guild {
         return fromData(client, guildData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `GuildData` object from a `Guild`
+     *
+     * @param guild The guild
+     *
+     * @returns {GuildData} The guild data
+     */
+    static toData(guild: Guild): GuildData {
+        return toData(guild);
     }
 
     /**

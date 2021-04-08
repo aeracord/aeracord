@@ -1,4 +1,4 @@
-import { AnyChannel, AnyGuildChannel, Ban, Guild, Invite, Member, Message, Presence, Role, User } from "../../internal";
+import { AnyChannel, AnyChannelData, AnyGuildChannel, Ban, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, User, UserData } from "../../internal";
 
 /**
  * Event Options
@@ -28,12 +28,39 @@ export interface ChannelEventOptions extends EventOptions {
 }
 
 /**
+ * Channel Update Event Options
+ *
+ * Options for extra data sent with channel update related events
+ */
+export interface ChannelUpdateEventOptions extends ChannelEventOptions {
+    oldChannelData?: AnyChannelData;
+}
+
+/**
+ * Guild Emojis Update Event Options
+ *
+ * Options for extra data sent with guild emojis update events
+ */
+export interface GuildEmojisUpdateEventOptions extends GuildEventOptions {
+    oldEmojisData: EmojiData[];
+}
+
+/**
  * Guild Event Options
  *
  * Options for extra data sent with guild related events
  */
 export interface GuildEventOptions extends EventOptions {
     guild?: Guild;
+}
+
+/**
+ * Guild Update Event Options
+ *
+ * Options for extra data sent with guild update related events
+ */
+export interface GuildUpdateEventOptions extends GuildEventOptions {
+    oldGuildData?: GuildData;
 }
 
 /**
@@ -59,6 +86,15 @@ export interface MemberEventOptions extends EventOptions {
 }
 
 /**
+ * Member Update Event Options
+ *
+ * Options for extra data sent with member update related events
+ */
+export interface MemberUpdateEventOptions extends MemberEventOptions {
+    oldMemberData?: MemberData;
+}
+
+/**
  * Message Event Options
  *
  * Options for extra data sent with message related events
@@ -67,6 +103,15 @@ export interface MessageEventOptions extends EventOptions {
     message?: Message;
     guild?: Guild;
     channel?: AnyChannel;
+}
+
+/**
+ * Message Update Event Options
+ *
+ * Options for extra data sent with message update related events
+ */
+export interface MessageUpdateEventOptions extends MessageEventOptions {
+    oldMessageData?: MessageData;
 }
 
 /**
@@ -81,13 +126,14 @@ export interface MessageDeleteBulkEventOptions extends EventOptions {
 }
 
 /**
- * Presence Event Options
+ * Presence Update Event Options
  *
- * Options for extra data sent with presence related events
+ * Options for extra data sent with presence update events
  */
-export interface PresenceEventOptions extends EventOptions {
+export interface PresenceUpdateEventOptions extends EventOptions {
     presence?: Presence;
     user?: User;
+    oldPresenceData?: PresenceData;
 }
 
 /**
@@ -113,6 +159,15 @@ export interface RoleEventOptions extends EventOptions {
 }
 
 /**
+ * Role Update Event Options
+ *
+ * Options for extra data sent with role update related events
+ */
+export interface RoleUpdateEventOptions extends RoleEventOptions {
+    oldRoleData?: RoleData;
+}
+
+/**
  * Typing Start Event Options
  *
  * Options for extra data sent with typing start events
@@ -123,12 +178,13 @@ export interface TypingStartEventOptions extends EventOptions {
 }
 
 /**
- * User Event Options
+ * User Update Event Options
  *
- * Options for extra data sent with user related events
+ * Options for extra data sent with user update events
  */
-export interface UserEventOptions extends EventOptions {
+export interface UserUpdateEventOptions extends EventOptions {
     user?: User;
+    oldUserData?: UserData;
 }
 
 /**

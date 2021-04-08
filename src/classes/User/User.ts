@@ -2,6 +2,7 @@ import { Base, Client, DMChannelData, Member, RawUserData, UserData } from "../.
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -109,6 +110,19 @@ export default class User extends Base<User> {
      */
     static fromData(client: Client, userData: UserData): User {
         return fromData(client, userData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `UserData` object from a `User`
+     *
+     * @param user The user
+     *
+     * @returns {UserData} The user data
+     */
+    static toData(user: User): UserData {
+        return toData(user);
     }
 
     /**

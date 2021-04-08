@@ -1,6 +1,7 @@
 import { Base, Client, ModifyGuildWelcomeScreenData, RawWelcomeScreenData, WelcomeScreenChannel, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -79,6 +80,19 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      */
     static fromData(client: Client, welcomeScreenData: WelcomeScreenData): WelcomeScreen {
         return fromData(client, welcomeScreenData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `WelcomeScreenData` object from a `WelcomeScreen`
+     *
+     * @param welcomeScreen The welcome screen
+     *
+     * @returns {WelcomeScreenData} The welcome screen data
+     */
+    static toData(welcomeScreen: WelcomeScreen): WelcomeScreenData {
+        return toData(welcomeScreen);
     }
 
     /**

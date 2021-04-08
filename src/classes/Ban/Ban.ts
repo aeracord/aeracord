@@ -1,6 +1,7 @@
 import { BanData, Base, Client, RawBanData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -77,6 +78,19 @@ export default class Ban extends Base<Ban> {
      */
     static fromData(client: Client, banData: BanData): Ban {
         return fromData(client, banData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `BanData` object from a `Ban`
+     *
+     * @param ban The ban
+     *
+     * @returns {BanData} The ban data
+     */
+    static toData(ban: Ban): BanData {
+        return toData(ban);
     }
 
     /**

@@ -1,6 +1,7 @@
 import { Client, RawStickerData, StickerData, StickerFormatType } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 
 export default class Sticker {
 
@@ -120,5 +121,18 @@ export default class Sticker {
      */
     static fromData(client: Client, stickerData: StickerData): Sticker {
         return fromData(client, stickerData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `StickerData` object from a `Sticker`
+     *
+     * @param sticker The sticker
+     *
+     * @returns {StickerData} The sticker data
+     */
+    static toData(sticker: Sticker): StickerData {
+        return toData(sticker);
     }
 }

@@ -1,6 +1,7 @@
 import { AttachmentData, Client, RawAttachmentData, RawAttachmentMetadata } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 
 export default class Attachment {
 
@@ -136,5 +137,18 @@ export default class Attachment {
      */
     static fromData(client: Client, attachmentData: AttachmentData): Attachment {
         return fromData(client, attachmentData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create an `AttachmentData` object from an `Attachment`
+     *
+     * @param attachment The attachment
+     *
+     * @returns {AttachmentData} The attachment data
+     */
+    static toData(attachment: Attachment): AttachmentData {
+        return toData(attachment);
     }
 }

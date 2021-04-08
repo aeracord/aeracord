@@ -2,6 +2,7 @@ import { Base, Client, EmojiData, ModifyGuildEmojiData, RawEmojiData, UserData }
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -126,6 +127,19 @@ export default class Emoji extends Base<Emoji> {
      */
     static fromData(client: Client, emojiData: EmojiData): Emoji {
         return fromData(client, emojiData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create an `EmojiData` object from an `Emoji`
+     *
+     * @param emoji The emoji
+     *
+     * @returns {EmojiData} The emoji data
+     */
+    static toData(emoji: Emoji): EmojiData {
+        return toData(emoji);
     }
 
     /**

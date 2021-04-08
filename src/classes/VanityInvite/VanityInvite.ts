@@ -1,6 +1,7 @@
 import { Base, Client, RawVanityInviteData, VanityInviteData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -79,6 +80,19 @@ export default class VanityInvite extends Base<VanityInvite> {
      */
     static fromData(client: Client, vanityInviteData: VanityInviteData): VanityInvite {
         return fromData(client, vanityInviteData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `VanityInviteData` object from a `VanityInvite`
+     *
+     * @param vanityInvite The vanity invite
+     *
+     * @returns {VanityInviteData} The vanity invite data
+     */
+    static toData(vanityInvite: VanityInvite): VanityInviteData {
+        return toData(vanityInvite);
     }
 
     /**

@@ -2,6 +2,7 @@ import { Base, Client, ModifyGuildRoleData, Permissions, RawRoleData, RoleData, 
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -138,6 +139,19 @@ export default class Role extends Base<Role> {
      */
     static fromData(client: Client, roleData: RoleData): Role {
         return fromData(client, roleData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `RoleData` object from a `Role`
+     *
+     * @param role The role
+     *
+     * @returns {RoleData} The role data
+     */
+    static toData(role: Role): RoleData {
+        return toData(role);
     }
 
     /**

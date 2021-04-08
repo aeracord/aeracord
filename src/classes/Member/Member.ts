@@ -1,6 +1,7 @@
 import { Base, Client, CreateGuildBanData, MemberData, ModifyGuildMemberData, RawMemberData, RoleResolvable, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -125,6 +126,19 @@ export default class Member extends Base<Member> {
      */
     static fromData(client: Client, memberData: MemberData): Member {
         return fromData(client, memberData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `MemberData` object from a `Member`
+     *
+     * @param member The member
+     *
+     * @returns {MemberData} The member data
+     */
+    static toData(member: Member): MemberData {
+        return toData(member);
     }
 
     /**

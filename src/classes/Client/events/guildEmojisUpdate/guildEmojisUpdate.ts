@@ -2,14 +2,18 @@ import { Client, Emoji, EmojiData, Guild, GuildEmojisUpdateData, RawEmojiData, R
 
 export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmojisUpdateData) {
 
+    // Get emoji IDs
+    const emojiIDs: string[] = rawData.emojis.map((e: RawEmojiData) => e.id);
+
+    // Get old emojis data
+    const oldEmojis: Emoji[] = emojiIDs.map((e: string) => client.emojis.get(e)).filter((e: Emoji | undefined) => e) as Emoji[];
+    const oldEmojisData: EmojiData[] = oldEmojis.map((e: Emoji) => Emoji.toData(e));
+
     // Parse data
     const data: GuildEmojisUpdateData = {
         guildID: rawData.guild_id,
         emojis: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e, rawData.guild_id))
     };
-
-    // Get emoji IDs
-    const emojiIDs: string[] = data.emojis.map((e: EmojiData) => e.id);
 
     // Get guild
     const guild: Guild | undefined = client.guilds.get(data.guildID);
@@ -40,6 +44,7 @@ export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmoji
     // Emit event
     client.emit("guildEmojisUpdate", data, {
         rawData,
-        guild
+        guild,
+        oldEmojisData
     });
 }

@@ -21,6 +21,7 @@ import {
     ChannelPermissionData,
     ChannelPinsUpdateData,
     ChannelResolvable,
+    ChannelUpdateEventOptions,
     ClientCacheStrategyData,
     CreateChannelInviteData,
     CreateDMData,
@@ -58,6 +59,7 @@ import {
     GuildData,
     GuildDeleteData,
     GuildEmojisUpdateData,
+    GuildEmojisUpdateEventOptions,
     GuildEventOptions,
     GuildIntegrationsUpdateData,
     GuildMemberRemoveData,
@@ -65,6 +67,7 @@ import {
     GuildPreview,
     GuildResolvable,
     GuildRoleDeleteData,
+    GuildUpdateEventOptions,
     GuildUserCacheManager,
     GuildUserCacheManagerInterface,
     GuildWidget,
@@ -78,6 +81,7 @@ import {
     Member,
     MemberData,
     MemberEventOptions,
+    MemberUpdateEventOptions,
     Message,
     MessageData,
     MessageDeleteBulkData,
@@ -90,6 +94,7 @@ import {
     MessageReactionRemoveEmojiData,
     MessageResolvable,
     MessageUpdateData,
+    MessageUpdateEventOptions,
     ModifyChannelData,
     ModifyCurrentUserData,
     ModifyCurrentUserNicknameData,
@@ -107,7 +112,7 @@ import {
     PermissionsResolvable,
     Presence,
     PresenceData,
-    PresenceEventOptions,
+    PresenceUpdateEventOptions,
     ReactionEmojiResolvable,
     ReactionEventOptions,
     ReadyData,
@@ -118,6 +123,7 @@ import {
     RoleEventOptions,
     RolePermissionData,
     RoleResolvable,
+    RoleUpdateEventOptions,
     READY_STATE_NONE,
     SearchGuildMembersData,
     Status,
@@ -128,8 +134,8 @@ import {
     TypingStartEventOptions,
     User,
     UserData,
-    UserEventOptions,
     UserResolvable,
+    UserUpdateEventOptions,
     VanityInvite,
     VanityInviteData,
     VoiceRegion,
@@ -431,7 +437,7 @@ export default interface Client {
      *
      * Emitted when a channel is updated
      */
-    on(event: "channelUpdate", listener: (channelData: AnyChannelData, options: ChannelEventOptions) => void): this;
+    on(event: "channelUpdate", listener: (channelData: AnyChannelData, options: ChannelUpdateEventOptions) => void): this;
 
     /**
      * Guild Available
@@ -473,7 +479,7 @@ export default interface Client {
      *
      * Emitted when a guild's emojis are updated
      */
-    on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, options: GuildEventOptions) => void): this;
+    on(event: "guildEmojisUpdate", listener: (data: GuildEmojisUpdateData, options: GuildEmojisUpdateEventOptions) => void): this;
 
     /**
      * Guild Integrations Update
@@ -501,7 +507,7 @@ export default interface Client {
      *
      * Emitted when a guild member is updated
      */
-    on(event: "guildMemberUpdate", listener: (data: GuildMemberUpdateData, options: MemberEventOptions) => void): this;
+    on(event: "guildMemberUpdate", listener: (data: GuildMemberUpdateData, options: MemberUpdateEventOptions) => void): this;
 
     /**
      * Guild Role Create
@@ -522,7 +528,7 @@ export default interface Client {
      *
      * Emitted when a role is updated
      */
-    on(event: "guildRoleUpdate", listener: (roleData: RoleData, options: RoleEventOptions) => void): this;
+    on(event: "guildRoleUpdate", listener: (roleData: RoleData, options: RoleUpdateEventOptions) => void): this;
 
     /**
      * Guild Unavailable
@@ -536,7 +542,7 @@ export default interface Client {
      *
      * Emitted when a guild is updated
      */
-    on(event: "guildUpdate", listener: (guildData: GuildData, options: GuildEventOptions) => void): this;
+    on(event: "guildUpdate", listener: (guildData: GuildData, options: GuildUpdateEventOptions) => void): this;
 
     /**
      * Invite Create
@@ -606,14 +612,14 @@ export default interface Client {
      *
      * Emitted when a message is updated
      */
-    on(event: "messageUpdate", listener: (data: MessageUpdateData, options: MessageEventOptions) => void): this;
+    on(event: "messageUpdate", listener: (data: MessageUpdateData, options: MessageUpdateEventOptions) => void): this;
 
     /**
      * Presence Update
      *
      * Emitted when a presence is updated
      */
-    on(event: "presenceUpdate", listener: (presenceData: PresenceData, options: PresenceEventOptions) => void): this;
+    on(event: "presenceUpdate", listener: (presenceData: PresenceData, options: PresenceUpdateEventOptions) => void): this;
 
     /**
      * Typing Start
@@ -627,7 +633,7 @@ export default interface Client {
      *
      * Emitted when a user is updated
      */
-    on(event: "userUpdate", listener: (userData: UserData, options: UserEventOptions) => void): this;
+    on(event: "userUpdate", listener: (userData: UserData, options: UserUpdateEventOptions) => void): this;
 
     /**
      * Voice State Update

@@ -2,6 +2,7 @@ import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, C
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
@@ -72,6 +73,19 @@ export default class Channel extends Base<AnyChannel> {
      */
     static fromData(client: Client, channelData: AnyChannelData): Channel {
         return fromData(client, channelData);
+    }
+
+    /**
+     * To Data
+     *
+     * Create a `ChannelData` object from a `Channel`
+     *
+     * @param channel The channel
+     *
+     * @returns {AnyChannelData} The channel data
+     */
+    static toData(channel: AnyChannel): AnyChannelData {
+        return toData(channel);
     }
 
     /**
