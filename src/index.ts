@@ -178,6 +178,7 @@ export {
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
     ModifyGuildTemplateData,
+    ModifyGuildWelcomeScreenData,
     ModifyGuildWidgetData,
     ModifyWebhookData,
     PartialGuild,

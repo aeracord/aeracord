@@ -1,4 +1,4 @@
-import { Base, Client, RawWelcomeScreenData, WelcomeScreenChannel, WelcomeScreenData } from "../../internal";
+import { Base, Client, ModifyGuildWelcomeScreenData, RawWelcomeScreenData, WelcomeScreenChannel, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import updateObject from "./updateObject";
@@ -105,5 +105,18 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      */
     static _updateObjectFromData(client: Client, welcomeScreenData: WelcomeScreenData): WelcomeScreen | undefined {
         return updateObjectFromData(client, welcomeScreenData);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this welcome screen
+     *
+     * @param modifyGuildWelcomeScreenData The data to modify the welcome screen
+     *
+     * @returns {Promise<WelcomeScreenData>} The modified welcome screen's data
+     */
+    edit(modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreenData> {
+        return this.client.modifyGuildWelcomeScreen(this.guildID, modifyGuildWelcomeScreenData);
     }
 }

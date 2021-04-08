@@ -99,6 +99,7 @@ export * from "./classes/Client/apiMethods/modifyGuildMember";
 export * from "./classes/Client/apiMethods/modifyGuildRole";
 export * from "./classes/Client/apiMethods/modifyGuildRolePositions";
 export * from "./classes/Client/apiMethods/modifyGuildTemplate";
+export * from "./classes/Client/apiMethods/modifyGuildWelcomeScreen";
 export * from "./classes/Client/apiMethods/modifyGuildWidget";
 export * from "./classes/Client/apiMethods/modifyWebhook";
 export * from "./classes/Client/apiMethods/searchGuildMembers";

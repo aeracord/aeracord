@@ -100,6 +100,7 @@ import {
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
     ModifyGuildTemplateData,
+    ModifyGuildWelcomeScreenData,
     ModifyGuildWidgetData,
     ModifyWebhookData,
     PartialGuild,
@@ -196,6 +197,7 @@ import getGuildTemplates from "./apiMethods/getGuildTemplates";
 import getGuildVanityURL from "./apiMethods/getGuildVanityURL";
 import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
 import getGuildWebhooks from "./apiMethods/getGuildWebhooks";
+import getGuildWelcomeScreen from "./apiMethods/getGuildWelcomeScreen";
 import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
 import getInvite from "./apiMethods/getInvite";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
@@ -217,6 +219,7 @@ import modifyGuildMember from "./apiMethods/modifyGuildMember";
 import modifyGuildRole from "./apiMethods/modifyGuildRole";
 import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
 import modifyGuildTemplate from "./apiMethods/modifyGuildTemplate";
+import modifyGuildWelcomeScreen from "./apiMethods/modifyGuildWelcomeScreen";
 import modifyGuildWidget from "./apiMethods/modifyGuildWidget";
 import modifyWebhook from "./apiMethods/modifyWebhook";
 import removeGuildBan from "./apiMethods/removeGuildBan";
@@ -2010,6 +2013,19 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Get Guild Welcome Screen
+     *
+     * Get a guild's welcome screen
+     *
+     * @param guild The guild to get the welcome screen from
+     *
+     * @returns {Promise<WelcomeScreenData | undefined>} The guild's welcome screen or `undefined` if the guild doesn't have one
+     */
+    getGuildWelcomeScreen(guild: GuildResolvable): Promise<WelcomeScreenData | undefined> {
+        return getGuildWelcomeScreen(this, guild);
+    }
+
+    /**
      * Get Guild Widget Settings
      *
      * Get a guild's widget settings
@@ -2293,6 +2309,20 @@ export default class Client extends EventEmitter {
      */
     modifyGuildTemplate(guild: GuildResolvable, template: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<TemplateData> {
         return modifyGuildTemplate(this, guild, template, modifyGuildTemplateData);
+    }
+
+    /**
+     * Modify Guild Welcome Screen
+     *
+     * Modify a guild's welcome screen
+     *
+     * @param guild The guild to modify the welcome screen in
+     * @param modifyGuildWelcomeScreenData The data to modify the welcome screen
+     *
+     * @returns {Promise<WelcomeScreenData>} The modified welcome screen's data
+     */
+    modifyGuildWelcomeScreen(guild: GuildResolvable, modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreenData> {
+        return modifyGuildWelcomeScreen(this, guild, modifyGuildWelcomeScreenData);
     }
 
     /**
