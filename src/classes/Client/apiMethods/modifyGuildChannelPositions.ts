@@ -3,12 +3,16 @@ import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildChannelPositionsData {
     channel: ChannelResolvable;
-    position: number;
+    position?: number;
+    lockPermissions?: boolean;
+    parent?: ChannelResolvable | null;
 }
 
 interface PositionsData {
     id: string | undefined;
-    position: number;
+    position?: number;
+    lock_permissions?: boolean;
+    parent_id?: string | null;
 }
 
 export default async function modifyGuildChannelPositions(client: Client, guildResolvable: GuildResolvable, modifyGuildChannelPositionsData: ModifyGuildChannelPositionsData[]): Promise<void> {
@@ -18,9 +22,12 @@ export default async function modifyGuildChannelPositions(client: Client, guildR
     if (!guildID) throw new Error("Invalid guild resolvable");
     const positions: PositionsData[] = modifyGuildChannelPositionsData.map((p: ModifyGuildChannelPositionsData) => ({
         id: Channel.resolveID(p.channel),
-        position: p.position
+        position: p.position,
+        lock_permissions: p.lockPermissions,
+        parent_id: p.parent ? Channel.resolveID(p.parent) : null
     }));
-    if (positions.find((p: PositionsData) => !p.id)) throw new Error("Invalid channel resolvable in array of channel positions");
+    if (positions.find((p: PositionsData) => !p.id)) throw new Error("Invalid channel resolvable in array of channel position channels");
+    if (positions.find((p: PositionsData) => p.parent_id === undefined)) throw new Error("Invalid channel resolvable in array of channel position parent channels");
 
     // Missing permissions
     if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", guildID))) throw new Error("Missing manage channels permissions");
