@@ -11,7 +11,7 @@ export interface RawAuditLogDataEntry {
     id: string;
     action_type: AuditLogEvent;
     target_id: string | null;
-    user_id: string;
+    user_id: string | null;
     changes?: RawAuditLogDataEntryChange[];
     options?: RawAuditLogDataEntryOptions;
     reason?: string;

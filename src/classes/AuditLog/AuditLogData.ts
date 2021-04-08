@@ -53,7 +53,7 @@ export interface AuditLogEntry {
      *
      * The ID of the user that made the change
      */
-    actorID: string;
+    actorID: string | null;
 
     /**
      * Changes
