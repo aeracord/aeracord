@@ -101,6 +101,7 @@ export * from "./classes/Client/apiMethods/modifyGuildRolePositions";
 export * from "./classes/Client/apiMethods/modifyGuildTemplate";
 export * from "./classes/Client/apiMethods/modifyGuildWidget";
 export * from "./classes/Client/apiMethods/modifyWebhook";
+export * from "./classes/Client/apiMethods/searchGuildMembers";
 
 // Client: Cache Strategies
 export * from "./classes/Client/CacheStrategies";

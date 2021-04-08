@@ -180,7 +180,8 @@ export {
     ModifyGuildTemplateData,
     ModifyGuildWidgetData,
     ModifyWebhookData,
-    PartialGuild
+    PartialGuild,
+    SearchGuildMembersData
 } from "./internal";
 
 // DM Channel

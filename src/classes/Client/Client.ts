@@ -118,6 +118,7 @@ import {
     RolePermissionData,
     RoleResolvable,
     READY_STATE_NONE,
+    SearchGuildMembersData,
     Status,
     Template,
     TemplateData,
@@ -221,6 +222,7 @@ import modifyWebhook from "./apiMethods/modifyWebhook";
 import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
+import searchGuildMembers from "./apiMethods/searchGuildMembers";
 import syncGuildTemplate from "./apiMethods/syncGuildTemplate";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import canManageMember from "./canManageMember";
@@ -2357,6 +2359,20 @@ export default class Client extends EventEmitter {
      */
     removeGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> {
         return removeGuildMemberRole(this, guild, user, role);
+    }
+
+    /**
+     * Search Guild Members
+     *
+     * Search a guild's members by username or nickname
+     *
+     * @param guild The guild to search the members in
+     * @param searchGuildMembersData The data for searching the members
+     *
+     * @returns {Promise<MemberData[]>} The members
+     */
+    searchGuildMembers(guild: GuildResolvable, searchGuildMembersData: SearchGuildMembersData): Promise<MemberData[]> {
+        return searchGuildMembers(this, guild, searchGuildMembersData);
     }
 
     /**
