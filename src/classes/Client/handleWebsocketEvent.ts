@@ -47,4 +47,10 @@ export default function handleWebsocketEvent(client: Client, rawPacket: string) 
      * https://discord.com/developers/docs/topics/gateway#hello
      */
     else if (packet.op === 10) initializeHeartbeat(client, packet.d.heartbeat_interval);
+
+    /**
+     * Heartbeat ACK
+     * https://discord.com/developers/docs/topics/gateway#heartbeating-example-gateway-heartbeat-ack
+     */
+    else if (packet.op === 11) client._heartbeatAcked = true;
 }

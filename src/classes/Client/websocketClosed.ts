@@ -5,6 +5,7 @@ export default function websocketClosed(client: Client, code: number, reason: st
     // Parse reason
     if (code === 4021) reason = "Reconnect requested by Discord";
     if ((code === 4022) || (code === 4023)) reason = "Session invalidated by Discord";
+    if (code === 4024) reason = "Last heartbeat wasn't acknowledged";
 
     // Clear intervals
     clearInterval(client._pingInterval);

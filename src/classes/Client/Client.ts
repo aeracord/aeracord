@@ -771,6 +771,13 @@ export default class Client extends EventEmitter {
     _heartbeatInterval: NodeJS.Timeout;
 
     /**
+     * Heartbeat Acked
+     *
+     * Whether or not the last heartbeat has been acknowledged
+     */
+    _heartbeatAcked: boolean;
+
+    /**
      * Initial Presence
      *
      * The bot's initial presence
@@ -1088,6 +1095,7 @@ export default class Client extends EventEmitter {
         this._eventQueue = [];
         this._uninitializedGuilds = new Set();
         this._unavailableGuilds = new Set();
+        this._heartbeatAcked = true;
         this._initialPresence = clientData.presence;
         this._membersIntent = Boolean(clientData.membersIntent);
         this._presencesIntent = Boolean(clientData.presencesIntent);
