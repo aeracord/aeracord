@@ -12,7 +12,7 @@ export default function fromRawData(rawData: RawAttachmentData, metadata: RawAtt
         size: rawData.size,
         url: rawData.url,
         proxyURL: rawData.proxy_url,
-        width: rawData.width,
-        height: rawData.height
+        width: rawData.width || null,
+        height: rawData.height || null
     };
 }

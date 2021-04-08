@@ -4,8 +4,8 @@ export interface RawAttachmentData {
     size: number;
     url: string;
     proxy_url: string;
-    width: number | null;
-    height: number | null;
+    width?: number | null;
+    height?: number | null;
 }
 
 export interface RawAttachmentMetadata {
