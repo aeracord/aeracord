@@ -138,6 +138,7 @@ export {
     AllowedMentionType,
     AllowedMentions,
     BulkDeleteMessagesData,
+    CreateCommandData,
     CreateChannelInviteData,
     CreateDMData,
     CreateGuildBanData,
@@ -156,6 +157,7 @@ export {
     CreateWebhookData,
     CurrentUserNickname,
     EditChannelPermissionsData,
+    EditCommandData,
     EditMessageData,
     FollowedChannel,
     FollowNewsChannelData,
@@ -183,6 +185,12 @@ export {
     ModifyWebhookData,
     PartialGuild,
     SearchGuildMembersData
+} from "./internal";
+
+// Command
+export {
+    Command,
+    CommandResolvable
 } from "./internal";
 
 // DM Channel

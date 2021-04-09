@@ -67,6 +67,7 @@ export {
 
 // Client: API Methods
 export * from "./classes/Client/apiMethods/bulkDeleteMessages";
+export * from "./classes/Client/apiMethods/createGlobalCommand";
 export * from "./classes/Client/apiMethods/createChannelInvite";
 export * from "./classes/Client/apiMethods/createDM";
 export * from "./classes/Client/apiMethods/createGuild";
@@ -79,6 +80,7 @@ export * from "./classes/Client/apiMethods/createGuildTemplate";
 export * from "./classes/Client/apiMethods/createMessage";
 export * from "./classes/Client/apiMethods/createWebhook";
 export * from "./classes/Client/apiMethods/editChannelPermissions";
+export * from "./classes/Client/apiMethods/editGlobalCommand";
 export * from "./classes/Client/apiMethods/editMessage";
 export * from "./classes/Client/apiMethods/followNewsChannel";
 export * from "./classes/Client/apiMethods/getChannelMessages";
@@ -169,6 +171,14 @@ export * from "./classes/Client/PermissionData";
 
 // Client: Ready State
 export * from "./classes/Client/ReadyState";
+
+// Command
+export {
+    default as Command,
+    CommandResolvable
+} from "./classes/Command/Command";
+export * from "./classes/Command/CommandData";
+export * from "./classes/Command/RawCommandData";
 
 // DM Channel
 export {

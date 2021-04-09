@@ -1,8 +1,8 @@
-import { Client, RawReadyData, RawReadyDataGuild, ReadyData, READY_STATE_INITIAL_GUILDS } from "../../../../internal";
+import { Client, Command, CommandData, RawReadyData, RawReadyDataGuild, ReadyData, READY_STATE_INITIAL_GUILDS } from "../../../../internal";
 import { EventQueueEvent } from "../../Client";
 import event from "../../event";
 
-export default function ready(client: Client, rawData: RawReadyData) {
+export default async function ready(client: Client, rawData: RawReadyData) {
 
     // Parse data
     const data: ReadyData = {
@@ -32,6 +32,29 @@ export default function ready(client: Client, rawData: RawReadyData) {
 
     // Set uninitialized guilds
     client._uninitializedGuilds = new Set(rawData.guilds.map((g: RawReadyDataGuild) => g.id));
+
+    // Create command objects for global commands
+    if (
+
+        // If the initial cache is `true`, all commands should be cached
+        client._cacheStrategies.objects.commands?.initialCache === true ||
+
+        (
+
+            // If the initial cache is defined
+            client._cacheStrategies.objects.commands?.initialCache &&
+
+            // And global commands need to be cached
+            client._cacheStrategies.objects.commands.initialCache.global
+        )
+    ) {
+
+        // Get commands
+        const commands: CommandData[] | void = await client.getGlobalCommands().catch(() => { });
+
+        // Loop through commands
+        if (commands) commands.forEach((c: CommandData) => Command.fromData(client, c));
+    }
 
     /**
      * Set Ready State

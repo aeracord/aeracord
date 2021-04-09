@@ -1,0 +1,23 @@
+import { CommandOptionType } from "../../internal";
+
+export interface RawCommandData {
+    id: string;
+    application_id: string;
+    name: string;
+    description: string;
+    options?: RawCommandDataOption[];
+}
+
+export interface RawCommandDataOption {
+    type: CommandOptionType;
+    name: string;
+    description: string;
+    required?: boolean;
+    choices?: RawCommandDataChoice[];
+    options?: RawCommandDataOption[];
+}
+
+export interface RawCommandDataChoice {
+    name: string;
+    value: string | number;
+}

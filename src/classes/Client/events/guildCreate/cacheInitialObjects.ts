@@ -1,4 +1,4 @@
-import { AnyChannelData, Ban, BanData, Channel, Client, Emoji, EmojiData, Guild, GuildCreateData, GuildWidget, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, InviteData, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, Template, TemplateData, User, VanityInvite, VanityInviteData, Webhook, WebhookData, WelcomeScreen } from "../../../../internal";
+import { AnyChannelData, Ban, BanData, Channel, Client, Command, CommandData, Emoji, EmojiData, Guild, GuildCreateData, GuildWidget, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, InviteData, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, Template, TemplateData, User, VanityInvite, VanityInviteData, Webhook, WebhookData, WelcomeScreen } from "../../../../internal";
 
 /**
  * Cache Initial Objects
@@ -84,6 +84,35 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
             // Loop through channels
             guildCreateData.channels.filter((c: AnyChannelData) => (client._cacheStrategies.objects.channels?.initialCache as InitialCacheTypeGuilds).ids?.includes(c.id)).forEach((c: AnyChannelData) => Channel.fromData(client, c));
         }
+    }
+
+    // Create command objects
+    if (
+
+        // If the client is caching all command objects, itll be cached when creating the `GuildCreateData` object
+        !client._cacheStrategies.objects.commands?.cacheAll &&
+
+        (
+
+            // If the initial cache is `true`, all commands should be cached
+            client._cacheStrategies.objects.commands?.initialCache === true ||
+
+            (
+
+                // If the initial cache is defined
+                client._cacheStrategies.objects.commands?.initialCache &&
+
+                // And the guild ID is in the array
+                client._cacheStrategies.objects.commands.initialCache.guilds?.includes(guildCreateData.guild.id)
+            )
+        )
+    ) {
+
+        // Get commands
+        const commands: CommandData[] | void = await client.getGuildCommands(guildCreateData.guild.id).catch(() => { });
+
+        // Loop through commands
+        if (commands) commands.forEach((c: CommandData) => Command.fromData(client, c));
     }
 
     // Create emoji objects

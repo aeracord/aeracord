@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheManagerInterface, CategoryChannel, Channel, Client, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildData, GuildPreview, GuildUserCacheManagerInterface, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheManagerInterface, CategoryChannel, Channel, Client, CommandData, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildData, GuildPreview, GuildUserCacheManagerInterface, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -520,6 +520,19 @@ export default class Guild extends Base<Guild> {
     }
 
     /**
+     * Bulk Edit Commands
+     *
+     * Bulk edit this guild's commands
+     *
+     * @param editCommandData The data for the commands
+     *
+     * @returns {Promise<CommandData[]>} The commands
+     */
+    bulkEditCommands(editCommandData: EditCommandData[]): Promise<CommandData[]> {
+        return this.client.bulkOverwriteGuildCommands(this, editCommandData);
+    }
+
+    /**
      * Create Channel
      *
      * Create a channel in this guild
@@ -530,6 +543,19 @@ export default class Guild extends Base<Guild> {
      */
     createChannel(createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannelData> {
         return this.client.createGuildChannel(this, createGuildChannelData);
+    }
+
+    /**
+     * Create Command
+     *
+     * Create a command in this guild
+     *
+     * @param createCommandData The data for the command
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    createCommand(createCommandData: CreateCommandData): Promise<CommandData> {
+        return this.client.createGuildCommand(this, createCommandData);
     }
 
     /**
@@ -581,6 +607,17 @@ export default class Guild extends Base<Guild> {
     }
 
     /**
+     * Delete Command
+     *
+     * Delete a command from this guild
+     *
+     * @param command The command to delete
+     */
+    deleteCommand(command: CommandResolvable): Promise<void> {
+        return this.client.deleteGuildCommand(this, command);
+    }
+
+    /**
      * Delete Emoji
      *
      * Delete an emoji from this guild
@@ -613,6 +650,20 @@ export default class Guild extends Base<Guild> {
      */
     deleteTemplate(template: TemplateResolvable): Promise<TemplateData> {
         return this.client.deleteGuildTemplate(this, template);
+    }
+
+    /**
+     * Edit Command
+     *
+     * Edit a command in this guild
+     *
+     * @param command The command to edit
+     * @param editCommandData The data for the command
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    editCommand(command: CommandResolvable, editCommandData: EditCommandData): Promise<CommandData> {
+        return this.client.editGuildCommand(this, command, editCommandData);
     }
 
     /**
@@ -661,6 +712,30 @@ export default class Guild extends Base<Guild> {
      */
     getChannels(): Promise<AnyGuildChannelData[]> {
         return this.client.getGuildChannels(this);
+    }
+
+    /**
+     * Get Command
+     *
+     * Get a command from this guild
+     *
+     * @param command The command to get
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    getCommand(command: CommandResolvable): Promise<CommandData> {
+        return this.client.getGuildCommand(this, command);
+    }
+
+    /**
+     * Get Commands
+     *
+     * Get the commands in this guild
+     *
+     * @returns {Promise<CommandData[]>} The commands
+     */
+    getCommands(): Promise<CommandData[]> {
+        return this.client.getGuildCommands(this);
     }
 
     /**

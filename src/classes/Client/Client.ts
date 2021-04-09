@@ -23,7 +23,11 @@ import {
     ChannelResolvable,
     ChannelUpdateEventOptions,
     ClientCacheStrategyData,
+    Command,
+    CommandData,
+    CommandResolvable,
     CreateChannelInviteData,
+    CreateCommandData,
     CreateDMData,
     CreateGuildBanData,
     CreateGuildChannelData,
@@ -37,6 +41,7 @@ import {
     CurrentUserNickname,
     DMChannelData,
     EditChannelPermissionsData,
+    EditCommandData,
     EditMessageData,
     Emoji,
     EmojiData,
@@ -152,11 +157,15 @@ import {
 import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
 import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
+import bulkOverwriteGlobalCommands from "./apiMethods/bulkOverwriteGlobalCommands";
+import bulkOverwriteGuildCommands from "./apiMethods/bulkOverwriteGuildCommands";
 import createChannelInvite from "./apiMethods/createChannelInvite";
 import createDM from "./apiMethods/createDM";
+import createGlobalCommand from "./apiMethods/createGlobalCommand";
 import createGuild from "./apiMethods/createGuild";
 import createGuildBan from "./apiMethods/createGuildBan";
 import createGuildChannel from "./apiMethods/createGuildChannel";
+import createGuildCommand from "./apiMethods/createGuildCommand";
 import createGuildEmoji from "./apiMethods/createGuildEmoji";
 import createGuildFromTemplate from "./apiMethods/createGuildFromTemplate";
 import createGuildRole from "./apiMethods/createGuildRole";
@@ -169,7 +178,9 @@ import deleteAllReactions from "./apiMethods/deleteAllReactions";
 import deleteAllReactionsForEmoji from "./apiMethods/deleteAllReactionsForEmoji";
 import deleteChannel from "./apiMethods/deleteChannel";
 import deleteChannelPermission from "./apiMethods/deleteChannelPermission";
+import deleteGlobalCommands from "./apiMethods/deleteGlobalCommand";
 import deleteGuild from "./apiMethods/deleteGuild";
+import deleteGuildCommand from "./apiMethods/deleteGuildCommand";
 import deleteGuildEmoji from "./apiMethods/deleteGuildEmoji";
 import deleteGuildRole from "./apiMethods/deleteGuildRole";
 import deleteGuildTemplate from "./apiMethods/deleteGuildTemplate";
@@ -180,6 +191,8 @@ import deletePinnedChannelMessage from "./apiMethods/deletePinnedChannelMessage"
 import deleteUserReaction from "./apiMethods/deleteUserReaction";
 import deleteWebhook from "./apiMethods/deleteWebhook";
 import editChannelPermissions from "./apiMethods/editChannelPermissions";
+import editGlobalCommand from "./apiMethods/editGlobalCommand";
+import editGuildCommand from "./apiMethods/editGuildCommand";
 import editMessage from "./apiMethods/editMessage";
 import followNewsChannel from "./apiMethods/followNewsChannel";
 import getChannel from "./apiMethods/getChannel";
@@ -189,11 +202,15 @@ import getChannelMessages from "./apiMethods/getChannelMessages";
 import getChannelWebhooks from "./apiMethods/getChannelWebhooks";
 import getCurrentUser from "./apiMethods/getCurrentUser";
 import getCurrentUserGuilds from "./apiMethods/getCurrentUserGuilds";
+import getGlobalCommand from "./apiMethods/getGlobalCommand";
+import getGlobalCommands from "./apiMethods/getGlobalCommands";
 import getGuild from "./apiMethods/getGuild";
 import getGuildAuditLog from "./apiMethods/getGuildAuditLog";
 import getGuildBan from "./apiMethods/getGuildBan";
 import getGuildBans from "./apiMethods/getGuildBans";
 import getGuildChannels from "./apiMethods/getGuildChannels";
+import getGuildCommand from "./apiMethods/getGuildCommand";
+import getGuildCommands from "./apiMethods/getGuildCommands";
 import getGuildEmoji from "./apiMethods/getGuildEmoji";
 import getGuildInvites from "./apiMethods/getGuildInvites";
 import getGuildMember from "./apiMethods/getGuildMember";
@@ -880,6 +897,13 @@ export default class Client extends EventEmitter {
     _emojiGuilds?: Map<string, string>;
 
     /**
+     * Commands
+     *
+     * The internal cache of commands
+     */
+    _commands: CacheManager<Command>;
+
+    /**
      * Bans
      *
      * The internal cache of bans
@@ -983,6 +1007,13 @@ export default class Client extends EventEmitter {
      * The internal cache of users
      */
     _users: CacheManager<User>;
+
+    /**
+     * Commands
+     *
+     * The cache of commands
+     */
+    commands: CacheManagerInterface<Command, false>;
 
     /**
      * Bans
@@ -1132,6 +1163,7 @@ export default class Client extends EventEmitter {
             this._guildEmojis = new Map();
             this._emojiGuilds = new Map();
         }
+        this._commands = new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commands));
         this._bans = new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans));
         this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.channels));
         this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.emojis));
@@ -1147,6 +1179,9 @@ export default class Client extends EventEmitter {
         this._webhooks = new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.webhooks));
         this._welcomeScreens = new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.welcomeScreens));
         this._users = new CacheManager<User>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.users));
+        this.commands = new CacheManagerInterface<Command, false>(this, {
+            cacheManager: this._commands
+        });
         this.bans = new GuildUserCacheManagerInterface<Ban>(this, {
             cacheManager: this._bans._cacheManager,
             fetchObject: async (id: string): Promise<Ban> => Ban.fromData(this, await this.getGuildBan(id.split("_")[0], id.split("_")[1]))
@@ -1345,6 +1380,33 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Bulk Overwrite Global Commands
+     *
+     * Bulk edit global commands
+     *
+     * @param editCommandData The data for the commands
+     *
+     * @returns {Promise<CommandData[]>} The commands
+     */
+    bulkOverwriteGlobalCommands(editCommandData: EditCommandData[]): Promise<CommandData[]> {
+        return bulkOverwriteGlobalCommands(this, editCommandData);
+    }
+
+    /**
+     * Bulk Overwrite Guild Commands
+     *
+     * Bulk edit guild commands
+     *
+     * @param guild The guild to edit the commands in
+     * @param editCommandData The data for the commands
+     *
+     * @returns {Promise<CommandData[]>} The commands
+     */
+    bulkOverwriteGuildCommands(guild: GuildResolvable, editCommandData: EditCommandData[]): Promise<CommandData[]> {
+        return bulkOverwriteGuildCommands(this, guild, editCommandData);
+    }
+
+    /**
      * Create Channel Invite
      *
      * Create an invite
@@ -1369,6 +1431,33 @@ export default class Client extends EventEmitter {
      */
     createDM(createDMData: CreateDMData): Promise<DMChannelData> {
         return createDM(this, createDMData);
+    }
+
+    /**
+     * Create Global Command
+     *
+     * Create a global command
+     *
+     * @param createCommandData The data for the command
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    createGlobalCommand(createCommandData: CreateCommandData): Promise<CommandData> {
+        return createGlobalCommand(this, createCommandData);
+    }
+
+    /**
+     * Create Guild Command
+     *
+     * Create a guild command
+     *
+     * @param guild The guild to create the command in
+     * @param createCommandData The data for the command
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    createGuildCommand(guild: GuildResolvable, createCommandData: CreateCommandData): Promise<CommandData> {
+        return createGuildCommand(this, guild, createCommandData);
     }
 
     /**
@@ -1573,6 +1662,17 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Delete Global Command
+     *
+     * Delete a global command
+     *
+     * @param command The command to delete
+     */
+    deleteGlobalCommand(command: CommandResolvable): Promise<void> {
+        return deleteGlobalCommands(this, command);
+    }
+
+    /**
      * Delete Guild
      *
      * Delete a guild
@@ -1581,6 +1681,18 @@ export default class Client extends EventEmitter {
      */
     deleteGuild(guild: GuildResolvable): Promise<void> {
         return deleteGuild(this, guild);
+    }
+
+    /**
+     * Delete Guild Command
+     *
+     * Delete a guild command
+     *
+     * @param guild The guild to delete the command in
+     * @param command The command to delete
+     */
+    deleteGuildCommand(guild: GuildResolvable, command: CommandResolvable): Promise<void> {
+        return deleteGuildCommand(this, guild, command);
     }
 
     /**
@@ -1712,6 +1824,35 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Edit Global Command
+     *
+     * Edit a global command
+     *
+     * @param command The command to edit
+     * @param editCommandData The data for the command
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    editGlobalCommand(command: CommandResolvable, editCommandData: EditCommandData): Promise<CommandData> {
+        return editGlobalCommand(this, command, editCommandData);
+    }
+
+    /**
+     * Edit Guild Command
+     *
+     * Edit a guild command
+     *
+     * @param guild The guild to edit the command in
+     * @param command The command to edit
+     * @param editCommandData The data for the command
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    editGuildCommand(guild: GuildResolvable, command: CommandResolvable, editCommandData: EditCommandData): Promise<CommandData> {
+        return editGuildCommand(this, guild, command, editCommandData);
+    }
+
+    /**
      * Edit Message
      *
      * Edit a message
@@ -1832,6 +1973,30 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Get Global Command
+     *
+     * Get a global command
+     *
+     * @param command The command to get
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    getGlobalCommand(command: CommandResolvable): Promise<CommandData> {
+        return getGlobalCommand(this, command);
+    }
+
+    /**
+     * Get Global Commands
+     *
+     * Get the global commands
+     *
+     * @returns {Promise<CommandData[]>} The commands
+     */
+    getGlobalCommands(): Promise<CommandData[]> {
+        return getGlobalCommands(this);
+    }
+
+    /**
      * Get Guild
      *
      * Get a guild
@@ -1897,6 +2062,33 @@ export default class Client extends EventEmitter {
      */
     getGuildChannels(guild: GuildResolvable): Promise<AnyGuildChannelData[]> {
         return getGuildChannels(this, guild);
+    }
+
+    /**
+     * Get Guild Command
+     *
+     * Get a guild command
+     *
+     * @param guild The guild to get the command from
+     * @param command The command to get
+     *
+     * @returns {Promise<CommandData>} The command data
+     */
+    getGuildCommand(guild: GuildResolvable, command: CommandResolvable): Promise<CommandData> {
+        return getGuildCommand(this, guild, command);
+    }
+
+    /**
+     * Get Guild Commands
+     *
+     * Get the guild commands
+     *
+     * @param guild The guild to get the commands from
+     *
+     * @returns {Promise<CommandData[]>} The commands
+     */
+    getGuildCommands(guild: GuildResolvable): Promise<CommandData[]> {
+        return getGuildCommands(this, guild);
     }
 
     /**
