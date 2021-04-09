@@ -25,7 +25,9 @@ import {
     ClientCacheStrategyData,
     Command,
     CommandData,
+    CommandEventOptions,
     CommandResolvable,
+    CommandUpdateEventOptions,
     CreateChannelInviteData,
     CreateCommandData,
     CreateDMData,
@@ -455,6 +457,27 @@ export default interface Client {
      * Emitted when a channel is updated
      */
     on(event: "channelUpdate", listener: (channelData: AnyChannelData, options: ChannelUpdateEventOptions) => void): this;
+
+    /**
+     * Command Create
+     *
+     * Emitted when a command is created
+     */
+    on(event: "commandCreate", listener: (commandData: CommandData, options: CommandEventOptions) => void): this;
+
+    /**
+     * Command Delete
+     *
+     * Emitted when a command is deleted
+     */
+    on(event: "commandDelete", listener: (commandData: CommandData, options: CommandEventOptions) => void): this;
+
+    /**
+     * Command Update
+     *
+     * Emitted when a command is updated
+     */
+    on(event: "commandUpdate", listener: (commandData: CommandData, options: CommandUpdateEventOptions) => void): this;
 
     /**
      * Guild Available

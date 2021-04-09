@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, AnyGuildChannel, Ban, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, User, UserData } from "../../internal";
+import { AnyChannel, AnyChannelData, AnyGuildChannel, Ban, Command, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, User, UserData } from "../../internal";
 
 /**
  * Event Options
@@ -34,6 +34,24 @@ export interface ChannelEventOptions extends EventOptions {
  */
 export interface ChannelUpdateEventOptions extends ChannelEventOptions {
     oldChannelData?: AnyChannelData;
+}
+
+/**
+ * Command Event Options
+ *
+ * Options for extra data sent with command related events
+ */
+export interface CommandEventOptions extends EventOptions {
+    command?: Command;
+}
+
+/**
+ * Command Update Event Options
+ *
+ * Options for extra data sent with command update related events
+ */
+export interface CommandUpdateEventOptions extends CommandEventOptions {
+    oldCommandData?: CommandData;
 }
 
 /**
@@ -106,15 +124,6 @@ export interface MessageEventOptions extends EventOptions {
 }
 
 /**
- * Message Update Event Options
- *
- * Options for extra data sent with message update related events
- */
-export interface MessageUpdateEventOptions extends MessageEventOptions {
-    oldMessageData?: MessageData;
-}
-
-/**
  * Message Delete Bulk Event Options
  *
  * Options for extra data sent with message bulk delete related events
@@ -123,6 +132,15 @@ export interface MessageDeleteBulkEventOptions extends EventOptions {
     messages: Message[];
     guild?: Guild;
     channel?: AnyChannel;
+}
+
+/**
+ * Message Update Event Options
+ *
+ * Options for extra data sent with message update related events
+ */
+export interface MessageUpdateEventOptions extends MessageEventOptions {
+    oldMessageData?: MessageData;
 }
 
 /**

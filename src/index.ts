@@ -111,6 +111,33 @@ export {
     PermissionsCacheStrategies
 } from "./internal";
 
+// Client: Event Options
+export {
+    BanEventOptions,
+    ChannelEventOptions,
+    ChannelUpdateEventOptions,
+    CommandEventOptions,
+    CommandUpdateEventOptions,
+    EventOptions,
+    GuildEmojisUpdateEventOptions,
+    GuildEventOptions,
+    GuildUpdateEventOptions,
+    InviteEventOptions,
+    MemberEventOptions,
+    MemberUpdateEventOptions,
+    MessageEventOptions,
+    MessageDeleteBulkEventOptions,
+    MessageUpdateEventOptions,
+    PresenceUpdateEventOptions,
+    ReactionEventOptions,
+    RoleEventOptions,
+    RoleUpdateEventOptions,
+    TypingStartEventOptions,
+    UserUpdateEventOptions,
+    VoiceStateEventOptions,
+    WebhooksUpdateEventOptions
+} from "./internal";
+
 // Client: Events
 export {
     ChannelPinsUpdateData,
