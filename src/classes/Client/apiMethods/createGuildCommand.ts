@@ -1,11 +1,5 @@
-import { Client, Command, CommandData, CommandOption, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
+import { Client, Command, CommandData, CreateCommandData, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-
-export interface CreateCommandData {
-    name: string;
-    description: string;
-    options?: CommandOption;
-}
 
 export default async function createGuildCommand(client: Client, guildResolvable: GuildResolvable, createCommandData: CreateCommandData): Promise<CommandData> {
 
