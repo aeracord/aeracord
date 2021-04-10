@@ -4,7 +4,7 @@ import getRoute from "../../../util/getRoute";
 export interface EditCommandData {
     name?: string;
     description?: string;
-    options?: CommandOption | null;
+    options?: CommandOption[] | null;
 }
 
 export default async function editGlobalCommand(client: Client, commandResolvable: CommandResolvable, editCommandData: EditCommandData): Promise<CommandData> {

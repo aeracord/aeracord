@@ -4,7 +4,7 @@ import getRoute from "../../../util/getRoute";
 export interface CreateCommandData {
     name: string;
     description: string;
-    options?: CommandOption;
+    options?: CommandOption[];
 }
 
 export default async function createGlobalCommand(client: Client, createCommandData: CreateCommandData): Promise<CommandData> {
