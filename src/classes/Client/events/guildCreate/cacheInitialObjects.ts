@@ -12,14 +12,7 @@ import { AnyChannelData, Ban, BanData, Channel, Client, Command, CommandData, Em
 export default async function cacheInitialObjects(client: Client, guildCreateData: GuildCreateData) {
 
     // Create ban objects
-    if (
-
-        // If the client is caching all ban objects, itll be cached when creating the `GuildCreateData` object
-        !client._cacheStrategies.objects.bans?.cacheAll &&
-
-        // If the initial cache is defined
-        client._cacheStrategies.objects.bans?.initialCache
-    ) {
+    if (client._cacheStrategies.objects.bans?.initialCache) {
 
         // Get bans
         const bans: BanData[] | void = await client.getGuildBans(guildCreateData.guild.id).catch(() => { });
@@ -89,22 +82,16 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
     // Create command objects
     if (
 
-        // If the client is caching all command objects, itll be cached when creating the `GuildCreateData` object
-        !client._cacheStrategies.objects.commands?.cacheAll &&
+        // If the initial cache is `true`, all commands should be cached
+        client._cacheStrategies.objects.commands?.initialCache === true ||
 
         (
 
-            // If the initial cache is `true`, all commands should be cached
-            client._cacheStrategies.objects.commands?.initialCache === true ||
+            // If the initial cache is defined
+            client._cacheStrategies.objects.commands?.initialCache &&
 
-            (
-
-                // If the initial cache is defined
-                client._cacheStrategies.objects.commands?.initialCache &&
-
-                // And the guild ID is in the array
-                client._cacheStrategies.objects.commands.initialCache.guilds?.includes(guildCreateData.guild.id)
-            )
+            // And the guild ID is in the array
+            client._cacheStrategies.objects.commands.initialCache.guilds?.includes(guildCreateData.guild.id)
         )
     ) {
 
@@ -196,14 +183,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
     ) GuildWidget.fromData(client, guildCreateData.guild.widget);
 
     // Create invite objects
-    if (
-
-        // If the client is caching all invite objects, itll be cached when creating the `GuildCreateData` object
-        !client._cacheStrategies.objects.invites?.cacheAll &&
-
-        // If the initial cache is defined
-        client._cacheStrategies.objects.invites?.initialCache
-    ) {
+    if (client._cacheStrategies.objects.invites?.initialCache) {
 
         // Get invites
         const invites: InviteData[] | void = await client.getGuildInvites(guildCreateData.guild.id).catch(() => { });
@@ -285,14 +265,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
     }
 
     // Create message objects
-    if (
-
-        // If the client is caching all message objects, itll be cached when creating the `GuildCreateData` object
-        !client._cacheStrategies.objects.messages?.cacheAll &&
-
-        // If the initial cache is defined
-        client._cacheStrategies.objects.messages?.initialCache
-    ) {
+    if (client._cacheStrategies.objects.messages?.initialCache) {
 
         // Define message data
         let messageData: MessageData[] = [];
@@ -431,14 +404,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
     }
 
     // Create template objects
-    if (
-
-        // If the client is caching all template objects, itll be cached when creating the `GuildCreateData` object
-        !client._cacheStrategies.objects.templates?.cacheAll &&
-
-        // If the initial cache is defined
-        client._cacheStrategies.objects.templates?.initialCache
-    ) {
+    if (client._cacheStrategies.objects.templates?.initialCache) {
 
         // Get templates
         const templates: TemplateData[] | void = await client.getGuildTemplates(guildCreateData.guild.id).catch(() => { });
@@ -472,22 +438,15 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
     // Create vanity invite object
     if (
 
-        // If the client is caching all vanity invite objects, itll be cached when creating the `GuildCreateData` object
-        !client._cacheStrategies.objects.vanityInvites?.cacheAll &&
-
-        // Check IDs
+        // If the initial cache is `true`, all vanity invites should be cached
+        client._cacheStrategies.objects.vanityInvites?.initialCache === true ||
         (
 
-            // If the initial cache is `true`, all vanity invites should be cached
-            client._cacheStrategies.objects.vanityInvites?.initialCache === true ||
-            (
+            // Otherwise, if its an array of IDs
+            client._cacheStrategies.objects.vanityInvites?.initialCache instanceof Array &&
 
-                // Otherwise, if its an array of IDs
-                client._cacheStrategies.objects.vanityInvites?.initialCache instanceof Array &&
-
-                // And the guild ID is in the array
-                client._cacheStrategies.objects.vanityInvites.initialCache.includes(guildCreateData.guild.id)
-            )
+            // And the guild ID is in the array
+            client._cacheStrategies.objects.vanityInvites.initialCache.includes(guildCreateData.guild.id)
         )
     ) {
 
@@ -499,14 +458,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
     }
 
     // Create webhook objects
-    if (
-
-        // If the client is caching all webhook objects, itll be cached when creating the `GuildCreateData` object
-        !client._cacheStrategies.objects.webhooks?.cacheAll &&
-
-        // If the initial cache is defined
-        client._cacheStrategies.objects.webhooks?.initialCache
-    ) {
+    if (client._cacheStrategies.objects.webhooks?.initialCache) {
 
         // Get webhooks
         const webhooks: WebhookData[] | void = await client.getGuildWebhooks(guildCreateData.guild.id).catch(() => { });
