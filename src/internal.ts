@@ -244,6 +244,13 @@ export {
 export * from "./classes/GuildWidget/GuildWidgetData";
 export * from "./classes/GuildWidget/RawGuildWidgetData";
 
+// Interaction
+export {
+    default as Interaction
+} from "./classes/Interaction/Interaction";
+export * from "./classes/Interaction/InteractionData";
+export * from "./classes/Interaction/RawInteractionData";
+
 // Invite
 export {
     default as Invite,

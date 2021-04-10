@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, AnyGuildChannel, Ban, Command, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, User, UserData } from "../../internal";
+import { AnyChannel, AnyChannelData, AnyGuildChannel, Ban, Command, CommandData, EmojiData, Guild, GuildData, Interaction, Invite, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, User, UserData } from "../../internal";
 
 /**
  * Event Options
@@ -79,6 +79,17 @@ export interface GuildEventOptions extends EventOptions {
  */
 export interface GuildUpdateEventOptions extends GuildEventOptions {
     oldGuildData?: GuildData;
+}
+
+/**
+ * Interaction Event Options
+ *
+ * Options for extra data sent with interaction related events
+ */
+export interface InteractionEventOptions extends EventOptions {
+    interaction?: Interaction;
+    guild?: Guild;
+    channel?: AnyGuildChannel;
 }
 
 /**

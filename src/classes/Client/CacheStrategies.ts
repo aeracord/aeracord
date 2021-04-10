@@ -20,6 +20,7 @@ export interface ObjectCacheStrategies {
     emojis?: CacheStrategy<InitialCacheTypeGuilds>;
     guilds?: CacheStrategy<InitialCacheTypeIDs>;
     guildWidgets?: CacheStrategy<InitialCacheTypeIDs>;
+    interactions?: CacheStrategy<undefined>;
     invites?: CacheStrategy<InitialCacheTypeChannels>;
     members?: CacheStrategy<InitialCacheTypeGuilds>;
     messages?: CacheStrategy<InitialCacheTypeMessages>;
@@ -37,7 +38,7 @@ export interface ObjectCacheStrategies {
  *
  * How something should be cached
  */
-export interface CacheStrategy<CacheStrategyInitialCacheType extends InitialCacheType> {
+export interface CacheStrategy<CacheStrategyInitialCacheType extends (InitialCacheType | undefined)> {
 
     /**
      * Cache For
@@ -76,7 +77,7 @@ export interface CacheStrategy<CacheStrategyInitialCacheType extends InitialCach
      * The objects that should be cached when the client connects to the gateway
      * `true` if all objects should be cached
      */
-    initialCache?: CacheStrategyInitialCacheType | boolean;
+    initialCache?: CacheStrategyInitialCacheType extends undefined ? undefined : (CacheStrategyInitialCacheType | boolean);
 }
 
 /**

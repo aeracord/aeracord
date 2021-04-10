@@ -79,6 +79,9 @@ import {
     GuildUserCacheManagerInterface,
     GuildWidget,
     GuildWidgetData,
+    Interaction,
+    InteractionData,
+    InteractionEventOptions,
     Invite,
     InviteData,
     InviteDeleteData,
@@ -585,6 +588,13 @@ export default interface Client {
     on(event: "guildUpdate", listener: (guildData: GuildData, options: GuildUpdateEventOptions) => void): this;
 
     /**
+     * Interaction Create
+     *
+     * Emitted when an interaction is created
+     */
+    on(event: "interactionCreate", listener: (interactionData: InteractionData, options: InteractionEventOptions) => void): this;
+
+    /**
      * Invite Create
      *
      * Emitted when an invite is created
@@ -962,6 +972,13 @@ export default class Client extends EventEmitter {
     _guildWidgets: CacheManager<GuildWidget>;
 
     /**
+     * Interactions
+     *
+     * The internal cache of interactions
+     */
+    _interactions: CacheManager<Interaction>;
+
+    /**
      * Invites
      *
      * The internal cache of invites
@@ -1072,6 +1089,13 @@ export default class Client extends EventEmitter {
      * The cache of guild widgets
      */
     guildWidgets: CacheManagerInterface<GuildWidget>;
+
+    /**
+     * Interactions
+     *
+     * The cache of interactions
+     */
+    interactions: CacheManagerInterface<Interaction, false>;
 
     /**
      * Invites
@@ -1192,6 +1216,7 @@ export default class Client extends EventEmitter {
         this._emojis = new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.emojis));
         this._guilds = new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guilds));
         this._guildWidgets = new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guildWidgets));
+        this._interactions = new CacheManager<Interaction>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.interactions));
         this._invites = new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.invites));
         this._members = new GuildUserCacheManager<Member>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.members));
         this._messages = new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.messages));
@@ -1223,6 +1248,9 @@ export default class Client extends EventEmitter {
         this.guildWidgets = new CacheManagerInterface<GuildWidget>(this, {
             cacheManager: this._guildWidgets,
             fetchObject: async (id: string): Promise<GuildWidget> => GuildWidget.fromData(this, await this.getGuildWidgetSettings(id))
+        });
+        this.interactions = new CacheManagerInterface<Interaction, false>(this, {
+            cacheManager: this._interactions
         });
         this.invites = new CacheManagerInterface<Invite>(this, {
             cacheManager: this._invites,

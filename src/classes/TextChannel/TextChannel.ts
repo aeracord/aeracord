@@ -1,4 +1,4 @@
-import { CacheManagerInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Invite, InviteData, Message, TextChannelData, Webhook, WebhookData } from "../../internal";
+import { CacheManagerInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Interaction, Invite, InviteData, Message, TextChannelData, Webhook, WebhookData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -68,6 +68,10 @@ class TextChannel extends GuildChannel {
 
         // Set data
         TextChannel._updateObject(this, textChannelData, true);
+        this.interactions = new CacheManagerInterface<Interaction, false>(this.client, {
+            cacheManager: this.client._interactions,
+            match: (i: Interaction) => i.channelID === this.id
+        });
         this.messages = new CacheManagerInterface<Message>(this.client, {
             cacheManager: this.client._messages,
             match: (m: Message) => m.channelID === this.id,

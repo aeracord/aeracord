@@ -295,6 +295,11 @@ export {
     GuildWidget
 } from "./internal";
 
+// Interaction
+export {
+    Interaction
+} from "./internal";
+
 // Invite
 export {
     Invite,

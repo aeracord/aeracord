@@ -1,4 +1,4 @@
-import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, InviteData, Message, MessageData, MessageResolvable, NewsChannelData, Webhook, WebhookData } from "../../internal";
+import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Interaction, Invite, InviteData, Message, MessageData, MessageResolvable, NewsChannelData, Webhook, WebhookData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -68,6 +68,10 @@ class NewsChannel extends GuildChannel {
 
         // Set data
         NewsChannel._updateObject(this, newsChannelData, true);
+        this.interactions = new CacheManagerInterface<Interaction, false>(this.client, {
+            cacheManager: this.client._interactions,
+            match: (i: Interaction) => i.channelID === this.id
+        });
         this.messages = new CacheManagerInterface<Message>(this.client, {
             cacheManager: this.client._messages,
             match: (m: Message) => m.channelID === this.id,

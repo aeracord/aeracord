@@ -19,6 +19,7 @@ import guildRoleCreate from "./events/guildRoleCreate/guildRoleCreate";
 import guildRoleDelete from "./events/guildRoleDelete/guildRoleDelete";
 import guildRoleUpdate from "./events/guildRoleUpdate/guildRoleUpdate";
 import guildUpdate from "./events/guildUpdate/guildUpdate";
+import interactionCreate from "./events/interactionCreate/interactionCreate";
 import inviteCreate from "./events/inviteCreate/inviteCreate";
 import inviteDelete from "./events/inviteDelete/inviteDelete";
 import messageCreate from "./events/messageCreate/messageCreate";
@@ -185,6 +186,12 @@ export default function event(client: Client, type: string, data: any) {
      * https://discord.com/developers/docs/topics/gateway#guild-update
      */
     else if (type === "GUILD_UPDATE") guildUpdate(client, data);
+
+    /**
+     * Interaction Create
+     * https://discord.com/developers/docs/topics/gateway#interaction-create
+     */
+    else if (type === "INTERACTION_CREATE") interactionCreate(client, data);
 
     /**
      * Invite Create
