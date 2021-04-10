@@ -218,6 +218,15 @@ export default class Role extends Base<Role> {
     }
 
     /**
+     * Delete
+     *
+     * Delete this role
+     */
+    delete(): Promise<void> {
+        return this.client.deleteGuildRole(this.guildID, this);
+    }
+
+    /**
      * Remove from Member
      *
      * Remove this role from a member
