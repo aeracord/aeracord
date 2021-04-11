@@ -15,7 +15,7 @@ export type AnyChannelData = ChannelData | GuildChannelData | DMChannelData | Te
  *
  * The types that can be resolved to a channel
  */
-export type ChannelResolvable = AnyChannel | string;
+export type ChannelResolvable = AnyChannel | AnyChannelData | string;
 
 export default class Channel extends Base<AnyChannel> {
 

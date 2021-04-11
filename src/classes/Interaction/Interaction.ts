@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to an interaction
  */
-export type InteractionResolvable = Interaction | string;
+export type InteractionResolvable = Interaction | InteractionData | string;
 
 export default class Interaction extends Base<Interaction> {
 

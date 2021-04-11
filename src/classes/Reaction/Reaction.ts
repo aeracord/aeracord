@@ -1,4 +1,4 @@
-import { Client, Emoji, RawReactionData, RawReactionMetadata, ReactionData, ReactionEmoji } from "../../internal";
+import { Client, Emoji, EmojiData, RawReactionData, RawReactionMetadata, ReactionData, ReactionEmoji } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveString from "./resolveString";
@@ -9,7 +9,7 @@ import toData from "./toData";
  *
  * The types that can be resolved to a reaction emoji
  */
-export type ReactionEmojiResolvable = Reaction | Emoji | string;
+export type ReactionEmojiResolvable = Reaction | ReactionData | Emoji | EmojiData | string;
 
 export default class Reaction {
 

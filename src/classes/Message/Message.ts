@@ -12,7 +12,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to a message
  */
-export type MessageResolvable = Message | string;
+export type MessageResolvable = Message | MessageData | string;
 
 export default class Message extends Base<Message> {
 

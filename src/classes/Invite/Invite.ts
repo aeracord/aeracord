@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to an invite
  */
-export type InviteResolvable = Invite | string;
+export type InviteResolvable = Invite | InviteData | string;
 
 export default class Invite extends Base<Invite> {
 

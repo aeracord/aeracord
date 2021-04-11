@@ -1,4 +1,4 @@
-import { Base, Client, DMChannelData, Member, RawUserData, UserData } from "../../internal";
+import { Base, Client, DMChannelData, Member, MemberData, RawUserData, UserData } from "../../internal";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to a user
  */
-export type UserResolvable = User | Member | string;
+export type UserResolvable = User | UserData | Member | MemberData | string;
 
 export default class User extends Base<User> {
 

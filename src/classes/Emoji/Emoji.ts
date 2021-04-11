@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to an emoji
  */
-export type EmojiResolvable = Emoji | string;
+export type EmojiResolvable = Emoji | EmojiData | string;
 
 export default class Emoji extends Base<Emoji> {
 

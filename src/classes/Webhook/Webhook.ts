@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to a webhook
  */
-export type WebhookResolvable = Webhook | string;
+export type WebhookResolvable = Webhook | WebhookData | string;
 
 export default class Webhook extends Base<Webhook> {
 

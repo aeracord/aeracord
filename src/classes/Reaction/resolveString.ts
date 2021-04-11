@@ -1,12 +1,12 @@
-import { Emoji, Reaction, ReactionEmojiResolvable } from "../../internal";
+import { ReactionEmojiResolvable } from "../../internal";
 
 export default function resolveString(reactionEmojiResolvable: ReactionEmojiResolvable): string | undefined {
 
     // Reaction
-    if (reactionEmojiResolvable instanceof Reaction) return reactionEmojiResolvable.emoji.id ? `${reactionEmojiResolvable.emoji.name}:${reactionEmojiResolvable.emoji.id}` : (reactionEmojiResolvable.emoji.name as string);
+    if ((typeof reactionEmojiResolvable === "object") && ("emoji" in reactionEmojiResolvable)) return reactionEmojiResolvable.emoji.id ? `${reactionEmojiResolvable.emoji.name}:${reactionEmojiResolvable.emoji.id}` : (reactionEmojiResolvable.emoji.name as string);
 
     // Emoji
-    else if (reactionEmojiResolvable instanceof Emoji) return `${reactionEmojiResolvable.name}:${reactionEmojiResolvable.id}`;
+    else if ((typeof reactionEmojiResolvable === "object") && ("id" in reactionEmojiResolvable)) return `${reactionEmojiResolvable.name}:${reactionEmojiResolvable.id}`;
 
     // Emoji string
     else if (typeof reactionEmojiResolvable === "string") return reactionEmojiResolvable;

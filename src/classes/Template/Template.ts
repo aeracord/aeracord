@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to a template
  */
-export type TemplateResolvable = Template | string;
+export type TemplateResolvable = Template | TemplateData | string;
 
 export default class Template extends Base<Template> {
 

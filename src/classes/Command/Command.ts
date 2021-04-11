@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to an command
  */
-export type CommandResolvable = Command | string;
+export type CommandResolvable = Command | CommandData | string;
 
 export default class Command extends Base<Command> {
 

@@ -11,7 +11,7 @@ import updateObjectFromData from "./updateObjectFromData";
  *
  * The types that can be resolved to a role
  */
-export type RoleResolvable = Role | string;
+export type RoleResolvable = Role | RoleData | string;
 
 export default class Role extends Base<Role> {
 

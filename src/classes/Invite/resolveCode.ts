@@ -1,9 +1,9 @@
-import { Invite, InviteResolvable } from "../../internal";
+import { InviteResolvable } from "../../internal";
 
 export default function resolveCode(inviteResolvable: InviteResolvable): string | undefined {
 
     // Invite
-    if (inviteResolvable instanceof Invite) return inviteResolvable.code;
+    if ((typeof inviteResolvable === "object") && ("code" in inviteResolvable)) return inviteResolvable.code;
 
     // Invite code
     else if (/^[a-zA-Z0-9]+$/.test(inviteResolvable)) return inviteResolvable;
