@@ -178,6 +178,7 @@ export {
     CreateGuildFromTemplateData,
     CreateGuildRoleData,
     CreateGuildTemplateData,
+    CreateInteractionResponseData,
     CreateMessageData,
     CreateMessageFile,
     CreateMessageReference,
@@ -185,9 +186,11 @@ export {
     CurrentUserNickname,
     EditChannelPermissionsData,
     EditCommandData,
+    EditInteractionResponseData,
     EditMessageData,
     FollowedChannel,
     FollowNewsChannelData,
+    FollowupInteractionResponseData,
     GetChannelMessagesData,
     GetCurrentUserGuildsData,
     GetGuildAuditLogData,
@@ -195,6 +198,11 @@ export {
     GetInviteData,
     GetReactionsData,
     GuildPreview,
+    InteractionResponseData,
+    InteractionResponseType,
+    INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE,
+    INTERACTION_RESPONSE_TYPE_MESSAGE,
+    INTERACTION_RESPONSE_TYPE_PONG,
     ListGuildMembersData,
     ModifyChannelData,
     ModifyChannelDataType,
@@ -297,7 +305,8 @@ export {
 
 // Interaction
 export {
-    Interaction
+    Interaction,
+    InteractionResolvable
 } from "./internal";
 
 // Invite

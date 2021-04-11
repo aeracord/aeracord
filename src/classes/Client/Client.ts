@@ -38,12 +38,14 @@ import {
     CreateGuildFromTemplateData,
     CreateGuildRoleData,
     CreateGuildTemplateData,
+    CreateInteractionResponseData,
     CreateMessageData,
     CreateWebhookData,
     CurrentUserNickname,
     DMChannelData,
     EditChannelPermissionsData,
     EditCommandData,
+    EditInteractionResponseData,
     EditMessageData,
     Emoji,
     EmojiData,
@@ -52,6 +54,7 @@ import {
     FetchedData,
     FetchQueue,
     FollowedChannel,
+    FollowupInteractionResponseData,
     FollowNewsChannelData,
     GetChannelMessagesData,
     GetCurrentUserGuildsData,
@@ -82,6 +85,7 @@ import {
     Interaction,
     InteractionData,
     InteractionEventOptions,
+    InteractionResolvable,
     Invite,
     InviteData,
     InviteDeleteData,
@@ -166,6 +170,7 @@ import bulkOverwriteGlobalCommands from "./apiMethods/bulkOverwriteGlobalCommand
 import bulkOverwriteGuildCommands from "./apiMethods/bulkOverwriteGuildCommands";
 import createChannelInvite from "./apiMethods/createChannelInvite";
 import createDM from "./apiMethods/createDM";
+import createFollowupMessage from "./apiMethods/createFollowupMessage";
 import createGlobalCommand from "./apiMethods/createGlobalCommand";
 import createGuild from "./apiMethods/createGuild";
 import createGuildBan from "./apiMethods/createGuildBan";
@@ -175,6 +180,7 @@ import createGuildEmoji from "./apiMethods/createGuildEmoji";
 import createGuildFromTemplate from "./apiMethods/createGuildFromTemplate";
 import createGuildRole from "./apiMethods/createGuildRole";
 import createGuildTemplate from "./apiMethods/createGuildTemplate";
+import createInteractionResponse from "./apiMethods/createInteractionResponse";
 import createMessage from "./apiMethods/createMessage";
 import createReaction from "./apiMethods/createReaction";
 import createWebhook from "./apiMethods/createWebhook";
@@ -183,6 +189,7 @@ import deleteAllReactions from "./apiMethods/deleteAllReactions";
 import deleteAllReactionsForEmoji from "./apiMethods/deleteAllReactionsForEmoji";
 import deleteChannel from "./apiMethods/deleteChannel";
 import deleteChannelPermission from "./apiMethods/deleteChannelPermission";
+import deleteFollowupMessage from "./apiMethods/deleteFollowupMessage";
 import deleteGlobalCommands from "./apiMethods/deleteGlobalCommand";
 import deleteGuild from "./apiMethods/deleteGuild";
 import deleteGuildCommand from "./apiMethods/deleteGuildCommand";
@@ -191,14 +198,17 @@ import deleteGuildRole from "./apiMethods/deleteGuildRole";
 import deleteGuildTemplate from "./apiMethods/deleteGuildTemplate";
 import deleteInvite from "./apiMethods/deleteInvite";
 import deleteMessage from "./apiMethods/deleteMessage";
+import deleteOriginalInteractionResponse from "./apiMethods/deleteOriginalInteractionResponse";
 import deleteOwnReaction from "./apiMethods/deleteOwnReaction";
 import deletePinnedChannelMessage from "./apiMethods/deletePinnedChannelMessage";
 import deleteUserReaction from "./apiMethods/deleteUserReaction";
 import deleteWebhook from "./apiMethods/deleteWebhook";
 import editChannelPermissions from "./apiMethods/editChannelPermissions";
+import editFollowupMessage from "./apiMethods/editFollowupMessage";
 import editGlobalCommand from "./apiMethods/editGlobalCommand";
 import editGuildCommand from "./apiMethods/editGuildCommand";
 import editMessage from "./apiMethods/editMessage";
+import editOriginalInteractionResponse from "./apiMethods/editOriginalInteractionResponse";
 import followNewsChannel from "./apiMethods/followNewsChannel";
 import getChannel from "./apiMethods/getChannel";
 import getChannelInvites from "./apiMethods/getChannelInvites";
@@ -930,6 +940,14 @@ export default class Client extends EventEmitter {
     _emojiGuilds?: Map<string, string>;
 
     /**
+     * Pending Interaction Response Messages
+     *
+     * When creating an interaction response, the API endpoint doesn't return a message object
+     * This maps interaction IDs to a promise's resolve function to resolve the interaction response's message once a `messageCreate` event is received for it
+     */
+    _pendingInteractionResponseMessages: Map<string, Function>;
+
+    /**
      * Commands
      *
      * The internal cache of commands
@@ -1210,6 +1228,7 @@ export default class Client extends EventEmitter {
             this._guildEmojis = new Map();
             this._emojiGuilds = new Map();
         }
+        this._pendingInteractionResponseMessages = new Map();
         this._commands = new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commands));
         this._bans = new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans));
         this._channels = new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.channels));
@@ -1485,6 +1504,20 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Create Followup Message
+     *
+     * Create a followup message for an interaction
+     *
+     * @param interactionToken The token for the interaction to create a followup message to
+     * @param followupInteractionResponseData The data for the message
+     *
+     * @returns {Promise<MessageData>} The created message's data
+     */
+    createFollowupMessage(interactionToken: string, followupInteractionResponseData: FollowupInteractionResponseData): Promise<MessageData> {
+        return createFollowupMessage(this, interactionToken, followupInteractionResponseData);
+    }
+
+    /**
      * Create Global Command
      *
      * Create a global command
@@ -1608,6 +1641,21 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Create Interaction Response
+     *
+     * Create an interaction response
+     *
+     * @param interaction The interaction to respond to
+     * @param interactionToken The token for the interaction to respond to
+     * @param createInteractionResponseData The data for the response
+     *
+     * @returns {Promise<MessageData>} The created response's data
+     */
+    createInteractionResponse(interaction: InteractionResolvable, interactionToken: string, createInteractionResponseData: CreateInteractionResponseData): Promise<MessageData> {
+        return createInteractionResponse(this, interaction, interactionToken, createInteractionResponseData);
+    }
+
+    /**
      * Create Message
      *
      * Send a message to a channel
@@ -1713,6 +1761,18 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Delete Followup Message
+     *
+     * Delete a followup message to an interaction
+     *
+     * @param interactionToken The token for the interaction to delete the followup message for
+     * @param message The message to delete
+     */
+    deleteFollowupMessage(interactionToken: string, message: MessageResolvable): Promise<void> {
+        return deleteFollowupMessage(this, interactionToken, message);
+    }
+
+    /**
      * Delete Global Command
      *
      * Delete a global command
@@ -1811,6 +1871,17 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Delete Original Interaction Response
+     *
+     * Delete the original response to an interaction
+     *
+     * @param interactionToken The token for the interaction to delete the response for
+     */
+    deleteOriginalInteractionResponse(interactionToken: string): Promise<void> {
+        return deleteOriginalInteractionResponse(this, interactionToken);
+    }
+
+    /**
      * Delete Own Reaction
      *
      * Remove the client's reaction from a message
@@ -1875,6 +1946,21 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Edit Followup Message
+     *
+     * Edit a followup message to an interaction
+     *
+     * @param interactionToken The token for the interaction to edit the followup message for
+     * @param message The message to edit
+     * @param editInteractionResponseData The data for editing the message
+     *
+     * @returns {Promise<MessageData>} The edited message's data
+     */
+    editFollowupMessage(interactionToken: string, message: MessageResolvable, editInteractionResponseData: EditInteractionResponseData): Promise<MessageData> {
+        return editFollowupMessage(this, interactionToken, message, editInteractionResponseData);
+    }
+
+    /**
      * Edit Global Command
      *
      * Edit a global command
@@ -1916,6 +2002,20 @@ export default class Client extends EventEmitter {
      */
     editMessage(channel: ChannelResolvable, message: MessageResolvable, editMessageData: EditMessageData): Promise<MessageData> {
         return editMessage(this, channel, message, editMessageData);
+    }
+
+    /**
+     * Edit Original Interaction Response
+     *
+     * Edit the original response to an interaction
+     *
+     * @param interactionToken The token for the interaction to edit the response for
+     * @param editInteractionResponseData The data for editing the response
+     *
+     * @returns {Promise<MessageData>} The edited response's data
+     */
+    editOriginalInteractionResponse(interactionToken: string, editInteractionResponseData: EditInteractionResponseData): Promise<MessageData> {
+        return editOriginalInteractionResponse(this, interactionToken, editInteractionResponseData);
     }
 
     /**

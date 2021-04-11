@@ -70,6 +70,7 @@ export * from "./classes/Client/apiMethods/bulkDeleteMessages";
 export * from "./classes/Client/apiMethods/createGlobalCommand";
 export * from "./classes/Client/apiMethods/createChannelInvite";
 export * from "./classes/Client/apiMethods/createDM";
+export * from "./classes/Client/apiMethods/createFollowupMessage";
 export * from "./classes/Client/apiMethods/createGuild";
 export * from "./classes/Client/apiMethods/createGuildBan";
 export * from "./classes/Client/apiMethods/createGuildChannel";
@@ -77,10 +78,12 @@ export * from "./classes/Client/apiMethods/createGuildEmoji";
 export * from "./classes/Client/apiMethods/createGuildFromTemplate";
 export * from "./classes/Client/apiMethods/createGuildRole";
 export * from "./classes/Client/apiMethods/createGuildTemplate";
+export * from "./classes/Client/apiMethods/createInteractionResponse";
 export * from "./classes/Client/apiMethods/createMessage";
 export * from "./classes/Client/apiMethods/createWebhook";
 export * from "./classes/Client/apiMethods/editChannelPermissions";
 export * from "./classes/Client/apiMethods/editGlobalCommand";
+export * from "./classes/Client/apiMethods/editOriginalInteractionResponse";
 export * from "./classes/Client/apiMethods/editMessage";
 export * from "./classes/Client/apiMethods/followNewsChannel";
 export * from "./classes/Client/apiMethods/getChannelMessages";
@@ -246,7 +249,8 @@ export * from "./classes/GuildWidget/RawGuildWidgetData";
 
 // Interaction
 export {
-    default as Interaction
+    default as Interaction,
+    InteractionResolvable
 } from "./classes/Interaction/Interaction";
 export * from "./classes/Interaction/InteractionData";
 export * from "./classes/Interaction/RawInteractionData";
