@@ -50,6 +50,7 @@ export default function toData(message: Message): MessageData {
             guildID: message.messageReference.guildID
         },
         flags: message.flags,
-        referencedMessage: message.referencedMessage
+        referencedMessage: message.referencedMessage,
+        interaction: message.interaction
     };
 }

@@ -1,4 +1,4 @@
-import { AttachmentData, ChannelMention, EmbedData, MemberData, MessageActivity, MessageApplication, MessageData, MessageReference, MessageType, MessageWebhook, ReactionData, StickerData, UserData } from "../../../../internal";
+import { AttachmentData, ChannelMention, EmbedData, MemberData, MessageActivity, MessageApplication, MessageData, MessageInteraction, MessageReference, MessageType, MessageWebhook, ReactionData, StickerData, UserData } from "../../../../internal";
 
 export interface MessageUpdateData {
 
@@ -176,4 +176,11 @@ export interface MessageUpdateData {
      * The message this message references
      */
     referencedMessage?: MessageData;
+
+    /**
+     * Interaction
+     *
+     * The interaction this message is in response to
+     */
+    interaction?: MessageInteraction;
 }

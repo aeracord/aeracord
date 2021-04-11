@@ -65,7 +65,13 @@ export default function fromRawData(client: Client, rawData: RawMessageData): Me
             guildID: rawData.message_reference.guild_id || null
         } : null,
         flags: rawData.flags || 0,
-        referencedMessage: rawData.referenced_message && Message._fromRawData(client, rawData.referenced_message)
+        referencedMessage: rawData.referenced_message && Message._fromRawData(client, rawData.referenced_message),
+        interaction: rawData.interaction ? {
+            id: rawData.interaction.id,
+            type: rawData.interaction.type,
+            name: rawData.interaction.name,
+            user: User._fromRawData(client, rawData.interaction.user)
+        } : null
     };
 
     // Create message or update object

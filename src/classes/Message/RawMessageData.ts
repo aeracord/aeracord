@@ -1,4 +1,4 @@
-import { GuildChannelType, MessageActivityType, MessageType, RawAttachmentData, RawEmbedData, RawReactionData, RawStickerData, RawUserlessMemberData, RawUserData, RawUserWithMemberData } from "../../internal";
+import { GuildChannelType, InteractionType, MessageActivityType, MessageType, RawAttachmentData, RawEmbedData, RawReactionData, RawStickerData, RawUserlessMemberData, RawUserData, RawUserWithMemberData } from "../../internal";
 
 export interface RawMessageData {
     id: string;
@@ -27,6 +27,7 @@ export interface RawMessageData {
     message_reference?: RawMessageDataMessageReference;
     flags?: number;
     referenced_message?: RawMessageData | null;
+    interaction?: RawMessageDataInteraction;
 }
 
 export interface RawMessageDataWebhook {
@@ -59,4 +60,11 @@ export interface RawMessageDataMessageReference {
     message_id?: string;
     channel_id: string;
     guild_id?: string;
+}
+
+export interface RawMessageDataInteraction {
+    id: string;
+    type: InteractionType;
+    name: string;
+    user: RawUserData;
 }

@@ -1,4 +1,4 @@
-import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, EmbedData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, StickerData, UserData, UserResolvable } from "../../internal";
+import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, EmbedData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, StickerData, UserData, UserResolvable } from "../../internal";
 import edit from "./edit";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
@@ -185,6 +185,13 @@ export default class Message extends Base<Message> {
     referencedMessage?: MessageData | null;
 
     /**
+     * Interaction
+     *
+     * The interaction this message is in response to
+     */
+    interaction: MessageInteraction | null;
+
+    /**
      * Message
      *
      * @param client The client
@@ -214,6 +221,7 @@ export default class Message extends Base<Message> {
      * @param messageData.messageReference The data for the message this message references
      * @param messageData.flags The message's flags
      * @param messageData.referencedMessage The message this message references
+     * @param messageData.interaction The interaction this message is in response to
      */
     constructor(client: Client, messageData: MessageData) {
 

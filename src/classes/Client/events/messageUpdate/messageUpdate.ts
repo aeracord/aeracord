@@ -65,7 +65,13 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
             guildID: rawData.message_reference.guild_id || null
         },
         flags: rawData.flags,
-        referencedMessage: rawData.referenced_message ? Message._fromRawData(client, rawData.referenced_message) : undefined
+        referencedMessage: rawData.referenced_message ? Message._fromRawData(client, rawData.referenced_message) : undefined,
+        interaction: rawData.interaction && {
+            id: rawData.interaction.id,
+            type: rawData.interaction.type,
+            name: rawData.interaction.name,
+            user: User._fromRawData(client, rawData.interaction.user)
+        }
     };
 
     // Get message

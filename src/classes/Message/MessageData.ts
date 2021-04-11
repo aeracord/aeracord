@@ -1,4 +1,4 @@
-import { AttachmentData, EmbedData, GuildChannelType, MemberData, ReactionData, StickerData, UserData } from "../../internal";
+import { AttachmentData, EmbedData, GuildChannelType, InteractionType, MemberData, ReactionData, StickerData, UserData } from "../../internal";
 
 /**
  * Message Data
@@ -181,6 +181,13 @@ export interface MessageData {
      * The message this message references
      */
     referencedMessage?: MessageData | null;
+
+    /**
+     * Interaction
+     *
+     * The interaction this message is in response to
+     */
+    interaction: MessageInteraction | null;
 }
 
 /**
@@ -370,4 +377,40 @@ export interface MessageReference {
      * The ID of the guild of the message being referenced
      */
     guildID: string | null;
+}
+
+/**
+ * Message Interaction
+ *
+ * A message interaction
+ */
+export interface MessageInteraction {
+
+    /**
+     * ID
+     *
+     * The interaction's ID
+     */
+    id: string;
+
+    /**
+     * Type
+     *
+     * The interaction's type
+     */
+    type: InteractionType;
+
+    /**
+     * Name
+     *
+     * The command's name
+     */
+    name: string;
+
+    /**
+     * User
+     *
+     * The user that created the interaction
+     */
+    user: UserData;
 }
