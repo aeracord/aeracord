@@ -321,9 +321,11 @@ export default class Message extends Base<Message> {
      * Pin
      *
      * Pin this message
+     *
+     * @param reason The reason for pinning this message
      */
-    pin(): Promise<void> {
-        return this.client.addPinnedChannelMessage(this.channelID, this);
+    pin(reason?: string): Promise<void> {
+        return this.client.addPinnedChannelMessage(this.channelID, this, reason);
     }
 
     /**
@@ -372,9 +374,11 @@ export default class Message extends Base<Message> {
      * Delete
      *
      * Delete this message
+     *
+     * @param reason The reason for deleting this message
      */
-    delete(): Promise<void> {
-        return this.client.deleteMessage(this.channelID, this);
+    delete(reason?: string): Promise<void> {
+        return this.client.deleteMessage(this.channelID, this, reason);
     }
 
     /**
@@ -392,9 +396,11 @@ export default class Message extends Base<Message> {
      * Unpin
      *
      * Unpin this message
+     *
+     * @param reason The reason for unpinning this message
      */
-    unpin(): Promise<void> {
-        return this.client.deletePinnedChannelMessage(this.channelID, this);
+    unpin(reason?: string): Promise<void> {
+        return this.client.deletePinnedChannelMessage(this.channelID, this, reason);
     }
 
     /**

@@ -6,7 +6,7 @@ export interface CreateGuildBanData {
     reason?: string;
 }
 
-export default async function createGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, createGuildBanData: CreateGuildBanData = {}): Promise<void> {
+export default async function createGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, createGuildBanData: CreateGuildBanData = {}, reason?: string): Promise<void> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -41,6 +41,7 @@ export default async function createGuildBan(client: Client, guildResolvable: Gu
         data: {
             delete_message_days: createGuildBanData.deleteMessagesDays,
             reason: createGuildBanData.reason
-        }
+        },
+        auditLogReason: reason
     });
 }

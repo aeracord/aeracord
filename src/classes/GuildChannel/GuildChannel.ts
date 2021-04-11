@@ -91,11 +91,12 @@ export default class GuildChannel extends Channel {
      * Create an invite in this channel
      *
      * @param createChannelInviteData The data for the invite
+     * @param reason The reason for creating the invite
      *
      * @returns {Promise<InviteData>} The invite data
      */
-    createInvite(createChannelInviteData?: CreateChannelInviteData): Promise<InviteData> {
-        return this.client.createChannelInvite(this, createChannelInviteData);
+    createInvite(createChannelInviteData?: CreateChannelInviteData, reason?: string): Promise<InviteData> {
+        return this.client.createChannelInvite(this, createChannelInviteData, reason);
     }
 
     /**
@@ -127,10 +128,11 @@ export default class GuildChannel extends Channel {
      * Edit this channel
      *
      * @param modifyChannelData The data to modify the channel
+     * @param reason The reason for modifying this channel
      *
      * @returns {Promise<AnyGuildChannelData>} The modified channel's data
      */
-    edit(modifyChannelData: ModifyChannelData): Promise<AnyGuildChannelData> {
-        return this.client.modifyChannel(this, modifyChannelData);
+    edit(modifyChannelData: ModifyChannelData, reason?: string): Promise<AnyGuildChannelData> {
+        return this.client.modifyChannel(this, modifyChannelData, reason);
     }
 }

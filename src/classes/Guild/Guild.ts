@@ -525,9 +525,10 @@ export default class Guild extends Base<Guild> {
      *
      * @param user The user resolvable for the member to add the role to
      * @param role The role to add
+     * @param reason The reason for adding the role
      */
-    addRoleToMember(user: UserResolvable, role: RoleResolvable): Promise<void> {
-        return this.client.addGuildMemberRole(this, user, role);
+    addRoleToMember(user: UserResolvable, role: RoleResolvable, reason?: string): Promise<void> {
+        return this.client.addGuildMemberRole(this, user, role, reason);
     }
 
     /**
@@ -561,11 +562,12 @@ export default class Guild extends Base<Guild> {
      * Create a channel in this guild
      *
      * @param createGuildChannelData The data for the channel
+     * @param reason The reason for creating the channel
      *
      * @returns {Promise<AnyGuildChannelData>} The created channel's data
      */
-    createChannel(createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannelData> {
-        return this.client.createGuildChannel(this, createGuildChannelData);
+    createChannel(createGuildChannelData: CreateGuildChannelData, reason?: string): Promise<AnyGuildChannelData> {
+        return this.client.createGuildChannel(this, createGuildChannelData, reason);
     }
 
     /**
@@ -587,11 +589,12 @@ export default class Guild extends Base<Guild> {
      * Create an emoji in this guild
      *
      * @param createGuildEmojiData The data for the emoji
+     * @param reason The reason for creating the emoji
      *
      * @returns {Promise<EmojiData>} The created emoji's data
      */
-    createEmoji(createGuildEmojiData: CreateGuildEmojiData): Promise<EmojiData> {
-        return this.client.createGuildEmoji(this, createGuildEmojiData);
+    createEmoji(createGuildEmojiData: CreateGuildEmojiData, reason?: string): Promise<EmojiData> {
+        return this.client.createGuildEmoji(this, createGuildEmojiData, reason);
     }
 
     /**
@@ -600,11 +603,12 @@ export default class Guild extends Base<Guild> {
      * Create a role in this guild
      *
      * @param createGuildRoleData The data for the role
+     * @param reason The reason for creating the role
      *
      * @returns {Promise<RoleData>} The created role's data
      */
-    createRole(createGuildRoleData: CreateGuildRoleData): Promise<RoleData> {
-        return this.client.createGuildRole(this, createGuildRoleData);
+    createRole(createGuildRoleData: CreateGuildRoleData, reason?: string): Promise<RoleData> {
+        return this.client.createGuildRole(this, createGuildRoleData, reason);
     }
 
     /**
@@ -646,9 +650,10 @@ export default class Guild extends Base<Guild> {
      * Delete an emoji from this guild
      *
      * @param emoji The emoji to delete
+     * @param reason The reason for deleting the emoji
      */
-    deleteEmoji(emoji: EmojiResolvable): Promise<void> {
-        return this.client.deleteGuildEmoji(this, emoji);
+    deleteEmoji(emoji: EmojiResolvable, reason?: string): Promise<void> {
+        return this.client.deleteGuildEmoji(this, emoji, reason);
     }
 
     /**
@@ -657,9 +662,10 @@ export default class Guild extends Base<Guild> {
      * Delete a role from this guild
      *
      * @param role The role to delete
+     * @param reason The reason for deleting the role
      */
-    deleteRole(role: RoleResolvable): Promise<void> {
-        return this.client.deleteGuildRole(this, role);
+    deleteRole(role: RoleResolvable, reason?: string): Promise<void> {
+        return this.client.deleteGuildRole(this, role, reason);
     }
 
     /**
@@ -927,11 +933,12 @@ export default class Guild extends Base<Guild> {
      * Edit this guild
      *
      * @param modifyGuildData The data to modify the guild
+     * @param reason The reason for modifing this guild
      *
      * @returns {Promise<GuildData>} The modified guild's data
      */
-    edit(modifyGuildData: ModifyGuildData): Promise<GuildData> {
-        return this.client.modifyGuild(this, modifyGuildData);
+    edit(modifyGuildData: ModifyGuildData, reason?: string): Promise<GuildData> {
+        return this.client.modifyGuild(this, modifyGuildData, reason);
     }
 
     /**
@@ -952,11 +959,12 @@ export default class Guild extends Base<Guild> {
      *
      * @param emoji The emoji to modify
      * @param modifyGuildEmojiData The data to modify the emoji
+     * @param reason The reason for modifying the emoji
      *
      * @returns {Promise<EmojiData>} The modified emoji's data
      */
-    editEmoji(emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<EmojiData> {
-        return this.client.modifyGuildEmoji(this, emoji, modifyGuildEmojiData);
+    editEmoji(emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<EmojiData> {
+        return this.client.modifyGuildEmoji(this, emoji, modifyGuildEmojiData, reason);
     }
 
     /**
@@ -966,11 +974,12 @@ export default class Guild extends Base<Guild> {
      *
      * @param user The user resolvable for the member to modify
      * @param modifyGuildMemberData The data to modify the member
+     * @param reason The reason for modifying the member
      *
      * @returns {Promise<MemberData>} The modified member's data
      */
-    editMember(user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<MemberData> {
-        return this.client.modifyGuildMember(this, user, modifyGuildMemberData);
+    editMember(user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<MemberData> {
+        return this.client.modifyGuildMember(this, user, modifyGuildMemberData, reason);
     }
 
     /**
@@ -980,11 +989,12 @@ export default class Guild extends Base<Guild> {
      *
      * @param role The role to modify
      * @param modifyGuildRoleData The data to modify the role
+     * @param reason The reason for modifying the role
      *
      * @returns {Promise<RoleData>} The modified role's data
      */
-    editRole(role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData): Promise<RoleData> {
-        return this.client.modifyGuildRole(this, role, modifyGuildRoleData);
+    editRole(role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData, reason?: string): Promise<RoleData> {
+        return this.client.modifyGuildRole(this, role, modifyGuildRoleData, reason);
     }
 
     /**
@@ -1059,9 +1069,10 @@ export default class Guild extends Base<Guild> {
      * Unban a user from this guild
      *
      * @param user The user to unban
+     * @param reason The reason for unbanning the user
      */
-    unbanUser(user: UserResolvable): Promise<void> {
-        return this.client.removeGuildBan(this, user);
+    unbanUser(user: UserResolvable, reason?: string): Promise<void> {
+        return this.client.removeGuildBan(this, user, reason);
     }
 
     /**
@@ -1070,9 +1081,10 @@ export default class Guild extends Base<Guild> {
      * Kick a user from this guild
      *
      * @param user The user resolvable for the member to kick
+     * @param reason The reason for kicking the member
      */
-    kickMember(user: UserResolvable): Promise<void> {
-        return this.client.removeGuildMember(this, user);
+    kickMember(user: UserResolvable, reason?: string): Promise<void> {
+        return this.client.removeGuildMember(this, user, reason);
     }
 
     /**
@@ -1082,9 +1094,10 @@ export default class Guild extends Base<Guild> {
      *
      * @param user The user resolvable for the member to remove the role from
      * @param role The role to remove
+     * @param reason The reason for removing the role
      */
-    removeRoleFromMember(user: UserResolvable, role: RoleResolvable): Promise<void> {
-        return this.client.removeGuildMemberRole(this, user, role);
+    removeRoleFromMember(user: UserResolvable, role: RoleResolvable, reason?: string): Promise<void> {
+        return this.client.removeGuildMemberRole(this, user, role, reason);
     }
 
     /**

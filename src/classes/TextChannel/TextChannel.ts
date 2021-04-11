@@ -108,11 +108,12 @@ class TextChannel extends GuildChannel {
      * Create a webhook in this channel
      *
      * @param createWebhookData The data for the webhook
+     * @param reason The reason for creating the webhook
      *
      * @returns {Promise<WebhookData>} The created webhook's data
      */
-    createWebhook(createWebhookData: CreateWebhookData): Promise<WebhookData> {
-        return this.client.createWebhook(this, createWebhookData);
+    createWebhook(createWebhookData: CreateWebhookData, reason?: string): Promise<WebhookData> {
+        return this.client.createWebhook(this, createWebhookData, reason);
     }
 
     /**

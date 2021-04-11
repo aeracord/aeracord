@@ -9,7 +9,7 @@ export interface ModifyGuildMemberData {
     voiceChannelID?: ChannelResolvable | null;
 }
 
-export default async function modifyGuildMember(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<MemberData> {
+export default async function modifyGuildMember(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<MemberData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -49,7 +49,8 @@ export default async function modifyGuildMember(client: Client, guildResolvable:
             mute: modifyGuildMemberData.muted,
             deaf: modifyGuildMemberData.deafened,
             channel_id: modifyGuildMemberData.voiceChannelID === undefined ? undefined : voiceChannelID
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse member data

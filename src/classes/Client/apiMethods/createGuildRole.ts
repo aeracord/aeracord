@@ -9,7 +9,7 @@ export interface CreateGuildRoleData {
     mentionable?: boolean;
 }
 
-export default async function createGuildRole(client: Client, guildResolvable: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<RoleData> {
+export default async function createGuildRole(client: Client, guildResolvable: GuildResolvable, createGuildRoleData: CreateGuildRoleData, reason?: string): Promise<RoleData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -44,7 +44,8 @@ export default async function createGuildRole(client: Client, guildResolvable: G
             color: createGuildRoleData.color,
             hoist: createGuildRoleData.hoist,
             mentionable: createGuildRoleData.mentionable
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse role data

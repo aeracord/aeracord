@@ -87,9 +87,10 @@ export default class TextBasedChannel extends Channel {
      * Pin a message to this channel
      *
      * @param message The message to pin
+     * @param reason The reason for pinning the message
      */
-    pinMessage(message: MessageResolvable): Promise<void> {
-        return this.client.addPinnedChannelMessage(this, message);
+    pinMessage(message: MessageResolvable, reason?: string): Promise<void> {
+        return this.client.addPinnedChannelMessage(this, message, reason);
     }
 
     /**
@@ -98,9 +99,10 @@ export default class TextBasedChannel extends Channel {
      * Bulk delete messages from this channel
      *
      * @param messages The messages to bulk delete
+     * @param reason The reason for bulk deleting the messages
      */
-    bulkDelete(messages: MessageResolvable[]): Promise<void> {
-        return this.client.bulkDeleteMessages(this, { messages });
+    bulkDelete(messages: MessageResolvable[], reason?: string): Promise<void> {
+        return this.client.bulkDeleteMessages(this, { messages }, reason);
     }
 
     /**
@@ -158,9 +160,10 @@ export default class TextBasedChannel extends Channel {
      * Delete a message in this channel
      *
      * @param message The message to delete
+     * @param reason The reason for deleting the message
      */
-    deleteMessage(message: MessageResolvable): Promise<void> {
-        return this.client.deleteMessage(this, message);
+    deleteMessage(message: MessageResolvable, reason?: string): Promise<void> {
+        return this.client.deleteMessage(this, message, reason);
     }
 
     /**
@@ -181,9 +184,10 @@ export default class TextBasedChannel extends Channel {
      * Unpin a message from this channel
      *
      * @param message The message to unpin
+     * @param reason The reason for unpinning the message
      */
-    unpinMessage(message: MessageResolvable): Promise<void> {
-        return this.client.deletePinnedChannelMessage(this, message);
+    unpinMessage(message: MessageResolvable, reason?: string): Promise<void> {
+        return this.client.deletePinnedChannelMessage(this, message, reason);
     }
 
     /**

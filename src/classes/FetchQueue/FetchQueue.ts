@@ -53,6 +53,13 @@ export interface Request {
     data?: object;
 
     /**
+     * Audit Log Reason
+     *
+     * The request's `X-Audit-Log-Reason` header
+     */
+    auditLogReason?: string;
+
+    /**
      * Resolve
      *
      * The method to resolve the promise

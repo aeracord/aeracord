@@ -9,7 +9,7 @@ export interface ModifyGuildRoleData {
     mentionable?: boolean;
 }
 
-export default async function modifyGuildRole(client: Client, guildResolvable: GuildResolvable, roleResolvable: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData): Promise<RoleData> {
+export default async function modifyGuildRole(client: Client, guildResolvable: GuildResolvable, roleResolvable: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData, reason?: string): Promise<RoleData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -44,7 +44,8 @@ export default async function modifyGuildRole(client: Client, guildResolvable: G
             color: modifyGuildRoleData.color,
             hoist: modifyGuildRoleData.hoist,
             mentionable: modifyGuildRoleData.mentionable
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse role data

@@ -5,7 +5,7 @@ export interface BulkDeleteMessagesData {
     messages: MessageResolvable[];
 }
 
-export default async function bulkDeleteMessages(client: Client, channelResolvable: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData): Promise<void> {
+export default async function bulkDeleteMessages(client: Client, channelResolvable: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData, reason?: string): Promise<void> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -30,6 +30,7 @@ export default async function bulkDeleteMessages(client: Client, channelResolvab
         method,
         data: {
             messages
-        }
+        },
+        auditLogReason: reason
     });
 }

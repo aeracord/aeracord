@@ -1,7 +1,7 @@
 import { Channel, ChannelResolvable, Client, FetchQueue, Invite, InviteData, InviteResolvable, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function deleteInvite(client: Client, channelResolvable: ChannelResolvable, inviteResolvable: InviteResolvable): Promise<InviteData> {
+export default async function deleteInvite(client: Client, channelResolvable: ChannelResolvable, inviteResolvable: InviteResolvable, reason?: string): Promise<InviteData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -23,7 +23,8 @@ export default async function deleteInvite(client: Client, channelResolvable: Ch
     // Add to fetch queue
     const result: RawInviteData = await fetchQueue.request({
         path,
-        method
+        method,
+        auditLogReason: reason
     });
 
     // Parse invite data

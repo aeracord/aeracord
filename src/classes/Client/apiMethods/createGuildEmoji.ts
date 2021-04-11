@@ -7,7 +7,7 @@ export interface CreateGuildEmojiData {
     roles?: RoleResolvable[];
 }
 
-export default async function createGuildEmoji(client: Client, guildResolvable: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<EmojiData> {
+export default async function createGuildEmoji(client: Client, guildResolvable: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData, reason?: string): Promise<EmojiData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -34,7 +34,8 @@ export default async function createGuildEmoji(client: Client, guildResolvable: 
             name: createGuildEmojiData.name,
             image: createGuildEmojiData.image,
             roles: roles || []
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse emoji data

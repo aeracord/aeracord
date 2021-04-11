@@ -173,9 +173,10 @@ export default class Member extends Base<Member> {
      * Add a role to this member
      *
      * @param role The role to add
+     * @param reason The reason for adding the role
      */
-    addRole(role: RoleResolvable): Promise<void> {
-        return this.client.addGuildMemberRole(this.guildID, this, role);
+    addRole(role: RoleResolvable, reason?: string): Promise<void> {
+        return this.client.addGuildMemberRole(this.guildID, this, role, reason);
     }
 
     /**
@@ -195,29 +196,34 @@ export default class Member extends Base<Member> {
      * Edit this member
      *
      * @param modifyGuildMemberData The data to modify the member
+     * @param reason The reason for modifying this member
      *
      * @returns {Promise<MemberData>} The modified member's data
      */
-    edit(modifyGuildMemberData: ModifyGuildMemberData): Promise<MemberData> {
-        return this.client.modifyGuildMember(this.guildID, this, modifyGuildMemberData);
+    edit(modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<MemberData> {
+        return this.client.modifyGuildMember(this.guildID, this, modifyGuildMemberData, reason);
     }
 
     /**
      * Unban
      *
      * Unban this member from the guild
+     *
+     * @param reason The reason for unbanning this member
      */
-    unban(): Promise<void> {
-        return this.client.removeGuildBan(this.guildID, this);
+    unban(reason?: string): Promise<void> {
+        return this.client.removeGuildBan(this.guildID, this, reason);
     }
 
     /**
      * Kick
      *
      * Kick this member from the guild
+     *
+     * @param reason The reason for kicking this member
      */
-    kick(): Promise<void> {
-        return this.client.removeGuildMember(this.guildID, this);
+    kick(reason?: string): Promise<void> {
+        return this.client.removeGuildMember(this.guildID, this, reason);
     }
 
     /**
@@ -226,8 +232,9 @@ export default class Member extends Base<Member> {
      * Remove a role from this member
      *
      * @param role The role to remove
+     * @param reason The reason for removing the role
      */
-    removeRole(role: RoleResolvable): Promise<void> {
-        return this.client.removeGuildMemberRole(this.guildID, this, role);
+    removeRole(role: RoleResolvable, reason?: string): Promise<void> {
+        return this.client.removeGuildMemberRole(this.guildID, this, role, reason);
     }
 }

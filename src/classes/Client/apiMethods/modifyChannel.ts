@@ -16,7 +16,7 @@ export interface ModifyChannelData {
 
 export type ModifyChannelDataType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_NEWS;
 
-export default async function modifyChannel(client: Client, channelResolvable: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannelData> {
+export default async function modifyChannel(client: Client, channelResolvable: ChannelResolvable, modifyChannelData: ModifyChannelData, reason?: string): Promise<AnyGuildChannelData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -53,7 +53,8 @@ export default async function modifyChannel(client: Client, channelResolvable: C
             user_limit: modifyChannelData.userLimit,
             permission_overwrites: modifyChannelData.permissionOverwrites,
             parent_id: parentID || undefined
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse guild channel data

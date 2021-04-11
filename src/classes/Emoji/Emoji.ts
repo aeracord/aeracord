@@ -187,10 +187,11 @@ export default class Emoji extends Base<Emoji> {
      * Edit this emoji
      *
      * @param modifyGuildEmojiData The data to modify the emoji
+     * @param reason The reason for modifying this emoji
      *
      * @returns {Promise<EmojiData>} The modified emoji's data
      */
-    edit(modifyGuildEmojiData: ModifyGuildEmojiData): Promise<EmojiData> {
-        return this.client.modifyGuildEmoji(this.guildID, this, modifyGuildEmojiData);
+    edit(modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<EmojiData> {
+        return this.client.modifyGuildEmoji(this.guildID, this, modifyGuildEmojiData, reason);
     }
 }

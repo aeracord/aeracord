@@ -1,7 +1,7 @@
 import { Client, FetchQueue, Guild, GuildResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function removeGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable): Promise<void> {
+export default async function removeGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, reason?: string): Promise<void> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -23,6 +23,7 @@ export default async function removeGuildBan(client: Client, guildResolvable: Gu
     // Add to fetch queue
     await fetchQueue.request({
         path,
-        method
+        method,
+        auditLogReason: reason
     });
 }

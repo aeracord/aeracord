@@ -10,7 +10,7 @@ export interface CreateChannelInviteData {
     targetUserType?: TargetUserType;
 }
 
-export default async function createChannelInvite(client: Client, channelResolvable: ChannelResolvable, createChannelInviteData: CreateChannelInviteData = {}): Promise<InviteData> {
+export default async function createChannelInvite(client: Client, channelResolvable: ChannelResolvable, createChannelInviteData: CreateChannelInviteData = {}, reason?: string): Promise<InviteData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -40,7 +40,8 @@ export default async function createChannelInvite(client: Client, channelResolva
             unique: createChannelInviteData.unique,
             target_user: targetUser || undefined,
             target_user_type: createChannelInviteData.targetUserType
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse invite data

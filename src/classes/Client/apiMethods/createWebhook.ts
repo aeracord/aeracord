@@ -6,7 +6,7 @@ export interface CreateWebhookData {
     avatar?: string;
 }
 
-export default async function createWebhook(client: Client, channelResolvable: ChannelResolvable, createWebhookData: CreateWebhookData): Promise<WebhookData> {
+export default async function createWebhook(client: Client, channelResolvable: ChannelResolvable, createWebhookData: CreateWebhookData, reason?: string): Promise<WebhookData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -30,7 +30,8 @@ export default async function createWebhook(client: Client, channelResolvable: C
         data: {
             name: createWebhookData.name,
             avatar: createWebhookData.avatar
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse webhook data

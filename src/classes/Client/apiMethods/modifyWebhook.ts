@@ -7,7 +7,7 @@ export interface ModifyWebhookData {
     channel?: ChannelResolvable;
 }
 
-export default async function modifyWebhook(client: Client, channelResolvable: ChannelResolvable, webhookResolvable: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
+export default async function modifyWebhook(client: Client, channelResolvable: ChannelResolvable, webhookResolvable: WebhookResolvable, modifyWebhookData: ModifyWebhookData, reason?: string): Promise<WebhookData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -39,7 +39,8 @@ export default async function modifyWebhook(client: Client, channelResolvable: C
             name: modifyWebhookData.name,
             avatar: modifyWebhookData.avatar,
             channel_id: targetChannelID || undefined
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse webhook data

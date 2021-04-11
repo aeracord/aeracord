@@ -6,7 +6,7 @@ export interface ModifyGuildEmojiData {
     roles?: RoleResolvable[];
 }
 
-export default async function modifyGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<EmojiData> {
+export default async function modifyGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<EmojiData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -34,7 +34,8 @@ export default async function modifyGuildEmoji(client: Client, guildResolvable: 
         data: {
             name: modifyGuildEmojiData.name,
             roles: roles
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse emoji data

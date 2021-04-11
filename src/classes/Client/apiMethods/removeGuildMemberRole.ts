@@ -1,7 +1,7 @@
 import { Client, FetchQueue, Guild, GuildResolvable, Member, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function removeGuildMemberRole(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, roleResolvable: RoleResolvable): Promise<void> {
+export default async function removeGuildMemberRole(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, roleResolvable: RoleResolvable, reason?: string): Promise<void> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -35,6 +35,7 @@ export default async function removeGuildMemberRole(client: Client, guildResolva
     // Add to fetch queue
     await fetchQueue.request({
         path,
-        method
+        method,
+        auditLogReason: reason
     });
 }

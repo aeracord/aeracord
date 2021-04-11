@@ -1420,9 +1420,10 @@ export default class Client extends EventEmitter {
      * @param guild The guild to add the role in
      * @param user The user resolvable for the member to add the role to
      * @param role The role to add
+     * @param reason The reason for adding the role
      */
-    addGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> {
-        return addGuildMemberRole(this, guild, user, role);
+    addGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable, reason?: string): Promise<void> {
+        return addGuildMemberRole(this, guild, user, role, reason);
     }
 
     /**
@@ -1432,9 +1433,10 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to pin the messages in
      * @param message The message to pin
+     * @param reason The reason for pinning the message
      */
-    addPinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<void> {
-        return addPinnedChannelMessage(this, channel, message);
+    addPinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable, reason?: string): Promise<void> {
+        return addPinnedChannelMessage(this, channel, message, reason);
     }
 
     /**
@@ -1444,9 +1446,10 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to delete the messages in
      * @param bulkDeleteMessagesData The data for bulk deleting messages
+     * @param reason The reason for bulk deleting the messages
      */
-    bulkDeleteMessages(channel: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData): Promise<void> {
-        return bulkDeleteMessages(this, channel, bulkDeleteMessagesData);
+    bulkDeleteMessages(channel: ChannelResolvable, bulkDeleteMessagesData: BulkDeleteMessagesData, reason?: string): Promise<void> {
+        return bulkDeleteMessages(this, channel, bulkDeleteMessagesData, reason);
     }
 
     /**
@@ -1483,11 +1486,12 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to create an invite in
      * @param createChannelInviteData The data for the invite
+     * @param reason The reason for creating the invite
      *
      * @returns {Promise<InviteData>} The invite data
      */
-    createChannelInvite(channel: ChannelResolvable, createChannelInviteData?: CreateChannelInviteData): Promise<InviteData> {
-        return createChannelInvite(this, channel, createChannelInviteData);
+    createChannelInvite(channel: ChannelResolvable, createChannelInviteData?: CreateChannelInviteData, reason?: string): Promise<InviteData> {
+        return createChannelInvite(this, channel, createChannelInviteData, reason);
     }
 
     /**
@@ -1577,11 +1581,12 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to create a channel in
      * @param createGuildChannelData The data for the channel
+     * @param reason The reason for creating the channel
      *
      * @returns {Promise<AnyGuildChannelData>} The created channel's data
      */
-    createGuildChannel(guild: GuildResolvable, createGuildChannelData: CreateGuildChannelData): Promise<AnyGuildChannelData> {
-        return createGuildChannel(this, guild, createGuildChannelData);
+    createGuildChannel(guild: GuildResolvable, createGuildChannelData: CreateGuildChannelData, reason?: string): Promise<AnyGuildChannelData> {
+        return createGuildChannel(this, guild, createGuildChannelData, reason);
     }
 
     /**
@@ -1591,11 +1596,12 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to create an emoji in
      * @param createGuildEmojiData The data for the emoji
+     * @param reason The reason for creating the emoji
      *
      * @returns {Promise<EmojiData>} The created emoji's data
      */
-    createGuildEmoji(guild: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData): Promise<EmojiData> {
-        return createGuildEmoji(this, guild, createGuildEmojiData);
+    createGuildEmoji(guild: GuildResolvable, createGuildEmojiData: CreateGuildEmojiData, reason?: string): Promise<EmojiData> {
+        return createGuildEmoji(this, guild, createGuildEmojiData, reason);
     }
 
     /**
@@ -1619,11 +1625,12 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to create a role in
      * @param createGuildRoleData The data for the role
+     * @param reason The reason for creating the role
      *
      * @returns {Promise<RoleData>} The created role's data
      */
-    createGuildRole(guild: GuildResolvable, createGuildRoleData: CreateGuildRoleData): Promise<RoleData> {
-        return createGuildRole(this, guild, createGuildRoleData);
+    createGuildRole(guild: GuildResolvable, createGuildRoleData: CreateGuildRoleData, reason?: string): Promise<RoleData> {
+        return createGuildRole(this, guild, createGuildRoleData, reason);
     }
 
     /**
@@ -1689,11 +1696,12 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to create a webhook in
      * @param createWebhookData The data for the webhook
+     * @param reason The reason for creating the webhook
      *
      * @returns {Promise<WebhookData>} The created webhook's data
      */
-    createWebhook(channel: ChannelResolvable, createWebhookData: CreateWebhookData): Promise<WebhookData> {
-        return createWebhook(this, channel, createWebhookData);
+    createWebhook(channel: ChannelResolvable, createWebhookData: CreateWebhookData, reason?: string): Promise<WebhookData> {
+        return createWebhook(this, channel, createWebhookData, reason);
     }
 
     /**
@@ -1741,11 +1749,12 @@ export default class Client extends EventEmitter {
      * Delete a guild channel or close a DM channel
      *
      * @param channel The channel to delete or close
+     * @param reason The reason for deleting the channel
      *
      * @returns {Promise<AnyChannelData>} The deleted or closed channel's data
      */
-    deleteChannel(channel: ChannelResolvable): Promise<AnyChannelData> {
-        return deleteChannel(this, channel);
+    deleteChannel(channel: ChannelResolvable, reason?: string): Promise<AnyChannelData> {
+        return deleteChannel(this, channel, reason);
     }
 
     /**
@@ -1813,9 +1822,10 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to delete the emoji from
      * @param emoji The emoji to delete
+     * @param reason The reason for deleting the emoji
      */
-    deleteGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable): Promise<void> {
-        return deleteGuildEmoji(this, guild, emoji);
+    deleteGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable, reason?: string): Promise<void> {
+        return deleteGuildEmoji(this, guild, emoji, reason);
     }
 
     /**
@@ -1825,9 +1835,10 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to delete the role from
      * @param role The role to delete
+     * @param reason The reason for deleting the role
      */
-    deleteGuildRole(guild: GuildResolvable, role: RoleResolvable): Promise<void> {
-        return deleteGuildRole(this, guild, role);
+    deleteGuildRole(guild: GuildResolvable, role: RoleResolvable, reason?: string): Promise<void> {
+        return deleteGuildRole(this, guild, role, reason);
     }
 
     /**
@@ -1851,11 +1862,12 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to delete the invite in
      * @param invite The invite to delete
+     * @param reason The reason for deleting the invite
      *
      * @returns {Promise<InviteData>} The deleted invite's data
      */
-    deleteInvite(channel: ChannelResolvable, invite: InviteResolvable): Promise<InviteData> {
-        return deleteInvite(this, channel, invite);
+    deleteInvite(channel: ChannelResolvable, invite: InviteResolvable, reason?: string): Promise<InviteData> {
+        return deleteInvite(this, channel, invite, reason);
     }
 
     /**
@@ -1865,9 +1877,10 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to delete the message in
      * @param message The message to delete
+     * @param reason The reason for deleting the message
      */
-    deleteMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<void> {
-        return deleteMessage(this, channel, message);
+    deleteMessage(channel: ChannelResolvable, message: MessageResolvable, reason?: string): Promise<void> {
+        return deleteMessage(this, channel, message, reason);
     }
 
     /**
@@ -1901,9 +1914,10 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to unpin the messages from
      * @param message The message to unpin
+     * @param reason The reason for unpinning the message
      */
-    deletePinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<void> {
-        return deletePinnedChannelMessage(this, channel, message);
+    deletePinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable, reason?: string): Promise<void> {
+        return deletePinnedChannelMessage(this, channel, message, reason);
     }
 
     /**
@@ -1927,9 +1941,10 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to delete the webhook in
      * @param webhook The webhook to delete
+     * @param reason The reason for deleting the webhook
      */
-    deleteWebhook(channel: ChannelResolvable, webhook: WebhookResolvable): Promise<void> {
-        return deleteWebhook(this, channel, webhook);
+    deleteWebhook(channel: ChannelResolvable, webhook: WebhookResolvable, reason?: string): Promise<void> {
+        return deleteWebhook(this, channel, webhook, reason);
     }
 
     /**
@@ -2526,11 +2541,12 @@ export default class Client extends EventEmitter {
      *
      * @param channel The channel to modify
      * @param modifyChannelData The data to modify the channel
+     * @param reason The reason for modifying the channel
      *
      * @returns {Promise<AnyGuildChannelData>} The modified channel's data
      */
-    modifyChannel(channel: ChannelResolvable, modifyChannelData: ModifyChannelData): Promise<AnyGuildChannelData> {
-        return modifyChannel(this, channel, modifyChannelData);
+    modifyChannel(channel: ChannelResolvable, modifyChannelData: ModifyChannelData, reason?: string): Promise<AnyGuildChannelData> {
+        return modifyChannel(this, channel, modifyChannelData, reason);
     }
 
     /**
@@ -2567,11 +2583,12 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to modify
      * @param modifyGuildData The data to modify the guild
+     * @param reason The reason for modifing the guild
      *
      * @returns {Promise<GuildData>} The modified guild's data
      */
-    modifyGuild(guild: GuildResolvable, modifyGuildData: ModifyGuildData): Promise<GuildData> {
-        return modifyGuild(this, guild, modifyGuildData);
+    modifyGuild(guild: GuildResolvable, modifyGuildData: ModifyGuildData, reason?: string): Promise<GuildData> {
+        return modifyGuild(this, guild, modifyGuildData, reason);
     }
 
     /**
@@ -2594,11 +2611,12 @@ export default class Client extends EventEmitter {
      * @param guild The guild to modify the emoji in
      * @param emoji The emoji to modify
      * @param modifyGuildEmojiData The data to modify the emoji
+     * @param reason The reason for modifying the emoji
      *
      * @returns {Promise<EmojiData>} The modified emoji's data
      */
-    modifyGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData): Promise<EmojiData> {
-        return modifyGuildEmoji(this, guild, emoji, modifyGuildEmojiData);
+    modifyGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<EmojiData> {
+        return modifyGuildEmoji(this, guild, emoji, modifyGuildEmojiData, reason);
     }
 
     /**
@@ -2609,11 +2627,12 @@ export default class Client extends EventEmitter {
      * @param guild The guild to modify the member in
      * @param user The user resolvable for the member to modify
      * @param modifyGuildMemberData The data to modify the member
+     * @param reason The reason for modifying the member
      *
      * @returns {Promise<MemberData>} The modified member's data
      */
-    modifyGuildMember(guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData): Promise<MemberData> {
-        return modifyGuildMember(this, guild, user, modifyGuildMemberData);
+    modifyGuildMember(guild: GuildResolvable, user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<MemberData> {
+        return modifyGuildMember(this, guild, user, modifyGuildMemberData, reason);
     }
 
     /**
@@ -2624,11 +2643,12 @@ export default class Client extends EventEmitter {
      * @param guild The guild to modify the role in
      * @param role The role to modify
      * @param modifyGuildRoleData The data to modify the role
+     * @param reason The reason for modifying the role
      *
      * @returns {Promise<RoleData>} The modified role's data
      */
-    modifyGuildRole(guild: GuildResolvable, role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData): Promise<RoleData> {
-        return modifyGuildRole(this, guild, role, modifyGuildRoleData);
+    modifyGuildRole(guild: GuildResolvable, role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData, reason?: string): Promise<RoleData> {
+        return modifyGuildRole(this, guild, role, modifyGuildRoleData, reason);
     }
 
     /**
@@ -2696,11 +2716,12 @@ export default class Client extends EventEmitter {
      * @param channel The channel to modify the webhook in
      * @param webhook The webhook to modify
      * @param modifyWebhookData The data to modify the webhook
+     * @param reason The reason for modifying the webhook
      *
      * @returns {Promise<WebhookData>} The modified webhook's data
      */
-    modifyWebhook(channel: ChannelResolvable, webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
-        return modifyWebhook(this, channel, webhook, modifyWebhookData);
+    modifyWebhook(channel: ChannelResolvable, webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData, reason?: string): Promise<WebhookData> {
+        return modifyWebhook(this, channel, webhook, modifyWebhookData, reason);
     }
 
     /**
@@ -2710,9 +2731,10 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to unban the user from
      * @param user The user to unban
+     * @param reason The reason for unbanning the user
      */
-    removeGuildBan(guild: GuildResolvable, user: UserResolvable): Promise<void> {
-        return removeGuildBan(this, guild, user);
+    removeGuildBan(guild: GuildResolvable, user: UserResolvable, reason?: string): Promise<void> {
+        return removeGuildBan(this, guild, user, reason);
     }
 
     /**
@@ -2722,9 +2744,10 @@ export default class Client extends EventEmitter {
      *
      * @param guild The guild to kick the member from
      * @param user The user resolvable for the member to kick
+     * @param reason The reason for kicking the member
      */
-    removeGuildMember(guild: GuildResolvable, user: UserResolvable): Promise<void> {
-        return removeGuildMember(this, guild, user);
+    removeGuildMember(guild: GuildResolvable, user: UserResolvable, reason?: string): Promise<void> {
+        return removeGuildMember(this, guild, user, reason);
     }
 
     /**
@@ -2735,9 +2758,10 @@ export default class Client extends EventEmitter {
      * @param guild The guild to remove the role in
      * @param user The user resolvable for the member to remove the role from
      * @param role The role to remove
+     * @param reason The reason for removing the role
      */
-    removeGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable): Promise<void> {
-        return removeGuildMemberRole(this, guild, user, role);
+    removeGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable, reason?: string): Promise<void> {
+        return removeGuildMemberRole(this, guild, user, role, reason);
     }
 
     /**

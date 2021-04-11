@@ -11,6 +11,7 @@ export interface RequestOptions {
     method: string;
     contentType?: string;
     body?: object | FormData;
+    auditLogReason?: string;
 }
 
 export interface FetchedData {
@@ -38,7 +39,8 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
             "User-Agent": `Aeracord (https://aeracord.apixel.me, ${packageJSON.version})`,
             "Authorization": `Bot ${client.token}`,
             "Content-Type": requestOptions.contentType || (requestOptions.method === "DELETE" ? undefined : "application/json"),
-            "X-RateLimit-Precision": "millisecond"
+            "X-RateLimit-Precision": "millisecond",
+            "X-Audit-Log-Reason": requestOptions.auditLogReason
         } as any,
         method: requestOptions.method,
         body: requestOptions.body && (requestOptions.body instanceof FormData ? requestOptions.body : JSON.stringify(requestOptions.body))

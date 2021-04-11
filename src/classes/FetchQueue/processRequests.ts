@@ -23,7 +23,8 @@ export default async function processRequests(fetchQueue: FetchQueue) {
             path: request.path,
             method: request.method,
             contentType: request.contentType,
-            body: request.data
+            body: request.data,
+            auditLogReason: request.auditLogReason
         }).catch((err: Error) => request.reject(err));
         if (!result) continue;
 

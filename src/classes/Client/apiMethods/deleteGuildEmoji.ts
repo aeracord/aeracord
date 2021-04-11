@@ -1,7 +1,7 @@
 import { Client, Emoji, EmojiResolvable, FetchQueue, Guild, GuildResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function deleteGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable): Promise<void> {
+export default async function deleteGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable, reason?: string): Promise<void> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -23,6 +23,7 @@ export default async function deleteGuildEmoji(client: Client, guildResolvable: 
     // Add to fetch queue
     await fetchQueue.request({
         path,
-        method
+        method,
+        auditLogReason: reason
     });
 }

@@ -6,6 +6,7 @@ export interface RequestOptions {
     method: string;
     contentType?: string;
     data?: object | FormData;
+    auditLogReason?: string;
 }
 
 export default function request(fetchQueue: FetchQueue, options: RequestOptions): Promise<any> {
@@ -17,6 +18,7 @@ export default function request(fetchQueue: FetchQueue, options: RequestOptions)
             method: options.method,
             contentType: options.contentType,
             data: options.data,
+            auditLogReason: options.auditLogReason,
             resolve,
             reject
         });

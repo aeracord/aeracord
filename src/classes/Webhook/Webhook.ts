@@ -184,9 +184,11 @@ export default class Webhook extends Base<Webhook> {
      * Delete
      *
      * Delete this webhook
+     *
+     * @param reason The reason for deleting this webhook
      */
-    delete(): Promise<void> {
-        return this.client.deleteWebhook(this.channelID, this);
+    delete(reason?: string): Promise<void> {
+        return this.client.deleteWebhook(this.channelID, this, reason);
     }
 
     /**
@@ -195,10 +197,11 @@ export default class Webhook extends Base<Webhook> {
      * Edit this webhook
      *
      * @param modifyWebhookData The data to modify the webhook
+     * @param reason The reason for modifying this webhook
      *
      * @returns {Promise<WebhookData>} The modified webhook's data
      */
-    edit(modifyWebhookData: ModifyWebhookData): Promise<WebhookData> {
-        return this.client.modifyWebhook(this.channelID, this, modifyWebhookData);
+    edit(modifyWebhookData: ModifyWebhookData, reason?: string): Promise<WebhookData> {
+        return this.client.modifyWebhook(this.channelID, this, modifyWebhookData, reason);
     }
 }

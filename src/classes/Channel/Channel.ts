@@ -132,9 +132,11 @@ export default class Channel extends Base<AnyChannel> {
      *
      * Delete a guild channel or close a DM channel
      *
+     * @param reason The reason for deleting this channel
+     *
      * @returns {Promise<AnyChannelData>} The deleted or closed channel's data
      */
-    delete(): Promise<AnyChannelData> {
-        return this.client.deleteChannel(this);
+    delete(reason?: string): Promise<AnyChannelData> {
+        return this.client.deleteChannel(this, reason);
     }
 }

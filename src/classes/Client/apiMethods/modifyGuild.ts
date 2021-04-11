@@ -19,7 +19,7 @@ export interface ModifyGuildData {
     preferredLocale?: string;
 }
 
-export default async function modifyGuild(client: Client, guildResolvable: GuildResolvable, modifyGuildData: ModifyGuildData): Promise<GuildData> {
+export default async function modifyGuild(client: Client, guildResolvable: GuildResolvable, modifyGuildData: ModifyGuildData, reason?: string): Promise<GuildData> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -66,7 +66,8 @@ export default async function modifyGuild(client: Client, guildResolvable: Guild
             rules_channel_id: rulesChannelID || undefined,
             public_updates_channel_id: publicUpdatesChannelID || undefined,
             preferred_locale: modifyGuildData.preferredLocale
-        }
+        },
+        auditLogReason: reason
     });
 
     // Parse guild data

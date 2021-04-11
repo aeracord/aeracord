@@ -1,7 +1,7 @@
-import { AnyChannel, AnyChannelData, Channel, ChannelResolvable, Client, FetchQueue, RawChannelData } from "../../../internal";
+import { AnyChannelData, Channel, ChannelResolvable, Client, FetchQueue, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function deleteChannel(client: Client, channelResolvable: ChannelResolvable): Promise<AnyChannelData> {
+export default async function deleteChannel(client: Client, channelResolvable: ChannelResolvable, reason?: string): Promise<AnyChannelData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -21,7 +21,8 @@ export default async function deleteChannel(client: Client, channelResolvable: C
     // Add to fetch queue
     const result: RawChannelData = await fetchQueue.request({
         path,
-        method
+        method,
+        auditLogReason: reason
     });
 
     // Parse channel data
