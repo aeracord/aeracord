@@ -1,7 +1,11 @@
-import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, MessageData, MessageResolvable, RawInteractionData, UserData } from "../../internal";
+import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, MessageData, MessageResolvable, RawInteractionData, UserData } from "../../internal";
+import createFollowupMessage from "./createFollowupMessage";
+import editFollowupMessage from "./editFollowupMessage";
+import editOriginalResponse from "./editOriginalResponse";
 import fromData from "./fromData";
 import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
+import respond from "./respond";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
@@ -200,12 +204,13 @@ export default class Interaction extends Base<Interaction> {
      *
      * Create a followup message for this interaction
      *
+     * @param contentOrData The content or data for the response
      * @param followupInteractionResponseData The data for the message
      *
      * @returns {Promise<MessageData>} The created message's data
      */
-    createFollowupMessage(followupInteractionResponseData: FollowupInteractionResponseData): Promise<MessageData> {
-        return this.client.createFollowupMessage(this.token, followupInteractionResponseData);
+    createFollowupMessage(contentOrData: string | Embed | FollowupInteractionResponseData, followupInteractionResponseData?: FollowupInteractionResponseData): Promise<MessageData> {
+        return createFollowupMessage(this, contentOrData, followupInteractionResponseData);
     }
 
     /**
@@ -234,12 +239,13 @@ export default class Interaction extends Base<Interaction> {
      * Edit a followup message to this interaction
      *
      * @param message The message to edit
+     * @param contentOrData The content or data for the response
      * @param editInteractionResponseData The data for editing the message
      *
      * @returns {Promise<MessageData>} The edited message's data
      */
-    editFollowupMessage(message: MessageResolvable, editInteractionResponseData: EditInteractionResponseData): Promise<MessageData> {
-        return this.client.editFollowupMessage(this.token, message, editInteractionResponseData);
+    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<MessageData> {
+        return editFollowupMessage(this, message, contentOrData, editInteractionResponseData);
     }
 
     /**
@@ -247,12 +253,13 @@ export default class Interaction extends Base<Interaction> {
      *
      * Edit the original response to this interaction
      *
+     * @param contentOrData The content or data for the response
      * @param editInteractionResponseData The data for editing the response
      *
      * @returns {Promise<MessageData>} The edited response's data
      */
-    editOriginalResponse(editInteractionResponseData: EditInteractionResponseData): Promise<MessageData> {
-        return this.client.editOriginalInteractionResponse(this.token, editInteractionResponseData);
+    editOriginalResponse(contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<MessageData> {
+        return editOriginalResponse(this, contentOrData, editInteractionResponseData);
     }
 
     /**
@@ -260,11 +267,12 @@ export default class Interaction extends Base<Interaction> {
      *
      * Respond to this interaction
      *
+     * @param contentOrData The content or data for the response
      * @param createInteractionResponseData The data for the response
      *
      * @returns {Promise<MessageData>} The created response's data
      */
-    respond(createInteractionResponseData: CreateInteractionResponseData): Promise<MessageData> {
-        return this.client.createInteractionResponse(this, this.token, createInteractionResponseData);
+    respond(contentOrData: string | Embed | CreateInteractionResponseData, createInteractionResponseData?: CreateInteractionResponseData): Promise<MessageData> {
+        return respond(this, contentOrData, createInteractionResponseData);
     }
 }

@@ -110,13 +110,13 @@ export default class TextBasedChannel extends Channel {
      *
      * Send a message in this channel
      *
-     * @param contentOrEmbed The content or embed for the message
+     * @param contentOrData The content or data for the message
      * @param createMessageData The data for the message
      *
      * @returns {Promise<MessageData>} The created message's data
      */
-    send(contentOrEmbed: string | Embed | undefined, createMessageData?: CreateMessageData): Promise<MessageData> {
-        return send(this, contentOrEmbed, createMessageData);
+    send(contentOrData: string | Embed | CreateMessageData, createMessageData?: CreateMessageData): Promise<MessageData> {
+        return send(this, contentOrData, createMessageData);
     }
 
     /**
