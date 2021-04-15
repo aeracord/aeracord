@@ -167302,7 +167302,7 @@
 			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/index.ts",
 			"children": [
 				{
-					"id": 7805,
+					"id": 7848,
 					"name": "ACTIVITY_TYPE_COMPETING",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167312,7 +167312,7 @@
 					"target": 6544
 				},
 				{
-					"id": 7806,
+					"id": 7849,
 					"name": "ACTIVITY_TYPE_CUSTOM",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167322,7 +167322,7 @@
 					"target": 6543
 				},
 				{
-					"id": 7807,
+					"id": 7850,
 					"name": "ACTIVITY_TYPE_LISTENING",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167332,7 +167332,7 @@
 					"target": 6542
 				},
 				{
-					"id": 7808,
+					"id": 7851,
 					"name": "ACTIVITY_TYPE_PLAYING",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167342,7 +167342,7 @@
 					"target": 6540
 				},
 				{
-					"id": 7809,
+					"id": 7852,
 					"name": "ACTIVITY_TYPE_STREAMING",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167352,7 +167352,7 @@
 					"target": 6541
 				},
 				{
-					"id": 7518,
+					"id": 7519,
 					"name": "AUDIT_LOG_EVENT_BOT_ADD",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167362,7 +167362,7 @@
 					"target": 141
 				},
 				{
-					"id": 7519,
+					"id": 7520,
 					"name": "AUDIT_LOG_EVENT_CHANNEL_CREATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167372,7 +167372,7 @@
 					"target": 127
 				},
 				{
-					"id": 7520,
+					"id": 7521,
 					"name": "AUDIT_LOG_EVENT_CHANNEL_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167382,7 +167382,7 @@
 					"target": 129
 				},
 				{
-					"id": 7521,
+					"id": 7522,
 					"name": "AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_CREATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167392,7 +167392,7 @@
 					"target": 130
 				},
 				{
-					"id": 7522,
+					"id": 7523,
 					"name": "AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167402,7 +167402,7 @@
 					"target": 132
 				},
 				{
-					"id": 7523,
+					"id": 7524,
 					"name": "AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167412,7 +167412,7 @@
 					"target": 131
 				},
 				{
-					"id": 7524,
+					"id": 7525,
 					"name": "AUDIT_LOG_EVENT_CHANNEL_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167422,7 +167422,7 @@
 					"target": 128
 				},
 				{
-					"id": 7525,
+					"id": 7526,
 					"name": "AUDIT_LOG_EVENT_EMOJI_CREATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167432,7 +167432,7 @@
 					"target": 151
 				},
 				{
-					"id": 7526,
+					"id": 7527,
 					"name": "AUDIT_LOG_EVENT_EMOJI_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167442,7 +167442,7 @@
 					"target": 153
 				},
 				{
-					"id": 7527,
+					"id": 7528,
 					"name": "AUDIT_LOG_EVENT_EMOJI_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167452,7 +167452,7 @@
 					"target": 152
 				},
 				{
-					"id": 7528,
+					"id": 7529,
 					"name": "AUDIT_LOG_EVENT_GUILD_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167462,7 +167462,7 @@
 					"target": 126
 				},
 				{
-					"id": 7529,
+					"id": 7530,
 					"name": "AUDIT_LOG_EVENT_INTEGRATION_CREATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167472,7 +167472,7 @@
 					"target": 158
 				},
 				{
-					"id": 7530,
+					"id": 7531,
 					"name": "AUDIT_LOG_EVENT_INTEGRATION_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167482,7 +167482,7 @@
 					"target": 160
 				},
 				{
-					"id": 7531,
+					"id": 7532,
 					"name": "AUDIT_LOG_EVENT_INTEGRATION_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167492,7 +167492,7 @@
 					"target": 159
 				},
 				{
-					"id": 7532,
+					"id": 7533,
 					"name": "AUDIT_LOG_EVENT_INVITE_CREATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167502,7 +167502,7 @@
 					"target": 145
 				},
 				{
-					"id": 7533,
+					"id": 7534,
 					"name": "AUDIT_LOG_EVENT_INVITE_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167512,7 +167512,7 @@
 					"target": 147
 				},
 				{
-					"id": 7534,
+					"id": 7535,
 					"name": "AUDIT_LOG_EVENT_INVITE_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167522,7 +167522,7 @@
 					"target": 146
 				},
 				{
-					"id": 7535,
+					"id": 7536,
 					"name": "AUDIT_LOG_EVENT_MEMBER_BAN_ADD",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167532,7 +167532,7 @@
 					"target": 135
 				},
 				{
-					"id": 7536,
+					"id": 7537,
 					"name": "AUDIT_LOG_EVENT_MEMBER_BAN_REMOVE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167542,7 +167542,7 @@
 					"target": 136
 				},
 				{
-					"id": 7537,
+					"id": 7538,
 					"name": "AUDIT_LOG_EVENT_MEMBER_DISCONNECT",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167552,7 +167552,7 @@
 					"target": 140
 				},
 				{
-					"id": 7538,
+					"id": 7539,
 					"name": "AUDIT_LOG_EVENT_MEMBER_KICK",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167562,7 +167562,7 @@
 					"target": 133
 				},
 				{
-					"id": 7539,
+					"id": 7540,
 					"name": "AUDIT_LOG_EVENT_MEMBER_MOVE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167572,7 +167572,7 @@
 					"target": 139
 				},
 				{
-					"id": 7540,
+					"id": 7541,
 					"name": "AUDIT_LOG_EVENT_MEMBER_PRUNE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167582,7 +167582,7 @@
 					"target": 134
 				},
 				{
-					"id": 7541,
+					"id": 7542,
 					"name": "AUDIT_LOG_EVENT_MEMBER_ROLE_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167592,7 +167592,7 @@
 					"target": 138
 				},
 				{
-					"id": 7542,
+					"id": 7543,
 					"name": "AUDIT_LOG_EVENT_MEMBER_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167602,7 +167602,7 @@
 					"target": 137
 				},
 				{
-					"id": 7543,
+					"id": 7544,
 					"name": "AUDIT_LOG_EVENT_MESSAGE_BULK_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167612,7 +167612,7 @@
 					"target": 155
 				},
 				{
-					"id": 7544,
+					"id": 7545,
 					"name": "AUDIT_LOG_EVENT_MESSAGE_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167622,7 +167622,7 @@
 					"target": 154
 				},
 				{
-					"id": 7545,
+					"id": 7546,
 					"name": "AUDIT_LOG_EVENT_MESSAGE_PIN",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167632,7 +167632,7 @@
 					"target": 156
 				},
 				{
-					"id": 7546,
+					"id": 7547,
 					"name": "AUDIT_LOG_EVENT_MESSAGE_UNPIN",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167642,7 +167642,7 @@
 					"target": 157
 				},
 				{
-					"id": 7547,
+					"id": 7548,
 					"name": "AUDIT_LOG_EVENT_ROLE_CREATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167652,7 +167652,7 @@
 					"target": 142
 				},
 				{
-					"id": 7548,
+					"id": 7549,
 					"name": "AUDIT_LOG_EVENT_ROLE_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167662,7 +167662,7 @@
 					"target": 144
 				},
 				{
-					"id": 7549,
+					"id": 7550,
 					"name": "AUDIT_LOG_EVENT_ROLE_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167672,7 +167672,7 @@
 					"target": 143
 				},
 				{
-					"id": 7550,
+					"id": 7551,
 					"name": "AUDIT_LOG_EVENT_WEBHOOK_CREATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167682,7 +167682,7 @@
 					"target": 148
 				},
 				{
-					"id": 7551,
+					"id": 7552,
 					"name": "AUDIT_LOG_EVENT_WEBHOOK_DELETE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167692,7 +167692,7 @@
 					"target": 150
 				},
 				{
-					"id": 7552,
+					"id": 7553,
 					"name": "AUDIT_LOG_EVENT_WEBHOOK_UPDATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167702,7 +167702,7 @@
 					"target": 149
 				},
 				{
-					"id": 7772,
+					"id": 7806,
 					"name": "Activity",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167712,7 +167712,7 @@
 					"target": 5633
 				},
 				{
-					"id": 7773,
+					"id": 7807,
 					"name": "ActivityAssets",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167722,7 +167722,7 @@
 					"target": 5658
 				},
 				{
-					"id": 7774,
+					"id": 7808,
 					"name": "ActivityEmoji",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167732,7 +167732,7 @@
 					"target": 5651
 				},
 				{
-					"id": 7775,
+					"id": 7809,
 					"name": "ActivityParty",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167742,7 +167742,7 @@
 					"target": 5655
 				},
 				{
-					"id": 7776,
+					"id": 7810,
 					"name": "ActivitySecrets",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167752,7 +167752,7 @@
 					"target": 5663
 				},
 				{
-					"id": 7777,
+					"id": 7811,
 					"name": "ActivityTimestamps",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167762,7 +167762,7 @@
 					"target": 5648
 				},
 				{
-					"id": 7810,
+					"id": 7847,
 					"name": "ActivityType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167772,7 +167772,7 @@
 					"target": 6539
 				},
 				{
-					"id": 7632,
+					"id": 7636,
 					"name": "AllowedMentionType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167782,7 +167782,7 @@
 					"target": 953
 				},
 				{
-					"id": 7633,
+					"id": 7637,
 					"name": "AllowedMentions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167792,7 +167792,7 @@
 					"target": 942
 				},
 				{
-					"id": 7563,
+					"id": 7566,
 					"name": "AnyChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167802,7 +167802,7 @@
 					"target": 523
 				},
 				{
-					"id": 7564,
+					"id": 7567,
 					"name": "AnyChannelData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167812,7 +167812,7 @@
 					"target": 524
 				},
 				{
-					"id": 7729,
+					"id": 7749,
 					"name": "AnyGuildChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167822,7 +167822,7 @@
 					"target": 599
 				},
 				{
-					"id": 7730,
+					"id": 7750,
 					"name": "AnyGuildChannelData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167843,6 +167843,16 @@
 				},
 				{
 					"id": 7517,
+					"name": "AttachmentData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 39
+				},
+				{
+					"id": 7518,
 					"name": "AuditLog",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167852,7 +167862,7 @@
 					"target": 81
 				},
 				{
-					"id": 7553,
+					"id": 7554,
 					"name": "AuditLogChange",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167862,7 +167872,7 @@
 					"target": 112
 				},
 				{
-					"id": 7554,
+					"id": 7555,
 					"name": "AuditLogChangeType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167872,7 +167882,7 @@
 					"target": 161
 				},
 				{
-					"id": 7555,
+					"id": 7556,
 					"name": "AuditLogData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167882,7 +167892,7 @@
 					"target": 101
 				},
 				{
-					"id": 7556,
+					"id": 7557,
 					"name": "AuditLogEntry",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167892,7 +167902,7 @@
 					"target": 104
 				},
 				{
-					"id": 7557,
+					"id": 7558,
 					"name": "AuditLogEvent",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167902,7 +167912,7 @@
 					"target": 125
 				},
 				{
-					"id": 7558,
+					"id": 7559,
 					"name": "AuditLogOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167912,7 +167922,7 @@
 					"target": 116
 				},
 				{
-					"id": 7559,
+					"id": 7560,
 					"name": "Ban",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167922,7 +167932,17 @@
 					"target": 224
 				},
 				{
-					"id": 7591,
+					"id": 7561,
+					"name": "BanData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 267
+				},
+				{
+					"id": 7595,
 					"name": "BanEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167932,7 +167952,7 @@
 					"target": 2883
 				},
 				{
-					"id": 7560,
+					"id": 7562,
 					"name": "Base",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167942,7 +167962,7 @@
 					"target": 18
 				},
 				{
-					"id": 7634,
+					"id": 7638,
 					"name": "BulkDeleteMessagesData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167952,7 +167972,7 @@
 					"target": 738
 				},
 				{
-					"id": 7568,
+					"id": 7572,
 					"name": "CHANNEL_TYPE_CATEGORY",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167962,7 +167982,7 @@
 					"target": 692
 				},
 				{
-					"id": 7569,
+					"id": 7573,
 					"name": "CHANNEL_TYPE_DM",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167972,7 +167992,7 @@
 					"target": 690
 				},
 				{
-					"id": 7570,
+					"id": 7574,
 					"name": "CHANNEL_TYPE_NEWS",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167982,7 +168002,7 @@
 					"target": 693
 				},
 				{
-					"id": 7571,
+					"id": 7575,
 					"name": "CHANNEL_TYPE_STORE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -167992,7 +168012,7 @@
 					"target": 694
 				},
 				{
-					"id": 7572,
+					"id": 7576,
 					"name": "CHANNEL_TYPE_TEXT",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168002,7 +168022,7 @@
 					"target": 689
 				},
 				{
-					"id": 7573,
+					"id": 7577,
 					"name": "CHANNEL_TYPE_VOICE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168012,7 +168032,87 @@
 					"target": 691
 				},
 				{
-					"id": 7561,
+					"id": 7700,
+					"name": "COMMAND_OPTION_TYPE_BOOLEAN",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3501
+				},
+				{
+					"id": 7699,
+					"name": "COMMAND_OPTION_TYPE_CHANNEL",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3503
+				},
+				{
+					"id": 7701,
+					"name": "COMMAND_OPTION_TYPE_INTEGER",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3500
+				},
+				{
+					"id": 7702,
+					"name": "COMMAND_OPTION_TYPE_ROLE",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3504
+				},
+				{
+					"id": 7703,
+					"name": "COMMAND_OPTION_TYPE_STRING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3499
+				},
+				{
+					"id": 7704,
+					"name": "COMMAND_OPTION_TYPE_SUB_COMMAND",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3497
+				},
+				{
+					"id": 7705,
+					"name": "COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3498
+				},
+				{
+					"id": 7706,
+					"name": "COMMAND_OPTION_TYPE_USER",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3502
+				},
+				{
+					"id": 7563,
 					"name": "CacheManagerInterface",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168022,7 +168122,7 @@
 					"target": 399
 				},
 				{
-					"id": 7574,
+					"id": 7578,
 					"name": "CacheStrategies",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168032,7 +168132,7 @@
 					"target": 2825
 				},
 				{
-					"id": 7575,
+					"id": 7579,
 					"name": "CacheStrategy",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168042,7 +168142,7 @@
 					"target": 2846
 				},
 				{
-					"id": 7562,
+					"id": 7564,
 					"name": "CategoryChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168053,6 +168153,16 @@
 				},
 				{
 					"id": 7565,
+					"name": "CategoryChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 676
+				},
+				{
+					"id": 7568,
 					"name": "Channel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168062,7 +168172,17 @@
 					"target": 478
 				},
 				{
-					"id": 7592,
+					"id": 7569,
+					"name": "ChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 685
+				},
+				{
+					"id": 7596,
 					"name": "ChannelEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168072,7 +168192,7 @@
 					"target": 2889
 				},
 				{
-					"id": 7746,
+					"id": 7777,
 					"name": "ChannelMention",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168082,7 +168202,7 @@
 					"target": 5243
 				},
 				{
-					"id": 7614,
+					"id": 7618,
 					"name": "ChannelPinsUpdateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168092,7 +168212,7 @@
 					"target": 2990
 				},
 				{
-					"id": 7566,
+					"id": 7570,
 					"name": "ChannelResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168102,7 +168222,7 @@
 					"target": 525
 				},
 				{
-					"id": 7567,
+					"id": 7571,
 					"name": "ChannelType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168112,7 +168232,7 @@
 					"target": 688
 				},
 				{
-					"id": 7593,
+					"id": 7597,
 					"name": "ChannelUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168122,7 +168242,7 @@
 					"target": 2892
 				},
 				{
-					"id": 7576,
+					"id": 7580,
 					"name": "Client",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168132,7 +168252,7 @@
 					"target": 1955
 				},
 				{
-					"id": 7577,
+					"id": 7581,
 					"name": "ClientActivity",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168142,7 +168262,7 @@
 					"target": 1945
 				},
 				{
-					"id": 7578,
+					"id": 7582,
 					"name": "ClientActivityType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168152,7 +168272,7 @@
 					"target": 2823
 				},
 				{
-					"id": 7579,
+					"id": 7583,
 					"name": "ClientCacheStrategyData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168162,7 +168282,7 @@
 					"target": 2874
 				},
 				{
-					"id": 7580,
+					"id": 7584,
 					"name": "ClientData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168172,7 +168292,7 @@
 					"target": 1934
 				},
 				{
-					"id": 7581,
+					"id": 7585,
 					"name": "ClientPermissionsCacheStrategyData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168182,7 +168302,7 @@
 					"target": 2877
 				},
 				{
-					"id": 7582,
+					"id": 7586,
 					"name": "ClientPresence",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168192,7 +168312,7 @@
 					"target": 1940
 				},
 				{
-					"id": 7583,
+					"id": 7587,
 					"name": "ClientStatus",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168202,7 +168322,7 @@
 					"target": 2822
 				},
 				{
-					"id": 7690,
+					"id": 7694,
 					"name": "Command",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168212,7 +168332,27 @@
 					"target": 3425
 				},
 				{
-					"id": 7594,
+					"id": 7695,
+					"name": "CommandChoice",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3493
+				},
+				{
+					"id": 7696,
+					"name": "CommandData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3479
+				},
+				{
+					"id": 7598,
 					"name": "CommandEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168222,7 +168362,27 @@
 					"target": 2896
 				},
 				{
-					"id": 7691,
+					"id": 7697,
+					"name": "CommandOption",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3486
+				},
+				{
+					"id": 7698,
+					"name": "CommandOptionType",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3496
+				},
+				{
+					"id": 7707,
 					"name": "CommandResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168232,7 +168392,7 @@
 					"target": 3477
 				},
 				{
-					"id": 7595,
+					"id": 7599,
 					"name": "CommandUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168242,7 +168402,7 @@
 					"target": 2899
 				},
 				{
-					"id": 7636,
+					"id": 7640,
 					"name": "CreateChannelInviteData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168252,7 +168412,7 @@
 					"target": 758
 				},
 				{
-					"id": 7635,
+					"id": 7639,
 					"name": "CreateCommandData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168262,7 +168422,7 @@
 					"target": 790
 				},
 				{
-					"id": 7637,
+					"id": 7641,
 					"name": "CreateDMData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168272,7 +168432,7 @@
 					"target": 772
 				},
 				{
-					"id": 7638,
+					"id": 7642,
 					"name": "CreateGuildBanData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168282,7 +168442,7 @@
 					"target": 838
 				},
 				{
-					"id": 7639,
+					"id": 7643,
 					"name": "CreateGuildChannelData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168292,7 +168452,7 @@
 					"target": 849
 				},
 				{
-					"id": 7640,
+					"id": 7644,
 					"name": "CreateGuildData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168302,7 +168462,7 @@
 					"target": 799
 				},
 				{
-					"id": 7641,
+					"id": 7645,
 					"name": "CreateGuildDataChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168312,7 +168472,7 @@
 					"target": 820
 				},
 				{
-					"id": 7642,
+					"id": 7646,
 					"name": "CreateGuildDataChannelPermissionOverwrite",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168322,7 +168482,7 @@
 					"target": 832
 				},
 				{
-					"id": 7643,
+					"id": 7647,
 					"name": "CreateGuildDataRole",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168332,7 +168492,7 @@
 					"target": 811
 				},
 				{
-					"id": 7644,
+					"id": 7648,
 					"name": "CreateGuildEmojiData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168342,7 +168502,7 @@
 					"target": 873
 				},
 				{
-					"id": 7645,
+					"id": 7649,
 					"name": "CreateGuildFromTemplateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168352,7 +168512,7 @@
 					"target": 884
 				},
 				{
-					"id": 7646,
+					"id": 7650,
 					"name": "CreateGuildRoleData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168362,7 +168522,7 @@
 					"target": 893
 				},
 				{
-					"id": 7647,
+					"id": 7651,
 					"name": "CreateGuildTemplateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168372,7 +168532,7 @@
 					"target": 906
 				},
 				{
-					"id": 7648,
+					"id": 7652,
 					"name": "CreateInteractionResponseData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168382,7 +168542,7 @@
 					"target": 915
 				},
 				{
-					"id": 7649,
+					"id": 7653,
 					"name": "CreateMessageData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168392,7 +168552,7 @@
 					"target": 935
 				},
 				{
-					"id": 7650,
+					"id": 7654,
 					"name": "CreateMessageFile",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168402,7 +168562,7 @@
 					"target": 950
 				},
 				{
-					"id": 7651,
+					"id": 7655,
 					"name": "CreateMessageReference",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168412,7 +168572,7 @@
 					"target": 947
 				},
 				{
-					"id": 7652,
+					"id": 7656,
 					"name": "CreateWebhookData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168422,7 +168582,7 @@
 					"target": 967
 				},
 				{
-					"id": 7653,
+					"id": 7657,
 					"name": "CurrentUserNickname",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168432,7 +168592,7 @@
 					"target": 1463
 				},
 				{
-					"id": 7705,
+					"id": 7724,
 					"name": "DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168442,7 +168602,7 @@
 					"target": 4401
 				},
 				{
-					"id": 7706,
+					"id": 7725,
 					"name": "DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168452,7 +168612,7 @@
 					"target": 4402
 				},
 				{
-					"id": 7692,
+					"id": 7708,
 					"name": "DMChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168462,7 +168622,17 @@
 					"target": 3662
 				},
 				{
-					"id": 7704,
+					"id": 7709,
+					"name": "DMChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3776
+				},
+				{
+					"id": 7723,
 					"name": "DefaultMessageNotifications",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168472,7 +168642,7 @@
 					"target": 4400
 				},
 				{
-					"id": 7709,
+					"id": 7728,
 					"name": "EXPLICIT_CONTENT_FILTER_ALL_MEMBERS",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168482,7 +168652,7 @@
 					"target": 4406
 				},
 				{
-					"id": 7708,
+					"id": 7727,
 					"name": "EXPLICIT_CONTENT_FILTER_DISABLED",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168492,7 +168662,7 @@
 					"target": 4404
 				},
 				{
-					"id": 7710,
+					"id": 7729,
 					"name": "EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168502,7 +168672,7 @@
 					"target": 4405
 				},
 				{
-					"id": 7654,
+					"id": 7658,
 					"name": "EditChannelPermissionsData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168512,7 +168682,7 @@
 					"target": 1102
 				},
 				{
-					"id": 7655,
+					"id": 7659,
 					"name": "EditCommandData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168522,7 +168692,7 @@
 					"target": 1120
 				},
 				{
-					"id": 7656,
+					"id": 7660,
 					"name": "EditInteractionResponseData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168532,7 +168702,7 @@
 					"target": 1149
 				},
 				{
-					"id": 7657,
+					"id": 7661,
 					"name": "EditMessageData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168542,7 +168712,7 @@
 					"target": 1137
 				},
 				{
-					"id": 7693,
+					"id": 7710,
 					"name": "Embed",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168552,7 +168722,7 @@
 					"target": 3801
 				},
 				{
-					"id": 7694,
+					"id": 7711,
 					"name": "EmbedAuthor",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168562,7 +168732,17 @@
 					"target": 3876
 				},
 				{
-					"id": 7695,
+					"id": 7712,
+					"name": "EmbedData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3837
+				},
+				{
+					"id": 7713,
 					"name": "EmbedField",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168572,7 +168752,7 @@
 					"target": 3881
 				},
 				{
-					"id": 7696,
+					"id": 7714,
 					"name": "EmbedFooter",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168582,7 +168762,7 @@
 					"target": 3854
 				},
 				{
-					"id": 7697,
+					"id": 7715,
 					"name": "EmbedImage",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168592,7 +168772,7 @@
 					"target": 3858
 				},
 				{
-					"id": 7698,
+					"id": 7716,
 					"name": "EmbedProvider",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168602,7 +168782,7 @@
 					"target": 3873
 				},
 				{
-					"id": 7699,
+					"id": 7717,
 					"name": "EmbedThumbnail",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168612,7 +168792,7 @@
 					"target": 3863
 				},
 				{
-					"id": 7700,
+					"id": 7718,
 					"name": "EmbedType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168622,7 +168802,7 @@
 					"target": 3885
 				},
 				{
-					"id": 7701,
+					"id": 7719,
 					"name": "EmbedVideo",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168632,7 +168812,7 @@
 					"target": 3868
 				},
 				{
-					"id": 7702,
+					"id": 7720,
 					"name": "Emoji",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168642,7 +168822,17 @@
 					"target": 3966
 				},
 				{
-					"id": 7703,
+					"id": 7721,
+					"name": "EmojiData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4025
+				},
+				{
+					"id": 7722,
 					"name": "EmojiResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168652,7 +168842,7 @@
 					"target": 4023
 				},
 				{
-					"id": 7596,
+					"id": 7600,
 					"name": "EventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168662,7 +168852,7 @@
 					"target": 2881
 				},
 				{
-					"id": 7707,
+					"id": 7726,
 					"name": "ExplicitContentFilter",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168672,7 +168862,7 @@
 					"target": 4403
 				},
 				{
-					"id": 7711,
+					"id": 7730,
 					"name": "Feature",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168682,7 +168872,7 @@
 					"target": 4407
 				},
 				{
-					"id": 7659,
+					"id": 7663,
 					"name": "FollowNewsChannelData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168692,7 +168882,7 @@
 					"target": 1159
 				},
 				{
-					"id": 7658,
+					"id": 7662,
 					"name": "FollowedChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168702,7 +168892,7 @@
 					"target": 1161
 				},
 				{
-					"id": 7660,
+					"id": 7664,
 					"name": "FollowupInteractionResponseData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168712,7 +168902,7 @@
 					"target": 779
 				},
 				{
-					"id": 7661,
+					"id": 7665,
 					"name": "GetChannelMessagesData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168722,7 +168912,7 @@
 					"target": 1189
 				},
 				{
-					"id": 7662,
+					"id": 7666,
 					"name": "GetCurrentUserGuildsData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168732,7 +168922,7 @@
 					"target": 1209
 				},
 				{
-					"id": 7663,
+					"id": 7667,
 					"name": "GetGuildAuditLogData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168742,7 +168932,7 @@
 					"target": 1247
 				},
 				{
-					"id": 7664,
+					"id": 7668,
 					"name": "GetGuildData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168752,7 +168942,7 @@
 					"target": 1239
 				},
 				{
-					"id": 7665,
+					"id": 7669,
 					"name": "GetInviteData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168762,7 +168952,7 @@
 					"target": 1370
 				},
 				{
-					"id": 7666,
+					"id": 7670,
 					"name": "GetReactionsData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168772,7 +168962,7 @@
 					"target": 1383
 				},
 				{
-					"id": 7712,
+					"id": 7731,
 					"name": "Guild",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168782,7 +168972,7 @@
 					"target": 4115
 				},
 				{
-					"id": 7731,
+					"id": 7751,
 					"name": "GuildChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168792,7 +168982,17 @@
 					"target": 533
 				},
 				{
-					"id": 7732,
+					"id": 7752,
+					"name": "GuildChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4454
+				},
+				{
+					"id": 7753,
 					"name": "GuildChannelType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168802,7 +169002,7 @@
 					"target": 601
 				},
 				{
-					"id": 7615,
+					"id": 7619,
 					"name": "GuildCreateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168812,7 +169012,17 @@
 					"target": 3040
 				},
 				{
-					"id": 7616,
+					"id": 7732,
+					"name": "GuildData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4352
+				},
+				{
+					"id": 7620,
 					"name": "GuildDeleteData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168822,7 +169032,7 @@
 					"target": 3095
 				},
 				{
-					"id": 7617,
+					"id": 7621,
 					"name": "GuildEmojisUpdateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168832,7 +169042,7 @@
 					"target": 3102
 				},
 				{
-					"id": 7597,
+					"id": 7601,
 					"name": "GuildEmojisUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168842,7 +169052,7 @@
 					"target": 2903
 				},
 				{
-					"id": 7598,
+					"id": 7602,
 					"name": "GuildEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168852,7 +169062,7 @@
 					"target": 2907
 				},
 				{
-					"id": 7618,
+					"id": 7622,
 					"name": "GuildIntegrationsUpdateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168862,7 +169072,7 @@
 					"target": 3110
 				},
 				{
-					"id": 7619,
+					"id": 7623,
 					"name": "GuildMemberUpdateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168872,7 +169082,7 @@
 					"target": 3135
 				},
 				{
-					"id": 7667,
+					"id": 7671,
 					"name": "GuildPreview",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168882,7 +169092,7 @@
 					"target": 1302
 				},
 				{
-					"id": 7713,
+					"id": 7733,
 					"name": "GuildResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168892,7 +169102,7 @@
 					"target": 4350
 				},
 				{
-					"id": 7620,
+					"id": 7624,
 					"name": "GuildRoleDeleteData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168902,7 +169112,7 @@
 					"target": 3157
 				},
 				{
-					"id": 7599,
+					"id": 7603,
 					"name": "GuildUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168912,7 +169122,7 @@
 					"target": 2910
 				},
 				{
-					"id": 7737,
+					"id": 7758,
 					"name": "GuildUserCacheManagerInterface",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168922,7 +169132,7 @@
 					"target": 4516
 				},
 				{
-					"id": 7738,
+					"id": 7759,
 					"name": "GuildWidget",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168932,7 +169142,17 @@
 					"target": 4578
 				},
 				{
-					"id": 7670,
+					"id": 7760,
+					"name": "GuildWidgetData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4625
+				},
+				{
+					"id": 7674,
 					"name": "INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168942,7 +169162,7 @@
 					"target": 927
 				},
 				{
-					"id": 7671,
+					"id": 7675,
 					"name": "INTERACTION_RESPONSE_TYPE_MESSAGE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168952,7 +169172,7 @@
 					"target": 926
 				},
 				{
-					"id": 7672,
+					"id": 7676,
 					"name": "INTERACTION_RESPONSE_TYPE_PONG",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168962,7 +169182,27 @@
 					"target": 925
 				},
 				{
-					"id": 7584,
+					"id": 7767,
+					"name": "INTERACTION_TYPE_COMMAND",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4782
+				},
+				{
+					"id": 7768,
+					"name": "INTERACTION_TYPE_PING",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4781
+				},
+				{
+					"id": 7588,
 					"name": "InitialCacheType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168972,7 +169212,7 @@
 					"target": 2871
 				},
 				{
-					"id": 7585,
+					"id": 7589,
 					"name": "InitialCacheTypeChannels",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168982,7 +169222,7 @@
 					"target": 2856
 				},
 				{
-					"id": 7586,
+					"id": 7590,
 					"name": "InitialCacheTypeGuilds",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -168992,7 +169232,7 @@
 					"target": 2853
 				},
 				{
-					"id": 7587,
+					"id": 7591,
 					"name": "InitialCacheTypeIDs",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169002,7 +169242,7 @@
 					"target": 2872
 				},
 				{
-					"id": 7588,
+					"id": 7592,
 					"name": "InitialCacheTypeMessages",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169012,7 +169252,7 @@
 					"target": 2860
 				},
 				{
-					"id": 7739,
+					"id": 7761,
 					"name": "Interaction",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169022,7 +169262,37 @@
 					"target": 4687
 				},
 				{
-					"id": 7740,
+					"id": 7762,
+					"name": "InteractionCommandData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4772
+				},
+				{
+					"id": 7763,
+					"name": "InteractionCommandOption",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4776
+				},
+				{
+					"id": 7764,
+					"name": "InteractionData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4761
+				},
+				{
+					"id": 7765,
 					"name": "InteractionResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169032,7 +169302,7 @@
 					"target": 4759
 				},
 				{
-					"id": 7668,
+					"id": 7672,
 					"name": "InteractionResponseData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169042,7 +169312,7 @@
 					"target": 918
 				},
 				{
-					"id": 7669,
+					"id": 7673,
 					"name": "InteractionResponseType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169052,7 +169322,17 @@
 					"target": 924
 				},
 				{
-					"id": 7741,
+					"id": 7766,
+					"name": "InteractionType",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4780
+				},
+				{
+					"id": 7769,
 					"name": "Invite",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169062,7 +169342,17 @@
 					"target": 4841
 				},
 				{
-					"id": 7621,
+					"id": 7770,
+					"name": "InviteData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4899
+				},
+				{
+					"id": 7625,
 					"name": "InviteDeleteData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169072,7 +169362,7 @@
 					"target": 3187
 				},
 				{
-					"id": 7600,
+					"id": 7604,
 					"name": "InviteEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169082,7 +169372,7 @@
 					"target": 2919
 				},
 				{
-					"id": 7742,
+					"id": 7771,
 					"name": "InviteResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169092,7 +169382,7 @@
 					"target": 4897
 				},
 				{
-					"id": 7673,
+					"id": 7677,
 					"name": "ListGuildMembersData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169102,7 +169392,7 @@
 					"target": 1421
 				},
 				{
-					"id": 7750,
+					"id": 7781,
 					"name": "MESSAGE_ACTIVITY_TYPE_JOIN",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169112,7 +169402,7 @@
 					"target": 5282
 				},
 				{
-					"id": 7751,
+					"id": 7782,
 					"name": "MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169122,7 +169412,7 @@
 					"target": 5285
 				},
 				{
-					"id": 7752,
+					"id": 7783,
 					"name": "MESSAGE_ACTIVITY_TYPE_LISTEN",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169132,7 +169422,7 @@
 					"target": 5284
 				},
 				{
-					"id": 7753,
+					"id": 7784,
 					"name": "MESSAGE_ACTIVITY_TYPE_SPECTATE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169142,7 +169432,7 @@
 					"target": 5283
 				},
 				{
-					"id": 7758,
+					"id": 7791,
 					"name": "MESSAGE_TYPE_APPLICATION_COMMAND",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169152,7 +169442,7 @@
 					"target": 5280
 				},
 				{
-					"id": 7759,
+					"id": 7792,
 					"name": "MESSAGE_TYPE_CHANNEL_FOLLOW_ADD",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169162,7 +169452,7 @@
 					"target": 5274
 				},
 				{
-					"id": 7760,
+					"id": 7793,
 					"name": "MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169172,7 +169462,7 @@
 					"target": 5268
 				},
 				{
-					"id": 7761,
+					"id": 7794,
 					"name": "MESSAGE_TYPE_DEFAULT",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169182,7 +169472,7 @@
 					"target": 5267
 				},
 				{
-					"id": 7762,
+					"id": 7795,
 					"name": "MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169192,7 +169482,7 @@
 					"target": 5275
 				},
 				{
-					"id": 7763,
+					"id": 7796,
 					"name": "MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169202,7 +169492,7 @@
 					"target": 5276
 				},
 				{
-					"id": 7764,
+					"id": 7797,
 					"name": "MESSAGE_TYPE_GUILD_MEMBER_JOIN",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169212,7 +169502,7 @@
 					"target": 5269
 				},
 				{
-					"id": 7765,
+					"id": 7798,
 					"name": "MESSAGE_TYPE_REPLY",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169222,7 +169512,7 @@
 					"target": 5279
 				},
 				{
-					"id": 7766,
+					"id": 7799,
 					"name": "MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169232,7 +169522,7 @@
 					"target": 5270
 				},
 				{
-					"id": 7767,
+					"id": 7800,
 					"name": "MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169242,7 +169532,7 @@
 					"target": 5271
 				},
 				{
-					"id": 7768,
+					"id": 7801,
 					"name": "MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169252,7 +169542,7 @@
 					"target": 5272
 				},
 				{
-					"id": 7769,
+					"id": 7802,
 					"name": "MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169262,7 +169552,7 @@
 					"target": 5273
 				},
 				{
-					"id": 7714,
+					"id": 7734,
 					"name": "MFALevel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169272,7 +169562,7 @@
 					"target": 4408
 				},
 				{
-					"id": 7715,
+					"id": 7735,
 					"name": "MFA_LEVEL_ELEVATED",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169282,7 +169572,7 @@
 					"target": 4410
 				},
 				{
-					"id": 7716,
+					"id": 7736,
 					"name": "MFA_LEVEL_NONE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169292,7 +169582,7 @@
 					"target": 4409
 				},
 				{
-					"id": 7745,
+					"id": 7775,
 					"name": "Member",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169302,7 +169592,17 @@
 					"target": 4976
 				},
 				{
-					"id": 7601,
+					"id": 7776,
+					"name": "MemberData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5046
+				},
+				{
+					"id": 7605,
 					"name": "MemberEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169312,7 +169612,7 @@
 					"target": 2924
 				},
 				{
-					"id": 7602,
+					"id": 7606,
 					"name": "MemberUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169322,7 +169622,7 @@
 					"target": 2929
 				},
 				{
-					"id": 7747,
+					"id": 7778,
 					"name": "Message",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169332,7 +169632,7 @@
 					"target": 5110
 				},
 				{
-					"id": 7748,
+					"id": 7779,
 					"name": "MessageActivity",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169342,7 +169642,7 @@
 					"target": 5248
 				},
 				{
-					"id": 7749,
+					"id": 7780,
 					"name": "MessageActivityType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169352,7 +169652,7 @@
 					"target": 5281
 				},
 				{
-					"id": 7754,
+					"id": 7785,
 					"name": "MessageApplication",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169362,7 +169662,17 @@
 					"target": 5251
 				},
 				{
-					"id": 7622,
+					"id": 7786,
+					"name": "MessageData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5212
+				},
+				{
+					"id": 7626,
 					"name": "MessageDeleteBulkData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169372,7 +169682,7 @@
 					"target": 3197
 				},
 				{
-					"id": 7604,
+					"id": 7608,
 					"name": "MessageDeleteBulkEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169382,7 +169692,7 @@
 					"target": 2940
 				},
 				{
-					"id": 7623,
+					"id": 7627,
 					"name": "MessageDeleteData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169392,7 +169702,7 @@
 					"target": 3207
 				},
 				{
-					"id": 7603,
+					"id": 7607,
 					"name": "MessageEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169402,7 +169712,17 @@
 					"target": 2935
 				},
 				{
-					"id": 7624,
+					"id": 7787,
+					"name": "MessageInteraction",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5261
+				},
+				{
+					"id": 7628,
 					"name": "MessageReactionAddData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169412,7 +169732,7 @@
 					"target": 3217
 				},
 				{
-					"id": 7625,
+					"id": 7629,
 					"name": "MessageReactionRemoveAllData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169422,7 +169742,7 @@
 					"target": 3233
 				},
 				{
-					"id": 7626,
+					"id": 7630,
 					"name": "MessageReactionRemoveData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169432,7 +169752,7 @@
 					"target": 3243
 				},
 				{
-					"id": 7627,
+					"id": 7631,
 					"name": "MessageReactionRemoveEmojiData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169442,7 +169762,7 @@
 					"target": 3257
 				},
 				{
-					"id": 7755,
+					"id": 7788,
 					"name": "MessageReference",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169452,7 +169772,7 @@
 					"target": 5257
 				},
 				{
-					"id": 7756,
+					"id": 7789,
 					"name": "MessageResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169462,7 +169782,7 @@
 					"target": 5210
 				},
 				{
-					"id": 7757,
+					"id": 7790,
 					"name": "MessageType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169472,7 +169792,7 @@
 					"target": 5266
 				},
 				{
-					"id": 7628,
+					"id": 7632,
 					"name": "MessageUpdateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169482,7 +169802,7 @@
 					"target": 3269
 				},
 				{
-					"id": 7605,
+					"id": 7609,
 					"name": "MessageUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169492,7 +169812,7 @@
 					"target": 2945
 				},
 				{
-					"id": 7770,
+					"id": 7803,
 					"name": "MessageWebhook",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169502,7 +169822,7 @@
 					"target": 5239
 				},
 				{
-					"id": 7674,
+					"id": 7678,
 					"name": "ModifyChannelData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169512,7 +169832,7 @@
 					"target": 1434
 				},
 				{
-					"id": 7675,
+					"id": 7679,
 					"name": "ModifyChannelDataType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169522,7 +169842,7 @@
 					"target": 1445
 				},
 				{
-					"id": 7676,
+					"id": 7680,
 					"name": "ModifyCurrentUserData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169532,7 +169852,7 @@
 					"target": 1453
 				},
 				{
-					"id": 7677,
+					"id": 7681,
 					"name": "ModifyCurrentUserNicknameData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169542,7 +169862,7 @@
 					"target": 1461
 				},
 				{
-					"id": 7678,
+					"id": 7682,
 					"name": "ModifyGuildChannelPositionsData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169552,7 +169872,7 @@
 					"target": 1496
 				},
 				{
-					"id": 7679,
+					"id": 7683,
 					"name": "ModifyGuildData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169562,7 +169882,7 @@
 					"target": 1473
 				},
 				{
-					"id": 7680,
+					"id": 7684,
 					"name": "ModifyGuildEmojiData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169572,7 +169892,7 @@
 					"target": 1512
 				},
 				{
-					"id": 7681,
+					"id": 7685,
 					"name": "ModifyGuildMemberData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169582,7 +169902,7 @@
 					"target": 1523
 				},
 				{
-					"id": 7682,
+					"id": 7686,
 					"name": "ModifyGuildRoleData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169592,7 +169912,7 @@
 					"target": 1537
 				},
 				{
-					"id": 7683,
+					"id": 7687,
 					"name": "ModifyGuildRolePositionsData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169602,7 +169922,7 @@
 					"target": 1551
 				},
 				{
-					"id": 7684,
+					"id": 7688,
 					"name": "ModifyGuildTemplateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169612,7 +169932,7 @@
 					"target": 1563
 				},
 				{
-					"id": 7685,
+					"id": 7689,
 					"name": "ModifyGuildWelcomeScreenData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169622,7 +169942,7 @@
 					"target": 1573
 				},
 				{
-					"id": 7686,
+					"id": 7690,
 					"name": "ModifyGuildWidgetData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169632,7 +169952,7 @@
 					"target": 1583
 				},
 				{
-					"id": 7687,
+					"id": 7691,
 					"name": "ModifyWebhookData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169642,7 +169962,7 @@
 					"target": 1592
 				},
 				{
-					"id": 7771,
+					"id": 7804,
 					"name": "NewsChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169652,7 +169972,17 @@
 					"target": 5354
 				},
 				{
-					"id": 7589,
+					"id": 7805,
+					"name": "NewsChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5504
+				},
+				{
+					"id": 7593,
 					"name": "ObjectCacheStrategies",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169662,7 +169992,7 @@
 					"target": 2828
 				},
 				{
-					"id": 7736,
+					"id": 7757,
 					"name": "PERMISSION_TYPE_MEMBER",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169672,7 +170002,7 @@
 					"target": 4469
 				},
 				{
-					"id": 7735,
+					"id": 7756,
 					"name": "PERMISSION_TYPE_ROLE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169682,7 +170012,7 @@
 					"target": 4468
 				},
 				{
-					"id": 7718,
+					"id": 7738,
 					"name": "PREMIUM_TIER_NONE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169692,7 +170022,7 @@
 					"target": 4412
 				},
 				{
-					"id": 7719,
+					"id": 7739,
 					"name": "PREMIUM_TIER_TIER_1",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169702,7 +170032,7 @@
 					"target": 4413
 				},
 				{
-					"id": 7720,
+					"id": 7740,
 					"name": "PREMIUM_TIER_TIER_2",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169712,7 +170042,7 @@
 					"target": 4414
 				},
 				{
-					"id": 7721,
+					"id": 7741,
 					"name": "PREMIUM_TIER_TIER_3",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169722,7 +170052,7 @@
 					"target": 4415
 				},
 				{
-					"id": 7688,
+					"id": 7692,
 					"name": "PartialGuild",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169732,7 +170062,7 @@
 					"target": 1213
 				},
 				{
-					"id": 7781,
+					"id": 7816,
 					"name": "PermissionName",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169742,7 +170072,7 @@
 					"target": 5551
 				},
 				{
-					"id": 7733,
+					"id": 7754,
 					"name": "PermissionOverwrite",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169752,7 +170082,7 @@
 					"target": 4462
 				},
 				{
-					"id": 7734,
+					"id": 7755,
 					"name": "PermissionType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169762,7 +170092,7 @@
 					"target": 4467
 				},
 				{
-					"id": 7782,
+					"id": 7817,
 					"name": "Permissions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169772,7 +170102,7 @@
 					"target": 5531
 				},
 				{
-					"id": 7590,
+					"id": 7594,
 					"name": "PermissionsCacheStrategies",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169782,7 +170112,7 @@
 					"target": 2868
 				},
 				{
-					"id": 7783,
+					"id": 7818,
 					"name": "PermissionsResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169792,7 +170122,7 @@
 					"target": 5550
 				},
 				{
-					"id": 7717,
+					"id": 7737,
 					"name": "PremiumTier",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169802,7 +170132,7 @@
 					"target": 4411
 				},
 				{
-					"id": 7778,
+					"id": 7812,
 					"name": "Presence",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169812,7 +170142,7 @@
 					"target": 5577
 				},
 				{
-					"id": 7779,
+					"id": 7813,
 					"name": "PresenceClientStatus",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169822,7 +170152,17 @@
 					"target": 5667
 				},
 				{
-					"id": 7606,
+					"id": 7814,
+					"name": "PresenceData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5620
+				},
+				{
+					"id": 7610,
 					"name": "PresenceUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169832,7 +170172,7 @@
 					"target": 2951
 				},
 				{
-					"id": 7780,
+					"id": 7815,
 					"name": "PresenceUser",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169842,7 +170182,7 @@
 					"target": 5625
 				},
 				{
-					"id": 7784,
+					"id": 7819,
 					"name": "Reaction",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169852,7 +170192,17 @@
 					"target": 5742
 				},
 				{
-					"id": 7785,
+					"id": 7820,
+					"name": "ReactionData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5785
+				},
+				{
+					"id": 7821,
 					"name": "ReactionEmoji",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169862,7 +170212,7 @@
 					"target": 5792
 				},
 				{
-					"id": 7786,
+					"id": 7822,
 					"name": "ReactionEmojiResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169872,7 +170222,7 @@
 					"target": 5770
 				},
 				{
-					"id": 7607,
+					"id": 7611,
 					"name": "ReactionEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169882,7 +170232,7 @@
 					"target": 2956
 				},
 				{
-					"id": 7629,
+					"id": 7633,
 					"name": "ReadyData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169892,7 +170242,7 @@
 					"target": 3338
 				},
 				{
-					"id": 7787,
+					"id": 7823,
 					"name": "Role",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169902,7 +170252,17 @@
 					"target": 5826
 				},
 				{
-					"id": 7608,
+					"id": 7824,
+					"name": "RoleData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5909
+				},
+				{
+					"id": 7612,
 					"name": "RoleEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169912,7 +170272,7 @@
 					"target": 2962
 				},
 				{
-					"id": 7788,
+					"id": 7825,
 					"name": "RoleResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169922,7 +170282,7 @@
 					"target": 5892
 				},
 				{
-					"id": 7789,
+					"id": 7826,
 					"name": "RoleTags",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169932,7 +170292,7 @@
 					"target": 5920
 				},
 				{
-					"id": 7609,
+					"id": 7613,
 					"name": "RoleUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169942,7 +170302,7 @@
 					"target": 2966
 				},
 				{
-					"id": 7793,
+					"id": 7830,
 					"name": "STICKER_FORMAT_TYPE_APNG",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169952,7 +170312,7 @@
 					"target": 5984
 				},
 				{
-					"id": 7794,
+					"id": 7831,
 					"name": "STICKER_FORMAT_TYPE_LOTTIE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169962,7 +170322,7 @@
 					"target": 5985
 				},
 				{
-					"id": 7795,
+					"id": 7832,
 					"name": "STICKER_FORMAT_TYPE_PNG",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169972,7 +170332,7 @@
 					"target": 5983
 				},
 				{
-					"id": 7689,
+					"id": 7693,
 					"name": "SearchGuildMembersData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169982,7 +170342,7 @@
 					"target": 1626
 				},
 				{
-					"id": 7811,
+					"id": 7853,
 					"name": "Status",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -169992,7 +170352,7 @@
 					"target": 6538
 				},
 				{
-					"id": 7790,
+					"id": 7827,
 					"name": "Sticker",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170002,7 +170362,7 @@
 					"target": 5938
 				},
 				{
-					"id": 7791,
+					"id": 7828,
 					"name": "StickerData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170012,7 +170372,7 @@
 					"target": 5973
 				},
 				{
-					"id": 7792,
+					"id": 7829,
 					"name": "StickerFormatType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170022,7 +170382,7 @@
 					"target": 5982
 				},
 				{
-					"id": 7796,
+					"id": 7833,
 					"name": "StoreChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170032,7 +170392,17 @@
 					"target": 5993
 				},
 				{
-					"id": 7743,
+					"id": 7834,
+					"name": "StoreChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6060
+				},
+				{
+					"id": 7774,
 					"name": "TARGET_USER_TYPE_STREAM",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170042,7 +170412,17 @@
 					"target": 4917
 				},
 				{
-					"id": 7744,
+					"id": 7772,
+					"name": "TargetUser",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 4911
+				},
+				{
+					"id": 7773,
 					"name": "TargetUserType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170052,7 +170432,7 @@
 					"target": 4916
 				},
 				{
-					"id": 7797,
+					"id": 7835,
 					"name": "Template",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170062,7 +170442,17 @@
 					"target": 6097
 				},
 				{
-					"id": 7798,
+					"id": 7836,
+					"name": "TemplateData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6211
+				},
+				{
+					"id": 7837,
 					"name": "TemplateGuild",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170072,7 +170462,7 @@
 					"target": 6222
 				},
 				{
-					"id": 7799,
+					"id": 7838,
 					"name": "TemplateGuildChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170082,7 +170472,7 @@
 					"target": 6244
 				},
 				{
-					"id": 7800,
+					"id": 7839,
 					"name": "TemplateGuildChannelPermissionOverwrite",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170092,7 +170482,7 @@
 					"target": 6256
 				},
 				{
-					"id": 7801,
+					"id": 7840,
 					"name": "TemplateGuildRole",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170102,7 +170492,7 @@
 					"target": 6237
 				},
 				{
-					"id": 7802,
+					"id": 7841,
 					"name": "TemplateResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170112,7 +170502,7 @@
 					"target": 6157
 				},
 				{
-					"id": 7803,
+					"id": 7842,
 					"name": "TextBasedChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170122,7 +170512,27 @@
 					"target": 3542
 				},
 				{
-					"id": 7804,
+					"id": 7843,
+					"name": "TextBasedChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6261
+				},
+				{
+					"id": 7844,
+					"name": "TextBasedChannelType",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3654
+				},
+				{
+					"id": 7845,
 					"name": "TextChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170132,7 +170542,17 @@
 					"target": 6273
 				},
 				{
-					"id": 7630,
+					"id": 7846,
+					"name": "TextChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6417
+				},
+				{
+					"id": 7634,
 					"name": "TypingStartData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170142,7 +170562,7 @@
 					"target": 3362
 				},
 				{
-					"id": 7610,
+					"id": 7614,
 					"name": "TypingStartEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170152,7 +170572,7 @@
 					"target": 2971
 				},
 				{
-					"id": 7812,
+					"id": 7854,
 					"name": "User",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170162,7 +170582,27 @@
 					"target": 6459
 				},
 				{
-					"id": 7611,
+					"id": 7855,
+					"name": "UserData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6530
+				},
+				{
+					"id": 7856,
+					"name": "UserResolvable",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6508
+				},
+				{
+					"id": 7615,
 					"name": "UserUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170172,7 +170612,7 @@
 					"target": 2975
 				},
 				{
-					"id": 7723,
+					"id": 7743,
 					"name": "VERIFICATION_LEVEL_HIGH",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170182,7 +170622,7 @@
 					"target": 4398
 				},
 				{
-					"id": 7724,
+					"id": 7744,
 					"name": "VERIFICATION_LEVEL_LOW",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170192,7 +170632,7 @@
 					"target": 4396
 				},
 				{
-					"id": 7725,
+					"id": 7745,
 					"name": "VERIFICATION_LEVEL_MEDIUM",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170202,7 +170642,7 @@
 					"target": 4397
 				},
 				{
-					"id": 7726,
+					"id": 7746,
 					"name": "VERIFICATION_LEVEL_NONE",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170212,7 +170652,7 @@
 					"target": 4395
 				},
 				{
-					"id": 7727,
+					"id": 7747,
 					"name": "VERIFICATION_LEVEL_VERY_HIGH",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170222,7 +170662,7 @@
 					"target": 4399
 				},
 				{
-					"id": 7813,
+					"id": 7857,
 					"name": "VanityInvite",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170232,7 +170672,17 @@
 					"target": 6571
 				},
 				{
-					"id": 7722,
+					"id": 7858,
+					"name": "VanityInviteData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6619
+				},
+				{
+					"id": 7742,
 					"name": "VerificationLevel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170242,7 +170692,7 @@
 					"target": 4394
 				},
 				{
-					"id": 7814,
+					"id": 7859,
 					"name": "VoiceChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170252,7 +170702,17 @@
 					"target": 6630
 				},
 				{
-					"id": 7728,
+					"id": 7860,
+					"name": "VoiceChannelData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6702
+				},
+				{
+					"id": 7748,
 					"name": "VoiceRegion",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170262,7 +170722,7 @@
 					"target": 4387
 				},
 				{
-					"id": 7815,
+					"id": 7861,
 					"name": "VoiceState",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170272,7 +170732,17 @@
 					"target": 6727
 				},
 				{
-					"id": 7612,
+					"id": 7862,
+					"name": "VoiceStateData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6771
+				},
+				{
+					"id": 7616,
 					"name": "VoiceStateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170282,7 +170752,7 @@
 					"target": 2979
 				},
 				{
-					"id": 7818,
+					"id": 7867,
 					"name": "WEBHOOK_TYPE_CHANNEL_FOLLOWER",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170292,7 +170762,7 @@
 					"target": 6894
 				},
 				{
-					"id": 7819,
+					"id": 7868,
 					"name": "WEBHOOK_TYPE_INCOMING",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170302,7 +170772,7 @@
 					"target": 6893
 				},
 				{
-					"id": 7816,
+					"id": 7863,
 					"name": "Webhook",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170312,7 +170782,17 @@
 					"target": 6813
 				},
 				{
-					"id": 7817,
+					"id": 7864,
+					"name": "WebhookData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6882
+				},
+				{
+					"id": 7865,
 					"name": "WebhookResolvable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170322,7 +170802,7 @@
 					"target": 6869
 				},
 				{
-					"id": 7820,
+					"id": 7866,
 					"name": "WebhookType",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170332,7 +170812,7 @@
 					"target": 6892
 				},
 				{
-					"id": 7631,
+					"id": 7635,
 					"name": "WebhooksUpdateData",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170342,7 +170822,7 @@
 					"target": 3373
 				},
 				{
-					"id": 7613,
+					"id": 7617,
 					"name": "WebhooksUpdateEventOptions",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170352,7 +170832,7 @@
 					"target": 2985
 				},
 				{
-					"id": 7821,
+					"id": 7869,
 					"name": "WelcomeScreen",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170362,7 +170842,7 @@
 					"target": 6921
 				},
 				{
-					"id": 7822,
+					"id": 7870,
 					"name": "WelcomeScreenChannel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -170370,6 +170850,16 @@
 						"isExported": true
 					},
 					"target": 6981
+				},
+				{
+					"id": 7871,
+					"name": "WelcomeScreenData",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 6977
 				}
 			],
 			"groups": [
@@ -170377,12 +170867,11 @@
 					"title": "References",
 					"kind": 16777216,
 					"children": [
-						7805,
-						7806,
-						7807,
-						7808,
-						7809,
-						7518,
+						7848,
+						7849,
+						7850,
+						7851,
+						7852,
 						7519,
 						7520,
 						7521,
@@ -170417,66 +170906,79 @@
 						7550,
 						7551,
 						7552,
-						7772,
-						7773,
-						7774,
-						7775,
-						7776,
-						7777,
+						7553,
+						7806,
+						7807,
+						7808,
+						7809,
 						7810,
-						7632,
-						7633,
-						7563,
-						7564,
-						7729,
-						7730,
+						7811,
+						7847,
+						7636,
+						7637,
+						7566,
+						7567,
+						7749,
+						7750,
 						7516,
 						7517,
-						7553,
+						7518,
 						7554,
 						7555,
 						7556,
 						7557,
 						7558,
 						7559,
-						7591,
 						7560,
-						7634,
-						7568,
-						7569,
-						7570,
-						7571,
+						7561,
+						7595,
+						7562,
+						7638,
 						7572,
 						7573,
-						7561,
 						7574,
 						7575,
-						7562,
-						7565,
-						7592,
-						7746,
-						7614,
-						7566,
-						7567,
-						7593,
 						7576,
 						7577,
+						7700,
+						7699,
+						7701,
+						7702,
+						7703,
+						7704,
+						7705,
+						7706,
+						7563,
 						7578,
 						7579,
+						7564,
+						7565,
+						7568,
+						7569,
+						7596,
+						7777,
+						7618,
+						7570,
+						7571,
+						7597,
 						7580,
 						7581,
 						7582,
 						7583,
-						7690,
-						7594,
-						7691,
-						7595,
-						7636,
-						7635,
-						7637,
-						7638,
-						7639,
+						7584,
+						7585,
+						7586,
+						7587,
+						7694,
+						7695,
+						7696,
+						7598,
+						7697,
+						7698,
+						7707,
+						7599,
 						7640,
+						7639,
 						7641,
 						7642,
 						7643,
@@ -170490,117 +170992,133 @@
 						7651,
 						7652,
 						7653,
-						7705,
-						7706,
-						7692,
-						7704,
-						7709,
-						7708,
-						7710,
 						7654,
 						7655,
 						7656,
 						7657,
-						7693,
-						7694,
-						7695,
-						7696,
-						7697,
-						7698,
-						7699,
-						7700,
-						7701,
-						7702,
-						7703,
-						7596,
-						7707,
-						7711,
-						7659,
+						7724,
+						7725,
+						7708,
+						7709,
+						7723,
+						7728,
+						7727,
+						7729,
 						7658,
+						7659,
 						7660,
 						7661,
-						7662,
+						7710,
+						7711,
+						7712,
+						7713,
+						7714,
+						7715,
+						7716,
+						7717,
+						7718,
+						7719,
+						7720,
+						7721,
+						7722,
+						7600,
+						7726,
+						7730,
 						7663,
+						7662,
 						7664,
 						7665,
 						7666,
-						7712,
-						7731,
-						7732,
-						7615,
-						7616,
-						7617,
-						7597,
-						7598,
-						7618,
-						7619,
 						7667,
-						7713,
-						7620,
-						7599,
-						7737,
-						7738,
-						7670,
-						7671,
-						7672,
-						7584,
-						7585,
-						7586,
-						7587,
-						7588,
-						7739,
-						7740,
 						7668,
 						7669,
-						7741,
-						7621,
-						7600,
-						7742,
-						7673,
-						7750,
+						7670,
+						7731,
 						7751,
 						7752,
 						7753,
+						7619,
+						7732,
+						7620,
+						7621,
+						7601,
+						7602,
+						7622,
+						7623,
+						7671,
+						7733,
+						7624,
+						7603,
 						7758,
 						7759,
 						7760,
+						7674,
+						7675,
+						7676,
+						7767,
+						7768,
+						7588,
+						7589,
+						7590,
+						7591,
+						7592,
 						7761,
 						7762,
 						7763,
 						7764,
 						7765,
+						7672,
+						7673,
 						7766,
-						7767,
-						7768,
 						7769,
-						7714,
-						7715,
-						7716,
-						7745,
-						7601,
-						7602,
-						7747,
-						7748,
-						7749,
-						7754,
-						7622,
-						7604,
-						7623,
-						7603,
-						7624,
-						7625,
-						7626,
-						7627,
-						7755,
-						7756,
-						7757,
-						7628,
-						7605,
 						7770,
-						7674,
-						7675,
-						7676,
+						7625,
+						7604,
+						7771,
 						7677,
+						7781,
+						7782,
+						7783,
+						7784,
+						7791,
+						7792,
+						7793,
+						7794,
+						7795,
+						7796,
+						7797,
+						7798,
+						7799,
+						7800,
+						7801,
+						7802,
+						7734,
+						7735,
+						7736,
+						7775,
+						7776,
+						7605,
+						7606,
+						7778,
+						7779,
+						7780,
+						7785,
+						7786,
+						7626,
+						7608,
+						7627,
+						7607,
+						7787,
+						7628,
+						7629,
+						7630,
+						7631,
+						7788,
+						7789,
+						7790,
+						7632,
+						7609,
+						7803,
 						7678,
 						7679,
 						7680,
@@ -170611,79 +171129,100 @@
 						7685,
 						7686,
 						7687,
-						7771,
-						7589,
-						7736,
-						7735,
-						7718,
-						7719,
-						7720,
-						7721,
 						7688,
-						7781,
-						7733,
-						7734,
-						7782,
-						7590,
-						7783,
-						7717,
-						7778,
-						7779,
-						7606,
-						7780,
-						7784,
-						7785,
-						7786,
-						7607,
-						7629,
-						7787,
-						7608,
-						7788,
-						7789,
-						7609,
-						7793,
-						7794,
-						7795,
 						7689,
-						7811,
-						7790,
-						7791,
-						7792,
-						7796,
+						7690,
+						7691,
+						7804,
+						7805,
+						7593,
+						7757,
+						7756,
+						7738,
+						7739,
+						7740,
+						7741,
+						7692,
+						7816,
+						7754,
+						7755,
+						7817,
+						7594,
+						7818,
+						7737,
+						7812,
+						7813,
+						7814,
+						7610,
+						7815,
+						7819,
+						7820,
+						7821,
+						7822,
+						7611,
+						7633,
+						7823,
+						7824,
+						7612,
+						7825,
+						7826,
+						7613,
+						7830,
+						7831,
+						7832,
+						7693,
+						7853,
+						7827,
+						7828,
+						7829,
+						7833,
+						7834,
+						7774,
+						7772,
+						7773,
+						7835,
+						7836,
+						7837,
+						7838,
+						7839,
+						7840,
+						7841,
+						7842,
+						7843,
+						7844,
+						7845,
+						7846,
+						7634,
+						7614,
+						7854,
+						7855,
+						7856,
+						7615,
 						7743,
 						7744,
-						7797,
-						7798,
-						7799,
-						7800,
-						7801,
-						7802,
-						7803,
-						7804,
-						7630,
-						7610,
-						7812,
-						7611,
-						7723,
-						7724,
-						7725,
-						7726,
-						7727,
-						7813,
-						7722,
-						7814,
-						7728,
-						7815,
-						7612,
-						7818,
-						7819,
-						7816,
-						7817,
-						7820,
-						7631,
-						7613,
-						7821,
-						7822
+						7745,
+						7746,
+						7747,
+						7857,
+						7858,
+						7742,
+						7859,
+						7860,
+						7748,
+						7861,
+						7862,
+						7616,
+						7867,
+						7868,
+						7863,
+						7864,
+						7865,
+						7866,
+						7635,
+						7617,
+						7869,
+						7870,
+						7871
 					]
 				}
 			],
