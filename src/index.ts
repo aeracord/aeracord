@@ -434,7 +434,8 @@ export {
     ACTIVITY_TYPE_STREAMING,
     ActivityType,
     Status,
-    User
+    User,
+    UserResolvable
 } from "./internal";
 
 // Vanity Invite
