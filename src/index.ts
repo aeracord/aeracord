@@ -126,6 +126,7 @@ export {
     GuildEmojisUpdateEventOptions,
     GuildEventOptions,
     GuildUpdateEventOptions,
+    InteractionEventOptions,
     InviteEventOptions,
     MemberEventOptions,
     MemberUpdateEventOptions,
