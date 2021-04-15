@@ -6,7 +6,8 @@ export default aeracord;
 
 // Attachment
 export {
-    Attachment
+    Attachment,
+    AttachmentData
 } from "./internal";
 
 // Audit Log
@@ -57,7 +58,8 @@ export {
 
 // Ban
 export {
-    Ban
+    Ban,
+    BanData
 } from "./internal";
 
 // Base
@@ -72,7 +74,8 @@ export {
 
 // Category Channel
 export {
-    CategoryChannel
+    CategoryChannel,
+    CategoryChannelData
 } from "./internal";
 
 // Channel
@@ -80,6 +83,7 @@ export {
     AnyChannel,
     AnyChannelData,
     Channel,
+    ChannelData,
     ChannelResolvable,
     ChannelType,
     CHANNEL_TYPE_CATEGORY,
@@ -225,18 +229,32 @@ export {
 // Command
 export {
     Command,
+    CommandChoice,
+    CommandData,
+    CommandOption,
+    CommandOptionType,
+    COMMAND_OPTION_TYPE_CHANNEL,
+    COMMAND_OPTION_TYPE_BOOLEAN,
+    COMMAND_OPTION_TYPE_INTEGER,
+    COMMAND_OPTION_TYPE_ROLE,
+    COMMAND_OPTION_TYPE_STRING,
+    COMMAND_OPTION_TYPE_SUB_COMMAND,
+    COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP,
+    COMMAND_OPTION_TYPE_USER,
     CommandResolvable
 } from "./internal";
 
 // DM Channel
 export {
-    DMChannel
+    DMChannel,
+    DMChannelData
 } from "./internal";
 
 // Embed
 export {
     Embed,
     EmbedAuthor,
+    EmbedData,
     EmbedField,
     EmbedFooter,
     EmbedImage,
@@ -249,6 +267,7 @@ export {
 // Emoji
 export {
     Emoji,
+    EmojiData,
     EmojiResolvable
 } from "./internal";
 
@@ -263,6 +282,7 @@ export {
     EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES,
     Feature,
     Guild,
+    GuildData,
     GuildResolvable,
     MFALevel,
     MFA_LEVEL_ELEVATED,
@@ -286,6 +306,7 @@ export {
     AnyGuildChannel,
     AnyGuildChannelData,
     GuildChannel,
+    GuildChannelData,
     GuildChannelType,
     PermissionOverwrite,
     PermissionType,
@@ -300,26 +321,36 @@ export {
 
 // Guild Widget
 export {
-    GuildWidget
+    GuildWidget,
+    GuildWidgetData
 } from "./internal";
 
 // Interaction
 export {
     Interaction,
-    InteractionResolvable
+    InteractionCommandData,
+    InteractionCommandOption,
+    InteractionData,
+    InteractionResolvable,
+    InteractionType,
+    INTERACTION_TYPE_COMMAND,
+    INTERACTION_TYPE_PING
 } from "./internal";
 
 // Invite
 export {
     Invite,
+    InviteData,
     InviteResolvable,
-    TARGET_USER_TYPE_STREAM,
-    TargetUserType
+    TargetUser,
+    TargetUserType,
+    TARGET_USER_TYPE_STREAM
 } from "./internal";
 
 // Member
 export {
-    Member
+    Member,
+    MemberData
 } from "./internal";
 
 // Message
@@ -333,6 +364,8 @@ export {
     MESSAGE_ACTIVITY_TYPE_LISTEN,
     MESSAGE_ACTIVITY_TYPE_SPECTATE,
     MessageApplication,
+    MessageData,
+    MessageInteraction,
     MessageReference,
     MessageResolvable,
     MessageType,
@@ -353,7 +386,8 @@ export {
 
 // News Channel
 export {
-    NewsChannel
+    NewsChannel,
+    NewsChannelData
 } from "./internal";
 
 // Presence
@@ -366,6 +400,7 @@ export {
     ActivityTimestamps,
     Presence,
     PresenceClientStatus,
+    PresenceData,
     PresenceUser
 } from "./internal";
 
@@ -379,6 +414,7 @@ export {
 // Reaction
 export {
     Reaction,
+    ReactionData,
     ReactionEmoji,
     ReactionEmojiResolvable
 } from "./internal";
@@ -386,6 +422,7 @@ export {
 // Role
 export {
     Role,
+    RoleData,
     RoleResolvable,
     RoleTags
 } from "./internal";
@@ -402,12 +439,14 @@ export {
 
 // Store Channel
 export {
-    StoreChannel
+    StoreChannel,
+    StoreChannelData
 } from "./internal";
 
 // Template
 export {
     Template,
+    TemplateData,
     TemplateGuild,
     TemplateGuildChannel,
     TemplateGuildChannelPermissionOverwrite,
@@ -417,53 +456,62 @@ export {
 
 // Text Based Channel
 export {
-    TextBasedChannel
+    TextBasedChannel,
+    TextBasedChannelData,
+    TextBasedChannelType
 } from "./internal";
 
 // Text Channel
 export {
-    TextChannel
+    TextChannel,
+    TextChannelData
 } from "./internal";
 
 // User
 export {
+    ActivityType,
     ACTIVITY_TYPE_COMPETING,
     ACTIVITY_TYPE_CUSTOM,
     ACTIVITY_TYPE_LISTENING,
     ACTIVITY_TYPE_PLAYING,
     ACTIVITY_TYPE_STREAMING,
-    ActivityType,
     Status,
     User,
+    UserData,
     UserResolvable
 } from "./internal";
 
 // Vanity Invite
 export {
-    VanityInvite
+    VanityInvite,
+    VanityInviteData
 } from "./internal";
 
 // Voice Channel
 export {
-    VoiceChannel
+    VoiceChannel,
+    VoiceChannelData
 } from "./internal";
 
 // Voice State
 export {
-    VoiceState
+    VoiceState,
+    VoiceStateData
 } from "./internal";
 
 // Webhook
 export {
     Webhook,
+    WebhookData,
     WebhookResolvable,
+    WebhookType,
     WEBHOOK_TYPE_CHANNEL_FOLLOWER,
-    WEBHOOK_TYPE_INCOMING,
-    WebhookType
+    WEBHOOK_TYPE_INCOMING
 } from "./internal";
 
 // Welcome Screen
 export {
     WelcomeScreen,
-    WelcomeScreenChannel
+    WelcomeScreenChannel,
+    WelcomeScreenData
 } from "./internal";
