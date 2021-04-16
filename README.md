@@ -57,12 +57,11 @@ const client = new Client({
         }]
     },
     membersIntent: true,
-    presencesIntent: true,
-    cacheStrategies: { ... }
+    presencesIntent: true
 });
 ```
 
-You can learn more about the `cacheStrategies` property in the [caching guide](https://aeracord.apixel.me/guides/caching). Before interacting with the API, you need to wait for the [`ready` event](https://aeracord.apixel.me/docs/classes/Client#ready). This event is fired when the client has connected to the gateway:
+Before interacting with the API, you need to wait for the [`ready` event](https://aeracord.apixel.me/docs/classes/Client#ready). This event is fired when the client has connected to the gateway:
 
 ```js
 // Ready
