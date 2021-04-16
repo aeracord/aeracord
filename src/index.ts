@@ -108,6 +108,7 @@ export {
     ClientStatus,
     InitialCacheType,
     InitialCacheTypeChannels,
+    InitialCacheTypeCommands,
     InitialCacheTypeGuilds,
     InitialCacheTypeIDs,
     InitialCacheTypeMessages,
