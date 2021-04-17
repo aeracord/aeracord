@@ -56,6 +56,10 @@ export default async function ready(client: Client, rawData: RawReadyData) {
         if (commands) commands.forEach((c: CommandData) => Command.fromData(client, c));
     }
 
+    // Bulk overwrite the bot's global commands
+    if (client._globalCommands) await client.bulkOverwriteGlobalCommands(client._globalCommands);
+    delete client._globalCommands;
+
     /**
      * Set Ready State
      *

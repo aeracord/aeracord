@@ -310,6 +310,13 @@ export interface ClientData {
     presencesIntent?: boolean;
 
     /**
+     * Global Commands
+     *
+     * Data to bulk overwrite the bot's global commands
+     */
+    globalCommands?: EditCommandData[];
+
+    /**
      * Cache Strategies
      *
      * How the client should cache objects
@@ -870,6 +877,13 @@ export default class Client extends EventEmitter {
     _presencesIntent: boolean;
 
     /**
+     * Global Commands
+     *
+     * Data to bulk overwrite the bot's global commands when connecting to the gateway
+     */
+    _globalCommands?: EditCommandData[];
+
+    /**
      * Fetch Queues
      *
      * Queues for fetching data from the API
@@ -1206,6 +1220,7 @@ export default class Client extends EventEmitter {
         this._initialPresence = clientData.presence;
         this._membersIntent = Boolean(clientData.membersIntent);
         this._presencesIntent = Boolean(clientData.presencesIntent);
+        this._globalCommands = clientData.globalCommands;
         this._fetchQueues = new Map();
         this._cacheStrategies = {
             objects: clientData.cacheStrategies?.objects || {},
