@@ -891,6 +891,14 @@ export default class Client extends EventEmitter {
     _fetchQueues: Map<string, FetchQueue>;
 
     /**
+     * Global Rate Limit Reset
+     *
+     * A promise that resolves when the global rate limit resets
+     * `undefined` if the client hasn't hit the global rate limit
+     */
+    _globalRateLimitReset?: Promise<void>;
+
+    /**
      * Cache Strategies
      *
      * How objects should be cached

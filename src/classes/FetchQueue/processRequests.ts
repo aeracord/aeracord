@@ -15,6 +15,9 @@ export default async function processRequests(fetchQueue: FetchQueue) {
         const request: Request | undefined = fetchQueue.queue.shift();
         if (!request) break;
 
+        // Await global rate limit
+        if (fetchQueue.client._globalRateLimitReset) await fetchQueue.client._globalRateLimitReset;
+
         // Await rate limit
         if ((fetchQueue.rateLimit) && (fetchQueue.rateLimit.remaining === 0)) await sleep(fetchQueue.rateLimit.reset - Date.now());
 

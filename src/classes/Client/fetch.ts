@@ -50,12 +50,24 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
     let data: any = result.headers.get("Content-Type") === "application/json" ? await result.json() : undefined;
 
     // Get rate limit
+    const global: boolean = result.headers.get("X-RateLimit-Global") === "true";
     const limit: number = parseInt(result.headers.get("X-RateLimit-Limit") || "") || 0;
     const remaining: number = parseInt(result.headers.get("X-RateLimit-Remaining") || "") || 0;
     const reset: number = (parseFloat(result.headers.get("X-RateLimit-Reset") || "") * 1000) || 0;
+    const retryAfter: number = (parseInt(result.headers.get("Retry-After") || "") * 1000) || 0;
+
+    // Set global rate limit
+    if (global) client._globalRateLimitReset = new Promise((resolve) => setTimeout(() => {
+
+        // Resolve promise
+        resolve();
+
+        // Remove global rate limit reset
+        delete client._globalRateLimitReset;
+    }, retryAfter));
 
     // Set rate limit
-    if (limit) fetchQueue.rateLimit = {
+    else if (limit) fetchQueue.rateLimit = {
         limit,
         remaining,
         reset
