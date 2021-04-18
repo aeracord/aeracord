@@ -1,4 +1,4 @@
-import { Client, GuildRoleDeleteData, RawGuildRoleDeleteData, Role } from "../../../../internal";
+import { Client, Guild, GuildRoleDeleteData, RawGuildRoleDeleteData, Role, RoleData } from "../../../../internal";
 
 export default function guildRoleDelete(client: Client, rawData: RawGuildRoleDeleteData) {
 
@@ -10,6 +10,19 @@ export default function guildRoleDelete(client: Client, rawData: RawGuildRoleDel
 
     // Get role
     const role: Role | undefined = client.roles.get(data.id);
+
+    // Get guild
+    const guild: Guild | undefined = client.guilds.get(data.guildID);
+
+    // Remove from roles
+    if (guild) {
+
+        // Get role data index
+        const roleDataIndex: number = guild.roleData.findIndex((r: RoleData) => r.id === data.id);
+
+        // Remove from roles
+        if (roleDataIndex !== -1) guild.roleData.splice(roleDataIndex, 1);
+    }
 
     // Mark as deleted
     if (role) role._markAsDeleted();

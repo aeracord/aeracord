@@ -1,9 +1,15 @@
-import { Client, RawGuildRoleCreateData, Role } from "../../../../internal";
+import { Client, Guild, RawGuildRoleCreateData, Role } from "../../../../internal";
 
 export default function guildRoleCreate(client: Client, rawData: RawGuildRoleCreateData) {
 
     // Parse role
     const role: Role = Role._fromRawData(client, rawData.role, rawData.guild_id);
+
+    // Get guild
+    const guild: Guild | undefined = client.guilds.get(role.guildID);
+
+    // Add to roles
+    if (guild) guild.roleData.push(Role.toData(role));
 
     // Add to guild roles
     if (client._guildRoles) {
