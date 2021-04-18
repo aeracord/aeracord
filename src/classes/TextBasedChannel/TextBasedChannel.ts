@@ -1,4 +1,4 @@
-import { CacheManagerInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Interaction, Message, MessageData, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, UserData, UserResolvable, WebhookData } from "../../internal";
+import { CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Interaction, Message, MessageData, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, UserData, UserResolvable, WebhookData } from "../../internal";
 import editMessage from "./editMessage";
 import send from "./send";
 import updateObject from "./updateObject";
@@ -19,14 +19,14 @@ export default class TextBasedChannel extends Channel {
      *
      * The cache manager interface for the interactions in this channel
      */
-    interactions: CacheManagerInterface<Interaction, false>;
+    interactions: CacheInterface<Interaction, false>;
 
     /**
      * Messages
      *
      * The cache manager interface for the messages in this channel
      */
-    messages: CacheManagerInterface<Message>;
+    messages: CacheInterface<Message>;
 
     /**
      * Last Message ID
@@ -57,11 +57,11 @@ export default class TextBasedChannel extends Channel {
 
         // Set data
         TextBasedChannel._updateObject(this, textBasedChannelData, true);
-        this.interactions = new CacheManagerInterface<Interaction, false>(this.client, {
+        this.interactions = new CacheInterface<Interaction, false>(this.client, {
             cacheManager: this.client._interactions,
             match: (i: Interaction) => i.channelID === this.id
         });
-        this.messages = new CacheManagerInterface<Message>(this.client, {
+        this.messages = new CacheInterface<Message>(this.client, {
             cacheManager: this.client._messages,
             match: (m: Message) => m.channelID === this.id,
             fetchObject: async (id: string): Promise<Message> => Message.fromData(this.client, await this.client.getChannelMessage(this.id, id))

@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheManagerInterface, CategoryChannel, Channel, Client, Command, CommandData, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheManagerInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheInterface, CategoryChannel, Channel, Client, Command, CommandData, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -104,70 +104,70 @@ export default class Guild extends Base<Guild> {
      *
      * The cache manager interface for the channels in this guild
      */
-    channels: CacheManagerInterface<AnyChannel>;
+    channels: CacheInterface<AnyChannel>;
 
     /**
      * Roles
      *
      * The cache manager interface for the roles in this guild
      */
-    roles: CacheManagerInterface<Role>;
+    roles: CacheInterface<Role>;
 
     /**
      * Emojis
      *
      * The cache manager interface for the emojis in this guild
      */
-    emojis: CacheManagerInterface<Emoji>;
+    emojis: CacheInterface<Emoji>;
 
     /**
      * Members
      *
      * The guild user cache manager interface for the members in this guild
      */
-    members: GuildUserCacheManagerInterface<Member>;
+    members: GuildUserCacheInterface<Member>;
 
     /**
      * Bans
      *
      * The guild user cache manager interface for the bans in this guild
      */
-    bans: GuildUserCacheManagerInterface<Ban>;
+    bans: GuildUserCacheInterface<Ban>;
 
     /**
      * Commands
      *
      * The cache manager interface for the commands in this guild
      */
-    commands: CacheManagerInterface<Command>;
+    commands: CacheInterface<Command>;
 
     /**
      * Interactions
      *
      * The cache manager interface for the interactions in this guild
      */
-    interactions: CacheManagerInterface<Interaction, false>;
+    interactions: CacheInterface<Interaction, false>;
 
     /**
      * Invites
      *
      * The cache manager interface for the invites in this guild
      */
-    invites: CacheManagerInterface<Invite>;
+    invites: CacheInterface<Invite>;
 
     /**
      * Templates
      *
      * The cache manager interface for the templates in this guild
      */
-    templates: CacheManagerInterface<Template>;
+    templates: CacheInterface<Template>;
 
     /**
      * Webhooks
      *
      * The cache manager interface for the webhooks in this guild
      */
-    webhooks: CacheManagerInterface<Webhook>;
+    webhooks: CacheInterface<Webhook>;
 
     /**
      * Roles
@@ -367,7 +367,7 @@ export default class Guild extends Base<Guild> {
 
         // Set data
         Guild._updateObject(this, guildData);
-        this.channels = new CacheManagerInterface<AnyChannel>(this.client, {
+        this.channels = new CacheInterface<AnyChannel>(this.client, {
             cacheManager: this.client._channels,
             match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id),
             fetchObject: async (id: string): Promise<AnyChannel> => {
@@ -382,7 +382,7 @@ export default class Guild extends Base<Guild> {
                 return Channel.fromData(this.client, channelData);
             }
         });
-        this.roles = new CacheManagerInterface<Role>(this.client, {
+        this.roles = new CacheInterface<Role>(this.client, {
             cacheManager: this.client._roles,
             match: (r: Role) => r.guildID === this.id,
             fetchObject: async (id: string): Promise<Role> => {
@@ -396,42 +396,42 @@ export default class Guild extends Base<Guild> {
             },
             getIDs: () => this.roleData.map((r: RoleData) => r.id)
         });
-        this.emojis = new CacheManagerInterface<Emoji>(this.client, {
+        this.emojis = new CacheInterface<Emoji>(this.client, {
             cacheManager: this.client._emojis,
             match: (e: Emoji) => e.guildID === this.id,
             fetchObject: async (id: string): Promise<Emoji> => Emoji.fromData(this.client, await this.client.getGuildEmoji(this.id, id)),
             getIDs: () => this.emojiData.map((e: EmojiData) => e.id)
         });
-        this.members = new GuildUserCacheManagerInterface<Member>(this.client, {
+        this.members = new GuildUserCacheInterface<Member>(this.client, {
             cacheManager: this.client._members._cacheManager,
             match: (m: Member) => m.guildID === this.id,
             fetchObject: async (id: string): Promise<Member> => Member.fromData(this.client, await this.client.getGuildMember(id.split("_")[0], id.split("_")[1]))
         });
-        this.bans = new GuildUserCacheManagerInterface<Ban>(this.client, {
+        this.bans = new GuildUserCacheInterface<Ban>(this.client, {
             cacheManager: this.client._bans._cacheManager,
             match: (b: Ban) => b.guildID === this.id,
             fetchObject: async (id: string): Promise<Ban> => Ban.fromData(this.client, await this.client.getGuildBan(id.split("_")[0], id.split("_")[1]))
         });
-        this.commands = new CacheManagerInterface<Command>(this.client, {
+        this.commands = new CacheInterface<Command>(this.client, {
             cacheManager: this.client._commands,
             match: (c: Command) => c.guildID === this.id,
             fetchObject: async (id: string): Promise<Command> => Command.fromData(this.client, await this.client.getGuildCommand(this.id, id))
         });
-        this.interactions = new CacheManagerInterface<Interaction, false>(this.client, {
+        this.interactions = new CacheInterface<Interaction, false>(this.client, {
             cacheManager: this.client._interactions,
             match: (i: Interaction) => i.guildID === this.id
         });
-        this.invites = new CacheManagerInterface<Invite>(this.client, {
+        this.invites = new CacheInterface<Invite>(this.client, {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.guildID === this.id,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
         });
-        this.templates = new CacheManagerInterface<Template>(this.client, {
+        this.templates = new CacheInterface<Template>(this.client, {
             cacheManager: this.client._templates,
             match: (t: Template) => t.sourceGuildID === this.id,
             fetchObject: async (id: string): Promise<Template> => Template.fromData(this.client, await this.client.getTemplate(id))
         });
-        this.webhooks = new CacheManagerInterface<Webhook>(this.client, {
+        this.webhooks = new CacheInterface<Webhook>(this.client, {
             cacheManager: this.client._webhooks,
             match: (w: Webhook) => w.guildID === this.id
         });

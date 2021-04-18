@@ -8,9 +8,9 @@ import uncache from "./uncache";
 /**
  * Cache Manager Interface Data
  *
- * Data to create a `CacheManagerInterface`
+ * Data to create a `CacheInterface`
  */
-export interface CacheManagerInterfaceData<CachedObject extends Base<CachedObject>> {
+export interface CacheInterfaceData<CachedObject extends Base<CachedObject>> {
 
     /**
      * Cache Manager
@@ -51,13 +51,13 @@ export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
 /**
  * Cache Manager Interface
  *
- * Class properties use `CacheManagerInterface`s as a way to access cached data related to the class
- * Each `CacheManagerInterface` has a type of object it caches (`CachedObject`)
- * For example, `Guild.channels` has a `CacheManagerInterface<AnyChannel>`
+ * Class properties use `CacheInterface`s as a way to access cached data related to the class
+ * Each `CacheInterface` has a type of object it caches (`CachedObject`)
+ * For example, `Guild.channels` has a `CacheInterface<AnyChannel>`
  *
  * Note that the `Client` uses `CacheManager`s as a central location for cached data
  */
-export default class CacheManagerInterface<CachedObject extends Base<CachedObject>, FetchObject = true> {
+export default class CacheInterface<CachedObject extends Base<CachedObject>, FetchObject = true> {
 
     /**
      * Client
@@ -87,7 +87,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      *
      * The function to use to check if an object is a valid match for the cache manager interface
      *
-     * For example, with a `CacheManagerInterface<AnyChannel>` on `Guild.channels`, `CacheManagerInterface.get()` would check `Client.channels` for the `id`
+     * For example, with a `CacheInterface<AnyChannel>` on `Guild.channels`, `CacheInterface.get()` would check `Client.channels` for the `id`
      * This could potentially return a channel that isnt in the right guild
      * The `match` function is what should be used to ensure that the channel is from the right guild
      */
@@ -104,7 +104,7 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      * Fetch Object
      *
      * A function to get the IDs of objects that could be in cache
-     * For example, `CacheManagerInterface<Role>` could get IDs from `Guild.roleData`
+     * For example, `CacheInterface<Role>` could get IDs from `Guild.roleData`
      */
     _getIDs?: () => string[];
 
@@ -112,20 +112,20 @@ export default class CacheManagerInterface<CachedObject extends Base<CachedObjec
      * Cache Manager Interface
      *
      * @param client The client
-     * @param cacheManagerInterfaceData Options to initialize this cache manager interface with
-     * @param cacheManagerInterfaceData.cacheManager The cache manager
-     * @param cacheManagerInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
-     * @param cacheManagerInterfaceData.fetchObject A function to fetch an object from the API
-     * @param cacheManagerInterfaceData.getIDs A function to get the IDs of objects that could be in cache
+     * @param cacheInterfaceData Options to initialize this cache manager interface with
+     * @param cacheInterfaceData.cacheManager The cache manager
+     * @param cacheInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
+     * @param cacheInterfaceData.fetchObject A function to fetch an object from the API
+     * @param cacheInterfaceData.getIDs A function to get the IDs of objects that could be in cache
      */
-    constructor(client: Client, cacheManagerInterfaceData: CacheManagerInterfaceData<CachedObject>) {
+    constructor(client: Client, cacheInterfaceData: CacheInterfaceData<CachedObject>) {
 
         // Set data
         this.client = client;
-        this._cacheManager = cacheManagerInterfaceData.cacheManager;
-        this._match = cacheManagerInterfaceData.match;
-        this._fetchObject = cacheManagerInterfaceData.fetchObject;
-        this._getIDs = cacheManagerInterfaceData.getIDs;
+        this._cacheManager = cacheInterfaceData.cacheManager;
+        this._match = cacheInterfaceData.match;
+        this._fetchObject = cacheInterfaceData.fetchObject;
+        this._getIDs = cacheInterfaceData.getIDs;
     }
 
     /**

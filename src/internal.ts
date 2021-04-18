@@ -25,19 +25,19 @@ export {
 export * from "./classes/Ban/BanData";
 export * from "./classes/Ban/RawBanData";
 
+// Cache Interface
+export {
+    default as CacheInterface,
+    CacheInterfaceData,
+    MatchFunction
+} from "./classes/CacheInterface/CacheInterface";
+
 // Cache Manager
 export {
     default as CacheManager,
     CacheManagerData
 } from "./classes/CacheManager/CacheManager";
 export { CacheStrategyData, ParsedCacheStrategy } from "./classes/CacheManager/parseCacheStrategy";
-
-// Cache Manager Interface
-export {
-    default as CacheManagerInterface,
-    CacheManagerInterfaceData,
-    MatchFunction
-} from "./classes/CacheManagerInterface/CacheManagerInterface";
 
 // Category Channel
 export {
@@ -230,15 +230,15 @@ export {
 } from "./classes/GuildChannel/GuildChannel";
 export * from "./classes/GuildChannel/GuildChannelData";
 
+// Guild User Cache Interface
+export {
+    default as GuildUserCacheInterface
+} from "./classes/GuildUserCacheInterface/GuildUserCacheInterface";
+
 // Guild User Cache Manager
 export {
     default as GuildUserCacheManager
 } from "./classes/GuildUserCacheManager/GuildUserCacheManager";
-
-// Guild User Cache Manager Interface
-export {
-    default as GuildUserCacheManagerInterface
-} from "./classes/GuildUserCacheManagerInterface/GuildUserCacheManagerInterface";
 
 // Guild Widget
 export {

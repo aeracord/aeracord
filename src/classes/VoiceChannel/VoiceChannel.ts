@@ -1,4 +1,4 @@
-import { CacheManagerInterface, Client, CHANNEL_TYPE_VOICE, Invite, InviteData, VoiceChannelData } from "../../internal";
+import { CacheInterface, Client, CHANNEL_TYPE_VOICE, Invite, InviteData, VoiceChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
@@ -30,7 +30,7 @@ export default class VoiceChannel extends GuildChannel {
      *
      * The cache manager interface for the invites in this channel
      */
-    invites: CacheManagerInterface<Invite>;
+    invites: CacheInterface<Invite>;
 
     /**
      * Voice Channel
@@ -47,7 +47,7 @@ export default class VoiceChannel extends GuildChannel {
 
         // Set data
         VoiceChannel._updateObject(this, voiceChannelData, true);
-        this.invites = new CacheManagerInterface<Invite>(this.client, {
+        this.invites = new CacheInterface<Invite>(this.client, {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.channelID === this.id,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))

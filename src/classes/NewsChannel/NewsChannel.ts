@@ -1,4 +1,4 @@
-import { CacheManagerInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Interaction, Invite, InviteData, Message, MessageData, MessageResolvable, NewsChannelData, Webhook, WebhookData } from "../../internal";
+import { CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Interaction, Invite, InviteData, Message, MessageData, MessageResolvable, NewsChannelData, Webhook, WebhookData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -43,14 +43,14 @@ class NewsChannel extends GuildChannel {
      *
      * The cache manager interface for the invites in this channel
      */
-    invites: CacheManagerInterface<Invite>;
+    invites: CacheInterface<Invite>;
 
     /**
      * Webhooks
      *
      * The cache manager interface for the webhooks in this channel
      */
-    webhooks: CacheManagerInterface<Webhook>;
+    webhooks: CacheInterface<Webhook>;
 
     /**
      * News Channel
@@ -68,21 +68,21 @@ class NewsChannel extends GuildChannel {
 
         // Set data
         NewsChannel._updateObject(this, newsChannelData, true);
-        this.interactions = new CacheManagerInterface<Interaction, false>(this.client, {
+        this.interactions = new CacheInterface<Interaction, false>(this.client, {
             cacheManager: this.client._interactions,
             match: (i: Interaction) => i.channelID === this.id
         });
-        this.messages = new CacheManagerInterface<Message>(this.client, {
+        this.messages = new CacheInterface<Message>(this.client, {
             cacheManager: this.client._messages,
             match: (m: Message) => m.channelID === this.id,
             fetchObject: async (id: string): Promise<Message> => Message.fromData(this.client, await this.client.getChannelMessage(this.id, id))
         });
-        this.invites = new CacheManagerInterface<Invite>(this.client, {
+        this.invites = new CacheInterface<Invite>(this.client, {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.channelID === this.id,
             fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
         });
-        this.webhooks = new CacheManagerInterface<Webhook>(this.client, {
+        this.webhooks = new CacheInterface<Webhook>(this.client, {
             cacheManager: this.client._webhooks,
             match: (w: Webhook) => w.channelID === this.id,
             fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(this, id))

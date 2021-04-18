@@ -67,9 +67,9 @@ export {
     Base
 } from "./internal";
 
-// Cache Manager Interface
+// Cache Interface
 export {
-    CacheManagerInterface
+    CacheInterface
 } from "./internal";
 
 // Category Channel
@@ -317,9 +317,9 @@ export {
     PERMISSION_TYPE_MEMBER
 } from "./internal";
 
-// Guild User Cache Manager Interface
+// Guild User Cache Interface
 export {
-    GuildUserCacheManagerInterface
+    GuildUserCacheInterface
 } from "./internal";
 
 // Guild Widget

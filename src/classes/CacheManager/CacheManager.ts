@@ -48,7 +48,7 @@ export interface CacheManagerData {
  * Each `CacheManager` has a type of object it caches (`CachedObject`)
  * For example, `Client.guilds` has a `CacheManager<Guild>`
  *
- * Note that other class properties such as `Guild.channels` use `CacheManagerInterfaces`
+ * Note that other class properties such as `Guild.channels` use `CacheInterface`s
  */
 export default class CacheManager<CachedObject extends Base<CachedObject>> {
 

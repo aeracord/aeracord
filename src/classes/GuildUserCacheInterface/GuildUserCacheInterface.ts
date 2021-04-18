@@ -1,16 +1,16 @@
-import { Base, CacheManagerInterface, CacheManagerInterfaceData, Client } from "../../internal";
-import { GetFetch, GetResult } from "../CacheManagerInterface/get";
+import { Base, CacheInterface, CacheInterfaceData, Client } from "../../internal";
+import { GetFetch, GetResult } from "../CacheInterface/get";
 
 /**
  * Guild User Cache Manager Interface
  *
- * Similar to a `CacheManagerInterface` except that it takes a `guildID` and a `userID` for inputs instead of just an `id`
+ * Similar to a `CacheInterface` except that it takes a `guildID` and a `userID` for inputs instead of just an `id`
  * Used to cache objects like `Member`s and `Ban`s
  *
- * `GuildUserCacheManagerInterface` keeps an internal `CacheManagerInterface` (`GuildUserCacheManagerInterface._cacheManagerInterface`)
- * and uses the `guildID` and `userID` concatenated with an underscore (`${guildID}_${userID}`) as the `id` for the `CacheManagerInterface`
+ * `GuildUserCacheInterface` keeps an internal `CacheInterface` (`GuildUserCacheInterface._cacheInterface`)
+ * and uses the `guildID` and `userID` concatenated with an underscore (`${guildID}_${userID}`) as the `id` for the `CacheInterface`
  */
-export default class GuildUserCacheManagerInterface<CachedObject extends Base<CachedObject>, FetchObject = true> {
+export default class GuildUserCacheInterface<CachedObject extends Base<CachedObject>, FetchObject = true> {
 
     /**
      * Client
@@ -18,7 +18,7 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * The client
      */
     get client(): Client {
-        return this._cacheManagerInterface.client;
+        return this._cacheInterface.client;
     }
 
     /**
@@ -26,7 +26,7 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      *
      * The cache manager interface
      */
-    _cacheManagerInterface: CacheManagerInterface<CachedObject, FetchObject>;
+    _cacheInterface: CacheInterface<CachedObject, FetchObject>;
 
     /**
      * Size
@@ -34,22 +34,22 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * The size of the cache
      */
     get size(): number {
-        return this._cacheManagerInterface.size;
+        return this._cacheInterface.size;
     }
 
     /**
      * Guild User Cache Manager Interface
      *
      * @param client The client
-     * @param cacheManagerInterfaceData Options to initialize this cache manager interface with
-     * @param cacheManagerInterfaceData.cacheManager The cache manager
-     * @param cacheManagerInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
-     * @param cacheManagerInterfaceData.fetchObject A function to fetch an object from the API
+     * @param cacheInterfaceData Options to initialize this cache manager interface with
+     * @param cacheInterfaceData.cacheManager The cache manager
+     * @param cacheInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
+     * @param cacheInterfaceData.fetchObject A function to fetch an object from the API
      */
-    constructor(client: Client, cacheManagerInterfaceData: CacheManagerInterfaceData<CachedObject>) {
+    constructor(client: Client, cacheInterfaceData: CacheInterfaceData<CachedObject>) {
 
         // Create cache manager interface
-        this._cacheManagerInterface = new CacheManagerInterface<CachedObject, FetchObject>(client, cacheManagerInterfaceData);
+        this._cacheInterface = new CacheInterface<CachedObject, FetchObject>(client, cacheInterfaceData);
     }
 
     /**
@@ -64,7 +64,7 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * @returns {CachedObject | Promise<CachedObject> | undefined} The cached object or `undefined` if it doesn't exist
      */
     get<Fetch extends boolean = false>(guildID: string, userID: string, fetch?: GetFetch<FetchObject, Fetch>): GetResult<CachedObject, Fetch> {
-        return this._cacheManagerInterface.get(`${guildID}_${userID}`, fetch);
+        return this._cacheInterface.get(`${guildID}_${userID}`, fetch);
     }
 
     /**
@@ -75,7 +75,7 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * @returns {Map<string, CachedObject>} The objects
      */
     getItems(): Map<string, CachedObject> {
-        return this._cacheManagerInterface.getItems();
+        return this._cacheInterface.getItems();
     }
 
     /**
@@ -87,7 +87,7 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * @param userID The ID of the object's user
      */
     uncache(guildID: string, userID: string) {
-        this._cacheManagerInterface.uncache(`${guildID}_${userID}`);
+        this._cacheInterface.uncache(`${guildID}_${userID}`);
     }
 
     /**
@@ -101,7 +101,7 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * @returns {Map<string, CachedObject>} The filtered cache
      */
     filter(predicate: (value: CachedObject, index: number) => any, modify?: boolean): Map<string, CachedObject> {
-        return this._cacheManagerInterface.filter(predicate, modify);
+        return this._cacheInterface.filter(predicate, modify);
     }
 
     /**
@@ -110,7 +110,7 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * Clear the cache
      */
     clear() {
-        this._cacheManagerInterface.clear();
+        this._cacheInterface.clear();
     }
 
     /**
@@ -119,6 +119,6 @@ export default class GuildUserCacheManagerInterface<CachedObject extends Base<Ca
      * Garbage collect the cached objects
      */
     garbageCollect() {
-        this._cacheManagerInterface.garbageCollect();
+        this._cacheInterface.garbageCollect();
     }
 }
