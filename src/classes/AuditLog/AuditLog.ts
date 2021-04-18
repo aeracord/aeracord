@@ -1,6 +1,6 @@
 import { AuditLogData, AuditLogEntry, Client, RawAuditLogData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 
 export default class AuditLog {
@@ -47,13 +47,28 @@ export default class AuditLog {
      *
      * Create an `AuditLogData` object from a `RawAuditLogData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this audit log is in
+     *
+     * @returns {AuditLog} The audit log
+     */
+    static _fromRawData(client: Client, rawData: RawAuditLogData, guildID: string): AuditLog {
+        return AuditLog.fromData(client, AuditLog._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create an `AuditLogData` object from a `RawAuditLogData` object
+     *
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this audit log is in
      *
      * @returns {AuditLogData} The audit log data
      */
-    static _fromRawData(rawData: RawAuditLogData, guildID: string): AuditLogData {
-        return fromRawData(rawData, guildID);
+    static _dataFromRawData(rawData: RawAuditLogData, guildID: string): AuditLogData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

@@ -1,9 +1,9 @@
-import { Client, InviteData, RawInviteCreateData, User } from "../../../../internal";
+import { Client, Invite, RawInviteCreateData, User } from "../../../../internal";
 
 export default function inviteCreate(client: Client, rawData: RawInviteCreateData) {
 
-    // Parse invite data
-    const inviteData: InviteData = {
+    // Parse invite
+    const invite: Invite = Invite.fromData(client, {
         code: rawData.code,
         channelID: rawData.channel_id,
         guildID: rawData.guild_id,
@@ -20,13 +20,12 @@ export default function inviteCreate(client: Client, rawData: RawInviteCreateDat
             avatar: rawData.target_user.avatar
         } : null,
         targetUserType: rawData.target_user_type || null
-    };
+    });
 
     // Emit event
-    client.emit("inviteCreate", inviteData, {
+    client.emit("inviteCreate", invite, {
         rawData,
-        invite: client.invites.get(inviteData.code),
-        guild: client.guilds.get(inviteData.guildID),
-        channel: client.channels.get(inviteData.channelID)
+        guild: client.guilds.get(invite.guildID),
+        channel: client.channels.get(invite.channelID)
     });
 }

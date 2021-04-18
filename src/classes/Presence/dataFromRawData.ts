@@ -1,9 +1,9 @@
-import { Client, Presence, PresenceData, RawPresenceData, RawPresenceDataActivity } from "../../internal";
+import { PresenceData, RawPresenceData, RawPresenceDataActivity } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawPresenceData): PresenceData {
+export default function dataFromRawData(rawData: RawPresenceData): PresenceData {
 
     // Parse presence data
-    const presenceData: PresenceData = {
+    return {
         user: {
             id: rawData.user.id,
             username: rawData.user.username,
@@ -55,11 +55,4 @@ export default function fromRawData(client: Client, rawData: RawPresenceData): P
             web: rawData.client_status.web || null
         }
     };
-
-    // Create presence or update object
-    if (client._presences.cacheAll) Presence.fromData(client, presenceData);
-    else Presence._updateObjectFromData(client, presenceData);
-
-    // Return
-    return presenceData;
 }

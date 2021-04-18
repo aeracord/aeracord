@@ -1,28 +1,24 @@
-import { AnyChannel, AnyChannelData, Channel, Client, RawChannelData } from "../../../../internal";
+import { AnyChannel, Channel, Client, RawChannelData } from "../../../../internal";
 
 export default function channelDelete(client: Client, rawData: RawChannelData) {
 
-    // Parse channel data
-    const channelData: AnyChannelData = Channel._fromRawData(client, rawData);
-
-    // Get channel
-    const channel: AnyChannel | undefined = client.channels.get(channelData.id);
+    // Parse channel
+    const channel: AnyChannel = Channel._fromRawData(client, rawData);
 
     // Mark as deleted
     if (channel) channel._markAsDeleted();
 
     // Remove from guild channels
-    if ((client._guildChannels) && ("guildID" in channelData)) {
-        const guildChannels: string[] | undefined = client._guildChannels.get(channelData.guildID);
-        if ((guildChannels) && (guildChannels.includes(channelData.id))) guildChannels.splice(guildChannels.indexOf(channelData.id), 1);
+    if ((client._guildChannels) && ("guildID" in channel)) {
+        const guildChannels: string[] | undefined = client._guildChannels.get(channel.guildID);
+        if ((guildChannels) && (guildChannels.includes(channel.id))) guildChannels.splice(guildChannels.indexOf(channel.id), 1);
     }
 
     // Remove from channel permissions
-    if (client._channelPermissions) client._channelPermissions.delete(channelData.id);
+    if (client._channelPermissions) client._channelPermissions.delete(channel.id);
 
     // Emit event
-    client.emit("channelDelete", channelData, {
-        rawData,
-        channel
+    client.emit("channelDelete", channel, {
+        rawData
     });
 }

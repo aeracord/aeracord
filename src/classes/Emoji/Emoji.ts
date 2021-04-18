@@ -1,6 +1,6 @@
 import { Base, Client, EmojiData, ModifyGuildEmojiData, RawEmojiData, UserData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -91,18 +91,34 @@ export default class Emoji extends Base<Emoji> {
         // Super
         super(client, {
             id: emojiData.id,
-            cacheManager: client._emojis
+            cacheManager: client._emojis,
+            expiresFromCacheIn: client._emojis.cacheAll ? (client._emojis.cacheFor || null) : undefined
         });
 
         // Set data
         Emoji._updateObject(this, emojiData);
 
         // Cache emoji
-        this.client._emojis.cache(this.id, this);
+        if (client._emojis.cacheAll) this.client._emojis.cache(this.id, this);
     }
 
     /**
      * From Raw Data
+     *
+     * Create an `EmojiData` object from a `RawEmojiData` object
+     *
+     * @param client The client
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this emoji is in
+     *
+     * @returns {Emoji} The emoji
+     */
+    static _fromRawData(client: Client, rawData: RawEmojiData, guildID: string): Emoji {
+        return Emoji.fromData(client, Emoji._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
      *
      * Create an `EmojiData` object from a `RawEmojiData` object
      *
@@ -111,8 +127,8 @@ export default class Emoji extends Base<Emoji> {
      *
      * @returns {EmojiData} The emoji data
      */
-    static _fromRawData(client: Client, rawData: RawEmojiData, guildID: string): EmojiData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(rawData: RawEmojiData, guildID: string): EmojiData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

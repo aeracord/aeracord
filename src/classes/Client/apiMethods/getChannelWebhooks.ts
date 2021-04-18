@@ -1,7 +1,7 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, RawWebhookData, Webhook, WebhookData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, RawWebhookData, Webhook } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getChannelWebhooks(client: Client, channelResolvable: ChannelResolvable): Promise<WebhookData[]> {
+export default async function getChannelWebhooks(client: Client, channelResolvable: ChannelResolvable): Promise<Webhook[]> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -25,7 +25,7 @@ export default async function getChannelWebhooks(client: Client, channelResolvab
     });
 
     // Parse webhooks
-    const webhooks: WebhookData[] = result.map((w: RawWebhookData) => Webhook._fromRawData(client, w));
+    const webhooks: Webhook[] = result.map((w: RawWebhookData) => Webhook._fromRawData(client, w));
 
     // Return
     return webhooks;

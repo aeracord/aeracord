@@ -1,26 +1,26 @@
-import { Attachment, Client, Embed, Member, Message, MessageData, RawAttachmentData, RawEmbedData, RawMessageData, RawMessageDataChannelMention, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
+import { Attachment, Embed, Member, Message, MessageData, RawAttachmentData, RawEmbedData, RawMessageData, RawMessageDataChannelMention, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawMessageData): MessageData {
+export default function dataFromRawData(rawData: RawMessageData): MessageData {
 
     // Parse message data
-    const messageData: MessageData = {
+    return {
         id: rawData.id,
         type: rawData.type,
         channelID: rawData.channel_id,
         guildID: rawData.guild_id || null,
-        author: rawData.webhook_id ? null : User._fromRawData(client, rawData.author as RawUserData),
+        author: rawData.webhook_id ? null : User._dataFromRawData(rawData.author as RawUserData),
         webhook: rawData.webhook_id ? {
             id: rawData.author.id,
             name: rawData.author.username,
             avatar: rawData.author.avatar
         } : null,
-        member: (rawData.member && rawData.guild_id) ? Member._fromRawData(client, { ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : null,
+        member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData({ ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : null,
         content: rawData.content,
         timestamp: new Date(rawData.timestamp).getTime(),
         editedTimestamp: rawData.edited_timestamp ? new Date(rawData.edited_timestamp).getTime() : null,
         tts: rawData.tts,
         mentionEveryone: rawData.mention_everyone,
-        mentions: rawData.guild_id ? rawData.mentions.map((u: RawUserWithMemberData) => Member._fromRawData(client, {
+        mentions: rawData.guild_id ? rawData.mentions.map((u: RawUserWithMemberData) => Member._dataFromRawData({
             ...u.member,
             user: u
         }, rawData.guild_id as string)) : [],
@@ -31,18 +31,18 @@ export default function fromRawData(client: Client, rawData: RawMessageData): Me
             type: c.type,
             name: c.name
         })) : [],
-        attachments: rawData.attachments.map((a: RawAttachmentData) => Attachment._fromRawData(a, {
+        attachments: rawData.attachments.map((a: RawAttachmentData) => Attachment._dataFromRawData(a, {
             messageID: rawData.id,
             channelID: rawData.channel_id,
             guildID: rawData.guild_id || null
         })),
-        embeds: rawData.embeds.map((e: RawEmbedData) => Embed._fromRawData(e, {
+        embeds: rawData.embeds.map((e: RawEmbedData) => Embed._dataFromRawData(e, {
             messageID: rawData.id,
             channelID: rawData.channel_id,
             guildID: rawData.guild_id || null
         })),
-        stickers: rawData.stickers ? rawData.stickers.map((s: RawStickerData) => Sticker._fromRawData(s)) : [],
-        reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._fromRawData(r, {
+        stickers: rawData.stickers ? rawData.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(s)) : [],
+        reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._dataFromRawData(r, {
             messageID: rawData.id,
             channelID: rawData.channel_id,
             guildID: rawData.guild_id || null
@@ -65,19 +65,12 @@ export default function fromRawData(client: Client, rawData: RawMessageData): Me
             guildID: rawData.message_reference.guild_id || null
         } : null,
         flags: rawData.flags || 0,
-        referencedMessage: rawData.referenced_message && Message._fromRawData(client, rawData.referenced_message),
+        referencedMessage: rawData.referenced_message && Message._dataFromRawData(rawData.referenced_message),
         interaction: rawData.interaction ? {
             id: rawData.interaction.id,
             type: rawData.interaction.type,
             name: rawData.interaction.name,
-            user: User._fromRawData(client, rawData.interaction.user)
+            user: User._dataFromRawData(rawData.interaction.user)
         } : null
     };
-
-    // Create message or update object
-    if (client._messages.cacheAll) Message.fromData(client, messageData);
-    else Message._updateObjectFromData(client, messageData);
-
-    // Return
-    return messageData;
 }

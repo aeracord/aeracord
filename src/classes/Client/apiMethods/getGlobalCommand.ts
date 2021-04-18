@@ -1,7 +1,7 @@
-import { Client, Command, CommandData, CommandResolvable, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, CommandResolvable, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGlobalCommand(client: Client, commandResolvable: CommandResolvable): Promise<CommandData> {
+export default async function getGlobalCommand(client: Client, commandResolvable: CommandResolvable): Promise<Command> {
 
     // Resolve objects
     const commandID: string | undefined = Command.resolveID(commandResolvable);
@@ -21,9 +21,9 @@ export default async function getGlobalCommand(client: Client, commandResolvable
         method
     });
 
-    // Parse command data
-    const commandData: CommandData = Command._fromRawData(client, result);
+    // Parse command
+    const command: Command = Command._fromRawData(client, result);
 
     // Return
-    return commandData;
+    return command;
 }

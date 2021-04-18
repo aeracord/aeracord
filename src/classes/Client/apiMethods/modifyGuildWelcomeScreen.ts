@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, RawWelcomeScreenData, WelcomeScreen, WelcomeScreenData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, RawWelcomeScreenData, WelcomeScreen } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildWelcomeScreenData {
@@ -7,7 +7,7 @@ export interface ModifyGuildWelcomeScreenData {
     channels?: ChannelResolvable[];
 }
 
-export default async function modifyGuildWelcomeScreen(client: Client, guildResolvable: GuildResolvable, modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreenData> {
+export default async function modifyGuildWelcomeScreen(client: Client, guildResolvable: GuildResolvable, modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreen> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -37,9 +37,9 @@ export default async function modifyGuildWelcomeScreen(client: Client, guildReso
         }
     });
 
-    // Parse welcome screen data
-    const welcomeScreenData: WelcomeScreenData = WelcomeScreen._fromRawData(client, result, guildID);
+    // Parse welcome screen
+    const welcomeScreen: WelcomeScreen = WelcomeScreen._fromRawData(client, result, guildID);
 
     // Return
-    return welcomeScreenData;
+    return welcomeScreen;
 }

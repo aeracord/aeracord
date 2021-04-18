@@ -1,13 +1,13 @@
-import { Client, Member, RawVoiceStateData, VoiceStateData } from "../../internal";
+import { Member, RawVoiceStateData, VoiceStateData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawVoiceStateData): VoiceStateData {
+export default function dataFromRawData(rawData: RawVoiceStateData): VoiceStateData {
 
     // Parse voice state data
     return {
         guildID: rawData.guild_id,
         channelID: rawData.channel_id,
         userID: rawData.user_id,
-        member: Member._fromRawData(client, rawData.member, rawData.guild_id),
+        member: Member._dataFromRawData(rawData.member, rawData.guild_id),
         sessionID: rawData.session_id,
         muted: rawData.mute,
         deafened: rawData.deaf,

@@ -1,4 +1,4 @@
-import { Client, Emoji, EmojiData, EmojiResolvable, FetchQueue, Guild, GuildResolvable, RawEmojiData, Role, RoleResolvable } from "../../../internal";
+import { Client, Emoji, EmojiResolvable, FetchQueue, Guild, GuildResolvable, RawEmojiData, Role, RoleResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildEmojiData {
@@ -6,7 +6,7 @@ export interface ModifyGuildEmojiData {
     roles?: RoleResolvable[];
 }
 
-export default async function modifyGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<EmojiData> {
+export default async function modifyGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<Emoji> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -38,9 +38,9 @@ export default async function modifyGuildEmoji(client: Client, guildResolvable: 
         auditLogReason: reason
     });
 
-    // Parse emoji data
-    const emojiData: EmojiData = Emoji._fromRawData(client, result, guildID);
+    // Parse emoji
+    const emoji: Emoji = Emoji._fromRawData(client, result, guildID);
 
     // Return
-    return emojiData;
+    return emoji;
 }

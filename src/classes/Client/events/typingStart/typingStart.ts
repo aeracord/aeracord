@@ -14,6 +14,7 @@ export default function typingStart(client: Client, rawData: RawTypingStartData)
     // Emit event
     client.emit("typingStart", data, {
         rawData,
+        guild: data.guildID ? client.guilds.get(data.guildID) : undefined,
         channel: client.channels.get(data.channelID),
         user: client.users.get(data.userID)
     });

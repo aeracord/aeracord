@@ -1,6 +1,6 @@
 import { Base, Client, GuildWidgetData, ModifyGuildWidgetData, RawGuildWidgetData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
@@ -44,14 +44,15 @@ export default class GuildWidget extends Base<GuildWidget> {
         // Super
         super(client, {
             id: guildWidgetData.guildID,
-            cacheManager: client._guildWidgets
+            cacheManager: client._guildWidgets,
+            expiresFromCacheIn: client._guildWidgets.cacheAll ? (client._guildWidgets.cacheFor || null) : undefined
         });
 
         // Set data
         GuildWidget._updateObject(this, guildWidgetData);
 
         // Cache guild widget
-        this.client._guildWidgets.cache(this.id, this);
+        if (client._guildWidgets.cacheAll) this.client._guildWidgets.cache(this.id, this);
     }
 
     /**
@@ -59,13 +60,28 @@ export default class GuildWidget extends Base<GuildWidget> {
      *
      * Create a `GuildWidgetData` object from a `RawGuildWidgetData` object
      *
+     * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this widget is for
      *
+     * @returns {GuildWidget} The guild widget
+     */
+    static _fromRawData(client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidget {
+        return GuildWidget.fromData(client, GuildWidget._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `GuildWidgetData` object from a `RawGuildWidgetData` object
+     *
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this guild widget is in
+     *
      * @returns {GuildWidgetData} The guild widget data
      */
-    static _fromRawData(client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidgetData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(rawData: RawGuildWidgetData, guildID: string): GuildWidgetData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

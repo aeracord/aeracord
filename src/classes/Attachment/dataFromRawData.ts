@@ -1,6 +1,6 @@
 import { AttachmentData, RawAttachmentData, RawAttachmentMetadata } from "../../internal";
 
-export default function fromRawData(rawData: RawAttachmentData, metadata: RawAttachmentMetadata): AttachmentData {
+export default function dataFromRawData(rawData: RawAttachmentData, metadata: RawAttachmentMetadata): AttachmentData {
 
     // Parse attachment data
     return {

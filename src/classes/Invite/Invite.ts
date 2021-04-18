@@ -1,6 +1,6 @@
 import { Base, Client, InviteData, RawInviteData, TargetUser, TargetUserType, UserData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -116,14 +116,15 @@ export default class Invite extends Base<Invite> {
         // Super
         super(client, {
             id: inviteData.code,
-            cacheManager: client._invites
+            cacheManager: client._invites,
+            expiresFromCacheIn: client._invites.cacheAll ? (client._invites.cacheFor || null) : undefined
         });
 
         // Set data
         Invite._updateObject(this, inviteData);
 
         // Cache invite
-        this.client._invites.cache(this.id, this);
+        if (client._invites.cacheAll) this.client._invites.cache(this.id, this);
     }
 
     /**
@@ -131,12 +132,26 @@ export default class Invite extends Base<Invite> {
      *
      * Create an `InviteData` object from a `RawInviteData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {Invite} The invite
+     */
+    static _fromRawData(client: Client, rawData: RawInviteData): Invite {
+        return Invite.fromData(client, Invite._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create an `InviteData` object from a `RawInviteData` object
+     *
      * @param rawData The raw data from the API
      *
      * @returns {InviteData} The invite data
      */
-    static _fromRawData(client: Client, rawData: RawInviteData): InviteData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawInviteData): InviteData {
+        return dataFromRawData(rawData);
     }
 
     /**

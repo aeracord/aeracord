@@ -1,13 +1,13 @@
-import { AnyChannelData, GuildData, MemberData, PresenceData, VoiceStateData } from "../../../../internal";
+import { AnyChannelData, Guild, MemberData, PresenceData, VoiceStateData } from "../../../../internal";
 
 export interface GuildCreateData {
 
     /**
      * Guild
      *
-     * The guild data object
+     * The guild object
      */
-    guild: GuildData;
+    guild: Guild;
 
     /**
      * Joined At

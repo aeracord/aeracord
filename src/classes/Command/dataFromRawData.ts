@@ -1,9 +1,9 @@
-import { Client, Command, CommandData, CommandOption, RawCommandData, RawCommandDataChoice, RawCommandDataOption } from "../../internal";
+import { CommandData, CommandOption, RawCommandData, RawCommandDataChoice, RawCommandDataOption } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawCommandData, guildID?: string): CommandData {
+export default function dataFromRawData(rawData: RawCommandData, guildID?: string): CommandData {
 
     // Parse command data
-    const commandData: CommandData = {
+    return {
         id: rawData.id,
         guildID: guildID || null,
         applicationID: rawData.application_id,
@@ -11,13 +11,6 @@ export default function fromRawData(client: Client, rawData: RawCommandData, gui
         description: rawData.description,
         options: rawData.options ? rawData.options.map((o: RawCommandDataOption) => parseOption(o)) : []
     };
-
-    // Create or update command object
-    if (client._commands.cacheAll) Command.fromData(client, commandData);
-    else Command._updateObjectFromData(client, commandData);
-
-    // Return
-    return commandData;
 }
 
 const parseOption = (optionData: RawCommandDataOption): CommandOption => ({

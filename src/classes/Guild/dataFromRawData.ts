@@ -1,9 +1,9 @@
-import { Client, Emoji, Guild, GuildData, GuildWidget, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
+import { Client, Emoji, GuildData, GuildWidget, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawGuildData): GuildData {
+export default function dataFromRawData(client: Client, rawData: RawGuildData): GuildData {
 
     // Parse guild data
-    const guildData: GuildData = {
+    return {
         id: rawData.id,
         name: rawData.name,
         icon: rawData.icon,
@@ -13,15 +13,15 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         region: rawData.region,
         afkChannelID: rawData.afk_channel_id,
         afkTimeout: rawData.afk_timeout,
-        widget: GuildWidget._fromRawData(client, {
+        widget: GuildWidget._dataFromRawData({
             channel_id: rawData.widget_channel_id || null,
             enabled: Boolean(rawData.widget_enabled)
         }, rawData.id),
         verificationLevel: rawData.verification_level,
         defaultMessageNotifications: rawData.default_message_notifications,
         explicitContentFilter: rawData.explicit_content_filter,
-        roleData: rawData.roles.map((r: RawRoleData) => Role._fromRawData(client, r, rawData.id)),
-        emojiData: rawData.emojis.map((e: RawEmojiData) => Emoji._fromRawData(client, e, rawData.id)),
+        roleData: rawData.roles.map((r: RawRoleData) => Role._dataFromRawData(client, r, rawData.id)),
+        emojiData: rawData.emojis.map((e: RawEmojiData) => Emoji._dataFromRawData(e, rawData.id)),
         features: rawData.features,
         mfaLevel: rawData.mfa_level,
         applicationID: rawData.application_id,
@@ -40,13 +40,6 @@ export default function fromRawData(client: Client, rawData: RawGuildData): Guil
         maxVideoChannelUsers: rawData.max_video_channel_users,
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
-        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._fromRawData(client, rawData.welcome_screen, rawData.id) : null
+        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._dataFromRawData(rawData.welcome_screen, rawData.id) : null
     };
-
-    // Create guild or update object
-    if (client._guilds.cacheAll) Guild.fromData(client, guildData);
-    else Guild._updateObjectFromData(client, guildData);
-
-    // Return
-    return guildData;
 }

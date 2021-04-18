@@ -1,6 +1,6 @@
 import { EmbedData, RawEmbedData, RawEmbedDataField, RawEmbedMetadata } from "../../internal";
 
-export default function fromRawData(rawData: RawEmbedData, metadata: RawEmbedMetadata): EmbedData {
+export default function dataFromRawData(rawData: RawEmbedData, metadata: RawEmbedMetadata): EmbedData {
 
     // Parse embed data
     return {

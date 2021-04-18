@@ -1,7 +1,7 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawWebhookData, Webhook, WebhookData } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawWebhookData, Webhook } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGuildWebhooks(client: Client, guildResolvable: GuildResolvable): Promise<WebhookData[]> {
+export default async function getGuildWebhooks(client: Client, guildResolvable: GuildResolvable): Promise<Webhook[]> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -25,7 +25,7 @@ export default async function getGuildWebhooks(client: Client, guildResolvable: 
     });
 
     // Parse webhooks
-    const webhooks: WebhookData[] = result.map((w: RawWebhookData) => Webhook._fromRawData(client, w));
+    const webhooks: Webhook[] = result.map((w: RawWebhookData) => Webhook._fromRawData(client, w));
 
     // Return
     return webhooks;

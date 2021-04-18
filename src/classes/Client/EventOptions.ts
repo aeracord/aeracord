@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, AnyGuildChannel, Ban, Command, CommandData, EmojiData, Guild, GuildData, Interaction, Invite, Member, MemberData, Message, MessageData, Presence, PresenceData, Role, RoleData, User, UserData } from "../../internal";
+import { AnyChannel, AnyChannelData, Ban, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, PresenceData, Role, RoleData, TextBasedChannel, User, UserData } from "../../internal";
 
 /**
  * Event Options
@@ -14,8 +14,10 @@ export interface EventOptions {
  *
  * Options for extra data sent with ban related events
  */
-export interface BanEventOptions extends MemberEventOptions {
+export interface BanEventOptions extends EventOptions {
     ban?: Ban;
+    member?: Member;
+    guild?: Guild;
 }
 
 /**
@@ -24,43 +26,35 @@ export interface BanEventOptions extends MemberEventOptions {
  * Options for extra data sent with channel related events
  */
 export interface ChannelEventOptions extends EventOptions {
+    guild?: Guild;
     channel?: AnyChannel;
+}
+
+/**
+ * Channel Pins Update Event Options
+ *
+ * Options for extra data sent with channel pins update events
+ */
+export interface ChannelPinsUpdateEventOptions extends EventOptions {
+    channel?: TextBasedChannel;
 }
 
 /**
  * Channel Update Event Options
  *
- * Options for extra data sent with channel update related events
+ * Options for extra data sent with channel update events
  */
-export interface ChannelUpdateEventOptions extends ChannelEventOptions {
+export interface ChannelUpdateEventOptions extends EventOptions {
     oldChannelData?: AnyChannelData;
-}
-
-/**
- * Command Event Options
- *
- * Options for extra data sent with command related events
- */
-export interface CommandEventOptions extends EventOptions {
-    command?: Command;
 }
 
 /**
  * Command Update Event Options
  *
- * Options for extra data sent with command update related events
+ * Options for extra data sent with command update events
  */
-export interface CommandUpdateEventOptions extends CommandEventOptions {
+export interface CommandUpdateEventOptions extends EventOptions {
     oldCommandData?: CommandData;
-}
-
-/**
- * Guild Emojis Update Event Options
- *
- * Options for extra data sent with guild emojis update events
- */
-export interface GuildEmojisUpdateEventOptions extends GuildEventOptions {
-    oldEmojisData: EmojiData[];
 }
 
 /**
@@ -73,84 +67,111 @@ export interface GuildEventOptions extends EventOptions {
 }
 
 /**
- * Guild Update Event Options
+ * Guild Emojis Update Event Options
  *
- * Options for extra data sent with guild update related events
+ * Options for extra data sent with guild emojis update events
  */
-export interface GuildUpdateEventOptions extends GuildEventOptions {
-    oldGuildData?: GuildData;
-}
-
-/**
- * Interaction Event Options
- *
- * Options for extra data sent with interaction related events
- */
-export interface InteractionEventOptions extends EventOptions {
-    interaction?: Interaction;
+export interface GuildEmojisUpdateEventOptions extends EventOptions {
     guild?: Guild;
-    channel?: AnyGuildChannel;
+    oldEmojisData: EmojiData[];
 }
 
 /**
- * Invite Event Options
+ * Guild Member Add Event Options
  *
- * Options for extra data sent with invite related events
+ * Options for extra data sent with guild member add events
  */
-export interface InviteEventOptions extends EventOptions {
-    invite?: Invite;
-    guild?: Guild;
-    channel?: AnyGuildChannel;
-}
-
-/**
- * Member Event Options
- *
- * Options for extra data sent with member related events
- */
-export interface MemberEventOptions extends EventOptions {
-    member?: Member;
+export interface GuildMemberAddEventOptions extends EventOptions {
     guild?: Guild;
     user?: User;
 }
 
 /**
- * Member Update Event Options
+ * Guild Member Remove Event Options
  *
- * Options for extra data sent with member update related events
+ * Options for extra data sent with guild member remove events
  */
-export interface MemberUpdateEventOptions extends MemberEventOptions {
+export interface GuildMemberRemoveEventOptions extends EventOptions {
+    member?: Member;
+    guild?: Guild;
+}
+
+/**
+ * Guild Member Update Event Options
+ *
+ * Options for extra data sent with guild member update events
+ */
+export interface GuildMemberUpdateEventOptions extends EventOptions {
+    member?: Member;
+    guild?: Guild;
     oldMemberData?: MemberData;
 }
 
 /**
- * Message Event Options
+ * Guild Role Delete Event Options
  *
- * Options for extra data sent with message related events
+ * Options for extra data sent with guild role delete events
  */
-export interface MessageEventOptions extends EventOptions {
-    message?: Message;
+export interface GuildRoleDeleteEventOptions extends EventOptions {
+    role?: Role;
+    guild?: Guild;
+}
+
+/**
+ * Guild Role Update Event Options
+ *
+ * Options for extra data sent with guild role update events
+ */
+export interface GuildRoleUpdateEventOptions extends EventOptions {
+    guild?: Guild;
+    oldRoleData?: RoleData;
+}
+
+/**
+ * Guild Update Event Options
+ *
+ * Options for extra data sent with guild update events
+ */
+export interface GuildUpdateEventOptions extends EventOptions {
+    oldGuildData?: GuildData;
+}
+
+/**
+ * Invite Delete Event Options
+ *
+ * Options for extra data sent with invite delete events
+ */
+export interface InviteDeleteEventOptions extends EventOptions {
+    invite?: Invite;
     guild?: Guild;
     channel?: AnyChannel;
+}
+
+/**
+ * Message Delete Event Options
+ *
+ * Options for extra data sent with message delete events
+ */
+export interface MessageDeleteEventOptions extends TextBasedChannelEventOptions {
+    message?: Message;
 }
 
 /**
  * Message Delete Bulk Event Options
  *
- * Options for extra data sent with message bulk delete related events
+ * Options for extra data sent with message delete bulk events
  */
-export interface MessageDeleteBulkEventOptions extends EventOptions {
+export interface MessageDeleteBulkEventOptions extends TextBasedChannelEventOptions {
     messages: Message[];
-    guild?: Guild;
-    channel?: AnyChannel;
 }
 
 /**
  * Message Update Event Options
  *
- * Options for extra data sent with message update related events
+ * Options for extra data sent with message update events
  */
-export interface MessageUpdateEventOptions extends MessageEventOptions {
+export interface MessageUpdateEventOptions extends TextBasedChannelEventOptions {
+    message?: Message;
     oldMessageData?: MessageData;
 }
 
@@ -160,7 +181,6 @@ export interface MessageUpdateEventOptions extends MessageEventOptions {
  * Options for extra data sent with presence update events
  */
 export interface PresenceUpdateEventOptions extends EventOptions {
-    presence?: Presence;
     user?: User;
     oldPresenceData?: PresenceData;
 }
@@ -170,30 +190,28 @@ export interface PresenceUpdateEventOptions extends EventOptions {
  *
  * Options for extra data sent with reaction related events
  */
-export interface ReactionEventOptions extends EventOptions {
+export interface ReactionEventOptions extends TextBasedChannelEventOptions {
     message?: Message;
-    guild?: Guild;
-    channel?: AnyChannel;
     user?: User;
 }
 
 /**
- * Role Event Options
+ * Reaction Bulk Remove Event Options
  *
- * Options for extra data sent with role related events
+ * Options for extra data sent with reaction bulk remove related events
  */
-export interface RoleEventOptions extends EventOptions {
-    role?: Role;
-    guild?: Guild;
+export interface ReactionBulkRemoveEventOptions extends TextBasedChannelEventOptions {
+    message?: Message;
 }
 
 /**
- * Role Update Event Options
+ * Text Based Channel Event Options
  *
- * Options for extra data sent with role update related events
+ * Options for extra data sent with text based channel related events
  */
-export interface RoleUpdateEventOptions extends RoleEventOptions {
-    oldRoleData?: RoleData;
+export interface TextBasedChannelEventOptions extends EventOptions {
+    guild?: Guild;
+    channel?: TextBasedChannel;
 }
 
 /**
@@ -201,8 +219,7 @@ export interface RoleUpdateEventOptions extends RoleEventOptions {
  *
  * Options for extra data sent with typing start events
  */
-export interface TypingStartEventOptions extends EventOptions {
-    channel?: AnyChannel;
+export interface TypingStartEventOptions extends TextBasedChannelEventOptions {
     user?: User;
 }
 
@@ -212,28 +229,17 @@ export interface TypingStartEventOptions extends EventOptions {
  * Options for extra data sent with user update events
  */
 export interface UserUpdateEventOptions extends EventOptions {
-    user?: User;
     oldUserData?: UserData;
 }
 
 /**
- * Voice State Event Options
+ * Voice State Update Event Options
  *
- * Options for extra data sent with voice state related events
+ * Options for extra data sent with voice state update events
  */
-export interface VoiceStateEventOptions extends EventOptions {
+export interface VoiceStateUpdateEventOptions extends EventOptions {
     guild?: Guild;
-    channel?: AnyGuildChannel;
+    channel?: AnyChannel;
     member?: Member;
     user?: User;
-}
-
-/**
- * Webhooks Update Event Options
- *
- * Options for extra data sent with webhooks update events
- */
-export interface WebhooksUpdateEventOptions extends EventOptions {
-    channel?: AnyChannel;
-    guild?: Guild;
 }

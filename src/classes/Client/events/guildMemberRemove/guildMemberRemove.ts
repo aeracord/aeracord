@@ -18,7 +18,6 @@ export default function guildMemberRemove(client: Client, rawData: RawGuildMembe
     client.emit("guildMemberRemove", data, {
         rawData,
         member,
-        guild: client.guilds.get(data.guildID),
-        user: client.users.get(data.user.id)
+        guild: client.guilds.get(data.guildID)
     });
 }

@@ -1,6 +1,6 @@
 import { Base, Client, CreateGuildFromTemplateData, GuildData, ModifyGuildTemplateData, RawTemplateData, TemplateData, TemplateGuild, UserData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveCode from "./resolveCode";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -108,14 +108,15 @@ export default class Template extends Base<Template> {
         // Super
         super(client, {
             id: templateData.code,
-            cacheManager: client._templates
+            cacheManager: client._templates,
+            expiresFromCacheIn: client._templates.cacheAll ? (client._templates.cacheFor || null) : undefined
         });
 
         // Set data
         Template._updateObject(this, templateData);
 
         // Cache template
-        this.client._templates.cache(this.id, this);
+        if (client._templates.cacheAll) this.client._templates.cache(this.id, this);
     }
 
     /**
@@ -123,12 +124,26 @@ export default class Template extends Base<Template> {
      *
      * Create a `TemplateData` object from a `RawTemplateData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {Template} The template
+     */
+    static _fromRawData(client: Client, rawData: RawTemplateData): Template {
+        return Template.fromData(client, Template._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `TemplateData` object from a `RawTemplateData` object
+     *
      * @param rawData The raw data from the API
      *
      * @returns {TemplateData} The template data
      */
-    static _fromRawData(client: Client, rawData: RawTemplateData): TemplateData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawTemplateData): TemplateData {
+        return dataFromRawData(rawData);
     }
 
     /**

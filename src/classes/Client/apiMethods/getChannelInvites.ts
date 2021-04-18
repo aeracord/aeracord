@@ -1,7 +1,7 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, InviteData, RawInviteData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getChannelInvites(client: Client, channelResolvable: ChannelResolvable): Promise<InviteData[]> {
+export default async function getChannelInvites(client: Client, channelResolvable: ChannelResolvable): Promise<Invite[]> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -25,7 +25,7 @@ export default async function getChannelInvites(client: Client, channelResolvabl
     });
 
     // Parse invites
-    const invites: InviteData[] = result.map((i: RawInviteData) => Invite._fromRawData(client, i));
+    const invites: Invite[] = result.map((i: RawInviteData) => Invite._fromRawData(client, i));
 
     // Return
     return invites;

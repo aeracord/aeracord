@@ -1,6 +1,6 @@
 import { RawReactionData, RawReactionMetadata, ReactionData } from "../../internal";
 
-export default function fromRawData(rawData: RawReactionData, metadata: RawReactionMetadata): ReactionData {
+export default function dataFromRawData(rawData: RawReactionData, metadata: RawReactionMetadata): ReactionData {
 
     // Parse reaction data
     return {

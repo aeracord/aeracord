@@ -1,6 +1,6 @@
 import { Base, Client, ModifyWebhookData, RawWebhookData, UserData, WebhookData, WebhookType } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -91,14 +91,15 @@ export default class Webhook extends Base<Webhook> {
         // Super
         super(client, {
             id: webhookData.id,
-            cacheManager: client._webhooks
+            cacheManager: client._webhooks,
+            expiresFromCacheIn: client._webhooks.cacheAll ? (client._webhooks.cacheFor || null) : undefined
         });
 
         // Set data
         Webhook._updateObject(this, webhookData);
 
         // Cache webhook
-        this.client._webhooks.cache(this.id, this);
+        if (client._webhooks.cacheAll) this.client._webhooks.cache(this.id, this);
     }
 
     /**
@@ -106,12 +107,26 @@ export default class Webhook extends Base<Webhook> {
      *
      * Create a `WebhookData` object from a `RawWebhookData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {Webhook} The webhook
+     */
+    static _fromRawData(client: Client, rawData: RawWebhookData): Webhook {
+        return Webhook.fromData(client, Webhook._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `WebhookData` object from a `RawWebhookData` object
+     *
      * @param rawData The raw data from the API
      *
      * @returns {WebhookData} The webhook data
      */
-    static _fromRawData(client: Client, rawData: RawWebhookData): WebhookData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawWebhookData): WebhookData {
+        return dataFromRawData(rawData);
     }
 
     /**

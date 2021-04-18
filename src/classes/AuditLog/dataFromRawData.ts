@@ -1,6 +1,6 @@
 import { AuditLogChangeType, AuditLogData, RawAuditLogData, RawAuditLogDataEntry, RawAuditLogDataEntryChange, RawAuditLogDataEntryChangeKey } from "../../internal";
 
-export default function fromRawData(rawData: RawAuditLogData, guildID: string): AuditLogData {
+export default function dataFromRawData(rawData: RawAuditLogData, guildID: string): AuditLogData {
 
     // Parse audit log data
     return {

@@ -1,4 +1,4 @@
-import { AllowedMentions, Client, Embed, FetchQueue, Message, MessageData, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface FollowupInteractionResponseData {
@@ -8,7 +8,7 @@ export interface FollowupInteractionResponseData {
     allowedMentions?: AllowedMentions;
 }
 
-export default async function createFollowupMessage(client: Client, interactionToken: string, followupInteractionResponseData: FollowupInteractionResponseData): Promise<MessageData> {
+export default async function createFollowupMessage(client: Client, interactionToken: string, followupInteractionResponseData: FollowupInteractionResponseData): Promise<Message> {
 
     // Resolve objects
     const allowedMentionsUsers: Array<string | undefined> | undefined = followupInteractionResponseData.allowedMentions?.users?.map((u: UserResolvable) => User.resolveID(u));
@@ -41,9 +41,9 @@ export default async function createFollowupMessage(client: Client, interactionT
         }
     });
 
-    // Parse message data
-    const messageData: MessageData = Message._fromRawData(client, result);
+    // Parse message
+    const message: Message = Message._fromRawData(client, result);
 
     // Return
-    return messageData;
+    return message;
 }

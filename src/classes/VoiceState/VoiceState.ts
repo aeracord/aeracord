@@ -1,6 +1,6 @@
 import { Client, MemberData, RawVoiceStateData, VoiceStateData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 
 export default class VoiceState {
@@ -137,12 +137,26 @@ export default class VoiceState {
      *
      * Create a `VoiceStateData` object from a `RawVoiceStateData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {VoiceState} The voice state
+     */
+    static _fromRawData(client: Client, rawData: RawVoiceStateData): VoiceState {
+        return VoiceState.fromData(client, VoiceState._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `VoiceStateData` object from a `RawVoiceStateData` object
+     *
      * @param rawData The raw data from the API
      *
      * @returns {VoiceStateData} The voice state data
      */
-    static _fromRawData(client: Client, rawData: RawVoiceStateData): VoiceStateData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawVoiceStateData): VoiceStateData {
+        return dataFromRawData(rawData);
     }
 
     /**

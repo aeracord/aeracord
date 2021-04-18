@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { AuditLog, AuditLogData, AuditLogEvent, Client, FetchQueue, Guild, GuildResolvable, RawAuditLogData, UserResolvable } from "../../../internal";
+import { AuditLog, AuditLogEvent, Client, FetchQueue, Guild, GuildResolvable, RawAuditLogData, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface GetGuildAuditLogData {
@@ -9,7 +9,7 @@ export interface GetGuildAuditLogData {
     limit?: number;
 }
 
-export default async function getGuildAuditLog(client: Client, guildResolvable: GuildResolvable, getGuildAuditLogData: GetGuildAuditLogData = {}): Promise<AuditLogData> {
+export default async function getGuildAuditLog(client: Client, guildResolvable: GuildResolvable, getGuildAuditLogData: GetGuildAuditLogData = {}): Promise<AuditLog> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -37,9 +37,9 @@ export default async function getGuildAuditLog(client: Client, guildResolvable: 
         method
     });
 
-    // Parse audit log data
-    const auditLogData: AuditLogData = AuditLog._fromRawData(result, guildID);
+    // Parse audit log
+    const auditLog: AuditLog = AuditLog._fromRawData(client, result, guildID);
 
     // Return
-    return auditLogData;
+    return auditLog;
 }

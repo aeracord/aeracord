@@ -1,7 +1,7 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, InviteData, InviteResolvable, RawInviteData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, InviteResolvable, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function deleteInvite(client: Client, channelResolvable: ChannelResolvable, inviteResolvable: InviteResolvable, reason?: string): Promise<InviteData> {
+export default async function deleteInvite(client: Client, channelResolvable: ChannelResolvable, inviteResolvable: InviteResolvable, reason?: string): Promise<Invite> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -27,9 +27,9 @@ export default async function deleteInvite(client: Client, channelResolvable: Ch
         auditLogReason: reason
     });
 
-    // Parse invite data
-    const inviteData: InviteData = Invite._fromRawData(client, result);
+    // Parse invite
+    const invite: Invite = Invite._fromRawData(client, result);
 
     // Return
-    return inviteData;
+    return invite;
 }

@@ -1,14 +1,14 @@
-import { Client, Invite, InviteData, RawInviteData, User } from "../../internal";
+import { InviteData, RawInviteData, User } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawInviteData): InviteData {
+export default function dataFromRawData(rawData: RawInviteData): InviteData {
 
     // Parse invite data
-    const inviteData: InviteData = {
+    return {
         code: rawData.code,
         channelID: rawData.channel.id,
         guildID: rawData.guild.id,
         createdAt: rawData.created_at ? new Date(rawData.created_at).getTime() : undefined,
-        inviter: rawData.inviter ? User._fromRawData(client, rawData.inviter) : null,
+        inviter: rawData.inviter ? User._dataFromRawData(rawData.inviter) : null,
         maxAge: rawData.max_age,
         maxUses: rawData.max_uses,
         temporary: rawData.temporary,
@@ -21,11 +21,4 @@ export default function fromRawData(client: Client, rawData: RawInviteData): Inv
         } : null,
         targetUserType: rawData.target_user_type || null
     };
-
-    // Create invite or update object
-    if (client._invites.cacheAll) Invite.fromData(client, inviteData);
-    else Invite._updateObjectFromData(client, inviteData);
-
-    // Return
-    return inviteData;
 }

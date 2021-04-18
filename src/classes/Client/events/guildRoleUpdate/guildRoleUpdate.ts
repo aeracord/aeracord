@@ -6,14 +6,13 @@ export default function guildRoleUpdate(client: Client, rawData: RawGuildRoleUpd
     const oldRole: Role | undefined = client.roles.get(rawData.role.id);
     const oldRoleData: RoleData | undefined = oldRole && Role.toData(oldRole);
 
-    // Parse role data
-    const roleData: RoleData = Role._fromRawData(client, rawData.role, rawData.guild_id);
+    // Parse role
+    const role: Role = Role._fromRawData(client, rawData.role, rawData.guild_id);
 
     // Emit event
-    client.emit("guildRoleUpdate", roleData, {
+    client.emit("guildRoleUpdate", role, {
         rawData,
-        role: client.roles.get(roleData.id),
-        guild: client.guilds.get(roleData.guildID),
+        guild: client.guilds.get(role.guildID),
         oldRoleData
     });
 }

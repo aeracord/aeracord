@@ -1,6 +1,6 @@
 import { BanData, Base, Client, RawBanData, UserData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
@@ -42,18 +42,34 @@ export default class Ban extends Base<Ban> {
         // Super
         super(client, {
             id: `${banData.guildID}_${banData.user.id}`,
-            cacheManager: client._bans._cacheManager
+            cacheManager: client._bans._cacheManager,
+            expiresFromCacheIn: client._bans.cacheAll ? (client._bans.cacheFor || null) : undefined
         });
 
         // Set data
         Ban._updateObject(this, banData);
 
         // Cache ban
-        this.client._bans.cache(this.guildID, this.user.id, this);
+        if (client._bans.cacheAll) this.client._bans.cache(this.guildID, this.user.id, this);
     }
 
     /**
      * From Raw Data
+     *
+     * Create a `Ban` object from a `RawBanData` object
+     *
+     * @param client The client
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this ban is in
+     *
+     * @returns {Ban} The ban
+     */
+    static _fromRawData(client: Client, rawData: RawBanData, guildID: string): Ban {
+        return Ban.fromData(client, Ban._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
      *
      * Create a `BanData` object from a `RawBanData` object
      *
@@ -62,8 +78,8 @@ export default class Ban extends Base<Ban> {
      *
      * @returns {BanData} The ban data
      */
-    static _fromRawData(client: Client, rawData: RawBanData, guildID: string): BanData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(rawData: RawBanData, guildID: string): BanData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

@@ -1,6 +1,6 @@
 import { Base, Client, CreateGuildBanData, MemberData, ModifyGuildMemberData, RawMemberData, RoleResolvable, UserData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
@@ -90,18 +90,34 @@ export default class Member extends Base<Member> {
         // Super
         super(client, {
             id: `${memberData.guildID}_${memberData.user.id}`,
-            cacheManager: client._members._cacheManager
+            cacheManager: client._members._cacheManager,
+            expiresFromCacheIn: client._members.cacheAll ? (client._members.cacheFor || null) : undefined
         });
 
         // Set data
         Member._updateObject(this, memberData);
 
         // Cache member
-        this.client._members.cache(this.guildID, this.user.id, this);
+        if (client._members.cacheAll) this.client._members.cache(this.guildID, this.user.id, this);
     }
 
     /**
      * From Raw Data
+     *
+     * Create a `MemberData` object from a `RawMemberData` object
+     *
+     * @param client The client
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this member is in
+     *
+     * @returns {Member} The member
+     */
+    static _fromRawData(client: Client, rawData: RawMemberData, guildID: string): Member {
+        return Member.fromData(client, Member._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
      *
      * Create a `MemberData` object from a `RawMemberData` object
      *
@@ -110,8 +126,8 @@ export default class Member extends Base<Member> {
      *
      * @returns {MemberData} The member data
      */
-    static _fromRawData(client: Client, rawData: RawMemberData, guildID: string): MemberData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(rawData: RawMemberData, guildID: string): MemberData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

@@ -1,4 +1,4 @@
-import { AllowedMentions, Client, Embed, FetchQueue, Interaction, InteractionResolvable, MessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, Embed, FetchQueue, Interaction, InteractionResolvable, Message, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateInteractionResponseData {
@@ -19,7 +19,7 @@ export interface InteractionResponseData {
     flags?: number;
 }
 
-export default async function createInteractionResponse(client: Client, interactionResolvable: InteractionResolvable, interactionToken: string, createInteractionResponseData: CreateInteractionResponseData): Promise<MessageData> {
+export default async function createInteractionResponse(client: Client, interactionResolvable: InteractionResolvable, interactionToken: string, createInteractionResponseData: CreateInteractionResponseData): Promise<Message> {
 
     // Resolve objects
     const interactionID: string | undefined = Interaction.resolveID(interactionResolvable);
@@ -38,7 +38,7 @@ export default async function createInteractionResponse(client: Client, interact
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Add to pending interaction response messages
-    const pendingMessage: Promise<MessageData> = new Promise((resolve) => client._pendingInteractionResponseMessages.set(interactionID, resolve));
+    const pendingMessage: Promise<Message> = new Promise((resolve) => client._pendingInteractionResponseMessages.set(interactionID, resolve));
 
     // Add to fetch queue
     await fetchQueue.request({
@@ -62,8 +62,8 @@ export default async function createInteractionResponse(client: Client, interact
     });
 
     // Await pending message
-    const messageData: MessageData = await pendingMessage;
+    const message: Message = await pendingMessage;
 
     // Return
-    return messageData;
+    return message;
 }

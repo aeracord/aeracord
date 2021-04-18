@@ -1,4 +1,4 @@
-import { UserData } from "../../../../internal";
+import { User } from "../../../../internal";
 
 export interface GuildBanAddData {
 
@@ -14,5 +14,5 @@ export interface GuildBanAddData {
      *
      * The user
      */
-    user: UserData;
+    user: User;
 }

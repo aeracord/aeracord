@@ -1,15 +1,14 @@
-import { Client, Member, MemberData, RawGuildMemberAddData } from "../../../../internal";
+import { Client, Member, RawGuildMemberAddData } from "../../../../internal";
 
 export default function guildMemberAdd(client: Client, rawData: RawGuildMemberAddData) {
 
-    // Parse member data
-    const memberData: MemberData = Member._fromRawData(client, rawData, rawData.guild_id);
+    // Parse member
+    const member: Member = Member._fromRawData(client, rawData, rawData.guild_id);
 
     // Emit event
-    client.emit("guildMemberAdd", memberData, {
+    client.emit("guildMemberAdd", member, {
         rawData,
-        member: client.members.get(memberData.guildID, memberData.user.id),
-        guild: client.guilds.get(memberData.guildID),
-        user: client.users.get(memberData.user.id)
+        guild: client.guilds.get(member.guildID),
+        user: client.users.get(member.user.id)
     });
 }

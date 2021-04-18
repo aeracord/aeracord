@@ -1,6 +1,6 @@
 import { Base, Client, DMChannelData, Member, MemberData, RawUserData, UserData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -75,18 +75,33 @@ export default class User extends Base<User> {
         // Super
         super(client, {
             id: userData.id,
-            cacheManager: client._users
+            cacheManager: client._users,
+            expiresFromCacheIn: client._users.cacheAll ? (client._users.cacheFor || null) : undefined
         });
 
         // Set data
         User._updateObject(this, userData);
 
         // Cache user
-        this.client._users.cache(this.id, this);
+        if (client._users.cacheAll) this.client._users.cache(this.id, this);
     }
 
     /**
      * From Raw Data
+     *
+     * Create a `User` object from a `RawUserData` object
+     *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {User} The user
+     */
+    static _fromRawData(client: Client, rawData: RawUserData): User {
+        return User.fromData(client, User._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
      *
      * Create a `UserData` object from a `RawUserData` object
      *
@@ -94,8 +109,8 @@ export default class User extends Base<User> {
      *
      * @returns {UserData} The user data
      */
-    static _fromRawData(client: Client, rawData: RawUserData): UserData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawUserData): UserData {
+        return dataFromRawData(rawData);
     }
 
     /**

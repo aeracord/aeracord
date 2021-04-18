@@ -1,7 +1,7 @@
-import { Client, Command, CommandData, EditCommandData, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, EditCommandData, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function bulkOverwriteGlobalCommands(client: Client, editCommandData: EditCommandData[]): Promise<CommandData[]> {
+export default async function bulkOverwriteGlobalCommands(client: Client, editCommandData: EditCommandData[]): Promise<Command[]> {
 
     // Define fetch data
     const path: string = `/applications/${client.id}/commands`;
@@ -19,7 +19,7 @@ export default async function bulkOverwriteGlobalCommands(client: Client, editCo
     });
 
     // Parse commands
-    const commands: CommandData[] = result.map((c: RawCommandData) => Command._fromRawData(client, c));
+    const commands: Command[] = result.map((c: RawCommandData) => Command._fromRawData(client, c));
 
     // Return
     return commands;

@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, RawUserData, Reaction, ReactionEmojiResolvable, User, UserData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, RawUserData, Reaction, ReactionEmojiResolvable, User } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface GetReactionsData {
@@ -8,7 +8,7 @@ export interface GetReactionsData {
     after?: string;
 }
 
-export default async function getReactions(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, reactionEmojiResolvable: ReactionEmojiResolvable, getReactionsData: GetReactionsData = {}): Promise<UserData[]> {
+export default async function getReactions(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, reactionEmojiResolvable: ReactionEmojiResolvable, getReactionsData: GetReactionsData = {}): Promise<User[]> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -40,7 +40,7 @@ export default async function getReactions(client: Client, channelResolvable: Ch
     });
 
     // Parse users
-    const users: UserData[] = result.map((u: RawUserData) => User._fromRawData(client, u));
+    const users: User[] = result.map((u: RawUserData) => User._fromRawData(client, u));
 
     // Return
     return users;

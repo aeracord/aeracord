@@ -59,14 +59,12 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
 
         // Emit event
         client.emit("guildAvailable", data, {
-            rawData,
-            guild: client.guilds.get(data.guild.id)
+            rawData
         });
     }
 
     // Emit event
     else client.emit("guildCreate", data, {
-        rawData,
-        guild: client.guilds.get(data.guild.id)
+        rawData
     });
 }

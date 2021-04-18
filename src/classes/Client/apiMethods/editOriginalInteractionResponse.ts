@@ -1,4 +1,4 @@
-import { AllowedMentions, Client, Embed, FetchQueue, Message, MessageData, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditInteractionResponseData {
@@ -7,7 +7,7 @@ export interface EditInteractionResponseData {
     allowedMentions?: AllowedMentions;
 }
 
-export default async function editOriginalInteractionResponse(client: Client, interactionToken: string, editInteractionResponseData: EditInteractionResponseData): Promise<MessageData> {
+export default async function editOriginalInteractionResponse(client: Client, interactionToken: string, editInteractionResponseData: EditInteractionResponseData): Promise<Message> {
 
     // Resolve objects
     const allowedMentionsUsers: Array<string | undefined> | undefined = editInteractionResponseData.allowedMentions?.users?.map((u: UserResolvable) => User.resolveID(u));
@@ -39,9 +39,9 @@ export default async function editOriginalInteractionResponse(client: Client, in
         }
     });
 
-    // Parse message data
-    const messageData: MessageData = Message._fromRawData(client, result);
+    // Parse message
+    const message: Message = Message._fromRawData(client, result);
 
     // Return
-    return messageData;
+    return message;
 }

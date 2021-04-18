@@ -1,6 +1,6 @@
 import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheManagerInterface, CategoryChannel, Channel, Client, Command, CommandData, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheManagerInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -361,7 +361,8 @@ export default class Guild extends Base<Guild> {
         // Super
         super(client, {
             id: guildData.id,
-            cacheManager: client._guilds
+            cacheManager: client._guilds,
+            expiresFromCacheIn: client._guilds.cacheAll ? (client._guilds.cacheFor || null) : undefined
         });
 
         // Set data
@@ -436,7 +437,7 @@ export default class Guild extends Base<Guild> {
         });
 
         // Cache guild
-        this.client._guilds.cache(this.id, this);
+        if (client._guilds.cacheAll) this.client._guilds.cache(this.id, this);
     }
 
     /**
@@ -444,12 +445,27 @@ export default class Guild extends Base<Guild> {
      *
      * Create a `GuildData` object from a `RawGuildData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {Guild} The guild
+     */
+    static _fromRawData(client: Client, rawData: RawGuildData): Guild {
+        return Guild.fromData(client, Guild._dataFromRawData(client, rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `GuildData` object from a `RawGuildData` object
+     *
+     * @param client The client
      * @param rawData The raw data from the API
      *
      * @returns {GuildData} The guild data
      */
-    static _fromRawData(client: Client, rawData: RawGuildData): GuildData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(client: Client, rawData: RawGuildData): GuildData {
+        return dataFromRawData(client, rawData);
     }
 
     /**

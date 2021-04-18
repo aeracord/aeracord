@@ -219,6 +219,6 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      * Garbage collect the cached objects
      */
     garbageCollect() {
-        this.filter((value: CachedObject) => !value.expiresFromCacheAt || (value.expiresFromCacheAt > Date.now()), true);
+        this.filter((value: CachedObject) => value.expiresFromCacheAt === null || ((typeof value.expiresFromCacheAt === "number") && (value.expiresFromCacheAt > Date.now())), true);
     }
 }

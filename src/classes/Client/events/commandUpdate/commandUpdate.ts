@@ -7,12 +7,11 @@ export default function commandUpdate(client: Client, rawData: RawCommandUpdateD
     const oldCommandData: CommandData | undefined = oldCommand && Command.toData(oldCommand);
 
     // Parse command data
-    const commandData: CommandData = Command._fromRawData(client, rawData, rawData.guild_id);
+    const command: Command = Command._fromRawData(client, rawData, rawData.guild_id);
 
     // Emit event
-    client.emit("commandUpdate", commandData, {
+    client.emit("commandUpdate", command, {
         rawData,
-        command: client.commands.get(commandData.id),
         oldCommandData
     });
 }

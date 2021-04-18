@@ -3,7 +3,7 @@ import { Client, RawWebhooksUpdateData, Webhook, WebhooksUpdateData, WebhookData
 export default async function webhooksUpdate(client: Client, rawData: RawWebhooksUpdateData) {
 
     // Get webhooks
-    const webhooks: WebhookData[] = await client.getChannelWebhooks(rawData.channel_id);
+    const webhooks: Webhook[] = await client.getChannelWebhooks(rawData.channel_id);
 
     // Parse data
     const data: WebhooksUpdateData = {
@@ -13,7 +13,7 @@ export default async function webhooksUpdate(client: Client, rawData: RawWebhook
     };
 
     // Get webhook IDs
-    const webhookIDs: string[] = data.webhooks.map((w: WebhookData) => w.id);
+    const webhookIDs: string[] = data.webhooks.map((w: Webhook) => w.id);
 
     // Mark as deleted
     const deletedWebhooks: Webhook[] = [...client.webhooks.filter((w: Webhook) => w.guildID === data.guildID && !webhookIDs.includes(w.id)).values()];
@@ -22,7 +22,7 @@ export default async function webhooksUpdate(client: Client, rawData: RawWebhook
     // Emit event
     client.emit("webhooksUpdate", data, {
         rawData,
-        channel: client.channels.get(data.channelID),
-        guild: client.guilds.get(data.guildID)
+        guild: client.guilds.get(data.guildID),
+        channel: client.channels.get(data.channelID)
     });
 }

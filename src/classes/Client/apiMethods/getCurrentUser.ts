@@ -1,7 +1,7 @@
-import { Client, FetchQueue, RawUserData, User, UserData } from "../../../internal";
+import { Client, FetchQueue, RawUserData, User } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getCurrentUser(client: Client): Promise<UserData> {
+export default async function getCurrentUser(client: Client): Promise<User> {
 
     // Define fetch data
     const path: string = "/users/@me";
@@ -17,9 +17,9 @@ export default async function getCurrentUser(client: Client): Promise<UserData> 
         method
     });
 
-    // Parse user data
-    const userData: UserData = User._fromRawData(client, result);
+    // Parse user
+    const user: User = User._fromRawData(client, result);
 
     // Return
-    return userData;
+    return user;
 }

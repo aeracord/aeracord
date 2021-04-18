@@ -1,9 +1,9 @@
 import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, MessageData, MessageResolvable, RawInteractionData, UserData } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
+import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
 import editOriginalResponse from "./editOriginalResponse";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import respond from "./respond";
 import toData from "./toData";
@@ -110,14 +110,15 @@ export default class Interaction extends Base<Interaction> {
         // Super
         super(client, {
             id: interactionData.id,
-            cacheManager: client._interactions
+            cacheManager: client._interactions,
+            expiresFromCacheIn: client._interactions.cacheAll ? (client._interactions.cacheFor || null) : undefined
         });
 
         // Set data
         Interaction._updateObject(this, interactionData);
 
         // Cache interaction
-        this.client._interactions.cache(this.id, this);
+        if (client._interactions.cacheAll) this.client._interactions.cache(this.id, this);
     }
 
     /**
@@ -125,12 +126,26 @@ export default class Interaction extends Base<Interaction> {
      *
      * Create an `InteractionData` object from a `RawInteractionData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {Interaction} The interaction
+     */
+    static _fromRawData(client: Client, rawData: RawInteractionData): Interaction {
+        return Interaction.fromData(client, Interaction._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create an `InteractionData` object from a `RawInteractionData` object
+     *
      * @param rawData The raw data from the API
      *
      * @returns {InteractionData} The interaction data
      */
-    static _fromRawData(client: Client, rawData: RawInteractionData): InteractionData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawInteractionData): InteractionData {
+        return dataFromRawData(rawData);
     }
 
     /**

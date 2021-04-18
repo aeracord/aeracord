@@ -1,7 +1,7 @@
-import { Client, Command, CommandData, CommandResolvable, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
+import { Client, Command, CommandResolvable, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGuildCommand(client: Client, guildResolvable: GuildResolvable, commandResolvable: CommandResolvable): Promise<CommandData> {
+export default async function getGuildCommand(client: Client, guildResolvable: GuildResolvable, commandResolvable: CommandResolvable): Promise<Command> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -23,9 +23,9 @@ export default async function getGuildCommand(client: Client, guildResolvable: G
         method
     });
 
-    // Parse command data
-    const commandData: CommandData = Command._fromRawData(client, result, guildID);
+    // Parse command
+    const command: Command = Command._fromRawData(client, result, guildID);
 
     // Return
-    return commandData;
+    return command;
 }

@@ -6,23 +6,22 @@ export default function guildUpdate(client: Client, rawData: RawGuildData) {
     const oldGuild: Guild | undefined = client.guilds.get(rawData.id);
     const oldGuildData: GuildData | undefined = oldGuild && Guild.toData(oldGuild);
 
-    // Parse guild data
-    const guildData: GuildData = Guild._fromRawData(client, rawData);
+    // Parse guild
+    const guild: Guild = Guild._fromRawData(client, rawData);
 
     // Mark welcome screen as deleted
-    if (!guildData.welcomeScreen) {
+    if (!guild.welcomeScreen) {
 
         // Get welcome screen
-        const welcomeScreen: WelcomeScreen | undefined = client.welcomeScreens.get(guildData.id);
+        const welcomeScreen: WelcomeScreen | undefined = client.welcomeScreens.get(guild.id);
 
         // Mark as deleted
         if (welcomeScreen) welcomeScreen._markAsDeleted();
     }
 
     // Emit event
-    client.emit("guildUpdate", guildData, {
+    client.emit("guildUpdate", guild, {
         rawData,
-        guild: client.guilds.get(guildData.id),
         oldGuildData
     });
 }

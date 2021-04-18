@@ -36,7 +36,6 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
         rawData,
         member,
         guild: client.guilds.get(data.guildID),
-        user: client.users.get(data.user.id),
         oldMemberData
     });
 }

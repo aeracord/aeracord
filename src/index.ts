@@ -118,30 +118,31 @@ export {
 
 // Client: Event Options
 export {
+    EventOptions,
     BanEventOptions,
     ChannelEventOptions,
+    ChannelPinsUpdateEventOptions,
     ChannelUpdateEventOptions,
-    CommandEventOptions,
     CommandUpdateEventOptions,
-    EventOptions,
-    GuildEmojisUpdateEventOptions,
     GuildEventOptions,
+    GuildEmojisUpdateEventOptions,
+    GuildMemberAddEventOptions,
+    GuildMemberRemoveEventOptions,
+    GuildMemberUpdateEventOptions,
+    GuildRoleDeleteEventOptions,
+    GuildRoleUpdateEventOptions,
     GuildUpdateEventOptions,
-    InteractionEventOptions,
-    InviteEventOptions,
-    MemberEventOptions,
-    MemberUpdateEventOptions,
-    MessageEventOptions,
+    InviteDeleteEventOptions,
+    MessageDeleteEventOptions,
     MessageDeleteBulkEventOptions,
     MessageUpdateEventOptions,
     PresenceUpdateEventOptions,
     ReactionEventOptions,
-    RoleEventOptions,
-    RoleUpdateEventOptions,
+    ReactionBulkRemoveEventOptions,
+    TextBasedChannelEventOptions,
     TypingStartEventOptions,
     UserUpdateEventOptions,
-    VoiceStateEventOptions,
-    WebhooksUpdateEventOptions
+    VoiceStateUpdateEventOptions
 } from "./internal";
 
 // Client: Events

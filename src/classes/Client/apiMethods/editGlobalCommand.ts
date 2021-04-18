@@ -1,4 +1,4 @@
-import { Client, Command, CommandData, CommandOption, CommandResolvable, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, CommandOption, CommandResolvable, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditCommandData {
@@ -7,7 +7,7 @@ export interface EditCommandData {
     options?: CommandOption[] | null;
 }
 
-export default async function editGlobalCommand(client: Client, commandResolvable: CommandResolvable, editCommandData: EditCommandData): Promise<CommandData> {
+export default async function editGlobalCommand(client: Client, commandResolvable: CommandResolvable, editCommandData: EditCommandData): Promise<Command> {
 
     // Resolve objects
     const commandID: string | undefined = Command.resolveID(commandResolvable);
@@ -32,9 +32,9 @@ export default async function editGlobalCommand(client: Client, commandResolvabl
         }
     });
 
-    // Parse command data
-    const commandData: CommandData = Command._fromRawData(client, result);
+    // Parse command
+    const command: Command = Command._fromRawData(client, result);
 
     // Return
-    return commandData;
+    return command;
 }

@@ -1,6 +1,6 @@
 import { Base, Client, ModifyGuildWelcomeScreenData, RawWelcomeScreenData, WelcomeScreenChannel, WelcomeScreenData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
@@ -44,14 +44,15 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
         // Super
         super(client, {
             id: welcomeScreenData.guildID,
-            cacheManager: client._welcomeScreens
+            cacheManager: client._welcomeScreens,
+            expiresFromCacheIn: client._welcomeScreens.cacheAll ? (client._welcomeScreens.cacheFor || null) : undefined
         });
 
         // Set data
         WelcomeScreen._updateObject(this, welcomeScreenData);
 
         // Cache welcome screen
-        this.client._welcomeScreens.cache(this.id, this);
+        if (client._welcomeScreens.cacheAll) this.client._welcomeScreens.cache(this.id, this);
     }
 
     /**
@@ -59,13 +60,28 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      *
      * Create a `WelcomeScreenData` object from a `RawWelcomeScreenData` object
      *
+     * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this welcome screen is for
      *
+     * @returns {WelcomeScreen} The welcome screen
+     */
+    static _fromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreen {
+        return WelcomeScreen.fromData(client, WelcomeScreen._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `WelcomeScreenData` object from a `RawWelcomeScreenData` object
+     *
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this welcome screen is in
+     *
      * @returns {WelcomeScreenData} The welcome screen data
      */
-    static _fromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

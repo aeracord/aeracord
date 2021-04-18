@@ -1,7 +1,7 @@
-import { Client, Command, CommandData, EditCommandData, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
+import { Client, Command, EditCommandData, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function bulkOverwriteGuildCommands(client: Client, guildResolvable: GuildResolvable, editCommandData: EditCommandData[]): Promise<CommandData[]> {
+export default async function bulkOverwriteGuildCommands(client: Client, guildResolvable: GuildResolvable, editCommandData: EditCommandData[]): Promise<Command[]> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -23,7 +23,7 @@ export default async function bulkOverwriteGuildCommands(client: Client, guildRe
     });
 
     // Parse commands
-    const commands: CommandData[] = result.map((c: RawCommandData) => Command._fromRawData(client, c, guildID));
+    const commands: Command[] = result.map((c: RawCommandData) => Command._fromRawData(client, c, guildID));
 
     // Return
     return commands;

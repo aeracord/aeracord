@@ -1,6 +1,6 @@
 import { Base, Client, CommandData, CommandOption, EditCommandData, RawCommandData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -74,14 +74,15 @@ export default class Command extends Base<Command> {
         // Super
         super(client, {
             id: commandData.id,
-            cacheManager: client._commands
+            cacheManager: client._commands,
+            expiresFromCacheIn: client._commands.cacheAll ? (client._commands.cacheFor || null) : undefined
         });
 
         // Set data
         Command._updateObject(this, commandData);
 
         // Cache command
-        this.client._commands.cache(this.id, this);
+        if (client._commands.cacheAll) this.client._commands.cache(this.id, this);
     }
 
     /**
@@ -89,13 +90,28 @@ export default class Command extends Base<Command> {
      *
      * Create an `CommandData` object from a `RawCommandData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this command is in
+     *
+     * @returns {Command} The command
+     */
+    static _fromRawData(client: Client, rawData: RawCommandData, guildID?: string): Command {
+        return Command.fromData(client, Command._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `CommandData` object from a `RawCommandData` object
+     *
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this command is in
      *
      * @returns {CommandData} The command data
      */
-    static _fromRawData(client: Client, rawData: RawCommandData, guildID?: string): CommandData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(rawData: RawCommandData, guildID?: string): CommandData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

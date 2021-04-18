@@ -1,6 +1,6 @@
 import { Client, EmbedAuthor, EmbedData, EmbedField, EmbedFooter, EmbedImage, EmbedProvider, EmbedThumbnail, EmbedType, EmbedVideo, RawEmbedData, RawEmbedMetadata } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 import toJSON from "./toJSON";
 
@@ -171,13 +171,28 @@ export default class Embed {
      *
      * Create an `EmbedData` object from a `RawEmbedData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     * @param metadata Metadata about the object
+     *
+     * @returns {Embed} The embed
+     */
+    static _fromRawData(client: Client, rawData: RawEmbedData, metadata: RawEmbedMetadata): Embed {
+        return Embed.fromData(client, Embed._dataFromRawData(rawData, metadata));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create an `EmbedData` object from a `RawEmbedData` object
+     *
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
      *
      * @returns {EmbedData} The embed data
      */
-    static _fromRawData(rawData: RawEmbedData, metadata: RawEmbedMetadata): EmbedData {
-        return fromRawData(rawData, metadata);
+    static _dataFromRawData(rawData: RawEmbedData, metadata: RawEmbedMetadata): EmbedData {
+        return dataFromRawData(rawData, metadata);
     }
 
     /**

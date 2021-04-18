@@ -1,7 +1,7 @@
-import { Client, Emoji, EmojiData, EmojiResolvable, FetchQueue, Guild, GuildResolvable, RawEmojiData } from "../../../internal";
+import { Client, Emoji, EmojiResolvable, FetchQueue, Guild, GuildResolvable, RawEmojiData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable): Promise<EmojiData> {
+export default async function getGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable): Promise<Emoji> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -23,9 +23,9 @@ export default async function getGuildEmoji(client: Client, guildResolvable: Gui
         method
     });
 
-    // Parse emoji data
-    const emojiData: EmojiData = Emoji._fromRawData(client, result, guildID);
+    // Parse emoji
+    const emoji: Emoji = Emoji._fromRawData(client, result, guildID);
 
     // Return
-    return emojiData;
+    return emoji;
 }

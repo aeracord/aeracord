@@ -1,4 +1,4 @@
-import { WebhookData } from "../../../../internal";
+import { Webhook } from "../../../../internal";
 
 export interface WebhooksUpdateData {
 
@@ -21,5 +21,5 @@ export interface WebhooksUpdateData {
      *
      * The webhooks
      */
-    webhooks: WebhookData[];
+    webhooks: Webhook[];
 }

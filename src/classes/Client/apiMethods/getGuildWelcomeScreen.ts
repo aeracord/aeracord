@@ -1,7 +1,7 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawWelcomeScreenData, WelcomeScreen, WelcomeScreenData } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, RawWelcomeScreenData, WelcomeScreen } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGuildWelcomeScreen(client: Client, guildResolvable: GuildResolvable): Promise<WelcomeScreenData | undefined> {
+export default async function getGuildWelcomeScreen(client: Client, guildResolvable: GuildResolvable): Promise<WelcomeScreen | undefined> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -21,9 +21,9 @@ export default async function getGuildWelcomeScreen(client: Client, guildResolva
         method
     });
 
-    // Parse welcome screen data
-    const welcomeScreenData: WelcomeScreenData | undefined = result && WelcomeScreen._fromRawData(client, result, guildID);
+    // Parse welcome screen
+    const welcomeScreen: WelcomeScreen | undefined = result && WelcomeScreen._fromRawData(client, result, guildID);
 
     // Return
-    return welcomeScreenData;
+    return welcomeScreen;
 }

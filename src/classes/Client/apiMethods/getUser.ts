@@ -1,7 +1,7 @@
-import { Client, FetchQueue, RawUserData, User, UserData, UserResolvable } from "../../../internal";
+import { Client, FetchQueue, RawUserData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getUser(client: Client, userResolvable: UserResolvable): Promise<UserData> {
+export default async function getUser(client: Client, userResolvable: UserResolvable): Promise<User> {
 
     // Resolve objects
     const userID: string | undefined = User.resolveID(userResolvable);
@@ -21,9 +21,9 @@ export default async function getUser(client: Client, userResolvable: UserResolv
         method
     });
 
-    // Parse user data
-    const userData: UserData = User._fromRawData(client, result);
+    // Parse user
+    const user: User = User._fromRawData(client, result);
 
     // Return
-    return userData;
+    return user;
 }

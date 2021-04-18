@@ -1,6 +1,6 @@
 import { Base, Client, RawVanityInviteData, VanityInviteData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
@@ -44,14 +44,15 @@ export default class VanityInvite extends Base<VanityInvite> {
         // Super
         super(client, {
             id: vanityInviteData.guildID,
-            cacheManager: client._vanityInvites
+            cacheManager: client._vanityInvites,
+            expiresFromCacheIn: client._vanityInvites.cacheAll ? (client._vanityInvites.cacheFor || null) : undefined
         });
 
         // Set data
         VanityInvite._updateObject(this, vanityInviteData);
 
         // Cache vanity invite
-        this.client._vanityInvites.cache(this.id, this);
+        if (client._vanityInvites.cacheAll) this.client._vanityInvites.cache(this.id, this);
     }
 
     /**
@@ -59,13 +60,28 @@ export default class VanityInvite extends Base<VanityInvite> {
      *
      * Create a `VanityInviteData` object from a `RawVanityInviteData` object
      *
+     * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this vanity invite is for
      *
+     * @returns {VanityInvite} The vanity invite
+     */
+    static _fromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInvite {
+        return VanityInvite.fromData(client, VanityInvite._dataFromRawData(rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `VanityInviteData` object from a `RawVanityInviteData` object
+     *
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this vanity invite is in
+     *
      * @returns {VanityInviteData} The vanity invite data
      */
-    static _fromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInviteData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(rawData: RawVanityInviteData, guildID: string): VanityInviteData {
+        return dataFromRawData(rawData, guildID);
     }
 
     /**

@@ -1,6 +1,6 @@
 import { RawStickerData, StickerData } from "../../internal";
 
-export default function fromRawData(rawData: RawStickerData): StickerData {
+export default function dataFromRawData(rawData: RawStickerData): StickerData {
 
     // Parse sticker data
     return {

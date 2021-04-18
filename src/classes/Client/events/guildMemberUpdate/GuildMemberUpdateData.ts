@@ -1,4 +1,4 @@
-import { UserData } from "../../../../internal";
+import { User } from "../../../../internal";
 
 export interface GuildMemberUpdateData {
 
@@ -49,5 +49,5 @@ export interface GuildMemberUpdateData {
      *
      * The member's user object
      */
-    user: UserData;
+    user: User;
 }

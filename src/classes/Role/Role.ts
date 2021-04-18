@@ -1,6 +1,6 @@
 import { Base, Client, ModifyGuildRoleData, Permissions, RawRoleData, RoleData, RoleTags, UserResolvable } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -103,14 +103,15 @@ export default class Role extends Base<Role> {
         // Super
         super(client, {
             id: roleData.id,
-            cacheManager: client._roles
+            cacheManager: client._roles,
+            expiresFromCacheIn: client._roles.cacheAll ? (client._roles.cacheFor || null) : undefined
         });
 
         // Set data
         Role._updateObject(this, roleData);
 
         // Cache role
-        this.client._roles.cache(this.id, this);
+        if (client._roles.cacheAll) this.client._roles.cache(this.id, this);
     }
 
     /**
@@ -118,13 +119,29 @@ export default class Role extends Base<Role> {
      *
      * Create a `RoleData` object from a `RawRoleData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     * @param guildID The ID of the guild this role is in
+     *
+     * @returns {Role} The role
+     */
+    static _fromRawData(client: Client, rawData: RawRoleData, guildID: string): Role {
+        return Role.fromData(client, Role._dataFromRawData(client, rawData, guildID));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `RoleData` object from a `RawRoleData` object
+     *
+     * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this role is in
      *
      * @returns {RoleData} The role data
      */
-    static _fromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
-        return fromRawData(client, rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**

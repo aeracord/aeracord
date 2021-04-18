@@ -1,7 +1,7 @@
 import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, EmbedData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, StickerData, UserData, UserResolvable } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -228,14 +228,15 @@ export default class Message extends Base<Message> {
         // Super
         super(client, {
             id: messageData.id,
-            cacheManager: client._messages
+            cacheManager: client._messages,
+            expiresFromCacheIn: client._messages.cacheAll ? (client._messages.cacheFor || null) : undefined
         });
 
         // Set data
         Message._updateObject(this, messageData);
 
         // Cache message
-        this.client._messages.cache(this.id, this);
+        if (client._messages.cacheAll) this.client._messages.cache(this.id, this);
     }
 
     /**
@@ -243,12 +244,26 @@ export default class Message extends Base<Message> {
      *
      * Create a `MessageData` object from a `RawMessageData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {Message} The message
+     */
+    static _fromRawData(client: Client, rawData: RawMessageData): Message {
+        return Message.fromData(client, Message._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `MessageData` object from a `RawMessageData` object
+     *
      * @param rawData The raw data from the API
      *
      * @returns {MessageData} The message data
      */
-    static _fromRawData(client: Client, rawData: RawMessageData): MessageData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawMessageData): MessageData {
+        return dataFromRawData(rawData);
     }
 
     /**

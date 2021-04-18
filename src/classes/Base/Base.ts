@@ -31,13 +31,13 @@ export interface BaseData<ObjectType extends Base<ObjectType>> {
     cacheManager: CacheManager<ObjectType>;
 
     /**
-     * Expires From Cache At
+     * Expires From Cache In
      *
-     * The timestamp for when this object can be garbage collected
+     * The amount of time for when this object can be garbage collected
      * `null` if it should never expire from cache
-     * `undefined` if it should be based on `cacheManager.cacheFor`
+     * `undefined` if the object isnt cached
      */
-    expiresFromCacheAt?: number | null;
+    expiresFromCacheIn?: number | null;
 }
 
 export default class Base<ObjectType extends Base<ObjectType>> {
@@ -74,9 +74,10 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * Expires From Cache At
      *
      * The timestamp for when this object can be garbage collected
-     * `undefined` if it should never expire from cache
+     * `null` if it should never expire from cache
+     * `undefined` if the object isnt cached
      */
-    expiresFromCacheAt?: number;
+    expiresFromCacheAt?: number | null;
 
     /**
      * Base
@@ -85,7 +86,7 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * @param baseData Options to initialize this base with
      * @param baseData.id The ID of the object
      * @param baseData.cacheManager The cache manager for the object that extends this `Base`
-     * @param baseData.expiresFromCacheAt The timestamp for when this object can be garbage collected
+     * @param baseData.expiresFromCacheIn The amount of time for when this object can be garbage collected
      */
     constructor(client: Client, baseData: BaseData<ObjectType>) {
 
@@ -94,8 +95,8 @@ export default class Base<ObjectType extends Base<ObjectType>> {
         this.id = baseData.id;
         this.deleted = Boolean(baseData.deleted);
         this._cacheManager = baseData.cacheManager;
-        if (typeof baseData.expiresFromCacheAt === "number") this.expiresFromCacheAt = baseData.expiresFromCacheAt;
-        else if (baseData.expiresFromCacheAt === undefined) this.expireFromCacheIn(this._cacheManager.cacheFor);
+        if (baseData.expiresFromCacheIn === null) this.expiresFromCacheAt = null;
+        else this.expireFromCacheIn(baseData.expiresFromCacheIn);
     }
 
     /**

@@ -1,6 +1,6 @@
 import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -38,14 +38,15 @@ export default class Channel extends Base<AnyChannel> {
         // Super
         super(client, {
             id: channelData.id,
-            cacheManager: client._channels
+            cacheManager: client._channels,
+            expiresFromCacheIn: client._channels.cacheAll ? (client._channels.cacheFor || null) : undefined
         });
 
         // Set data
         Channel._updateObject(this, channelData);
 
         // Cache channel
-        this.client._channels.cache(this.id, this);
+        if (client._channels.cacheAll) this.client._channels.cache(this.id, this);
     }
 
     /**
@@ -53,12 +54,27 @@ export default class Channel extends Base<AnyChannel> {
      *
      * Create a `ChannelData` object from a `RawChannelData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {AnyChannel} The channel
+     */
+    static _fromRawData(client: Client, rawData: RawChannelData): AnyChannel {
+        return Channel.fromData(client, Channel._dataFromRawData(client, rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `ChannelData` object from a `RawChannelData` object
+     *
+     * @param client The client
      * @param rawData The raw data from the API
      *
      * @returns {AnyChannelData} The channel data
      */
-    static _fromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
+        return dataFromRawData(client, rawData);
     }
 
     /**

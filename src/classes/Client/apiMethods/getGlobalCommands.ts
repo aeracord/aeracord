@@ -1,7 +1,7 @@
-import { Client, Command, CommandData, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGlobalCommands(client: Client): Promise<CommandData[]> {
+export default async function getGlobalCommands(client: Client): Promise<Command[]> {
 
     // Define fetch data
     const path: string = `/applications/${client.id}/commands`;
@@ -18,7 +18,7 @@ export default async function getGlobalCommands(client: Client): Promise<Command
     });
 
     // Parse commands
-    const commands: CommandData[] = result.map((c: RawCommandData) => Command._fromRawData(client, c));
+    const commands: Command[] = result.map((c: RawCommandData) => Command._fromRawData(client, c));
 
     // Return
     return commands;

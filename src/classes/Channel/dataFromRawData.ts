@@ -1,11 +1,11 @@
-import { AnyChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, PermissionOverwrite, RawChannelData, RawChannelDataPermissionOverwrite, RawUserData } from "../../internal";
+import { AnyChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawUserData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
+export default function dataFromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
-    // Get channel from cache
+    // Define channel data
     let channelData: AnyChannelData;
 
-    // Text channel
+    // Parse text channel data
     if (rawData.type === CHANNEL_TYPE_TEXT) channelData = {
         id: rawData.id,
         type: rawData.type,
@@ -26,7 +26,7 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null
     };
 
-    // DM channel
+    // Parse DM channel data
     else if (rawData.type === CHANNEL_TYPE_DM) channelData = {
         id: rawData.id,
         type: rawData.type,
@@ -35,7 +35,7 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         recipient: (rawData.recipients as RawUserData[])[0].id
     };
 
-    // Voice channel
+    // Parse voice channel data
     else if (rawData.type === CHANNEL_TYPE_VOICE) channelData = {
         id: rawData.id,
         type: rawData.type,
@@ -53,7 +53,7 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         userLimit: rawData.user_limit
     };
 
-    // Category channel
+    // Parse category channel data
     else if (rawData.type === CHANNEL_TYPE_CATEGORY) channelData = {
         id: rawData.id,
         type: rawData.type,
@@ -69,7 +69,7 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         parentID: rawData.parent_id
     };
 
-    // News channel
+    // Parse news channel data
     else if (rawData.type === CHANNEL_TYPE_NEWS) channelData = {
         id: rawData.id,
         type: rawData.type,
@@ -90,7 +90,7 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
         lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null
     };
 
-    // Store channel
+    // Parse store channel data
     else if (rawData.type === CHANNEL_TYPE_STORE) channelData = {
         id: rawData.id,
         type: rawData.type,
@@ -109,9 +109,11 @@ export default function fromRawData(client: Client, rawData: RawChannelData): An
     // Unknown channel type
     else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
 
-    // Create channel or update object
-    if (client._channels.cacheAll) Channel.fromData(client, channelData);
-    else Channel._updateObjectFromData(client, channelData);
+    // Set channel permissions
+    if ((client._channelPermissions) && ("guildID" in channelData)) client._channelPermissions.set(channelData.id, {
+        guildID: channelData.guildID,
+        permissionOverwrites: channelData.permissionOverwrites
+    });
 
     // Return
     return channelData;

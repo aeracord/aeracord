@@ -1,6 +1,6 @@
-import { Client, Permissions, RawRoleData, Role, RoleData } from "../../internal";
+import { Client, Permissions, RawRoleData, RoleData } from "../../internal";
 
-export default function fromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
+export default function dataFromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
 
     // Parse role data
     const roleData: RoleData = {
@@ -23,9 +23,11 @@ export default function fromRawData(client: Client, rawData: RawRoleData, guildI
         }
     };
 
-    // Create role or update object
-    if (client._roles.cacheAll) Role.fromData(client, roleData);
-    else Role._updateObjectFromData(client, roleData);
+    // Set role permissions
+    if (client._rolePermissions) client._rolePermissions.set(roleData.id, {
+        position: roleData.position,
+        permissions: roleData.permissions
+    });
 
     // Return
     return roleData;

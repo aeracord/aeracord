@@ -1,6 +1,6 @@
 import { Activity, Base, Client, PresenceClientStatus, PresenceData, PresenceUser, RawPresenceData, Status } from "../../internal";
+import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
-import fromRawData from "./fromRawData";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
@@ -50,14 +50,15 @@ export default class Presence extends Base<Presence> {
         // Super
         super(client, {
             id: presenceData.user.id,
-            cacheManager: client._presences
+            cacheManager: client._presences,
+            expiresFromCacheIn: client._presences.cacheAll ? (client._presences.cacheFor || null) : undefined
         });
 
         // Set data
         Presence._updateObject(this, presenceData);
 
         // Cache presence
-        this.client._presences.cache(this.id, this);
+        if (client._presences.cacheAll) this.client._presences.cache(this.id, this);
     }
 
     /**
@@ -65,12 +66,26 @@ export default class Presence extends Base<Presence> {
      *
      * Create a `PresenceData` object from a `RawPresenceData` object
      *
+     * @param client The client
+     * @param rawData The raw data from the API
+     *
+     * @returns {Presence} The presence
+     */
+    static _fromRawData(client: Client, rawData: RawPresenceData): Presence {
+        return Presence.fromData(client, Presence._dataFromRawData(rawData));
+    }
+
+    /**
+     * Data From Raw Data
+     *
+     * Create a `PresenceData` object from a `RawPresenceData` object
+     *
      * @param rawData The raw data from the API
      *
      * @returns {PresenceData} The presence data
      */
-    static _fromRawData(client: Client, rawData: RawPresenceData): PresenceData {
-        return fromRawData(client, rawData);
+    static _dataFromRawData(rawData: RawPresenceData): PresenceData {
+        return dataFromRawData(rawData);
     }
 
     /**
