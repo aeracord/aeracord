@@ -9,7 +9,8 @@ export default function dataFromRawData(rawData: RawCommandData, guildID?: strin
         applicationID: rawData.application_id,
         name: rawData.name,
         description: rawData.description,
-        options: rawData.options ? rawData.options.map((o: RawCommandDataOption) => parseOption(o)) : []
+        options: rawData.options ? rawData.options.map((o: RawCommandDataOption) => parseOption(o)) : [],
+        fetchedAt: Date.now()
     };
 }
 

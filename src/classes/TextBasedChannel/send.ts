@@ -1,6 +1,6 @@
-import { CreateMessageData, Embed, MessageData, TextBasedChannel } from "../../internal";
+import { CreateMessageData, Embed, Message, TextBasedChannel } from "../../internal";
 
-export default function send(channel: TextBasedChannel, contentOrData: string | Embed | CreateMessageData, createMessageData: CreateMessageData = {}): Promise<MessageData> {
+export default function send(channel: TextBasedChannel, contentOrData: string | Embed | CreateMessageData, createMessageData: CreateMessageData = {}): Promise<Message> {
 
     // Parse data
     if (typeof contentOrData === "string") createMessageData.content = contentOrData;

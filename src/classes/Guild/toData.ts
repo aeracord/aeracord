@@ -37,6 +37,7 @@ export default function toData(guild: Guild): GuildData {
         maxVideoChannelUsers: guild.maxVideoChannelUsers,
         approximateMemberCount: guild.approximateMemberCount,
         approximatePresenceCount: guild.approximatePresenceCount,
-        welcomeScreen: guild.welcomeScreen
+        welcomeScreen: guild.welcomeScreen,
+        fetchedAt: guild._lastUpdatedAt
     };
 }

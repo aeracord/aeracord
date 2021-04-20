@@ -53,6 +53,7 @@ export default function dataFromRawData(rawData: RawPresenceData): PresenceData 
             desktop: rawData.client_status.desktop || null,
             mobile: rawData.client_status.mobile || null,
             web: rawData.client_status.web || null
-        }
+        },
+        fetchedAt: Date.now()
     };
 }

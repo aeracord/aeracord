@@ -53,6 +53,13 @@ export interface UserData {
      * The public flags on the user's account
      */
     publicFlags: number;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this user was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

@@ -8,9 +8,6 @@ export default function updateObjectFromData(client: Client, guildData: GuildDat
     // Update guild object
     if (guild) Guild._updateObject(guild, guildData);
 
-    // Set guild owner
-    if (client._guildOwners) client._guildOwners.set(guildData.id, guildData.ownerID);
-
     // Return
     return guild;
 }

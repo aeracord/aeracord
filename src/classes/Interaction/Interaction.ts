@@ -1,4 +1,4 @@
-import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, MessageData, MessageResolvable, RawInteractionData, UserData } from "../../internal";
+import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, UserData } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -107,18 +107,26 @@ export default class Interaction extends Base<Interaction> {
      */
     constructor(client: Client, interactionData: InteractionData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._interactions.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: interactionData.id,
             cacheManager: client._interactions,
-            expiresFromCacheIn: client._interactions.cacheAll ? (client._interactions.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._interactions.cacheFor || null) : undefined
         });
 
         // Set data
         Interaction._updateObject(this, interactionData);
 
         // Cache interaction
-        if (client._interactions.cacheAll) this.client._interactions.cache(this.id, this);
+        if (cache) this.client._interactions.cache(this.id, this);
     }
 
     /**
@@ -215,6 +223,15 @@ export default class Interaction extends Base<Interaction> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Interaction`
+     */
+    cache() {
+        this.client._interactions.cache(this.id, this);
+    }
+
+    /**
      * Create Followup Message
      *
      * Create a followup message for this interaction
@@ -222,9 +239,9 @@ export default class Interaction extends Base<Interaction> {
      * @param contentOrData The content or data for the response
      * @param followupInteractionResponseData The data for the message
      *
-     * @returns {Promise<MessageData>} The created message's data
+     * @returns {Promise<Message>} The created message
      */
-    createFollowupMessage(contentOrData: string | Embed | FollowupInteractionResponseData, followupInteractionResponseData?: FollowupInteractionResponseData): Promise<MessageData> {
+    createFollowupMessage(contentOrData: string | Embed | FollowupInteractionResponseData, followupInteractionResponseData?: FollowupInteractionResponseData): Promise<Message> {
         return createFollowupMessage(this, contentOrData, followupInteractionResponseData);
     }
 
@@ -257,9 +274,9 @@ export default class Interaction extends Base<Interaction> {
      * @param contentOrData The content or data for the response
      * @param editInteractionResponseData The data for editing the message
      *
-     * @returns {Promise<MessageData>} The edited message's data
+     * @returns {Promise<Message>} The edited message
      */
-    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<MessageData> {
+    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
         return editFollowupMessage(this, message, contentOrData, editInteractionResponseData);
     }
 
@@ -271,9 +288,9 @@ export default class Interaction extends Base<Interaction> {
      * @param contentOrData The content or data for the response
      * @param editInteractionResponseData The data for editing the response
      *
-     * @returns {Promise<MessageData>} The edited response's data
+     * @returns {Promise<Message>} The edited response
      */
-    editOriginalResponse(contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<MessageData> {
+    editOriginalResponse(contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
         return editOriginalResponse(this, contentOrData, editInteractionResponseData);
     }
 
@@ -285,9 +302,9 @@ export default class Interaction extends Base<Interaction> {
      * @param contentOrData The content or data for the response
      * @param createInteractionResponseData The data for the response
      *
-     * @returns {Promise<MessageData>} The created response's data
+     * @returns {Promise<Message>} The created response
      */
-    respond(contentOrData: string | Embed | CreateInteractionResponseData, createInteractionResponseData?: CreateInteractionResponseData): Promise<MessageData> {
+    respond(contentOrData: string | Embed | CreateInteractionResponseData, createInteractionResponseData?: CreateInteractionResponseData): Promise<Message> {
         return respond(this, contentOrData, createInteractionResponseData);
     }
 }

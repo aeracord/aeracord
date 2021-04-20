@@ -1,4 +1,4 @@
-import { Base, Client, ModifyGuildRoleData, Permissions, RawRoleData, RoleData, RoleTags, UserResolvable } from "../../internal";
+import { Base, Client, ModifyGuildRoleData, Permissions, RawRoleData, RoleData, RoleTags, READY_STATE_READY, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -100,18 +100,26 @@ export default class Role extends Base<Role> {
      */
     constructor(client: Client, roleData: RoleData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._roles.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: roleData.id,
             cacheManager: client._roles,
-            expiresFromCacheIn: client._roles.cacheAll ? (client._roles.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._roles.cacheFor || null) : undefined
         });
 
         // Set data
         Role._updateObject(this, roleData);
 
         // Cache role
-        if (client._roles.cacheAll) this.client._roles.cache(this.id, this);
+        if (cache) this.client._roles.cache(this.id, this);
     }
 
     /**
@@ -211,6 +219,15 @@ export default class Role extends Base<Role> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Role`
+     */
+    cache() {
+        this.client._roles.cache(this.id, this);
+    }
+
+    /**
      * Add to Member
      *
      * Add this role to a member
@@ -230,9 +247,9 @@ export default class Role extends Base<Role> {
      * @param modifyGuildRoleData The data to modify the role
      * @param reason The reason for modifying this role
      *
-     * @returns {Promise<RoleData>} The modified role's data
+     * @returns {Promise<Role>} The modified role
      */
-    edit(modifyGuildRoleData: ModifyGuildRoleData, reason?: string): Promise<RoleData> {
+    edit(modifyGuildRoleData: ModifyGuildRoleData, reason?: string): Promise<Role> {
         return this.client.modifyGuildRole(this.guildID, this, modifyGuildRoleData, reason);
     }
 

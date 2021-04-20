@@ -10,6 +10,7 @@ export default function dataFromRawData(rawData: RawUserData): UserData {
         avatar: rawData.avatar,
         bot: Boolean(rawData.bot),
         system: Boolean(rawData.system),
-        publicFlags: rawData.public_flags || 0
+        publicFlags: rawData.public_flags || 0,
+        fetchedAt: Date.now()
     };
 }

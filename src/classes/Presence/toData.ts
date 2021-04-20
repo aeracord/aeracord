@@ -53,6 +53,7 @@ export default function toData(presence: Presence): PresenceData {
             desktop: presence.clientStatus.desktop,
             mobile: presence.clientStatus.mobile,
             web: presence.clientStatus.web
-        }
+        },
+        fetchedAt: presence._lastUpdatedAt
     };
 }

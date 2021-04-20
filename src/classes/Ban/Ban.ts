@@ -1,4 +1,4 @@
-import { BanData, Base, Client, RawBanData, UserData } from "../../internal";
+import { BanData, Base, Client, RawBanData, READY_STATE_READY, UserData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -39,18 +39,26 @@ export default class Ban extends Base<Ban> {
      */
     constructor(client: Client, banData: BanData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._bans.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: `${banData.guildID}_${banData.user.id}`,
             cacheManager: client._bans._cacheManager,
-            expiresFromCacheIn: client._bans.cacheAll ? (client._bans.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._bans.cacheFor || null) : undefined
         });
 
         // Set data
         Ban._updateObject(this, banData);
 
         // Cache ban
-        if (client._bans.cacheAll) this.client._bans.cache(this.guildID, this.user.id, this);
+        if (cache) this.cache();
     }
 
     /**
@@ -133,5 +141,14 @@ export default class Ban extends Base<Ban> {
      */
     static _updateObjectFromData(client: Client, banData: BanData): Ban | undefined {
         return updateObjectFromData(client, banData);
+    }
+
+    /**
+     * Cache
+     *
+     * Cache this `Ban`
+     */
+    cache() {
+        this.client._bans.cache(this.guildID, this.user.id, this);
     }
 }

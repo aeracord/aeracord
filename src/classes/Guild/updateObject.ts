@@ -2,6 +2,9 @@ import { Guild, GuildData } from "../../internal";
 
 export default function updateObject(guild: Guild, guildData: GuildData) {
 
+    // If the `GuildData` was fetched before the `Guild` object was last updated, dont update anything
+    if (guildData.fetchedAt < guild._lastUpdatedAt) return;
+
     // Unmark as deleted
     if (guild.deleted) guild._unmarkAsDeleted();
 
@@ -39,4 +42,8 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.approximateMemberCount = guildData.approximateMemberCount;
     guild.approximatePresenceCount = guildData.approximatePresenceCount;
     guild.welcomeScreen = guildData.welcomeScreen;
+    guild._lastUpdatedAt = Date.now();
+
+    // Set guild owner
+    if (guild.client._guildOwners) guild.client._guildOwners.set(guildData.id, guildData.ownerID);
 }

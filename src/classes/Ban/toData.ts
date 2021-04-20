@@ -6,6 +6,7 @@ export default function toData(ban: Ban): BanData {
     return {
         guildID: ban.guildID,
         user: ban.user,
-        reason: ban.reason
+        reason: ban.reason,
+        fetchedAt: ban._lastUpdatedAt
     };
 }

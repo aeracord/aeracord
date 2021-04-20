@@ -1,6 +1,6 @@
-import { EditInteractionResponseData, Embed, Interaction, MessageData, MessageResolvable } from "../../internal";
+import { EditInteractionResponseData, Embed, Interaction, Message, MessageResolvable } from "../../internal";
 
-export default function editFollowupMessage(interaction: Interaction, message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData: EditInteractionResponseData = {}): Promise<MessageData> {
+export default function editFollowupMessage(interaction: Interaction, message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData: EditInteractionResponseData = {}): Promise<Message> {
 
     // Parse data
     if (typeof contentOrData === "string") editInteractionResponseData.content = contentOrData;

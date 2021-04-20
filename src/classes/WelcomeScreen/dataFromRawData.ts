@@ -11,6 +11,7 @@ export default function dataFromRawData(rawData: RawWelcomeScreenData, guildID: 
             description: c.description,
             emojiID: c.emoji_id,
             emojiName: c.emoji_name
-        }))
+        })),
+        fetchedAt: Date.now()
     };
 }

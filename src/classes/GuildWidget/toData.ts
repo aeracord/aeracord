@@ -6,6 +6,7 @@ export default function toData(guildWidget: GuildWidget): GuildWidgetData {
     return {
         guildID: guildWidget.guildID,
         enabled: guildWidget.enabled,
-        channelID: guildWidget.channelID
+        channelID: guildWidget.channelID,
+        fetchedAt: guildWidget._lastUpdatedAt
     };
 }

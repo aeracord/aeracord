@@ -69,6 +69,13 @@ export interface WebhookData {
      * The webhook's application ID
      */
     applicationID: string | null;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this webhook was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

@@ -1,4 +1,4 @@
-import { Base, Client, CommandData, CommandOption, EditCommandData, RawCommandData } from "../../internal";
+import { Base, Client, CommandData, CommandOption, EditCommandData, RawCommandData, READY_STATE_READY } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -71,18 +71,26 @@ export default class Command extends Base<Command> {
      */
     constructor(client: Client, commandData: CommandData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._commands.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: commandData.id,
             cacheManager: client._commands,
-            expiresFromCacheIn: client._commands.cacheAll ? (client._commands.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._commands.cacheFor || null) : undefined
         });
 
         // Set data
         Command._updateObject(this, commandData);
 
         // Cache command
-        if (client._commands.cacheAll) this.client._commands.cache(this.id, this);
+        if (cache) this.client._commands.cache(this.id, this);
     }
 
     /**
@@ -181,15 +189,24 @@ export default class Command extends Base<Command> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Command`
+     */
+    cache() {
+        this.client._commands.cache(this.id, this);
+    }
+
+    /**
      * Edit
      *
      * Edit this command
      *
      * @param editCommandData The data for the command
      *
-     * @returns {Promise<CommandData>} The command data
+     * @returns {Promise<Command>} The command
      */
-    edit(editCommandData: EditCommandData): Promise<CommandData> {
+    edit(editCommandData: EditCommandData): Promise<Command> {
         return this.guildID ? this.client.editGuildCommand(this.guildID, this, editCommandData) : this.client.editGlobalCommand(this, editCommandData);
     }
 

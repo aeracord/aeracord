@@ -1,4 +1,4 @@
-import { Base, Client, GuildWidgetData, ModifyGuildWidgetData, RawGuildWidgetData } from "../../internal";
+import { Base, Client, GuildWidgetData, ModifyGuildWidgetData, RawGuildWidgetData, READY_STATE_READY } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -41,18 +41,26 @@ export default class GuildWidget extends Base<GuildWidget> {
      */
     constructor(client: Client, guildWidgetData: GuildWidgetData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._guildWidgets.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: guildWidgetData.guildID,
             cacheManager: client._guildWidgets,
-            expiresFromCacheIn: client._guildWidgets.cacheAll ? (client._guildWidgets.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._guildWidgets.cacheFor || null) : undefined
         });
 
         // Set data
         GuildWidget._updateObject(this, guildWidgetData);
 
         // Cache guild widget
-        if (client._guildWidgets.cacheAll) this.client._guildWidgets.cache(this.id, this);
+        if (cache) this.client._guildWidgets.cache(this.id, this);
     }
 
     /**
@@ -138,15 +146,24 @@ export default class GuildWidget extends Base<GuildWidget> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `GuildWidget`
+     */
+    cache() {
+        this.client._guildWidgets.cache(this.id, this);
+    }
+
+    /**
      * Edit
      *
      * Edit this guild widget
      *
      * @param modifyGuildWidgetData The data to modify the guild's widget
      *
-     * @returns {Promise<GuildWidgetData>} The modified guild widget's data
+     * @returns {Promise<GuildWidget>} The modified guild widget
      */
-    edit(modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidgetData> {
+    edit(modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> {
         return this.client.modifyGuildWidget(this.guildID, modifyGuildWidgetData);
     }
 }

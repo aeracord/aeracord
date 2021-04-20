@@ -82,6 +82,13 @@ export interface InviteData {
      * The type of target user for this invite
      */
     targetUserType: TargetUserType | null;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this invite was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

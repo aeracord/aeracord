@@ -12,6 +12,7 @@ export default function dataFromRawData(rawData: RawMemberData, guildID: string)
         joinedAt: new Date(rawData.joined_at).getTime(),
         premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : null,
         pending: rawData.pending || false,
-        user: User._dataFromRawData(rawData.user)
+        user: User._dataFromRawData(rawData.user),
+        fetchedAt: Date.now()
     };
 }

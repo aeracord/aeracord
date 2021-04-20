@@ -1,4 +1,4 @@
-import { Base, Client, CreateGuildFromTemplateData, GuildData, ModifyGuildTemplateData, RawTemplateData, TemplateData, TemplateGuild, UserData } from "../../internal";
+import { Base, Client, CreateGuildFromTemplateData, Guild, ModifyGuildTemplateData, RawTemplateData, READY_STATE_READY, TemplateData, TemplateGuild, UserData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveCode from "./resolveCode";
@@ -105,18 +105,26 @@ export default class Template extends Base<Template> {
      */
     constructor(client: Client, templateData: TemplateData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._templates.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: templateData.code,
             cacheManager: client._templates,
-            expiresFromCacheIn: client._templates.cacheAll ? (client._templates.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._templates.cacheFor || null) : undefined
         });
 
         // Set data
         Template._updateObject(this, templateData);
 
         // Cache template
-        if (client._templates.cacheAll) this.client._templates.cache(this.id, this);
+        if (cache) this.client._templates.cache(this.id, this);
     }
 
     /**
@@ -213,15 +221,24 @@ export default class Template extends Base<Template> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Template`
+     */
+    cache() {
+        this.client._templates.cache(this.id, this);
+    }
+
+    /**
      * Create Guild
      *
      * Create a guild from this template
      *
      * @param createGuildFromTemplateData The data for the guild
      *
-     * @returns {Promise<GuildData>} The created guild's data
+     * @returns {Promise<Guild>} The created guild
      */
-    createGuild(createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<GuildData> {
+    createGuild(createGuildFromTemplateData: CreateGuildFromTemplateData): Promise<Guild> {
         return this.client.createGuildFromTemplate(this, createGuildFromTemplateData);
     }
 
@@ -232,9 +249,9 @@ export default class Template extends Base<Template> {
      *
      * @param modifyGuildTemplateData The data to modify the template
      *
-     * @returns {Promise<TemplateData>} The modified template's data
+     * @returns {Promise<Template>} The modified template
      */
-    edit(modifyGuildTemplateData: ModifyGuildTemplateData): Promise<TemplateData> {
+    edit(modifyGuildTemplateData: ModifyGuildTemplateData): Promise<Template> {
         return this.client.modifyGuildTemplate(this.sourceGuildID, this, modifyGuildTemplateData);
     }
 
@@ -243,9 +260,9 @@ export default class Template extends Base<Template> {
      *
      * Sync this template
      *
-     * @returns {Promise<TemplateData>} The synced template's data
+     * @returns {Promise<Template>} The synced template
      */
-    sync(): Promise<TemplateData> {
+    sync(): Promise<Template> {
         return this.client.syncGuildTemplate(this.sourceGuildID, this);
     }
 }

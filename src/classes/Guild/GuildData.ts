@@ -244,6 +244,13 @@ export interface GuildData {
      * The guild's welcome screen
      */
     welcomeScreen: WelcomeScreenData | null;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this guild was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

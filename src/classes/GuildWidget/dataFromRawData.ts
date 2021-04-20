@@ -6,6 +6,7 @@ export default function dataFromRawData(rawData: RawGuildWidgetData, guildID: st
     return {
         guildID,
         enabled: rawData.enabled,
-        channelID: rawData.channel_id
+        channelID: rawData.channel_id,
+        fetchedAt: Date.now()
     };
 }

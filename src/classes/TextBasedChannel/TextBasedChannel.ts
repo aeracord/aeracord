@@ -1,4 +1,4 @@
-import { CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Interaction, Message, MessageData, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, UserData, UserResolvable, WebhookData } from "../../internal";
+import { CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Interaction, Message, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, User, UserResolvable, Webhook } from "../../internal";
 import editMessage from "./editMessage";
 import send from "./send";
 import updateObject from "./updateObject";
@@ -64,7 +64,7 @@ export default class TextBasedChannel extends Channel {
         this.messages = new CacheInterface<Message>(this.client, {
             cacheManager: this.client._messages,
             match: (m: Message) => m.channelID === this.id,
-            fetchObject: async (id: string): Promise<Message> => Message.fromData(this.client, await this.client.getChannelMessage(this.id, id))
+            fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
         });
     }
 
@@ -113,9 +113,9 @@ export default class TextBasedChannel extends Channel {
      * @param contentOrData The content or data for the message
      * @param createMessageData The data for the message
      *
-     * @returns {Promise<MessageData>} The created message's data
+     * @returns {Promise<Message>} The created message
      */
-    send(contentOrData: string | Embed | CreateMessageData, createMessageData?: CreateMessageData): Promise<MessageData> {
+    send(contentOrData: string | Embed | CreateMessageData, createMessageData?: CreateMessageData): Promise<Message> {
         return send(this, contentOrData, createMessageData);
     }
 
@@ -212,9 +212,9 @@ export default class TextBasedChannel extends Channel {
      * @param contentOrEmbed The content or embed for the message
      * @param editMessageData The data for editing the message
      *
-     * @returns {Promise<MessageData>} The edited message's data
+     * @returns {Promise<Message>} The edited message
      */
-    editMessage(message: MessageResolvable, contentOrEmbed: string | Embed | undefined, editMessageData?: EditMessageData): Promise<MessageData> {
+    editMessage(message: MessageResolvable, contentOrEmbed: string | Embed | undefined, editMessageData?: EditMessageData): Promise<Message> {
         return editMessage(this, message, contentOrEmbed, editMessageData);
     }
 
@@ -225,9 +225,9 @@ export default class TextBasedChannel extends Channel {
      *
      * @param message The message to get
      *
-     * @returns {Promise<MessageData>} The message data
+     * @returns {Promise<Message>} The message
      */
-    getMessage(message: MessageResolvable): Promise<MessageData> {
+    getMessage(message: MessageResolvable): Promise<Message> {
         return this.client.getChannelMessage(this, message);
     }
 
@@ -238,9 +238,9 @@ export default class TextBasedChannel extends Channel {
      *
      * @param getChannelMessagesData The data for getting messages
      *
-     * @returns {Promise<MessageData[]>} The messages
+     * @returns {Promise<Message[]>} The messages
      */
-    getMessages(getChannelMessagesData?: GetChannelMessagesData): Promise<MessageData[]> {
+    getMessages(getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> {
         return this.client.getChannelMessages(this, getChannelMessagesData);
     }
 
@@ -249,9 +249,9 @@ export default class TextBasedChannel extends Channel {
      *
      * Get the webhooks in this channel
      *
-     * @returns {Promise<WebhookData[]>} The channel's webhooks
+     * @returns {Promise<Webhook[]>} The channel's webhooks
      */
-    getWebhooks(): Promise<WebhookData[]> {
+    getWebhooks(): Promise<Webhook[]> {
         return this.client.getChannelWebhooks(this);
     }
 
@@ -260,9 +260,9 @@ export default class TextBasedChannel extends Channel {
      *
      * Get the pinned messages in this channel
      *
-     * @returns {Promise<MessageData[]>} The messages
+     * @returns {Promise<Message[]>} The messages
      */
-    getPinnedMessages(): Promise<MessageData[]> {
+    getPinnedMessages(): Promise<Message[]> {
         return this.client.getPinnedMessages(this);
     }
 
@@ -275,9 +275,9 @@ export default class TextBasedChannel extends Channel {
      * @param reactionEmoji The emoji to get the reactions for
      * @param getReactionsData The data for getting reactions
      *
-     * @returns {Promise<UserData[]>} The users
+     * @returns {Promise<User[]>} The users
      */
-    getReactions(message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<UserData[]> {
+    getReactions(message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> {
         return this.client.getReactions(this, message, reactionEmoji, getReactionsData);
     }
 

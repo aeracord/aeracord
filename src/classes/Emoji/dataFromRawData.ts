@@ -12,6 +12,7 @@ export default function dataFromRawData(rawData: RawEmojiData, guildID: string):
         available: Boolean(rawData.available),
         creator: rawData.user ? User._dataFromRawData(rawData.user) : null,
         requiresColons: Boolean(rawData.require_colons),
-        roles: rawData.roles || []
+        roles: rawData.roles || [],
+        fetchedAt: Date.now()
     };
 }

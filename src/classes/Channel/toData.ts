@@ -22,7 +22,8 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             lastPinTimestamp: textChannel.lastPinTimestamp,
             topic: textChannel.topic,
             nsfw: textChannel.nsfw,
-            rateLimitPerUser: textChannel.rateLimitPerUser
+            rateLimitPerUser: textChannel.rateLimitPerUser,
+            fetchedAt: textChannel._lastUpdatedAt
         };
     }
 
@@ -34,7 +35,8 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             type: dmChannel.type,
             lastMessageID: dmChannel.lastMessageID,
             lastPinTimestamp: dmChannel.lastPinTimestamp,
-            recipient: dmChannel.recipient
+            recipient: dmChannel.recipient,
+            fetchedAt: dmChannel._lastUpdatedAt
         };
     }
 
@@ -55,7 +57,8 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             })),
             parentID: voiceChannel.parentID,
             bitrate: voiceChannel.bitrate,
-            userLimit: voiceChannel.userLimit
+            userLimit: voiceChannel.userLimit,
+            fetchedAt: voiceChannel._lastUpdatedAt
         };
     }
 
@@ -74,7 +77,8 @@ export default function toData(channel: AnyChannel): AnyChannelData {
                 allow: p.allow,
                 deny: p.deny
             })),
-            parentID: categoryChannel.parentID
+            parentID: categoryChannel.parentID,
+            fetchedAt: categoryChannel._lastUpdatedAt
         };
     }
 
@@ -98,7 +102,8 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             lastPinTimestamp: newsChannel.lastPinTimestamp,
             topic: newsChannel.topic,
             nsfw: newsChannel.nsfw,
-            rateLimitPerUser: newsChannel.rateLimitPerUser
+            rateLimitPerUser: newsChannel.rateLimitPerUser,
+            fetchedAt: newsChannel._lastUpdatedAt
         };
     }
 
@@ -117,7 +122,8 @@ export default function toData(channel: AnyChannel): AnyChannelData {
                 allow: p.allow,
                 deny: p.deny
             })),
-            parentID: storeChannel.parentID
+            parentID: storeChannel.parentID,
+            fetchedAt: storeChannel._lastUpdatedAt
         };
     }
 

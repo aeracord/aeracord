@@ -1,4 +1,4 @@
-import { Base, Client, ModifyGuildWelcomeScreenData, RawWelcomeScreenData, WelcomeScreenChannel, WelcomeScreenData } from "../../internal";
+import { Base, Client, ModifyGuildWelcomeScreenData, RawWelcomeScreenData, READY_STATE_READY, WelcomeScreenChannel, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -41,18 +41,26 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      */
     constructor(client: Client, welcomeScreenData: WelcomeScreenData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._welcomeScreens.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: welcomeScreenData.guildID,
             cacheManager: client._welcomeScreens,
-            expiresFromCacheIn: client._welcomeScreens.cacheAll ? (client._welcomeScreens.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._welcomeScreens.cacheFor || null) : undefined
         });
 
         // Set data
         WelcomeScreen._updateObject(this, welcomeScreenData);
 
         // Cache welcome screen
-        if (client._welcomeScreens.cacheAll) this.client._welcomeScreens.cache(this.id, this);
+        if (cache) this.client._welcomeScreens.cache(this.id, this);
     }
 
     /**
@@ -138,15 +146,24 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `WelcomeScreen`
+     */
+    cache() {
+        this.client._welcomeScreens.cache(this.id, this);
+    }
+
+    /**
      * Edit
      *
      * Edit this welcome screen
      *
      * @param modifyGuildWelcomeScreenData The data to modify the welcome screen
      *
-     * @returns {Promise<WelcomeScreenData>} The modified welcome screen's data
+     * @returns {Promise<WelcomeScreen>} The modified welcome screen
      */
-    edit(modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreenData> {
+    edit(modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreen> {
         return this.client.modifyGuildWelcomeScreen(this.guildID, modifyGuildWelcomeScreenData);
     }
 }

@@ -46,6 +46,13 @@ export interface CommandData {
      * The command's options
      */
     options: CommandOption[];
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this command was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

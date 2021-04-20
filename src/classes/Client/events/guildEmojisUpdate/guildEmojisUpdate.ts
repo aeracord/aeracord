@@ -19,7 +19,7 @@ export default function guildEmojisUpdate(client: Client, rawData: RawGuildEmoji
     const guild: Guild | undefined = client.guilds.get(data.guildID);
 
     // Update emojis
-    if (guild) guild.emojiData = data.emojis;
+    if (guild) guild.emojiData = rawData.emojis.map((e: RawEmojiData) => Emoji._dataFromRawData(e, rawData.guild_id));
 
     // Mark as deleted
     const deletedEmojis: Emoji[] = [...client.emojis.filter((e: Emoji) => e.guildID === data.guildID && !emojiIDs.includes(e.id)).values()];

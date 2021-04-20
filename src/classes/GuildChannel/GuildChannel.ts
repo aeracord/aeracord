@@ -1,4 +1,4 @@
-import { CategoryChannel, CategoryChannelData, Client, CreateChannelInviteData, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, EditChannelPermissionsData, GuildChannelData, InviteData, ModifyChannelData, NewsChannel, NewsChannelData, PermissionOverwrite, RoleResolvable, StoreChannel, StoreChannelData, TextChannel, TextChannelData, UserResolvable, VoiceChannel, VoiceChannelData } from "../../internal";
+import { CategoryChannel, CategoryChannelData, Client, CreateChannelInviteData, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, EditChannelPermissionsData, GuildChannelData, Invite, ModifyChannelData, NewsChannel, NewsChannelData, PermissionOverwrite, RoleResolvable, StoreChannel, StoreChannelData, TextChannel, TextChannelData, UserResolvable, VoiceChannel, VoiceChannelData } from "../../internal";
 import Channel from "../Channel/Channel";
 import updateObject from "./updateObject";
 
@@ -93,9 +93,9 @@ export default class GuildChannel extends Channel {
      * @param createChannelInviteData The data for the invite
      * @param reason The reason for creating the invite
      *
-     * @returns {Promise<InviteData>} The invite data
+     * @returns {Promise<Invite>} The invite
      */
-    createInvite(createChannelInviteData?: CreateChannelInviteData, reason?: string): Promise<InviteData> {
+    createInvite(createChannelInviteData?: CreateChannelInviteData, reason?: string): Promise<Invite> {
         return this.client.createChannelInvite(this, createChannelInviteData, reason);
     }
 
@@ -130,9 +130,9 @@ export default class GuildChannel extends Channel {
      * @param modifyChannelData The data to modify the channel
      * @param reason The reason for modifying this channel
      *
-     * @returns {Promise<AnyGuildChannelData>} The modified channel's data
+     * @returns {Promise<AnyGuildChannel>} The modified channel
      */
-    edit(modifyChannelData: ModifyChannelData, reason?: string): Promise<AnyGuildChannelData> {
+    edit(modifyChannelData: ModifyChannelData, reason?: string): Promise<AnyGuildChannel> {
         return this.client.modifyChannel(this, modifyChannelData, reason);
     }
 }

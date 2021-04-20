@@ -6,6 +6,7 @@ export default function dataFromRawData(rawData: RawBanData, guildID: string): B
     return {
         guildID,
         user: User._dataFromRawData(rawData.user),
-        reason: rawData.reason
+        reason: rawData.reason,
+        fetchedAt: Date.now()
     };
 }

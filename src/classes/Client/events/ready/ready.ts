@@ -50,10 +50,10 @@ export default async function ready(client: Client, rawData: RawReadyData) {
     ) {
 
         // Get commands
-        const commands: CommandData[] | void = await client.getGlobalCommands().catch(() => { });
+        const commands: Command[] | void = await client.getGlobalCommands().catch(() => { });
 
         // Loop through commands
-        if (commands) commands.forEach((c: CommandData) => Command.fromData(client, c));
+        if (commands) commands.forEach((c: Command) => c.cache());
     }
 
     // Bulk overwrite the bot's global commands

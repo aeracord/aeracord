@@ -12,6 +12,7 @@ export default function toData(member: Member): MemberData {
         joinedAt: member.joinedAt,
         premiumSince: member.premiumSince,
         pending: member.pending,
-        user: member.user
+        user: member.user,
+        fetchedAt: member._lastUpdatedAt
     };
 }

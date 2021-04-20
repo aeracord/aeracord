@@ -1,4 +1,4 @@
-import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, EmbedData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, StickerData, UserData, UserResolvable } from "../../internal";
+import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, EmbedData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserData, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -225,18 +225,26 @@ export default class Message extends Base<Message> {
      */
     constructor(client: Client, messageData: MessageData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._messages.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: messageData.id,
             cacheManager: client._messages,
-            expiresFromCacheIn: client._messages.cacheAll ? (client._messages.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._messages.cacheFor || null) : undefined
         });
 
         // Set data
         Message._updateObject(this, messageData);
 
         // Cache message
-        if (client._messages.cacheAll) this.client._messages.cache(this.id, this);
+        if (cache) this.client._messages.cache(this.id, this);
     }
 
     /**
@@ -333,6 +341,15 @@ export default class Message extends Base<Message> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Message`
+     */
+    cache() {
+        this.client._messages.cache(this.id, this);
+    }
+
+    /**
      * Pin
      *
      * Pin this message
@@ -359,9 +376,9 @@ export default class Message extends Base<Message> {
      *
      * Publish this message
      *
-     * @returns {Promise<MessageData>} The crossposted message's data
+     * @returns {Promise<Message>} The crossposted message
      */
-    crosspost(): Promise<MessageData> {
+    crosspost(): Promise<Message> {
         return this.client.crosspostMessage(this.channelID, this);
     }
 
@@ -438,9 +455,9 @@ export default class Message extends Base<Message> {
      * @param contentOrEmbed The content or embed for the message
      * @param editMessageData The data for editing the message
      *
-     * @returns {Promise<MessageData>} The edited message's data
+     * @returns {Promise<Message>} The edited message
      */
-    edit(contentOrEmbed: string | Embed | undefined, editMessageData?: EditMessageData): Promise<MessageData> {
+    edit(contentOrEmbed: string | Embed | undefined, editMessageData?: EditMessageData): Promise<Message> {
         return edit(this, this.channelID, contentOrEmbed, editMessageData);
     }
 
@@ -452,9 +469,9 @@ export default class Message extends Base<Message> {
      * @param reactionEmoji The emoji to get the reactions for
      * @param getReactionsData The data for getting reactions
      *
-     * @returns {Promise<UserData[]>} The users
+     * @returns {Promise<User[]>} The users
      */
-    getReactions(reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<UserData[]> {
+    getReactions(reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> {
         return this.client.getReactions(this.channelID, this, reactionEmoji, getReactionsData);
     }
 }

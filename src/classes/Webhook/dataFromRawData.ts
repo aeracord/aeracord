@@ -12,6 +12,7 @@ export default function dataFromRawData(rawData: RawWebhookData): WebhookData {
         avatar: rawData.avatar,
         creator: rawData.user && User._dataFromRawData(rawData.user),
         token: rawData.token || null,
-        applicationID: rawData.application_id
+        applicationID: rawData.application_id,
+        fetchedAt: Date.now()
     };
 }

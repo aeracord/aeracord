@@ -18,6 +18,13 @@ export interface ChannelData {
      * The channel's type
      */
     type: ChannelType;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this channel was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

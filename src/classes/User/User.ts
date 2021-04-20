@@ -1,4 +1,4 @@
-import { Base, Client, DMChannelData, Member, MemberData, RawUserData, UserData } from "../../internal";
+import { Base, Client, DMChannel, Member, MemberData, RawUserData, READY_STATE_READY, UserData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -72,18 +72,26 @@ export default class User extends Base<User> {
      */
     constructor(client: Client, userData: UserData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._users.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: userData.id,
             cacheManager: client._users,
-            expiresFromCacheIn: client._users.cacheAll ? (client._users.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._users.cacheFor || null) : undefined
         });
 
         // Set data
         User._updateObject(this, userData);
 
         // Cache user
-        if (client._users.cacheAll) this.client._users.cache(this.id, this);
+        if (cache) this.client._users.cache(this.id, this);
     }
 
     /**
@@ -180,13 +188,22 @@ export default class User extends Base<User> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `User`
+     */
+    cache() {
+        this.client._users.cache(this.id, this);
+    }
+
+    /**
      * Create DM
      *
      * Create a DM channel with this user
      *
-     * @returns {Promise<DMChannelData>} The DM channel data
+     * @returns {Promise<DMChannel>} The DM channel
      */
-    createDM(): Promise<DMChannelData> {
+    createDM(): Promise<DMChannel> {
         return this.client.createDM({ recipient: this });
     }
 }

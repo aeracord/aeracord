@@ -25,6 +25,13 @@ export interface WelcomeScreenData {
      * The welcome screen's channels
      */
     channels: WelcomeScreenChannel[];
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this welcome screen was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

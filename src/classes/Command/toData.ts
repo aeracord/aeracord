@@ -9,7 +9,8 @@ export default function toData(command: Command): CommandData {
         applicationID: command.applicationID,
         name: command.name,
         description: command.description,
-        options: command.options
+        options: command.options,
+        fetchedAt: command._lastUpdatedAt
     };
 }
 

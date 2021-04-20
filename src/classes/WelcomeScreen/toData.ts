@@ -11,6 +11,7 @@ export default function toData(welcomeScreen: WelcomeScreen): WelcomeScreenData 
             description: c.description,
             emojiID: c.emojiID,
             emojiName: c.emojiName
-        }))
+        })),
+        fetchedAt: welcomeScreen._lastUpdatedAt
     };
 }

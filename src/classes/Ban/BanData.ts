@@ -27,4 +27,11 @@ export interface BanData {
      * The ban's reason
      */
     reason: string | null;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this ban was fetched
+     */
+    fetchedAt: number;
 }

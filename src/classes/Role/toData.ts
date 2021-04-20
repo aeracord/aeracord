@@ -17,6 +17,7 @@ export default function toData(role: Role): RoleData {
             botID: role.tags.botID,
             integrationID: role.tags.integrationID,
             premiumRole: role.tags.premiumRole
-        }
+        },
+        fetchedAt: role._lastUpdatedAt
     };
 }

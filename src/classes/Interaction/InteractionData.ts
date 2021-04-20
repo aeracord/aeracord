@@ -76,6 +76,13 @@ export interface InteractionData {
      * The user that created this interaction
      */
     user: UserData;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this interaction was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

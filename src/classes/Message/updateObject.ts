@@ -2,6 +2,9 @@ import { Message, MessageData } from "../../internal";
 
 export default function updateObject(message: Message, messageData: MessageData) {
 
+    // If the `MessageData` was fetched before the `Message` object was last updated, dont update anything
+    if (messageData.fetchedAt < message._lastUpdatedAt) return;
+
     // Unmark as deleted
     if (message.deleted) message._unmarkAsDeleted();
 
@@ -31,4 +34,5 @@ export default function updateObject(message: Message, messageData: MessageData)
     message.flags = messageData.flags;
     message.referencedMessage = messageData.referencedMessage;
     message.interaction = messageData.interaction;
+    message._lastUpdatedAt = Date.now();
 }

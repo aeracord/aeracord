@@ -1,6 +1,6 @@
-import { CreateInteractionResponseData, Embed, Interaction, INTERACTION_RESPONSE_TYPE_MESSAGE, MessageData } from "../../internal";
+import { CreateInteractionResponseData, Embed, Interaction, INTERACTION_RESPONSE_TYPE_MESSAGE, Message } from "../../internal";
 
-export default function respond(interaction: Interaction, contentOrData: string | Embed | CreateInteractionResponseData, createInteractionResponseData: CreateInteractionResponseData = { type: INTERACTION_RESPONSE_TYPE_MESSAGE }): Promise<MessageData> {
+export default function respond(interaction: Interaction, contentOrData: string | Embed | CreateInteractionResponseData, createInteractionResponseData: CreateInteractionResponseData = { type: INTERACTION_RESPONSE_TYPE_MESSAGE }): Promise<Message> {
 
     // Set data
     if (!createInteractionResponseData.data) createInteractionResponseData.data = {};

@@ -14,7 +14,6 @@ import {
     CacheInterface,
     CacheManager,
     CacheStrategies,
-    Channel,
     ChannelEventOptions,
     ChannelPermissionData,
     ChannelPinsUpdateData,
@@ -1259,33 +1258,33 @@ export default class Client extends EventEmitter {
         });
         this.bans = new GuildUserCacheInterface<Ban>(this, {
             cacheManager: this._bans._cacheManager,
-            fetchObject: async (id: string): Promise<Ban> => Ban.fromData(this, await this.getGuildBan(id.split("_")[0], id.split("_")[1]))
+            fetchObject: async (id: string): Promise<Ban> => await this.getGuildBan(id.split("_")[0], id.split("_")[1])
         });
         this.channels = new CacheInterface<AnyChannel>(this, {
             cacheManager: this._channels,
-            fetchObject: async (id: string): Promise<AnyChannel> => Channel.fromData(this, await this.getChannel(id))
+            fetchObject: async (id: string): Promise<AnyChannel> => await this.getChannel(id)
         });
         this.emojis = new CacheInterface<Emoji, false>(this, {
             cacheManager: this._emojis
         });
         this.guilds = new CacheInterface<Guild>(this, {
             cacheManager: this._guilds,
-            fetchObject: async (id: string): Promise<Guild> => Guild.fromData(this, await this.getGuild(id))
+            fetchObject: async (id: string): Promise<Guild> => await this.getGuild(id)
         });
         this.guildWidgets = new CacheInterface<GuildWidget>(this, {
             cacheManager: this._guildWidgets,
-            fetchObject: async (id: string): Promise<GuildWidget> => GuildWidget.fromData(this, await this.getGuildWidgetSettings(id))
+            fetchObject: async (id: string): Promise<GuildWidget> => await this.getGuildWidgetSettings(id)
         });
         this.interactions = new CacheInterface<Interaction, false>(this, {
             cacheManager: this._interactions
         });
         this.invites = new CacheInterface<Invite>(this, {
             cacheManager: this._invites,
-            fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this, await this.getInvite(id))
+            fetchObject: async (id: string): Promise<Invite> => await this.getInvite(id)
         });
         this.members = new GuildUserCacheInterface<Member>(this, {
             cacheManager: this._members._cacheManager,
-            fetchObject: async (id: string): Promise<Member> => Member.fromData(this, await this.getGuildMember(id.split("_")[0], id.split("_")[1]))
+            fetchObject: async (id: string): Promise<Member> => await this.getGuildMember(id.split("_")[0], id.split("_")[1])
         });
         this.messages = new CacheInterface<Message, false>(this, {
             cacheManager: this._messages
@@ -1298,11 +1297,11 @@ export default class Client extends EventEmitter {
         });
         this.templates = new CacheInterface<Template>(this, {
             cacheManager: this._templates,
-            fetchObject: async (id: string): Promise<Template> => Template.fromData(this, await this.getTemplate(id))
+            fetchObject: async (id: string): Promise<Template> => await this.getTemplate(id)
         });
         this.vanityInvites = new CacheInterface<VanityInvite>(this, {
             cacheManager: this._vanityInvites,
-            fetchObject: async (id: string): Promise<VanityInvite> => VanityInvite.fromData(this, await this.getGuildVanityURL(id))
+            fetchObject: async (id: string): Promise<VanityInvite> => await this.getGuildVanityURL(id)
         });
         this.webhooks = new CacheInterface<Webhook, false>(this, {
             cacheManager: this._webhooks
@@ -1321,7 +1320,7 @@ export default class Client extends EventEmitter {
         });
         this.users = new CacheInterface<User>(this, {
             cacheManager: this._users,
-            fetchObject: async (id: string): Promise<User> => User.fromData(this, await this.getUser(id))
+            fetchObject: async (id: string): Promise<User> => await this.getUser(id)
         });
 
         // Connect

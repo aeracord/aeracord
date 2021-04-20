@@ -76,6 +76,13 @@ export interface TemplateData {
      * Whether or not this template has unsynced changes
      */
     dirty: boolean;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this template was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

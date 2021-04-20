@@ -20,7 +20,7 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         editedTimestamp: rawData.edited_timestamp ? new Date(rawData.edited_timestamp).getTime() : undefined,
         tts: rawData.tts,
         mentionEveryone: rawData.mention_everyone,
-        mentions: (rawData.mentions && rawData.guild_id) ? rawData.mentions.map((u: RawUserWithMemberData) => Member._fromRawData(client, {
+        mentions: (rawData.mentions && rawData.guild_id) ? rawData.mentions.map((u: RawUserWithMemberData) => Member._dataFromRawData({
             ...u.member,
             user: u
         }, rawData.guild_id as string)) : undefined,
@@ -65,12 +65,12 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
             guildID: rawData.message_reference.guild_id || null
         },
         flags: rawData.flags,
-        referencedMessage: rawData.referenced_message ? Message._fromRawData(client, rawData.referenced_message) : undefined,
+        referencedMessage: rawData.referenced_message ? Message._dataFromRawData(rawData.referenced_message) : undefined,
         interaction: rawData.interaction && {
             id: rawData.interaction.id,
             type: rawData.interaction.type,
             name: rawData.interaction.name,
-            user: User._fromRawData(client, rawData.interaction.user)
+            user: User._dataFromRawData(rawData.interaction.user)
         }
     };
 

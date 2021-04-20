@@ -6,6 +6,7 @@ export default function toData(vanityInvite: VanityInvite): VanityInviteData {
     return {
         guildID: vanityInvite.guildID,
         code: vanityInvite.code,
-        uses: vanityInvite.uses
+        uses: vanityInvite.uses,
+        fetchedAt: vanityInvite._lastUpdatedAt
     };
 }

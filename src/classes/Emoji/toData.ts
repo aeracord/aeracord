@@ -12,6 +12,7 @@ export default function toData(emoji: Emoji): EmojiData {
         available: emoji.available,
         creator: emoji.creator,
         requiresColons: emoji.requiresColons,
-        roles: emoji.roles
+        roles: emoji.roles,
+        fetchedAt: emoji._lastUpdatedAt
     };
 }

@@ -80,6 +80,13 @@ export default class Base<ObjectType extends Base<ObjectType>> {
     expiresFromCacheAt?: number | null;
 
     /**
+     * Last Updated At
+     *
+     * The timestamp for when this object was last updated at
+     */
+    _lastUpdatedAt: number;
+
+    /**
      * Base
      *
      * @param client The client
@@ -97,6 +104,7 @@ export default class Base<ObjectType extends Base<ObjectType>> {
         this._cacheManager = baseData.cacheManager;
         if (baseData.expiresFromCacheIn === null) this.expiresFromCacheAt = null;
         else this.expireFromCacheIn(baseData.expiresFromCacheIn);
+        this._lastUpdatedAt = 0;
     }
 
     /**

@@ -77,6 +77,13 @@ export interface RoleData {
      * The role's tags
      */
     tags: RoleTags;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this role was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

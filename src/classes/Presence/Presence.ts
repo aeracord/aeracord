@@ -1,4 +1,4 @@
-import { Activity, Base, Client, PresenceClientStatus, PresenceData, PresenceUser, RawPresenceData, Status } from "../../internal";
+import { Activity, Base, Client, PresenceClientStatus, PresenceData, PresenceUser, RawPresenceData, READY_STATE_READY, Status } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -47,18 +47,26 @@ export default class Presence extends Base<Presence> {
      */
     constructor(client: Client, presenceData: PresenceData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._presences.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: presenceData.user.id,
             cacheManager: client._presences,
-            expiresFromCacheIn: client._presences.cacheAll ? (client._presences.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._presences.cacheFor || null) : undefined
         });
 
         // Set data
         Presence._updateObject(this, presenceData);
 
         // Cache presence
-        if (client._presences.cacheAll) this.client._presences.cache(this.id, this);
+        if (cache) this.client._presences.cache(this.id, this);
     }
 
     /**
@@ -139,5 +147,14 @@ export default class Presence extends Base<Presence> {
      */
     static _updateObjectFromData(client: Client, presenceData: PresenceData): Presence | undefined {
         return updateObjectFromData(client, presenceData);
+    }
+
+    /**
+     * Cache
+     *
+     * Cache this `Presence`
+     */
+    cache() {
+        this.client._presences.cache(this.id, this);
     }
 }

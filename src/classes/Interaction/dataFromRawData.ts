@@ -13,6 +13,7 @@ export default function dataFromRawData(rawData: RawInteractionData): Interactio
         channelID: rawData.channel_id,
         member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData(rawData.member, rawData.guild_id) : null,
         permissions: rawData.member ? rawData.member.permissions : null,
-        user: User._dataFromRawData(rawData.user || (rawData.member as RawMemberData).user)
+        user: User._dataFromRawData(rawData.user || (rawData.member as RawMemberData).user),
+        fetchedAt: Date.now()
     };
 }

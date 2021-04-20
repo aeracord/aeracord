@@ -1,4 +1,4 @@
-import { CacheInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Interaction, Invite, InviteData, Message, TextChannelData, Webhook, WebhookData } from "../../internal";
+import { CacheInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Interaction, Invite, Message, TextChannelData, Webhook } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -75,17 +75,17 @@ class TextChannel extends GuildChannel {
         this.messages = new CacheInterface<Message>(this.client, {
             cacheManager: this.client._messages,
             match: (m: Message) => m.channelID === this.id,
-            fetchObject: async (id: string): Promise<Message> => Message.fromData(this.client, await this.client.getChannelMessage(this.id, id))
+            fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
         });
         this.invites = new CacheInterface<Invite>(this.client, {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.channelID === this.id,
-            fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
+            fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
         });
         this.webhooks = new CacheInterface<Webhook>(this.client, {
             cacheManager: this.client._webhooks,
             match: (w: Webhook) => w.channelID === this.id,
-            fetchObject: async (id: string): Promise<Webhook> => Webhook.fromData(this.client, await this.client.getWebhook(this, id))
+            fetchObject: async (id: string): Promise<Webhook> => await this.client.getWebhook(this, id)
         });
     }
 
@@ -110,9 +110,9 @@ class TextChannel extends GuildChannel {
      * @param createWebhookData The data for the webhook
      * @param reason The reason for creating the webhook
      *
-     * @returns {Promise<WebhookData>} The created webhook's data
+     * @returns {Promise<Webhook>} The created webhook
      */
-    createWebhook(createWebhookData: CreateWebhookData, reason?: string): Promise<WebhookData> {
+    createWebhook(createWebhookData: CreateWebhookData, reason?: string): Promise<Webhook> {
         return this.client.createWebhook(this, createWebhookData, reason);
     }
 
@@ -121,9 +121,9 @@ class TextChannel extends GuildChannel {
      *
      * Get this channel's invites
      *
-     * @returns {Promise<InviteData[]>} The invites
+     * @returns {Promise<Invite[]>} The invites
      */
-    getInvites(): Promise<InviteData[]> {
+    getInvites(): Promise<Invite[]> {
         return this.client.getChannelInvites(this);
     }
 }

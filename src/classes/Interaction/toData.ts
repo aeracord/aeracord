@@ -13,6 +13,7 @@ export default function toData(interaction: Interaction): InteractionData {
         channelID: interaction.channelID,
         member: interaction.member,
         permissions: interaction.permissions,
-        user: interaction.user
+        user: interaction.user,
+        fetchedAt: interaction._lastUpdatedAt
     };
 }

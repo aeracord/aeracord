@@ -1,6 +1,6 @@
-import { EditMessageData, Embed, MessageData, MessageResolvable, TextBasedChannel } from "../../internal";
+import { EditMessageData, Embed, Message, MessageResolvable, TextBasedChannel } from "../../internal";
 
-export default function editMessage(channel: TextBasedChannel, message: MessageResolvable, contentOrEmbed: string | Embed | undefined, editMessageData: EditMessageData = {}): Promise<MessageData> {
+export default function editMessage(channel: TextBasedChannel, message: MessageResolvable, contentOrEmbed: string | Embed | undefined, editMessageData: EditMessageData = {}): Promise<Message> {
 
     // Parse data
     if (typeof contentOrEmbed === "string") editMessageData.content = contentOrEmbed;

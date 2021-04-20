@@ -51,6 +51,7 @@ export default function toData(template: Template): TemplateData {
             description: template.sourceGuild.description,
             preferredLocale: template.sourceGuild.preferredLocale
         },
-        dirty: template.dirty
+        dirty: template.dirty,
+        fetchedAt: template._lastUpdatedAt
     };
 }

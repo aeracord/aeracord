@@ -40,6 +40,7 @@ export default function dataFromRawData(client: Client, rawData: RawGuildData): 
         maxVideoChannelUsers: rawData.max_video_channel_users,
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
-        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._dataFromRawData(rawData.welcome_screen, rawData.id) : null
+        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._dataFromRawData(rawData.welcome_screen, rawData.id) : null,
+        fetchedAt: Date.now()
     };
 }

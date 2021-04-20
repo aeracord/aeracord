@@ -14,6 +14,7 @@ export default function toData(invite: Invite): InviteData {
         temporary: invite.temporary,
         uses: invite.uses,
         targetUser: invite.targetUser,
-        targetUserType: invite.targetUserType
+        targetUserType: invite.targetUserType,
+        fetchedAt: invite._lastUpdatedAt
     };
 }

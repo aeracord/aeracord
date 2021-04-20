@@ -2,6 +2,9 @@ import { Command, CommandData } from "../../internal";
 
 export default function updateObject(command: Command, commandData: CommandData) {
 
+    // If the `CommandData` was fetched before the `Command` object was last updated, dont update anything
+    if (commandData.fetchedAt < command._lastUpdatedAt) return;
+
     // Unmark as deleted
     if (command.deleted) command._unmarkAsDeleted();
 
@@ -12,4 +15,5 @@ export default function updateObject(command: Command, commandData: CommandData)
     command.name = commandData.name;
     command.description = commandData.description;
     command.options = commandData.options;
+    command._lastUpdatedAt = Date.now();
 }

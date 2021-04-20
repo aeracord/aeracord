@@ -12,6 +12,7 @@ export default function toData(webhook: Webhook): WebhookData {
         avatar: webhook.avatar,
         creator: webhook.creator,
         token: webhook.token,
-        applicationID: webhook.applicationID
+        applicationID: webhook.applicationID,
+        fetchedAt: webhook._lastUpdatedAt
     };
 }

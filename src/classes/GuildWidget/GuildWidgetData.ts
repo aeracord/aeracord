@@ -25,4 +25,11 @@ export interface GuildWidgetData {
      * The ID of the channel this widget is for
      */
     channelID: string | null;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this guild widget was fetched
+     */
+    fetchedAt: number;
 }

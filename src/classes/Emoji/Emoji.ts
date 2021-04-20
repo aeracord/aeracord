@@ -1,4 +1,4 @@
-import { Base, Client, EmojiData, ModifyGuildEmojiData, RawEmojiData, UserData } from "../../internal";
+import { Base, Client, EmojiData, ModifyGuildEmojiData, RawEmojiData, READY_STATE_READY, UserData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -88,18 +88,26 @@ export default class Emoji extends Base<Emoji> {
      */
     constructor(client: Client, emojiData: EmojiData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._emojis.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: emojiData.id,
             cacheManager: client._emojis,
-            expiresFromCacheIn: client._emojis.cacheAll ? (client._emojis.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._emojis.cacheFor || null) : undefined
         });
 
         // Set data
         Emoji._updateObject(this, emojiData);
 
         // Cache emoji
-        if (client._emojis.cacheAll) this.client._emojis.cache(this.id, this);
+        if (cache) this.client._emojis.cache(this.id, this);
     }
 
     /**
@@ -198,6 +206,15 @@ export default class Emoji extends Base<Emoji> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Emoji`
+     */
+    cache() {
+        this.client._emojis.cache(this.id, this);
+    }
+
+    /**
      * Edit
      *
      * Edit this emoji
@@ -205,9 +222,9 @@ export default class Emoji extends Base<Emoji> {
      * @param modifyGuildEmojiData The data to modify the emoji
      * @param reason The reason for modifying this emoji
      *
-     * @returns {Promise<EmojiData>} The modified emoji's data
+     * @returns {Promise<Emoji>} The modified emoji
      */
-    edit(modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<EmojiData> {
+    edit(modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<Emoji> {
         return this.client.modifyGuildEmoji(this.guildID, this, modifyGuildEmojiData, reason);
     }
 

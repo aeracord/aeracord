@@ -25,4 +25,11 @@ export interface VanityInviteData {
      * The amount of times this vanity invite link has been used
      */
     uses: number;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this vanity invite was fetched
+     */
+    fetchedAt: number;
 }

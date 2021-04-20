@@ -10,6 +10,7 @@ export default function toData(user: User): UserData {
         avatar: user.avatar,
         bot: user.bot,
         system: user.system,
-        publicFlags: user.publicFlags
+        publicFlags: user.publicFlags,
+        fetchedAt: user._lastUpdatedAt
     };
 }

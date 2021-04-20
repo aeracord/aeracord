@@ -20,7 +20,8 @@ export default function dataFromRawData(client: Client, rawData: RawRoleData, gu
             // `tags.premium_subscriber` is either `undefined` (false) or `null` (true)
             // Look, I didnt make the damn api
             premiumRole: rawData.tags?.premium_subscriber === null
-        }
+        },
+        fetchedAt: Date.now()
     };
 
     // Set role permissions

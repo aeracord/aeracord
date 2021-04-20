@@ -69,4 +69,11 @@ export interface EmojiData {
      * The IDs of the roles that can use this emoji
      */
     roles: string[];
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this emoji was fetched
+     */
+    fetchedAt: number;
 }

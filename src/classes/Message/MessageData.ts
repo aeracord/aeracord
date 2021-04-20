@@ -188,6 +188,13 @@ export interface MessageData {
      * The interaction this message is in response to
      */
     interaction: MessageInteraction | null;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this message was fetched
+     */
+    fetchedAt: number;
 }
 
 /**

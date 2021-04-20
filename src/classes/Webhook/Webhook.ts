@@ -1,4 +1,4 @@
-import { Base, Client, ModifyWebhookData, RawWebhookData, UserData, WebhookData, WebhookType } from "../../internal";
+import { Base, Client, ModifyWebhookData, RawWebhookData, READY_STATE_READY, UserData, WebhookData, WebhookType } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -88,18 +88,26 @@ export default class Webhook extends Base<Webhook> {
      */
     constructor(client: Client, webhookData: WebhookData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._webhooks.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: webhookData.id,
             cacheManager: client._webhooks,
-            expiresFromCacheIn: client._webhooks.cacheAll ? (client._webhooks.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._webhooks.cacheFor || null) : undefined
         });
 
         // Set data
         Webhook._updateObject(this, webhookData);
 
         // Cache webhook
-        if (client._webhooks.cacheAll) this.client._webhooks.cache(this.id, this);
+        if (cache) this.client._webhooks.cache(this.id, this);
     }
 
     /**
@@ -196,6 +204,15 @@ export default class Webhook extends Base<Webhook> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Webhook`
+     */
+    cache() {
+        this.client._webhooks.cache(this.id, this);
+    }
+
+    /**
      * Delete
      *
      * Delete this webhook
@@ -214,9 +231,9 @@ export default class Webhook extends Base<Webhook> {
      * @param modifyWebhookData The data to modify the webhook
      * @param reason The reason for modifying this webhook
      *
-     * @returns {Promise<WebhookData>} The modified webhook's data
+     * @returns {Promise<Webhook>} The modified webhook
      */
-    edit(modifyWebhookData: ModifyWebhookData, reason?: string): Promise<WebhookData> {
+    edit(modifyWebhookData: ModifyWebhookData, reason?: string): Promise<Webhook> {
         return this.client.modifyWebhook(this.channelID, this, modifyWebhookData, reason);
     }
 }

@@ -1,4 +1,4 @@
-import { Base, Client, CreateGuildBanData, MemberData, ModifyGuildMemberData, RawMemberData, RoleResolvable, UserData } from "../../internal";
+import { Base, Client, CreateGuildBanData, MemberData, ModifyGuildMemberData, RawMemberData, RoleResolvable, READY_STATE_READY, UserData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -87,18 +87,26 @@ export default class Member extends Base<Member> {
      */
     constructor(client: Client, memberData: MemberData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._members.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: `${memberData.guildID}_${memberData.user.id}`,
             cacheManager: client._members._cacheManager,
-            expiresFromCacheIn: client._members.cacheAll ? (client._members.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._members.cacheFor || null) : undefined
         });
 
         // Set data
         Member._updateObject(this, memberData);
 
         // Cache member
-        if (client._members.cacheAll) this.client._members.cache(this.guildID, this.user.id, this);
+        if (cache) this.client._members.cache(this.guildID, this.user.id, this);
     }
 
     /**
@@ -184,6 +192,15 @@ export default class Member extends Base<Member> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Member`
+     */
+    cache() {
+        this.client._members.cache(this.guildID, this.user.id, this);
+    }
+
+    /**
      * Add Role
      *
      * Add a role to this member
@@ -214,9 +231,9 @@ export default class Member extends Base<Member> {
      * @param modifyGuildMemberData The data to modify the member
      * @param reason The reason for modifying this member
      *
-     * @returns {Promise<MemberData>} The modified member's data
+     * @returns {Promise<Member>} The modified member
      */
-    edit(modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<MemberData> {
+    edit(modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<Member> {
         return this.client.modifyGuildMember(this.guildID, this, modifyGuildMemberData, reason);
     }
 

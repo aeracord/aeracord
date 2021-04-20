@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, AnyGuildChannelData, AuditLogData, Ban, BanData, Base, CacheInterface, CategoryChannel, Channel, Client, Command, CommandData, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyGuildChannel, AuditLogData, Ban, BanData, Base, CacheInterface, CategoryChannel, Client, Command, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -358,11 +358,19 @@ export default class Guild extends Base<Guild> {
      */
     constructor(client: Client, guildData: GuildData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._guilds.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: guildData.id,
             cacheManager: client._guilds,
-            expiresFromCacheIn: client._guilds.cacheAll ? (client._guilds.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._guilds.cacheFor || null) : undefined
         });
 
         // Set data
@@ -372,14 +380,14 @@ export default class Guild extends Base<Guild> {
             match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id),
             fetchObject: async (id: string): Promise<AnyChannel> => {
 
-                // Get channel data
-                const channelData: AnyChannelData = await this.client.getChannel(id);
+                // Get channel
+                const channel: AnyChannel = await this.client.getChannel(id);
 
                 // Match
-                if ((!("guildID" in channelData)) || (channelData.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
+                if ((!("guildID" in channel)) || (channel.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
 
                 // Return
-                return Channel.fromData(this.client, channelData);
+                return channel;
             }
         });
         this.roles = new CacheInterface<Role>(this.client, {
@@ -387,35 +395,35 @@ export default class Guild extends Base<Guild> {
             match: (r: Role) => r.guildID === this.id,
             fetchObject: async (id: string): Promise<Role> => {
 
-                // Get role data
-                const roleData: RoleData | undefined = (await this.client.getGuildRoles(this.id)).find((r: RoleData) => r.id === id);
-                if (!roleData) throw new Error("Couldn't find a role with that ID in this guild");
+                // Get role
+                const role: Role | undefined = (await this.client.getGuildRoles(this.id)).find((r: Role) => r.id === id);
+                if (!role) throw new Error("Couldn't find a role with that ID in this guild");
 
                 // Return
-                return Role.fromData(this.client, roleData);
+                return role;
             },
             getIDs: () => this.roleData.map((r: RoleData) => r.id)
         });
         this.emojis = new CacheInterface<Emoji>(this.client, {
             cacheManager: this.client._emojis,
             match: (e: Emoji) => e.guildID === this.id,
-            fetchObject: async (id: string): Promise<Emoji> => Emoji.fromData(this.client, await this.client.getGuildEmoji(this.id, id)),
+            fetchObject: async (id: string): Promise<Emoji> => await this.client.getGuildEmoji(this.id, id),
             getIDs: () => this.emojiData.map((e: EmojiData) => e.id)
         });
         this.members = new GuildUserCacheInterface<Member>(this.client, {
             cacheManager: this.client._members._cacheManager,
             match: (m: Member) => m.guildID === this.id,
-            fetchObject: async (id: string): Promise<Member> => Member.fromData(this.client, await this.client.getGuildMember(id.split("_")[0], id.split("_")[1]))
+            fetchObject: async (id: string): Promise<Member> => await this.client.getGuildMember(id.split("_")[0], id.split("_")[1])
         });
         this.bans = new GuildUserCacheInterface<Ban>(this.client, {
             cacheManager: this.client._bans._cacheManager,
             match: (b: Ban) => b.guildID === this.id,
-            fetchObject: async (id: string): Promise<Ban> => Ban.fromData(this.client, await this.client.getGuildBan(id.split("_")[0], id.split("_")[1]))
+            fetchObject: async (id: string): Promise<Ban> => await this.client.getGuildBan(id.split("_")[0], id.split("_")[1])
         });
         this.commands = new CacheInterface<Command>(this.client, {
             cacheManager: this.client._commands,
             match: (c: Command) => c.guildID === this.id,
-            fetchObject: async (id: string): Promise<Command> => Command.fromData(this.client, await this.client.getGuildCommand(this.id, id))
+            fetchObject: async (id: string): Promise<Command> => await this.client.getGuildCommand(this.id, id)
         });
         this.interactions = new CacheInterface<Interaction, false>(this.client, {
             cacheManager: this.client._interactions,
@@ -424,12 +432,12 @@ export default class Guild extends Base<Guild> {
         this.invites = new CacheInterface<Invite>(this.client, {
             cacheManager: this.client._invites,
             match: (i: Invite) => i.guildID === this.id,
-            fetchObject: async (id: string): Promise<Invite> => Invite.fromData(this.client, await this.client.getInvite(id))
+            fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
         });
         this.templates = new CacheInterface<Template>(this.client, {
             cacheManager: this.client._templates,
             match: (t: Template) => t.sourceGuildID === this.id,
-            fetchObject: async (id: string): Promise<Template> => Template.fromData(this.client, await this.client.getTemplate(id))
+            fetchObject: async (id: string): Promise<Template> => await this.client.getTemplate(id)
         });
         this.webhooks = new CacheInterface<Webhook>(this.client, {
             cacheManager: this.client._webhooks,
@@ -437,7 +445,7 @@ export default class Guild extends Base<Guild> {
         });
 
         // Cache guild
-        if (client._guilds.cacheAll) this.client._guilds.cache(this.id, this);
+        if (cache) this.client._guilds.cache(this.id, this);
     }
 
     /**
@@ -535,6 +543,15 @@ export default class Guild extends Base<Guild> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Guild`
+     */
+    cache() {
+        this.client._guilds.cache(this.id, this);
+    }
+
+    /**
      * Add Role to Member
      *
      * Add a role to a member in this guild
@@ -566,9 +583,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param editCommandData The data for the commands
      *
-     * @returns {Promise<CommandData[]>} The commands
+     * @returns {Promise<Command[]>} The commands
      */
-    bulkEditCommands(editCommandData: EditCommandData[]): Promise<CommandData[]> {
+    bulkEditCommands(editCommandData: EditCommandData[]): Promise<Command[]> {
         return this.client.bulkOverwriteGuildCommands(this, editCommandData);
     }
 
@@ -580,9 +597,9 @@ export default class Guild extends Base<Guild> {
      * @param createGuildChannelData The data for the channel
      * @param reason The reason for creating the channel
      *
-     * @returns {Promise<AnyGuildChannelData>} The created channel's data
+     * @returns {Promise<AnyGuildChannel>} The created channel
      */
-    createChannel(createGuildChannelData: CreateGuildChannelData, reason?: string): Promise<AnyGuildChannelData> {
+    createChannel(createGuildChannelData: CreateGuildChannelData, reason?: string): Promise<AnyGuildChannel> {
         return this.client.createGuildChannel(this, createGuildChannelData, reason);
     }
 
@@ -593,9 +610,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param createCommandData The data for the command
      *
-     * @returns {Promise<CommandData>} The command data
+     * @returns {Promise<Command>} The command
      */
-    createCommand(createCommandData: CreateCommandData): Promise<CommandData> {
+    createCommand(createCommandData: CreateCommandData): Promise<Command> {
         return this.client.createGuildCommand(this, createCommandData);
     }
 
@@ -607,9 +624,9 @@ export default class Guild extends Base<Guild> {
      * @param createGuildEmojiData The data for the emoji
      * @param reason The reason for creating the emoji
      *
-     * @returns {Promise<EmojiData>} The created emoji's data
+     * @returns {Promise<Emoji>} The created emoji
      */
-    createEmoji(createGuildEmojiData: CreateGuildEmojiData, reason?: string): Promise<EmojiData> {
+    createEmoji(createGuildEmojiData: CreateGuildEmojiData, reason?: string): Promise<Emoji> {
         return this.client.createGuildEmoji(this, createGuildEmojiData, reason);
     }
 
@@ -621,9 +638,9 @@ export default class Guild extends Base<Guild> {
      * @param createGuildRoleData The data for the role
      * @param reason The reason for creating the role
      *
-     * @returns {Promise<RoleData>} The created role's data
+     * @returns {Promise<Role>} The created role
      */
-    createRole(createGuildRoleData: CreateGuildRoleData, reason?: string): Promise<RoleData> {
+    createRole(createGuildRoleData: CreateGuildRoleData, reason?: string): Promise<Role> {
         return this.client.createGuildRole(this, createGuildRoleData, reason);
     }
 
@@ -634,9 +651,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param createGuildTemplateData The data for the template
      *
-     * @returns {Promise<TemplateData>} The created template's data
+     * @returns {Promise<Template>} The created template
      */
-    createTemplate(createGuildTemplateData: CreateGuildTemplateData): Promise<TemplateData> {
+    createTemplate(createGuildTemplateData: CreateGuildTemplateData): Promise<Template> {
         return this.client.createGuildTemplate(this, createGuildTemplateData);
     }
 
@@ -691,9 +708,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param template The template to delete
      *
-     * @returns {Promise<TemplateData>} The deleted template's data
+     * @returns {Promise<Template>} The deleted template
      */
-    deleteTemplate(template: TemplateResolvable): Promise<TemplateData> {
+    deleteTemplate(template: TemplateResolvable): Promise<Template> {
         return this.client.deleteGuildTemplate(this, template);
     }
 
@@ -705,9 +722,9 @@ export default class Guild extends Base<Guild> {
      * @param command The command to edit
      * @param editCommandData The data for the command
      *
-     * @returns {Promise<CommandData>} The command data
+     * @returns {Promise<Command>} The command
      */
-    editCommand(command: CommandResolvable, editCommandData: EditCommandData): Promise<CommandData> {
+    editCommand(command: CommandResolvable, editCommandData: EditCommandData): Promise<Command> {
         return this.client.editGuildCommand(this, command, editCommandData);
     }
 
@@ -731,9 +748,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param user The user to get the ban for
      *
-     * @returns {Promise<BanData>} The ban data
+     * @returns {Promise<Ban>} The ban
      */
-    getBan(user: UserResolvable): Promise<BanData> {
+    getBan(user: UserResolvable): Promise<Ban> {
         return this.client.getGuildBan(this, user);
     }
 
@@ -742,9 +759,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get the bans from this guild
      *
-     * @returns {Promise<BanData[]>} The guild's bans
+     * @returns {Promise<Ban[]>} The guild's bans
      */
-    getBans(): Promise<BanData[]> {
+    getBans(): Promise<Ban[]> {
         return this.client.getGuildBans(this);
     }
 
@@ -753,9 +770,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's channels
      *
-     * @returns {Promise<AnyGuildChannelData[]>} The guild's channels
+     * @returns {Promise<AnyGuildChannel[]>} The guild's channels
      */
-    getChannels(): Promise<AnyGuildChannelData[]> {
+    getChannels(): Promise<AnyGuildChannel[]> {
         return this.client.getGuildChannels(this);
     }
 
@@ -766,9 +783,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param command The command to get
      *
-     * @returns {Promise<CommandData>} The command data
+     * @returns {Promise<Command>} The command
      */
-    getCommand(command: CommandResolvable): Promise<CommandData> {
+    getCommand(command: CommandResolvable): Promise<Command> {
         return this.client.getGuildCommand(this, command);
     }
 
@@ -777,9 +794,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get the commands in this guild
      *
-     * @returns {Promise<CommandData[]>} The commands
+     * @returns {Promise<Command[]>} The commands
      */
-    getCommands(): Promise<CommandData[]> {
+    getCommands(): Promise<Command[]> {
         return this.client.getGuildCommands(this);
     }
 
@@ -790,9 +807,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param emoji The emoji to get
      *
-     * @returns {Promise<EmojiData>} The emoji data
+     * @returns {Promise<Emoji>} The emoji
      */
-    getEmoji(emoji: EmojiResolvable): Promise<EmojiData> {
+    getEmoji(emoji: EmojiResolvable): Promise<Emoji> {
         return this.client.getGuildEmoji(this, emoji);
     }
 
@@ -801,9 +818,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's emojis
      *
-     * @returns {Promise<EmojiData[]>} The emojis
+     * @returns {Promise<Emoji[]>} The emojis
      */
-    getEmojis(): Promise<EmojiData[]> {
+    getEmojis(): Promise<Emoji[]> {
         return this.client.listGuildEmojis(this);
     }
 
@@ -812,9 +829,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's invites
      *
-     * @returns {Promise<InviteData[]>} The invites
+     * @returns {Promise<Invite[]>} The invites
      */
-    getInvites(): Promise<InviteData[]> {
+    getInvites(): Promise<Invite[]> {
         return this.client.getGuildInvites(this);
     }
 
@@ -825,9 +842,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param user The user resolvable for the member to get
      *
-     * @returns {Promise<MemberData>} The member data
+     * @returns {Promise<Member>} The member
      */
-    getMember(user: UserResolvable): Promise<MemberData> {
+    getMember(user: UserResolvable): Promise<Member> {
         return this.client.getGuildMember(this, user);
     }
 
@@ -838,9 +855,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param listGuildMembersData The data for getting the members
      *
-     * @returns {Promise<MemberData[]>} The members
+     * @returns {Promise<Member[]>} The members
      */
-    getMembers(listGuildMembersData?: ListGuildMembersData): Promise<MemberData[]> {
+    getMembers(listGuildMembersData?: ListGuildMembersData): Promise<Member[]> {
         return this.client.listGuildMembers(this, listGuildMembersData);
     }
 
@@ -860,9 +877,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's roles
      *
-     * @returns {Promise<RoleData[]>} The guild's roles
+     * @returns {Promise<Role[]>} The guild's roles
      */
-    getRoles(): Promise<RoleData[]> {
+    getRoles(): Promise<Role[]> {
         return this.client.getGuildRoles(this);
     }
 
@@ -871,9 +888,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's templates
      *
-     * @returns {Promise<TemplateData[]>} The guild's templates
+     * @returns {Promise<Template[]>} The guild's templates
      */
-    getTemplates(): Promise<TemplateData[]> {
+    getTemplates(): Promise<Template[]> {
         return this.client.getGuildTemplates(this);
     }
 
@@ -882,9 +899,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's vanity URL
      *
-     * @returns {Promise<VanityInviteData>} The vanity invite data
+     * @returns {Promise<VanityInvite>} The vanity invite
      */
-    getVanityURL(): Promise<VanityInviteData> {
+    getVanityURL(): Promise<VanityInvite> {
         return this.client.getGuildVanityURL(this);
     }
 
@@ -904,9 +921,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's webhooks
      *
-     * @returns {Promise<WebhookData[]>} The guild's webhooks
+     * @returns {Promise<Webhook[]>} The guild's webhooks
      */
-    getWebhooks(): Promise<WebhookData[]> {
+    getWebhooks(): Promise<Webhook[]> {
         return this.client.getGuildWebhooks(this);
     }
 
@@ -915,9 +932,9 @@ export default class Guild extends Base<Guild> {
      *
      * Get this guild's widget settings
      *
-     * @returns {Promise<GuildWidgetData>} The guild widget data
+     * @returns {Promise<GuildWidget>} The guild widget
      */
-    getWidgetSettings(): Promise<GuildWidgetData> {
+    getWidgetSettings(): Promise<GuildWidget> {
         return this.client.getGuildWidgetSettings(this);
     }
 
@@ -951,9 +968,9 @@ export default class Guild extends Base<Guild> {
      * @param modifyGuildData The data to modify the guild
      * @param reason The reason for modifing this guild
      *
-     * @returns {Promise<GuildData>} The modified guild's data
+     * @returns {Promise<Guild>} The modified guild
      */
-    edit(modifyGuildData: ModifyGuildData, reason?: string): Promise<GuildData> {
+    edit(modifyGuildData: ModifyGuildData, reason?: string): Promise<Guild> {
         return this.client.modifyGuild(this, modifyGuildData, reason);
     }
 
@@ -977,9 +994,9 @@ export default class Guild extends Base<Guild> {
      * @param modifyGuildEmojiData The data to modify the emoji
      * @param reason The reason for modifying the emoji
      *
-     * @returns {Promise<EmojiData>} The modified emoji's data
+     * @returns {Promise<Emoji>} The modified emoji
      */
-    editEmoji(emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<EmojiData> {
+    editEmoji(emoji: EmojiResolvable, modifyGuildEmojiData: ModifyGuildEmojiData, reason?: string): Promise<Emoji> {
         return this.client.modifyGuildEmoji(this, emoji, modifyGuildEmojiData, reason);
     }
 
@@ -992,9 +1009,9 @@ export default class Guild extends Base<Guild> {
      * @param modifyGuildMemberData The data to modify the member
      * @param reason The reason for modifying the member
      *
-     * @returns {Promise<MemberData>} The modified member's data
+     * @returns {Promise<Member>} The modified member
      */
-    editMember(user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<MemberData> {
+    editMember(user: UserResolvable, modifyGuildMemberData: ModifyGuildMemberData, reason?: string): Promise<Member> {
         return this.client.modifyGuildMember(this, user, modifyGuildMemberData, reason);
     }
 
@@ -1007,9 +1024,9 @@ export default class Guild extends Base<Guild> {
      * @param modifyGuildRoleData The data to modify the role
      * @param reason The reason for modifying the role
      *
-     * @returns {Promise<RoleData>} The modified role's data
+     * @returns {Promise<Role>} The modified role
      */
-    editRole(role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData, reason?: string): Promise<RoleData> {
+    editRole(role: RoleResolvable, modifyGuildRoleData: ModifyGuildRoleData, reason?: string): Promise<Role> {
         return this.client.modifyGuildRole(this, role, modifyGuildRoleData, reason);
     }
 
@@ -1020,9 +1037,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param modifyGuildRolePositionsData The data to modify the role positions
      *
-     * @returns {Promise<RoleData[]>} The guild's roles
+     * @returns {Promise<Role[]>} The guild's roles
      */
-    editRolePositions(modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<RoleData[]> {
+    editRolePositions(modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> {
         return this.client.modifyGuildRolePositions(this, modifyGuildRolePositionsData);
     }
 
@@ -1034,9 +1051,9 @@ export default class Guild extends Base<Guild> {
      * @param template The template to modify
      * @param modifyGuildTemplateData The data to modify the template
      *
-     * @returns {Promise<TemplateData>} The modified template's data
+     * @returns {Promise<Template>} The modified template
      */
-    editTemplate(template: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<TemplateData> {
+    editTemplate(template: TemplateResolvable, modifyGuildTemplateData: ModifyGuildTemplateData): Promise<Template> {
         return this.client.modifyGuildTemplate(this, template, modifyGuildTemplateData);
     }
 
@@ -1047,9 +1064,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param modifyGuildWelcomeScreenData The data to modify the welcome screen
      *
-     * @returns {Promise<WelcomeScreenData>} The modified welcome screen's data
+     * @returns {Promise<WelcomeScreen>} The modified welcome screen
      */
-    editWelcomeScreen(modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreenData> {
+    editWelcomeScreen(modifyGuildWelcomeScreenData: ModifyGuildWelcomeScreenData): Promise<WelcomeScreen> {
         return this.client.modifyGuildWelcomeScreen(this, modifyGuildWelcomeScreenData);
     }
 
@@ -1060,9 +1077,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param modifyGuildWidgetData The data to modify the guild's widget
      *
-     * @returns {Promise<GuildWidgetData>} The modified guild widget's data
+     * @returns {Promise<GuildWidget>} The modified guild widget
      */
-    editGuildWidget(modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidgetData> {
+    editGuildWidget(modifyGuildWidgetData: ModifyGuildWidgetData): Promise<GuildWidget> {
         return this.client.modifyGuildWidget(this, modifyGuildWidgetData);
     }
 
@@ -1073,9 +1090,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param searchGuildMembersData The data for searching the members
      *
-     * @returns {Promise<MemberData[]>} The members
+     * @returns {Promise<Member[]>} The members
      */
-    searchMembers(searchGuildMembersData: SearchGuildMembersData): Promise<MemberData[]> {
+    searchMembers(searchGuildMembersData: SearchGuildMembersData): Promise<Member[]> {
         return this.client.searchGuildMembers(this, searchGuildMembersData);
     }
 
@@ -1123,9 +1140,9 @@ export default class Guild extends Base<Guild> {
      *
      * @param template The template to sync
      *
-     * @returns {Promise<TemplateData>} The synced template's data
+     * @returns {Promise<Template>} The synced template
      */
-    syncTemplate(template: TemplateResolvable): Promise<TemplateData> {
+    syncTemplate(template: TemplateResolvable): Promise<Template> {
         return this.client.syncGuildTemplate(this, template);
     }
 }

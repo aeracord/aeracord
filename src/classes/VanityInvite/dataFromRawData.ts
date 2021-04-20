@@ -6,6 +6,7 @@ export default function dataFromRawData(rawData: RawVanityInviteData, guildID: s
     return {
         guildID,
         code: rawData.code,
-        uses: rawData.uses
+        uses: rawData.uses,
+        fetchedAt: Date.now()
     };
 }

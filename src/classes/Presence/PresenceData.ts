@@ -34,6 +34,13 @@ export interface PresenceData {
      * The presence's statuses
      */
     clientStatus: PresenceClientStatus;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this presence was fetched
+     */
+    fetchedAt: number;
 }
 
 export interface PresenceUser {

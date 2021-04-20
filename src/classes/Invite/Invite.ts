@@ -1,4 +1,4 @@
-import { Base, Client, InviteData, RawInviteData, TargetUser, TargetUserType, UserData } from "../../internal";
+import { Base, Client, InviteData, RawInviteData, READY_STATE_READY, TargetUser, TargetUserType, UserData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveCode from "./resolveCode";
@@ -113,18 +113,26 @@ export default class Invite extends Base<Invite> {
      */
     constructor(client: Client, inviteData: InviteData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._invites.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: inviteData.code,
             cacheManager: client._invites,
-            expiresFromCacheIn: client._invites.cacheAll ? (client._invites.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._invites.cacheFor || null) : undefined
         });
 
         // Set data
         Invite._updateObject(this, inviteData);
 
         // Cache invite
-        if (client._invites.cacheAll) this.client._invites.cache(this.id, this);
+        if (cache) this.client._invites.cache(this.id, this);
     }
 
     /**
@@ -221,15 +229,24 @@ export default class Invite extends Base<Invite> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Invite`
+     */
+    cache() {
+        this.client._invites.cache(this.id, this);
+    }
+
+    /**
      * Delete
      *
      * Delete this invite
      *
      * @param reason The reason for deleting this invite
      *
-     * @returns {Promise<InviteData>} The deleted invite's data
+     * @returns {Promise<Invite>} The deleted invite
      */
-    delete(reason?: string): Promise<InviteData> {
+    delete(reason?: string): Promise<Invite> {
         return this.client.deleteInvite(this.channelID, this, reason);
     }
 }

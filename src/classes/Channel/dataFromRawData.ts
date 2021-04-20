@@ -23,7 +23,8 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         nsfw: rawData.nsfw,
         rateLimitPerUser: rawData.rate_limit_per_user,
         lastMessageID: rawData.last_message_id,
-        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null
+        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
+        fetchedAt: Date.now()
     };
 
     // Parse DM channel data
@@ -32,7 +33,8 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         type: rawData.type,
         lastMessageID: rawData.last_message_id,
         lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
-        recipient: (rawData.recipients as RawUserData[])[0].id
+        recipient: (rawData.recipients as RawUserData[])[0].id,
+        fetchedAt: Date.now()
     };
 
     // Parse voice channel data
@@ -50,7 +52,8 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         })),
         parentID: rawData.parent_id,
         bitrate: rawData.bitrate,
-        userLimit: rawData.user_limit
+        userLimit: rawData.user_limit,
+        fetchedAt: Date.now()
     };
 
     // Parse category channel data
@@ -66,7 +69,8 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
             allow: new Permissions(p.allow),
             deny: new Permissions(p.deny)
         })),
-        parentID: rawData.parent_id
+        parentID: rawData.parent_id,
+        fetchedAt: Date.now()
     };
 
     // Parse news channel data
@@ -87,7 +91,8 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         nsfw: rawData.nsfw,
         rateLimitPerUser: rawData.rate_limit_per_user,
         lastMessageID: rawData.last_message_id,
-        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null
+        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
+        fetchedAt: Date.now()
     };
 
     // Parse store channel data
@@ -103,7 +108,8 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
             allow: new Permissions(p.allow),
             deny: new Permissions(p.deny)
         })),
-        parentID: rawData.parent_id
+        parentID: rawData.parent_id,
+        fetchedAt: Date.now()
     };
 
     // Unknown channel type

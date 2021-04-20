@@ -19,6 +19,7 @@ export default function dataFromRawData(rawData: RawInviteData): InviteData {
             discriminator: rawData.target_user.discriminator,
             avatar: rawData.target_user.avatar
         } : null,
-        targetUserType: rawData.target_user_type || null
+        targetUserType: rawData.target_user_type || null,
+        fetchedAt: Date.now()
     };
 }

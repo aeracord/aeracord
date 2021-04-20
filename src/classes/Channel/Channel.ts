@@ -1,4 +1,4 @@
-import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, READY_STATE_READY, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -35,18 +35,26 @@ export default class Channel extends Base<AnyChannel> {
      */
     constructor(client: Client, channelData: ChannelData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._channels.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: channelData.id,
             cacheManager: client._channels,
-            expiresFromCacheIn: client._channels.cacheAll ? (client._channels.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._channels.cacheFor || null) : undefined
         });
 
         // Set data
         Channel._updateObject(this, channelData);
 
         // Cache channel
-        if (client._channels.cacheAll) this.client._channels.cache(this.id, this);
+        if (cache) this.client._channels.cache(this.id, this);
     }
 
     /**
@@ -144,15 +152,24 @@ export default class Channel extends Base<AnyChannel> {
     }
 
     /**
+     * Cache
+     *
+     * Cache this `Channel`
+     */
+    cache() {
+        this.client._channels.cache(this.id, this);
+    }
+
+    /**
      * Delete
      *
      * Delete a guild channel or close a DM channel
      *
      * @param reason The reason for deleting this channel
      *
-     * @returns {Promise<AnyChannelData>} The deleted or closed channel's data
+     * @returns {Promise<AnyChannel>} The deleted or closed channel
      */
-    delete(reason?: string): Promise<AnyChannelData> {
+    delete(reason?: string): Promise<AnyChannel> {
         return this.client.deleteChannel(this, reason);
     }
 }

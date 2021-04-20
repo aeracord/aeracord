@@ -1,4 +1,4 @@
-import { EmojiData } from "../../../../internal";
+import { Emoji } from "../../../../internal";
 
 export interface GuildEmojisUpdateData {
 
@@ -14,5 +14,5 @@ export interface GuildEmojisUpdateData {
      *
      * The emojis
      */
-    emojis: EmojiData[];
+    emojis: Emoji[];
 }

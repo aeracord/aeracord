@@ -51,6 +51,7 @@ export default function dataFromRawData(rawData: RawTemplateData): TemplateData 
             description: rawData.serialized_source_guild.description,
             preferredLocale: rawData.serialized_source_guild.preferred_locale
         },
-        dirty: Boolean(rawData.is_dirty)
+        dirty: Boolean(rawData.is_dirty),
+        fetchedAt: Date.now()
     };
 }

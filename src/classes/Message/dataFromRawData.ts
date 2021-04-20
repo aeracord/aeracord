@@ -71,6 +71,7 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
             type: rawData.interaction.type,
             name: rawData.interaction.name,
             user: User._dataFromRawData(rawData.interaction.user)
-        } : null
+        } : null,
+        fetchedAt: Date.now()
     };
 }

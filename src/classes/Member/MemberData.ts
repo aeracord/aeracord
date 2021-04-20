@@ -69,4 +69,11 @@ export interface MemberData {
      * The member's user object
      */
     user: UserData;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this member was fetched
+     */
+    fetchedAt: number;
 }

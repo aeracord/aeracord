@@ -1,4 +1,4 @@
-import { Base, Client, RawVanityInviteData, VanityInviteData } from "../../internal";
+import { Base, Client, RawVanityInviteData, READY_STATE_READY, VanityInviteData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -41,18 +41,26 @@ export default class VanityInvite extends Base<VanityInvite> {
      */
     constructor(client: Client, vanityInviteData: VanityInviteData) {
 
+        /**
+         * Define Cache
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        const cache: boolean = client._vanityInvites.cacheAll && client._readyState === READY_STATE_READY;
+
         // Super
         super(client, {
             id: vanityInviteData.guildID,
             cacheManager: client._vanityInvites,
-            expiresFromCacheIn: client._vanityInvites.cacheAll ? (client._vanityInvites.cacheFor || null) : undefined
+            expiresFromCacheIn: cache ? (client._vanityInvites.cacheFor || null) : undefined
         });
 
         // Set data
         VanityInvite._updateObject(this, vanityInviteData);
 
         // Cache vanity invite
-        if (client._vanityInvites.cacheAll) this.client._vanityInvites.cache(this.id, this);
+        if (cache) this.client._vanityInvites.cache(this.id, this);
     }
 
     /**
@@ -135,5 +143,14 @@ export default class VanityInvite extends Base<VanityInvite> {
      */
     static _updateObjectFromData(client: Client, vanityInviteData: VanityInviteData): VanityInvite | undefined {
         return updateObjectFromData(client, vanityInviteData);
+    }
+
+    /**
+     * Cache
+     *
+     * Cache this `VanityInvite`
+     */
+    cache() {
+        this.client._vanityInvites.cache(this.id, this);
     }
 }
