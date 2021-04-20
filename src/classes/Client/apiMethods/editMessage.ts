@@ -1,4 +1,4 @@
-import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditMessageData {
@@ -21,7 +21,7 @@ export default async function editMessage(client: Client, channelResolvable: Cha
     if (allowedMentionsRoles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed mentions roles");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (editMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new Error("Missing embed links permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (editMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new PermissionError({ permission: "EMBED_LINKS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}`;

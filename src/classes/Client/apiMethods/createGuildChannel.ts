@@ -1,4 +1,4 @@
-import { AnyGuildChannel, Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildChannelType, GuildResolvable, PermissionOverwrite, RawChannelData } from "../../../internal";
+import { AnyGuildChannel, Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildChannelType, GuildResolvable, PermissionError, PermissionOverwrite, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildChannelData {
@@ -23,7 +23,7 @@ export default async function createGuildChannel(client: Client, guildResolvable
     if (parentID === undefined) throw new Error("Invalid channel resolvable for parent");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", guildID))) throw new Error("Missing manage channels permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", guildID))) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/channels`;

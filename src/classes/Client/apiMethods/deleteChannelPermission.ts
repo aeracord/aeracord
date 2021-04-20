@@ -1,4 +1,4 @@
-import { Channel, ChannelPermissionData, ChannelResolvable, Client, FetchQueue, Permissions, PermissionOverwrite, RoleResolvable, UserResolvable } from "../../../internal";
+import { Channel, ChannelPermissionData, ChannelResolvable, Client, FetchQueue, Permissions, PermissionOverwrite, RoleResolvable, UserResolvable, PermissionError } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import resolveRoleOrUserID from "../../../util/resolveRoleOrUserID";
 
@@ -23,7 +23,7 @@ export default async function deleteChannelPermission(client: Client, channelRes
                 ["MANAGE_ROLES", ...(new Permissions(permissionOverwrite.allow).getAll()), ...(new Permissions(permissionOverwrite.deny).getAll())] :
                 ["MANAGE_ROLES"],
             channelID
-        )) throw new Error("Missing permissions to delete this channel permission");
+        )) throw new PermissionError({ permission: "MANAGE_ROLES" });
     }
 
     // Define fetch data

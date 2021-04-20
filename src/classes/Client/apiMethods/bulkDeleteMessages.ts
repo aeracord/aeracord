@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, PermissionError } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface BulkDeleteMessagesData {
@@ -14,7 +14,7 @@ export default async function bulkDeleteMessages(client: Client, channelResolvab
     if (messages.find((m: string | undefined) => !m)) throw new Error("Invalid message resolvable in array of messages to bulk delete");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new Error("Missing manage messages permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new PermissionError({ permission: "MANAGE_MESSAGES" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/bulk-delete`;

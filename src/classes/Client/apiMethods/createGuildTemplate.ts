@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawTemplateData, Template } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawTemplateData, Template } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildTemplateData {
@@ -13,7 +13,7 @@ export default async function createGuildTemplate(client: Client, guildResolvabl
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/templates`;

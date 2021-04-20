@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, Reaction, ReactionEmojiResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, PermissionError, Reaction, ReactionEmojiResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function createReaction(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, reactionEmojiResolvable: ReactionEmojiResolvable): Promise<void> {
@@ -13,7 +13,7 @@ export default async function createReaction(client: Client, channelResolvable: 
 
     // Missing permissions
     if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("ADD_REACTIONS", channelID)) throw new Error("Missing add reactions permissions");
+        if (!client.hasPermission("ADD_REACTIONS", channelID)) throw new PermissionError({ permission: "ADD_REACTIONS" });
         if (
 
             // If external emoji permissions are cached
@@ -27,7 +27,7 @@ export default async function createReaction(client: Client, channelResolvable: 
 
             // And the client doesnt have the use external emojis permissions
             !client.hasPermission("USE_EXTERNAL_EMOJIS", channelID)
-        ) throw new Error("Missing use external emojis permissions");
+        ) throw new PermissionError({ permission: "USE_EXTERNAL_EMOJIS" });
     }
 
     // Define fetch data

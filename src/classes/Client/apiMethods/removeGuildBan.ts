@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, User, UserResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, PermissionError, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function removeGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable, reason?: string): Promise<void> {
@@ -10,7 +10,7 @@ export default async function removeGuildBan(client: Client, guildResolvable: Gu
     if (!userID) throw new Error("Invalid user resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("BAN_MEMBERS", guildID))) throw new Error("Missing ban members permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("BAN_MEMBERS", guildID))) throw new PermissionError({ permission: "BAN_MEMBERS" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/bans/${userID}`;

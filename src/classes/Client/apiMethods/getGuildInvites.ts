@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, Invite, RawInviteData } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, Invite, PermissionError, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function getGuildInvites(client: Client, guildResolvable: GuildResolvable): Promise<Invite[]> {
@@ -8,7 +8,7 @@ export default async function getGuildInvites(client: Client, guildResolvable: G
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/invites`;

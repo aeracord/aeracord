@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, RawMessageData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, PermissionError, RawMessageData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function getPinnedMessages(client: Client, channelResolvable: ChannelResolvable): Promise<Message[]> {
@@ -8,7 +8,7 @@ export default async function getPinnedMessages(client: Client, channelResolvabl
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_CHANNEL", channelID))) throw new Error("Missing view channel permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_CHANNEL", channelID))) throw new PermissionError({ permission: "VIEW_CHANNEL" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/pins`;

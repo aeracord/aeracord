@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, RawGuildData, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawGuildData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildData {
@@ -36,7 +36,7 @@ export default async function modifyGuild(client: Client, guildResolvable: Guild
     if (publicUpdatesChannelID === undefined) throw new Error("Invalid channel resolvable for public updates channel");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}`;

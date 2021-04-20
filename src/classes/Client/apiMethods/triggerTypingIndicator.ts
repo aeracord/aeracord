@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, PermissionError } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function triggerTypingIndicator(client: Client, channelResolvable: ChannelResolvable): Promise<void> {
@@ -8,7 +8,7 @@ export default async function triggerTypingIndicator(client: Client, channelReso
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("SEND_MESSAGES", channelID))) throw new Error("Missing send messages permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("SEND_MESSAGES", channelID))) throw new PermissionError({ permission: "SEND_MESSAGES" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/typing`;

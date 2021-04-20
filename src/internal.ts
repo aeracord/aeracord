@@ -290,6 +290,12 @@ export {
 } from "./classes/NewsChannel/NewsChannel";
 export * from "./classes/NewsChannel/NewsChannelData";
 
+// Permission Error
+export {
+    default as PermissionError,
+    PermissionErrorData
+} from "./classes/PermissionError/PermissionError";
+
 // Permissions
 export {
     default as Permissions,

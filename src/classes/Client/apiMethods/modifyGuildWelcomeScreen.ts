@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, RawWelcomeScreenData, WelcomeScreen } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawWelcomeScreenData, WelcomeScreen } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildWelcomeScreenData {
@@ -16,7 +16,7 @@ export default async function modifyGuildWelcomeScreen(client: Client, guildReso
     if (channelIDs?.find((c: string | undefined) => !c)) throw new Error("Invalid channel resolvable for welcome screen channels");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/welcome-screen`;

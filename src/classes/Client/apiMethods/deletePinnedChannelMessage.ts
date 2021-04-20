@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, PermissionError } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function deletePinnedChannelMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable, reason?: string): Promise<void> {
@@ -10,7 +10,7 @@ export default async function deletePinnedChannelMessage(client: Client, channel
     if (!messageID) throw new Error("Invalid message resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new Error("Missing manage messages permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_MESSAGES", channelID))) throw new PermissionError({ permission: "MANAGE_MESSAGES" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/pins/${messageID}`;

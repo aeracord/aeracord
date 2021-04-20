@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, RawWebhookData, Webhook, WebhookResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, PermissionError, RawWebhookData, Webhook, WebhookResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyWebhookData {
@@ -19,8 +19,8 @@ export default async function modifyWebhook(client: Client, channelResolvable: C
 
     // Missing permissions
     if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("MANAGE_WEBHOOKS", channelID)) throw new Error("Missing manage webhooks permissions");
-        if ((targetChannelID) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannelID))) throw new Error("Missing manage webhooks permissions in the target channel");
+        if (!client.hasPermission("MANAGE_WEBHOOKS", channelID)) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
+        if ((targetChannelID) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannelID))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
     }
 
     // Define fetch data

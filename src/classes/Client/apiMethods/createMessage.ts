@@ -1,6 +1,6 @@
 import FormData from "form-data";
 import { promises as fs } from "fs";
-import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateMessageData {
@@ -43,10 +43,10 @@ export default async function createMessage(client: Client, channelResolvable: C
 
     // Missing permissions
     if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("SEND_MESSAGES", channelID)) throw new Error("Missing send messages permissions");
-        if ((createMessageData.tts) && (!client.hasPermission("SEND_TTS_MESSAGES", channelID))) throw new Error("Missing send TTS messages permissions");
-        if ((createMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new Error("Missing embed links permissions");
-        if ((createMessageData.file) && (!client.hasPermission("ATTACH_FILES", channelID))) throw new Error("Missing attach files permissions");
+        if (!client.hasPermission("SEND_MESSAGES", channelID)) throw new PermissionError({ permission: "SEND_MESSAGES" });
+        if ((createMessageData.tts) && (!client.hasPermission("SEND_TTS_MESSAGES", channelID))) throw new PermissionError({ permission: "SEND_TTS_MESSAGES" });
+        if ((createMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new PermissionError({ permission: "EMBED_LINKS" });
+        if ((createMessageData.file) && (!client.hasPermission("ATTACH_FILES", channelID))) throw new PermissionError({ permission: "ATTACH_FILES" });
     }
 
     // Define fetch data

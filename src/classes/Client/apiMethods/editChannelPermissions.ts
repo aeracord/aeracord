@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, PermissionType, RoleResolvable, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, PermissionError, PermissionType, RoleResolvable, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import resolveRoleOrUserID from "../../../util/resolveRoleOrUserID";
 
@@ -17,7 +17,7 @@ export default async function editChannelPermissions(client: Client, channelReso
     if (!roleOrUserID) throw new Error("Invalid role or user resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new Error("Missing manage roles permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new PermissionError({ permission: "MANAGE_ROLES" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/permissions/${roleOrUserID}`;

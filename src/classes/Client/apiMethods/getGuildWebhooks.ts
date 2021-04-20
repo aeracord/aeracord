@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawWebhookData, Webhook } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawWebhookData, Webhook } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function getGuildWebhooks(client: Client, guildResolvable: GuildResolvable): Promise<Webhook[]> {
@@ -8,7 +8,7 @@ export default async function getGuildWebhooks(client: Client, guildResolvable: 
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", guildID))) throw new Error("Missing manage webhooks permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", guildID))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/webhooks`;

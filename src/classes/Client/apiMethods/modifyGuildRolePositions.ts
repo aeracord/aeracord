@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawRoleData, Role, RoleResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawRoleData, Role, RoleResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildRolePositionsData {
@@ -23,13 +23,10 @@ export default async function modifyGuildRolePositions(client: Client, guildReso
     if (positions.find((p: PositionsData) => !p.id)) throw new Error("Invalid role resolvable in array of role positions");
 
     // Missing permissions
-    if (
-        client._cacheStrategies.permissions.enabled &&
-        (
-            !client.hasPermission("MANAGE_ROLES", guildID) ||
-            !client.canManageRoles(guildID, positions.map((p: PositionsData) => p.id) as string[])
-        )
-    ) throw new Error("Missing permissions to manage the roles");
+    if (client._cacheStrategies.permissions.enabled) {
+        if (!client.hasPermission("MANAGE_ROLES", guildID)) throw new PermissionError({ permission: "MANAGE_ROLES" });
+        if (!client.canManageRoles(guildID, positions.map((p: PositionsData) => p.id) as string[])) throw new PermissionError({ role: positions.map((p: PositionsData) => p.id).join(",") });
+    }
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/roles`;

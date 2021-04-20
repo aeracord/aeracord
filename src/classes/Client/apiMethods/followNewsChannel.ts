@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, PermissionError } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface FollowNewsChannelData {
@@ -24,7 +24,7 @@ export default async function followNewsChannel(client: Client, channelResolvabl
     if (!targetChannel) throw new Error("Invalid channel resolvable for target channel");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannel))) throw new Error("Missing manage webhooks permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannel))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/followers`;

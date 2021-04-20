@@ -1,4 +1,4 @@
-import { AnyGuildChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionOverwrite, RawChannelData } from "../../../internal";
+import { AnyGuildChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionError, PermissionOverwrite, RawChannelData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyChannelData {
@@ -26,8 +26,8 @@ export default async function modifyChannel(client: Client, channelResolvable: C
 
     // Missing permissions
     if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new Error("Missing manage channels permissions");
-        if ((modifyChannelData.permissionOverwrites) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new Error("Missing manage roles permissions");
+        if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
+        if ((modifyChannelData.permissionOverwrites) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new PermissionError({ permission: "MANAGE_ROLES" });
     }
 
     // Define fetch data

@@ -1,4 +1,4 @@
-import { Client, Emoji, EmojiResolvable, FetchQueue, Guild, GuildResolvable } from "../../../internal";
+import { Client, Emoji, EmojiResolvable, FetchQueue, Guild, GuildResolvable, PermissionError } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function deleteGuildEmoji(client: Client, guildResolvable: GuildResolvable, emojiResolvable: EmojiResolvable, reason?: string): Promise<void> {
@@ -10,7 +10,7 @@ export default async function deleteGuildEmoji(client: Client, guildResolvable: 
     if (!emojiID) throw new Error("Invalid emoji resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_EMOJIS", guildID))) throw new Error("Missing manage emojis permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_EMOJIS", guildID))) throw new PermissionError({ permission: "MANAGE_EMOJIS" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/emojis/${emojiID}`;

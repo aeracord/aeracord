@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { AuditLog, AuditLogEvent, Client, FetchQueue, Guild, GuildResolvable, RawAuditLogData, UserResolvable } from "../../../internal";
+import { AuditLog, AuditLogEvent, Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawAuditLogData, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface GetGuildAuditLogData {
@@ -16,7 +16,7 @@ export default async function getGuildAuditLog(client: Client, guildResolvable: 
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_AUDIT_LOG", guildID))) throw new Error("Missing view audit logs permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_AUDIT_LOG", guildID))) throw new PermissionError({ permission: "VIEW_AUDIT_LOG" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/audit-logs?${queryString.stringify({

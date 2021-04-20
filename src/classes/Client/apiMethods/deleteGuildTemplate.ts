@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, RawTemplateData, Template, TemplateResolvable } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawTemplateData, Template, TemplateResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function deleteGuildTemplate(client: Client, guildResolvable: GuildResolvable, templateResolvable: TemplateResolvable): Promise<Template> {
@@ -10,7 +10,7 @@ export default async function deleteGuildTemplate(client: Client, guildResolvabl
     if (!templateCode) throw new Error("Invalid template resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/templates/${templateCode}`;

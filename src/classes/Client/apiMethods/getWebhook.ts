@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, RawWebhookData, Webhook, WebhookResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, PermissionError, RawWebhookData, Webhook, WebhookResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function getWebhook(client: Client, channelResolvable: ChannelResolvable, webhookResolvable: WebhookResolvable): Promise<Webhook> {
@@ -10,7 +10,7 @@ export default async function getWebhook(client: Client, channelResolvable: Chan
     if (!webhookID) throw new Error("Invalid webhook resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", channelID))) throw new Error("Missing manage webhooks permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", channelID))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
 
     // Define fetch data
     const path: string = `/webhooks/${webhookID}`;

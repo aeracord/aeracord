@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, GuildWidget, RawGuildWidgetData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Guild, GuildResolvable, GuildWidget, PermissionError, RawGuildWidgetData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyGuildWidgetData {
@@ -15,7 +15,7 @@ export default async function modifyGuildWidget(client: Client, guildResolvable:
     if (channelID === undefined) throw new Error("Invalid channel resolvable for widget channel");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new Error("Missing manage guild permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/widget`;

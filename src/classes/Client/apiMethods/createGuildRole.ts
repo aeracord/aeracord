@@ -1,4 +1,4 @@
-import { Client, FetchQueue, Guild, GuildResolvable, Permissions, RawRoleData, Role } from "../../../internal";
+import { Client, FetchQueue, Guild, GuildResolvable, Permissions, PermissionError, RawRoleData, Role } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildRoleData {
@@ -24,7 +24,7 @@ export default async function createGuildRole(client: Client, guildResolvable: G
                 ["MANAGE_ROLES"],
             guildID
         )
-    ) throw new Error("Missing permissions to create a role with those permissions");
+    ) throw new PermissionError({ permission: "MANAGE_ROLES" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/roles`;

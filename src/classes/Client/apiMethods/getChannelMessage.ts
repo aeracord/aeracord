@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, RawMessageData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, PermissionError, RawMessageData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function getChannelMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable): Promise<Message> {
@@ -10,7 +10,7 @@ export default async function getChannelMessage(client: Client, channelResolvabl
     if (!messageID) throw new Error("Invalid message resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("READ_MESSAGE_HISTORY", channelID))) throw new Error("Missing read message history permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("READ_MESSAGE_HISTORY", channelID))) throw new PermissionError({ permission: "READ_MESSAGE_HISTORY" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}`;

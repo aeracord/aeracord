@@ -413,6 +413,12 @@ export {
     PresenceUser
 } from "./internal";
 
+// Permission Error
+export {
+    PermissionError,
+    PermissionErrorData
+} from "./internal";
+
 // Permissions
 export {
     PermissionName,

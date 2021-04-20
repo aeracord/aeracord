@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, InviteResolvable, RawInviteData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, InviteResolvable, PermissionError, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function deleteInvite(client: Client, channelResolvable: ChannelResolvable, inviteResolvable: InviteResolvable, reason?: string): Promise<Invite> {
@@ -10,7 +10,7 @@ export default async function deleteInvite(client: Client, channelResolvable: Ch
     if (!inviteCode) throw new Error("Invalid invite resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", channelID))) throw new Error("Missing manage channels permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", channelID))) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
 
     // Define fetch data
     const path: string = `/invites/${inviteCode}`;

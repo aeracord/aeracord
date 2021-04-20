@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, RawInviteData, TargetUserType, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, PermissionError, RawInviteData, TargetUserType, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateChannelInviteData {
@@ -19,7 +19,7 @@ export default async function createChannelInvite(client: Client, channelResolva
     if (targetUser === undefined) throw new Error("Invalid user resolvable for target user");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("CREATE_INSTANT_INVITE", channelID))) throw new Error("Missing create instant invite permissions");
+    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("CREATE_INSTANT_INVITE", channelID))) throw new PermissionError({ permission: "CREATE_INSTANT_INVITE" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/invites`;
