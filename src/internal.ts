@@ -4,6 +4,12 @@ export {
     BaseData
 } from "./classes/Base/Base";
 
+// API Error
+export {
+    default as APIError,
+    APIErrorData
+} from "./classes/APIError/APIError";
+
 // Attachment
 export {
     default as Attachment

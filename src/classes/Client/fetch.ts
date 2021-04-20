@@ -1,6 +1,6 @@
 import FormData from "form-data";
 import nodeFetch, { Response } from "node-fetch";
-import { Client, FetchQueue } from "../../internal";
+import { APIError, Client, FetchQueue } from "../../internal";
 import getRoute from "../../util/getRoute";
 
 // Typescript complains about the file not being in the root directory (`src/`) if you use `import`
@@ -74,7 +74,13 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
     };
 
     // API error
-    if ((data) && (typeof data.code === "number")) throw new Error(`Discord API error at ${requestOptions.method} ${requestOptions.path}: ${JSON.stringify(data, null, 4)}`);
+    if ((data) && (typeof data.code === "number")) throw new APIError({
+        code: data.code,
+        message: data.message,
+        method: requestOptions.method,
+        path: requestOptions.path,
+        errors: data.errors
+    });
 
     // Return
     return {

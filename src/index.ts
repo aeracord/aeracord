@@ -4,6 +4,12 @@ import * as aeracord from "./internal";
 // All
 export default aeracord;
 
+// API Error
+export {
+    APIError,
+    APIErrorData
+} from "./internal";
+
 // Attachment
 export {
     Attachment,
