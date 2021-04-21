@@ -1,9 +1,9 @@
 /**
- * Embed Data
+ * Message Embed Data
  *
- * Represents an `Embed`
+ * Represents an `MessageEmbed`
  */
-export interface EmbedData {
+export interface MessageEmbedData {
 
     /**
      * Message ID
@@ -38,7 +38,7 @@ export interface EmbedData {
      *
      * The embed's type
      */
-    type: EmbedType | null;
+    type: MessageEmbedType | null;
 
     /**
      * Description
@@ -73,63 +73,63 @@ export interface EmbedData {
      *
      * The embed's footer
      */
-    footer: EmbedFooter | null;
+    footer: MessageEmbedFooter | null;
 
     /**
      * Image
      *
      * The embed's image
      */
-    image: EmbedImage | null;
+    image: MessageEmbedImage | null;
 
     /**
      * Thumbnail
      *
      * The embed's thumbnail
      */
-    thumbnail: EmbedThumbnail | null;
+    thumbnail: MessageEmbedThumbnail | null;
 
     /**
      * Video
      *
      * The embed's video
      */
-    video: EmbedVideo | null;
+    video: MessageEmbedVideo | null;
 
     /**
      * Provider
      *
      * The embed's provider
      */
-    provider: EmbedProvider | null;
+    provider: MessageEmbedProvider | null;
 
     /**
      * Author
      *
      * The embed's author
      */
-    author: EmbedAuthor | null;
+    author: MessageEmbedAuthor | null;
 
     /**
      * Fields
      *
      * The embed's fields
      */
-    fields: EmbedField[];
+    fields: MessageEmbedField[];
 }
 
 /**
- * Embed Type
+ * Message Embed Type
  * https://discord.com/developers/docs/resources/channel#embed-object-embed-types
  */
-export type EmbedType = "rich" | "image" | "video" | "gifv" | "article" | "link";
+export type MessageEmbedType = "rich" | "image" | "video" | "gifv" | "article" | "link";
 
 /**
- * Embed Footer
+ * Message Embed Footer
  *
- * An embed footer
+ * A message embed footer
  */
-export interface EmbedFooter {
+export interface MessageEmbedFooter {
 
     /**
      * Text
@@ -154,11 +154,11 @@ export interface EmbedFooter {
 }
 
 /**
- * Embed Image
+ * Message Embed Image
  *
- * An embed image
+ * A message embed image
  */
-export interface EmbedImage {
+export interface MessageEmbedImage {
 
     /**
      * URL
@@ -190,11 +190,11 @@ export interface EmbedImage {
 }
 
 /**
- * Embed Thumbnail
+ * Message Embed Thumbnail
  *
- * An embed thumbnail
+ * A message embed thumbnail
  */
-export interface EmbedThumbnail {
+export interface MessageEmbedThumbnail {
 
     /**
      * URL
@@ -226,11 +226,11 @@ export interface EmbedThumbnail {
 }
 
 /**
- * Embed Video
+ * Message Embed Video
  *
- * An embed video
+ * A message embed video
  */
-export interface EmbedVideo {
+export interface MessageEmbedVideo {
 
     /**
      * URL
@@ -262,11 +262,11 @@ export interface EmbedVideo {
 }
 
 /**
- * Embed Provider
+ * Message Embed Provider
  *
- * An embed provider
+ * A message embed provider
  */
-export interface EmbedProvider {
+export interface MessageEmbedProvider {
 
     /**
      * Name
@@ -284,11 +284,11 @@ export interface EmbedProvider {
 }
 
 /**
- * Embed Author
+ * Message Embed Author
  *
- * An embed author
+ * A message embed author
  */
-export interface EmbedAuthor {
+export interface MessageEmbedAuthor {
 
     /**
      * Name
@@ -320,11 +320,11 @@ export interface EmbedAuthor {
 }
 
 /**
- * Embed Field
+ * Message Embed Field
  *
- * An embed field
+ * A message embed field
  */
-export interface EmbedField {
+export interface MessageEmbedField {
 
     /**
      * Name

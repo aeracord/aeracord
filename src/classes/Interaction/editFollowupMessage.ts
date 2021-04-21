@@ -1,10 +1,10 @@
-import { EditInteractionResponseData, Embed, Interaction, Message, MessageResolvable } from "../../internal";
+import { EditInteractionResponseData, Interaction, Message, MessageEmbed, MessageResolvable } from "../../internal";
 
-export default function editFollowupMessage(interaction: Interaction, message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData: EditInteractionResponseData = {}): Promise<Message> {
+export default function editFollowupMessage(interaction: Interaction, message: MessageResolvable, contentOrData: string | MessageEmbed | EditInteractionResponseData, editInteractionResponseData: EditInteractionResponseData = {}): Promise<Message> {
 
     // Parse data
     if (typeof contentOrData === "string") editInteractionResponseData.content = contentOrData;
-    else if (contentOrData instanceof Embed) editInteractionResponseData.embeds = [contentOrData];
+    else if (contentOrData instanceof MessageEmbed) editInteractionResponseData.embeds = [contentOrData];
     else editInteractionResponseData = contentOrData;
 
     // Edit response

@@ -1,4 +1,4 @@
-import { MessageType, RawAttachmentData, RawEmbedData, RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataInteraction, RawMessageDataMessageReference, RawMessageDataWebhook, RawReactionData, RawStickerData, RawUserlessMemberData, RawUserData, RawUserWithMemberData, RawWebhookData } from "../../../../internal";
+import { MessageType, RawAttachmentData, RawMessageData, RawMessageDataActivity, RawMessageDataApplication, RawMessageDataChannelMention, RawMessageDataInteraction, RawMessageDataMessageReference, RawMessageDataWebhook, RawMessageEmbedData, RawReactionData, RawStickerData, RawUserlessMemberData, RawUserData, RawUserWithMemberData, RawWebhookData } from "../../../../internal";
 
 export interface RawMessageUpdateData {
     id: string;
@@ -16,7 +16,7 @@ export interface RawMessageUpdateData {
     mention_roles?: string[];
     mention_channels?: RawMessageDataChannelMention[];
     attachments?: RawAttachmentData[];
-    embeds?: RawEmbedData[];
+    embeds?: RawMessageEmbedData[];
     stickers?: RawStickerData[];
     reactions?: RawReactionData[];
     nonce?: string | number;

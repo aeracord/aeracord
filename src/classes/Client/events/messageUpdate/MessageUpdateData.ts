@@ -1,4 +1,4 @@
-import { Attachment, ChannelMention, Embed, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageInteraction, MessageReference, MessageType, MessageWebhook, Reaction, Sticker, User } from "../../../../internal";
+import { Attachment, ChannelMention, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbed, MessageInteraction, MessageReference, MessageType, MessageWebhook, Reaction, Sticker, User } from "../../../../internal";
 
 export interface MessageUpdateData {
 
@@ -119,7 +119,7 @@ export interface MessageUpdateData {
      *
      * The message's embeds
      */
-    embeds?: Embed[];
+    embeds?: MessageEmbed[];
 
     /**
      * Stickers

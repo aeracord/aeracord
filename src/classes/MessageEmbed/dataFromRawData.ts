@@ -1,8 +1,8 @@
-import { EmbedData, RawEmbedData, RawEmbedDataField, RawEmbedMetadata } from "../../internal";
+import { MessageEmbedData, RawMessageEmbedData, RawMessageEmbedDataField, RawMessageEmbedMetadata } from "../../internal";
 
-export default function dataFromRawData(rawData: RawEmbedData, metadata: RawEmbedMetadata): EmbedData {
+export default function dataFromRawData(rawData: RawMessageEmbedData, metadata: RawMessageEmbedMetadata): MessageEmbedData {
 
-    // Parse embed data
+    // Parse message embed data
     return {
         messageID: metadata.messageID,
         channelID: metadata.channelID,
@@ -46,7 +46,7 @@ export default function dataFromRawData(rawData: RawEmbedData, metadata: RawEmbe
             iconURL: rawData.author.icon_url || null,
             proxyIconURL: rawData.author.proxy_icon_url || null
         } : null,
-        fields: rawData.fields ? rawData.fields.map((f: RawEmbedDataField) => ({
+        fields: rawData.fields ? rawData.fields.map((f: RawMessageEmbedDataField) => ({
             name: f.name,
             value: f.value,
             inline: Boolean(f.inline)

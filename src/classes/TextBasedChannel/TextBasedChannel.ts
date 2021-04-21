@@ -1,4 +1,4 @@
-import { CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Interaction, Message, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, User, UserResolvable, Webhook } from "../../internal";
+import { CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, GetChannelMessagesData, GetReactionsData, Interaction, Message, MessageEmbed, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, User, UserResolvable, Webhook } from "../../internal";
 import editMessage from "./editMessage";
 import send from "./send";
 import updateObject from "./updateObject";
@@ -115,7 +115,7 @@ export default class TextBasedChannel extends Channel {
      *
      * @returns {Promise<Message>} The created message
      */
-    send(contentOrData: string | Embed | CreateMessageData, createMessageData?: CreateMessageData): Promise<Message> {
+    send(contentOrData: string | MessageEmbed | CreateMessageData, createMessageData?: CreateMessageData): Promise<Message> {
         return send(this, contentOrData, createMessageData);
     }
 
@@ -214,7 +214,7 @@ export default class TextBasedChannel extends Channel {
      *
      * @returns {Promise<Message>} The edited message
      */
-    editMessage(message: MessageResolvable, contentOrEmbed: string | Embed | undefined, editMessageData?: EditMessageData): Promise<Message> {
+    editMessage(message: MessageResolvable, contentOrEmbed: string | MessageEmbed | undefined, editMessageData?: EditMessageData): Promise<Message> {
         return editMessage(this, message, contentOrEmbed, editMessageData);
     }
 

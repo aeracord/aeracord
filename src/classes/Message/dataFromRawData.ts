@@ -1,4 +1,4 @@
-import { Attachment, Embed, Member, Message, MessageData, RawAttachmentData, RawEmbedData, RawMessageData, RawMessageDataChannelMention, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
+import { Attachment, Member, Message, MessageData, MessageEmbed, RawAttachmentData, RawMessageData, RawMessageDataChannelMention, RawMessageEmbedData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
 
 export default function dataFromRawData(rawData: RawMessageData): MessageData {
 
@@ -36,7 +36,7 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
             channelID: rawData.channel_id,
             guildID: rawData.guild_id || null
         })),
-        embeds: rawData.embeds.map((e: RawEmbedData) => Embed._dataFromRawData(e, {
+        embeds: rawData.embeds.map((e: RawMessageEmbedData) => MessageEmbed._dataFromRawData(e, {
             messageID: rawData.id,
             channelID: rawData.channel_id,
             guildID: rawData.guild_id || null

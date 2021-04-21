@@ -1,4 +1,4 @@
-import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, EmbedData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserData, UserResolvable } from "../../internal";
+import { AttachmentData, Base, ChannelMention, Client, EditMessageData, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbed, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserData, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -126,7 +126,7 @@ export default class Message extends Base<Message> {
      *
      * The message's embeds
      */
-    embeds: EmbedData[];
+    embeds: MessageEmbedData[];
 
     /**
      * Stickers
@@ -457,7 +457,7 @@ export default class Message extends Base<Message> {
      *
      * @returns {Promise<Message>} The edited message
      */
-    edit(contentOrEmbed: string | Embed | undefined, editMessageData?: EditMessageData): Promise<Message> {
+    edit(contentOrEmbed: string | MessageEmbed | undefined, editMessageData?: EditMessageData): Promise<Message> {
         return edit(this, this.channelID, contentOrEmbed, editMessageData);
     }
 

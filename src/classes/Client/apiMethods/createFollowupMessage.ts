@@ -1,10 +1,10 @@
-import { AllowedMentions, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, FetchQueue, Message, MessageEmbed, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface FollowupInteractionResponseData {
     content?: string;
     tts?: boolean;
-    embeds?: Embed[];
+    embeds?: MessageEmbed[];
     allowedMentions?: AllowedMentions;
 }
 
@@ -31,7 +31,7 @@ export default async function createFollowupMessage(client: Client, interactionT
         data: {
             content: followupInteractionResponseData.content,
             tts: followupInteractionResponseData.tts,
-            embeds: followupInteractionResponseData.embeds && followupInteractionResponseData.embeds.map((e: Embed) => e._toJSON()),
+            embeds: followupInteractionResponseData.embeds && followupInteractionResponseData.embeds.map((e: MessageEmbed) => e._toJSON()),
             allowed_mentions: followupInteractionResponseData.allowedMentions && {
                 parse: followupInteractionResponseData.allowedMentions.parse,
                 users: allowedMentionsUsers,

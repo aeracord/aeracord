@@ -1,4 +1,4 @@
-import { AttachmentData, EmbedData, GuildChannelType, InteractionType, MemberData, ReactionData, StickerData, UserData } from "../../internal";
+import { AttachmentData, GuildChannelType, InteractionType, MemberData, MessageEmbedData, ReactionData, StickerData, UserData } from "../../internal";
 
 /**
  * Message Data
@@ -124,7 +124,7 @@ export interface MessageData {
      *
      * The message's embeds
      */
-    embeds: EmbedData[];
+    embeds: MessageEmbedData[];
 
     /**
      * Stickers

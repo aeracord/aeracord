@@ -1,4 +1,4 @@
-import { AllowedMentions, Client, Embed, FetchQueue, Interaction, InteractionResolvable, Message, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, FetchQueue, Interaction, InteractionResolvable, Message, MessageEmbed, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateInteractionResponseData {
@@ -14,7 +14,7 @@ export const INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE = 5;
 export interface InteractionResponseData {
     content?: string;
     tts?: boolean;
-    embeds?: Embed[];
+    embeds?: MessageEmbed[];
     allowedMentions?: AllowedMentions;
     flags?: number;
 }
@@ -49,7 +49,7 @@ export default async function createInteractionResponse(client: Client, interact
             data: createInteractionResponseData.data && {
                 content: createInteractionResponseData.data.content,
                 tts: createInteractionResponseData.data.tts,
-                embeds: createInteractionResponseData.data.embeds && createInteractionResponseData.data.embeds.map((e: Embed) => e._toJSON()),
+                embeds: createInteractionResponseData.data.embeds && createInteractionResponseData.data.embeds.map((e: MessageEmbed) => e._toJSON()),
                 allowed_mentions: createInteractionResponseData.data.allowedMentions && {
                     parse: createInteractionResponseData.data.allowedMentions.parse,
                     users: allowedMentionsUsers,

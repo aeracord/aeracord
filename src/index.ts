@@ -259,20 +259,6 @@ export {
     DMChannelData
 } from "./internal";
 
-// Embed
-export {
-    Embed,
-    EmbedAuthor,
-    EmbedData,
-    EmbedField,
-    EmbedFooter,
-    EmbedImage,
-    EmbedProvider,
-    EmbedThumbnail,
-    EmbedType,
-    EmbedVideo
-} from "./internal";
-
 // Emoji
 export {
     Emoji,
@@ -391,6 +377,20 @@ export {
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3,
     MessageWebhook
+} from "./internal";
+
+// Message Embed
+export {
+    MessageEmbed,
+    MessageEmbedAuthor,
+    MessageEmbedData,
+    MessageEmbedField,
+    MessageEmbedFooter,
+    MessageEmbedImage,
+    MessageEmbedProvider,
+    MessageEmbedThumbnail,
+    MessageEmbedType,
+    MessageEmbedVideo
 } from "./internal";
 
 // News Channel

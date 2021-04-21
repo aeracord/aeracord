@@ -198,13 +198,6 @@ export {
 } from "./classes/DMChannel/DMChannel";
 export * from "./classes/DMChannel/DMChannelData";
 
-// Embed
-export {
-    default as Embed
-} from "./classes/Embed/Embed";
-export * from "./classes/Embed/EmbedData";
-export * from "./classes/Embed/RawEmbedData";
-
 // Emoji
 export {
     default as Emoji,
@@ -283,6 +276,13 @@ export {
 } from "./classes/Message/Message";
 export * from "./classes/Message/MessageData";
 export * from "./classes/Message/RawMessageData";
+
+// Message Embed
+export {
+    default as MessageEmbed
+} from "./classes/MessageEmbed/MessageEmbed";
+export * from "./classes/MessageEmbed/MessageEmbedData";
+export * from "./classes/MessageEmbed/RawMessageEmbedData";
 
 // News Channel
 export {

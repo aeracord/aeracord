@@ -1,4 +1,4 @@
-import { Attachment, Client, Embed, Member, Message, MessageData, MessageUpdateData, RawAttachmentData, RawEmbedData, RawMessageDataChannelMention, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData, Reaction, Sticker, User, Webhook } from "../../../../internal";
+import { Attachment, Client, Member, Message, MessageData, MessageEmbed, MessageUpdateData, RawAttachmentData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData, Reaction, Sticker, User, Webhook } from "../../../../internal";
 
 export default function messageUpdate(client: Client, rawData: RawMessageUpdateData) {
 
@@ -36,7 +36,7 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
             channelID: rawData.channel_id,
             guildID: rawData.guild_id
         })) : undefined,
-        embeds: rawData.embeds ? rawData.embeds.map((e: RawEmbedData) => Embed._fromRawData(client, e, {
+        embeds: rawData.embeds ? rawData.embeds.map((e: RawMessageEmbedData) => MessageEmbed._fromRawData(client, e, {
             messageID: rawData.id,
             channelID: rawData.channel_id,
             guildID: rawData.guild_id
