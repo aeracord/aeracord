@@ -1,10 +1,10 @@
-import { EditMessageData, Message, MessageEmbed } from "../../internal";
+import { EditMessageData, Embed, Message } from "../../internal";
 
-export default function edit(message: Message, channelID: string, contentOrEmbed: string | MessageEmbed | undefined, editMessageData: EditMessageData = {}): Promise<Message> {
+export default function edit(message: Message, channelID: string, contentOrEmbed: string | Embed | undefined, editMessageData: EditMessageData = {}): Promise<Message> {
 
     // Parse data
     if (typeof contentOrEmbed === "string") editMessageData.content = contentOrEmbed;
-    else if (contentOrEmbed instanceof MessageEmbed) editMessageData.embed = contentOrEmbed;
+    else if (contentOrEmbed instanceof Embed) editMessageData.embed = contentOrEmbed;
 
     // Create message
     return message.client.editMessage(channelID, message, editMessageData);

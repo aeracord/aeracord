@@ -1,4 +1,4 @@
-import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, Message, MessageEmbed, MessageResolvable, RawInteractionData, READY_STATE_READY, UserData } from "../../internal";
+import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, UserData } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -241,7 +241,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * @returns {Promise<Message>} The created message
      */
-    createFollowupMessage(contentOrData: string | MessageEmbed | FollowupInteractionResponseData, followupInteractionResponseData?: FollowupInteractionResponseData): Promise<Message> {
+    createFollowupMessage(contentOrData: string | Embed | FollowupInteractionResponseData, followupInteractionResponseData?: FollowupInteractionResponseData): Promise<Message> {
         return createFollowupMessage(this, contentOrData, followupInteractionResponseData);
     }
 
@@ -276,7 +276,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * @returns {Promise<Message>} The edited message
      */
-    editFollowupMessage(message: MessageResolvable, contentOrData: string | MessageEmbed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
+    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
         return editFollowupMessage(this, message, contentOrData, editInteractionResponseData);
     }
 
@@ -290,7 +290,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * @returns {Promise<Message>} The edited response
      */
-    editOriginalResponse(contentOrData: string | MessageEmbed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
+    editOriginalResponse(contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
         return editOriginalResponse(this, contentOrData, editInteractionResponseData);
     }
 
@@ -304,7 +304,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * @returns {Promise<Message>} The created response
      */
-    respond(contentOrData: string | MessageEmbed | CreateInteractionResponseData, createInteractionResponseData?: CreateInteractionResponseData): Promise<Message> {
+    respond(contentOrData: string | Embed | CreateInteractionResponseData, createInteractionResponseData?: CreateInteractionResponseData): Promise<Message> {
         return respond(this, contentOrData, createInteractionResponseData);
     }
 }

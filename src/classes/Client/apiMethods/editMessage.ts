@@ -1,9 +1,9 @@
-import { AllowedMentions, Channel, ChannelResolvable, Client, FetchQueue, Message, MessageEmbed, MessageResolvable, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditMessageData {
     content?: string;
-    embed?: MessageEmbed;
+    embed?: Embed;
     allowedMentions?: AllowedMentions;
     flags?: number;
 }

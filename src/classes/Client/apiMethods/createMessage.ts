@@ -1,12 +1,12 @@
 import FormData from "form-data";
 import { promises as fs } from "fs";
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageEmbed, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateMessageData {
     content?: string;
     tts?: boolean;
-    embed?: MessageEmbed;
+    embed?: Embed;
     allowedMentions?: AllowedMentions;
     messageReference?: CreateMessageReference;
     file?: CreateMessageFile;

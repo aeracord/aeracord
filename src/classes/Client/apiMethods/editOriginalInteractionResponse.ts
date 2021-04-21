@@ -1,9 +1,9 @@
-import { AllowedMentions, Client, FetchQueue, Message, MessageEmbed, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditInteractionResponseData {
     content?: string;
-    embeds?: MessageEmbed[];
+    embeds?: Embed[];
     allowedMentions?: AllowedMentions;
 }
 
@@ -29,7 +29,7 @@ export default async function editOriginalInteractionResponse(client: Client, in
         method,
         data: {
             content: editInteractionResponseData.content,
-            embeds: editInteractionResponseData.embeds && editInteractionResponseData.embeds.map((e: MessageEmbed) => e._toJSON()),
+            embeds: editInteractionResponseData.embeds && editInteractionResponseData.embeds.map((e: Embed) => e._toJSON()),
             allowed_mentions: editInteractionResponseData.allowedMentions && {
                 parse: editInteractionResponseData.allowedMentions.parse,
                 users: allowedMentionsUsers,

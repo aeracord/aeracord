@@ -259,6 +259,15 @@ export {
     DMChannelData
 } from "./internal";
 
+// Embed
+export {
+    Embed,
+    EmbedAuthor,
+    EmbedData,
+    EmbedField,
+    EmbedFooter
+} from "./internal";
+
 // Emoji
 export {
     Emoji,

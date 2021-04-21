@@ -1,4 +1,4 @@
-import { Client, EditInteractionResponseData, FetchQueue, Message, MessageEmbed, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Client, EditInteractionResponseData, Embed, FetchQueue, Message, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function editFollowupMessage(client: Client, interactionToken: string, messageResolvable: MessageResolvable, editInteractionResponseData: EditInteractionResponseData): Promise<Message> {
@@ -25,7 +25,7 @@ export default async function editFollowupMessage(client: Client, interactionTok
         method,
         data: {
             content: editInteractionResponseData.content,
-            embeds: editInteractionResponseData.embeds && editInteractionResponseData.embeds.map((e: MessageEmbed) => e._toJSON()),
+            embeds: editInteractionResponseData.embeds && editInteractionResponseData.embeds.map((e: Embed) => e._toJSON()),
             allowed_mentions: editInteractionResponseData.allowedMentions && {
                 parse: editInteractionResponseData.allowedMentions.parse,
                 users: allowedMentionsUsers,

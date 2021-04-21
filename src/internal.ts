@@ -198,6 +198,12 @@ export {
 } from "./classes/DMChannel/DMChannel";
 export * from "./classes/DMChannel/DMChannelData";
 
+// Embed
+export {
+    default as Embed
+} from "./classes/Embed/Embed";
+export * from "./classes/Embed/EmbedData";
+
 // Emoji
 export {
     default as Emoji,

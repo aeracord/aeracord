@@ -2,7 +2,6 @@ import { Client, MessageEmbedAuthor, MessageEmbedData, MessageEmbedField, Messag
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
-import toJSON from "./toJSON";
 
 export default class MessageEmbed {
 
@@ -169,7 +168,7 @@ export default class MessageEmbed {
     /**
      * From Raw Data
      *
-     * Create an `EmbedData` object from a `RawEmbedData` object
+     * Create a `MessageEmbedData` object from a `RawMessageEmbedData` object
      *
      * @param client The client
      * @param rawData The raw data from the API
@@ -184,7 +183,7 @@ export default class MessageEmbed {
     /**
      * Data From Raw Data
      *
-     * Create an `EmbedData` object from a `RawEmbedData` object
+     * Create a `MessageEmbedData` object from a `RawMessageEmbedData` object
      *
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
@@ -198,7 +197,7 @@ export default class MessageEmbed {
     /**
      * From Data
      *
-     * Create an `MessageEmbed` from an `MessageEmbedData` object
+     * Create a `MessageEmbed` from a `MessageEmbedData` object
      *
      * @param client The client
      * @param messageEmbedData The message embed data
@@ -212,7 +211,7 @@ export default class MessageEmbed {
     /**
      * To Data
      *
-     * Create an `MessageEmbedData` object from an `MessageEmbed`
+     * Create a `MessageEmbedData` object from a `MessageEmbed`
      *
      * @param messageEmbed The message embed
      *
@@ -220,14 +219,5 @@ export default class MessageEmbed {
      */
     static toData(messageEmbed: MessageEmbed): MessageEmbedData {
         return toData(messageEmbed);
-    }
-
-    /**
-     * To JSON
-     *
-     * Convert this embed to a JSON object for sending to the API
-     */
-    _toJSON(): object {
-        return toJSON(this);
     }
 }
