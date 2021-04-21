@@ -88,26 +88,22 @@ export default class Emoji extends Base<Emoji> {
      */
     constructor(client: Client, emojiData: EmojiData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._emojis.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: emojiData.id,
-            cacheManager: client._emojis,
-            expiresFromCacheIn: cache ? (client._emojis.cacheFor || null) : undefined
+            cacheManager: client._emojis
         });
 
         // Set data
         Emoji._updateObject(this, emojiData);
 
-        // Cache emoji
-        if (cache) this.client._emojis.cache(this.id, this);
+        /**
+         * Cache Emoji
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._emojis.cacheAll && client._readyState === READY_STATE_READY) this.client._emojis.cache(this.id, this);
     }
 
     /**
@@ -209,9 +205,13 @@ export default class Emoji extends Base<Emoji> {
      * Cache
      *
      * Cache this `Emoji`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._emojis.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._emojis.cache(this.id, this, expiresIn);
     }
 
     /**

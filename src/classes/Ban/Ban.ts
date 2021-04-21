@@ -39,26 +39,22 @@ export default class Ban extends Base<Ban> {
      */
     constructor(client: Client, banData: BanData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._bans.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: `${banData.guildID}_${banData.user.id}`,
-            cacheManager: client._bans._cacheManager,
-            expiresFromCacheIn: cache ? (client._bans.cacheFor || null) : undefined
+            cacheManager: client._bans._cacheManager
         });
 
         // Set data
         Ban._updateObject(this, banData);
 
-        // Cache ban
-        if (cache) this.cache();
+        /**
+         * Cache Ban
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._bans.cacheAll && client._readyState === READY_STATE_READY) this.cache();
     }
 
     /**
@@ -147,8 +143,12 @@ export default class Ban extends Base<Ban> {
      * Cache
      *
      * Cache this `Ban`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._bans.cache(this.guildID, this.user.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._bans.cache(this.guildID, this.user.id, this, expiresIn);
     }
 }

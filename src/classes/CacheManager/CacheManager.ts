@@ -21,7 +21,7 @@ export interface CacheManagerData {
      * Cache Deleted For
      *
      * The amount of time in milliseconds to keep the object cached after its been deleted
-     * `null` if the object should never expire from cache
+     * `undefined` if the object should never expire from cache
      */
     cacheDeletedFor?: number;
 
@@ -87,7 +87,7 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      * Cache Deleted For
      *
      * The amount of time in milliseconds to keep the object cached after its been deleted
-     * `null` if the object should never expire from cache
+     * `undefined` if the object should never expire from cache
      */
     cacheDeletedFor?: number;
 
@@ -174,9 +174,13 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      *
      * @param id The ID of the object
      * @param object The object
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache(id: string, object: CachedObject) {
+    cache(id: string, object: CachedObject, expiresIn?: number | null) {
         this._cache.set(id, object);
+        object.expireFromCacheIn(expiresIn === undefined ? (this.cacheFor || null) : expiresIn);
     }
 
     /**
@@ -187,7 +191,9 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      * @param id The ID of the object
      */
     uncache(id: string) {
+        const object: CachedObject | undefined = this.get(id);
         this._cache.delete(id);
+        if (object) object.expireFromCacheIn();
     }
 
     /**

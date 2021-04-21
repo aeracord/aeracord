@@ -35,26 +35,22 @@ export default class Channel extends Base<AnyChannel> {
      */
     constructor(client: Client, channelData: ChannelData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._channels.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: channelData.id,
-            cacheManager: client._channels,
-            expiresFromCacheIn: cache ? (client._channels.cacheFor || null) : undefined
+            cacheManager: client._channels
         });
 
         // Set data
         Channel._updateObject(this, channelData);
 
-        // Cache channel
-        if (cache) this.client._channels.cache(this.id, this);
+        /**
+         * Cache Channel
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._channels.cacheAll && client._readyState === READY_STATE_READY) this.client._channels.cache(this.id, this);
     }
 
     /**
@@ -155,9 +151,13 @@ export default class Channel extends Base<AnyChannel> {
      * Cache
      *
      * Cache this `Channel`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._channels.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._channels.cache(this.id, this, expiresIn);
     }
 
     /**

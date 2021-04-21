@@ -100,26 +100,22 @@ export default class Role extends Base<Role> {
      */
     constructor(client: Client, roleData: RoleData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._roles.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: roleData.id,
-            cacheManager: client._roles,
-            expiresFromCacheIn: cache ? (client._roles.cacheFor || null) : undefined
+            cacheManager: client._roles
         });
 
         // Set data
         Role._updateObject(this, roleData);
 
-        // Cache role
-        if (cache) this.client._roles.cache(this.id, this);
+        /**
+         * Cache Role
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._roles.cacheAll && client._readyState === READY_STATE_READY) this.client._roles.cache(this.id, this);
     }
 
     /**
@@ -222,9 +218,13 @@ export default class Role extends Base<Role> {
      * Cache
      *
      * Cache this `Role`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._roles.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._roles.cache(this.id, this, expiresIn);
     }
 
     /**

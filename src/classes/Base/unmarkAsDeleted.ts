@@ -6,5 +6,5 @@ export default function unmarkAsDeleted<ObjectType extends Base<ObjectType>>(obj
     object.deleted = false;
 
     // Set expire from cache at
-    object.expireFromCacheIn(object._cacheManager.cacheFor);
+    object.expireFromCacheIn(object._cacheManager.cacheFor || null);
 }

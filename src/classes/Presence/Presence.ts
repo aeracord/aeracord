@@ -47,26 +47,22 @@ export default class Presence extends Base<Presence> {
      */
     constructor(client: Client, presenceData: PresenceData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._presences.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: presenceData.user.id,
-            cacheManager: client._presences,
-            expiresFromCacheIn: cache ? (client._presences.cacheFor || null) : undefined
+            cacheManager: client._presences
         });
 
         // Set data
         Presence._updateObject(this, presenceData);
 
-        // Cache presence
-        if (cache) this.client._presences.cache(this.id, this);
+        /**
+         * Cache Presence
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._presences.cacheAll && client._readyState === READY_STATE_READY) this.client._presences.cache(this.id, this);
     }
 
     /**
@@ -153,8 +149,12 @@ export default class Presence extends Base<Presence> {
      * Cache
      *
      * Cache this `Presence`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._presences.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._presences.cache(this.id, this, expiresIn);
     }
 }

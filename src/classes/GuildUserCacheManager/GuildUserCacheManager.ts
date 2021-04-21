@@ -37,6 +37,16 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
     }
 
     /**
+     * Cache Deleted For
+     *
+     * The amount of time in milliseconds to keep the object cached after its been deleted
+     * `undefined` if the object should never expire from cache
+     */
+    get cacheDeletedFor(): number | undefined {
+        return this._cacheManager.cacheDeletedFor;
+    }
+
+    /**
      * Cache For
      *
      * The amount of time in milliseconds to keep objects cached
@@ -71,6 +81,7 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
      * @param client The client
      * @param cacheManagerData Options to initialize this cache manager with
      * @param cacheManagerData.cacheFor The amount of time in milliseconds to keep objects cached
+     * @param cacheManagerData.cacheDeletedFor The amount of time in milliseconds to keep the object cached after its been deleted
      * @param cacheManagerData.garbageCollectionInterval The interval in milliseconds for garbage collecting cached objects
      * @param cacheManagerData.cacheAll Whether or not to cache all objects
      */
@@ -113,9 +124,12 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
      * @param guildID The ID of the object's guild
      * @param userID The ID of the object's user
      * @param object The object
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache(guildID: string, userID: string, object: CachedObject) {
-        this._cacheManager.cache(`${guildID}_${userID}`, object);
+    cache(guildID: string, userID: string, object: CachedObject, expiresIn?: number | null) {
+        this._cacheManager.cache(`${guildID}_${userID}`, object, expiresIn);
     }
 
     /**

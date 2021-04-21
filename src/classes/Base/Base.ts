@@ -29,15 +29,6 @@ export interface BaseData<ObjectType extends Base<ObjectType>> {
      * The cache manager for the object that extends this `Base`
      */
     cacheManager: CacheManager<ObjectType>;
-
-    /**
-     * Expires From Cache In
-     *
-     * The amount of time for when this object can be garbage collected
-     * `null` if it should never expire from cache
-     * `undefined` if the object isnt cached
-     */
-    expiresFromCacheIn?: number | null;
 }
 
 export default class Base<ObjectType extends Base<ObjectType>> {
@@ -93,7 +84,6 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * @param baseData Options to initialize this base with
      * @param baseData.id The ID of the object
      * @param baseData.cacheManager The cache manager for the object that extends this `Base`
-     * @param baseData.expiresFromCacheIn The amount of time for when this object can be garbage collected
      */
     constructor(client: Client, baseData: BaseData<ObjectType>) {
 
@@ -102,8 +92,6 @@ export default class Base<ObjectType extends Base<ObjectType>> {
         this.id = baseData.id;
         this.deleted = Boolean(baseData.deleted);
         this._cacheManager = baseData.cacheManager;
-        if (baseData.expiresFromCacheIn === null) this.expiresFromCacheAt = null;
-        else this.expireFromCacheIn(baseData.expiresFromCacheIn);
         this._lastUpdatedAt = 0;
     }
 
@@ -113,10 +101,11 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * Set the amount of time in milliseconds to keep this object cached
      *
      * @param amount The amount of time
-     * `undefined` if it should never expire from cache
+     * `null` if the object should never expire from cache
+     * `undefined` if the object isnt cached
      */
-    expireFromCacheIn(amount?: number) {
-        this.expiresFromCacheAt = amount !== undefined ? Date.now() + amount : undefined;
+    expireFromCacheIn(amount?: number | null) {
+        this.expiresFromCacheAt = typeof amount === "number" ? Date.now() + amount : amount;
     }
 
     /**

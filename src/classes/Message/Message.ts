@@ -225,26 +225,22 @@ export default class Message extends Base<Message> {
      */
     constructor(client: Client, messageData: MessageData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._messages.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: messageData.id,
-            cacheManager: client._messages,
-            expiresFromCacheIn: cache ? (client._messages.cacheFor || null) : undefined
+            cacheManager: client._messages
         });
 
         // Set data
         Message._updateObject(this, messageData);
 
-        // Cache message
-        if (cache) this.client._messages.cache(this.id, this);
+        /**
+         * Cache Message
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._messages.cacheAll && client._readyState === READY_STATE_READY) this.client._messages.cache(this.id, this);
     }
 
     /**
@@ -344,9 +340,13 @@ export default class Message extends Base<Message> {
      * Cache
      *
      * Cache this `Message`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._messages.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._messages.cache(this.id, this, expiresIn);
     }
 
     /**

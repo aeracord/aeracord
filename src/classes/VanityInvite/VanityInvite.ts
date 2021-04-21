@@ -41,26 +41,22 @@ export default class VanityInvite extends Base<VanityInvite> {
      */
     constructor(client: Client, vanityInviteData: VanityInviteData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._vanityInvites.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: vanityInviteData.guildID,
-            cacheManager: client._vanityInvites,
-            expiresFromCacheIn: cache ? (client._vanityInvites.cacheFor || null) : undefined
+            cacheManager: client._vanityInvites
         });
 
         // Set data
         VanityInvite._updateObject(this, vanityInviteData);
 
-        // Cache vanity invite
-        if (cache) this.client._vanityInvites.cache(this.id, this);
+        /**
+         * Cache Vanity Invite
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._vanityInvites.cacheAll && client._readyState === READY_STATE_READY) this.client._vanityInvites.cache(this.id, this);
     }
 
     /**
@@ -149,8 +145,12 @@ export default class VanityInvite extends Base<VanityInvite> {
      * Cache
      *
      * Cache this `VanityInvite`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._vanityInvites.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._vanityInvites.cache(this.id, this, expiresIn);
     }
 }

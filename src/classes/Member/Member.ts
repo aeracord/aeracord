@@ -87,26 +87,22 @@ export default class Member extends Base<Member> {
      */
     constructor(client: Client, memberData: MemberData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._members.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: `${memberData.guildID}_${memberData.user.id}`,
-            cacheManager: client._members._cacheManager,
-            expiresFromCacheIn: cache ? (client._members.cacheFor || null) : undefined
+            cacheManager: client._members._cacheManager
         });
 
         // Set data
         Member._updateObject(this, memberData);
 
-        // Cache member
-        if (cache) this.client._members.cache(this.guildID, this.user.id, this);
+        /**
+         * Cache Member
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._members.cacheAll && client._readyState === READY_STATE_READY) this.client._members.cache(this.guildID, this.user.id, this);
     }
 
     /**
@@ -195,9 +191,13 @@ export default class Member extends Base<Member> {
      * Cache
      *
      * Cache this `Member`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._members.cache(this.guildID, this.user.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._members.cache(this.guildID, this.user.id, this, expiresIn);
     }
 
     /**

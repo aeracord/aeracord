@@ -41,26 +41,22 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      */
     constructor(client: Client, welcomeScreenData: WelcomeScreenData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._welcomeScreens.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: welcomeScreenData.guildID,
-            cacheManager: client._welcomeScreens,
-            expiresFromCacheIn: cache ? (client._welcomeScreens.cacheFor || null) : undefined
+            cacheManager: client._welcomeScreens
         });
 
         // Set data
         WelcomeScreen._updateObject(this, welcomeScreenData);
 
-        // Cache welcome screen
-        if (cache) this.client._welcomeScreens.cache(this.id, this);
+        /**
+         * Cache Welcome Screen
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._welcomeScreens.cacheAll && client._readyState === READY_STATE_READY) this.client._welcomeScreens.cache(this.id, this);
     }
 
     /**
@@ -149,9 +145,13 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      * Cache
      *
      * Cache this `WelcomeScreen`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._welcomeScreens.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._welcomeScreens.cache(this.id, this, expiresIn);
     }
 
     /**

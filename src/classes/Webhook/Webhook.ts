@@ -88,26 +88,22 @@ export default class Webhook extends Base<Webhook> {
      */
     constructor(client: Client, webhookData: WebhookData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._webhooks.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: webhookData.id,
-            cacheManager: client._webhooks,
-            expiresFromCacheIn: cache ? (client._webhooks.cacheFor || null) : undefined
+            cacheManager: client._webhooks
         });
 
         // Set data
         Webhook._updateObject(this, webhookData);
 
-        // Cache webhook
-        if (cache) this.client._webhooks.cache(this.id, this);
+        /**
+         * Cache Webhook
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._webhooks.cacheAll && client._readyState === READY_STATE_READY) this.client._webhooks.cache(this.id, this);
     }
 
     /**
@@ -207,9 +203,13 @@ export default class Webhook extends Base<Webhook> {
      * Cache
      *
      * Cache this `Webhook`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._webhooks.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._webhooks.cache(this.id, this, expiresIn);
     }
 
     /**

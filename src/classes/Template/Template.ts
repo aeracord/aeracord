@@ -105,26 +105,22 @@ export default class Template extends Base<Template> {
      */
     constructor(client: Client, templateData: TemplateData) {
 
-        /**
-         * Define Cache
-         *
-         * If we need to cache all bans and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        const cache: boolean = client._templates.cacheAll && client._readyState === READY_STATE_READY;
-
         // Super
         super(client, {
             id: templateData.code,
-            cacheManager: client._templates,
-            expiresFromCacheIn: cache ? (client._templates.cacheFor || null) : undefined
+            cacheManager: client._templates
         });
 
         // Set data
         Template._updateObject(this, templateData);
 
-        // Cache template
-        if (cache) this.client._templates.cache(this.id, this);
+        /**
+         * Cache Template
+         *
+         * If we need to cache all bans and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if (client._templates.cacheAll && client._readyState === READY_STATE_READY) this.client._templates.cache(this.id, this);
     }
 
     /**
@@ -224,9 +220,13 @@ export default class Template extends Base<Template> {
      * Cache
      *
      * Cache this `Template`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
      */
-    cache() {
-        this.client._templates.cache(this.id, this);
+    cache(expiresIn?: number | null) {
+        this.client._templates.cache(this.id, this, expiresIn);
     }
 
     /**
