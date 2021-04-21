@@ -94,6 +94,7 @@ export default class Command extends Base<Command> {
      *
      * Create an `CommandData` object from a `RawCommandData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this command is in
@@ -109,6 +110,7 @@ export default class Command extends Base<Command> {
      *
      * Create a `CommandData` object from a `RawCommandData` object
      *
+     * @private
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this command is in
      *
@@ -163,6 +165,7 @@ export default class Command extends Base<Command> {
      *
      * Update the `Command` object with data from an `CommandData` object
      *
+     * @private
      * @param command The command to update
      * @param commandData The data to update this command with
      */
@@ -175,6 +178,7 @@ export default class Command extends Base<Command> {
      *
      * Update the `Command` object with data from an `CommandData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param commandData The command data
      *

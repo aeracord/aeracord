@@ -123,6 +123,7 @@ export default class Role extends Base<Role> {
      *
      * Create a `RoleData` object from a `RawRoleData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this role is in
@@ -138,6 +139,7 @@ export default class Role extends Base<Role> {
      *
      * Create a `RoleData` object from a `RawRoleData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this role is in
@@ -193,6 +195,7 @@ export default class Role extends Base<Role> {
      *
      * Update the `Role` object with data from a `RoleData` object
      *
+     * @private
      * @param role The role to update
      * @param roleData The data to update this role with
      */
@@ -205,6 +208,7 @@ export default class Role extends Base<Role> {
      *
      * Update the `Role` object with data from a `RoleData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param roleData The role data
      *

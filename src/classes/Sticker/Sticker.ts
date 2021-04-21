@@ -101,6 +101,7 @@ export default class Sticker {
      *
      * Create a `StickerData` object from a `RawStickerData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -115,6 +116,7 @@ export default class Sticker {
      *
      * Create a `StickerData` object from a `RawStickerData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {StickerData} The sticker data

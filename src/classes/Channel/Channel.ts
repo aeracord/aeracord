@@ -58,6 +58,7 @@ export default class Channel extends Base<AnyChannel> {
      *
      * Create a `ChannelData` object from a `RawChannelData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -72,6 +73,7 @@ export default class Channel extends Base<AnyChannel> {
      *
      * Create a `ChannelData` object from a `RawChannelData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -126,6 +128,7 @@ export default class Channel extends Base<AnyChannel> {
      *
      * Update the `Channel` object with data from a `ChannelData` object
      *
+     * @private
      * @param channel The channel to update
      * @param channelData The data to update the channel with
      */
@@ -138,6 +141,7 @@ export default class Channel extends Base<AnyChannel> {
      *
      * Update the `Channel` object with data from a `ChannelData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param channelData The channel data
      *

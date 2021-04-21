@@ -94,6 +94,7 @@ class TextChannel extends GuildChannel {
      *
      * Update the `TextChannel` object with data from a `TextChannelData` object
      *
+     * @private
      * @param textChannel The text channel to update
      * @param textChannelData The data to update the text channel with
      * @param fromConstructor Should only be `true` when called from this class's constructor

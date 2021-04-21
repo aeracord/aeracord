@@ -62,6 +62,7 @@ export default class Ban extends Base<Ban> {
      *
      * Create a `Ban` object from a `RawBanData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this ban is in
@@ -77,6 +78,7 @@ export default class Ban extends Base<Ban> {
      *
      * Create a `BanData` object from a `RawBanData` object
      *
+     * @private
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this ban is in
      *
@@ -118,6 +120,7 @@ export default class Ban extends Base<Ban> {
      *
      * Update the `Ban` object with data from a `BanData` object
      *
+     * @private
      * @param ban The ban to update
      * @param banData The data to update this ban with
      */
@@ -130,6 +133,7 @@ export default class Ban extends Base<Ban> {
      *
      * Update the `Ban` object with data from a `BanData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param banData The ban data
      *

@@ -248,6 +248,7 @@ export default class Message extends Base<Message> {
      *
      * Create a `MessageData` object from a `RawMessageData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -262,6 +263,7 @@ export default class Message extends Base<Message> {
      *
      * Create a `MessageData` object from a `RawMessageData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {MessageData} The message data
@@ -315,6 +317,7 @@ export default class Message extends Base<Message> {
      *
      * Update the `Message` object with data from a `MessageData` object
      *
+     * @private
      * @param message The message to update
      * @param messageData The data to update this message with
      */
@@ -327,6 +330,7 @@ export default class Message extends Base<Message> {
      *
      * Update the `Message` object with data from a `MessageData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param messageData The message data
      *

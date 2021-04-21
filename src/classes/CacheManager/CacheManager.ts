@@ -63,6 +63,8 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      * Cache
      *
      * The cache
+     *
+     * @private
      */
     _cache: Map<string, CachedObject>;
 

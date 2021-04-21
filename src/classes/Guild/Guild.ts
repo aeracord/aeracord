@@ -449,6 +449,7 @@ export default class Guild extends Base<Guild> {
      *
      * Create a `GuildData` object from a `RawGuildData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -463,6 +464,7 @@ export default class Guild extends Base<Guild> {
      *
      * Create a `GuildData` object from a `RawGuildData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -517,6 +519,7 @@ export default class Guild extends Base<Guild> {
      *
      * Update the `Guild` object with data from a `GuildData` object
      *
+     * @private
      * @param guild The guild to update
      * @param guildData The data to update this guild with
      */
@@ -529,6 +532,7 @@ export default class Guild extends Base<Guild> {
      *
      * Update the `Guild` object with data from a `GuildData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param guildData The guild data
      *

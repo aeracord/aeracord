@@ -136,6 +136,7 @@ export default class Invite extends Base<Invite> {
      *
      * Create an `InviteData` object from a `RawInviteData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -150,6 +151,7 @@ export default class Invite extends Base<Invite> {
      *
      * Create an `InviteData` object from a `RawInviteData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {InviteData} The invite data
@@ -203,6 +205,7 @@ export default class Invite extends Base<Invite> {
      *
      * Update the `Invite` object with data from an `InviteData` object
      *
+     * @private
      * @param invite The invite to update
      * @param inviteData The data to update this invite with
      */
@@ -215,6 +218,7 @@ export default class Invite extends Base<Invite> {
      *
      * Update the `Invite` object with data from an `InviteData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param inviteData The invite data
      *

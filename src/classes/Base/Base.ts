@@ -58,6 +58,8 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * Cache Manager
      *
      * The cache manager for the object that extends this `Base`
+     *
+     * @private
      */
     _cacheManager: CacheManager<ObjectType>;
 
@@ -74,6 +76,8 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * Last Updated At
      *
      * The timestamp for when this object was last updated at
+     *
+     * @private
      */
     _lastUpdatedAt: number;
 
@@ -112,6 +116,8 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * Mark as Delete
      *
      * Mark this object as deleted
+     *
+     * @private
      */
     _markAsDeleted() {
         markAsDeleted<ObjectType>(this);
@@ -121,6 +127,8 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * Unmark as Delete
      *
      * Unmark this object as deleted
+     *
+     * @private
      */
     _unmarkAsDeleted() {
         unmarkAsDeleted<ObjectType>(this);

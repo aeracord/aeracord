@@ -116,6 +116,7 @@ export default class Attachment {
      *
      * Create an `AttachmentData` object from a `RawAttachmentData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
@@ -131,6 +132,7 @@ export default class Attachment {
      *
      * Create an `AttachmentData` object from a `RawAttachmentData` object
      *
+     * @private
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
      *

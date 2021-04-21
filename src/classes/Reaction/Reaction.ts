@@ -88,6 +88,7 @@ export default class Reaction {
      *
      * Create a `ReactionData` object from a `RawReactionData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
@@ -103,6 +104,7 @@ export default class Reaction {
      *
      * Create a `ReactionData` object from a `RawReactionData` object
      *
+     * @private
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
      *

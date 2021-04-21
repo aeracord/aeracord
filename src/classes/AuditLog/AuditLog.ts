@@ -47,6 +47,7 @@ export default class AuditLog {
      *
      * Create an `AuditLogData` object from a `RawAuditLogData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this audit log is in
@@ -62,6 +63,7 @@ export default class AuditLog {
      *
      * Create an `AuditLogData` object from a `RawAuditLogData` object
      *
+     * @private
      * @param rawData The raw data from the API
      * @param guildID The ID of the guild this audit log is in
      *

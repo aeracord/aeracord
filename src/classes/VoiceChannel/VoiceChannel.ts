@@ -59,6 +59,7 @@ export default class VoiceChannel extends GuildChannel {
      *
      * Update the `VoiceChannel` object with data from a `VoiceChannelData` object
      *
+     * @private
      * @param voiceChannel The voice channel to update
      * @param voiceChannelData The data to update the voice channel with
      * @param fromConstructor Should only be `true` when called from this class's constructor

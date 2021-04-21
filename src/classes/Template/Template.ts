@@ -128,6 +128,7 @@ export default class Template extends Base<Template> {
      *
      * Create a `TemplateData` object from a `RawTemplateData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -142,6 +143,7 @@ export default class Template extends Base<Template> {
      *
      * Create a `TemplateData` object from a `RawTemplateData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {TemplateData} The template data
@@ -195,6 +197,7 @@ export default class Template extends Base<Template> {
      *
      * Update the `Template` object with data from a `TemplateData` object
      *
+     * @private
      * @param template The template to update
      * @param templateData The data to update this template with
      */
@@ -207,6 +210,7 @@ export default class Template extends Base<Template> {
      *
      * Update the `Template` object with data from a `TemplateData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param templateData The template data
      *

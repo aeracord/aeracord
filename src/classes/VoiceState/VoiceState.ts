@@ -137,6 +137,7 @@ export default class VoiceState {
      *
      * Create a `VoiceStateData` object from a `RawVoiceStateData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -151,6 +152,7 @@ export default class VoiceState {
      *
      * Create a `VoiceStateData` object from a `RawVoiceStateData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {VoiceStateData} The voice state data

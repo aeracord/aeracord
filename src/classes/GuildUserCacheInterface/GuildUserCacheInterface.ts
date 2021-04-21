@@ -25,6 +25,8 @@ export default class GuildUserCacheInterface<CachedObject extends Base<CachedObj
      * Cache Manager Interface
      *
      * The cache manager interface
+     *
+     * @private
      */
     _cacheInterface: CacheInterface<CachedObject, FetchObject>;
 

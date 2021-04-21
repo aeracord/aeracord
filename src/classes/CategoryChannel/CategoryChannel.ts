@@ -31,6 +31,7 @@ export default class CategoryChannel extends GuildChannel {
      *
      * Update the `CategoryChannel` object with data from a `CategoryChannelData` object
      *
+     * @private
      * @param categoryChannel The category channel to update
      * @param categoryChannelData The data to update the category channel with
      * @param fromConstructor Should only be `true` when called from this class's constructor

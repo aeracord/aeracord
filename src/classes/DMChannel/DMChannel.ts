@@ -39,6 +39,7 @@ export default class DMChannel extends TextBasedChannel {
      *
      * Update the `DMChannel` object with data from a `DMChannelData` object
      *
+     * @private
      * @param dmChannel The DM channel to update
      * @param dmChannelData The data to update the DM channel with
      * @param fromConstructor Should only be `true` when called from this class's constructor

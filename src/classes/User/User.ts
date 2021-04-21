@@ -95,6 +95,7 @@ export default class User extends Base<User> {
      *
      * Create a `User` object from a `RawUserData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -109,6 +110,7 @@ export default class User extends Base<User> {
      *
      * Create a `UserData` object from a `RawUserData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {UserData} The user data
@@ -162,6 +164,7 @@ export default class User extends Base<User> {
      *
      * Update the `User` object with data from a `UserData` object
      *
+     * @private
      * @param user The user to update
      * @param userData The data to update this user with
      */
@@ -174,6 +177,7 @@ export default class User extends Base<User> {
      *
      * Update the `User` object with data from a `UserData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param userData The user data
      *

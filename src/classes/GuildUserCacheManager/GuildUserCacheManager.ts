@@ -24,6 +24,8 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
      * Cache Manager
      *
      * The cache manager
+     *
+     * @private
      */
     _cacheManager: CacheManager<CachedObject>;
 

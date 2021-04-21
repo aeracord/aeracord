@@ -73,6 +73,7 @@ export default class TextBasedChannel extends Channel {
      *
      * Update the `TextBasedChannel` object with data from a `TextBasedChannelData` object
      *
+     * @private
      * @param textBasedChannel The text based channel to update
      * @param textBasedChannelData The data to update the text based channel with
      * @param fromConstructor Should only be `true` when called from this class's constructor

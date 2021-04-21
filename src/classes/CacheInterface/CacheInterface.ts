@@ -70,6 +70,8 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
      * Cache Manager
      *
      * The cache manager
+     *
+     * @private
      */
     _cacheManager: CacheManager<CachedObject>;
 
@@ -90,6 +92,8 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
      * For example, with a `CacheInterface<AnyChannel>` on `Guild.channels`, `CacheInterface.get()` would check `Client.channels` for the `id`
      * This could potentially return a channel that isnt in the right guild
      * The `match` function is what should be used to ensure that the channel is from the right guild
+     *
+     * @private
      */
     _match?: MatchFunction<CachedObject>;
 
@@ -97,6 +101,8 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
      * Fetch Object
      *
      * A function to fetch an object from the API
+     *
+     * @private
      */
     _fetchObject?: (id: string) => Promise<CachedObject>;
 
@@ -105,6 +111,8 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
      *
      * A function to get the IDs of objects that could be in cache
      * For example, `CacheInterface<Role>` could get IDs from `Guild.roleData`
+     *
+     * @private
      */
     _getIDs?: () => string[];
 

@@ -94,6 +94,7 @@ class NewsChannel extends GuildChannel {
      *
      * Update the `NewsChannel` object with data from a `NewsChannelData` object
      *
+     * @private
      * @param newsChannel The news channel to update
      * @param newsChannelData The data to update the news channel with
      * @param fromConstructor Should only be `true` when called from this class's constructor

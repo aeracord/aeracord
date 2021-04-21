@@ -130,6 +130,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * Create an `InteractionData` object from a `RawInteractionData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -144,6 +145,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * Create an `InteractionData` object from a `RawInteractionData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {InteractionData} The interaction data
@@ -197,6 +199,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * Update the `Interaction` object with data from an `InteractionData` object
      *
+     * @private
      * @param interaction The interaction to update
      * @param interactionData The data to update this interaction with
      */
@@ -209,6 +212,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * Update the `Interaction` object with data from an `InteractionData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param interactionData The interaction data
      *

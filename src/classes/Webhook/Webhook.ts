@@ -111,6 +111,7 @@ export default class Webhook extends Base<Webhook> {
      *
      * Create a `WebhookData` object from a `RawWebhookData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -125,6 +126,7 @@ export default class Webhook extends Base<Webhook> {
      *
      * Create a `WebhookData` object from a `RawWebhookData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {WebhookData} The webhook data
@@ -178,6 +180,7 @@ export default class Webhook extends Base<Webhook> {
      *
      * Update the `Webhook` object with data from a `WebhookData` object
      *
+     * @private
      * @param webhook The webhook to update
      * @param webhookData The data to update this webhook with
      */
@@ -190,6 +193,7 @@ export default class Webhook extends Base<Webhook> {
      *
      * Update the `Webhook` object with data from a `WebhookData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param webhookData The webhook data
      *

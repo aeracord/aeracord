@@ -70,6 +70,7 @@ export default class Presence extends Base<Presence> {
      *
      * Create a `PresenceData` object from a `RawPresenceData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      *
@@ -84,6 +85,7 @@ export default class Presence extends Base<Presence> {
      *
      * Create a `PresenceData` object from a `RawPresenceData` object
      *
+     * @private
      * @param rawData The raw data from the API
      *
      * @returns {PresenceData} The presence data
@@ -124,6 +126,7 @@ export default class Presence extends Base<Presence> {
      *
      * Update the `Presence` object with data from a `PresenceData` object
      *
+     * @private
      * @param presence The presence to update
      * @param presenceData The data to update this presence with
      */
@@ -136,6 +139,7 @@ export default class Presence extends Base<Presence> {
      *
      * Update the `Presence` object with data from a `PresenceData` object if it's cached
      *
+     * @private
      * @param client The client
      * @param presenceData The presence data
      *

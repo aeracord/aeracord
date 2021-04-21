@@ -257,6 +257,8 @@ export default class Embed {
      * To JSON
      *
      * Convert this embed to a JSON object for sending to the API
+     *
+     * @private
      */
     _toJSON(): object {
         return toJSON(this);

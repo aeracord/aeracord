@@ -170,6 +170,7 @@ export default class MessageEmbed {
      *
      * Create a `MessageEmbedData` object from a `RawMessageEmbedData` object
      *
+     * @private
      * @param client The client
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
@@ -185,6 +186,7 @@ export default class MessageEmbed {
      *
      * Create a `MessageEmbedData` object from a `RawMessageEmbedData` object
      *
+     * @private
      * @param rawData The raw data from the API
      * @param metadata Metadata about the object
      *

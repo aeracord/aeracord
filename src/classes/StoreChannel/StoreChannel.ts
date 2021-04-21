@@ -31,6 +31,7 @@ export default class StoreChannel extends GuildChannel {
      *
      * Update the `StoreChannel` object with data from a `StoreChannelData` object
      *
+     * @private
      * @param storeChannel The store channel to update
      * @param storeChannelData The data to update the store channel with
      * @param fromConstructor Should only be `true` when called from this class's constructor
