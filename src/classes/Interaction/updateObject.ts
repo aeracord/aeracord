@@ -9,7 +9,6 @@ export default function updateObject(interaction: Interaction, interactionData: 
     if (interaction.deleted) interaction._unmarkAsDeleted();
 
     // Set data
-    interaction.id = interactionData.id;
     interaction.type = interactionData.type;
     interaction.token = interactionData.token;
     interaction.applicationID = interactionData.applicationID;

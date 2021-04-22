@@ -20,13 +20,6 @@ export type InteractionResolvable = Interaction | InteractionData | string;
 export default class Interaction extends Base<Interaction> {
 
     /**
-     * ID
-     *
-     * The interaction's ID
-     */
-    id: string;
-
-    /**
      * Type
      *
      * The interaction's type
