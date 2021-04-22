@@ -952,7 +952,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 144,
+									"line": 141,
 									"character": 27
 								}
 							]
@@ -1045,7 +1045,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 129,
+									"line": 126,
 									"character": 23
 								}
 							]
@@ -1119,7 +1119,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 158,
+									"line": 155,
 									"character": 19
 								}
 							]
@@ -1176,7 +1176,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 171,
+									"line": 168,
 									"character": 17
 								}
 							]
@@ -2397,7 +2397,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/AuditLog/AuditLog.ts",
-									"line": 75,
+									"line": 72,
 									"character": 27
 								}
 							]
@@ -2489,7 +2489,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/AuditLog/AuditLog.ts",
-									"line": 60,
+									"line": 57,
 									"character": 23
 								}
 							]
@@ -2563,7 +2563,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/AuditLog/AuditLog.ts",
-									"line": 89,
+									"line": 86,
 									"character": 19
 								}
 							]
@@ -2620,7 +2620,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/AuditLog/AuditLog.ts",
-									"line": 102,
+									"line": 99,
 									"character": 17
 								}
 							]
@@ -6687,7 +6687,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -6734,7 +6734,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -6870,7 +6870,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -6915,7 +6915,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -8520,7 +8520,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							]
@@ -8557,7 +8557,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							]
@@ -8620,7 +8620,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							]
@@ -8655,7 +8655,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							]
@@ -9676,7 +9676,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheInterface/CacheInterface.ts",
-									"line": 197,
+									"line": 194,
 									"character": 9
 								}
 							]
@@ -9782,7 +9782,7 @@
 													"sources": [
 														{
 															"fileName": "src/classes/CacheInterface/CacheInterface.ts",
-															"line": 188,
+															"line": 185,
 															"character": 21
 														}
 													]
@@ -9850,7 +9850,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheInterface/CacheInterface.ts",
-									"line": 188,
+									"line": 185,
 									"character": 10
 								}
 							]
@@ -9885,7 +9885,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheInterface/CacheInterface.ts",
-									"line": 206,
+									"line": 203,
 									"character": 18
 								}
 							]
@@ -10024,7 +10024,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheInterface/CacheInterface.ts",
-									"line": 152,
+									"line": 149,
 									"character": 7
 								}
 							]
@@ -10081,7 +10081,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheInterface/CacheInterface.ts",
-									"line": 163,
+									"line": 160,
 									"character": 12
 								}
 							]
@@ -10134,7 +10134,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheInterface/CacheInterface.ts",
-									"line": 174,
+									"line": 171,
 									"character": 11
 								}
 							]
@@ -11936,7 +11936,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 186,
+									"line": 183,
 									"character": 9
 								}
 							]
@@ -11971,7 +11971,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 223,
+									"line": 220,
 									"character": 9
 								}
 							]
@@ -12077,7 +12077,7 @@
 													"sources": [
 														{
 															"fileName": "src/classes/CacheManager/CacheManager.ts",
-															"line": 214,
+															"line": 211,
 															"character": 21
 														}
 													]
@@ -12145,7 +12145,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 214,
+									"line": 211,
 									"character": 10
 								}
 							]
@@ -12180,7 +12180,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 232,
+									"line": 229,
 									"character": 18
 								}
 							]
@@ -12254,7 +12254,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 160,
+									"line": 157,
 									"character": 7
 								}
 							]
@@ -12311,7 +12311,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 171,
+									"line": 168,
 									"character": 12
 								}
 							]
@@ -12364,7 +12364,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 198,
+									"line": 195,
 									"character": 11
 								}
 							]
@@ -12422,7 +12422,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CacheManager/CacheManager.ts",
-									"line": 147,
+									"line": 144,
 									"character": 29
 								}
 							]
@@ -13839,7 +13839,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -13886,7 +13886,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -14487,7 +14487,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -14532,7 +14532,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -16030,7 +16030,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -16077,7 +16077,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -16284,7 +16284,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -16329,7 +16329,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -22636,7 +22636,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1559,
+									"line": 1464,
 									"character": 12
 								}
 							]
@@ -22673,7 +22673,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1570,
+									"line": 1475,
 									"character": 19
 								}
 							]
@@ -22730,7 +22730,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1642,
+									"line": 1547,
 									"character": 18
 								}
 							]
@@ -22850,7 +22850,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1656,
+									"line": 1561,
 									"character": 22
 								}
 							]
@@ -23080,7 +23080,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1669,
+									"line": 1574,
 									"character": 27
 								}
 							]
@@ -23183,7 +23183,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1682,
+									"line": 1587,
 									"character": 22
 								}
 							]
@@ -23251,7 +23251,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1695,
+									"line": 1600,
 									"character": 31
 								}
 							]
@@ -23336,7 +23336,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1709,
+									"line": 1614,
 									"character": 30
 								}
 							]
@@ -23391,7 +23391,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1611,
+									"line": 1516,
 									"character": 19
 								}
 							]
@@ -23476,7 +23476,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1598,
+									"line": 1503,
 									"character": 18
 								}
 							]
@@ -23582,7 +23582,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1724,
+									"line": 1629,
 									"character": 23
 								}
 							]
@@ -23644,7 +23644,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1737,
+									"line": 1642,
 									"character": 12
 								}
 							]
@@ -23722,7 +23722,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1751,
+									"line": 1656,
 									"character": 25
 								}
 							]
@@ -23784,7 +23784,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1764,
+									"line": 1669,
 									"character": 23
 								}
 							]
@@ -23846,7 +23846,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1791,
+									"line": 1696,
 									"character": 15
 								}
 							]
@@ -23941,7 +23941,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1804,
+									"line": 1709,
 									"character": 18
 								}
 							]
@@ -24046,7 +24046,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1819,
+									"line": 1724,
 									"character": 22
 								}
 							]
@@ -24125,7 +24125,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1778,
+									"line": 1683,
 									"character": 22
 								}
 							]
@@ -24230,7 +24230,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1834,
+									"line": 1739,
 									"character": 20
 								}
 							]
@@ -24309,7 +24309,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1848,
+									"line": 1753,
 									"character": 27
 								}
 							]
@@ -24414,7 +24414,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1863,
+									"line": 1768,
 									"character": 19
 								}
 							]
@@ -24493,7 +24493,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1877,
+									"line": 1782,
 									"character": 23
 								}
 							]
@@ -24588,7 +24588,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1892,
+									"line": 1797,
 									"character": 29
 								}
 							]
@@ -24667,7 +24667,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1906,
+									"line": 1811,
 									"character": 17
 								}
 							]
@@ -24761,7 +24761,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1919,
+									"line": 1824,
 									"character": 18
 								}
 							]
@@ -24866,7 +24866,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1934,
+									"line": 1839,
 									"character": 17
 								}
 							]
@@ -24945,7 +24945,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1948,
+									"line": 1853,
 									"character": 20
 								}
 							]
@@ -25022,7 +25022,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1960,
+									"line": 1865,
 									"character": 22
 								}
 							]
@@ -25116,7 +25116,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1973,
+									"line": 1878,
 									"character": 30
 								}
 							]
@@ -25204,7 +25204,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1987,
+									"line": 1892,
 									"character": 17
 								}
 							]
@@ -25291,7 +25291,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1999,
+									"line": 1904,
 									"character": 27
 								}
 							]
@@ -25367,7 +25367,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2011,
+									"line": 1916,
 									"character": 25
 								}
 							]
@@ -25427,7 +25427,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2022,
+									"line": 1927,
 									"character": 23
 								}
 							]
@@ -25487,7 +25487,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2033,
+									"line": 1938,
 									"character": 15
 								}
 							]
@@ -25564,7 +25564,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2045,
+									"line": 1950,
 									"character": 22
 								}
 							]
@@ -25667,7 +25667,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2058,
+									"line": 1963,
 									"character": 20
 								}
 							]
@@ -25770,7 +25770,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2071,
+									"line": 1976,
 									"character": 19
 								}
 							]
@@ -25849,7 +25849,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2085,
+									"line": 1990,
 									"character": 23
 								}
 							]
@@ -25954,7 +25954,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2100,
+									"line": 2005,
 									"character": 16
 								}
 							]
@@ -26057,7 +26057,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2113,
+									"line": 2018,
 									"character": 17
 								}
 							]
@@ -26116,7 +26116,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2124,
+									"line": 2029,
 									"character": 37
 								}
 							]
@@ -26210,7 +26210,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2137,
+									"line": 2042,
 									"character": 21
 								}
 							]
@@ -26313,7 +26313,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2150,
+									"line": 2055,
 									"character": 30
 								}
 							]
@@ -26424,7 +26424,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2164,
+									"line": 2069,
 									"character": 22
 								}
 							]
@@ -26527,7 +26527,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2177,
+									"line": 2082,
 									"character": 17
 								}
 							]
@@ -26631,7 +26631,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2190,
+									"line": 2095,
 									"character": 26
 								}
 							]
@@ -26726,7 +26726,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2205,
+									"line": 2110,
 									"character": 23
 								}
 							]
@@ -26805,7 +26805,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2219,
+									"line": 2124,
 									"character": 21
 								}
 							]
@@ -26901,7 +26901,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2234,
+									"line": 2139,
 									"character": 20
 								}
 							]
@@ -26997,7 +26997,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2249,
+									"line": 2154,
 									"character": 15
 								}
 							]
@@ -27075,7 +27075,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2263,
+									"line": 2168,
 									"character": 35
 								}
 							]
@@ -27275,7 +27275,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1628,
+									"line": 1533,
 									"character": 9
 								}
 							]
@@ -27354,7 +27354,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2277,
+									"line": 2182,
 									"character": 21
 								}
 							]
@@ -27416,7 +27416,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2290,
+									"line": 2195,
 									"character": 14
 								}
 							]
@@ -27481,7 +27481,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2303,
+									"line": 2208,
 									"character": 21
 								}
 							]
@@ -27560,7 +27560,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2317,
+									"line": 2222,
 									"character": 21
 								}
 							]
@@ -27643,7 +27643,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2331,
+									"line": 2236,
 									"character": 22
 								}
 							]
@@ -27708,7 +27708,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2344,
+									"line": 2249,
 									"character": 22
 								}
 							]
@@ -27751,7 +27751,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2355,
+									"line": 2260,
 									"character": 18
 								}
 							]
@@ -27817,7 +27817,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2368,
+									"line": 2273,
 									"character": 24
 								}
 							]
@@ -27879,7 +27879,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2381,
+									"line": 2286,
 									"character": 20
 								}
 							]
@@ -27925,7 +27925,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2392,
+									"line": 2297,
 									"character": 21
 								}
 							]
@@ -28005,7 +28005,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2406,
+									"line": 2311,
 									"character": 12
 								}
 							]
@@ -28085,7 +28085,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2420,
+									"line": 2325,
 									"character": 20
 								}
 							]
@@ -28164,7 +28164,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2434,
+									"line": 2339,
 									"character": 15
 								}
 							]
@@ -28229,7 +28229,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2447,
+									"line": 2352,
 									"character": 16
 								}
 							]
@@ -28294,7 +28294,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2460,
+									"line": 2365,
 									"character": 20
 								}
 							]
@@ -28373,7 +28373,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2474,
+									"line": 2379,
 									"character": 19
 								}
 							]
@@ -28438,7 +28438,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2487,
+									"line": 2392,
 									"character": 20
 								}
 							]
@@ -28517,7 +28517,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2501,
+									"line": 2406,
 									"character": 17
 								}
 							]
@@ -28582,7 +28582,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2514,
+									"line": 2419,
 									"character": 19
 								}
 							]
@@ -28661,7 +28661,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2528,
+									"line": 2433,
 									"character": 18
 								}
 							]
@@ -28723,7 +28723,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2541,
+									"line": 2446,
 									"character": 19
 								}
 							]
@@ -28788,7 +28788,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2554,
+									"line": 2459,
 									"character": 17
 								}
 							]
@@ -28853,7 +28853,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2567,
+									"line": 2472,
 									"character": 21
 								}
 							]
@@ -28915,7 +28915,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2580,
+									"line": 2485,
 									"character": 21
 								}
 							]
@@ -28980,7 +28980,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2593,
+									"line": 2498,
 									"character": 24
 								}
 							]
@@ -29045,7 +29045,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2606,
+									"line": 2511,
 									"character": 20
 								}
 							]
@@ -29116,7 +29116,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2619,
+									"line": 2524,
 									"character": 25
 								}
 							]
@@ -29178,7 +29178,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2632,
+									"line": 2537,
 									"character": 26
 								}
 							]
@@ -29258,7 +29258,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2646,
+									"line": 2551,
 									"character": 13
 								}
 							]
@@ -29364,7 +29364,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2659,
+									"line": 2564,
 									"character": 21
 								}
 							]
@@ -29481,7 +29481,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2675,
+									"line": 2580,
 									"character": 16
 								}
 							]
@@ -29543,7 +29543,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2688,
+									"line": 2593,
 									"character": 15
 								}
 							]
@@ -29605,7 +29605,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2701,
+									"line": 2606,
 									"character": 11
 								}
 							]
@@ -29684,7 +29684,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2715,
+									"line": 2620,
 									"character": 14
 								}
 							]
@@ -29755,7 +29755,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 1584,
+									"line": 1489,
 									"character": 17
 								}
 							]
@@ -29815,7 +29815,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2726,
+									"line": 2631,
 									"character": 14
 								}
 							]
@@ -29880,7 +29880,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2739,
+									"line": 2644,
 									"character": 19
 								}
 							]
@@ -29963,7 +29963,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2753,
+									"line": 2658,
 									"character": 20
 								}
 							]
@@ -30009,7 +30009,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2764,
+									"line": 2669,
 									"character": 20
 								}
 							]
@@ -30247,7 +30247,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2779,
+									"line": 2684,
 									"character": 17
 								}
 							]
@@ -30309,7 +30309,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2792,
+									"line": 2697,
 									"character": 21
 								}
 							]
@@ -30389,7 +30389,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2806,
+									"line": 2711,
 									"character": 29
 								}
 							]
@@ -30494,7 +30494,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2821,
+									"line": 2726,
 									"character": 15
 								}
 							]
@@ -30574,7 +30574,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2833,
+									"line": 2738,
 									"character": 31
 								}
 							]
@@ -30696,7 +30696,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2849,
+									"line": 2754,
 									"character": 20
 								}
 							]
@@ -30818,7 +30818,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2865,
+									"line": 2770,
 									"character": 21
 								}
 							]
@@ -30940,7 +30940,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2881,
+									"line": 2786,
 									"character": 19
 								}
 							]
@@ -31025,7 +31025,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2895,
+									"line": 2800,
 									"character": 28
 								}
 							]
@@ -31121,7 +31121,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2910,
+									"line": 2815,
 									"character": 23
 								}
 							]
@@ -31200,7 +31200,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2924,
+									"line": 2829,
 									"character": 28
 								}
 							]
@@ -31279,7 +31279,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2938,
+									"line": 2843,
 									"character": 21
 								}
 							]
@@ -31401,7 +31401,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2954,
+									"line": 2859,
 									"character": 17
 								}
 							]
@@ -36609,7 +36609,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2967,
+									"line": 2872,
 									"character": 18
 								}
 							]
@@ -36712,7 +36712,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2980,
+									"line": 2885,
 									"character": 21
 								}
 							]
@@ -36832,7 +36832,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 2994,
+									"line": 2899,
 									"character": 25
 								}
 							]
@@ -37041,7 +37041,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 3008,
+									"line": 2913,
 									"character": 22
 								}
 							]
@@ -37176,7 +37176,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 3022,
+									"line": 2927,
 									"character": 21
 								}
 							]
@@ -37236,7 +37236,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Client/Client.ts",
-									"line": 3033,
+									"line": 2938,
 									"character": 26
 								}
 							]
@@ -78656,7 +78656,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -78703,7 +78703,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -78942,7 +78942,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -78987,7 +78987,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -82094,7 +82094,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -82141,7 +82141,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -82240,7 +82240,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 111,
+									"line": 109,
 									"character": 14
 								}
 							],
@@ -82400,7 +82400,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 137,
+									"line": 135,
 									"character": 18
 								}
 							],
@@ -82551,7 +82551,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 148,
+									"line": 146,
 									"character": 22
 								}
 							],
@@ -82638,7 +82638,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 160,
+									"line": 158,
 									"character": 30
 								}
 							],
@@ -82734,7 +82734,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 172,
+									"line": 170,
 									"character": 17
 								}
 							],
@@ -82821,7 +82821,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 184,
+									"line": 182,
 									"character": 21
 								}
 							],
@@ -82925,7 +82925,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 209,
+									"line": 207,
 									"character": 22
 								}
 							],
@@ -83045,7 +83045,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 224,
+									"line": 222,
 									"character": 15
 								}
 							],
@@ -83118,7 +83118,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -83190,7 +83190,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 237,
+									"line": 235,
 									"character": 14
 								}
 							],
@@ -83266,7 +83266,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 250,
+									"line": 248,
 									"character": 15
 								}
 							],
@@ -83322,7 +83322,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 272,
+									"line": 270,
 									"character": 21
 								}
 							],
@@ -83432,7 +83432,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 287,
+									"line": 285,
 									"character": 16
 								}
 							],
@@ -83488,7 +83488,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 261,
+									"line": 259,
 									"character": 15
 								}
 							],
@@ -83584,7 +83584,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 99,
+									"line": 97,
 									"character": 14
 								}
 							],
@@ -83688,7 +83688,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 125,
+									"line": 123,
 									"character": 8
 								}
 							],
@@ -83739,7 +83739,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 296,
+									"line": 294,
 									"character": 15
 								}
 							],
@@ -83784,7 +83784,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -83880,7 +83880,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 196,
+									"line": 194,
 									"character": 16
 								}
 							],
@@ -87585,7 +87585,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -87632,7 +87632,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -87925,7 +87925,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -87970,7 +87970,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -90020,7 +90020,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/FetchQueue/FetchQueue.ts",
-									"line": 153,
+									"line": 150,
 									"character": 19
 								}
 							]
@@ -90080,7 +90080,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/FetchQueue/FetchQueue.ts",
-									"line": 144,
+									"line": 141,
 									"character": 11
 								}
 							]
@@ -92410,7 +92410,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -92457,7 +92457,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -92565,7 +92565,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 597,
+									"line": 587,
 									"character": 19
 								}
 							]
@@ -92643,7 +92643,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 609,
+									"line": 599,
 									"character": 11
 								}
 							]
@@ -92711,7 +92711,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 622,
+									"line": 612,
 									"character": 20
 								}
 							]
@@ -92774,7 +92774,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 584,
+									"line": 574,
 									"character": 9
 								}
 							]
@@ -92862,7 +92862,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 636,
+									"line": 626,
 									"character": 17
 								}
 							]
@@ -92924,7 +92924,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 649,
+									"line": 639,
 									"character": 17
 								}
 							]
@@ -93012,7 +93012,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 663,
+									"line": 653,
 									"character": 15
 								}
 							]
@@ -93100,7 +93100,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 677,
+									"line": 667,
 									"character": 14
 								}
 							]
@@ -93162,7 +93162,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 690,
+									"line": 680,
 									"character": 18
 								}
 							]
@@ -93203,7 +93203,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 699,
+									"line": 689,
 									"character": 10
 								}
 							]
@@ -93263,7 +93263,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 710,
+									"line": 700,
 									"character": 17
 								}
 							]
@@ -93349,7 +93349,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 722,
+									"line": 712,
 									"character": 15
 								}
 							]
@@ -93435,7 +93435,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 734,
+									"line": 724,
 									"character": 14
 								}
 							]
@@ -93497,7 +93497,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 747,
+									"line": 737,
 									"character": 18
 								}
 							]
@@ -93585,7 +93585,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1007,
+									"line": 997,
 									"character": 8
 								}
 							]
@@ -93648,7 +93648,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1018,
+									"line": 1008,
 									"character": 24
 								}
 							]
@@ -93727,7 +93727,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 761,
+									"line": 751,
 									"character": 15
 								}
 							]
@@ -93832,7 +93832,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1033,
+									"line": 1023,
 									"character": 13
 								}
 							]
@@ -93894,7 +93894,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1116,
+									"line": 1106,
 									"character": 19
 								}
 							]
@@ -93999,7 +93999,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1048,
+									"line": 1038,
 									"character": 14
 								}
 							]
@@ -94104,7 +94104,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1063,
+									"line": 1053,
 									"character": 12
 								}
 							]
@@ -94172,7 +94172,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1076,
+									"line": 1066,
 									"character": 21
 								}
 							]
@@ -94251,7 +94251,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1090,
+									"line": 1080,
 									"character": 16
 								}
 							]
@@ -94313,7 +94313,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1103,
+									"line": 1093,
 									"character": 21
 								}
 							]
@@ -94381,7 +94381,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -94449,7 +94449,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 774,
+									"line": 764,
 									"character": 15
 								}
 							]
@@ -94511,7 +94511,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 787,
+									"line": 777,
 									"character": 10
 								}
 							]
@@ -94557,7 +94557,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 798,
+									"line": 788,
 									"character": 11
 								}
 							]
@@ -94603,7 +94603,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 809,
+									"line": 799,
 									"character": 15
 								}
 							]
@@ -94665,7 +94665,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 822,
+									"line": 812,
 									"character": 14
 								}
 							]
@@ -94711,7 +94711,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 833,
+									"line": 823,
 									"character": 15
 								}
 							]
@@ -94773,7 +94773,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 846,
+									"line": 836,
 									"character": 12
 								}
 							]
@@ -94819,7 +94819,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 857,
+									"line": 847,
 									"character": 13
 								}
 							]
@@ -94865,7 +94865,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 868,
+									"line": 858,
 									"character": 14
 								}
 							]
@@ -94927,7 +94927,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 881,
+									"line": 871,
 									"character": 13
 								}
 							]
@@ -94993,7 +94993,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 894,
+									"line": 884,
 									"character": 14
 								}
 							]
@@ -95036,7 +95036,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 905,
+									"line": 895,
 									"character": 14
 								}
 							]
@@ -95082,7 +95082,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 916,
+									"line": 906,
 									"character": 12
 								}
 							]
@@ -95128,7 +95128,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 927,
+									"line": 917,
 									"character": 16
 								}
 							]
@@ -95171,7 +95171,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 938,
+									"line": 928,
 									"character": 16
 								}
 							]
@@ -95217,7 +95217,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 949,
+									"line": 939,
 									"character": 19
 								}
 							]
@@ -95263,7 +95263,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 960,
+									"line": 950,
 									"character": 15
 								}
 							]
@@ -95306,7 +95306,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 971,
+									"line": 961,
 									"character": 21
 								}
 							]
@@ -95392,7 +95392,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1153,
+									"line": 1143,
 									"character": 14
 								}
 							]
@@ -95433,7 +95433,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 980,
+									"line": 970,
 									"character": 9
 								}
 							]
@@ -95536,7 +95536,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1166,
+									"line": 1156,
 									"character": 24
 								}
 							]
@@ -95601,7 +95601,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1129,
+									"line": 1119,
 									"character": 17
 								}
 							]
@@ -95672,7 +95672,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 993,
+									"line": 983,
 									"character": 15
 								}
 							]
@@ -95734,7 +95734,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1179,
+									"line": 1169,
 									"character": 16
 								}
 							]
@@ -95820,7 +95820,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 1141,
+									"line": 1131,
 									"character": 13
 								}
 							]
@@ -95860,7 +95860,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -95941,7 +95941,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 503,
+									"line": 493,
 									"character": 27
 								}
 							]
@@ -96017,7 +96017,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 488,
+									"line": 478,
 									"character": 23
 								}
 							]
@@ -96091,7 +96091,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 556,
+									"line": 546,
 									"character": 24
 								}
 							]
@@ -96176,7 +96176,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 571,
+									"line": 561,
 									"character": 32
 								}
 							]
@@ -96250,7 +96250,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 517,
+									"line": 507,
 									"character": 19
 								}
 							]
@@ -96315,7 +96315,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 543,
+									"line": 533,
 									"character": 20
 								}
 							]
@@ -96372,7 +96372,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Guild/Guild.ts",
-									"line": 530,
+									"line": 520,
 									"character": 17
 								}
 							]
@@ -100737,7 +100737,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -100784,7 +100784,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -101345,7 +101345,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -101390,7 +101390,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -105324,7 +105324,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -105371,7 +105371,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -105569,7 +105569,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -105614,7 +105614,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -107467,7 +107467,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -107514,7 +107514,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -108050,7 +108050,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -108189,7 +108189,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -112011,7 +112011,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -112058,7 +112058,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -112265,7 +112265,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -112310,7 +112310,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -115510,7 +115510,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -115557,7 +115557,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -115928,7 +115928,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -116197,7 +116197,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -119125,7 +119125,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -119172,7 +119172,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -119751,7 +119751,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -120008,7 +120008,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -125723,7 +125723,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 198,
+									"line": 195,
 									"character": 27
 								}
 							]
@@ -125816,7 +125816,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 183,
+									"line": 180,
 									"character": 23
 								}
 							]
@@ -125890,7 +125890,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 212,
+									"line": 209,
 									"character": 19
 								}
 							]
@@ -125947,7 +125947,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 225,
+									"line": 222,
 									"character": 17
 								}
 							]
@@ -130205,7 +130205,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -130261,7 +130261,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -130360,7 +130360,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 111,
+									"line": 109,
 									"character": 14
 								}
 							],
@@ -130616,7 +130616,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 137,
+									"line": 135,
 									"character": 18
 								}
 							],
@@ -130704,7 +130704,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/NewsChannel/NewsChannel.ts",
-									"line": 128,
+									"line": 124,
 									"character": 17
 								}
 							]
@@ -130762,7 +130762,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/NewsChannel/NewsChannel.ts",
-									"line": 141,
+									"line": 137,
 									"character": 20
 								}
 							]
@@ -130911,7 +130911,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 148,
+									"line": 146,
 									"character": 22
 								}
 							],
@@ -130992,7 +130992,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 160,
+									"line": 158,
 									"character": 30
 								}
 							],
@@ -131083,7 +131083,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 172,
+									"line": 170,
 									"character": 17
 								}
 							],
@@ -131164,7 +131164,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 184,
+									"line": 182,
 									"character": 21
 								}
 							],
@@ -131336,7 +131336,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 209,
+									"line": 207,
 									"character": 22
 								}
 							],
@@ -131542,7 +131542,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 224,
+									"line": 222,
 									"character": 15
 								}
 							],
@@ -131708,7 +131708,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -131775,7 +131775,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/NewsChannel/NewsChannel.ts",
-									"line": 152,
+									"line": 148,
 									"character": 10
 								}
 							]
@@ -131819,7 +131819,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/NewsChannel/NewsChannel.ts",
-									"line": 163,
+									"line": 159,
 									"character": 14
 								}
 							]
@@ -131882,7 +131882,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 237,
+									"line": 235,
 									"character": 14
 								}
 							],
@@ -131955,7 +131955,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 250,
+									"line": 248,
 									"character": 15
 								}
 							],
@@ -132009,7 +132009,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 272,
+									"line": 270,
 									"character": 21
 								}
 							],
@@ -132112,7 +132112,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 287,
+									"line": 285,
 									"character": 16
 								}
 							],
@@ -132166,7 +132166,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 261,
+									"line": 259,
 									"character": 15
 								}
 							],
@@ -132257,7 +132257,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 99,
+									"line": 97,
 									"character": 14
 								}
 							],
@@ -132356,7 +132356,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 125,
+									"line": 123,
 									"character": 8
 								}
 							],
@@ -132405,7 +132405,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 296,
+									"line": 294,
 									"character": 15
 								}
 							],
@@ -132453,7 +132453,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -132549,7 +132549,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 196,
+									"line": 194,
 									"character": 16
 								}
 							],
@@ -132854,12 +132854,12 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 87,
+									"line": 85,
 									"character": 24
 								},
 								{
 									"fileName": "src/classes/NewsChannel/NewsChannel.ts",
-									"line": 114,
+									"line": 110,
 									"character": 24
 								}
 							],
@@ -135745,7 +135745,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -135792,7 +135792,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -135928,7 +135928,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -135973,7 +135973,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -140685,7 +140685,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 165,
+									"line": 162,
 									"character": 10
 								}
 							]
@@ -140761,7 +140761,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 116,
+									"line": 113,
 									"character": 27
 								}
 							]
@@ -140854,7 +140854,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 101,
+									"line": 98,
 									"character": 23
 								}
 							]
@@ -140928,7 +140928,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 130,
+									"line": 127,
 									"character": 19
 								}
 							]
@@ -140993,7 +140993,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 156,
+									"line": 153,
 									"character": 24
 								}
 							]
@@ -141050,7 +141050,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 143,
+									"line": 140,
 									"character": 17
 								}
 							]
@@ -142773,7 +142773,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -142820,7 +142820,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -143199,7 +143199,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -143330,7 +143330,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -145643,7 +145643,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Sticker/Sticker.ts",
-									"line": 127,
+									"line": 124,
 									"character": 27
 								}
 							]
@@ -145719,7 +145719,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Sticker/Sticker.ts",
-									"line": 113,
+									"line": 110,
 									"character": 23
 								}
 							]
@@ -145793,7 +145793,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Sticker/Sticker.ts",
-									"line": 141,
+									"line": 138,
 									"character": 19
 								}
 							]
@@ -145850,7 +145850,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Sticker/Sticker.ts",
-									"line": 154,
+									"line": 151,
 									"character": 17
 								}
 							]
@@ -147090,7 +147090,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -147137,7 +147137,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -147738,7 +147738,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -147783,7 +147783,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -150771,7 +150771,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -150818,7 +150818,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -151078,7 +151078,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -151166,7 +151166,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -154239,7 +154239,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -154286,7 +154286,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -154380,7 +154380,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 111,
+									"line": 109,
 									"character": 14
 								}
 							]
@@ -154530,7 +154530,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 137,
+									"line": 135,
 									"character": 18
 								}
 							]
@@ -154671,7 +154671,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 148,
+									"line": 146,
 									"character": 22
 								}
 							]
@@ -154748,7 +154748,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 160,
+									"line": 158,
 									"character": 30
 								}
 							]
@@ -154834,7 +154834,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 172,
+									"line": 170,
 									"character": 17
 								}
 							]
@@ -154911,7 +154911,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 184,
+									"line": 182,
 									"character": 21
 								}
 							]
@@ -155005,7 +155005,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 209,
+									"line": 207,
 									"character": 22
 								}
 							]
@@ -155115,7 +155115,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 224,
+									"line": 222,
 									"character": 15
 								}
 							]
@@ -155183,7 +155183,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -155250,7 +155250,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 237,
+									"line": 235,
 									"character": 14
 								}
 							]
@@ -155316,7 +155316,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 250,
+									"line": 248,
 									"character": 15
 								}
 							]
@@ -155362,7 +155362,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 272,
+									"line": 270,
 									"character": 21
 								}
 							]
@@ -155462,7 +155462,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 287,
+									"line": 285,
 									"character": 16
 								}
 							]
@@ -155508,7 +155508,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 261,
+									"line": 259,
 									"character": 15
 								}
 							]
@@ -155594,7 +155594,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 99,
+									"line": 97,
 									"character": 14
 								}
 							]
@@ -155688,7 +155688,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 125,
+									"line": 123,
 									"character": 8
 								}
 							]
@@ -155729,7 +155729,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 296,
+									"line": 294,
 									"character": 15
 								}
 							]
@@ -155769,7 +155769,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -155860,7 +155860,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 196,
+									"line": 194,
 									"character": 16
 								}
 							]
@@ -156141,7 +156141,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 87,
+									"line": 85,
 									"character": 24
 								}
 							],
@@ -158140,7 +158140,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -158196,7 +158196,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -158295,7 +158295,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 111,
+									"line": 109,
 									"character": 14
 								}
 							],
@@ -158551,7 +158551,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 137,
+									"line": 135,
 									"character": 18
 								}
 							],
@@ -158639,7 +158639,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextChannel/TextChannel.ts",
-									"line": 128,
+									"line": 124,
 									"character": 17
 								}
 							]
@@ -158788,7 +158788,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 148,
+									"line": 146,
 									"character": 22
 								}
 							],
@@ -158869,7 +158869,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 160,
+									"line": 158,
 									"character": 30
 								}
 							],
@@ -158960,7 +158960,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 172,
+									"line": 170,
 									"character": 17
 								}
 							],
@@ -159041,7 +159041,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 184,
+									"line": 182,
 									"character": 21
 								}
 							],
@@ -159213,7 +159213,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 209,
+									"line": 207,
 									"character": 22
 								}
 							],
@@ -159419,7 +159419,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 224,
+									"line": 222,
 									"character": 15
 								}
 							],
@@ -159585,7 +159585,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -159639,7 +159639,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextChannel/TextChannel.ts",
-									"line": 139,
+									"line": 135,
 									"character": 14
 								}
 							]
@@ -159702,7 +159702,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 237,
+									"line": 235,
 									"character": 14
 								}
 							],
@@ -159775,7 +159775,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 250,
+									"line": 248,
 									"character": 15
 								}
 							],
@@ -159829,7 +159829,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 272,
+									"line": 270,
 									"character": 21
 								}
 							],
@@ -159932,7 +159932,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 287,
+									"line": 285,
 									"character": 16
 								}
 							],
@@ -159986,7 +159986,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 261,
+									"line": 259,
 									"character": 15
 								}
 							],
@@ -160077,7 +160077,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 99,
+									"line": 97,
 									"character": 14
 								}
 							],
@@ -160176,7 +160176,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 125,
+									"line": 123,
 									"character": 8
 								}
 							],
@@ -160225,7 +160225,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 296,
+									"line": 294,
 									"character": 15
 								}
 							],
@@ -160273,7 +160273,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -160369,7 +160369,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 196,
+									"line": 194,
 									"character": 16
 								}
 							],
@@ -160674,12 +160674,12 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 87,
+									"line": 85,
 									"character": 24
 								},
 								{
 									"fileName": "src/classes/TextChannel/TextChannel.ts",
-									"line": 114,
+									"line": 110,
 									"character": 24
 								}
 							],
@@ -162876,7 +162876,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -162923,7 +162923,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -163102,7 +163102,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -163147,7 +163147,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -165341,7 +165341,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -165388,7 +165388,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -165524,7 +165524,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -165569,7 +165569,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -167357,7 +167357,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -167404,7 +167404,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -168005,7 +168005,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -168056,7 +168056,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VoiceChannel/VoiceChannel.ts",
-									"line": 81,
+									"line": 80,
 									"character": 14
 								}
 							]
@@ -168096,7 +168096,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -168382,7 +168382,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VoiceChannel/VoiceChannel.ts",
-									"line": 70,
+									"line": 69,
 									"character": 24
 								}
 							],
@@ -170088,7 +170088,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VoiceState/VoiceState.ts",
-									"line": 163,
+									"line": 160,
 									"character": 27
 								}
 							]
@@ -170164,7 +170164,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VoiceState/VoiceState.ts",
-									"line": 149,
+									"line": 146,
 									"character": 23
 								}
 							]
@@ -170238,7 +170238,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VoiceState/VoiceState.ts",
-									"line": 177,
+									"line": 174,
 									"character": 19
 								}
 							]
@@ -170295,7 +170295,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/VoiceState/VoiceState.ts",
-									"line": 190,
+									"line": 187,
 									"character": 17
 								}
 							]
@@ -171795,7 +171795,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -171842,7 +171842,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -172135,7 +172135,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -172180,7 +172180,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
@@ -174448,7 +174448,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 128,
+									"line": 122,
 									"character": 18
 								}
 							],
@@ -174495,7 +174495,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 139,
+									"line": 133,
 									"character": 20
 								}
 							],
@@ -174693,7 +174693,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 117,
+									"line": 111,
 									"character": 21
 								}
 							],
@@ -174738,7 +174738,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Base/Base.ts",
-									"line": 148,
+									"line": 142,
 									"character": 11
 								}
 							],
