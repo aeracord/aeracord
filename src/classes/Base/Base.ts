@@ -92,16 +92,10 @@ export default class Base<ObjectType extends Base<ObjectType>> {
     constructor(client: Client, baseData: BaseData<ObjectType>) {
 
         // Set data
-        Object.defineProperty(this, "client", {
-            value: client,
-            enumerable: false
-        });
+        Object.defineProperty(this, "client", { value: client });
         this.id = baseData.id;
         this.deleted = Boolean(baseData.deleted);
-        Object.defineProperty(this, "_cacheManager", {
-            value: baseData.cacheManager,
-            enumerable: false
-        });
+        Object.defineProperty(this, "_cacheManager", { value: baseData.cacheManager });
         this._lastUpdatedAt = 0;
     }
 

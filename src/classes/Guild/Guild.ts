@@ -371,8 +371,7 @@ export default class Guild extends Base<Guild> {
                 cacheManager: this.client._bans._cacheManager,
                 match: (b: Ban) => b.guildID === this.id,
                 fetchObject: async (id: string): Promise<Ban> => await this.client.getGuildBan(id.split("_")[0], id.split("_")[1])
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "channels", {
             value: new CacheInterface<AnyChannel>(this.client, {
@@ -389,16 +388,14 @@ export default class Guild extends Base<Guild> {
                     // Return
                     return channel;
                 }
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "commands", {
             value: new CacheInterface<Command>(this.client, {
                 cacheManager: this.client._commands,
                 match: (c: Command) => c.guildID === this.id,
                 fetchObject: async (id: string): Promise<Command> => await this.client.getGuildCommand(this.id, id)
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "emojis", {
             value: new CacheInterface<Emoji>(this.client, {
@@ -406,31 +403,27 @@ export default class Guild extends Base<Guild> {
                 match: (e: Emoji) => e.guildID === this.id,
                 fetchObject: async (id: string): Promise<Emoji> => await this.client.getGuildEmoji(this.id, id),
                 getIDs: () => this.emojiData.map((e: EmojiData) => e.id)
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "interactions", {
             value: new CacheInterface<Interaction, false>(this.client, {
                 cacheManager: this.client._interactions,
                 match: (i: Interaction) => i.guildID === this.id
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "invites", {
             value: new CacheInterface<Invite>(this.client, {
                 cacheManager: this.client._invites,
                 match: (i: Invite) => i.guildID === this.id,
                 fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "members", {
             value: new GuildUserCacheInterface<Member>(this.client, {
                 cacheManager: this.client._members._cacheManager,
                 match: (m: Member) => m.guildID === this.id,
                 fetchObject: async (id: string): Promise<Member> => await this.client.getGuildMember(id.split("_")[0], id.split("_")[1])
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "roles", {
             value: new CacheInterface<Role>(this.client, {
@@ -446,23 +439,20 @@ export default class Guild extends Base<Guild> {
                     return role;
                 },
                 getIDs: () => this.roleData.map((r: RoleData) => r.id)
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "templates", {
             value: new CacheInterface<Template>(this.client, {
                 cacheManager: this.client._templates,
                 match: (t: Template) => t.sourceGuildID === this.id,
                 fetchObject: async (id: string): Promise<Template> => await this.client.getTemplate(id)
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "webhooks", {
             value: new CacheInterface<Webhook>(this.client, {
                 cacheManager: this.client._webhooks,
                 match: (w: Webhook) => w.guildID === this.id
-            }),
-            enumerable: false
+            })
         });
 
         /**

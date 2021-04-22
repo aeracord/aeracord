@@ -52,8 +52,7 @@ export default class VoiceChannel extends GuildChannel {
                 cacheManager: this.client._invites,
                 match: (i: Invite) => i.channelID === this.id,
                 fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
-            }),
-            enumerable: false
+            })
         });
     }
 

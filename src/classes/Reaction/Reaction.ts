@@ -74,10 +74,7 @@ export default class Reaction {
     constructor(client: Client, reactionData: ReactionData) {
 
         // Set data
-        Object.defineProperty(this, "client", {
-            value: client,
-            enumerable: false
-        });
+        Object.defineProperty(this, "client", { value: client });
         this.messageID = reactionData.messageID;
         this.channelID = reactionData.channelID;
         this.guildID = reactionData.guildID;

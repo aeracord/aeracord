@@ -129,10 +129,7 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
     constructor(client: Client, cacheInterfaceData: CacheInterfaceData<CachedObject>) {
 
         // Set data
-        Object.defineProperty(this, "client", {
-            value: client,
-            enumerable: false
-        });
+        Object.defineProperty(this, "client", { value: client });
         this._cacheManager = cacheInterfaceData.cacheManager;
         this._match = cacheInterfaceData.match;
         this._fetchObject = cacheInterfaceData.fetchObject;

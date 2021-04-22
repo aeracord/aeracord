@@ -55,7 +55,7 @@ export default async function connect(client: Client) {
     // Set websocket
     Object.defineProperty(client, "_ws", {
         value: ws,
-        enumerable: false
+        configurable: true
     });
 
     // Websocket opened

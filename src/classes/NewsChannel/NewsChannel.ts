@@ -72,32 +72,28 @@ class NewsChannel extends GuildChannel {
             value: new CacheInterface<Interaction, false>(this.client, {
                 cacheManager: this.client._interactions,
                 match: (i: Interaction) => i.channelID === this.id
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "invites", {
             value: new CacheInterface<Invite>(this.client, {
                 cacheManager: this.client._invites,
                 match: (i: Invite) => i.channelID === this.id,
                 fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "messages", {
             value: new CacheInterface<Message>(this.client, {
                 cacheManager: this.client._messages,
                 match: (m: Message) => m.channelID === this.id,
                 fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "webhooks", {
             value: new CacheInterface<Webhook>(this.client, {
                 cacheManager: this.client._webhooks,
                 match: (w: Webhook) => w.channelID === this.id,
                 fetchObject: async (id: string): Promise<Webhook> => await this.client.getWebhook(this, id)
-            }),
-            enumerable: false
+            })
         });
     }
 

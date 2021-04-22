@@ -37,10 +37,7 @@ export default class AuditLog {
     constructor(client: Client, auditLogData: AuditLogData) {
 
         // Set data
-        Object.defineProperty(this, "client", {
-            value: client,
-            enumerable: false
-        });
+        Object.defineProperty(this, "client", { value: client });
         this.guildID = auditLogData.guildID;
         this.entries = auditLogData.entries;
     }

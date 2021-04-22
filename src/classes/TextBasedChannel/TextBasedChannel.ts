@@ -61,16 +61,14 @@ export default class TextBasedChannel extends Channel {
             value: new CacheInterface<Interaction, false>(this.client, {
                 cacheManager: this.client._interactions,
                 match: (i: Interaction) => i.channelID === this.id
-            }),
-            enumerable: false
+            })
         });
         Object.defineProperty(this, "messages", {
             value: new CacheInterface<Message>(this.client, {
                 cacheManager: this.client._messages,
                 match: (m: Message) => m.channelID === this.id,
                 fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
-            }),
-            enumerable: false
+            })
         });
     }
 

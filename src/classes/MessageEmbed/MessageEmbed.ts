@@ -146,10 +146,7 @@ export default class MessageEmbed {
     constructor(client: Client, messageEmbedData: MessageEmbedData) {
 
         // Set data
-        Object.defineProperty(this, "client", {
-            value: client,
-            enumerable: false
-        });
+        Object.defineProperty(this, "client", { value: client });
         this.messageID = messageEmbedData.messageID;
         this.channelID = messageEmbedData.channelID;
         this.guildID = messageEmbedData.guildID;
