@@ -106905,7 +106905,7 @@
 					},
 					"children": [
 						{
-							"id": 4735,
+							"id": 4734,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -106917,7 +106917,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4736,
+									"id": 4735,
 									"name": "new Interaction",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -106929,7 +106929,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4737,
+											"id": 4736,
 											"name": "client",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -106946,7 +106946,7 @@
 											}
 										},
 										{
-											"id": 4738,
+											"id": 4737,
 											"name": "interactionData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -106978,7 +106978,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 90,
+									"line": 83,
 									"character": 19
 								}
 							],
@@ -107057,7 +107057,7 @@
 							}
 						},
 						{
-							"id": 4728,
+							"id": 4727,
 							"name": "applicationID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107071,7 +107071,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 48,
+									"line": 41,
 									"character": 17
 								}
 							],
@@ -107081,7 +107081,7 @@
 							}
 						},
 						{
-							"id": 4731,
+							"id": 4730,
 							"name": "channelID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107095,7 +107095,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 69,
+									"line": 62,
 									"character": 13
 								}
 							],
@@ -107105,7 +107105,7 @@
 							}
 						},
 						{
-							"id": 4789,
+							"id": 4788,
 							"name": "client",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107135,7 +107135,7 @@
 							}
 						},
 						{
-							"id": 4729,
+							"id": 4728,
 							"name": "data",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107149,7 +107149,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 55,
+									"line": 48,
 									"character": 8
 								}
 							],
@@ -107228,7 +107228,7 @@
 							}
 						},
 						{
-							"id": 4730,
+							"id": 4729,
 							"name": "guildID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107242,7 +107242,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 62,
+									"line": 55,
 									"character": 11
 								}
 							],
@@ -107261,7 +107261,7 @@
 							}
 						},
 						{
-							"id": 4725,
+							"id": 4789,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107270,12 +107270,12 @@
 							},
 							"comment": {
 								"shortText": "ID",
-								"text": "The interaction's ID\n"
+								"text": "The ID of the object\n"
 							},
 							"sources": [
 								{
-									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 27,
+									"fileName": "src/classes/Base/Base.ts",
+									"line": 48,
 									"character": 6
 								}
 							],
@@ -107283,14 +107283,14 @@
 								"type": "intrinsic",
 								"name": "string"
 							},
-							"overwrites": {
+							"inheritedFrom": {
 								"type": "reference",
 								"id": 39,
 								"name": "Base.id"
 							}
 						},
 						{
-							"id": 4732,
+							"id": 4731,
 							"name": "member",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107304,7 +107304,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 76,
+									"line": 69,
 									"character": 10
 								}
 							],
@@ -107324,7 +107324,7 @@
 							}
 						},
 						{
-							"id": 4733,
+							"id": 4732,
 							"name": "permissions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107338,7 +107338,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 83,
+									"line": 76,
 									"character": 15
 								}
 							],
@@ -107357,7 +107357,7 @@
 							}
 						},
 						{
-							"id": 4727,
+							"id": 4726,
 							"name": "token",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107371,7 +107371,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 41,
+									"line": 34,
 									"character": 9
 								}
 							],
@@ -107381,7 +107381,7 @@
 							}
 						},
 						{
-							"id": 4726,
+							"id": 4725,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107395,7 +107395,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 34,
+									"line": 27,
 									"character": 8
 								}
 							],
@@ -107406,7 +107406,7 @@
 							}
 						},
 						{
-							"id": 4734,
+							"id": 4733,
 							"name": "user",
 							"kind": 1024,
 							"kindString": "Property",
@@ -107420,7 +107420,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 90,
+									"line": 83,
 									"character": 8
 								}
 							],
@@ -107525,7 +107525,7 @@
 							}
 						},
 						{
-							"id": 4764,
+							"id": 4763,
 							"name": "cache",
 							"kind": 2048,
 							"kindString": "Method",
@@ -107534,7 +107534,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4765,
+									"id": 4764,
 									"name": "cache",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -107547,7 +107547,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4766,
+											"id": 4765,
 											"name": "expiresIn",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107582,13 +107582,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 234,
+									"line": 227,
 									"character": 9
 								}
 							]
 						},
 						{
-							"id": 4767,
+							"id": 4766,
 							"name": "createFollowupMessage",
 							"kind": 2048,
 							"kindString": "Method",
@@ -107597,7 +107597,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4768,
+									"id": 4767,
 									"name": "createFollowupMessage",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -107611,7 +107611,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4769,
+											"id": 4768,
 											"name": "contentOrData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107642,7 +107642,7 @@
 											}
 										},
 										{
-											"id": 4770,
+											"id": 4769,
 											"name": "followupInteractionResponseData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107676,13 +107676,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 248,
+									"line": 241,
 									"character": 25
 								}
 							]
 						},
 						{
-							"id": 4771,
+							"id": 4770,
 							"name": "deleteFollowupMessage",
 							"kind": 2048,
 							"kindString": "Method",
@@ -107691,7 +107691,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4772,
+									"id": 4771,
 									"name": "deleteFollowupMessage",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -107704,7 +107704,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4773,
+											"id": 4772,
 											"name": "message",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107736,13 +107736,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 259,
+									"line": 252,
 									"character": 25
 								}
 							]
 						},
 						{
-							"id": 4774,
+							"id": 4773,
 							"name": "deleteOriginalResponse",
 							"kind": 2048,
 							"kindString": "Method",
@@ -107751,7 +107751,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4775,
+									"id": 4774,
 									"name": "deleteOriginalResponse",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -107777,13 +107777,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 268,
+									"line": 261,
 									"character": 26
 								}
 							]
 						},
 						{
-							"id": 4776,
+							"id": 4775,
 							"name": "editFollowupMessage",
 							"kind": 2048,
 							"kindString": "Method",
@@ -107792,7 +107792,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4777,
+									"id": 4776,
 									"name": "editFollowupMessage",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -107806,7 +107806,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4778,
+											"id": 4777,
 											"name": "message",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107823,7 +107823,7 @@
 											}
 										},
 										{
-											"id": 4779,
+											"id": 4778,
 											"name": "contentOrData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107854,7 +107854,7 @@
 											}
 										},
 										{
-											"id": 4780,
+											"id": 4779,
 											"name": "editInteractionResponseData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107888,13 +107888,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 283,
+									"line": 276,
 									"character": 23
 								}
 							]
 						},
 						{
-							"id": 4781,
+							"id": 4780,
 							"name": "editOriginalResponse",
 							"kind": 2048,
 							"kindString": "Method",
@@ -107903,7 +107903,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4782,
+									"id": 4781,
 									"name": "editOriginalResponse",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -107917,7 +107917,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4783,
+											"id": 4782,
 											"name": "contentOrData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107948,7 +107948,7 @@
 											}
 										},
 										{
-											"id": 4784,
+											"id": 4783,
 											"name": "editInteractionResponseData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -107982,7 +107982,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 297,
+									"line": 290,
 									"character": 24
 								}
 							]
@@ -108061,7 +108061,7 @@
 							}
 						},
 						{
-							"id": 4785,
+							"id": 4784,
 							"name": "respond",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108070,7 +108070,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4786,
+									"id": 4785,
 									"name": "respond",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108084,7 +108084,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4787,
+											"id": 4786,
 											"name": "contentOrData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108115,7 +108115,7 @@
 											}
 										},
 										{
-											"id": 4788,
+											"id": 4787,
 											"name": "createInteractionResponseData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108149,7 +108149,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 311,
+									"line": 304,
 									"character": 11
 								}
 							]
@@ -108200,7 +108200,7 @@
 							}
 						},
 						{
-							"id": 4743,
+							"id": 4742,
 							"name": "_dataFromRawData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108211,7 +108211,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4744,
+									"id": 4743,
 									"name": "_dataFromRawData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108226,7 +108226,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4745,
+											"id": 4744,
 											"name": "rawData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108253,13 +108253,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 153,
+									"line": 146,
 									"character": 27
 								}
 							]
 						},
 						{
-							"id": 4739,
+							"id": 4738,
 							"name": "_fromRawData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108270,7 +108270,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4740,
+									"id": 4739,
 									"name": "_fromRawData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108285,7 +108285,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4741,
+											"id": 4740,
 											"name": "client",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108302,7 +108302,7 @@
 											}
 										},
 										{
-											"id": 4742,
+											"id": 4741,
 											"name": "rawData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108329,13 +108329,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 139,
+									"line": 132,
 									"character": 23
 								}
 							]
 						},
 						{
-							"id": 4756,
+							"id": 4755,
 							"name": "_updateObject",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108346,7 +108346,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4757,
+									"id": 4756,
 									"name": "_updateObject",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108360,7 +108360,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4758,
+											"id": 4757,
 											"name": "interaction",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108377,7 +108377,7 @@
 											}
 										},
 										{
-											"id": 4759,
+											"id": 4758,
 											"name": "interactionData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108403,13 +108403,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 206,
+									"line": 199,
 									"character": 24
 								}
 							]
 						},
 						{
-							"id": 4760,
+							"id": 4759,
 							"name": "_updateObjectFromData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108420,7 +108420,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4761,
+									"id": 4760,
 									"name": "_updateObjectFromData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108435,7 +108435,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4762,
+											"id": 4761,
 											"name": "client",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108452,7 +108452,7 @@
 											}
 										},
 										{
-											"id": 4763,
+											"id": 4762,
 											"name": "interactionData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108488,13 +108488,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 221,
+									"line": 214,
 									"character": 32
 								}
 							]
 						},
 						{
-							"id": 4746,
+							"id": 4745,
 							"name": "fromData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108504,7 +108504,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4747,
+									"id": 4746,
 									"name": "fromData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108518,7 +108518,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4748,
+											"id": 4747,
 											"name": "client",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108535,7 +108535,7 @@
 											}
 										},
 										{
-											"id": 4749,
+											"id": 4748,
 											"name": "interactionData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108562,13 +108562,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 167,
+									"line": 160,
 									"character": 19
 								}
 							]
 						},
 						{
-							"id": 4753,
+							"id": 4752,
 							"name": "resolveID",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108578,7 +108578,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4754,
+									"id": 4753,
 									"name": "resolveID",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108592,7 +108592,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4755,
+											"id": 4754,
 											"name": "interactionResolvable",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108627,13 +108627,13 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 193,
+									"line": 186,
 									"character": 20
 								}
 							]
 						},
 						{
-							"id": 4750,
+							"id": 4749,
 							"name": "toData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -108643,7 +108643,7 @@
 							},
 							"signatures": [
 								{
-									"id": 4751,
+									"id": 4750,
 									"name": "toData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -108657,7 +108657,7 @@
 									},
 									"parameters": [
 										{
-											"id": 4752,
+											"id": 4751,
 											"name": "interaction",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -108684,7 +108684,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 180,
+									"line": 173,
 									"character": 17
 								}
 							]
@@ -108695,7 +108695,7 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								4735
+								4734
 							]
 						},
 						{
@@ -108704,19 +108704,19 @@
 							"children": [
 								4791,
 								4793,
+								4727,
+								4730,
+								4788,
 								4728,
-								4731,
-								4789,
-								4729,
 								4790,
 								4792,
-								4730,
-								4725,
+								4729,
+								4789,
+								4731,
 								4732,
-								4733,
-								4727,
 								4726,
-								4734
+								4725,
+								4733
 							]
 						},
 						{
@@ -108725,22 +108725,22 @@
 							"children": [
 								4797,
 								4799,
-								4764,
-								4767,
-								4771,
-								4774,
-								4776,
-								4781,
+								4763,
+								4766,
+								4770,
+								4773,
+								4775,
+								4780,
 								4794,
-								4785,
+								4784,
 								4801,
-								4743,
-								4739,
-								4756,
-								4760,
-								4746,
-								4753,
-								4750
+								4742,
+								4738,
+								4755,
+								4759,
+								4745,
+								4752,
+								4749
 							]
 						}
 					],
