@@ -53,7 +53,10 @@ export default async function connect(client: Client) {
     const ws: WebSocket = new WebSocket(`${gatewayData.url}?v=8&encoding=json`);
 
     // Set websocket
-    client._ws = ws;
+    Object.defineProperty(client, "_ws", {
+        value: ws,
+        enumerable: false
+    });
 
     // Websocket opened
     ws.on("open", () => {

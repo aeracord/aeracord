@@ -98,7 +98,10 @@ export default class Attachment {
     constructor(client: Client, attachmentData: AttachmentData) {
 
         // Set data
-        this.client = client;
+        Object.defineProperty(this, "client", {
+            value: client,
+            enumerable: false
+        });
         this.id = attachmentData.id;
         this.messageID = attachmentData.messageID;
         this.channelID = attachmentData.channelID;

@@ -47,10 +47,13 @@ export default class VoiceChannel extends GuildChannel {
 
         // Set data
         VoiceChannel._updateObject(this, voiceChannelData, true);
-        this.invites = new CacheInterface<Invite>(this.client, {
-            cacheManager: this.client._invites,
-            match: (i: Invite) => i.channelID === this.id,
-            fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
+        Object.defineProperty(this, "invites", {
+            value: new CacheInterface<Invite>(this.client, {
+                cacheManager: this.client._invites,
+                match: (i: Invite) => i.channelID === this.id,
+                fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
+            }),
+            enumerable: false
         });
     }
 

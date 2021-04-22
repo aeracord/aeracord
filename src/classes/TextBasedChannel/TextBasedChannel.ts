@@ -57,14 +57,20 @@ export default class TextBasedChannel extends Channel {
 
         // Set data
         TextBasedChannel._updateObject(this, textBasedChannelData, true);
-        this.interactions = new CacheInterface<Interaction, false>(this.client, {
-            cacheManager: this.client._interactions,
-            match: (i: Interaction) => i.channelID === this.id
+        Object.defineProperty(this, "interactions", {
+            value: new CacheInterface<Interaction, false>(this.client, {
+                cacheManager: this.client._interactions,
+                match: (i: Interaction) => i.channelID === this.id
+            }),
+            enumerable: false
         });
-        this.messages = new CacheInterface<Message>(this.client, {
-            cacheManager: this.client._messages,
-            match: (m: Message) => m.channelID === this.id,
-            fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
+        Object.defineProperty(this, "messages", {
+            value: new CacheInterface<Message>(this.client, {
+                cacheManager: this.client._messages,
+                match: (m: Message) => m.channelID === this.id,
+                fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
+            }),
+            enumerable: false
         });
     }
 

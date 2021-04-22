@@ -117,7 +117,10 @@ export default class VoiceState {
     constructor(client: Client, voiceStateData: VoiceStateData) {
 
         // Set data
-        this.client = client;
+        Object.defineProperty(this, "client", {
+            value: client,
+            enumerable: false
+        });
         this.guildID = voiceStateData.guildID;
         this.channelID = voiceStateData.channelID;
         this.userID = voiceStateData.userID;

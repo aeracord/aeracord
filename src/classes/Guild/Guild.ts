@@ -100,34 +100,6 @@ export default class Guild extends Base<Guild> {
     explicitContentFilter: ExplicitContentFilter;
 
     /**
-     * Channels
-     *
-     * The cache manager interface for the channels in this guild
-     */
-    channels: CacheInterface<AnyChannel>;
-
-    /**
-     * Roles
-     *
-     * The cache manager interface for the roles in this guild
-     */
-    roles: CacheInterface<Role>;
-
-    /**
-     * Emojis
-     *
-     * The cache manager interface for the emojis in this guild
-     */
-    emojis: CacheInterface<Emoji>;
-
-    /**
-     * Members
-     *
-     * The guild user cache manager interface for the members in this guild
-     */
-    members: GuildUserCacheInterface<Member>;
-
-    /**
      * Bans
      *
      * The guild user cache manager interface for the bans in this guild
@@ -135,11 +107,25 @@ export default class Guild extends Base<Guild> {
     bans: GuildUserCacheInterface<Ban>;
 
     /**
+     * Channels
+     *
+     * The cache manager interface for the channels in this guild
+     */
+    channels: CacheInterface<AnyChannel>;
+
+    /**
      * Commands
      *
      * The cache manager interface for the commands in this guild
      */
     commands: CacheInterface<Command>;
+
+    /**
+     * Emojis
+     *
+     * The cache manager interface for the emojis in this guild
+     */
+    emojis: CacheInterface<Emoji>;
 
     /**
      * Interactions
@@ -154,6 +140,20 @@ export default class Guild extends Base<Guild> {
      * The cache manager interface for the invites in this guild
      */
     invites: CacheInterface<Invite>;
+
+    /**
+     * Members
+     *
+     * The guild user cache manager interface for the members in this guild
+     */
+    members: GuildUserCacheInterface<Member>;
+
+    /**
+     * Roles
+     *
+     * The cache manager interface for the roles in this guild
+     */
+    roles: CacheInterface<Role>;
 
     /**
      * Templates
@@ -366,73 +366,103 @@ export default class Guild extends Base<Guild> {
 
         // Set data
         Guild._updateObject(this, guildData);
-        this.channels = new CacheInterface<AnyChannel>(this.client, {
-            cacheManager: this.client._channels,
-            match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id),
-            fetchObject: async (id: string): Promise<AnyChannel> => {
+        Object.defineProperty(this, "bans", {
+            value: new GuildUserCacheInterface<Ban>(this.client, {
+                cacheManager: this.client._bans._cacheManager,
+                match: (b: Ban) => b.guildID === this.id,
+                fetchObject: async (id: string): Promise<Ban> => await this.client.getGuildBan(id.split("_")[0], id.split("_")[1])
+            }),
+            enumerable: false
+        });
+        Object.defineProperty(this, "channels", {
+            value: new CacheInterface<AnyChannel>(this.client, {
+                cacheManager: this.client._channels,
+                match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id),
+                fetchObject: async (id: string): Promise<AnyChannel> => {
 
-                // Get channel
-                const channel: AnyChannel = await this.client.getChannel(id);
+                    // Get channel
+                    const channel: AnyChannel = await this.client.getChannel(id);
 
-                // Match
-                if ((!("guildID" in channel)) || (channel.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
+                    // Match
+                    if ((!("guildID" in channel)) || (channel.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
 
-                // Return
-                return channel;
-            }
+                    // Return
+                    return channel;
+                }
+            }),
+            enumerable: false
         });
-        this.roles = new CacheInterface<Role>(this.client, {
-            cacheManager: this.client._roles,
-            match: (r: Role) => r.guildID === this.id,
-            fetchObject: async (id: string): Promise<Role> => {
+        Object.defineProperty(this, "commands", {
+            value: new CacheInterface<Command>(this.client, {
+                cacheManager: this.client._commands,
+                match: (c: Command) => c.guildID === this.id,
+                fetchObject: async (id: string): Promise<Command> => await this.client.getGuildCommand(this.id, id)
+            }),
+            enumerable: false
+        });
+        Object.defineProperty(this, "emojis", {
+            value: new CacheInterface<Emoji>(this.client, {
+                cacheManager: this.client._emojis,
+                match: (e: Emoji) => e.guildID === this.id,
+                fetchObject: async (id: string): Promise<Emoji> => await this.client.getGuildEmoji(this.id, id),
+                getIDs: () => this.emojiData.map((e: EmojiData) => e.id)
+            }),
+            enumerable: false
+        });
+        Object.defineProperty(this, "interactions", {
+            value: new CacheInterface<Interaction, false>(this.client, {
+                cacheManager: this.client._interactions,
+                match: (i: Interaction) => i.guildID === this.id
+            }),
+            enumerable: false
+        });
+        Object.defineProperty(this, "invites", {
+            value: new CacheInterface<Invite>(this.client, {
+                cacheManager: this.client._invites,
+                match: (i: Invite) => i.guildID === this.id,
+                fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
+            }),
+            enumerable: false
+        });
+        Object.defineProperty(this, "members", {
+            value: new GuildUserCacheInterface<Member>(this.client, {
+                cacheManager: this.client._members._cacheManager,
+                match: (m: Member) => m.guildID === this.id,
+                fetchObject: async (id: string): Promise<Member> => await this.client.getGuildMember(id.split("_")[0], id.split("_")[1])
+            }),
+            enumerable: false
+        });
+        Object.defineProperty(this, "roles", {
+            value: new CacheInterface<Role>(this.client, {
+                cacheManager: this.client._roles,
+                match: (r: Role) => r.guildID === this.id,
+                fetchObject: async (id: string): Promise<Role> => {
 
-                // Get role
-                const role: Role | undefined = (await this.client.getGuildRoles(this.id)).find((r: Role) => r.id === id);
-                if (!role) throw new Error("Couldn't find a role with that ID in this guild");
+                    // Get role
+                    const role: Role | undefined = (await this.client.getGuildRoles(this.id)).find((r: Role) => r.id === id);
+                    if (!role) throw new Error("Couldn't find a role with that ID in this guild");
 
-                // Return
-                return role;
-            },
-            getIDs: () => this.roleData.map((r: RoleData) => r.id)
+                    // Return
+                    return role;
+                },
+                getIDs: () => this.roleData.map((r: RoleData) => r.id)
+            }),
+            enumerable: false
         });
-        this.emojis = new CacheInterface<Emoji>(this.client, {
-            cacheManager: this.client._emojis,
-            match: (e: Emoji) => e.guildID === this.id,
-            fetchObject: async (id: string): Promise<Emoji> => await this.client.getGuildEmoji(this.id, id),
-            getIDs: () => this.emojiData.map((e: EmojiData) => e.id)
+        Object.defineProperty(this, "templates", {
+            value: new CacheInterface<Template>(this.client, {
+                cacheManager: this.client._templates,
+                match: (t: Template) => t.sourceGuildID === this.id,
+                fetchObject: async (id: string): Promise<Template> => await this.client.getTemplate(id)
+            }),
+            enumerable: false
         });
-        this.members = new GuildUserCacheInterface<Member>(this.client, {
-            cacheManager: this.client._members._cacheManager,
-            match: (m: Member) => m.guildID === this.id,
-            fetchObject: async (id: string): Promise<Member> => await this.client.getGuildMember(id.split("_")[0], id.split("_")[1])
-        });
-        this.bans = new GuildUserCacheInterface<Ban>(this.client, {
-            cacheManager: this.client._bans._cacheManager,
-            match: (b: Ban) => b.guildID === this.id,
-            fetchObject: async (id: string): Promise<Ban> => await this.client.getGuildBan(id.split("_")[0], id.split("_")[1])
-        });
-        this.commands = new CacheInterface<Command>(this.client, {
-            cacheManager: this.client._commands,
-            match: (c: Command) => c.guildID === this.id,
-            fetchObject: async (id: string): Promise<Command> => await this.client.getGuildCommand(this.id, id)
-        });
-        this.interactions = new CacheInterface<Interaction, false>(this.client, {
-            cacheManager: this.client._interactions,
-            match: (i: Interaction) => i.guildID === this.id
-        });
-        this.invites = new CacheInterface<Invite>(this.client, {
-            cacheManager: this.client._invites,
-            match: (i: Invite) => i.guildID === this.id,
-            fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
-        });
-        this.templates = new CacheInterface<Template>(this.client, {
-            cacheManager: this.client._templates,
-            match: (t: Template) => t.sourceGuildID === this.id,
-            fetchObject: async (id: string): Promise<Template> => await this.client.getTemplate(id)
-        });
-        this.webhooks = new CacheInterface<Webhook>(this.client, {
-            cacheManager: this.client._webhooks,
-            match: (w: Webhook) => w.guildID === this.id
+        Object.defineProperty(this, "webhooks", {
+            value: new CacheInterface<Webhook>(this.client, {
+                cacheManager: this.client._webhooks,
+                match: (w: Webhook) => w.guildID === this.id
+            }),
+            enumerable: false
         });
 
         /**

@@ -121,7 +121,10 @@ export default class FetchQueue {
     constructor(client: Client, fetchQueueData: FetchQueueData) {
 
         // Set data
-        this.client = client;
+        Object.defineProperty(this, "client", {
+            value: client,
+            enumerable: false
+        });
         this.route = fetchQueueData.route;
         this.queue = [];
         this.processingRequests = false;

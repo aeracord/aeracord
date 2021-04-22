@@ -85,7 +85,10 @@ export default class Sticker {
     constructor(client: Client, stickerData: StickerData) {
 
         // Set data
-        this.client = client;
+        Object.defineProperty(this, "client", {
+            value: client,
+            enumerable: false
+        });
         this.id = stickerData.id;
         this.packID = stickerData.packID;
         this.name = stickerData.name;

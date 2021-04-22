@@ -121,7 +121,10 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
     constructor(client: Client, cacheManagerData: CacheManagerData) {
 
         // Set data
-        this.client = client;
+        Object.defineProperty(this, "client", {
+            value: client,
+            enumerable: false
+        });
         this._cache = new Map();
         this.cacheFor = cacheManagerData.cacheFor;
         this.cacheDeletedFor = cacheManagerData.cacheDeletedFor;
