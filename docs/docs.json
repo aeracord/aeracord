@@ -118282,7 +118282,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"comment": {
 								"shortText": "Member",
@@ -118296,18 +118297,9 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "reference",
-										"id": 5092,
-										"name": "MemberData"
-									},
-									{
-										"type": "intrinsic",
-										"name": "null"
-									}
-								]
+								"type": "reference",
+								"id": 5092,
+								"name": "MemberData"
 							}
 						},
 						{
@@ -121125,7 +121117,8 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
-								"isExported": true
+								"isExported": true,
+								"isOptional": true
 							},
 							"comment": {
 								"shortText": "Member",
@@ -121139,18 +121132,9 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "reference",
-										"id": 5092,
-										"name": "MemberData"
-									},
-									{
-										"type": "intrinsic",
-										"name": "null"
-									}
-								]
+								"type": "reference",
+								"id": 5092,
+								"name": "MemberData"
 							}
 						},
 						{
