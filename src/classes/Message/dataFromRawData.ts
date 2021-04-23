@@ -2,6 +2,13 @@ import { Attachment, Member, Message, MessageData, MessageEmbed, RawAttachmentDa
 
 export default function dataFromRawData(rawData: RawMessageData): MessageData {
 
+    /**
+     * Set Referenced Message Guild ID
+     *
+     * `rawData.referenced_message.guild_id` is always `undefined`, so we need to set it
+     */
+    if ((rawData.referenced_message) && (rawData.message_reference)) rawData.referenced_message.guild_id = rawData.message_reference.guild_id;
+
     // Parse message data
     return {
         id: rawData.id,
