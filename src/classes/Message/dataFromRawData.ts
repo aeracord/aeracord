@@ -14,7 +14,7 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
             name: rawData.author.username,
             avatar: rawData.author.avatar
         } : null,
-        member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData({ ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : null,
+        member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData({ ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
         content: rawData.content,
         timestamp: new Date(rawData.timestamp).getTime(),
         editedTimestamp: rawData.edited_timestamp ? new Date(rawData.edited_timestamp).getTime() : null,

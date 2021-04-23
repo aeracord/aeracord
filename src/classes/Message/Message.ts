@@ -56,7 +56,7 @@ export default class Message extends Base<Message> {
      *
      * The member object of the user that sent this message
      */
-    member: MemberData | null;
+    member?: MemberData;
 
     /**
      * Content

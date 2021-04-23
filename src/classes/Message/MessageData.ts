@@ -54,7 +54,7 @@ export interface MessageData {
      *
      * The member object of the user that sent this message
      */
-    member: MemberData | null;
+    member?: MemberData;
 
     /**
      * Content
