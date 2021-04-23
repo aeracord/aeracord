@@ -1,6 +1,7 @@
 export interface RawAttachmentData {
     id: string;
     filename: string;
+    content_type?: string;
     size: number;
     url: string;
     proxy_url: string;

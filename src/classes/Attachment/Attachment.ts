@@ -48,6 +48,13 @@ export default class Attachment {
     filename: string;
 
     /**
+     * Content Type
+     *
+     * The attachment's content type
+     */
+    contentType?: string;
+
+    /**
      * Size
      *
      * The attachment's size
@@ -89,6 +96,7 @@ export default class Attachment {
      * @param attachmentData Options to initialize this attachment with
      * @param attachmentData.id The attachment's ID
      * @param attachmentData.filename The attachment's filename
+     * @param attachmentData.contentType The attachment's content type
      * @param attachmentData.size The attachment's size
      * @param attachmentData.url The attachment's URL
      * @param attachmentData.proxyURL The attachment's proxy URL
@@ -104,6 +112,7 @@ export default class Attachment {
         this.channelID = attachmentData.channelID;
         this.guildID = attachmentData.guildID;
         this.filename = attachmentData.filename;
+        this.contentType = attachmentData.contentType;
         this.size = attachmentData.size;
         this.url = attachmentData.url;
         this.proxyURL = attachmentData.proxyURL;

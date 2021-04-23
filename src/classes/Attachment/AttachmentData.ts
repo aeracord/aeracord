@@ -41,6 +41,13 @@ export interface AttachmentData {
     filename: string;
 
     /**
+     * Content Type
+     *
+     * The attachment's content type
+     */
+    contentType?: string;
+
+    /**
      * Size
      *
      * The attachment's size

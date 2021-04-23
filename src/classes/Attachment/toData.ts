@@ -9,6 +9,7 @@ export default function toData(attachment: Attachment): AttachmentData {
         channelID: attachment.channelID,
         guildID: attachment.guildID,
         filename: attachment.filename,
+        contentType: attachment.contentType,
         size: attachment.size,
         url: attachment.url,
         proxyURL: attachment.proxyURL,

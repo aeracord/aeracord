@@ -9,6 +9,7 @@ export default function dataFromRawData(rawData: RawAttachmentData, metadata: Ra
         channelID: metadata.channelID,
         guildID: metadata.guildID,
         filename: rawData.filename,
+        contentType: rawData.content_type,
         size: rawData.size,
         url: rawData.url,
         proxyURL: rawData.proxy_url,
