@@ -8,6 +8,7 @@ import {
     ACTIVITY_TYPE_LISTENING,
     ACTIVITY_TYPE_PLAYING,
     ACTIVITY_TYPE_STREAMING,
+    ACTIVITY_TYPE_WATCHING,
     Ban,
     BanEventOptions,
     BulkDeleteMessagesData,
@@ -384,7 +385,7 @@ export interface ClientActivity {
  *
  * The types of client activities
  */
-export type ClientActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_COMPETING;
+export type ClientActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_WATCHING | typeof ACTIVITY_TYPE_COMPETING;
 
 /**
  * Event Queue Event
