@@ -55,7 +55,7 @@ export default class Emoji extends Base<Emoji> {
      *
      * The user that created this emoji
      */
-    creator: UserData | null;
+    creator?: UserData;
 
     /**
      * Requires Colons

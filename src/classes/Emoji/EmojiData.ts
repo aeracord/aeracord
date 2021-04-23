@@ -54,7 +54,7 @@ export interface EmojiData {
      *
      * The user that created this emoji
      */
-    creator: UserData | null;
+    creator?: UserData;
 
     /**
      * Requires Colons
