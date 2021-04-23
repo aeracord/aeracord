@@ -7,8 +7,6 @@ export default function dataFromRawData(rawData: RawMemberData, guildID: string)
         guildID,
         nickname: rawData.nick || null,
         roles: rawData.roles,
-        muted: rawData.mute,
-        deafened: rawData.deaf,
         joinedAt: new Date(rawData.joined_at).getTime(),
         premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : null,
         pending: rawData.pending || false,

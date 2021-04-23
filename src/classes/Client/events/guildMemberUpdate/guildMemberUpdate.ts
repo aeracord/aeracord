@@ -1,41 +1,22 @@
-import { Client, GuildMemberUpdateData, Member, MemberData, RawGuildMemberUpdateData, User } from "../../../../internal";
+import { Client, Member, MemberData, RawGuildMemberUpdateData } from "../../../../internal";
 
 export default function guildMemberUpdate(client: Client, rawData: RawGuildMemberUpdateData) {
 
-    // Parse data
-    const data: GuildMemberUpdateData = {
-        guildID: rawData.guild_id,
-        nickname: rawData.nick || null,
-        roles: rawData.roles,
-        joinedAt: new Date(rawData.joined_at).getTime(),
-        premiumSince: rawData.premium_since ? new Date(rawData.premium_since).getTime() : null,
-        pending: rawData.pending || false,
-        user: User._fromRawData(client, rawData.user)
-    };
-
-    // Get member
-    const member: Member | undefined = client.members.get(data.guildID, data.user.id);
-
     // Get old member data
-    const oldMemberData: MemberData | undefined = member && Member.toData(member);
+    const oldMember: Member | undefined = client.members.get(rawData.guild_id, rawData.user.id);
+    const oldMemberData: MemberData | undefined = oldMember && Member.toData(oldMember);
 
-    // Update data
-    if (member) {
-        member.nickname = data.nickname;
-        member.roles = data.roles;
-        member.joinedAt = data.joinedAt;
-        member.premiumSince = data.premiumSince;
-        member.pending = data.pending;
-    }
+    // Parse member
+    const member: Member = Member._fromRawData(client, rawData, rawData.guild_id);
 
     // Set client roles
-    if ((data.user.id === client.id) && (client._clientRoles)) client._clientRoles.set(data.guildID, data.roles);
+    if ((member.user.id === client.id) && (client._clientRoles)) client._clientRoles.set(member.guildID, member.roles);
 
     // Emit event
-    client.emit("guildMemberUpdate", data, {
+    client.emit("guildMemberUpdate", member, {
         rawData,
-        member,
-        guild: client.guilds.get(data.guildID),
+        guild: client.guilds.get(member.guildID),
+        user: client.users.get(member.user.id),
         oldMemberData
     });
 }

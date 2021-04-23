@@ -102,8 +102,8 @@ export interface GuildMemberRemoveEventOptions extends EventOptions {
  * Options for extra data sent with guild member update events
  */
 export interface GuildMemberUpdateEventOptions extends EventOptions {
-    member?: Member;
     guild?: Guild;
+    user?: User;
     oldMemberData?: MemberData;
 }
 

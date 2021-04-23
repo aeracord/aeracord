@@ -145,7 +145,6 @@ export * from "./classes/Client/events/guildIntegrationsUpdate/RawGuildIntegrati
 export * from "./classes/Client/events/guildMemberAdd/RawGuildMemberAddData";
 export * from "./classes/Client/events/guildMemberRemove/GuildMemberRemoveData";
 export * from "./classes/Client/events/guildMemberRemove/RawGuildMemberRemoveData";
-export * from "./classes/Client/events/guildMemberUpdate/GuildMemberUpdateData";
 export * from "./classes/Client/events/guildMemberUpdate/RawGuildMemberUpdateData";
 export * from "./classes/Client/events/guildRoleCreate/RawGuildRoleCreateData";
 export * from "./classes/Client/events/guildRoleDelete/GuildRoleDeleteData";

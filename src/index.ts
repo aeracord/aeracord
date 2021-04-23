@@ -158,7 +158,6 @@ export {
     GuildDeleteData,
     GuildEmojisUpdateData,
     GuildIntegrationsUpdateData,
-    GuildMemberUpdateData,
     GuildRoleDeleteData,
     InviteDeleteData,
     MessageDeleteBulkData,

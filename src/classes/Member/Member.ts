@@ -29,20 +29,6 @@ export default class Member extends Base<Member> {
     roles: string[];
 
     /**
-     * Muted
-     *
-     * Whether or not this member is muted
-     */
-    muted: boolean;
-
-    /**
-     * Deafened
-     *
-     * Whether or not this member is deafened
-     */
-    deafened: boolean;
-
-    /**
      * Joined At
      *
      * The timestamp for when the member joined the guild

@@ -1,11 +1,5 @@
-import { RawUserData } from "../../../../internal";
+import { RawMemberData } from "../../../../internal";
 
-export interface RawGuildMemberUpdateData {
+export interface RawGuildMemberUpdateData extends RawMemberData {
     guild_id: string;
-    nick?: string | null;
-    roles: string[];
-    joined_at: string;
-    premium_since?: string | null;
-    pending?: boolean;
-    user: RawUserData;
 }

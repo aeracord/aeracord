@@ -69,7 +69,6 @@ import {
     GuildMemberAddEventOptions,
     GuildMemberRemoveData,
     GuildMemberRemoveEventOptions,
-    GuildMemberUpdateData,
     GuildMemberUpdateEventOptions,
     GuildPreview,
     GuildResolvable,
@@ -551,7 +550,7 @@ export default interface Client {
      *
      * Emitted when a guild member is updated
      */
-    on(event: "guildMemberUpdate", listener: (data: GuildMemberUpdateData, options: GuildMemberUpdateEventOptions) => void): this;
+    on(event: "guildMemberUpdate", listener: (member: Member, options: GuildMemberUpdateEventOptions) => void): this;
 
     /**
      * Guild Role Create
