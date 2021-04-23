@@ -37,6 +37,7 @@ export default function getAll(permissions: Permissions): Array<bigint> {
     if (permissions.has("MANAGE_ROLES")) permissionBits.push(Permissions.resolveBits("MANAGE_ROLES"));
     if (permissions.has("MANAGE_WEBHOOKS")) permissionBits.push(Permissions.resolveBits("MANAGE_WEBHOOKS"));
     if (permissions.has("MANAGE_EMOJIS")) permissionBits.push(Permissions.resolveBits("MANAGE_EMOJIS"));
+    if (permissions.has("USE_SLASH_COMMANDS")) permissionBits.push(Permissions.resolveBits("USE_SLASH_COMMANDS"));
 
     // Return
     return permissionBits;
