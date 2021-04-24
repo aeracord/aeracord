@@ -48,6 +48,13 @@ export interface CommandData {
     options: CommandOption[];
 
     /**
+     * Default Permission
+     *
+     * Whether or not the command is enabled by default
+     */
+    defaultPermission: boolean;
+
+    /**
      * Fetched At
      *
      * The timestamp for when this command was fetched

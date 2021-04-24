@@ -5,6 +5,7 @@ export interface CreateCommandData {
     name: string;
     description: string;
     options?: CommandOption[];
+    defaultPermission?: boolean;
 }
 
 export default async function createGlobalCommand(client: Client, createCommandData: CreateCommandData): Promise<Command> {
@@ -24,7 +25,8 @@ export default async function createGlobalCommand(client: Client, createCommandD
         data: {
             name: createCommandData.name,
             description: createCommandData.description,
-            options: createCommandData.options
+            options: createCommandData.options,
+            default_permission: createCommandData.defaultPermission
         }
     });
 

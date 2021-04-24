@@ -5,6 +5,7 @@ export interface EditCommandData {
     name?: string;
     description?: string;
     options?: CommandOption[] | null;
+    defaultPermission?: boolean;
 }
 
 export default async function editGlobalCommand(client: Client, commandResolvable: CommandResolvable, editCommandData: EditCommandData): Promise<Command> {
@@ -28,7 +29,8 @@ export default async function editGlobalCommand(client: Client, commandResolvabl
         data: {
             name: editCommandData.name,
             description: editCommandData.description,
-            options: editCommandData.options
+            options: editCommandData.options,
+            default_permission: editCommandData.defaultPermission
         }
     });
 

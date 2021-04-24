@@ -15,5 +15,6 @@ export default function updateObject(command: Command, commandData: CommandData)
     command.name = commandData.name;
     command.description = commandData.description;
     command.options = commandData.options;
+    command.defaultPermission = commandData.defaultPermission;
     command._lastUpdatedAt = Date.now();
 }

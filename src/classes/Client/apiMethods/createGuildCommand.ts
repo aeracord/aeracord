@@ -22,7 +22,8 @@ export default async function createGuildCommand(client: Client, guildResolvable
         data: {
             name: createCommandData.name,
             description: createCommandData.description,
-            options: createCommandData.options
+            options: createCommandData.options,
+            default_permission: createCommandData.defaultPermission
         }
     });
 

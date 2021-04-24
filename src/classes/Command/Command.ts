@@ -58,6 +58,13 @@ export default class Command extends Base<Command> {
     options: CommandOption[];
 
     /**
+     * Default Permission
+     *
+     * Whether or not the command is enabled by default
+     */
+    defaultPermission: boolean;
+
+    /**
      * Command
      *
      * @param client The client
@@ -68,6 +75,7 @@ export default class Command extends Base<Command> {
      * @param commandData.name The command's name
      * @param commandData.description The command's description
      * @param commandData.options The command's options
+     * @param commandData.defaultPermission Whether or not the command is enabled by default
      */
     constructor(client: Client, commandData: CommandData) {
 

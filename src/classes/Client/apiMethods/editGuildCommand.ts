@@ -24,7 +24,8 @@ export default async function editGuildCommand(client: Client, guildResolvable: 
         data: {
             name: editCommandData.name,
             description: editCommandData.description,
-            options: editCommandData.options
+            options: editCommandData.options,
+            default_permission: editCommandData.defaultPermission
         }
     });
 

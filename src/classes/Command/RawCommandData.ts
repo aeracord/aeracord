@@ -6,6 +6,7 @@ export interface RawCommandData {
     name: string;
     description: string;
     options?: RawCommandDataOption[];
+    default_permission: boolean;
 }
 
 export interface RawCommandDataOption {

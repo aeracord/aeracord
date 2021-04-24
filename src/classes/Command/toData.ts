@@ -10,6 +10,7 @@ export default function toData(command: Command): CommandData {
         name: command.name,
         description: command.description,
         options: command.options,
+        defaultPermission: command.defaultPermission,
         fetchedAt: command._lastUpdatedAt
     };
 }

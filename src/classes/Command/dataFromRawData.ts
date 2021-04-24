@@ -10,6 +10,7 @@ export default function dataFromRawData(rawData: RawCommandData, guildID?: strin
         name: rawData.name,
         description: rawData.description,
         options: rawData.options ? rawData.options.map((o: RawCommandDataOption) => parseOption(o)) : [],
+        defaultPermission: rawData.default_permission,
         fetchedAt: Date.now()
     };
 }
