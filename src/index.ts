@@ -177,6 +177,7 @@ export {
     AllowedMentionType,
     AllowedMentions,
     BulkDeleteMessagesData,
+    BulkEditGuildCommandPermissionsData,
     CreateCommandData,
     CreateChannelInviteData,
     CreateDMData,
@@ -198,6 +199,8 @@ export {
     CurrentUserNickname,
     EditChannelPermissionsData,
     EditCommandData,
+    EditGuildCommandPermissions,
+    EditGuildCommandPermissionsData,
     EditInteractionResponseData,
     EditMessageData,
     FollowedChannel,
@@ -250,6 +253,12 @@ export {
     COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP,
     COMMAND_OPTION_TYPE_USER,
     CommandResolvable
+} from "./internal";
+
+// Command Permissions
+export {
+    CommandPermissions,
+    CommandPermissionsData
 } from "./internal";
 
 // DM Channel

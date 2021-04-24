@@ -1,7 +1,7 @@
 /**
  * Command Data
  *
- * Represents an `Command`
+ * Represents a `Command`
  */
 export interface CommandData {
 

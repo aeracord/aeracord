@@ -1,4 +1,4 @@
-import { AnyChannel, AnyGuildChannel, AuditLogData, Ban, BanData, Base, CacheInterface, CategoryChannel, Client, Command, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyGuildChannel, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -601,6 +601,19 @@ export default class Guild extends Base<Guild> {
     }
 
     /**
+     * Bulk Edit Command Permissions
+     *
+     * Bulk edit the permissions of this guild's commands
+     *
+     * @param bulkEditGuildCommandPermissionsData The data for editing the command permissions
+     *
+     * @returns {Promise<CommandPermissions[]>} The command permissions
+     */
+    bulkEditCommandPermissions(bulkEditGuildCommandPermissionsData: BulkEditGuildCommandPermissionsData[]): Promise<CommandPermissions[]> {
+        return this.client.bulkEditGuildCommandPermissions(this, bulkEditGuildCommandPermissionsData);
+    }
+
+    /**
      * Bulk Edit Commands
      *
      * Bulk edit this guild's commands
@@ -753,6 +766,31 @@ export default class Guild extends Base<Guild> {
     }
 
     /**
+     * Edit Command Permissions
+     *
+     * Edit the permissions of a command in this guild
+     *
+     * @param command The command to edit the permissions for
+     * @param editGuildCommandPermissionsData The data for editing the command permissions
+     *
+     * @returns {Promise<CommandPermissions>} The command permissions
+     */
+    editCommandPermissions(command: CommandResolvable, editGuildCommandPermissionsData: EditGuildCommandPermissionsData): Promise<CommandPermissions> {
+        return this.client.editGuildCommandPermissions(this, command, editGuildCommandPermissionsData);
+    }
+
+    /**
+     * Get All Command Permissions
+     *
+     * Get the permissions of this guild's commands
+     *
+     * @returns {Promise<CommandPermissions[]>} The command permissions
+     */
+    getAllCommandPermissions(): Promise<CommandPermissions[]> {
+        return this.client.getAllGuildCommandPermissions(this);
+    }
+
+    /**
      * Get Audit Log
      *
      * Get an audit log from this guild
@@ -811,6 +849,19 @@ export default class Guild extends Base<Guild> {
      */
     getCommand(command: CommandResolvable): Promise<Command> {
         return this.client.getGuildCommand(this, command);
+    }
+
+    /**
+     * Get Command Permissions
+     *
+     * Get the permissions of a command in this guild
+     *
+     * @param command The command to get the permissions for
+     *
+     * @returns {Promise<CommandPermissions>} The command permissions
+     */
+    getCommandPermissions(command: CommandResolvable): Promise<CommandPermissions> {
+        return this.client.getGuildCommandPermissions(this, command);
     }
 
     /**

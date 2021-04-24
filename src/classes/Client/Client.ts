@@ -12,6 +12,7 @@ import {
     Ban,
     BanEventOptions,
     BulkDeleteMessagesData,
+    BulkEditGuildCommandPermissionsData,
     CacheInterface,
     CacheManager,
     CacheStrategies,
@@ -23,6 +24,7 @@ import {
     ChannelUpdateEventOptions,
     ClientCacheStrategyData,
     Command,
+    CommandPermissions,
     CommandResolvable,
     CommandUpdateEventOptions,
     CreateChannelInviteData,
@@ -42,6 +44,7 @@ import {
     DMChannel,
     EditChannelPermissionsData,
     EditCommandData,
+    EditGuildCommandPermissionsData,
     EditInteractionResponseData,
     EditMessageData,
     Emoji,
@@ -150,6 +153,7 @@ import {
 import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
 import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
+import bulkEditGuildCommandPermissions from "./apiMethods/bulkEditGuildCommandPermissions";
 import bulkOverwriteGlobalCommands from "./apiMethods/bulkOverwriteGlobalCommands";
 import bulkOverwriteGuildCommands from "./apiMethods/bulkOverwriteGuildCommands";
 import createChannelInvite from "./apiMethods/createChannelInvite";
@@ -191,9 +195,11 @@ import editChannelPermissions from "./apiMethods/editChannelPermissions";
 import editFollowupMessage from "./apiMethods/editFollowupMessage";
 import editGlobalCommand from "./apiMethods/editGlobalCommand";
 import editGuildCommand from "./apiMethods/editGuildCommand";
+import editGuildCommandPermissions from "./apiMethods/editGuildCommandPermissions";
 import editMessage from "./apiMethods/editMessage";
 import editOriginalInteractionResponse from "./apiMethods/editOriginalInteractionResponse";
 import followNewsChannel from "./apiMethods/followNewsChannel";
+import getAllGuildCommandPermissions from "./apiMethods/getAllGuildCommandPermissions";
 import getChannel from "./apiMethods/getChannel";
 import getChannelInvites from "./apiMethods/getChannelInvites";
 import getChannelMessage from "./apiMethods/getChannelMessage";
@@ -209,6 +215,7 @@ import getGuildBan from "./apiMethods/getGuildBan";
 import getGuildBans from "./apiMethods/getGuildBans";
 import getGuildChannels from "./apiMethods/getGuildChannels";
 import getGuildCommand from "./apiMethods/getGuildCommand";
+import getGuildCommandPermissions from "./apiMethods/getGuildCommandPermissions";
 import getGuildCommands from "./apiMethods/getGuildCommands";
 import getGuildEmoji from "./apiMethods/getGuildEmoji";
 import getGuildInvites from "./apiMethods/getGuildInvites";
@@ -1019,6 +1026,15 @@ export default class Client extends EventEmitter {
     _commands: CacheManager<Command>;
 
     /**
+     * Command Permissions
+     *
+     * The internal cache of command permissions
+     *
+     * @private
+     */
+    _commandPermissions: CacheManager<CommandPermissions>;
+
+    /**
      * Bans
      *
      * The internal cache of bans
@@ -1168,6 +1184,13 @@ export default class Client extends EventEmitter {
      * The cache of commands
      */
     commands: CacheInterface<Command, false>;
+
+    /**
+     * Command Permissions
+     *
+     * The cache of command permissions
+     */
+    commandPermissions: CacheInterface<CommandPermissions, false>;
 
     /**
      * Bans
@@ -1327,6 +1350,7 @@ export default class Client extends EventEmitter {
         }
         this._pendingInteractionResponseMessages = new Map();
         Object.defineProperty(this, "_commands", { value: new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commands)) });
+        Object.defineProperty(this, "_commandPermissions", { value: new CacheManager<CommandPermissions>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commandPermissions)) });
         Object.defineProperty(this, "_bans", { value: new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans)) });
         Object.defineProperty(this, "_channels", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.channels)) });
         Object.defineProperty(this, "_emojis", { value: new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.emojis)) });
@@ -1346,6 +1370,11 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "commands", {
             value: new CacheInterface<Command, false>(this, {
                 cacheManager: this._commands
+            })
+        });
+        Object.defineProperty(this, "commandPermissions", {
+            value: new CacheInterface<CommandPermissions, false>(this, {
+                cacheManager: this._commandPermissions
             })
         });
         Object.defineProperty(this, "bans", {
@@ -1576,6 +1605,20 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Bulk Edit Guild Command Permissions
+     *
+     * Bulk edit the permissions of a guild's commands
+     *
+     * @param guild The guild to edit the command permissions in
+     * @param bulkEditGuildCommandPermissionsData The data for editing the command permissions
+     *
+     * @returns {Promise<CommandPermissions[]>} The command permissions
+     */
+    bulkEditGuildCommandPermissions(guild: GuildResolvable, bulkEditGuildCommandPermissionsData: BulkEditGuildCommandPermissionsData[]): Promise<CommandPermissions[]> {
+        return bulkEditGuildCommandPermissions(this, guild, bulkEditGuildCommandPermissionsData);
+    }
+
+    /**
      * Bulk Delete Messages
      *
      * Bulk delete messages
@@ -1604,7 +1647,7 @@ export default class Client extends EventEmitter {
     /**
      * Bulk Overwrite Guild Commands
      *
-     * Bulk edit guild commands
+     * Bulk edit a guild's commands
      *
      * @param guild The guild to edit the commands in
      * @param editCommandData The data for the commands
@@ -2097,6 +2140,21 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Edit Guild Command Permissions
+     *
+     * Edit the permissions of a command in a guild
+     *
+     * @param guild The guild to edit the command permissions in
+     * @param command The command to edit the permissions for
+     * @param editGuildCommandPermissionsData The data for editing the command permissions
+     *
+     * @returns {Promise<CommandPermissions>} The command permissions
+     */
+    editGuildCommandPermissions(guild: GuildResolvable, command: CommandResolvable, editGuildCommandPermissionsData: EditGuildCommandPermissionsData): Promise<CommandPermissions> {
+        return editGuildCommandPermissions(this, guild, command, editGuildCommandPermissionsData);
+    }
+
+    /**
      * Edit Followup Message
      *
      * Edit a followup message to an interaction
@@ -2181,6 +2239,19 @@ export default class Client extends EventEmitter {
      */
     followNewsChannel(channel: ChannelResolvable, followNewsChannelData: FollowNewsChannelData): Promise<FollowedChannel> {
         return followNewsChannel(this, channel, followNewsChannelData);
+    }
+
+    /**
+     * Get All Guild Command Permissions
+     *
+     * Get the permissions of a guild's commands
+     *
+     * @param guild The guild to get the command permissions from
+     *
+     * @returns {Promise<CommandPermissions[]>} The command permissions
+     */
+    getAllGuildCommandPermissions(guild: GuildResolvable): Promise<CommandPermissions[]> {
+        return getAllGuildCommandPermissions(this, guild);
     }
 
     /**
@@ -2369,7 +2440,7 @@ export default class Client extends EventEmitter {
     /**
      * Get Guild Command
      *
-     * Get a guild command
+     * Get a command from a guild
      *
      * @param guild The guild to get the command from
      * @param command The command to get
@@ -2381,9 +2452,23 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Get Guild Command Permissions
+     *
+     * Get the permissions of a guild's command
+     *
+     * @param guild The guild to get the command permissions from
+     * @param command The command to get the permissions for
+     *
+     * @returns {Promise<CommandPermissions>} The command permissions
+     */
+    getGuildCommandPermissions(guild: GuildResolvable, command: CommandResolvable): Promise<CommandPermissions> {
+        return getGuildCommandPermissions(this, guild, command);
+    }
+
+    /**
      * Get Guild Commands
      *
-     * Get the guild commands
+     * Get a guild's commands
      *
      * @param guild The guild to get the commands from
      *

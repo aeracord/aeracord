@@ -73,6 +73,7 @@ export {
 
 // Client: API Methods
 export * from "./classes/Client/apiMethods/bulkDeleteMessages";
+export * from "./classes/Client/apiMethods/bulkEditGuildCommandPermissions";
 export * from "./classes/Client/apiMethods/createGlobalCommand";
 export * from "./classes/Client/apiMethods/createChannelInvite";
 export * from "./classes/Client/apiMethods/createDM";
@@ -89,6 +90,7 @@ export * from "./classes/Client/apiMethods/createMessage";
 export * from "./classes/Client/apiMethods/createWebhook";
 export * from "./classes/Client/apiMethods/editChannelPermissions";
 export * from "./classes/Client/apiMethods/editGlobalCommand";
+export * from "./classes/Client/apiMethods/editGuildCommandPermissions";
 export * from "./classes/Client/apiMethods/editOriginalInteractionResponse";
 export * from "./classes/Client/apiMethods/editMessage";
 export * from "./classes/Client/apiMethods/followNewsChannel";
@@ -190,6 +192,13 @@ export {
 } from "./classes/Command/Command";
 export * from "./classes/Command/CommandData";
 export * from "./classes/Command/RawCommandData";
+
+// Command Permissions
+export {
+    default as CommandPermissions
+} from "./classes/CommandPermissions/CommandPermissions";
+export * from "./classes/CommandPermissions/CommandPermissionsData";
+export * from "./classes/CommandPermissions/RawCommandPermissionsData";
 
 // DM Channel
 export {

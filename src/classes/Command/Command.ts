@@ -16,13 +16,6 @@ export type CommandResolvable = Command | CommandData | string;
 export default class Command extends Base<Command> {
 
     /**
-     * ID
-     *
-     * The command's ID
-     */
-    id: string;
-
-    /**
      * Guild ID
      *
      * The ID of the guild this command is in
@@ -68,8 +61,8 @@ export default class Command extends Base<Command> {
      * Command
      *
      * @param client The client
-     * @param commandData.id The command's ID
      * @param commandData Options to initialize this command with
+     * @param commandData.id The command's ID
      * @param commandData.guildID The ID of the guild this command is in
      * @param commandData.applicationID The ID of the application that owns this command
      * @param commandData.name The command's name
@@ -100,7 +93,7 @@ export default class Command extends Base<Command> {
     /**
      * From Raw Data
      *
-     * Create an `CommandData` object from a `RawCommandData` object
+     * Create a `CommandData` object from a `RawCommandData` object
      *
      * @private
      * @param client The client
@@ -131,7 +124,7 @@ export default class Command extends Base<Command> {
     /**
      * From Data
      *
-     * Create an `Command` from an `CommandData` object
+     * Create a `Command` from a `CommandData` object
      *
      * @param client The client
      * @param commandData The command data
@@ -145,7 +138,7 @@ export default class Command extends Base<Command> {
     /**
      * To Data
      *
-     * Create an `CommandData` object from an `Command`
+     * Create a `CommandData` object from a `Command`
      *
      * @param command The command
      *
@@ -158,7 +151,7 @@ export default class Command extends Base<Command> {
     /**
      * Resolve ID
      *
-     * Resolve an object to an command ID
+     * Resolve a object to a command ID
      *
      * @param commandResolvable The command resolvable
      *
@@ -171,7 +164,7 @@ export default class Command extends Base<Command> {
     /**
      * Update Object
      *
-     * Update the `Command` object with data from an `CommandData` object
+     * Update the `Command` object with data from a `CommandData` object
      *
      * @private
      * @param command The command to update
@@ -184,7 +177,7 @@ export default class Command extends Base<Command> {
     /**
      * Update Object From Data
      *
-     * Update the `Command` object with data from an `CommandData` object if it's cached
+     * Update the `Command` object with data from a `CommandData` object if it's cached
      *
      * @private
      * @param client The client
