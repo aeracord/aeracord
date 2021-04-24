@@ -13,7 +13,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/APIError/APIError.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/APIError/APIError.ts",
 			"children": [
 				{
 					"id": 8,
@@ -503,7 +503,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Attachment/Attachment.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Attachment/Attachment.ts",
 			"children": [
 				{
 					"id": 8000,
@@ -1287,7 +1287,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Attachment/AttachmentData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Attachment/AttachmentData.ts",
 			"children": [
 				{
 					"id": 58,
@@ -1658,7 +1658,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Attachment/RawAttachmentData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Attachment/RawAttachmentData.ts",
 			"children": [
 				{
 					"id": 71,
@@ -2010,7 +2010,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Attachment/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Attachment/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 7986,
@@ -2100,7 +2100,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Attachment/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Attachment/fromData.ts",
 			"children": [
 				{
 					"id": 7991,
@@ -2190,7 +2190,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Attachment/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Attachment/toData.ts",
 			"children": [
 				{
 					"id": 7996,
@@ -2266,7 +2266,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/AuditLog/AuditLog.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/AuditLog/AuditLog.ts",
 			"children": [
 				{
 					"id": 102,
@@ -2789,7 +2789,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/AuditLog/AuditLogData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/AuditLog/AuditLogData.ts",
 			"children": [
 				{
 					"id": 138,
@@ -4931,7 +4931,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/AuditLog/RawAuditLogData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/AuditLog/RawAuditLogData.ts",
 			"children": [
 				{
 					"id": 189,
@@ -6079,7 +6079,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/AuditLog/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/AuditLog/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 85,
@@ -6213,7 +6213,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/AuditLog/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/AuditLog/fromData.ts",
 			"children": [
 				{
 					"id": 93,
@@ -6303,7 +6303,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/AuditLog/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/AuditLog/toData.ts",
 			"children": [
 				{
 					"id": 98,
@@ -6379,7 +6379,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/Ban.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/Ban.ts",
 			"children": [
 				{
 					"id": 249,
@@ -7573,7 +7573,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/BanData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/BanData.ts",
 			"children": [
 				{
 					"id": 300,
@@ -7741,7 +7741,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/RawBanData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/RawBanData.ts",
 			"children": [
 				{
 					"id": 306,
@@ -7847,7 +7847,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 225,
@@ -7936,7 +7936,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/fromData.ts",
 			"children": [
 				{
 					"id": 230,
@@ -8026,7 +8026,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/toData.ts",
 			"children": [
 				{
 					"id": 235,
@@ -8102,7 +8102,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/updateObject.ts",
 			"children": [
 				{
 					"id": 239,
@@ -8191,7 +8191,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Ban/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Ban/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 244,
@@ -8290,7 +8290,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Base/Base.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Base/Base.ts",
 			"children": [
 				{
 					"id": 36,
@@ -9085,7 +9085,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Base/markAsDeleted.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Base/markAsDeleted.ts",
 			"children": [
 				{
 					"id": 21,
@@ -9199,7 +9199,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Base/unmarkAsDeleted.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Base/unmarkAsDeleted.ts",
 			"children": [
 				{
 					"id": 26,
@@ -9313,7 +9313,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheInterface/CacheInterface.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheInterface/CacheInterface.ts",
 			"children": [
 				{
 					"id": 361,
@@ -10703,7 +10703,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheInterface/clear.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheInterface/clear.ts",
 			"children": [
 				{
 					"id": 310,
@@ -10830,7 +10830,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheInterface/garbageCollect.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheInterface/garbageCollect.ts",
 			"children": [
 				{
 					"id": 316,
@@ -10957,7 +10957,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheInterface/get.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheInterface/get.ts",
 			"children": [
 				{
 					"id": 322,
@@ -11306,7 +11306,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheInterface/getItems.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheInterface/getItems.ts",
 			"children": [
 				{
 					"id": 337,
@@ -11454,7 +11454,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheInterface/uncache.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheInterface/uncache.ts",
 			"children": [
 				{
 					"id": 343,
@@ -11594,7 +11594,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheManager/CacheManager.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheManager/CacheManager.ts",
 			"children": [
 				{
 					"id": 438,
@@ -12791,7 +12791,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheManager/filter.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheManager/filter.ts",
 			"children": [
 				{
 					"id": 408,
@@ -13035,7 +13035,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CacheManager/parseCacheStrategy.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CacheManager/parseCacheStrategy.ts",
 			"children": [
 				{
 					"id": 419,
@@ -13428,7 +13428,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CategoryChannel/CategoryChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CategoryChannel/CategoryChannel.ts",
 			"children": [
 				{
 					"id": 660,
@@ -15347,7 +15347,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CategoryChannel/CategoryChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CategoryChannel/CategoryChannelData.ts",
 			"children": [
 				{
 					"id": 735,
@@ -15668,7 +15668,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CategoryChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CategoryChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 654,
@@ -15784,7 +15784,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/Channel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/Channel.ts",
 			"children": [
 				{
 					"id": 513,
@@ -17224,7 +17224,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/ChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/ChannelData.ts",
 			"children": [
 				{
 					"id": 745,
@@ -17593,7 +17593,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/RawChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/RawChannelData.ts",
 			"children": [
 				{
 					"id": 757,
@@ -18195,7 +18195,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 481,
@@ -18285,7 +18285,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/fromData.ts",
 			"children": [
 				{
 					"id": 486,
@@ -18375,7 +18375,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/resolveID.ts",
 			"children": [
 				{
 					"id": 495,
@@ -18459,7 +18459,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/toData.ts",
 			"children": [
 				{
 					"id": 499,
@@ -18535,7 +18535,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/updateObject.ts",
 			"children": [
 				{
 					"id": 503,
@@ -18624,7 +18624,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Channel/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Channel/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 508,
@@ -18723,7 +18723,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/CacheStrategies.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/CacheStrategies.ts",
 			"children": [
 				{
 					"id": 2949,
@@ -20327,7 +20327,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/Client.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/Client.ts",
 			"children": [
 				{
 					"id": 2059,
@@ -39079,7 +39079,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/ClientCacheStrategyData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/ClientCacheStrategyData.ts",
 			"children": [
 				{
 					"id": 2999,
@@ -39292,7 +39292,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/EventOptions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/EventOptions.ts",
 			"children": [
 				{
 					"id": 3008,
@@ -42360,7 +42360,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/PermissionData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/PermissionData.ts",
 			"children": [
 				{
 					"id": 3492,
@@ -42554,7 +42554,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/ReadyState.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/ReadyState.ts",
 			"children": [
 				{
 					"id": 3499,
@@ -42718,7 +42718,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/addGuildMemberRole.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/addGuildMemberRole.ts",
 			"children": [
 				{
 					"id": 784,
@@ -42864,7 +42864,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/addPinnedChannelMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/addPinnedChannelMessage.ts",
 			"children": [
 				{
 					"id": 792,
@@ -42996,7 +42996,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/bulkDeleteMessages.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/bulkDeleteMessages.ts",
 			"children": [
 				{
 					"id": 799,
@@ -43186,7 +43186,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/bulkEditGuildCommandPermissions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/bulkEditGuildCommandPermissions.ts",
 			"children": [
 				{
 					"id": 812,
@@ -43448,7 +43448,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/bulkOverwriteGlobalCommands.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/bulkOverwriteGlobalCommands.ts",
 			"children": [
 				{
 					"id": 824,
@@ -43550,7 +43550,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/bulkOverwriteGuildCommands.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/bulkOverwriteGuildCommands.ts",
 			"children": [
 				{
 					"id": 829,
@@ -43666,7 +43666,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createChannelInvite.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createChannelInvite.ts",
 			"children": [
 				{
 					"id": 835,
@@ -44011,7 +44011,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createDM.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createDM.ts",
 			"children": [
 				{
 					"id": 849,
@@ -44162,7 +44162,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createFollowupMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createFollowupMessage.ts",
 			"children": [
 				{
 					"id": 856,
@@ -44419,7 +44419,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGlobalCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGlobalCommand.ts",
 			"children": [
 				{
 					"id": 867,
@@ -44651,7 +44651,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuild.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuild.ts",
 			"children": [
 				{
 					"id": 877,
@@ -45710,7 +45710,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuildBan.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuildBan.ts",
 			"children": [
 				{
 					"id": 916,
@@ -45952,7 +45952,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuildChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuildChannel.ts",
 			"children": [
 				{
 					"id": 927,
@@ -46400,7 +46400,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuildCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuildCommand.ts",
 			"children": [
 				{
 					"id": 945,
@@ -46510,7 +46510,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuildEmoji.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuildEmoji.ts",
 			"children": [
 				{
 					"id": 951,
@@ -46744,7 +46744,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuildFromTemplate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuildFromTemplate.ts",
 			"children": [
 				{
 					"id": 962,
@@ -46939,7 +46939,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuildRole.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuildRole.ts",
 			"children": [
 				{
 					"id": 971,
@@ -47268,7 +47268,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createGuildTemplate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createGuildTemplate.ts",
 			"children": [
 				{
 					"id": 984,
@@ -47463,7 +47463,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createInteractionResponse.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createInteractionResponse.ts",
 			"children": [
 				{
 					"id": 993,
@@ -47964,7 +47964,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createMessage.ts",
 			"children": [
 				{
 					"id": 1020,
@@ -48606,7 +48606,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createReaction.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createReaction.ts",
 			"children": [
 				{
 					"id": 1038,
@@ -48729,7 +48729,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/createWebhook.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/createWebhook.ts",
 			"children": [
 				{
 					"id": 1045,
@@ -48947,7 +48947,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/crosspostMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/crosspostMessage.ts",
 			"children": [
 				{
 					"id": 1055,
@@ -49057,7 +49057,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteAllReactions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteAllReactions.ts",
 			"children": [
 				{
 					"id": 1061,
@@ -49166,7 +49166,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteAllReactionsForEmoji.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteAllReactionsForEmoji.ts",
 			"children": [
 				{
 					"id": 1067,
@@ -49289,7 +49289,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteChannel.ts",
 			"children": [
 				{
 					"id": 1074,
@@ -49408,7 +49408,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteChannelPermission.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteChannelPermission.ts",
 			"children": [
 				{
 					"id": 1080,
@@ -49527,7 +49527,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteFollowupMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteFollowupMessage.ts",
 			"children": [
 				{
 					"id": 1086,
@@ -49635,7 +49635,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteGlobalCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteGlobalCommand.ts",
 			"children": [
 				{
 					"id": 1092,
@@ -49730,7 +49730,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteGuild.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteGuild.ts",
 			"children": [
 				{
 					"id": 1097,
@@ -49825,7 +49825,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteGuildCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteGuildCommand.ts",
 			"children": [
 				{
 					"id": 1102,
@@ -49934,7 +49934,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteGuildEmoji.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteGuildEmoji.ts",
 			"children": [
 				{
 					"id": 1108,
@@ -50066,7 +50066,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteGuildRole.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteGuildRole.ts",
 			"children": [
 				{
 					"id": 1115,
@@ -50198,7 +50198,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteGuildTemplate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteGuildTemplate.ts",
 			"children": [
 				{
 					"id": 1122,
@@ -50308,7 +50308,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteInvite.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteInvite.ts",
 			"children": [
 				{
 					"id": 1128,
@@ -50441,7 +50441,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteMessage.ts",
 			"children": [
 				{
 					"id": 1135,
@@ -50573,7 +50573,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteOriginalInteractionResponse.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteOriginalInteractionResponse.ts",
 			"children": [
 				{
 					"id": 1142,
@@ -50667,7 +50667,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteOwnReaction.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteOwnReaction.ts",
 			"children": [
 				{
 					"id": 1147,
@@ -50790,7 +50790,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deletePinnedChannelMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deletePinnedChannelMessage.ts",
 			"children": [
 				{
 					"id": 1154,
@@ -50922,7 +50922,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteUserReaction.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteUserReaction.ts",
 			"children": [
 				{
 					"id": 1161,
@@ -51059,7 +51059,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/deleteWebhook.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/deleteWebhook.ts",
 			"children": [
 				{
 					"id": 1169,
@@ -51191,7 +51191,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/editChannelPermissions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/editChannelPermissions.ts",
 			"children": [
 				{
 					"id": 1176,
@@ -51421,7 +51421,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/editFollowupMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/editFollowupMessage.ts",
 			"children": [
 				{
 					"id": 1187,
@@ -51544,7 +51544,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/editGlobalCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/editGlobalCommand.ts",
 			"children": [
 				{
 					"id": 1194,
@@ -51819,7 +51819,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/editGuildCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/editGuildCommand.ts",
 			"children": [
 				{
 					"id": 1205,
@@ -51943,7 +51943,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/editGuildCommandPermissions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/editGuildCommandPermissions.ts",
 			"children": [
 				{
 					"id": 1214,
@@ -52328,7 +52328,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/editMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/editMessage.ts",
 			"children": [
 				{
 					"id": 1229,
@@ -52593,7 +52593,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/editOriginalInteractionResponse.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/editOriginalInteractionResponse.ts",
 			"children": [
 				{
 					"id": 1241,
@@ -52815,7 +52815,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/followNewsChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/followNewsChannel.ts",
 			"children": [
 				{
 					"id": 1251,
@@ -53112,7 +53112,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getAllGuildCommandPermissions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getAllGuildCommandPermissions.ts",
 			"children": [
 				{
 					"id": 1265,
@@ -53211,7 +53211,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getChannel.ts",
 			"children": [
 				{
 					"id": 1270,
@@ -53307,7 +53307,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getChannelInvites.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getChannelInvites.ts",
 			"children": [
 				{
 					"id": 1275,
@@ -53406,7 +53406,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getChannelMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getChannelMessage.ts",
 			"children": [
 				{
 					"id": 1280,
@@ -53516,7 +53516,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getChannelMessages.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getChannelMessages.ts",
 			"children": [
 				{
 					"id": 1286,
@@ -53787,7 +53787,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getChannelWebhooks.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getChannelWebhooks.ts",
 			"children": [
 				{
 					"id": 1297,
@@ -53886,7 +53886,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getCurrentUser.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getCurrentUser.ts",
 			"children": [
 				{
 					"id": 1302,
@@ -53968,7 +53968,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getCurrentUserGuilds.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getCurrentUserGuilds.ts",
 			"children": [
 				{
 					"id": 1306,
@@ -54473,7 +54473,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGlobalCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGlobalCommand.ts",
 			"children": [
 				{
 					"id": 1327,
@@ -54569,7 +54569,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGlobalCommands.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGlobalCommands.ts",
 			"children": [
 				{
 					"id": 1332,
@@ -54654,7 +54654,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuild.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuild.ts",
 			"children": [
 				{
 					"id": 1336,
@@ -54833,7 +54833,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildAuditLog.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildAuditLog.ts",
 			"children": [
 				{
 					"id": 1344,
@@ -55085,7 +55085,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildBan.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildBan.ts",
 			"children": [
 				{
 					"id": 1355,
@@ -55195,7 +55195,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildBans.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildBans.ts",
 			"children": [
 				{
 					"id": 1361,
@@ -55294,7 +55294,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildChannels.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildChannels.ts",
 			"children": [
 				{
 					"id": 1366,
@@ -55393,7 +55393,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildCommand.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildCommand.ts",
 			"children": [
 				{
 					"id": 1371,
@@ -55503,7 +55503,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildCommandPermissions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildCommandPermissions.ts",
 			"children": [
 				{
 					"id": 1377,
@@ -55613,7 +55613,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildCommands.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildCommands.ts",
 			"children": [
 				{
 					"id": 1383,
@@ -55712,7 +55712,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildEmoji.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildEmoji.ts",
 			"children": [
 				{
 					"id": 1388,
@@ -55822,7 +55822,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildInvites.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildInvites.ts",
 			"children": [
 				{
 					"id": 1394,
@@ -55921,7 +55921,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildMember.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildMember.ts",
 			"children": [
 				{
 					"id": 1399,
@@ -56031,7 +56031,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildPreview.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildPreview.ts",
 			"children": [
 				{
 					"id": 1405,
@@ -56677,7 +56677,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildRoles.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildRoles.ts",
 			"children": [
 				{
 					"id": 1432,
@@ -56776,7 +56776,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildTemplates.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildTemplates.ts",
 			"children": [
 				{
 					"id": 1437,
@@ -56875,7 +56875,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildVanityURL.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildVanityURL.ts",
 			"children": [
 				{
 					"id": 1442,
@@ -56971,7 +56971,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildVoiceRegions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildVoiceRegions.ts",
 			"children": [
 				{
 					"id": 1453,
@@ -57070,7 +57070,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildWebhooks.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildWebhooks.ts",
 			"children": [
 				{
 					"id": 1458,
@@ -57169,7 +57169,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildWelcomeScreen.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildWelcomeScreen.ts",
 			"children": [
 				{
 					"id": 1463,
@@ -57274,7 +57274,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getGuildWidgetSettings.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getGuildWidgetSettings.ts",
 			"children": [
 				{
 					"id": 1468,
@@ -57370,7 +57370,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getInvite.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getInvite.ts",
 			"children": [
 				{
 					"id": 1473,
@@ -57549,7 +57549,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getPinnedMessages.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getPinnedMessages.ts",
 			"children": [
 				{
 					"id": 1481,
@@ -57648,7 +57648,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getReactions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getReactions.ts",
 			"children": [
 				{
 					"id": 1486,
@@ -57916,7 +57916,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getTemplate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getTemplate.ts",
 			"children": [
 				{
 					"id": 1498,
@@ -58012,7 +58012,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getUser.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getUser.ts",
 			"children": [
 				{
 					"id": 1503,
@@ -58108,7 +58108,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/getWebhook.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/getWebhook.ts",
 			"children": [
 				{
 					"id": 1508,
@@ -58218,7 +58218,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/leaveGuild.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/leaveGuild.ts",
 			"children": [
 				{
 					"id": 1514,
@@ -58313,7 +58313,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/listGuildEmojis.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/listGuildEmojis.ts",
 			"children": [
 				{
 					"id": 1519,
@@ -58412,7 +58412,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/listGuildMembers.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/listGuildMembers.ts",
 			"children": [
 				{
 					"id": 1524,
@@ -58621,7 +58621,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/listVoiceRegions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/listVoiceRegions.ts",
 			"children": [
 				{
 					"id": 1533,
@@ -58706,7 +58706,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyChannel.ts",
 			"children": [
 				{
 					"id": 1537,
@@ -59221,7 +59221,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyCurrentUser.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyCurrentUser.ts",
 			"children": [
 				{
 					"id": 1556,
@@ -59412,7 +59412,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyCurrentUserNickname.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyCurrentUserNickname.ts",
 			"children": [
 				{
 					"id": 1566,
@@ -59698,7 +59698,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuild.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuild.ts",
 			"children": [
 				{
 					"id": 1576,
@@ -60325,7 +60325,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildChannelPositions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildChannelPositions.ts",
 			"children": [
 				{
 					"id": 1599,
@@ -60737,7 +60737,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildEmoji.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildEmoji.ts",
 			"children": [
 				{
 					"id": 1615,
@@ -60974,7 +60974,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildMember.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildMember.ts",
 			"children": [
 				{
 					"id": 1626,
@@ -61313,7 +61313,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildRole.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildRole.ts",
 			"children": [
 				{
 					"id": 1640,
@@ -61656,7 +61656,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildRolePositions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildRolePositions.ts",
 			"children": [
 				{
 					"id": 1654,
@@ -61920,7 +61920,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildTemplate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildTemplate.ts",
 			"children": [
 				{
 					"id": 1666,
@@ -62139,7 +62139,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildWelcomeScreen.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildWelcomeScreen.ts",
 			"children": [
 				{
 					"id": 1676,
@@ -62374,7 +62374,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyGuildWidget.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyGuildWidget.ts",
 			"children": [
 				{
 					"id": 1686,
@@ -62583,7 +62583,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/modifyWebhook.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/modifyWebhook.ts",
 			"children": [
 				{
 					"id": 1695,
@@ -62848,7 +62848,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/removeGuildBan.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/removeGuildBan.ts",
 			"children": [
 				{
 					"id": 1707,
@@ -62980,7 +62980,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/removeGuildMember.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/removeGuildMember.ts",
 			"children": [
 				{
 					"id": 1714,
@@ -63112,7 +63112,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/removeGuildMemberRole.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/removeGuildMemberRole.ts",
 			"children": [
 				{
 					"id": 1721,
@@ -63258,7 +63258,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/searchGuildMembers.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/searchGuildMembers.ts",
 			"children": [
 				{
 					"id": 1729,
@@ -63456,7 +63456,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/syncGuildTemplate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/syncGuildTemplate.ts",
 			"children": [
 				{
 					"id": 1738,
@@ -63566,7 +63566,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/apiMethods/triggerTypingIndicator.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/apiMethods/triggerTypingIndicator.ts",
 			"children": [
 				{
 					"id": 1744,
@@ -63661,7 +63661,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/canManageMember.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/canManageMember.ts",
 			"children": [
 				{
 					"id": 1749,
@@ -63750,7 +63750,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/canManageRoles.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/canManageRoles.ts",
 			"children": [
 				{
 					"id": 1754,
@@ -63866,7 +63866,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/checkPermission.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/checkPermission.ts",
 			"children": [
 				{
 					"id": 2025,
@@ -63976,7 +63976,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/connect.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/connect.ts",
 			"children": [
 				{
 					"id": 1992,
@@ -64148,7 +64148,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/event.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/event.ts",
 			"children": [
 				{
 					"id": 1954,
@@ -64272,7 +64272,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/channelCreate/channelCreate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/channelCreate/channelCreate.ts",
 			"children": [
 				{
 					"id": 1760,
@@ -64361,7 +64361,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/channelDelete/channelDelete.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/channelDelete/channelDelete.ts",
 			"children": [
 				{
 					"id": 1765,
@@ -64450,7 +64450,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/channelPinsUpdate/ChannelPinsUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/channelPinsUpdate/ChannelPinsUpdateData.ts",
 			"children": [
 				{
 					"id": 3112,
@@ -64597,7 +64597,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/channelPinsUpdate/RawChannelPinsUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/channelPinsUpdate/RawChannelPinsUpdateData.ts",
 			"children": [
 				{
 					"id": 3117,
@@ -64734,7 +64734,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/channelPinsUpdate/channelPinsUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/channelPinsUpdate/channelPinsUpdate.ts",
 			"children": [
 				{
 					"id": 1770,
@@ -64823,7 +64823,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/channelUpdate/channelUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/channelUpdate/channelUpdate.ts",
 			"children": [
 				{
 					"id": 1775,
@@ -64912,7 +64912,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/commandCreate/RawCommandCreateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/commandCreate/RawCommandCreateData.ts",
 			"children": [
 				{
 					"id": 3122,
@@ -65165,7 +65165,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/commandCreate/commandCreate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/commandCreate/commandCreate.ts",
 			"children": [
 				{
 					"id": 1780,
@@ -65254,7 +65254,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/commandDelete/RawCommandDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/commandDelete/RawCommandDeleteData.ts",
 			"children": [
 				{
 					"id": 3131,
@@ -65507,7 +65507,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/commandDelete/commandDelete.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/commandDelete/commandDelete.ts",
 			"children": [
 				{
 					"id": 1785,
@@ -65596,7 +65596,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/commandUpdate/RawCommandUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/commandUpdate/RawCommandUpdateData.ts",
 			"children": [
 				{
 					"id": 3140,
@@ -65849,7 +65849,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/commandUpdate/commandUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/commandUpdate/commandUpdate.ts",
 			"children": [
 				{
 					"id": 1790,
@@ -65938,7 +65938,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildBanAdd/GuildBanAddData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildBanAdd/GuildBanAddData.ts",
 			"children": [
 				{
 					"id": 3149,
@@ -66043,7 +66043,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildBanAdd/RawGuildBanAddData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildBanAdd/RawGuildBanAddData.ts",
 			"children": [
 				{
 					"id": 3153,
@@ -66140,7 +66140,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildBanAdd/guildBanAdd.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildBanAdd/guildBanAdd.ts",
 			"children": [
 				{
 					"id": 1795,
@@ -66229,7 +66229,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildBanRemove/GuildBanRemoveData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildBanRemove/GuildBanRemoveData.ts",
 			"children": [
 				{
 					"id": 3157,
@@ -66334,7 +66334,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildBanRemove/RawGuildBanRemoveData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildBanRemove/RawGuildBanRemoveData.ts",
 			"children": [
 				{
 					"id": 3161,
@@ -66431,7 +66431,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildBanRemove/guildBanRemove.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildBanRemove/guildBanRemove.ts",
 			"children": [
 				{
 					"id": 1800,
@@ -66520,7 +66520,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildCreate/GuildCreateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildCreate/GuildCreateData.ts",
 			"children": [
 				{
 					"id": 3165,
@@ -66791,7 +66791,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildCreate/RawGuildCreateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildCreate/RawGuildCreateData.ts",
 			"children": [
 				{
 					"id": 3175,
@@ -68148,7 +68148,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildCreate/cacheInitialObjects.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildCreate/cacheInitialObjects.ts",
 			"children": [
 				{
 					"id": 1809,
@@ -68253,7 +68253,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildCreate/guildCreate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildCreate/guildCreate.ts",
 			"children": [
 				{
 					"id": 1814,
@@ -68348,7 +68348,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildDelete/GuildDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildDelete/GuildDeleteData.ts",
 			"children": [
 				{
 					"id": 3220,
@@ -68427,7 +68427,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildDelete/RawGuildDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildDelete/RawGuildDeleteData.ts",
 			"children": [
 				{
 					"id": 3223,
@@ -68523,7 +68523,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildDelete/guildDelete.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildDelete/guildDelete.ts",
 			"children": [
 				{
 					"id": 1819,
@@ -68612,7 +68612,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildEmojisUpdate/GuildEmojisUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildEmojisUpdate/GuildEmojisUpdateData.ts",
 			"children": [
 				{
 					"id": 3227,
@@ -68720,7 +68720,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildEmojisUpdate/RawGuildEmojisUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildEmojisUpdate/RawGuildEmojisUpdateData.ts",
 			"children": [
 				{
 					"id": 3231,
@@ -68820,7 +68820,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildEmojisUpdate/guildEmojisUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildEmojisUpdate/guildEmojisUpdate.ts",
 			"children": [
 				{
 					"id": 1824,
@@ -68909,7 +68909,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildIntegrationsUpdate/GuildIntegrationsUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildIntegrationsUpdate/GuildIntegrationsUpdateData.ts",
 			"children": [
 				{
 					"id": 3235,
@@ -68988,7 +68988,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildIntegrationsUpdate/RawGuildIntegrationsUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildIntegrationsUpdate/RawGuildIntegrationsUpdateData.ts",
 			"children": [
 				{
 					"id": 3238,
@@ -69063,7 +69063,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildIntegrationsUpdate/guildIntegrationsUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildIntegrationsUpdate/guildIntegrationsUpdate.ts",
 			"children": [
 				{
 					"id": 1829,
@@ -69152,7 +69152,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildMemberAdd/RawGuildMemberAddData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildMemberAdd/RawGuildMemberAddData.ts",
 			"children": [
 				{
 					"id": 3241,
@@ -69428,7 +69428,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildMemberAdd/guildMemberAdd.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildMemberAdd/guildMemberAdd.ts",
 			"children": [
 				{
 					"id": 1834,
@@ -69517,7 +69517,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildMemberRemove/GuildMemberRemoveData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildMemberRemove/GuildMemberRemoveData.ts",
 			"children": [
 				{
 					"id": 3250,
@@ -69622,7 +69622,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildMemberRemove/RawGuildMemberRemoveData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildMemberRemove/RawGuildMemberRemoveData.ts",
 			"children": [
 				{
 					"id": 3254,
@@ -69719,7 +69719,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildMemberRemove/guildMemberRemove.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildMemberRemove/guildMemberRemove.ts",
 			"children": [
 				{
 					"id": 1839,
@@ -69808,7 +69808,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildMemberUpdate/RawGuildMemberUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildMemberUpdate/RawGuildMemberUpdateData.ts",
 			"children": [
 				{
 					"id": 3258,
@@ -70084,7 +70084,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildMemberUpdate/guildMemberUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildMemberUpdate/guildMemberUpdate.ts",
 			"children": [
 				{
 					"id": 1844,
@@ -70173,7 +70173,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildRoleCreate/RawGuildRoleCreateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildRoleCreate/RawGuildRoleCreateData.ts",
 			"children": [
 				{
 					"id": 3267,
@@ -70270,7 +70270,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildRoleCreate/guildRoleCreate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildRoleCreate/guildRoleCreate.ts",
 			"children": [
 				{
 					"id": 1849,
@@ -70359,7 +70359,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildRoleDelete/GuildRoleDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildRoleDelete/GuildRoleDeleteData.ts",
 			"children": [
 				{
 					"id": 3271,
@@ -70463,7 +70463,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildRoleDelete/RawGuildRoleDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildRoleDelete/RawGuildRoleDeleteData.ts",
 			"children": [
 				{
 					"id": 3275,
@@ -70559,7 +70559,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildRoleDelete/guildRoleDelete.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildRoleDelete/guildRoleDelete.ts",
 			"children": [
 				{
 					"id": 1854,
@@ -70648,7 +70648,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildRoleUpdate/RawGuildRoleUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildRoleUpdate/RawGuildRoleUpdateData.ts",
 			"children": [
 				{
 					"id": 3279,
@@ -70745,7 +70745,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildRoleUpdate/guildRoleUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildRoleUpdate/guildRoleUpdate.ts",
 			"children": [
 				{
 					"id": 1859,
@@ -70834,7 +70834,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/guildUpdate/guildUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/guildUpdate/guildUpdate.ts",
 			"children": [
 				{
 					"id": 1864,
@@ -70923,7 +70923,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/interactionCreate/interactionCreate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/interactionCreate/interactionCreate.ts",
 			"children": [
 				{
 					"id": 1869,
@@ -71012,7 +71012,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/inviteCreate/RawInviteCreateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/inviteCreate/RawInviteCreateData.ts",
 			"children": [
 				{
 					"id": 3283,
@@ -71423,7 +71423,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/inviteCreate/inviteCreate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/inviteCreate/inviteCreate.ts",
 			"children": [
 				{
 					"id": 1874,
@@ -71512,7 +71512,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/inviteDelete/InviteDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/inviteDelete/InviteDeleteData.ts",
 			"children": [
 				{
 					"id": 3301,
@@ -71641,7 +71641,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/inviteDelete/RawInviteDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/inviteDelete/RawInviteDeleteData.ts",
 			"children": [
 				{
 					"id": 3306,
@@ -71758,7 +71758,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/inviteDelete/inviteDelete.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/inviteDelete/inviteDelete.ts",
 			"children": [
 				{
 					"id": 1879,
@@ -71847,7 +71847,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageCreate/messageCreate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageCreate/messageCreate.ts",
 			"children": [
 				{
 					"id": 1884,
@@ -71936,7 +71936,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageDelete/MessageDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageDelete/MessageDeleteData.ts",
 			"children": [
 				{
 					"id": 3321,
@@ -72074,7 +72074,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageDelete/RawMessageDeleteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageDelete/RawMessageDeleteData.ts",
 			"children": [
 				{
 					"id": 3326,
@@ -72201,7 +72201,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageDelete/messageDelete.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageDelete/messageDelete.ts",
 			"children": [
 				{
 					"id": 1889,
@@ -72290,7 +72290,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageDeleteBulk/MessageDeleteBulkData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageDeleteBulk/MessageDeleteBulkData.ts",
 			"children": [
 				{
 					"id": 3311,
@@ -72431,7 +72431,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageDeleteBulk/RawMessageDeleteBulkData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageDeleteBulk/RawMessageDeleteBulkData.ts",
 			"children": [
 				{
 					"id": 3316,
@@ -72561,7 +72561,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageDeleteBulk/messageDeleteBulk.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageDeleteBulk/messageDeleteBulk.ts",
 			"children": [
 				{
 					"id": 1894,
@@ -72650,7 +72650,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionAdd/MessageReactionAddData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionAdd/MessageReactionAddData.ts",
 			"children": [
 				{
 					"id": 3331,
@@ -72874,7 +72874,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionAdd/RawMessageReactionAddData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionAdd/RawMessageReactionAddData.ts",
 			"children": [
 				{
 					"id": 3339,
@@ -73067,7 +73067,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionAdd/messageReactionAdd.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionAdd/messageReactionAdd.ts",
 			"children": [
 				{
 					"id": 1899,
@@ -73156,7 +73156,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemove/MessageReactionRemoveData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemove/MessageReactionRemoveData.ts",
 			"children": [
 				{
 					"id": 3357,
@@ -73345,7 +73345,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemove/RawMessageReactionRemoveData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemove/RawMessageReactionRemoveData.ts",
 			"children": [
 				{
 					"id": 3364,
@@ -73515,7 +73515,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemove/messageReactionRemove.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemove/messageReactionRemove.ts",
 			"children": [
 				{
 					"id": 1904,
@@ -73604,7 +73604,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemoveAll/MessageReactionRemoveAllData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemoveAll/MessageReactionRemoveAllData.ts",
 			"children": [
 				{
 					"id": 3347,
@@ -73743,7 +73743,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemoveAll/RawMessageReactionRemoveAllData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemoveAll/RawMessageReactionRemoveAllData.ts",
 			"children": [
 				{
 					"id": 3352,
@@ -73870,7 +73870,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemoveAll/messageReactionRemoveAll.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemoveAll/messageReactionRemoveAll.ts",
 			"children": [
 				{
 					"id": 1909,
@@ -73959,7 +73959,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemoveEmoji/MessageReactionRemoveEmojiData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemoveEmoji/MessageReactionRemoveEmojiData.ts",
 			"children": [
 				{
 					"id": 3371,
@@ -74123,7 +74123,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemoveEmoji/RawMessageReactionRemoveEmojiData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemoveEmoji/RawMessageReactionRemoveEmojiData.ts",
 			"children": [
 				{
 					"id": 3377,
@@ -74272,7 +74272,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageReactionRemoveEmoji/messageReactionRemoveEmoji.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageReactionRemoveEmoji/messageReactionRemoveEmoji.ts",
 			"children": [
 				{
 					"id": 1914,
@@ -74361,7 +74361,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageUpdate/MessageUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageUpdate/MessageUpdateData.ts",
 			"children": [
 				{
 					"id": 3383,
@@ -75209,7 +75209,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageUpdate/RawMessageUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageUpdate/RawMessageUpdateData.ts",
 			"children": [
 				{
 					"id": 3411,
@@ -76011,7 +76011,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/messageUpdate/messageUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/messageUpdate/messageUpdate.ts",
 			"children": [
 				{
 					"id": 1919,
@@ -76100,7 +76100,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/parseVoiceRegion.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/parseVoiceRegion.ts",
 			"children": [
 				{
 					"id": 1449,
@@ -76180,7 +76180,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/presenceUpdate/presenceUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/presenceUpdate/presenceUpdate.ts",
 			"children": [
 				{
 					"id": 1924,
@@ -76269,7 +76269,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/rawVoiceRegionData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/rawVoiceRegionData.ts",
 			"children": [
 				{
 					"id": 1447,
@@ -76318,7 +76318,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/ready.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/ready.ts",
 			"children": [
 				{
 					"id": 1805,
@@ -76393,7 +76393,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/ready/RawReadyData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/ready/RawReadyData.ts",
 			"children": [
 				{
 					"id": 3440,
@@ -76675,7 +76675,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/ready/ReadyData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/ready/ReadyData.ts",
 			"children": [
 				{
 					"id": 3452,
@@ -77127,7 +77127,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/ready/ready.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/ready/ready.ts",
 			"children": [
 				{
 					"id": 1929,
@@ -77222,7 +77222,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/typingStart/RawTypingStartData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/typingStart/RawTypingStartData.ts",
 			"children": [
 				{
 					"id": 3469,
@@ -77393,7 +77393,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/typingStart/TypingStartData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/typingStart/TypingStartData.ts",
 			"children": [
 				{
 					"id": 3476,
@@ -77591,7 +77591,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/typingStart/typingStart.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/typingStart/typingStart.ts",
 			"children": [
 				{
 					"id": 1934,
@@ -77680,7 +77680,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/userUpdate/userUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/userUpdate/userUpdate.ts",
 			"children": [
 				{
 					"id": 1939,
@@ -77769,7 +77769,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/voiceStateUpdate/voiceStateUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/voiceStateUpdate/voiceStateUpdate.ts",
 			"children": [
 				{
 					"id": 1944,
@@ -77858,7 +77858,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/webhooksUpdate/RawWebhooksUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/webhooksUpdate/RawWebhooksUpdateData.ts",
 			"children": [
 				{
 					"id": 3483,
@@ -77954,7 +77954,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/webhooksUpdate/WebhooksUpdateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/webhooksUpdate/WebhooksUpdateData.ts",
 			"children": [
 				{
 					"id": 3487,
@@ -78087,7 +78087,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/events/webhooksUpdate/webhooksUpdate.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/events/webhooksUpdate/webhooksUpdate.ts",
 			"children": [
 				{
 					"id": 1949,
@@ -78182,7 +78182,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/fetch.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/fetch.ts",
 			"children": [
 				{
 					"id": 2003,
@@ -78634,7 +78634,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/garbageCollect.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/garbageCollect.ts",
 			"children": [
 				{
 					"id": 2016,
@@ -78709,7 +78709,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/getFetchQueue.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/getFetchQueue.ts",
 			"children": [
 				{
 					"id": 2020,
@@ -78798,7 +78798,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/handleWebsocketEvent.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/handleWebsocketEvent.ts",
 			"children": [
 				{
 					"id": 1969,
@@ -78886,7 +78886,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/hasPermission.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/hasPermission.ts",
 			"children": [
 				{
 					"id": 2031,
@@ -78988,7 +78988,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/heartbeat.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/heartbeat.ts",
 			"children": [
 				{
 					"id": 1960,
@@ -79063,7 +79063,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/identify.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/identify.ts",
 			"children": [
 				{
 					"id": 1974,
@@ -79138,7 +79138,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/initializeHeartbeat.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/initializeHeartbeat.ts",
 			"children": [
 				{
 					"id": 1964,
@@ -79226,7 +79226,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/ping.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/ping.ts",
 			"children": [
 				{
 					"id": 1978,
@@ -79301,7 +79301,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/resume.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/resume.ts",
 			"children": [
 				{
 					"id": 1982,
@@ -79376,7 +79376,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Client/websocketClosed.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Client/websocketClosed.ts",
 			"children": [
 				{
 					"id": 1986,
@@ -79477,7 +79477,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/Command.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/Command.ts",
 			"children": [
 				{
 					"id": 3538,
@@ -80986,7 +80986,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/CommandData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/CommandData.ts",
 			"children": [
 				{
 					"id": 3617,
@@ -81824,7 +81824,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/RawCommandData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/RawCommandData.ts",
 			"children": [
 				{
 					"id": 3630,
@@ -82282,7 +82282,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 3504,
@@ -82426,7 +82426,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/fromData.ts",
 			"children": [
 				{
 					"id": 3512,
@@ -82516,7 +82516,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/resolveID.ts",
 			"children": [
 				{
 					"id": 3517,
@@ -82600,7 +82600,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/toData.ts",
 			"children": [
 				{
 					"id": 3524,
@@ -82721,7 +82721,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/updateObject.ts",
 			"children": [
 				{
 					"id": 3528,
@@ -82810,7 +82810,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Command/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Command/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 3533,
@@ -82909,7 +82909,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/CommandPermissions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/CommandPermissions.ts",
 			"children": [
 				{
 					"id": 3671,
@@ -84074,7 +84074,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/CommandPermissionsData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/CommandPermissionsData.ts",
 			"children": [
 				{
 					"id": 3726,
@@ -84477,7 +84477,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/RawCommandPermissionsData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/RawCommandPermissionsData.ts",
 			"children": [
 				{
 					"id": 3734,
@@ -84628,7 +84628,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 3648,
@@ -84704,7 +84704,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/fromData.ts",
 			"children": [
 				{
 					"id": 3652,
@@ -84794,7 +84794,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/toData.ts",
 			"children": [
 				{
 					"id": 3657,
@@ -84870,7 +84870,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/updateObject.ts",
 			"children": [
 				{
 					"id": 3661,
@@ -84959,7 +84959,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/CommandPermissions/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/CommandPermissions/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 3666,
@@ -85058,7 +85058,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/DMChannel/DMChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/DMChannel/DMChannel.ts",
 			"children": [
 				{
 					"id": 3887,
@@ -88103,7 +88103,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/DMChannel/DMChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/DMChannel/DMChannelData.ts",
 			"children": [
 				{
 					"id": 4009,
@@ -88364,7 +88364,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/DMChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/DMChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 3881,
@@ -88480,7 +88480,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Embed/Embed.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Embed/Embed.ts",
 			"children": [
 				{
 					"id": 4021,
@@ -89745,7 +89745,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Embed/EmbedData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Embed/EmbedData.ts",
 			"children": [
 				{
 					"id": 4087,
@@ -90479,7 +90479,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Embed/toJSON.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Embed/toJSON.ts",
 			"children": [
 				{
 					"id": 4017,
@@ -90554,7 +90554,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/Emoji.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/Emoji.ts",
 			"children": [
 				{
 					"id": 4124,
@@ -92139,7 +92139,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/EmojiData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/EmojiData.ts",
 			"children": [
 				{
 					"id": 4191,
@@ -92452,7 +92452,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/RawEmojiData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/RawEmojiData.ts",
 			"children": [
 				{
 					"id": 4203,
@@ -92736,7 +92736,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 4096,
@@ -92825,7 +92825,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/fromData.ts",
 			"children": [
 				{
 					"id": 4101,
@@ -92915,7 +92915,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/resolveID.ts",
 			"children": [
 				{
 					"id": 4106,
@@ -92999,7 +92999,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/toData.ts",
 			"children": [
 				{
 					"id": 4110,
@@ -93075,7 +93075,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/updateObject.ts",
 			"children": [
 				{
 					"id": 4114,
@@ -93164,7 +93164,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Emoji/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Emoji/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 4119,
@@ -93263,7 +93263,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/FetchQueue/FetchQueue.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/FetchQueue/FetchQueue.ts",
 			"children": [
 				{
 					"id": 4238,
@@ -93931,7 +93931,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/FetchQueue/processRequests.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/FetchQueue/processRequests.ts",
 			"children": [
 				{
 					"id": 4213,
@@ -94012,7 +94012,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/FetchQueue/request.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/FetchQueue/request.ts",
 			"children": [
 				{
 					"id": 4217,
@@ -94275,7 +94275,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/Guild.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/Guild.ts",
 			"children": [
 				{
 					"id": 4282,
@@ -100456,7 +100456,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/GuildData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/GuildData.ts",
 			"children": [
 				{
 					"id": 4539,
@@ -102465,7 +102465,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/RawGuildData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/RawGuildData.ts",
 			"children": [
 				{
 					"id": 4605,
@@ -103463,7 +103463,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 4254,
@@ -103553,7 +103553,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/fromData.ts",
 			"children": [
 				{
 					"id": 4259,
@@ -103643,7 +103643,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/resolveID.ts",
 			"children": [
 				{
 					"id": 4264,
@@ -103727,7 +103727,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/toData.ts",
 			"children": [
 				{
 					"id": 4268,
@@ -103803,7 +103803,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/updateObject.ts",
 			"children": [
 				{
 					"id": 4272,
@@ -103892,7 +103892,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Guild/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Guild/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 4277,
@@ -103991,7 +103991,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildChannel/GuildChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildChannel/GuildChannel.ts",
 			"children": [
 				{
 					"id": 576,
@@ -106037,7 +106037,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildChannel/GuildChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildChannel/GuildChannelData.ts",
 			"children": [
 				{
 					"id": 4642,
@@ -106592,7 +106592,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 570,
@@ -106708,7 +106708,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildUserCacheInterface/GuildUserCacheInterface.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildUserCacheInterface/GuildUserCacheInterface.ts",
 			"children": [
 				{
 					"id": 4660,
@@ -107571,7 +107571,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildUserCacheManager/GuildUserCacheManager.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildUserCacheManager/GuildUserCacheManager.ts",
 			"children": [
 				{
 					"id": 4697,
@@ -108645,7 +108645,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/GuildWidget.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/GuildWidget.ts",
 			"children": [
 				{
 					"id": 4769,
@@ -109922,7 +109922,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/GuildWidgetData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/GuildWidgetData.ts",
 			"children": [
 				{
 					"id": 4824,
@@ -110089,7 +110089,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/RawGuildWidgetData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/RawGuildWidgetData.ts",
 			"children": [
 				{
 					"id": 4830,
@@ -110194,7 +110194,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 4745,
@@ -110283,7 +110283,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/fromData.ts",
 			"children": [
 				{
 					"id": 4750,
@@ -110373,7 +110373,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/toData.ts",
 			"children": [
 				{
 					"id": 4755,
@@ -110449,7 +110449,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/updateObject.ts",
 			"children": [
 				{
 					"id": 4759,
@@ -110538,7 +110538,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/GuildWidget/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/GuildWidget/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 4764,
@@ -110637,7 +110637,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/Interaction.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/Interaction.ts",
 			"children": [
 				{
 					"id": 4886,
@@ -112582,7 +112582,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/InteractionData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/InteractionData.ts",
 			"children": [
 				{
 					"id": 4979,
@@ -113277,7 +113277,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/RawInteractionData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/RawInteractionData.ts",
 			"children": [
 				{
 					"id": 4991,
@@ -113985,7 +113985,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/createFollowupMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/createFollowupMessage.ts",
 			"children": [
 				{
 					"id": 4834,
@@ -114110,7 +114110,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 4840,
@@ -114186,7 +114186,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/editFollowupMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/editFollowupMessage.ts",
 			"children": [
 				{
 					"id": 4844,
@@ -114325,7 +114325,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/editOriginalResponse.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/editOriginalResponse.ts",
 			"children": [
 				{
 					"id": 4851,
@@ -114450,7 +114450,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/fromData.ts",
 			"children": [
 				{
 					"id": 4857,
@@ -114540,7 +114540,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/resolveID.ts",
 			"children": [
 				{
 					"id": 4862,
@@ -114624,7 +114624,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/respond.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/respond.ts",
 			"children": [
 				{
 					"id": 4866,
@@ -114749,7 +114749,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/toData.ts",
 			"children": [
 				{
 					"id": 4872,
@@ -114825,7 +114825,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/updateObject.ts",
 			"children": [
 				{
 					"id": 4876,
@@ -114914,7 +114914,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Interaction/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Interaction/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 4881,
@@ -115013,7 +115013,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/Invite.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/Invite.ts",
 			"children": [
 				{
 					"id": 5045,
@@ -116654,7 +116654,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/InviteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/InviteData.ts",
 			"children": [
 				{
 					"id": 5110,
@@ -117299,7 +117299,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/RawInviteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/RawInviteData.ts",
 			"children": [
 				{
 					"id": 5131,
@@ -118123,7 +118123,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 5018,
@@ -118199,7 +118199,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/fromData.ts",
 			"children": [
 				{
 					"id": 5022,
@@ -118289,7 +118289,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/resolveCode.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/resolveCode.ts",
 			"children": [
 				{
 					"id": 5027,
@@ -118373,7 +118373,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/toData.ts",
 			"children": [
 				{
 					"id": 5031,
@@ -118449,7 +118449,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/updateObject.ts",
 			"children": [
 				{
 					"id": 5035,
@@ -118538,7 +118538,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Invite/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Invite/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 5040,
@@ -118637,7 +118637,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/Member.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/Member.ts",
 			"children": [
 				{
 					"id": 5187,
@@ -120408,7 +120408,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/MemberData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/MemberData.ts",
 			"children": [
 				{
 					"id": 5263,
@@ -120688,7 +120688,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/RawMemberData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/RawMemberData.ts",
 			"children": [
 				{
 					"id": 5273,
@@ -121131,7 +121131,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 5163,
@@ -121220,7 +121220,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/fromData.ts",
 			"children": [
 				{
 					"id": 5168,
@@ -121310,7 +121310,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/toData.ts",
 			"children": [
 				{
 					"id": 5173,
@@ -121386,7 +121386,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/updateObject.ts",
 			"children": [
 				{
 					"id": 5177,
@@ -121475,7 +121475,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Member/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Member/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 5182,
@@ -121574,7 +121574,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/Message.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/Message.ts",
 			"children": [
 				{
 					"id": 5321,
@@ -124242,7 +124242,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/MessageData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/MessageData.ts",
 			"children": [
 				{
 					"id": 5462,
@@ -126467,7 +126467,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/RawMessageData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/RawMessageData.ts",
 			"children": [
 				{
 					"id": 5506,
@@ -127865,7 +127865,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 5287,
@@ -127941,7 +127941,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/edit.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/edit.ts",
 			"children": [
 				{
 					"id": 5291,
@@ -128078,7 +128078,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/fromData.ts",
 			"children": [
 				{
 					"id": 5298,
@@ -128168,7 +128168,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/resolveID.ts",
 			"children": [
 				{
 					"id": 5303,
@@ -128252,7 +128252,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/toData.ts",
 			"children": [
 				{
 					"id": 5307,
@@ -128328,7 +128328,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/updateObject.ts",
 			"children": [
 				{
 					"id": 5311,
@@ -128417,7 +128417,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Message/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Message/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 5316,
@@ -128516,7 +128516,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/MessageEmbed/MessageEmbed.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/MessageEmbed/MessageEmbed.ts",
 			"children": [
 				{
 					"id": 5576,
@@ -129516,7 +129516,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/MessageEmbed/MessageEmbedData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/MessageEmbed/MessageEmbedData.ts",
 			"children": [
 				{
 					"id": 5654,
@@ -131155,7 +131155,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/MessageEmbed/RawMessageEmbedData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/MessageEmbed/RawMessageEmbedData.ts",
 			"children": [
 				{
 					"id": 5665,
@@ -132558,7 +132558,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/MessageEmbed/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/MessageEmbed/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 5562,
@@ -132648,7 +132648,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/MessageEmbed/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/MessageEmbed/fromData.ts",
 			"children": [
 				{
 					"id": 5567,
@@ -132738,7 +132738,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/MessageEmbed/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/MessageEmbed/toData.ts",
 			"children": [
 				{
 					"id": 5572,
@@ -132814,7 +132814,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/NewsChannel/NewsChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/NewsChannel/NewsChannel.ts",
 			"children": [
 				{
 					"id": 5726,
@@ -136835,7 +136835,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/NewsChannel/NewsChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/NewsChannel/NewsChannelData.ts",
 			"children": [
 				{
 					"id": 5884,
@@ -137342,7 +137342,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/NewsChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/NewsChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 5720,
@@ -137458,7 +137458,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/PermissionError/PermissionError.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/PermissionError/PermissionError.ts",
 			"children": [
 				{
 					"id": 5903,
@@ -137927,7 +137927,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Permissions/Permissions.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Permissions/Permissions.ts",
 			"children": [
 				{
 					"id": 5928,
@@ -138561,7 +138561,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Permissions/getAll.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Permissions/getAll.ts",
 			"children": [
 				{
 					"id": 5915,
@@ -138642,7 +138642,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Permissions/has.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Permissions/has.ts",
 			"children": [
 				{
 					"id": 5919,
@@ -138731,7 +138731,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Permissions/resolveBits.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Permissions/resolveBits.ts",
 			"children": [
 				{
 					"id": 5924,
@@ -138806,7 +138806,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/Presence.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/Presence.ts",
 			"children": [
 				{
 					"id": 5973,
@@ -139990,7 +139990,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/PresenceData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/PresenceData.ts",
 			"children": [
 				{
 					"id": 6037,
@@ -141651,7 +141651,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/RawPresenceData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/RawPresenceData.ts",
 			"children": [
 				{
 					"id": 6076,
@@ -143105,7 +143105,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 5950,
@@ -143181,7 +143181,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/fromData.ts",
 			"children": [
 				{
 					"id": 5954,
@@ -143271,7 +143271,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/toData.ts",
 			"children": [
 				{
 					"id": 5959,
@@ -143347,7 +143347,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/updateObject.ts",
 			"children": [
 				{
 					"id": 5963,
@@ -143436,7 +143436,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Presence/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Presence/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 5968,
@@ -143535,7 +143535,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Reaction/RawReactionData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Reaction/RawReactionData.ts",
 			"children": [
 				{
 					"id": 6181,
@@ -143875,7 +143875,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Reaction/Reaction.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Reaction/Reaction.ts",
 			"children": [
 				{
 					"id": 6146,
@@ -144671,7 +144671,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Reaction/ReactionData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Reaction/ReactionData.ts",
 			"children": [
 				{
 					"id": 6194,
@@ -145014,7 +145014,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Reaction/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Reaction/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 6128,
@@ -145104,7 +145104,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Reaction/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Reaction/fromData.ts",
 			"children": [
 				{
 					"id": 6133,
@@ -145194,7 +145194,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Reaction/resolveString.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Reaction/resolveString.ts",
 			"children": [
 				{
 					"id": 6138,
@@ -145278,7 +145278,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Reaction/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Reaction/toData.ts",
 			"children": [
 				{
 					"id": 6142,
@@ -145354,7 +145354,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/RawRoleData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/RawRoleData.ts",
 			"children": [
 				{
 					"id": 6312,
@@ -145719,7 +145719,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/Role.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/Role.ts",
 			"children": [
 				{
 					"id": 6235,
@@ -147517,7 +147517,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/RoleData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/RoleData.ts",
 			"children": [
 				{
 					"id": 6327,
@@ -147976,7 +147976,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 6206,
@@ -148079,7 +148079,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/fromData.ts",
 			"children": [
 				{
 					"id": 6212,
@@ -148169,7 +148169,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/resolveID.ts",
 			"children": [
 				{
 					"id": 6217,
@@ -148253,7 +148253,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/toData.ts",
 			"children": [
 				{
 					"id": 6221,
@@ -148329,7 +148329,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/updateObject.ts",
 			"children": [
 				{
 					"id": 6225,
@@ -148418,7 +148418,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Role/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Role/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 6230,
@@ -148517,7 +148517,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Sticker/RawStickerData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Sticker/RawStickerData.ts",
 			"children": [
 				{
 					"id": 6386,
@@ -148759,7 +148759,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Sticker/Sticker.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Sticker/Sticker.ts",
 			"children": [
 				{
 					"id": 6357,
@@ -149415,7 +149415,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Sticker/StickerData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Sticker/StickerData.ts",
 			"children": [
 				{
 					"id": 6396,
@@ -149822,7 +149822,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Sticker/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Sticker/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 6344,
@@ -149898,7 +149898,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Sticker/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Sticker/fromData.ts",
 			"children": [
 				{
 					"id": 6348,
@@ -149988,7 +149988,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Sticker/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Sticker/toData.ts",
 			"children": [
 				{
 					"id": 6353,
@@ -150064,7 +150064,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/StoreChannel/StoreChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/StoreChannel/StoreChannel.ts",
 			"children": [
 				{
 					"id": 6416,
@@ -151983,7 +151983,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/StoreChannel/StoreChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/StoreChannel/StoreChannelData.ts",
 			"children": [
 				{
 					"id": 6491,
@@ -152304,7 +152304,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/StoreChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/StoreChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 6410,
@@ -152420,7 +152420,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/RawTemplateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/RawTemplateData.ts",
 			"children": [
 				{
 					"id": 6597,
@@ -153669,7 +153669,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/Template.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/Template.ts",
 			"children": [
 				{
 					"id": 6528,
@@ -155310,7 +155310,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/TemplateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/TemplateData.ts",
 			"children": [
 				{
 					"id": 6649,
@@ -156725,7 +156725,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 6501,
@@ -156801,7 +156801,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/fromData.ts",
 			"children": [
 				{
 					"id": 6505,
@@ -156891,7 +156891,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/resolveCode.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/resolveCode.ts",
 			"children": [
 				{
 					"id": 6510,
@@ -156975,7 +156975,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/toData.ts",
 			"children": [
 				{
 					"id": 6514,
@@ -157051,7 +157051,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/updateObject.ts",
 			"children": [
 				{
 					"id": 6518,
@@ -157140,7 +157140,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Template/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Template/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 6523,
@@ -157239,7 +157239,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextBasedChannel/TextBasedChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextBasedChannel/TextBasedChannel.ts",
 			"children": [
 				{
 					"id": 3759,
@@ -160133,7 +160133,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextBasedChannel/TextBasedChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextBasedChannel/TextBasedChannelData.ts",
 			"children": [
 				{
 					"id": 6700,
@@ -160374,7 +160374,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextBasedChannel/editMessage.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextBasedChannel/editMessage.ts",
 			"children": [
 				{
 					"id": 3740,
@@ -160512,7 +160512,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextBasedChannel/send.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextBasedChannel/send.ts",
 			"children": [
 				{
 					"id": 3747,
@@ -160637,7 +160637,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextBasedChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextBasedChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 3753,
@@ -160753,7 +160753,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextChannel/TextChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextChannel/TextChannel.ts",
 			"children": [
 				{
 					"id": 6713,
@@ -164657,7 +164657,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextChannel/TextChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextChannel/TextChannelData.ts",
 			"children": [
 				{
 					"id": 6865,
@@ -165164,7 +165164,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/TextChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/TextChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 6707,
@@ -165280,7 +165280,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/RawUserData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/RawUserData.ts",
 			"children": [
 				{
 					"id": 6965,
@@ -165887,7 +165887,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/User.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/User.ts",
 			"children": [
 				{
 					"id": 6907,
@@ -167289,7 +167289,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/UserData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/UserData.ts",
 			"children": [
 				{
 					"id": 6985,
@@ -167821,7 +167821,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 6880,
@@ -167897,7 +167897,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/fromData.ts",
 			"children": [
 				{
 					"id": 6884,
@@ -167987,7 +167987,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/resolveID.ts",
 			"children": [
 				{
 					"id": 6889,
@@ -168071,7 +168071,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/toData.ts",
 			"children": [
 				{
 					"id": 6893,
@@ -168147,7 +168147,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/updateObject.ts",
 			"children": [
 				{
 					"id": 6897,
@@ -168236,7 +168236,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/User/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/User/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 6902,
@@ -168335,7 +168335,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/RawVanityInviteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/RawVanityInviteData.ts",
 			"children": [
 				{
 					"id": 7079,
@@ -168440,7 +168440,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/VanityInvite.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/VanityInvite.ts",
 			"children": [
 				{
 					"id": 7027,
@@ -169654,7 +169654,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/VanityInviteData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/VanityInviteData.ts",
 			"children": [
 				{
 					"id": 7083,
@@ -169821,7 +169821,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 7003,
@@ -169910,7 +169910,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/fromData.ts",
 			"children": [
 				{
 					"id": 7008,
@@ -170000,7 +170000,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/toData.ts",
 			"children": [
 				{
 					"id": 7013,
@@ -170076,7 +170076,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/updateObject.ts",
 			"children": [
 				{
 					"id": 7017,
@@ -170165,7 +170165,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VanityInvite/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VanityInvite/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 7022,
@@ -170264,7 +170264,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceChannel/VoiceChannel.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceChannel/VoiceChannel.ts",
 			"children": [
 				{
 					"id": 7095,
@@ -172331,7 +172331,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceChannel/VoiceChannelData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceChannel/VoiceChannelData.ts",
 			"children": [
 				{
 					"id": 7175,
@@ -172720,7 +172720,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceChannel/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceChannel/updateObject.ts",
 			"children": [
 				{
 					"id": 7089,
@@ -172836,7 +172836,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceState/RawVoiceStateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceState/RawVoiceStateData.ts",
 			"children": [
 				{
 					"id": 7233,
@@ -173157,7 +173157,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceState/VoiceState.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceState/VoiceState.ts",
 			"children": [
 				{
 					"id": 7200,
@@ -173895,7 +173895,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceState/VoiceStateData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceState/VoiceStateData.ts",
 			"children": [
 				{
 					"id": 7247,
@@ -174254,7 +174254,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceState/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceState/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 7187,
@@ -174330,7 +174330,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceState/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceState/fromData.ts",
 			"children": [
 				{
 					"id": 7191,
@@ -174420,7 +174420,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/VoiceState/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/VoiceState/toData.ts",
 			"children": [
 				{
 					"id": 7196,
@@ -174496,7 +174496,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/RawWebhookData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/RawWebhookData.ts",
 			"children": [
 				{
 					"id": 7353,
@@ -174769,7 +174769,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/Webhook.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/Webhook.ts",
 			"children": [
 				{
 					"id": 7288,
@@ -176346,7 +176346,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/WebhookData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/WebhookData.ts",
 			"children": [
 				{
 					"id": 7364,
@@ -176791,7 +176791,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 7261,
@@ -176867,7 +176867,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/fromData.ts",
 			"children": [
 				{
 					"id": 7265,
@@ -176957,7 +176957,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/resolveID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/resolveID.ts",
 			"children": [
 				{
 					"id": 7270,
@@ -177041,7 +177041,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/toData.ts",
 			"children": [
 				{
 					"id": 7274,
@@ -177117,7 +177117,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/updateObject.ts",
 			"children": [
 				{
 					"id": 7278,
@@ -177206,7 +177206,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/Webhook/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/Webhook/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 7283,
@@ -177305,7 +177305,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/RawWelcomeScreenData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/RawWelcomeScreenData.ts",
 			"children": [
 				{
 					"id": 7458,
@@ -177543,7 +177543,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/WelcomeScreen.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/WelcomeScreen.ts",
 			"children": [
 				{
 					"id": 7403,
@@ -178824,7 +178824,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/WelcomeScreenData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/WelcomeScreenData.ts",
 			"children": [
 				{
 					"id": 7472,
@@ -179144,7 +179144,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/dataFromRawData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/dataFromRawData.ts",
 			"children": [
 				{
 					"id": 7379,
@@ -179233,7 +179233,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/fromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/fromData.ts",
 			"children": [
 				{
 					"id": 7384,
@@ -179323,7 +179323,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/toData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/toData.ts",
 			"children": [
 				{
 					"id": 7389,
@@ -179399,7 +179399,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/updateObject.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/updateObject.ts",
 			"children": [
 				{
 					"id": 7393,
@@ -179488,7 +179488,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/WelcomeScreen/updateObjectFromData.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/WelcomeScreen/updateObjectFromData.ts",
 			"children": [
 				{
 					"id": 7398,
@@ -179587,7 +179587,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/classes/applyMixins.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/classes/applyMixins.ts",
 			"children": [
 				{
 					"id": 5715,
@@ -179677,7 +179677,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/index.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/index.ts",
 			"children": [
 				{
 					"id": 8382,
@@ -183807,7 +183807,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/internal.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/internal.ts",
 			"children": [
 				{
 					"id": 7964,
@@ -189411,7 +189411,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/util/getRoute.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/util/getRoute.ts",
 			"children": [
 				{
 					"id": 779,
@@ -189509,7 +189509,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/util/isID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/util/isID.ts",
 			"children": [
 				{
 					"id": 491,
@@ -189591,7 +189591,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/home/travis/build/APixelVisuals/aeracord/src/util/resolveRoleOrUserID.ts",
+			"originalName": "/home/travis/build/aeracord/aeracord/src/util/resolveRoleOrUserID.ts",
 			"children": [
 				{
 					"id": 808,
