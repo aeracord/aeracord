@@ -111,7 +111,7 @@ client.on("interactionCreate", (data) => {
 
 # Issue Tracker
 
-You can report bugs and suggest features by [opening an issue](https://github.com/APixelVisuals/aeracord/issues/new). Please check to make sure that an issue for the bug or feature you're reporting doesn't already exist.
+You can report bugs and suggest features by [opening an issue](https://github.com/aeracord/aeracord/issues/new). Please check to make sure that an issue for the bug or feature you're reporting doesn't already exist.
 
 ---
 

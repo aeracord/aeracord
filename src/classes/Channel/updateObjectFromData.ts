@@ -27,7 +27,7 @@ export default function updateObjectFromData(client: Client, channelData: AnyCha
         else if (channel.type === CHANNEL_TYPE_STORE) StoreChannel._updateObject(channel as StoreChannel, channelData as StoreChannelData);
 
         // Unknown channel type
-        else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
+        else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
     }
 
     // Return

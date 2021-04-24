@@ -128,5 +128,5 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Unknown channel type
-    else throw new Error(`Unknown channel type '${channel.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
+    else throw new Error(`Unknown channel type '${channel.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
 }

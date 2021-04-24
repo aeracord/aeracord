@@ -27,7 +27,7 @@ export default function fromData(client: Client, channelData: AnyChannelData): A
         else if (channelData.type === CHANNEL_TYPE_STORE) channel = new StoreChannel(client, channelData as StoreChannelData);
 
         // Unknown channel type
-        else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
+        else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
     }
 
     // Return

@@ -113,7 +113,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     };
 
     // Unknown channel type
-    else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/APixelVisuals/aeracord`);
+    else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
 
     // Set channel permissions
     if ((client._channelPermissions) && ("guildID" in channelData)) client._channelPermissions.set(channelData.id, {
