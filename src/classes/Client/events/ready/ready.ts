@@ -58,8 +58,21 @@ export default async function ready(client: Client, rawData: RawReadyData) {
     }
 
     // Bulk overwrite the bot's global commands
-    if (client._globalCommands) await client.bulkOverwriteGlobalCommands(client._globalCommands);
+    if (client._globalCommands) {
+
+        // Bulk overwrite the bot's global commands
+        await client.bulkOverwriteGlobalCommands(client._globalCommands);
+
+        /**
+         * Bulk overwrite the bot's global commands in guilds
+         * This can be useful during development since global commands can take up to an hour to update
+         */
+        if (client._globalCommandGuildIDs) for (let id of client._globalCommandGuildIDs) {
+            await client.bulkOverwriteGuildCommands(id, client._globalCommands);
+        }
+    }
     delete client._globalCommands;
+    delete client._globalCommandGuildIDs;
 
     /**
      * Set Ready State

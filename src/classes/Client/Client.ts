@@ -308,6 +308,14 @@ export interface ClientData {
     globalCommands?: EditCommandData[];
 
     /**
+     * Global Command Guild IDs
+     *
+     * The guild IDs to also add the global commands to
+     * This can be useful during development since global commands can take up to an hour to update
+     */
+    globalCommandGuildIDs?: string[];
+
+    /**
      * Cache Strategies
      *
      * How the client should cache objects
@@ -907,6 +915,13 @@ export default class Client extends EventEmitter {
     _globalCommands?: EditCommandData[];
 
     /**
+     * Global Command Guild IDs
+     *
+     * The guild IDs to also add the global commands to
+     */
+    _globalCommandGuildIDs?: string[];
+
+    /**
      * Fetch Queues
      *
      * Queues for fetching data from the API
@@ -1326,6 +1341,7 @@ export default class Client extends EventEmitter {
         this._membersIntent = Boolean(clientData.membersIntent);
         this._presencesIntent = Boolean(clientData.presencesIntent);
         this._globalCommands = clientData.globalCommands;
+        this._globalCommandGuildIDs = clientData.globalCommandGuildIDs;
         Object.defineProperty(this, "_fetchQueues", { value: new Map() });
         this._cacheStrategies = {
             objects: clientData.cacheStrategies?.objects || {},
