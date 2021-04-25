@@ -72,37 +72,17 @@ client.on("ready", (data) => {
 });
 ```
 
-You can also listen for various other [events](https://aeracord.apixel.me/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.apixel.me/docs/classes/Client#interactionCreate) for when a slash command is used. This event will always have the `data` parameter, but the `interaction` might not be defined. You can learn more about this in the [caching guide](https://aeracord.apixel.me/guides/caching). Here's how you can respond to an interaction with the `interaction` object:
+You can also listen for various other [events](https://aeracord.apixel.me/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.apixel.me/docs/classes/Client#interactionCreate) for when a slash command is used:
 
 ```js
 // Interaction create
-client.on("interactionCreate", (data, { interaction }) => {
+client.on("interactionCreate", (interaction) => {
 
     // Ping
     if (interaction.data.name === "ping") {
 
         // Respond
         interaction.respond("Pong!");
-    }
-});
-```
-
-Or, you can use the `data` parameter:
-
-```js
-// Interaction create
-client.on("interactionCreate", (data) => {
-
-    // Ping
-    if (data.data.name === "ping") {
-
-        // Respond
-        client.createInteractionResponse(data.id, data.token, {
-            type: INTERACTION_RESPONSE_TYPE_MESSAGE,
-            data: {
-                content: "Pong!"
-            }
-        });
     }
 });
 ```
