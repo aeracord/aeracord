@@ -340,6 +340,7 @@ export {
 
 // Interaction
 export {
+    GetOptionResult,
     Interaction,
     InteractionCommandData,
     InteractionCommandOption,

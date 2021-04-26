@@ -1,4 +1,4 @@
-import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionData, InteractionType, MemberData, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, UserData } from "../../internal";
+import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionCommandOption, InteractionData, InteractionType, MemberData, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, UserData } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -16,6 +16,36 @@ import updateObjectFromData from "./updateObjectFromData";
  * The types that can be resolved to an interaction
  */
 export type InteractionResolvable = Interaction | InteractionData | string;
+
+/**
+ * Get Option Result
+ *
+ * An interaction command's parameters with an unknown value type
+ */
+export interface GetOptionResult {
+
+    /**
+     * Name
+     *
+     * The option's name
+     */
+    name: string;
+
+    /**
+     * Value
+     *
+     * The option's value
+     * `undefined` for subcommands and subcommand groups
+     */
+    value?: any;
+
+    /**
+     * Options
+     *
+     * The command's options if it's a subcommand or subcommand group
+     */
+    options?: GetOptionResult[];
+}
 
 export default class Interaction extends Base<Interaction> {
 
@@ -226,6 +256,19 @@ export default class Interaction extends Base<Interaction> {
      */
     cache(expiresIn?: number | null) {
         this.client._interactions.cache(this.id, this, expiresIn);
+    }
+
+    /**
+     * Get Option
+     *
+     * Get an option from this interaction's data
+     *
+     * @param name The name of the option
+     *
+     * @returns {GetOptionResult | undefined} The option or `undefined` if it isn't found
+     */
+    getOption(name: string): GetOptionResult | undefined {
+        return this.data.options?.find((o: InteractionCommandOption) => o.name === name);
     }
 
     /**
