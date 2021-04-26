@@ -7,7 +7,7 @@ export default function dataFromRawData(rawData: RawUserData): UserData {
         id: rawData.id,
         username: rawData.username,
         discriminator: rawData.discriminator,
-        avatar: rawData.avatar,
+        avatarHash: rawData.avatar,
         bot: Boolean(rawData.bot),
         system: Boolean(rawData.system),
         publicFlags: rawData.public_flags || 0,

@@ -30,11 +30,11 @@ export default class User extends Base<User> {
     discriminator: string;
 
     /**
-     * Avatar
+     * Avatar Hash
      *
      * The user's avatar hash
      */
-    avatar: string | null;
+    avatarHash: string | null;
 
     /**
      * Bot
@@ -198,6 +198,19 @@ export default class User extends Base<User> {
      */
     cache(expiresIn?: number | null) {
         this.client._users.cache(this.id, this, expiresIn);
+    }
+
+    /**
+     * Avatar URL
+     *
+     * Get the avatar's URL
+     *
+     * @param allowGIF Return the GIF version of the avatar if available
+     *
+     * @returns {string} The avatar's URL
+     */
+    iconURL(allowGIF = true): string {
+        return this.avatarHash ? `https://cdn.discordapp.com/avatars/${this.id}/${this.avatarHash}.${((allowGIF) && (this.avatarHash.startsWith("a_"))) ? "gif" : "png"}` : `https://cdn.discordapp.com/embed/avatars/${parseInt(this.discriminator) % 5}.png`;
     }
 
     /**

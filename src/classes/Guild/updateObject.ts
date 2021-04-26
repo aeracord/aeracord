@@ -10,9 +10,9 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
 
     // Set data
     guild.name = guildData.name;
-    guild.icon = guildData.icon;
-    guild.splashImage = guildData.splashImage;
-    guild.discoverySplashImage = guildData.discoverySplashImage;
+    guild.iconHash = guildData.iconHash;
+    guild.splashImageHash = guildData.splashImageHash;
+    guild.discoverySplashImageHash = guildData.discoverySplashImageHash;
     guild.ownerID = guildData.ownerID;
     guild.region = guildData.region;
     guild.afkChannelID = guildData.afkChannelID;
@@ -33,7 +33,7 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.maxMembers = guildData.maxMembers;
     guild.vanityURLCode = guildData.vanityURLCode;
     guild.description = guildData.description;
-    guild.banner = guildData.banner;
+    guild.bannerHash = guildData.bannerHash;
     guild.premiumTier = guildData.premiumTier;
     guild.premiumSubscriptionCount = guildData.premiumSubscriptionCount;
     guild.preferredLocale = guildData.preferredLocale;

@@ -23,25 +23,25 @@ export default class Guild extends Base<Guild> {
     name: string;
 
     /**
-     * Icon
+     * Icon Hash
      *
      * The guild's icon hash
      */
-    icon: string | null;
+    iconHash: string | null;
 
     /**
-     * Splash Image
+     * Splash Image Hash
      *
      * The guild's splash image hash
      */
-    splashImage: string | null;
+    splashImageHash: string | null;
 
     /**
-     * Discovery Splash Image
+     * Discovery Splash Image Hash
      *
      * The guild's discovery splash image hash
      */
-    discoverySplashImage: string | null;
+    discoverySplashImageHash: string | null;
 
     /**
      * Owner ID
@@ -254,11 +254,11 @@ export default class Guild extends Base<Guild> {
     description: string | null;
 
     /**
-     * Banner
+     * Banner Hash
      *
      * The guild's banner hash
      */
-    banner: string | null;
+    bannerHash: string | null;
 
     /**
      * Premium Tier
@@ -573,6 +573,52 @@ export default class Guild extends Base<Guild> {
      */
     cache(expiresIn?: number | null) {
         this.client._guilds.cache(this.id, this, expiresIn);
+    }
+
+    /**
+     * Icon URL
+     *
+     * Get the icon's URL
+     *
+     * @param allowGIF Return the GIF version of the icon if available
+     *
+     * @returns {string | undefined} The icon's URL or `undefined` if there isn't one set
+     */
+    iconURL(allowGIF = true): string | undefined {
+        return this.iconHash ? `https://cdn.discordapp.com/icons/${this.id}/${this.iconHash}.${((allowGIF) && (this.iconHash.startsWith("a_"))) ? "gif" : "png"}` : undefined;
+    }
+
+    /**
+     * Splash Image URL
+     *
+     * Get the splash image's URL
+     *
+     * @returns {string | undefined} The splash image's URL or `undefined` if there isn't one set
+     */
+    splashImageURL(): string | undefined {
+        return this.splashImageHash ? `https://cdn.discordapp.com/splashes/${this.id}/${this.splashImageHash}.png` : undefined;
+    }
+
+    /**
+     * Discovery Splash Image URL
+     *
+     * Get the discovery splash image's URL
+     *
+     * @returns {string | undefined} The discovery splash image's URL or `undefined` if there isn't one set
+     */
+    discoverySplashImageURL(): string | undefined {
+        return this.discoverySplashImageHash ? `https://cdn.discordapp.com/discovery-splashes/${this.id}/${this.discoverySplashImageHash}.png` : undefined;
+    }
+
+    /**
+     * Banner URL
+     *
+     * Get the banner's URL
+     *
+     * @returns {string | undefined} The banner's URL or `undefined` if there isn't one set
+     */
+    bannerURL(): string | undefined {
+        return this.bannerHash ? `https://cdn.discordapp.com/banners/${this.id}/${this.bannerHash}.png` : undefined;
     }
 
     /**

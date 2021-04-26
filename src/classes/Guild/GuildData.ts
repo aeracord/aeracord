@@ -22,25 +22,25 @@ export interface GuildData {
     name: string;
 
     /**
-     * Icon
+     * Icon Hash
      *
      * The guild's icon hash
      */
-    icon: string | null;
+    iconHash: string | null;
 
     /**
-     * Splash Image
+     * Splash Image Hash
      *
      * The guild's splash image hash
      */
-    splashImage: string | null;
+    splashImageHash: string | null;
 
     /**
-     * Discovery Splash Image
+     * Discovery Splash Image Hash
      *
      * The guild's discovery splash image hash
      */
-    discoverySplashImage: string | null;
+    discoverySplashImageHash: string | null;
 
     /**
      * Owner ID
@@ -183,11 +183,11 @@ export interface GuildData {
     description: string | null;
 
     /**
-     * Banner
+     * Banner Hash
      *
      * The guild's banner hash
      */
-    banner: string | null;
+    bannerHash: string | null;
 
     /**
      * Premium Tier

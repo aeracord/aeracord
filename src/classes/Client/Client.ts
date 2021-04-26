@@ -749,11 +749,11 @@ export default class Client extends EventEmitter {
     }
 
     /**
-     * Avatar
+     * Avatar Hash
      *
      * The client's avatar hash
      */
-    avatar: string | null;
+    avatarHash: string | null;
 
     /**
      * Session ID
@@ -1519,6 +1519,17 @@ export default class Client extends EventEmitter {
      */
     _garbageCollect() {
         garbageCollect(this);
+    }
+
+    /**
+     * Avatar URL
+     *
+     * Get the client's avatar's URL
+     *
+     * @returns {string} The avatar's URL
+     */
+    avatarURL(): string {
+        return this.avatarHash ? `https://cdn.discordapp.com/avatars/${this.id}/${this.avatarHash}.png` : `https://cdn.discordapp.com/embed/avatars/${parseInt(this.discriminator) % 5}.png`;
     }
 
     /**

@@ -27,11 +27,11 @@ export interface UserData {
     discriminator: string;
 
     /**
-     * Avatar
+     * Avatar Hash
      *
      * The user's avatar hash
      */
-    avatar: string | null;
+    avatarHash: string | null;
 
     /**
      * Bot

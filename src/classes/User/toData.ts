@@ -7,7 +7,7 @@ export default function toData(user: User): UserData {
         id: user.id,
         username: user.username,
         discriminator: user.discriminator,
-        avatar: user.avatar,
+        avatarHash: user.avatarHash,
         bot: user.bot,
         system: user.system,
         publicFlags: user.publicFlags,
