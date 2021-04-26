@@ -227,13 +227,13 @@ export default class Embed {
      * Set this embed's author
      *
      * @param name The author's name
-     * @param url The author's URL
      * @param iconURL The URL of the author's icon
+     * @param url The author's URL
      *
      * @returns {Embed} This embed
      */
-    setAuthor(name?: string, url?: string, iconURL?: string): Embed {
-        this.author = { name, url, iconURL };
+    setAuthor(name?: string, iconURL?: string, url?: string): Embed {
+        this.author = { name, iconURL, url };
         return this;
     }
 

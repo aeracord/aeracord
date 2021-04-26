@@ -298,13 +298,6 @@ export interface MessageEmbedAuthor {
     name: string | null;
 
     /**
-     * URL
-     *
-     * The URL
-     */
-    url: string | null;
-
-    /**
      * Icon URL
      *
      * The icon URL
@@ -317,6 +310,13 @@ export interface MessageEmbedAuthor {
      * The proxied icon URL
      */
     proxyIconURL: string | null;
+
+    /**
+     * URL
+     *
+     * The URL
+     */
+    url: string | null;
 }
 
 /**

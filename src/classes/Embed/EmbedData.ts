@@ -113,18 +113,18 @@ export interface EmbedAuthor {
     name?: string;
 
     /**
-     * URL
-     *
-     * The URL
-     */
-    url?: string;
-
-    /**
      * Icon URL
      *
      * The icon URL
      */
     iconURL?: string;
+
+    /**
+     * URL
+     *
+     * The URL
+     */
+    url?: string;
 }
 
 /**
