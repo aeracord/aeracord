@@ -1,10 +1,10 @@
-import { Client, Command, CommandOption, CommandResolvable, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, CommandResolvable, CreateCommandDataOption, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditCommandData {
     name?: string;
     description?: string;
-    options?: CommandOption[] | null;
+    options?: CreateCommandDataOption[] | null;
     defaultPermission?: boolean;
 }
 

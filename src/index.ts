@@ -179,6 +179,7 @@ export {
     BulkDeleteMessagesData,
     BulkEditGuildCommandPermissionsData,
     CreateCommandData,
+    CreateCommandDataOption,
     CreateChannelInviteData,
     CreateDMData,
     CreateGuildBanData,

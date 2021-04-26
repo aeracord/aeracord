@@ -1,4 +1,4 @@
-import { Client, Command, CommandOption, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, CommandChoice, CommandOption, CommandOptionType, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateCommandData {
@@ -6,6 +6,15 @@ export interface CreateCommandData {
     description: string;
     options?: CommandOption[];
     defaultPermission?: boolean;
+}
+
+export interface CreateCommandDataOption {
+    name: string;
+    description: string;
+    type: CommandOptionType;
+    required?: boolean;
+    choices?: CommandChoice[];
+    options?: CreateCommandDataOption[];
 }
 
 export default async function createGlobalCommand(client: Client, createCommandData: CreateCommandData): Promise<Command> {
