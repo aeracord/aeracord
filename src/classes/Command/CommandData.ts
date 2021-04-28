@@ -116,7 +116,7 @@ export interface CommandOption {
  * Command Option Type
  * https://discord.com/developers/docs/interactions/slash-commands#applicationcommandoptiontype
  */
-export type CommandOptionType = typeof COMMAND_OPTION_TYPE_SUB_COMMAND | typeof COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP | typeof COMMAND_OPTION_TYPE_STRING | typeof COMMAND_OPTION_TYPE_INTEGER | typeof COMMAND_OPTION_TYPE_BOOLEAN | typeof COMMAND_OPTION_TYPE_USER | typeof COMMAND_OPTION_TYPE_CHANNEL | typeof COMMAND_OPTION_TYPE_ROLE;
+export type CommandOptionType = typeof COMMAND_OPTION_TYPE_SUB_COMMAND | typeof COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP | typeof COMMAND_OPTION_TYPE_STRING | typeof COMMAND_OPTION_TYPE_INTEGER | typeof COMMAND_OPTION_TYPE_BOOLEAN | typeof COMMAND_OPTION_TYPE_USER | typeof COMMAND_OPTION_TYPE_CHANNEL | typeof COMMAND_OPTION_TYPE_ROLE | typeof COMMAND_OPTION_TYPE_MENTIONABLE;
 export const COMMAND_OPTION_TYPE_SUB_COMMAND = 1;
 export const COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP = 2;
 export const COMMAND_OPTION_TYPE_STRING = 3;
@@ -125,6 +125,7 @@ export const COMMAND_OPTION_TYPE_BOOLEAN = 5;
 export const COMMAND_OPTION_TYPE_USER = 6;
 export const COMMAND_OPTION_TYPE_CHANNEL = 7;
 export const COMMAND_OPTION_TYPE_ROLE = 8;
+export const COMMAND_OPTION_TYPE_MENTIONABLE = 9;
 
 /**
  * Command Choice
