@@ -317,6 +317,13 @@ export default class Guild extends Base<Guild> {
     welcomeScreen: WelcomeScreenData | null;
 
     /**
+     * NSFW
+     *
+     * Whether or not the guild is marked as NSFW
+     */
+    nsfw: boolean;
+
+    /**
      * Guild
      *
      * @param client The client
@@ -355,6 +362,7 @@ export default class Guild extends Base<Guild> {
      * @param guildData.approximateMemberCount The approximate number of members in this guild
      * @param guildData.approximatePresenceCount The approximate number of online members in this guild
      * @param guildData.welcomeScreen The guild's welcome screen
+     * @param guildData.nsfw Whether or not the guild is marked as NSFW
      */
     constructor(client: Client, guildData: GuildData) {
 

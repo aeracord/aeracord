@@ -36,4 +36,5 @@ export interface RawGuildData {
     approximate_member_count?: number;
     approximate_presence_count?: number;
     welcome_screen?: RawWelcomeScreenData;
+    nsfw: boolean;
 }

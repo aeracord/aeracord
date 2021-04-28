@@ -246,6 +246,13 @@ export interface GuildData {
     welcomeScreen: WelcomeScreenData | null;
 
     /**
+     * NSFW
+     *
+     * Whether or not the guild is marked as NSFW
+     */
+    nsfw: boolean;
+
+    /**
      * Fetched At
      *
      * The timestamp for when this guild was fetched
