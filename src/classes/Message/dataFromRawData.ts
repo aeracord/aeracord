@@ -15,7 +15,16 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
         type: rawData.type,
         channelID: rawData.channel_id,
         guildID: rawData.guild_id || null,
-        author: rawData.webhook_id ? null : User._dataFromRawData(rawData.author as RawUserData),
+
+        /**
+         * If the message is sent by a user or bot or its an interaction response, the author property will be a user object
+         * If its sent by a webhook, itll be a webhook object
+         *
+         * If it has the `discriminator` property, we know that its a user object
+         * Otherwise, if its a webhook object, set the author property to `null` since the `webhook` property will be set
+         */
+        author: ("discriminator" in rawData.author) ? User._dataFromRawData(rawData.author) : null,
+
         webhook: rawData.webhook_id ? {
             id: rawData.author.id,
             name: rawData.author.username,
