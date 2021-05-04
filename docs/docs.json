@@ -9559,19 +9559,28 @@
 														"type": "reference",
 														"typeArguments": [
 															{
-																"type": "typeParameter",
-																"name": "CachedObject",
-																"constraint": {
-																	"type": "reference",
-																	"id": 36,
-																	"typeArguments": [
-																		{
-																			"type": "typeParameter",
-																			"name": "CachedObject"
+																"type": "union",
+																"types": [
+																	{
+																		"type": "typeParameter",
+																		"name": "CachedObject",
+																		"constraint": {
+																			"type": "reference",
+																			"id": 36,
+																			"typeArguments": [
+																				{
+																					"type": "typeParameter",
+																					"name": "CachedObject"
+																				}
+																			],
+																			"name": "Base"
 																		}
-																	],
-																	"name": "Base"
-																}
+																	},
+																	{
+																		"type": "intrinsic",
+																		"name": "undefined"
+																	}
+																]
 															}
 														],
 														"name": "Promise"
@@ -10435,19 +10444,28 @@
 														"type": "reference",
 														"typeArguments": [
 															{
-																"type": "typeParameter",
-																"name": "CachedObject",
-																"constraint": {
-																	"type": "reference",
-																	"id": 36,
-																	"typeArguments": [
-																		{
-																			"type": "typeParameter",
-																			"name": "CachedObject"
+																"type": "union",
+																"types": [
+																	{
+																		"type": "typeParameter",
+																		"name": "CachedObject",
+																		"constraint": {
+																			"type": "reference",
+																			"id": 36,
+																			"typeArguments": [
+																				{
+																					"type": "typeParameter",
+																					"name": "CachedObject"
+																				}
+																			],
+																			"name": "Base"
 																		}
-																	],
-																	"name": "Base"
-																}
+																	},
+																	{
+																		"type": "intrinsic",
+																		"name": "undefined"
+																	}
+																]
 															}
 														],
 														"name": "Promise"
@@ -27919,9 +27937,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 566,
-												"name": "AnyChannel"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 566,
+														"name": "AnyChannel"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -28063,9 +28090,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5353,
-												"name": "Message"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5353,
+														"name": "Message"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -28382,9 +28418,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 3550,
-												"name": "Command"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 3550,
+														"name": "Command"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -28508,9 +28553,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 4295,
-												"name": "Guild"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 4295,
+														"name": "Guild"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -28667,9 +28721,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 249,
-												"name": "Ban"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 249,
+														"name": "Ban"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -28876,9 +28939,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 3550,
-												"name": "Command"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 3550,
+														"name": "Command"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -28955,9 +29027,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 3684,
-												"name": "CommandPermissions"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 3684,
+														"name": "CommandPermissions"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -29099,9 +29180,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 4137,
-												"name": "Emoji"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 4137,
+														"name": "Emoji"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -29243,9 +29333,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5219,
-												"name": "Member"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5219,
+														"name": "Member"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -29497,9 +29596,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 7062,
-												"name": "VanityInvite"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 7062,
+														"name": "VanityInvite"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -29840,9 +29948,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5077,
-												"name": "Invite"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5077,
+														"name": "Invite"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -30125,9 +30242,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 6560,
-												"name": "Template"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 6560,
+														"name": "Template"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -30187,9 +30313,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 6939,
-												"name": "User"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 6939,
+														"name": "User"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -30266,9 +30401,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 7323,
-												"name": "Webhook"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 7323,
+														"name": "Webhook"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -53537,9 +53681,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 566,
-										"name": "AnyChannel"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 566,
+												"name": "AnyChannel"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -53746,9 +53899,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 5353,
-										"name": "Message"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 5353,
+												"name": "Message"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -54799,9 +54961,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 3550,
-										"name": "Command"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 3550,
+												"name": "Command"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -55056,9 +55227,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 4295,
-										"name": "Guild"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 4295,
+												"name": "Guild"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -55425,9 +55605,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 249,
-										"name": "Ban"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 249,
+												"name": "Ban"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -55733,9 +55922,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 3550,
-										"name": "Command"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 3550,
+												"name": "Command"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -55843,9 +56041,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 3684,
-										"name": "CommandPermissions"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 3684,
+												"name": "CommandPermissions"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -56052,9 +56259,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 4137,
-										"name": "Emoji"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 4137,
+												"name": "Emoji"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -56261,9 +56477,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 5219,
-										"name": "Member"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 5219,
+												"name": "Member"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -57201,9 +57426,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 7062,
-										"name": "VanityInvite"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 7062,
+												"name": "VanityInvite"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -57772,9 +58006,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 5077,
-										"name": "Invite"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 5077,
+												"name": "Invite"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -58242,9 +58485,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 6560,
-										"name": "Template"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 6560,
+												"name": "Template"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -58338,9 +58590,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 6939,
-										"name": "User"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 6939,
+												"name": "User"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -58448,9 +58709,18 @@
 								"type": "reference",
 								"typeArguments": [
 									{
-										"type": "reference",
-										"id": 7323,
-										"name": "Webhook"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"id": 7323,
+												"name": "Webhook"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
 									}
 								],
 								"name": "Promise"
@@ -87004,9 +87274,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5353,
-												"name": "Message"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5353,
+														"name": "Message"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -98621,9 +98900,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 249,
-												"name": "Ban"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 249,
+														"name": "Ban"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -98775,9 +99063,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 3550,
-												"name": "Command"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 3550,
+														"name": "Command"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -98837,9 +99134,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 3684,
-												"name": "CommandPermissions"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 3684,
+														"name": "CommandPermissions"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -98945,9 +99251,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 4137,
-												"name": "Emoji"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 4137,
+														"name": "Emoji"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -99099,9 +99414,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5219,
-												"name": "Member"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5219,
+														"name": "Member"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -99343,9 +99667,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 7062,
-												"name": "VanityInvite"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 7062,
+														"name": "VanityInvite"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -136139,9 +136472,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5353,
-												"name": "Message"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5353,
+														"name": "Message"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -159516,9 +159858,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5353,
-												"name": "Message"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5353,
+														"name": "Message"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
@@ -163963,9 +164314,18 @@
 										"type": "reference",
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 5353,
-												"name": "Message"
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 5353,
+														"name": "Message"
+													},
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													}
+												]
 											}
 										],
 										"name": "Promise"
