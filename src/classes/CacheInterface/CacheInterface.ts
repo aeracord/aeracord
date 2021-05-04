@@ -31,7 +31,7 @@ export interface CacheInterfaceData<CachedObject extends Base<CachedObject>> {
      *
      * A function to fetch an object from the API
      */
-    fetchObject?: (id: string) => Promise<CachedObject>;
+    fetchObject?: (id: string) => Promise<CachedObject | undefined>;
 
     /**
      * Fetch Object
@@ -104,7 +104,7 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
      *
      * @private
      */
-    _fetchObject?: (id: string) => Promise<CachedObject>;
+    _fetchObject?: (id: string) => Promise<CachedObject | undefined>;
 
     /**
      * Fetch Object

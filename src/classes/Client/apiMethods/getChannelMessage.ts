@@ -1,7 +1,7 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, PermissionError, RawMessageData } from "../../../internal";
+import { APIError, Channel, ChannelResolvable, Client, FetchQueue, Message, MessageResolvable, PermissionError, RawMessageData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getChannelMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable): Promise<Message> {
+export default async function getChannelMessage(client: Client, channelResolvable: ChannelResolvable, messageResolvable: MessageResolvable): Promise<Message | undefined> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -21,10 +21,21 @@ export default async function getChannelMessage(client: Client, channelResolvabl
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Add to fetch queue
+    let unknownMessage: boolean = false;
     const result: RawMessageData = await fetchQueue.request({
         path,
         method
+    }).catch((err: APIError) => {
+
+        // Unknown message
+        if (err.code === 10008) unknownMessage = true;
+
+        // Throw error
+        else throw err;
     });
+
+    // Unknown message
+    if (unknownMessage) return;
 
     // Parse message
     const message: Message = Message._fromRawData(client, result);

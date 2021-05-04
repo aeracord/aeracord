@@ -1,7 +1,7 @@
-import { Client, FetchQueue, RawUserData, User, UserResolvable } from "../../../internal";
+import { APIError, Client, FetchQueue, RawUserData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getUser(client: Client, userResolvable: UserResolvable): Promise<User> {
+export default async function getUser(client: Client, userResolvable: UserResolvable): Promise<User | undefined> {
 
     // Resolve objects
     const userID: string | undefined = User.resolveID(userResolvable);
@@ -16,10 +16,21 @@ export default async function getUser(client: Client, userResolvable: UserResolv
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Add to fetch queue
+    let unknownUser: boolean = false;
     const result: RawUserData = await fetchQueue.request({
         path,
         method
+    }).catch((err: APIError) => {
+
+        // Unknown user
+        if (err.code === 10013) unknownUser = true;
+
+        // Throw error
+        else throw err;
     });
+
+    // Unknown user
+    if (unknownUser) return;
 
     // Parse user
     const user: User = User._fromRawData(client, result);

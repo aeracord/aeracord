@@ -1396,13 +1396,13 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "bans", {
             value: new GuildUserCacheInterface<Ban>(this, {
                 cacheManager: this._bans._cacheManager,
-                fetchObject: async (id: string): Promise<Ban> => await this.getGuildBan(id.split("_")[0], id.split("_")[1])
+                fetchObject: async (id: string): Promise<Ban | undefined> => await this.getGuildBan(id.split("_")[0], id.split("_")[1])
             })
         });
         Object.defineProperty(this, "channels", {
             value: new CacheInterface<AnyChannel>(this, {
                 cacheManager: this._channels,
-                fetchObject: async (id: string): Promise<AnyChannel> => await this.getChannel(id)
+                fetchObject: async (id: string): Promise<AnyChannel | undefined> => await this.getChannel(id)
             })
         });
         Object.defineProperty(this, "emojis", {
@@ -1413,7 +1413,7 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "guilds", {
             value: new CacheInterface<Guild>(this, {
                 cacheManager: this._guilds,
-                fetchObject: async (id: string): Promise<Guild> => await this.getGuild(id)
+                fetchObject: async (id: string): Promise<Guild | undefined> => await this.getGuild(id)
             })
         });
         Object.defineProperty(this, "guildWidgets", {
@@ -1430,13 +1430,13 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "invites", {
             value: new CacheInterface<Invite>(this, {
                 cacheManager: this._invites,
-                fetchObject: async (id: string): Promise<Invite> => await this.getInvite(id)
+                fetchObject: async (id: string): Promise<Invite | undefined> => await this.getInvite(id)
             })
         });
         Object.defineProperty(this, "members", {
             value: new GuildUserCacheInterface<Member>(this, {
                 cacheManager: this._members._cacheManager,
-                fetchObject: async (id: string): Promise<Member> => await this.getGuildMember(id.split("_")[0], id.split("_")[1])
+                fetchObject: async (id: string): Promise<Member | undefined> => await this.getGuildMember(id.split("_")[0], id.split("_")[1])
             })
         });
         Object.defineProperty(this, "messages", {
@@ -1457,19 +1457,19 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "templates", {
             value: new CacheInterface<Template>(this, {
                 cacheManager: this._templates,
-                fetchObject: async (id: string): Promise<Template> => await this.getTemplate(id)
+                fetchObject: async (id: string): Promise<Template | undefined> => await this.getTemplate(id)
             })
         });
         Object.defineProperty(this, "users", {
             value: new CacheInterface<User>(this, {
                 cacheManager: this._users,
-                fetchObject: async (id: string): Promise<User> => await this.getUser(id)
+                fetchObject: async (id: string): Promise<User | undefined> => await this.getUser(id)
             })
         });
         Object.defineProperty(this, "vanityInvites", {
             value: new CacheInterface<VanityInvite>(this, {
                 cacheManager: this._vanityInvites,
-                fetchObject: async (id: string): Promise<VanityInvite> => await this.getGuildVanityURL(id)
+                fetchObject: async (id: string): Promise<VanityInvite | undefined> => await this.getGuildVanityURL(id)
             })
         });
         Object.defineProperty(this, "webhooks", {
@@ -2290,7 +2290,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<AnyChannel>} The channel
      */
-    getChannel(channel: ChannelResolvable): Promise<AnyChannel> {
+    getChannel(channel: ChannelResolvable): Promise<AnyChannel | undefined> {
         return getChannel(this, channel);
     }
 
@@ -2317,7 +2317,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message>} The message
      */
-    getChannelMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<Message> {
+    getChannelMessage(channel: ChannelResolvable, message: MessageResolvable): Promise<Message | undefined> {
         return getChannelMessage(this, channel, message);
     }
 
@@ -2381,7 +2381,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Command>} The command
      */
-    getGlobalCommand(command: CommandResolvable): Promise<Command> {
+    getGlobalCommand(command: CommandResolvable): Promise<Command | undefined> {
         return getGlobalCommand(this, command);
     }
 
@@ -2406,7 +2406,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Guild>} The guild
      */
-    getGuild(guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild> {
+    getGuild(guild: GuildResolvable, getGuildData?: GetGuildData): Promise<Guild | undefined> {
         return getGuild(this, guild, getGuildData);
     }
 
@@ -2434,7 +2434,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Ban>} The ban
      */
-    getGuildBan(guild: GuildResolvable, user: UserResolvable): Promise<Ban> {
+    getGuildBan(guild: GuildResolvable, user: UserResolvable): Promise<Ban | undefined> {
         return getGuildBan(this, guild, user);
     }
 
@@ -2474,7 +2474,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Command>} The command
      */
-    getGuildCommand(guild: GuildResolvable, command: CommandResolvable): Promise<Command> {
+    getGuildCommand(guild: GuildResolvable, command: CommandResolvable): Promise<Command | undefined> {
         return getGuildCommand(this, guild, command);
     }
 
@@ -2488,7 +2488,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<CommandPermissions>} The command permissions
      */
-    getGuildCommandPermissions(guild: GuildResolvable, command: CommandResolvable): Promise<CommandPermissions> {
+    getGuildCommandPermissions(guild: GuildResolvable, command: CommandResolvable): Promise<CommandPermissions | undefined> {
         return getGuildCommandPermissions(this, guild, command);
     }
 
@@ -2515,7 +2515,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Emoji>} The emoji
      */
-    getGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable): Promise<Emoji> {
+    getGuildEmoji(guild: GuildResolvable, emoji: EmojiResolvable): Promise<Emoji | undefined> {
         return getGuildEmoji(this, guild, emoji);
     }
 
@@ -2542,7 +2542,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Member>} The member
      */
-    getGuildMember(guild: GuildResolvable, user: UserResolvable): Promise<Member> {
+    getGuildMember(guild: GuildResolvable, user: UserResolvable): Promise<Member | undefined> {
         return getGuildMember(this, guild, user);
     }
 
@@ -2594,7 +2594,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<VanityInvite>} The vanity invite
      */
-    getGuildVanityURL(guild: GuildResolvable): Promise<VanityInvite> {
+    getGuildVanityURL(guild: GuildResolvable): Promise<VanityInvite | undefined> {
         return getGuildVanityURL(this, guild);
     }
 
@@ -2660,7 +2660,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Invite>} The invite
      */
-    getInvite(invite: InviteResolvable, getInviteData?: GetInviteData): Promise<Invite> {
+    getInvite(invite: InviteResolvable, getInviteData?: GetInviteData): Promise<Invite | undefined> {
         return getInvite(this, invite, getInviteData);
     }
 
@@ -2702,7 +2702,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Template>} The template
      */
-    getTemplate(template: TemplateResolvable): Promise<Template> {
+    getTemplate(template: TemplateResolvable): Promise<Template | undefined> {
         return getTemplate(this, template);
     }
 
@@ -2715,7 +2715,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<User>} The user
      */
-    getUser(user: UserResolvable): Promise<User> {
+    getUser(user: UserResolvable): Promise<User | undefined> {
         return getUser(this, user);
     }
 
@@ -2729,7 +2729,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Webhook>} The webhook
      */
-    getWebhook(channel: ChannelResolvable, webhook: WebhookResolvable): Promise<Webhook> {
+    getWebhook(channel: ChannelResolvable, webhook: WebhookResolvable): Promise<Webhook | undefined> {
         return getWebhook(this, channel, webhook);
     }
 

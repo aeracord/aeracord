@@ -67,7 +67,7 @@ export default class TextBasedChannel extends Channel {
             value: new CacheInterface<Message>(this.client, {
                 cacheManager: this.client._messages,
                 match: (m: Message) => m.channelID === this.id,
-                fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
+                fetchObject: async (id: string): Promise<Message | undefined> => await this.client.getChannelMessage(this.id, id)
             })
         });
     }
@@ -232,7 +232,7 @@ export default class TextBasedChannel extends Channel {
      *
      * @returns {Promise<Message>} The message
      */
-    getMessage(message: MessageResolvable): Promise<Message> {
+    getMessage(message: MessageResolvable): Promise<Message | undefined> {
         return this.client.getChannelMessage(this, message);
     }
 

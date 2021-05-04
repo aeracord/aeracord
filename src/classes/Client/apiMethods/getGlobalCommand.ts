@@ -1,7 +1,7 @@
-import { Client, Command, CommandResolvable, FetchQueue, RawCommandData } from "../../../internal";
+import { APIError, Client, Command, CommandResolvable, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGlobalCommand(client: Client, commandResolvable: CommandResolvable): Promise<Command> {
+export default async function getGlobalCommand(client: Client, commandResolvable: CommandResolvable): Promise<Command | undefined> {
 
     // Resolve objects
     const commandID: string | undefined = Command.resolveID(commandResolvable);
@@ -16,10 +16,21 @@ export default async function getGlobalCommand(client: Client, commandResolvable
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Add to fetch queue
+    let unknownCommand: boolean = false;
     const result: RawCommandData = await fetchQueue.request({
         path,
         method
+    }).catch((err: APIError) => {
+
+        // Unknown command
+        if (err.code === 10063) unknownCommand = true;
+
+        // Throw error
+        else throw err;
     });
+
+    // Unknown command
+    if (unknownCommand) return;
 
     // Parse command
     const command: Command = Command._fromRawData(client, result);

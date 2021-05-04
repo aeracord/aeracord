@@ -1,12 +1,12 @@
 import queryString from "query-string";
-import { Client, FetchQueue, Invite, InviteResolvable, RawInviteData } from "../../../internal";
+import { APIError, Client, FetchQueue, Invite, InviteResolvable, RawInviteData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface GetInviteData {
     withCounts?: boolean;
 }
 
-export default async function getInvite(client: Client, inviteResolvable: InviteResolvable, getInviteData: GetInviteData = {}): Promise<Invite> {
+export default async function getInvite(client: Client, inviteResolvable: InviteResolvable, getInviteData: GetInviteData = {}): Promise<Invite | undefined> {
 
     // Resolve objects
     const inviteCode: string | undefined = Invite.resolveCode(inviteResolvable);
@@ -23,10 +23,21 @@ export default async function getInvite(client: Client, inviteResolvable: Invite
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Add to fetch queue
+    let unknownInvite: boolean = false;
     const result: RawInviteData = await fetchQueue.request({
         path,
         method
+    }).catch((err: APIError) => {
+
+        // Unknown invite
+        if (err.code === 10006) unknownInvite = true;
+
+        // Throw error
+        else throw err;
     });
+
+    // Unknown invite
+    if (unknownInvite) return;
 
     // Parse invite
     const invite: Invite = Invite._fromRawData(client, result);

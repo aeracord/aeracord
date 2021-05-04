@@ -1,7 +1,7 @@
-import { Ban, Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawBanData, User, UserResolvable } from "../../../internal";
+import { APIError, Ban, Client, FetchQueue, Guild, GuildResolvable, PermissionError, RawBanData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function getGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable): Promise<Ban> {
+export default async function getGuildBan(client: Client, guildResolvable: GuildResolvable, userResolvable: UserResolvable): Promise<Ban | undefined> {
 
     // Resolve objects
     const guildID: string | undefined = Guild.resolveID(guildResolvable);
@@ -21,10 +21,21 @@ export default async function getGuildBan(client: Client, guildResolvable: Guild
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Add to fetch queue
+    let unknownBan: boolean = false;
     const result: RawBanData = await fetchQueue.request({
         path,
         method
+    }).catch((err: APIError) => {
+
+        // Unknown ban
+        if (err.code === 10026) unknownBan = true;
+
+        // Throw error
+        else throw err;
     });
+
+    // Unknown ban
+    if (unknownBan) return;
 
     // Parse ban
     const ban: Ban = Ban._fromRawData(client, result, guildID);

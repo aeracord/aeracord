@@ -378,7 +378,7 @@ export default class Guild extends Base<Guild> {
             value: new GuildUserCacheInterface<Ban>(this.client, {
                 cacheManager: this.client._bans._cacheManager,
                 match: (b: Ban) => b.guildID === this.id,
-                fetchObject: async (id: string): Promise<Ban> => await this.client.getGuildBan(id.split("_")[0], id.split("_")[1])
+                fetchObject: async (id: string): Promise<Ban | undefined> => await this.client.getGuildBan(id.split("_")[0], id.split("_")[1])
             })
         });
         Object.defineProperty(this, "channels", {
@@ -388,10 +388,10 @@ export default class Guild extends Base<Guild> {
                 fetchObject: async (id: string): Promise<AnyChannel> => {
 
                     // Get channel
-                    const channel: AnyChannel = await this.client.getChannel(id);
+                    const channel: AnyChannel | undefined = await this.client.getChannel(id);
 
                     // Match
-                    if ((!("guildID" in channel)) || (channel.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
+                    if ((!channel) || (!("guildID" in channel)) || (channel.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
 
                     // Return
                     return channel;
@@ -402,14 +402,14 @@ export default class Guild extends Base<Guild> {
             value: new CacheInterface<Command>(this.client, {
                 cacheManager: this.client._commands,
                 match: (c: Command) => c.guildID === this.id,
-                fetchObject: async (id: string): Promise<Command> => await this.client.getGuildCommand(this.id, id)
+                fetchObject: async (id: string): Promise<Command | undefined> => await this.client.getGuildCommand(this.id, id)
             })
         });
         Object.defineProperty(this, "emojis", {
             value: new CacheInterface<Emoji>(this.client, {
                 cacheManager: this.client._emojis,
                 match: (e: Emoji) => e.guildID === this.id,
-                fetchObject: async (id: string): Promise<Emoji> => await this.client.getGuildEmoji(this.id, id),
+                fetchObject: async (id: string): Promise<Emoji | undefined> => await this.client.getGuildEmoji(this.id, id),
                 getIDs: () => this.emojiData.map((e: EmojiData) => e.id)
             })
         });
@@ -423,14 +423,14 @@ export default class Guild extends Base<Guild> {
             value: new CacheInterface<Invite>(this.client, {
                 cacheManager: this.client._invites,
                 match: (i: Invite) => i.guildID === this.id,
-                fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
+                fetchObject: async (id: string): Promise<Invite | undefined> => await this.client.getInvite(id)
             })
         });
         Object.defineProperty(this, "members", {
             value: new GuildUserCacheInterface<Member>(this.client, {
                 cacheManager: this.client._members._cacheManager,
                 match: (m: Member) => m.guildID === this.id,
-                fetchObject: async (id: string): Promise<Member> => await this.client.getGuildMember(id.split("_")[0], id.split("_")[1])
+                fetchObject: async (id: string): Promise<Member | undefined> => await this.client.getGuildMember(id.split("_")[0], id.split("_")[1])
             })
         });
         Object.defineProperty(this, "roles", {
@@ -453,7 +453,7 @@ export default class Guild extends Base<Guild> {
             value: new CacheInterface<Template>(this.client, {
                 cacheManager: this.client._templates,
                 match: (t: Template) => t.sourceGuildID === this.id,
-                fetchObject: async (id: string): Promise<Template> => await this.client.getTemplate(id)
+                fetchObject: async (id: string): Promise<Template | undefined> => await this.client.getTemplate(id)
             })
         });
         Object.defineProperty(this, "webhooks", {
@@ -866,7 +866,7 @@ export default class Guild extends Base<Guild> {
      *
      * @returns {Promise<Ban>} The ban
      */
-    getBan(user: UserResolvable): Promise<Ban> {
+    getBan(user: UserResolvable): Promise<Ban | undefined> {
         return this.client.getGuildBan(this, user);
     }
 
@@ -901,7 +901,7 @@ export default class Guild extends Base<Guild> {
      *
      * @returns {Promise<Command>} The command
      */
-    getCommand(command: CommandResolvable): Promise<Command> {
+    getCommand(command: CommandResolvable): Promise<Command | undefined> {
         return this.client.getGuildCommand(this, command);
     }
 
@@ -914,7 +914,7 @@ export default class Guild extends Base<Guild> {
      *
      * @returns {Promise<CommandPermissions>} The command permissions
      */
-    getCommandPermissions(command: CommandResolvable): Promise<CommandPermissions> {
+    getCommandPermissions(command: CommandResolvable): Promise<CommandPermissions | undefined> {
         return this.client.getGuildCommandPermissions(this, command);
     }
 
@@ -938,7 +938,7 @@ export default class Guild extends Base<Guild> {
      *
      * @returns {Promise<Emoji>} The emoji
      */
-    getEmoji(emoji: EmojiResolvable): Promise<Emoji> {
+    getEmoji(emoji: EmojiResolvable): Promise<Emoji | undefined> {
         return this.client.getGuildEmoji(this, emoji);
     }
 
@@ -973,7 +973,7 @@ export default class Guild extends Base<Guild> {
      *
      * @returns {Promise<Member>} The member
      */
-    getMember(user: UserResolvable): Promise<Member> {
+    getMember(user: UserResolvable): Promise<Member | undefined> {
         return this.client.getGuildMember(this, user);
     }
 
@@ -1030,7 +1030,7 @@ export default class Guild extends Base<Guild> {
      *
      * @returns {Promise<VanityInvite>} The vanity invite
      */
-    getVanityURL(): Promise<VanityInvite> {
+    getVanityURL(): Promise<VanityInvite | undefined> {
         return this.client.getGuildVanityURL(this);
     }
 

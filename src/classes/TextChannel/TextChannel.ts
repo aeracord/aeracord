@@ -78,21 +78,21 @@ class TextChannel extends GuildChannel {
             value: new CacheInterface<Invite>(this.client, {
                 cacheManager: this.client._invites,
                 match: (i: Invite) => i.channelID === this.id,
-                fetchObject: async (id: string): Promise<Invite> => await this.client.getInvite(id)
+                fetchObject: async (id: string): Promise<Invite | undefined> => await this.client.getInvite(id)
             })
         });
         Object.defineProperty(this, "messages", {
             value: new CacheInterface<Message>(this.client, {
                 cacheManager: this.client._messages,
                 match: (m: Message) => m.channelID === this.id,
-                fetchObject: async (id: string): Promise<Message> => await this.client.getChannelMessage(this.id, id)
+                fetchObject: async (id: string): Promise<Message | undefined> => await this.client.getChannelMessage(this.id, id)
             })
         });
         Object.defineProperty(this, "webhooks", {
             value: new CacheInterface<Webhook>(this.client, {
                 cacheManager: this.client._webhooks,
                 match: (w: Webhook) => w.channelID === this.id,
-                fetchObject: async (id: string): Promise<Webhook> => await this.client.getWebhook(this, id)
+                fetchObject: async (id: string): Promise<Webhook | undefined> => await this.client.getWebhook(this, id)
             })
         });
     }
