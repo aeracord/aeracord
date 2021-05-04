@@ -6747,8 +6747,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 7043,
-								"name": "UserData"
+								"id": 6960,
+								"name": "User"
 							}
 						},
 						{
@@ -91228,8 +91228,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 7043,
-								"name": "UserData"
+								"id": 6960,
+								"name": "User"
 							}
 						},
 						{
@@ -96258,8 +96258,8 @@
 								"types": [
 									{
 										"type": "reference",
-										"id": 7525,
-										"name": "WelcomeScreenData"
+										"id": 7461,
+										"name": "WelcomeScreen"
 									},
 									{
 										"type": "intrinsic",
@@ -96289,8 +96289,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 4850,
-								"name": "GuildWidgetData"
+								"id": 4795,
+								"name": "GuildWidget"
 							}
 						},
 						{
@@ -111462,7 +111462,7 @@
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
 									"line": 113,
-									"character": 19
+									"character": 15
 								}
 							],
 							"overwrites": {
@@ -111796,8 +111796,8 @@
 								"types": [
 									{
 										"type": "reference",
-										"id": 5296,
-										"name": "MemberData"
+										"id": 5220,
+										"name": "Member"
 									},
 									{
 										"type": "intrinsic",
@@ -111909,8 +111909,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 7043,
-								"name": "UserData"
+								"id": 6960,
+								"name": "User"
 							}
 						},
 						{
@@ -116331,8 +116331,8 @@
 								"types": [
 									{
 										"type": "reference",
-										"id": 7043,
-										"name": "UserData"
+										"id": 6960,
+										"name": "User"
 									},
 									{
 										"type": "intrinsic",
@@ -122779,8 +122779,8 @@
 								"types": [
 									{
 										"type": "reference",
-										"id": 7043,
-										"name": "UserData"
+										"id": 6960,
+										"name": "User"
 									},
 									{
 										"type": "intrinsic",
@@ -123138,8 +123138,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 5296,
-								"name": "MemberData"
+								"id": 5220,
+								"name": "Member"
 							}
 						},
 						{
@@ -155173,8 +155173,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 7043,
-								"name": "UserData"
+								"id": 6960,
+								"name": "User"
 							}
 						},
 						{
@@ -175112,8 +175112,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 5296,
-								"name": "MemberData"
+								"id": 5220,
+								"name": "Member"
 							}
 						},
 						{
@@ -176825,8 +176825,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 7043,
-								"name": "UserData"
+								"id": 6960,
+								"name": "User"
 							}
 						},
 						{
