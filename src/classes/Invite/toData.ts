@@ -1,4 +1,4 @@
-import { Invite, InviteData } from "../../internal";
+import { Invite, InviteData, User } from "../../internal";
 
 export default function toData(invite: Invite): InviteData {
 
@@ -8,7 +8,7 @@ export default function toData(invite: Invite): InviteData {
         channelID: invite.channelID,
         guildID: invite.guildID,
         createdAt: invite.createdAt,
-        inviter: invite.inviter,
+        inviter: invite.inviter && User.toData(invite.inviter),
         maxAge: invite.maxAge,
         maxUses: invite.maxUses,
         temporary: invite.temporary,

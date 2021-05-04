@@ -1,4 +1,4 @@
-import { Base, Client, EmojiData, ModifyGuildEmojiData, RawEmojiData, READY_STATE_READY, UserData } from "../../internal";
+import { Base, Client, EmojiData, ModifyGuildEmojiData, RawEmojiData, READY_STATE_READY, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -55,7 +55,7 @@ export default class Emoji extends Base<Emoji> {
      *
      * The user that created this emoji
      */
-    creator?: UserData;
+    creator?: User;
 
     /**
      * Requires Colons

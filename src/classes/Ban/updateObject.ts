@@ -1,4 +1,4 @@
-import { Ban, BanData } from "../../internal";
+import { Ban, BanData, User } from "../../internal";
 
 export default function updateObject(ban: Ban, banData: BanData) {
 
@@ -10,7 +10,7 @@ export default function updateObject(ban: Ban, banData: BanData) {
 
     // Set data
     ban.guildID = banData.guildID;
-    ban.user = banData.user;
+    ban.user = User.fromData(ban.client, banData.user);
     ban.reason = banData.reason;
     ban._lastUpdatedAt = Date.now();
 }

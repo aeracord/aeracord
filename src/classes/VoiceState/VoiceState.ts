@@ -1,4 +1,4 @@
-import { Client, MemberData, RawVoiceStateData, VoiceStateData } from "../../internal";
+import { Client, Member, RawVoiceStateData, VoiceStateData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -38,7 +38,7 @@ export default class VoiceState {
      *
      * The member object of the user this voice state is for
      */
-    member: MemberData;
+    member: Member;
 
     /**
      * Session ID
@@ -121,7 +121,7 @@ export default class VoiceState {
         this.guildID = voiceStateData.guildID;
         this.channelID = voiceStateData.channelID;
         this.userID = voiceStateData.userID;
-        this.member = voiceStateData.member;
+        this.member = Member.fromData(this.client, voiceStateData.member);
         this.sessionID = voiceStateData.sessionID;
         this.muted = voiceStateData.muted;
         this.deafened = voiceStateData.deafened;

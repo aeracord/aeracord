@@ -1,4 +1,4 @@
-import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionCommandOption, InteractionData, InteractionType, MemberData, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, UserData } from "../../internal";
+import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionCommandOption, InteractionData, InteractionType, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -96,7 +96,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * The member that created this interaction
      */
-    member: MemberData | null;
+    member: Member | null;
 
     /**
      * Permissions
@@ -110,7 +110,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * The user that created this interaction
      */
-    user: UserData;
+    user: User;
 
     /**
      * Interaction

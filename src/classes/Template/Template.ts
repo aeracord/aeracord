@@ -1,4 +1,4 @@
-import { Base, Client, CreateGuildFromTemplateData, Guild, ModifyGuildTemplateData, RawTemplateData, READY_STATE_READY, TemplateData, TemplateGuild, UserData } from "../../internal";
+import { Base, Client, CreateGuildFromTemplateData, Guild, ModifyGuildTemplateData, RawTemplateData, READY_STATE_READY, TemplateData, TemplateGuild, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveCode from "./resolveCode";
@@ -50,7 +50,7 @@ export default class Template extends Base<Template> {
      *
      * The user that created this template
      */
-    creator: UserData;
+    creator: User;
 
     /**
      * Created At

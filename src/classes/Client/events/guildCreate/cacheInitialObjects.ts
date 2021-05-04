@@ -175,7 +175,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
             // And the guild ID is in the array
             client._cacheStrategies.objects.guildWidgets.initialCache.includes(guildCreateData.guild.id)
         )
-    ) GuildWidget.fromData(client, guildCreateData.guild.widget).cache();
+    ) guildCreateData.guild.widget.cache();
 
     // Create invite objects
     if (client._cacheStrategies.objects.invites?.initialCache) {
@@ -499,7 +499,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
                 client._cacheStrategies.objects.welcomeScreens.initialCache.includes(guildCreateData.guild.id)
             )
         )
-    ) WelcomeScreen.fromData(client, guildCreateData.guild.welcomeScreen).cache();
+    ) guildCreateData.guild.welcomeScreen.cache();
 
     // Create user objects
     guildCreateData.members.forEach((m: MemberData) => {

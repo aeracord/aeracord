@@ -1,4 +1,4 @@
-import { AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserData, UserResolvable } from "../../internal";
+import { AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -43,7 +43,7 @@ export default class Message extends Base<Message> {
      *
      * The user that sent this message
      */
-    author: UserData | null;
+    author: User | null;
 
     /**
      * Webhook
@@ -57,7 +57,7 @@ export default class Message extends Base<Message> {
      *
      * The member object of the user that sent this message
      */
-    member?: MemberData;
+    member?: Member;
 
     /**
      * Content

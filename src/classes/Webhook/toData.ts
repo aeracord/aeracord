@@ -1,4 +1,4 @@
-import { Webhook, WebhookData } from "../../internal";
+import { User, Webhook, WebhookData } from "../../internal";
 
 export default function toData(webhook: Webhook): WebhookData {
 
@@ -10,7 +10,7 @@ export default function toData(webhook: Webhook): WebhookData {
         channelID: webhook.channelID,
         name: webhook.name,
         avatar: webhook.avatar,
-        creator: webhook.creator,
+        creator: User.toData(webhook.creator),
         token: webhook.token,
         applicationID: webhook.applicationID,
         fetchedAt: webhook._lastUpdatedAt

@@ -1,4 +1,4 @@
-import { Template, TemplateData } from "../../internal";
+import { Template, TemplateData, User } from "../../internal";
 
 export default function updateObject(template: Template, templateData: TemplateData) {
 
@@ -12,7 +12,7 @@ export default function updateObject(template: Template, templateData: TemplateD
     template.name = templateData.name;
     template.description = templateData.description;
     template.uses = templateData.uses;
-    template.creator = templateData.creator;
+    template.creator = User.fromData(template.client, templateData.creator);
     template.createdAt = templateData.createdAt;
     template.updatedAt = templateData.updatedAt;
     template.sourceGuildID = templateData.sourceGuildID;

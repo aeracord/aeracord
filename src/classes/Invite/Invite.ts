@@ -1,4 +1,4 @@
-import { Base, Client, InviteData, RawInviteData, READY_STATE_READY, TargetUser, TargetUserType, UserData } from "../../internal";
+import { Base, Client, InviteData, RawInviteData, READY_STATE_READY, TargetUser, TargetUserType, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveCode from "./resolveCode";
@@ -50,7 +50,7 @@ export default class Invite extends Base<Invite> {
      *
      * The user that created this invite
      */
-    inviter: UserData | null;
+    inviter: User | null;
 
     /**
      * Max Age

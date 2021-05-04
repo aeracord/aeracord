@@ -1,4 +1,4 @@
-import { Guild, GuildData } from "../../internal";
+import { Guild, GuildData, GuildWidget, WelcomeScreen } from "../../internal";
 
 export default function updateObject(guild: Guild, guildData: GuildData) {
 
@@ -17,7 +17,7 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.region = guildData.region;
     guild.afkChannelID = guildData.afkChannelID;
     guild.afkTimeout = guildData.afkTimeout;
-    guild.widget = guildData.widget;
+    guild.widget = GuildWidget.fromData(guild.client, guildData.widget);
     guild.verificationLevel = guildData.verificationLevel;
     guild.defaultMessageNotifications = guildData.defaultMessageNotifications;
     guild.explicitContentFilter = guildData.explicitContentFilter;
@@ -41,7 +41,7 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.maxVideoChannelUsers = guildData.maxVideoChannelUsers;
     guild.approximateMemberCount = guildData.approximateMemberCount;
     guild.approximatePresenceCount = guildData.approximatePresenceCount;
-    guild.welcomeScreen = guildData.welcomeScreen;
+    guild.welcomeScreen = guildData.welcomeScreen && WelcomeScreen.fromData(guild.client, guildData.welcomeScreen);
     guild.nsfw = guildData.nsfw;
     guild._lastUpdatedAt = Date.now();
 

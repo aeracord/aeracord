@@ -1463,11 +1463,11 @@ export default class Client extends EventEmitter {
                 fetchObject: async (id: string): Promise<WelcomeScreen> => {
 
                     // Get welcome screen data
-                    const welcomeScreenData: WelcomeScreenData | null = (await this.guilds.get(id, true)).welcomeScreen;
+                    const welcomeScreenData: WelcomeScreen | null = (await this.guilds.get(id, true)).welcomeScreen;
                     if (!welcomeScreenData) throw new Error("Couldn't find a welcome screen in that guild");
 
                     // Return
-                    return WelcomeScreen.fromData(this, welcomeScreenData);
+                    return welcomeScreenData;
                 }
             })
         });

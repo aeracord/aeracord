@@ -1,4 +1,4 @@
-import { Guild, GuildData } from "../../internal";
+import { Guild, GuildData, GuildWidget, WelcomeScreen } from "../../internal";
 
 export default function toData(guild: Guild): GuildData {
 
@@ -13,7 +13,7 @@ export default function toData(guild: Guild): GuildData {
         region: guild.region,
         afkChannelID: guild.afkChannelID,
         afkTimeout: guild.afkTimeout,
-        widget: guild.widget,
+        widget: GuildWidget.toData(guild.widget),
         verificationLevel: guild.verificationLevel,
         defaultMessageNotifications: guild.defaultMessageNotifications,
         explicitContentFilter: guild.explicitContentFilter,
@@ -37,7 +37,7 @@ export default function toData(guild: Guild): GuildData {
         maxVideoChannelUsers: guild.maxVideoChannelUsers,
         approximateMemberCount: guild.approximateMemberCount,
         approximatePresenceCount: guild.approximatePresenceCount,
-        welcomeScreen: guild.welcomeScreen,
+        welcomeScreen: guild.welcomeScreen && WelcomeScreen.toData(guild.welcomeScreen),
         nsfw: guild.nsfw,
         fetchedAt: guild._lastUpdatedAt
     };

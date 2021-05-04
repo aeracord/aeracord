@@ -1,4 +1,4 @@
-import { Message, MessageData } from "../../internal";
+import { Member, Message, MessageData, User } from "../../internal";
 
 export default function updateObject(message: Message, messageData: MessageData) {
 
@@ -12,9 +12,9 @@ export default function updateObject(message: Message, messageData: MessageData)
     message.type = messageData.type;
     message.channelID = messageData.channelID;
     message.guildID = messageData.guildID;
-    message.author = messageData.author;
+    message.author = messageData.author && User.fromData(message.client, messageData.author);
     message.webhook = messageData.webhook;
-    message.member = messageData.member;
+    message.member = messageData.member && Member.fromData(message.client, messageData.member);
     message.content = messageData.content;
     message.timestamp = messageData.timestamp;
     message.editedTimestamp = messageData.editedTimestamp;

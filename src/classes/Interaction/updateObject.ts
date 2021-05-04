@@ -1,4 +1,4 @@
-import { Interaction, InteractionData } from "../../internal";
+import { Interaction, InteractionData, Member, User } from "../../internal";
 
 export default function updateObject(interaction: Interaction, interactionData: InteractionData) {
 
@@ -15,8 +15,8 @@ export default function updateObject(interaction: Interaction, interactionData: 
     interaction.data = interactionData.data;
     interaction.guildID = interactionData.guildID;
     interaction.channelID = interactionData.channelID;
-    interaction.member = interactionData.member;
+    interaction.member = interactionData.member && Member.fromData(interaction.client, interactionData.member);
     interaction.permissions = interactionData.permissions;
-    interaction.user = interactionData.user;
+    interaction.user = User.fromData(interaction.client, interactionData.user);
     interaction._lastUpdatedAt = Date.now();
 }

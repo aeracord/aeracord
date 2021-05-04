@@ -1,4 +1,4 @@
-import { Emoji, EmojiData } from "../../internal";
+import { Emoji, EmojiData, User } from "../../internal";
 
 export default function toData(emoji: Emoji): EmojiData {
 
@@ -10,7 +10,7 @@ export default function toData(emoji: Emoji): EmojiData {
         animated: emoji.animated,
         managed: emoji.managed,
         available: emoji.available,
-        creator: emoji.creator,
+        creator: emoji.creator && User.toData(emoji.creator),
         requiresColons: emoji.requiresColons,
         roles: emoji.roles,
         fetchedAt: emoji._lastUpdatedAt

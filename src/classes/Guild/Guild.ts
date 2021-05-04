@@ -76,7 +76,7 @@ export default class Guild extends Base<Guild> {
      *
      * The guild's widget
      */
-    widget: GuildWidgetData;
+    widget: GuildWidget;
 
     /**
      * Verification Level
@@ -314,7 +314,7 @@ export default class Guild extends Base<Guild> {
      *
      * The guild's welcome screen
      */
-    welcomeScreen: WelcomeScreenData | null;
+    welcomeScreen: WelcomeScreen | null;
 
     /**
      * NSFW

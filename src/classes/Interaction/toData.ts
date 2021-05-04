@@ -1,4 +1,4 @@
-import { Interaction, InteractionData } from "../../internal";
+import { Interaction, InteractionData, Member, User } from "../../internal";
 
 export default function toData(interaction: Interaction): InteractionData {
 
@@ -11,9 +11,9 @@ export default function toData(interaction: Interaction): InteractionData {
         data: interaction.data,
         guildID: interaction.guildID,
         channelID: interaction.channelID,
-        member: interaction.member,
+        member: interaction.member && Member.toData(interaction.member),
         permissions: interaction.permissions,
-        user: interaction.user,
+        user: User.toData(interaction.user),
         fetchedAt: interaction._lastUpdatedAt
     };
 }

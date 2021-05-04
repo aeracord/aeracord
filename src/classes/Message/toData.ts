@@ -1,4 +1,4 @@
-import { ChannelMention, Message, MessageData } from "../../internal";
+import { ChannelMention, Member, Message, MessageData, User } from "../../internal";
 
 export default function toData(message: Message): MessageData {
 
@@ -8,13 +8,13 @@ export default function toData(message: Message): MessageData {
         type: message.type,
         channelID: message.channelID,
         guildID: message.guildID,
-        author: message.author,
+        author: message.author && User.toData(message.author),
         webhook: message.webhook && {
             id: message.webhook.id,
             name: message.webhook.name,
             avatar: message.webhook.avatar
         },
-        member: message.member,
+        member: message.member && Member.toData(message.member),
         content: message.content,
         timestamp: message.timestamp,
         editedTimestamp: message.editedTimestamp,

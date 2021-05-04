@@ -1,4 +1,4 @@
-import { Webhook, WebhookData } from "../../internal";
+import { User, Webhook, WebhookData } from "../../internal";
 
 export default function updateObject(webhook: Webhook, webhookData: WebhookData) {
 
@@ -14,7 +14,7 @@ export default function updateObject(webhook: Webhook, webhookData: WebhookData)
     webhook.channelID = webhookData.channelID;
     webhook.name = webhookData.name;
     webhook.avatar = webhookData.avatar;
-    webhook.creator = webhookData.creator;
+    webhook.creator = User.fromData(webhook.client, webhookData.creator);
     webhook.token = webhookData.token;
     webhook.applicationID = webhookData.applicationID;
     webhook._lastUpdatedAt = Date.now();

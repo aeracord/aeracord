@@ -1,4 +1,4 @@
-import { VoiceState, VoiceStateData } from "../../internal";
+import { Member, VoiceState, VoiceStateData } from "../../internal";
 
 export default function toData(voiceState: VoiceState): VoiceStateData {
 
@@ -7,7 +7,7 @@ export default function toData(voiceState: VoiceState): VoiceStateData {
         guildID: voiceState.guildID,
         channelID: voiceState.channelID,
         userID: voiceState.userID,
-        member: voiceState.member,
+        member: Member.toData(voiceState.member),
         sessionID: voiceState.sessionID,
         muted: voiceState.muted,
         deafened: voiceState.deafened,

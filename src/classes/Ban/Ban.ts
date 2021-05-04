@@ -1,4 +1,4 @@
-import { BanData, Base, Client, RawBanData, READY_STATE_READY, UserData } from "../../internal";
+import { BanData, Base, Client, RawBanData, READY_STATE_READY, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -19,7 +19,7 @@ export default class Ban extends Base<Ban> {
      *
      * The user object for the user this ban is for
      */
-    user: UserData;
+    user: User;
 
     /**
      * Reason

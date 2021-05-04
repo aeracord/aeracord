@@ -1,4 +1,4 @@
-import { Template, TemplateData, TemplateGuildChannel, TemplateGuildChannelPermissionOverwrite, TemplateGuildRole } from "../../internal";
+import { Template, TemplateData, TemplateGuildChannel, TemplateGuildChannelPermissionOverwrite, TemplateGuildRole, User } from "../../internal";
 
 export default function toData(template: Template): TemplateData {
 
@@ -8,7 +8,7 @@ export default function toData(template: Template): TemplateData {
         name: template.name,
         description: template.description,
         uses: template.uses,
-        creator: template.creator,
+        creator: User.toData(template.creator),
         createdAt: template.createdAt,
         updatedAt: template.updatedAt,
         sourceGuildID: template.sourceGuildID,
