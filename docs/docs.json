@@ -20856,8 +20856,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 1197,
-									"name": "EditCommandData"
+									"id": 863,
+									"name": "CreateCommandData"
 								}
 							}
 						},
@@ -38627,8 +38627,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 1197,
-									"name": "EditCommandData"
+									"id": 863,
+									"name": "CreateCommandData"
 								}
 							}
 						},
@@ -44680,8 +44680,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 3606,
-									"name": "CommandOption"
+									"id": 868,
+									"name": "CreateCommandDataOption"
 								}
 							}
 						}
