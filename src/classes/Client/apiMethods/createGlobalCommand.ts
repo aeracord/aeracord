@@ -1,10 +1,10 @@
-import { Client, Command, CommandChoice, CommandOption, CommandOptionType, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, CommandChoice, CommandOptionType, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateCommandData {
     name: string;
     description: string;
-    options?: CommandOption[];
+    options?: CreateCommandDataOption[];
     defaultPermission?: boolean;
 }
 

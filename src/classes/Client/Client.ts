@@ -306,7 +306,7 @@ export interface ClientData {
      *
      * Data to bulk overwrite the bot's global commands
      */
-    globalCommands?: EditCommandData[];
+    globalCommands?: CreateCommandData[];
 
     /**
      * Global Command Guild IDs
@@ -892,7 +892,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _globalCommands?: EditCommandData[];
+    _globalCommands?: CreateCommandData[];
 
     /**
      * Global Command Guild IDs
