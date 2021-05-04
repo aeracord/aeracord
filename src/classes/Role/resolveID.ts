@@ -1,5 +1,4 @@
 import { RoleResolvable } from "../../internal";
-import isID from "../../util/isID";
 
 export default function resolveID(roleResolvable: RoleResolvable): string | undefined {
 
@@ -7,5 +6,5 @@ export default function resolveID(roleResolvable: RoleResolvable): string | unde
     if ((typeof roleResolvable === "object") && ("id" in roleResolvable)) return roleResolvable.id;
 
     // Role ID
-    else if (isID(roleResolvable)) return roleResolvable;
+    else if (typeof roleResolvable === "string") return roleResolvable;
 }

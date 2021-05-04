@@ -1,5 +1,4 @@
 import { RoleResolvable, UserResolvable } from "../internal";
-import isID from "./isID";
 
 /**
  * Resolve Role or User ID
@@ -19,5 +18,5 @@ export default function resolveRoleOrUserID(roleOrUserResolvable: RoleResolvable
     else if ((typeof roleOrUserResolvable === "object") && ("id" in roleOrUserResolvable)) return roleOrUserResolvable.id;
 
     // User ID
-    else if (isID(roleOrUserResolvable)) return roleOrUserResolvable;
+    else if (typeof roleOrUserResolvable === "string") return roleOrUserResolvable;
 }

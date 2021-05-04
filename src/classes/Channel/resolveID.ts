@@ -1,5 +1,4 @@
 import { ChannelResolvable } from "../../internal";
-import isID from "../../util/isID";
 
 export default function resolveID(channelResolvable: ChannelResolvable): string | undefined {
 
@@ -7,5 +6,5 @@ export default function resolveID(channelResolvable: ChannelResolvable): string 
     if ((typeof channelResolvable === "object") && ("id" in channelResolvable)) return channelResolvable.id;
 
     // Channel ID
-    else if (isID(channelResolvable)) return channelResolvable;
+    else if (typeof channelResolvable === "string") return channelResolvable;
 }

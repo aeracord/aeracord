@@ -1,5 +1,4 @@
 import { WebhookResolvable } from "../../internal";
-import isID from "../../util/isID";
 
 export default function resolveID(webhookResolvable: WebhookResolvable): string | undefined {
 
@@ -7,5 +6,5 @@ export default function resolveID(webhookResolvable: WebhookResolvable): string 
     if ((typeof webhookResolvable === "object") && ("id" in webhookResolvable)) return webhookResolvable.id;
 
     // Webhook ID
-    else if (isID(webhookResolvable)) return webhookResolvable;
+    else if (typeof webhookResolvable === "string") return webhookResolvable;
 }

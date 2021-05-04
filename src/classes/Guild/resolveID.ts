@@ -1,5 +1,4 @@
 import { GuildResolvable } from "../../internal";
-import isID from "../../util/isID";
 
 export default function resolveID(guildResolvable: GuildResolvable): string | undefined {
 
@@ -13,5 +12,5 @@ export default function resolveID(guildResolvable: GuildResolvable): string | un
     else if ((typeof guildResolvable === "object") && ("id" in guildResolvable)) return guildResolvable.id;
 
     // Guild ID
-    else if (isID(guildResolvable)) return guildResolvable;
+    else if (typeof guildResolvable === "string") return guildResolvable;
 }

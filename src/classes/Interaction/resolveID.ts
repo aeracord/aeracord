@@ -1,5 +1,4 @@
 import { InteractionResolvable } from "../../internal";
-import isID from "../../util/isID";
 
 export default function resolveID(interactionResolvable: InteractionResolvable): string | undefined {
 
@@ -7,5 +6,5 @@ export default function resolveID(interactionResolvable: InteractionResolvable):
     if ((typeof interactionResolvable === "object") && ("id" in interactionResolvable)) return interactionResolvable.id;
 
     // User ID
-    else if (isID(interactionResolvable)) return interactionResolvable;
+    else if (typeof interactionResolvable === "string") return interactionResolvable;
 }

@@ -1,5 +1,4 @@
 import { CommandResolvable } from "../../internal";
-import isID from "../../util/isID";
 
 export default function resolveID(commandResolvable: CommandResolvable): string | undefined {
 
@@ -7,5 +6,5 @@ export default function resolveID(commandResolvable: CommandResolvable): string 
     if ((typeof commandResolvable === "object") && ("id" in commandResolvable)) return commandResolvable.id;
 
     // Command ID
-    else if (isID(commandResolvable)) return commandResolvable;
+    else if (typeof commandResolvable === "string") return commandResolvable;
 }

@@ -1,5 +1,4 @@
 import { EmojiResolvable } from "../../internal";
-import isID from "../../util/isID";
 
 export default function resolveID(emojiResolvable: EmojiResolvable): string | undefined {
 
@@ -7,5 +6,5 @@ export default function resolveID(emojiResolvable: EmojiResolvable): string | un
     if ((typeof emojiResolvable === "object") && ("id" in emojiResolvable)) return emojiResolvable.id;
 
     // Emoji ID
-    else if (isID(emojiResolvable)) return emojiResolvable;
+    else if (typeof emojiResolvable === "string") return emojiResolvable;
 }
