@@ -1,4 +1,5 @@
 import { CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Interaction, Message, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, User, UserResolvable, Webhook } from "../../internal";
+import createReply from "./createReply";
 import editMessage from "./editMessage";
 import send from "./send";
 import updateObject from "./updateObject";
@@ -122,6 +123,21 @@ export default class TextBasedChannel extends Channel {
      */
     send(contentOrData: string | Embed | CreateMessageData, createMessageData?: CreateMessageData): Promise<Message> {
         return send(this, contentOrData, createMessageData);
+    }
+
+    /**
+     * Create Reply
+     *
+     * Reply to a message in this channel
+     *
+     * @param message The message to reply to
+     * @param contentOrData The content or data for the message
+     * @param createMessageData The data for the message
+     *
+     * @returns {Promise<Message>} The created message
+     */
+    createReply(message: MessageResolvable, contentOrData: string | Embed | CreateMessageData, createMessageData?: CreateMessageData): Promise<Message> {
+        return createReply(this, message, contentOrData, createMessageData);
     }
 
     /**

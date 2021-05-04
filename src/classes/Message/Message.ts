@@ -1,7 +1,8 @@
-import { AttachmentData, Base, ChannelMention, Client, EditMessageData, Embed, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserData, UserResolvable } from "../../internal";
+import { AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserData, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
+import reply from "./reply";
 import resolveID from "./resolveID";
 import toData from "./toData";
 import updateObject from "./updateObject";
@@ -373,6 +374,20 @@ export default class Message extends Base<Message> {
      */
     react(reactionEmoji: ReactionEmojiResolvable): Promise<void> {
         return this.client.createReaction(this.channelID, this, reactionEmoji);
+    }
+
+    /**
+     * Reply
+     *
+     * Reply to this message
+     *
+     * @param contentOrData The content or data for the message
+     * @param createMessageData The data for the message
+     *
+     * @returns {Promise<Message>} The created message
+     */
+    reply(contentOrData: string | Embed | CreateMessageData, createMessageData?: CreateMessageData): Promise<Message> {
+        return reply(this, contentOrData, createMessageData);
     }
 
     /**
