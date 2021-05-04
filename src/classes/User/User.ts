@@ -30,6 +30,15 @@ export default class User extends Base<User> {
     discriminator: string;
 
     /**
+     * Tag
+     *
+     * The user's tag
+     */
+    get tag(): string {
+        return `${this.username}#${this.discriminator}`;
+    }
+
+    /**
      * Avatar Hash
      *
      * The user's avatar hash
@@ -209,7 +218,7 @@ export default class User extends Base<User> {
      *
      * @returns {string} The avatar's URL
      */
-    iconURL(allowGIF = true): string {
+    avatarURL(allowGIF = true): string {
         return this.avatarHash ? `https://cdn.discordapp.com/avatars/${this.id}/${this.avatarHash}.${((allowGIF) && (this.avatarHash.startsWith("a_"))) ? "gif" : "png"}` : `https://cdn.discordapp.com/embed/avatars/${parseInt(this.discriminator) % 5}.png`;
     }
 
