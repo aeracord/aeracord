@@ -138,6 +138,7 @@ import {
     TypingStartData,
     TypingStartEventOptions,
     User,
+    UserData,
     UserResolvable,
     UserUpdateEventOptions,
     VanityInvite,
@@ -723,37 +724,16 @@ export default class Client extends EventEmitter {
      *
      * The client's ID
      */
-    id: string;
-
-    /**
-     * Username
-     *
-     * The client's username
-     */
-    username: string;
-
-    /**
-     * Discriminator
-     *
-     * The client's discriminator
-     */
-    discriminator: string;
-
-    /**
-     * Tag
-     *
-     * The client's tag
-     */
-    get tag(): string {
-        return `${this.username}#${this.discriminator}`;
+    get id(): string {
+        return this.user.id;
     }
 
     /**
-     * Avatar Hash
+     * User
      *
-     * The client's avatar hash
+     * The client's user object
      */
-    avatarHash: string | null;
+    user: UserData;
 
     /**
      * Session ID
@@ -1529,7 +1509,7 @@ export default class Client extends EventEmitter {
      * @returns {string} The avatar's URL
      */
     avatarURL(): string {
-        return this.avatarHash ? `https://cdn.discordapp.com/avatars/${this.id}/${this.avatarHash}.png` : `https://cdn.discordapp.com/embed/avatars/${parseInt(this.discriminator) % 5}.png`;
+        return this.user.avatarHash ? `https://cdn.discordapp.com/avatars/${this.user.id}/${this.user.avatarHash}.png` : `https://cdn.discordapp.com/embed/avatars/${parseInt(this.user.discriminator) % 5}.png`;
     }
 
     /**

@@ -1,4 +1,4 @@
-import { Client, Command, RawReadyData, RawReadyDataGuild, ReadyData, READY_STATE_INITIAL_GUILDS } from "../../../../internal";
+import { Client, Command, RawReadyData, RawReadyDataGuild, ReadyData, READY_STATE_INITIAL_GUILDS, User } from "../../../../internal";
 import { EventQueueEvent } from "../../Client";
 import event from "../../event";
 import readyEvent from "../ready";
@@ -7,26 +7,14 @@ export default async function ready(client: Client, rawData: RawReadyData) {
 
     // Parse data
     const data: ReadyData = {
-        apiVersion: rawData.v,
-        user: {
-            username: rawData.user.username,
-            id: rawData.user.id,
-            flags: rawData.user.flags || 0,
-            discriminator: rawData.user.discriminator,
-            avatar: rawData.user.avatar
-        },
-        sessionID: rawData.session_id,
         availableGuilds: [],
         unavailableGuilds: [],
         application: rawData.application
     };
 
     // Set client data
-    client.id = data.user.id;
-    client.username = data.user.username;
-    client.discriminator = data.user.discriminator;
-    client.avatarHash = data.user.avatar;
-    client._sessionID = data.sessionID;
+    client.user = User._dataFromRawData(rawData.user);
+    client._sessionID = rawData.session_id;
 
     // Set ready data
     client._readyData = { data, rawData };
