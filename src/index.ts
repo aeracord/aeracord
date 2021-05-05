@@ -272,6 +272,7 @@ export {
 // Embed
 export {
     Embed,
+    EmbedAttachment,
     EmbedAuthor,
     EmbedData,
     EmbedField,

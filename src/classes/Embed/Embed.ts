@@ -1,4 +1,4 @@
-import { EmbedAuthor, EmbedData, EmbedField, EmbedFooter } from "../../internal";
+import { EmbedAttachment, EmbedAuthor, EmbedData, EmbedField, EmbedFooter } from "../../internal";
 import toJSON from "./toJSON";
 
 export default class Embed {
@@ -74,6 +74,13 @@ export default class Embed {
     fields: EmbedField[];
 
     /**
+     * Attachments
+     *
+     * The embed's attachments
+     */
+    attachments: EmbedAttachment[];
+
+    /**
      * Embed
      *
      * @param embedData Options to initialize this message embed with
@@ -101,6 +108,7 @@ export default class Embed {
         this.thumbnail = embedData?.thumbnail;
         this.author = embedData?.author;
         this.fields = embedData?.fields || [];
+        this.attachments = embedData?.attachments || [];
     }
 
     /**
@@ -250,6 +258,21 @@ export default class Embed {
      */
     addField(name: string, value: string, inline?: boolean): Embed {
         this.fields.push({ name, value, inline });
+        return this;
+    }
+
+    /**
+     * Attach Image
+     *
+     * Attach an image to use in this embed
+     *
+     * @param filename The filename
+     * @param image The image
+     *
+     * @returns {Embed} This embed
+     */
+    attachImage(filename: string, image: string | Buffer): Embed {
+        this.attachments.push({ filename, image });
         return this;
     }
 

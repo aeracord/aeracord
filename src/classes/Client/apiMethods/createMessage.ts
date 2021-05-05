@@ -31,6 +31,11 @@ export interface CreateMessageFile {
     filename: string;
 }
 
+export interface CreateMessageEmbedFile {
+    file: Buffer;
+    filename: string;
+}
+
 export default async function createMessage(client: Client, channelResolvable: ChannelResolvable, createMessageData: CreateMessageData): Promise<Message> {
 
     // Resolve objects
@@ -57,8 +62,15 @@ export default async function createMessage(client: Client, channelResolvable: C
     // Get fetch queue
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
-    // Parse file
+    // Define embed files
+    const embedFiles: CreateMessageEmbedFile[] = [];
+
+    // Parse files
     if (typeof createMessageData.file?.file === "string") createMessageData.file.file = await fs.readFile(createMessageData.file.file);
+    if (createMessageData.embed) for (let attachment of createMessageData.embed.attachments) {
+        if (typeof attachment.image === "string") embedFiles.push({ file: await fs.readFile(attachment.image), filename: attachment.filename });
+        else embedFiles.push({ file: attachment.image, filename: attachment.filename });
+    }
 
     // Parse payload data
     const data: object = {
@@ -79,13 +91,21 @@ export default async function createMessage(client: Client, channelResolvable: C
 
     // Parse form data
     let formData: FormData | undefined;
-    if (createMessageData.file) {
+    if ((createMessageData.file) || (embedFiles.length)) {
 
         // Create form data
         formData = new FormData();
 
-        // Add file
-        formData.append("file", createMessageData.file.file, { filename: createMessageData.file.filename });
+        /**
+         * Add files
+         *
+         * If the form data key is `payload_json`, the value should be the payload
+         * If the key is anything else, itll be considered a file
+         *
+         * To upload multiple files, we set the key as the filename
+         */
+        if (createMessageData.file) formData.append(createMessageData.file.filename, createMessageData.file.file, { filename: createMessageData.file.filename });
+        embedFiles.forEach((f: CreateMessageEmbedFile) => (formData as FormData).append(f.filename, f.file, { filename: f.filename }));
 
         // Add data
         formData.append("payload_json", JSON.stringify(data));
@@ -95,8 +115,8 @@ export default async function createMessage(client: Client, channelResolvable: C
     const result: RawMessageData = await fetchQueue.request({
         path,
         method,
-        contentType: createMessageData.file ? `multipart/form-data; boundary=${formData?.getBoundary()}` : "application/json",
-        data: createMessageData.file ? formData : data
+        contentType: formData ? `multipart/form-data; boundary=${formData?.getBoundary()}` : "application/json",
+        data: formData || data
     });
 
     // Parse message

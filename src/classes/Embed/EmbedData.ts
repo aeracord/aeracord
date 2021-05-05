@@ -74,6 +74,13 @@ export interface EmbedData {
      * The embed's fields
      */
     fields?: EmbedField[];
+
+    /**
+     * Attachments
+     *
+     * The embed's attachments
+     */
+    attachments?: EmbedAttachment[];
 }
 
 /**
@@ -154,4 +161,26 @@ export interface EmbedField {
      * Whether or not the field is inline
      */
     inline?: boolean;
+}
+
+/**
+ * Embed Attachment
+ *
+ * An embed attachment
+ */
+export interface EmbedAttachment {
+
+    /**
+     * Filename
+     *
+     * The attachment's filename
+     */
+    filename: string;
+
+    /**
+     * Image
+     *
+     * The attachment's image
+     */
+    image: string | Buffer;
 }
