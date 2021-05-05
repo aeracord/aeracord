@@ -13,8 +13,12 @@ export default function toJSON(embed: Embed): object {
             text: embed.footer.text,
             icon_url: embed.footer.iconURL
         },
-        image: embed.image,
-        thumbnail: embed.thumbnail,
+        image: embed.image && {
+            url: embed.image
+        },
+        thumbnail: embed.thumbnail && {
+            url: embed.thumbnail
+        },
         author: embed.author && {
             name: embed.author.name,
             url: embed.author.url,
