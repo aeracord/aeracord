@@ -1,9 +1,10 @@
-import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionCommandData, InteractionCommandOption, InteractionData, InteractionType, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
+import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, GetOptionResult, InteractionCommandData, InteractionCommandOption, InteractionData, InteractionType, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
 import editOriginalResponse from "./editOriginalResponse";
 import fromData from "./fromData";
+import getOption from "./getOption";
 import resolveID from "./resolveID";
 import respond from "./respond";
 import toData from "./toData";
@@ -16,36 +17,6 @@ import updateObjectFromData from "./updateObjectFromData";
  * The types that can be resolved to an interaction
  */
 export type InteractionResolvable = Interaction | InteractionData | string;
-
-/**
- * Get Option Result
- *
- * An interaction command's parameters with an unknown value type
- */
-export interface GetOptionResult {
-
-    /**
-     * Name
-     *
-     * The option's name
-     */
-    name: string;
-
-    /**
-     * Value
-     *
-     * The option's value
-     * `undefined` for subcommands and subcommand groups
-     */
-    value?: any;
-
-    /**
-     * Options
-     *
-     * The command's options if it's a subcommand or subcommand group
-     */
-    options?: GetOptionResult[];
-}
 
 export default class Interaction extends Base<Interaction> {
 
@@ -264,11 +235,12 @@ export default class Interaction extends Base<Interaction> {
      * Get an option from this interaction's data
      *
      * @param name The name of the option
+     * @param suboptionNames The names of the suboptions
      *
      * @returns {GetOptionResult | undefined} The option or `undefined` if it isn't found
      */
-    getOption(name: string): GetOptionResult | undefined {
-        return this.data.options?.find((o: InteractionCommandOption) => o.name === name);
+    getOption(name: string, ...suboptionNames: string[]): GetOptionResult | undefined {
+        return getOption(this, name, suboptionNames);
     }
 
     /**

@@ -263,9 +263,9 @@ export * from "./classes/GuildWidget/RawGuildWidgetData";
 // Interaction
 export {
     default as Interaction,
-    GetOptionResult,
     InteractionResolvable
 } from "./classes/Interaction/Interaction";
+export * from "./classes/Interaction/getOption";
 export * from "./classes/Interaction/InteractionData";
 export * from "./classes/Interaction/RawInteractionData";
 
