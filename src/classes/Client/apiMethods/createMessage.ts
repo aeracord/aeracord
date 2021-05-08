@@ -1,7 +1,7 @@
 import FormData from "form-data";
-import { promises as fs } from "fs";
-import { Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, Embed, EmbedAttachment, FetchQueue, Message, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
+import parseAttachments from "../../../util/parseAttachments";
 
 export interface CreateMessageData {
     content?: string;
@@ -27,13 +27,13 @@ export interface CreateMessageReference {
 }
 
 export interface CreateMessageFile {
-    file: Buffer | string;
     filename: string;
+    image: Buffer | string;
 }
 
-export interface CreateMessageEmbedFile {
-    file: Buffer;
+export interface CreateMessageAttachment {
     filename: string;
+    image: Buffer;
 }
 
 export default async function createMessage(client: Client, channelResolvable: ChannelResolvable, createMessageData: CreateMessageData): Promise<Message> {
@@ -62,15 +62,11 @@ export default async function createMessage(client: Client, channelResolvable: C
     // Get fetch queue
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
-    // Define embed files
-    const embedFiles: CreateMessageEmbedFile[] = [];
-
-    // Parse files
-    if (typeof createMessageData.file?.file === "string") createMessageData.file.file = await fs.readFile(createMessageData.file.file);
-    if (createMessageData.embed) for (let attachment of createMessageData.embed.attachments) {
-        if (typeof attachment.image === "string") embedFiles.push({ file: await fs.readFile(attachment.image), filename: attachment.filename });
-        else embedFiles.push({ file: attachment.image, filename: attachment.filename });
-    }
+    // Parse attachments
+    const files: Array<CreateMessageFile | EmbedAttachment> = [];
+    if (createMessageData.file) files.push(createMessageData.file);
+    if (createMessageData.embed) files.push(...createMessageData.embed.attachments);
+    const attachments: CreateMessageAttachment[] = await parseAttachments(files);
 
     // Parse payload data
     const data: object = {
@@ -91,7 +87,7 @@ export default async function createMessage(client: Client, channelResolvable: C
 
     // Parse form data
     let formData: FormData | undefined;
-    if ((createMessageData.file) || (embedFiles.length)) {
+    if (attachments.length) {
 
         // Create form data
         formData = new FormData();
@@ -104,8 +100,7 @@ export default async function createMessage(client: Client, channelResolvable: C
          *
          * To upload multiple files, we set the key as the filename
          */
-        if (createMessageData.file) formData.append(createMessageData.file.filename, createMessageData.file.file, { filename: createMessageData.file.filename });
-        embedFiles.forEach((f: CreateMessageEmbedFile) => (formData as FormData).append(f.filename, f.file, { filename: f.filename }));
+        attachments.forEach((f: CreateMessageAttachment) => (formData as FormData).append(f.filename, f.image, { filename: f.filename }));
 
         // Add data
         formData.append("payload_json", JSON.stringify(data));

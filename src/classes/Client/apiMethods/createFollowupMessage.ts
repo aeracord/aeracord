@@ -1,11 +1,14 @@
-import { AllowedMentions, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import FormData from "form-data";
+import { AllowedMentions, Client, CreateMessageAttachment, CreateMessageFile, Embed, EmbedAttachment, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
+import parseAttachments from "../../../util/parseAttachments";
 
 export interface FollowupInteractionResponseData {
     content?: string;
     tts?: boolean;
     embeds?: Embed[];
     allowedMentions?: AllowedMentions;
+    file?: CreateMessageFile;
 }
 
 export default async function createFollowupMessage(client: Client, interactionToken: string, followupInteractionResponseData: FollowupInteractionResponseData): Promise<Message> {
@@ -24,21 +27,52 @@ export default async function createFollowupMessage(client: Client, interactionT
     // Get fetch queue
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
+    // Parse attachments
+    const files: Array<CreateMessageFile | EmbedAttachment> = [];
+    if (followupInteractionResponseData.file) files.push(followupInteractionResponseData.file);
+    if (followupInteractionResponseData.embeds) followupInteractionResponseData.embeds.forEach((e: Embed) => files.push(...e.attachments));
+    const attachments: CreateMessageAttachment[] = await parseAttachments(files);
+
+    // Parse payload data
+    const data: object = {
+        content: followupInteractionResponseData.content,
+        tts: followupInteractionResponseData.tts,
+        embeds: followupInteractionResponseData.embeds && followupInteractionResponseData.embeds.map((e: Embed) => e._toJSON()),
+        allowed_mentions: followupInteractionResponseData.allowedMentions && {
+            parse: followupInteractionResponseData.allowedMentions.parse,
+            users: allowedMentionsUsers,
+            roles: allowedMentionsRoles,
+            replied_user: followupInteractionResponseData.allowedMentions.repliedUser
+        }
+    };
+
+    // Parse form data
+    let formData: FormData | undefined;
+    if (attachments.length) {
+
+        // Create form data
+        formData = new FormData();
+
+        /**
+         * Add files
+         *
+         * If the form data key is `payload_json`, the value should be the payload
+         * If the key is anything else, itll be considered a file
+         *
+         * To upload multiple files, we set the key as the filename
+         */
+        attachments.forEach((f: CreateMessageAttachment) => (formData as FormData).append(f.filename, f.image, { filename: f.filename }));
+
+        // Add data
+        formData.append("payload_json", JSON.stringify(data));
+    }
+
     // Add to fetch queue
     const result: RawMessageData = await fetchQueue.request({
         path,
         method,
-        data: {
-            content: followupInteractionResponseData.content,
-            tts: followupInteractionResponseData.tts,
-            embeds: followupInteractionResponseData.embeds && followupInteractionResponseData.embeds.map((e: Embed) => e._toJSON()),
-            allowed_mentions: followupInteractionResponseData.allowedMentions && {
-                parse: followupInteractionResponseData.allowedMentions.parse,
-                users: allowedMentionsUsers,
-                roles: allowedMentionsRoles,
-                replied_user: followupInteractionResponseData.allowedMentions.repliedUser
-            }
-        }
+        contentType: formData ? `multipart/form-data; boundary=${formData?.getBoundary()}` : "application/json",
+        data: formData || data
     });
 
     // Parse message
