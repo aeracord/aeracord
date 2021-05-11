@@ -1,5 +1,85 @@
-import { EmbedAttachment, EmbedAuthor, EmbedData, EmbedField, EmbedFooter } from "../../internal";
+import { EmbedAttachment, EmbedData, EmbedDataField } from "../../internal";
 import toJSON from "./toJSON";
+
+/**
+ * Embed Footer
+ *
+ * An embed footer
+ */
+export interface EmbedFooter {
+
+    /**
+     * Text
+     *
+     * The footer text
+     */
+    text: string;
+
+    /**
+     * Icon URL
+     *
+     * The icon URL
+     */
+    iconURL?: string;
+}
+
+/**
+ * Embed Author
+ *
+ * An embed author
+ */
+export interface EmbedAuthor {
+
+    /**
+     * Name
+     *
+     * The embed author's name
+     */
+    name?: string;
+
+    /**
+     * Icon URL
+     *
+     * The icon URL
+     */
+    iconURL?: string;
+
+    /**
+     * URL
+     *
+     * The URL
+     */
+    url?: string;
+}
+
+/**
+ * Embed Field
+ *
+ * An embed field
+ */
+export interface EmbedField {
+
+    /**
+     * Name
+     *
+     * The field's name
+     */
+    name: string;
+
+    /**
+     * Value
+     *
+     * The field's value
+     */
+    value: string;
+
+    /**
+     * Inline
+     *
+     * Whether or not the field is inline
+     */
+    inline?: boolean;
+}
 
 export default class Embed {
 
@@ -98,16 +178,27 @@ export default class Embed {
     constructor(embedData?: EmbedData) {
 
         // Set data
-        this.title = embedData?.title;
-        this.description = embedData?.description;
+        this.title = embedData?.title?.toString();
+        this.description = embedData?.description?.toString();
         this.url = embedData?.url;
         this.timestamp = embedData?.timestamp;
         this.color = embedData?.color;
-        this.footer = embedData?.footer;
+        this.footer = embedData?.footer && {
+            text: embedData.footer.text.toString(),
+            iconURL: embedData.footer.iconURL
+        };
         this.image = embedData?.image;
         this.thumbnail = embedData?.thumbnail;
-        this.author = embedData?.author;
-        this.fields = embedData?.fields || [];
+        this.author = embedData?.author && {
+            name: embedData.author.name?.toString(),
+            url: embedData.author.url,
+            iconURL: embedData.author.iconURL
+        };
+        this.fields = embedData?.fields ? embedData.fields.map((f: EmbedDataField) => ({
+            name: f.name.toString(),
+            value: f.value.toString(),
+            inline: f.inline
+        })) : [];
         this.attachments = embedData?.attachments || [];
     }
 
@@ -120,8 +211,8 @@ export default class Embed {
      *
      * @returns {Embed} This embed
      */
-    setTitle(title?: string): Embed {
-        this.title = title;
+    setTitle(title?: string | number | boolean): Embed {
+        this.title = title?.toString();
         return this;
     }
 
@@ -134,8 +225,8 @@ export default class Embed {
      *
      * @returns {Embed} This embed
      */
-    setDescription(description?: string): Embed {
-        this.description = description;
+    setDescription(description?: string | number | boolean): Embed {
+        this.description = description?.toString();
         return this;
     }
 
@@ -195,9 +286,9 @@ export default class Embed {
      *
      * @returns {Embed} This embed
      */
-    setFooter(text?: string, iconURL?: string): Embed {
+    setFooter(text?: string | number | boolean, iconURL?: string): Embed {
         if (!text) delete this.footer;
-        else this.footer = { text, iconURL };
+        else this.footer = { text: text.toString(), iconURL };
         return this;
     }
 
@@ -240,8 +331,8 @@ export default class Embed {
      *
      * @returns {Embed} This embed
      */
-    setAuthor(name?: string, iconURL?: string, url?: string): Embed {
-        this.author = { name, iconURL, url };
+    setAuthor(name?: string | number | boolean, iconURL?: string, url?: string): Embed {
+        this.author = { name: name?.toString(), iconURL, url };
         return this;
     }
 
@@ -256,8 +347,8 @@ export default class Embed {
      *
      * @returns {Embed} This embed
      */
-    addField(name: string, value: string, inline?: boolean): Embed {
-        this.fields.push({ name, value, inline });
+    addField(name: string | number | boolean, value: string | number | boolean, inline?: boolean): Embed {
+        this.fields.push({ name: name?.toString(), value: value?.toString(), inline });
         return this;
     }
 

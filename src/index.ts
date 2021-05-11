@@ -274,7 +274,10 @@ export {
     Embed,
     EmbedAttachment,
     EmbedAuthor,
+    EmbedDataAuthor,
     EmbedData,
+    EmbedDataField,
+    EmbedDataFooter,
     EmbedField,
     EmbedFooter
 } from "./internal";

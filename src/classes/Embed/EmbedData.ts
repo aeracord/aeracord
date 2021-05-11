@@ -10,14 +10,14 @@ export interface EmbedData {
      *
      * The embed's title
      */
-    title?: string;
+    title?: string | number | boolean;
 
     /**
      * Description
      *
      * The embed's description
      */
-    description?: string;
+    description?: string | number | boolean;
 
     /**
      * URL
@@ -45,7 +45,7 @@ export interface EmbedData {
      *
      * The embed's footer
      */
-    footer?: EmbedFooter;
+    footer?: EmbedDataFooter;
 
     /**
      * Image
@@ -66,14 +66,14 @@ export interface EmbedData {
      *
      * The embed's author
      */
-    author?: EmbedAuthor;
+    author?: EmbedDataAuthor;
 
     /**
      * Fields
      *
      * The embed's fields
      */
-    fields?: EmbedField[];
+    fields?: EmbedDataField[];
 
     /**
      * Attachments
@@ -88,14 +88,14 @@ export interface EmbedData {
  *
  * An embed footer
  */
-export interface EmbedFooter {
+export interface EmbedDataFooter {
 
     /**
      * Text
      *
      * The footer text
      */
-    text: string;
+    text: string | number | boolean;
 
     /**
      * Icon URL
@@ -110,14 +110,14 @@ export interface EmbedFooter {
  *
  * An embed author
  */
-export interface EmbedAuthor {
+export interface EmbedDataAuthor {
 
     /**
      * Name
      *
      * The embed author's name
      */
-    name?: string;
+    name?: string | number | boolean;
 
     /**
      * Icon URL
@@ -139,21 +139,21 @@ export interface EmbedAuthor {
  *
  * An embed field
  */
-export interface EmbedField {
+export interface EmbedDataField {
 
     /**
      * Name
      *
      * The field's name
      */
-    name: string;
+    name: string | number | boolean;
 
     /**
      * Value
      *
      * The field's value
      */
-    value: string;
+    value: string | number | boolean;
 
     /**
      * Inline

@@ -208,7 +208,10 @@ export * from "./classes/DMChannel/DMChannelData";
 
 // Embed
 export {
-    default as Embed
+    default as Embed,
+    EmbedAuthor,
+    EmbedField,
+    EmbedFooter
 } from "./classes/Embed/Embed";
 export * from "./classes/Embed/EmbedData";
 
