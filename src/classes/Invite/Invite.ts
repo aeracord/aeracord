@@ -42,6 +42,7 @@ export default class Invite extends Base<Invite> {
      * Created At
      *
      * The timestamp for when the invite was created
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     createdAt?: number;
 
@@ -56,6 +57,7 @@ export default class Invite extends Base<Invite> {
      * Max Age
      *
      * The max age of the invite
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     maxAge?: number;
 
@@ -63,6 +65,7 @@ export default class Invite extends Base<Invite> {
      * Max Uses
      *
      * The max uses of the invite
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     maxUses?: number;
 
@@ -70,6 +73,7 @@ export default class Invite extends Base<Invite> {
      * Temporary
      *
      * Whether or not the invite is temporary
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     temporary?: boolean;
 
@@ -77,6 +81,7 @@ export default class Invite extends Base<Invite> {
      * Uses
      *
      * The amount of times this invite has been used
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     uses?: number;
 

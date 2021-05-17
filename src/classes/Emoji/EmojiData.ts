@@ -46,6 +46,7 @@ export interface EmojiData {
      * Available
      *
      * Whether or not this emoji is available
+     * Emojis can be unavailable due to losing server boosts
      */
     available: boolean;
 
@@ -53,6 +54,7 @@ export interface EmojiData {
      * Creator
      *
      * The user that created this emoji
+     * Can be `undefined` if the bot doesn't have permission to manage emojis
      */
     creator?: UserData;
 

@@ -30,6 +30,7 @@ export interface AttachmentData {
      * Guild ID
      *
      * The ID of the guild this attachment is in
+     * `null` if the attachment is sent in a DM channel
      */
     guildID?: string | null;
 
@@ -72,6 +73,7 @@ export interface AttachmentData {
      * Width
      *
      * The attachment's width
+     * `null` if the attachment isn't an image or video
      */
     width: number | null;
 
@@ -79,6 +81,7 @@ export interface AttachmentData {
      * Height
      *
      * The attachment's height
+     * `null` if the attachment isn't an image or video
      */
     height: number | null;
 }

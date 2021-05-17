@@ -32,6 +32,7 @@ export interface InviteData {
      * Created At
      *
      * The timestamp for when the invite was created
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     createdAt?: number;
 
@@ -46,6 +47,7 @@ export interface InviteData {
      * Max Age
      *
      * The max age of the invite
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     maxAge?: number;
 
@@ -53,6 +55,7 @@ export interface InviteData {
      * Max Uses
      *
      * The max uses of the invite
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     maxUses?: number;
 
@@ -60,6 +63,7 @@ export interface InviteData {
      * Temporary
      *
      * Whether or not the invite is temporary
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     temporary?: boolean;
 
@@ -67,6 +71,7 @@ export interface InviteData {
      * Uses
      *
      * The amount of times this invite has been used
+     * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     uses?: number;
     /**

@@ -18,6 +18,7 @@ export interface TextBasedChannelData extends ChannelData {
      * Last Message ID
      *
      * The ID of the last message in this channel
+     * `null` if there aren't any messages
      */
     lastMessageID: string | null;
 
@@ -25,6 +26,7 @@ export interface TextBasedChannelData extends ChannelData {
      * Last Pin Timestamp
      *
      * The timestamp of when the last pin in this channel was
+     * `null` if there aren't any pinned messages
      */
     lastPinTimestamp: number | null;
 }

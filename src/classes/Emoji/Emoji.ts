@@ -47,6 +47,7 @@ export default class Emoji extends Base<Emoji> {
      * Available
      *
      * Whether or not this emoji is available
+     * Emojis can be unavailable due to losing server boosts
      */
     available: boolean;
 
@@ -54,6 +55,7 @@ export default class Emoji extends Base<Emoji> {
      * Creator
      *
      * The user that created this emoji
+     * Can be `undefined` if the bot doesn't have permission to manage emojis
      */
     creator?: User;
 

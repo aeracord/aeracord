@@ -46,6 +46,7 @@ export interface InteractionData {
      * Guild ID
      *
      * The ID of the guild this interaction is in
+     * `null` if the interaction is sent in a DM channel
      */
     guildID: string | null;
 
@@ -60,6 +61,7 @@ export interface InteractionData {
      * Member
      *
      * The member that created this interaction
+     * `null` if the interaction is sent in a DM channel
      */
     member: MemberData | null;
 
@@ -67,6 +69,7 @@ export interface InteractionData {
      * Permissions
      *
      * The member's permissions including role permissions and channel overwrites
+     * `null` if the interaction is sent in a DM channel
      */
     permissions: string | null;
 

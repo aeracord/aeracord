@@ -37,6 +37,7 @@ export default class Attachment {
      * Guild ID
      *
      * The ID of the guild this attachment is in
+     * `null` if the attachment is sent in a DM channel
      */
     guildID?: string | null;
 
@@ -79,6 +80,7 @@ export default class Attachment {
      * Width
      *
      * The attachment's width
+     * `null` if the attachment isn't an image or video
      */
     width: number | null;
 
@@ -86,6 +88,7 @@ export default class Attachment {
      * Height
      *
      * The attachment's height
+     * `null` if the attachment isn't an image or video
      */
     height: number | null;
 

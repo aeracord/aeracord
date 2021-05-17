@@ -39,6 +39,7 @@ export interface MessageData {
      * Author
      *
      * The user that sent this message
+     * `null` if the message is sent by a webhook
      */
     author: UserData | null;
 
@@ -109,6 +110,8 @@ export interface MessageData {
      * Mentioned Channels
      *
      * The channels this message mentions
+     * This field will be an empty array if the message isn't a crossposted message
+     * Only channels from lurkable guilds are included
      */
     mentionedChannels: ChannelMention[];
 

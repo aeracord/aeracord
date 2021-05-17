@@ -42,6 +42,7 @@ export default class Message extends Base<Message> {
      * Author
      *
      * The user that sent this message
+     * `null` if the message is sent by a webhook
      */
     author: User | null;
 
@@ -56,6 +57,8 @@ export default class Message extends Base<Message> {
      * Member
      *
      * The member object of the user that sent this message
+     * This field is only set for `messageCreate` and `messageUpdate` events
+     * Can be `undefined` if the message is sent in a DM
      */
     member?: Member;
 
@@ -112,6 +115,8 @@ export default class Message extends Base<Message> {
      * Mentioned Channels
      *
      * The channels this message mentions
+     * This field will be an empty array if the message isn't a crossposted message
+     * Only channels from lurkable guilds are included
      */
     mentionedChannels: ChannelMention[];
 

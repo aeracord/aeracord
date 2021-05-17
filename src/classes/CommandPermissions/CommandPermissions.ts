@@ -11,6 +11,7 @@ export default class CommandPermissions extends Base<CommandPermissions> {
      * Guild ID
      *
      * The ID of the guild this command is in
+     * `null` if it's a global command
      */
     guildID: string | null;
 

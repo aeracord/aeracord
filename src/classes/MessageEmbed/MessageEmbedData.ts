@@ -23,6 +23,7 @@ export interface MessageEmbedData {
      * Guild ID
      *
      * The ID of the guild this embed is in
+     * `null` if the embed is sent in a DM channel
      */
     guildID?: string | null;
 

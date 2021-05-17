@@ -23,6 +23,7 @@ export interface ReactionData {
      * Guild ID
      *
      * The ID of the guild this reaction is in
+     * `null` if the reaction is in a DM channel
      */
     guildID?: string | null;
 

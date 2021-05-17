@@ -52,6 +52,7 @@ export default class Interaction extends Base<Interaction> {
      * Guild ID
      *
      * The ID of the guild this interaction is in
+     * `null` if the interaction is sent in a DM channel
      */
     guildID: string | null;
 
@@ -66,6 +67,7 @@ export default class Interaction extends Base<Interaction> {
      * Member
      *
      * The member that created this interaction
+     * `null` if the interaction is sent in a DM channel
      */
     member: Member | null;
 
@@ -73,6 +75,7 @@ export default class Interaction extends Base<Interaction> {
      * Permissions
      *
      * The member's permissions including role permissions and channel overwrites
+     * `null` if the interaction is sent in a DM channel
      */
     permissions: string | null;
 
