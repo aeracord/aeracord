@@ -583,7 +583,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 90,
+									"line": 93,
 									"character": 26
 								}
 							]
@@ -653,7 +653,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 55,
+									"line": 56,
 									"character": 15
 								}
 							],
@@ -686,7 +686,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 48,
+									"line": 49,
 									"character": 12
 								}
 							],
@@ -706,12 +706,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this attachment is in\n"
+								"text": "The ID of the guild this attachment is in\n`null` if the attachment is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 41,
+									"line": 42,
 									"character": 11
 								}
 							],
@@ -739,12 +739,12 @@
 							},
 							"comment": {
 								"shortText": "Height",
-								"text": "The attachment's height\n"
+								"text": "The attachment's height\n`null` if the attachment isn't an image or video\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 90,
+									"line": 93,
 									"character": 10
 								}
 							],
@@ -825,7 +825,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 76,
+									"line": 77,
 									"character": 12
 								}
 							],
@@ -849,7 +849,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 62,
+									"line": 63,
 									"character": 8
 								}
 							],
@@ -873,7 +873,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 69,
+									"line": 70,
 									"character": 7
 								}
 							],
@@ -892,12 +892,12 @@
 							},
 							"comment": {
 								"shortText": "Width",
-								"text": "The attachment's width\n"
+								"text": "The attachment's width\n`null` if the attachment isn't an image or video\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 83,
+									"line": 85,
 									"character": 9
 								}
 							],
@@ -986,7 +986,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 150,
+									"line": 153,
 									"character": 27
 								}
 							]
@@ -1079,7 +1079,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 135,
+									"line": 138,
 									"character": 23
 								}
 							]
@@ -1153,7 +1153,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 164,
+									"line": 167,
 									"character": 19
 								}
 							]
@@ -1210,7 +1210,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/Attachment.ts",
-									"line": 177,
+									"line": 180,
 									"character": 17
 								}
 							]
@@ -1342,7 +1342,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 48,
+									"line": 49,
 									"character": 15
 								}
 							],
@@ -1375,7 +1375,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 41,
+									"line": 42,
 									"character": 12
 								}
 							],
@@ -1395,12 +1395,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this attachment is in\n"
+								"text": "The ID of the guild this attachment is in\n`null` if the attachment is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 34,
+									"line": 35,
 									"character": 11
 								}
 							],
@@ -1428,12 +1428,12 @@
 							},
 							"comment": {
 								"shortText": "Height",
-								"text": "The attachment's height\n"
+								"text": "The attachment's height\n`null` if the attachment isn't an image or video\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 83,
+									"line": 86,
 									"character": 10
 								}
 							],
@@ -1514,7 +1514,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 69,
+									"line": 70,
 									"character": 12
 								}
 							],
@@ -1538,7 +1538,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 55,
+									"line": 56,
 									"character": 8
 								}
 							],
@@ -1562,7 +1562,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 62,
+									"line": 63,
 									"character": 7
 								}
 							],
@@ -1581,12 +1581,12 @@
 							},
 							"comment": {
 								"shortText": "Width",
-								"text": "The attachment's width\n"
+								"text": "The attachment's width\n`null` if the attachment isn't an image or video\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Attachment/AttachmentData.ts",
-									"line": 76,
+									"line": 78,
 									"character": 9
 								}
 							],
@@ -79926,7 +79926,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 58,
+									"line": 59,
 									"character": 31
 								}
 							],
@@ -80019,7 +80019,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 30,
+									"line": 31,
 									"character": 17
 								}
 							],
@@ -80073,7 +80073,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 58,
+									"line": 59,
 									"character": 21
 								}
 							],
@@ -80126,7 +80126,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 44,
+									"line": 45,
 									"character": 15
 								}
 							],
@@ -80184,12 +80184,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this command is in\n"
+								"text": "The ID of the guild this command is in\n`null` if it's a global command\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 23,
+									"line": 24,
 									"character": 11
 								}
 							],
@@ -80251,7 +80251,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 37,
+									"line": 38,
 									"character": 8
 								}
 							],
@@ -80275,7 +80275,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 51,
+									"line": 52,
 									"character": 11
 								}
 							],
@@ -80440,7 +80440,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 201,
+									"line": 202,
 									"character": 9
 								}
 							]
@@ -80481,7 +80481,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 223,
+									"line": 224,
 									"character": 10
 								}
 							]
@@ -80543,7 +80543,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 214,
+									"line": 215,
 									"character": 8
 								}
 							]
@@ -80746,7 +80746,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 120,
+									"line": 121,
 									"character": 27
 								}
 							]
@@ -80848,7 +80848,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 105,
+									"line": 106,
 									"character": 23
 								}
 							]
@@ -80922,7 +80922,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 173,
+									"line": 174,
 									"character": 24
 								}
 							]
@@ -81007,7 +81007,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 188,
+									"line": 189,
 									"character": 32
 								}
 							]
@@ -81081,7 +81081,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 134,
+									"line": 135,
 									"character": 19
 								}
 							]
@@ -81146,7 +81146,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 160,
+									"line": 161,
 									"character": 20
 								}
 							]
@@ -81203,7 +81203,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/Command.ts",
-									"line": 147,
+									"line": 148,
 									"character": 17
 								}
 							]
@@ -81380,7 +81380,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 142,
+									"line": 143,
 									"character": 8
 								}
 							],
@@ -81404,7 +81404,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 149,
+									"line": 150,
 									"character": 9
 								}
 							],
@@ -81436,7 +81436,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 135,
+							"line": 136,
 							"character": 30
 						}
 					]
@@ -81469,7 +81469,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 27,
+									"line": 28,
 									"character": 17
 								}
 							],
@@ -81493,7 +81493,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 55,
+									"line": 56,
 									"character": 21
 								}
 							],
@@ -81517,7 +81517,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 41,
+									"line": 42,
 									"character": 15
 								}
 							],
@@ -81541,7 +81541,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 62,
+									"line": 63,
 									"character": 13
 								}
 							],
@@ -81560,12 +81560,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this command is in\n"
+								"text": "The ID of the guild this command is in\n`null` if it's a global command\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 20,
+									"line": 21,
 									"character": 11
 								}
 							],
@@ -81622,7 +81622,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 34,
+									"line": 35,
 									"character": 8
 								}
 							],
@@ -81646,7 +81646,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 48,
+									"line": 49,
 									"character": 11
 								}
 							],
@@ -81713,7 +81713,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 105,
+									"line": 106,
 									"character": 11
 								}
 							],
@@ -81741,7 +81741,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 91,
+									"line": 92,
 									"character": 15
 								}
 							],
@@ -81765,7 +81765,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 84,
+									"line": 85,
 									"character": 8
 								}
 							],
@@ -81790,7 +81790,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 112,
+									"line": 113,
 									"character": 11
 								}
 							],
@@ -81818,7 +81818,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 98,
+									"line": 99,
 									"character": 12
 								}
 							],
@@ -81842,7 +81842,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Command/CommandData.ts",
-									"line": 77,
+									"line": 78,
 									"character": 8
 								}
 							],
@@ -81870,7 +81870,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 70,
+							"line": 71,
 							"character": 30
 						}
 					]
@@ -81889,7 +81889,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 119,
+							"line": 120,
 							"character": 29
 						}
 					],
@@ -81983,7 +81983,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 124,
+							"line": 125,
 							"character": 40
 						}
 					],
@@ -82005,7 +82005,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 126,
+							"line": 127,
 							"character": 40
 						}
 					],
@@ -82027,7 +82027,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 123,
+							"line": 124,
 							"character": 40
 						}
 					],
@@ -82049,7 +82049,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 128,
+							"line": 129,
 							"character": 44
 						}
 					],
@@ -82071,7 +82071,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 127,
+							"line": 128,
 							"character": 37
 						}
 					],
@@ -82093,7 +82093,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 122,
+							"line": 123,
 							"character": 39
 						}
 					],
@@ -82115,7 +82115,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 120,
+							"line": 121,
 							"character": 44
 						}
 					],
@@ -82137,7 +82137,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 121,
+							"line": 122,
 							"character": 50
 						}
 					],
@@ -82159,7 +82159,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Command/CommandData.ts",
-							"line": 125,
+							"line": 126,
 							"character": 37
 						}
 					],
@@ -83389,7 +83389,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 29,
+									"line": 30,
 									"character": 37
 								}
 							],
@@ -83482,7 +83482,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 22,
+									"line": 23,
 									"character": 17
 								}
 							],
@@ -83599,12 +83599,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this command is in\n"
+								"text": "The ID of the guild this command is in\n`null` if it's a global command\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 15,
+									"line": 16,
 									"character": 11
 								}
 							],
@@ -83666,7 +83666,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 29,
+									"line": 30,
 									"character": 15
 								}
 							],
@@ -83831,7 +83831,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 154,
+									"line": 155,
 									"character": 9
 								}
 							]
@@ -84008,7 +84008,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 86,
+									"line": 87,
 									"character": 27
 								}
 							]
@@ -84084,7 +84084,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 72,
+									"line": 73,
 									"character": 23
 								}
 							]
@@ -84158,7 +84158,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 126,
+									"line": 127,
 									"character": 24
 								}
 							]
@@ -84243,7 +84243,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 141,
+									"line": 142,
 									"character": 32
 								}
 							]
@@ -84317,7 +84317,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 100,
+									"line": 101,
 									"character": 19
 								}
 							]
@@ -84374,7 +84374,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissions.ts",
-									"line": 113,
+									"line": 114,
 									"character": 17
 								}
 							]
@@ -84499,7 +84499,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-									"line": 56,
+									"line": 57,
 									"character": 6
 								}
 							],
@@ -84523,7 +84523,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-									"line": 70,
+									"line": 71,
 									"character": 14
 								}
 							],
@@ -84547,7 +84547,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-									"line": 63,
+									"line": 64,
 									"character": 8
 								}
 							],
@@ -84572,7 +84572,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-							"line": 49,
+							"line": 50,
 							"character": 34
 						}
 					]
@@ -84605,7 +84605,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-									"line": 27,
+									"line": 28,
 									"character": 17
 								}
 							],
@@ -84629,7 +84629,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-									"line": 41,
+									"line": 42,
 									"character": 13
 								}
 							],
@@ -84648,12 +84648,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this command is in\n"
+								"text": "The ID of the guild this command is in\n`null` if it's a global command\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-									"line": 20,
+									"line": 21,
 									"character": 11
 								}
 							],
@@ -84710,7 +84710,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-									"line": 34,
+									"line": 35,
 									"character": 15
 								}
 							],
@@ -84760,7 +84760,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-							"line": 78,
+							"line": 79,
 							"character": 33
 						}
 					],
@@ -84798,7 +84798,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-							"line": 79,
+							"line": 80,
 							"character": 41
 						}
 					],
@@ -84820,7 +84820,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/CommandPermissions/CommandPermissionsData.ts",
-							"line": 80,
+							"line": 81,
 							"character": 41
 						}
 					],
@@ -85794,12 +85794,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 37,
+									"line": 38,
 									"character": 17
 								}
 							],
@@ -85832,12 +85832,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 44,
+									"line": 46,
 									"character": 20
 								}
 							],
@@ -86136,7 +86136,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 110,
+									"line": 112,
 									"character": 14
 								}
 							],
@@ -86296,7 +86296,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 151,
+									"line": 153,
 									"character": 18
 								}
 							],
@@ -86417,7 +86417,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 139,
+									"line": 141,
 									"character": 15
 								}
 							],
@@ -86568,7 +86568,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 162,
+									"line": 164,
 									"character": 22
 								}
 							],
@@ -86655,7 +86655,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 174,
+									"line": 176,
 									"character": 30
 								}
 							],
@@ -86751,7 +86751,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 186,
+									"line": 188,
 									"character": 17
 								}
 							],
@@ -86838,7 +86838,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 198,
+									"line": 200,
 									"character": 21
 								}
 							],
@@ -86942,7 +86942,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 223,
+									"line": 225,
 									"character": 22
 								}
 							],
@@ -87062,7 +87062,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 238,
+									"line": 240,
 									"character": 15
 								}
 							],
@@ -87216,7 +87216,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 251,
+									"line": 253,
 									"character": 14
 								}
 							],
@@ -87292,7 +87292,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 264,
+									"line": 266,
 									"character": 15
 								}
 							],
@@ -87348,7 +87348,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 286,
+									"line": 288,
 									"character": 21
 								}
 							],
@@ -87458,7 +87458,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 301,
+									"line": 303,
 									"character": 16
 								}
 							],
@@ -87514,7 +87514,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 275,
+									"line": 277,
 									"character": 15
 								}
 							],
@@ -87610,7 +87610,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 98,
+									"line": 100,
 									"character": 14
 								}
 							],
@@ -87714,7 +87714,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 124,
+									"line": 126,
 									"character": 8
 								}
 							],
@@ -87765,7 +87765,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 310,
+									"line": 312,
 									"character": 15
 								}
 							],
@@ -87906,7 +87906,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 210,
+									"line": 212,
 									"character": 16
 								}
 							],
@@ -88712,12 +88712,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 22,
+									"line": 23,
 									"character": 17
 								}
 							],
@@ -88750,12 +88750,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 29,
+									"line": 31,
 									"character": 20
 								}
 							],
@@ -91841,7 +91841,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 72,
+									"line": 74,
 									"character": 20
 								}
 							],
@@ -91953,12 +91953,12 @@
 							},
 							"comment": {
 								"shortText": "Available",
-								"text": "Whether or not this emoji is available\n"
+								"text": "Whether or not this emoji is available\nEmojis can be unavailable due to losing server boosts\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 51,
+									"line": 52,
 									"character": 13
 								}
 							],
@@ -92008,12 +92008,12 @@
 							},
 							"comment": {
 								"shortText": "Creator",
-								"text": "The user that created this emoji\n"
+								"text": "The user that created this emoji\nCan be `undefined` if the bot doesn't have permission to manage emojis\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 58,
+									"line": 60,
 									"character": 11
 								}
 							],
@@ -92207,7 +92207,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 65,
+									"line": 67,
 									"character": 18
 								}
 							],
@@ -92231,7 +92231,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 72,
+									"line": 74,
 									"character": 9
 								}
 							],
@@ -92395,7 +92395,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 217,
+									"line": 219,
 									"character": 9
 								}
 							]
@@ -92464,7 +92464,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 242,
+									"line": 244,
 									"character": 10
 								}
 							]
@@ -92552,7 +92552,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 231,
+									"line": 233,
 									"character": 8
 								}
 							]
@@ -92745,7 +92745,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 136,
+									"line": 138,
 									"character": 27
 								}
 							]
@@ -92837,7 +92837,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 121,
+									"line": 123,
 									"character": 23
 								}
 							]
@@ -92911,7 +92911,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 189,
+									"line": 191,
 									"character": 24
 								}
 							]
@@ -92996,7 +92996,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 204,
+									"line": 206,
 									"character": 32
 								}
 							]
@@ -93070,7 +93070,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 150,
+									"line": 152,
 									"character": 19
 								}
 							]
@@ -93135,7 +93135,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 176,
+									"line": 178,
 									"character": 20
 								}
 							]
@@ -93192,7 +93192,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/Emoji.ts",
-									"line": 163,
+									"line": 165,
 									"character": 17
 								}
 							]
@@ -93390,12 +93390,12 @@
 							},
 							"comment": {
 								"shortText": "Available",
-								"text": "Whether or not this emoji is available\n"
+								"text": "Whether or not this emoji is available\nEmojis can be unavailable due to losing server boosts\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/EmojiData.ts",
-									"line": 50,
+									"line": 51,
 									"character": 13
 								}
 							],
@@ -93415,12 +93415,12 @@
 							},
 							"comment": {
 								"shortText": "Creator",
-								"text": "The user that created this emoji\n"
+								"text": "The user that created this emoji\nCan be `undefined` if the bot doesn't have permission to manage emojis\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/EmojiData.ts",
-									"line": 57,
+									"line": 59,
 									"character": 11
 								}
 							],
@@ -93445,7 +93445,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/EmojiData.ts",
-									"line": 78,
+									"line": 80,
 									"character": 13
 								}
 							],
@@ -93565,7 +93565,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/EmojiData.ts",
-									"line": 64,
+									"line": 66,
 									"character": 18
 								}
 							],
@@ -93589,7 +93589,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Emoji/EmojiData.ts",
-									"line": 71,
+									"line": 73,
 									"character": 9
 								}
 							],
@@ -112252,7 +112252,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 84,
+									"line": 87,
 									"character": 15
 								}
 							],
@@ -112369,7 +112369,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 63,
+									"line": 64,
 									"character": 13
 								}
 							],
@@ -112511,12 +112511,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this interaction is in\n"
+								"text": "The ID of the guild this interaction is in\n`null` if the interaction is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 56,
+									"line": 57,
 									"character": 11
 								}
 							],
@@ -112573,12 +112573,12 @@
 							},
 							"comment": {
 								"shortText": "Member",
-								"text": "The member that created this interaction\n"
+								"text": "The member that created this interaction\n`null` if the interaction is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 70,
+									"line": 72,
 									"character": 10
 								}
 							],
@@ -112607,12 +112607,12 @@
 							},
 							"comment": {
 								"shortText": "Permissions",
-								"text": "The member's permissions including role permissions and channel overwrites\n"
+								"text": "The member's permissions including role permissions and channel overwrites\n`null` if the interaction is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 77,
+									"line": 80,
 									"character": 15
 								}
 							],
@@ -112694,7 +112694,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 84,
+									"line": 87,
 									"character": 8
 								}
 							],
@@ -112856,7 +112856,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 228,
+									"line": 231,
 									"character": 9
 								}
 							]
@@ -112950,7 +112950,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 256,
+									"line": 259,
 									"character": 25
 								}
 							]
@@ -113010,7 +113010,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 267,
+									"line": 270,
 									"character": 25
 								}
 							]
@@ -113051,7 +113051,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 276,
+									"line": 279,
 									"character": 26
 								}
 							]
@@ -113162,7 +113162,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 291,
+									"line": 294,
 									"character": 23
 								}
 							]
@@ -113256,7 +113256,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 305,
+									"line": 308,
 									"character": 24
 								}
 							]
@@ -113413,7 +113413,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 242,
+									"line": 245,
 									"character": 13
 								}
 							]
@@ -113507,7 +113507,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 319,
+									"line": 322,
 									"character": 11
 								}
 							]
@@ -113611,7 +113611,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 147,
+									"line": 150,
 									"character": 27
 								}
 							]
@@ -113687,7 +113687,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 133,
+									"line": 136,
 									"character": 23
 								}
 							]
@@ -113761,7 +113761,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 200,
+									"line": 203,
 									"character": 24
 								}
 							]
@@ -113846,7 +113846,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 215,
+									"line": 218,
 									"character": 32
 								}
 							]
@@ -113920,7 +113920,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 161,
+									"line": 164,
 									"character": 19
 								}
 							]
@@ -113985,7 +113985,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 187,
+									"line": 190,
 									"character": 20
 								}
 							]
@@ -114042,7 +114042,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/Interaction.ts",
-									"line": 174,
+									"line": 177,
 									"character": 17
 								}
 							]
@@ -114227,7 +114227,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 108,
+									"line": 111,
 									"character": 6
 								}
 							],
@@ -114251,7 +114251,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 115,
+									"line": 118,
 									"character": 8
 								}
 							],
@@ -114276,7 +114276,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 122,
+									"line": 125,
 									"character": 11
 								}
 							],
@@ -114304,7 +114304,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Interaction/InteractionData.ts",
-							"line": 101,
+							"line": 104,
 							"character": 39
 						}
 					]
@@ -114337,7 +114337,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 137,
+									"line": 140,
 									"character": 8
 								}
 							],
@@ -114362,7 +114362,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 152,
+									"line": 155,
 									"character": 11
 								}
 							],
@@ -114391,7 +114391,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 145,
+									"line": 148,
 									"character": 9
 								}
 							],
@@ -114424,7 +114424,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Interaction/InteractionData.ts",
-							"line": 130,
+							"line": 133,
 							"character": 41
 						}
 					]
@@ -114481,7 +114481,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 57,
+									"line": 58,
 									"character": 13
 								}
 							],
@@ -114530,7 +114530,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 85,
+									"line": 88,
 									"character": 13
 								}
 							],
@@ -114549,12 +114549,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this interaction is in\n"
+								"text": "The ID of the guild this interaction is in\n`null` if the interaction is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 50,
+									"line": 51,
 									"character": 11
 								}
 							],
@@ -114606,12 +114606,12 @@
 							},
 							"comment": {
 								"shortText": "Member",
-								"text": "The member that created this interaction\n"
+								"text": "The member that created this interaction\n`null` if the interaction is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 64,
+									"line": 66,
 									"character": 10
 								}
 							],
@@ -114640,12 +114640,12 @@
 							},
 							"comment": {
 								"shortText": "Permissions",
-								"text": "The member's permissions including role permissions and channel overwrites\n"
+								"text": "The member's permissions including role permissions and channel overwrites\n`null` if the interaction is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 71,
+									"line": 74,
 									"character": 15
 								}
 							],
@@ -114727,7 +114727,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Interaction/InteractionData.ts",
-									"line": 78,
+									"line": 81,
 									"character": 8
 								}
 							],
@@ -114779,7 +114779,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Interaction/InteractionData.ts",
-							"line": 92,
+							"line": 95,
 							"character": 27
 						}
 					],
@@ -114817,7 +114817,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Interaction/InteractionData.ts",
-							"line": 94,
+							"line": 97,
 							"character": 37
 						}
 					],
@@ -114839,7 +114839,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Interaction/InteractionData.ts",
-							"line": 93,
+							"line": 96,
 							"character": 34
 						}
 					],
@@ -116945,7 +116945,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 95,
+									"line": 100,
 									"character": 42
 								}
 							],
@@ -117088,12 +117088,12 @@
 							},
 							"comment": {
 								"shortText": "Created At",
-								"text": "The timestamp for when the invite was created\n"
+								"text": "The timestamp for when the invite was created\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 46,
+									"line": 47,
 									"character": 13
 								}
 							],
@@ -117247,7 +117247,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 53,
+									"line": 54,
 									"character": 11
 								}
 							],
@@ -117277,12 +117277,12 @@
 							},
 							"comment": {
 								"shortText": "Max Age",
-								"text": "The max age of the invite\n"
+								"text": "The max age of the invite\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 60,
+									"line": 62,
 									"character": 10
 								}
 							],
@@ -117311,12 +117311,12 @@
 							},
 							"comment": {
 								"shortText": "Max Uses",
-								"text": "The max uses of the invite\n"
+								"text": "The max uses of the invite\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 67,
+									"line": 70,
 									"character": 11
 								}
 							],
@@ -117349,7 +117349,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 88,
+									"line": 93,
 									"character": 14
 								}
 							],
@@ -117383,7 +117383,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 95,
+									"line": 100,
 									"character": 18
 								}
 							],
@@ -117413,12 +117413,12 @@
 							},
 							"comment": {
 								"shortText": "Temporary",
-								"text": "Whether or not the invite is temporary\n"
+								"text": "Whether or not the invite is temporary\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 74,
+									"line": 78,
 									"character": 13
 								}
 							],
@@ -117451,12 +117451,12 @@
 							},
 							"comment": {
 								"shortText": "Uses",
-								"text": "The amount of times this invite has been used\n"
+								"text": "The amount of times this invite has been used\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 81,
+									"line": 86,
 									"character": 8
 								}
 							],
@@ -117665,7 +117665,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 240,
+									"line": 245,
 									"character": 9
 								}
 							]
@@ -117736,7 +117736,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 253,
+									"line": 258,
 									"character": 10
 								}
 							]
@@ -117913,7 +117913,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 159,
+									"line": 164,
 									"character": 27
 								}
 							]
@@ -117989,7 +117989,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 145,
+									"line": 150,
 									"character": 23
 								}
 							]
@@ -118063,7 +118063,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 212,
+									"line": 217,
 									"character": 24
 								}
 							]
@@ -118148,7 +118148,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 227,
+									"line": 232,
 									"character": 32
 								}
 							]
@@ -118222,7 +118222,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 173,
+									"line": 178,
 									"character": 19
 								}
 							]
@@ -118287,7 +118287,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 199,
+									"line": 204,
 									"character": 22
 								}
 							]
@@ -118344,7 +118344,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/Invite.ts",
-									"line": 186,
+									"line": 191,
 									"character": 17
 								}
 							]
@@ -118575,12 +118575,12 @@
 							},
 							"comment": {
 								"shortText": "Created At",
-								"text": "The timestamp for when the invite was created\n"
+								"text": "The timestamp for when the invite was created\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 36,
+									"line": 37,
 									"character": 13
 								}
 							],
@@ -118613,7 +118613,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 91,
+									"line": 96,
 									"character": 13
 								}
 							],
@@ -118661,7 +118661,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 43,
+									"line": 44,
 									"character": 11
 								}
 							],
@@ -118691,12 +118691,12 @@
 							},
 							"comment": {
 								"shortText": "Max Age",
-								"text": "The max age of the invite\n"
+								"text": "The max age of the invite\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 50,
+									"line": 52,
 									"character": 10
 								}
 							],
@@ -118725,12 +118725,12 @@
 							},
 							"comment": {
 								"shortText": "Max Uses",
-								"text": "The max uses of the invite\n"
+								"text": "The max uses of the invite\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 57,
+									"line": 60,
 									"character": 11
 								}
 							],
@@ -118763,7 +118763,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 77,
+									"line": 82,
 									"character": 14
 								}
 							],
@@ -118797,7 +118797,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 84,
+									"line": 89,
 									"character": 18
 								}
 							],
@@ -118827,12 +118827,12 @@
 							},
 							"comment": {
 								"shortText": "Temporary",
-								"text": "Whether or not the invite is temporary\n"
+								"text": "Whether or not the invite is temporary\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 64,
+									"line": 68,
 									"character": 13
 								}
 							],
@@ -118865,12 +118865,12 @@
 							},
 							"comment": {
 								"shortText": "Uses",
-								"text": "The amount of times this invite has been used\n"
+								"text": "The amount of times this invite has been used\nCan be `undefined` if the bot doesn't have permission to manage the invite's channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 71,
+									"line": 76,
 									"character": 8
 								}
 							],
@@ -118945,7 +118945,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 127,
+									"line": 132,
 									"character": 10
 								}
 							],
@@ -118978,7 +118978,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 120,
+									"line": 125,
 									"character": 17
 								}
 							],
@@ -119002,7 +119002,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 106,
+									"line": 111,
 									"character": 6
 								}
 							],
@@ -119026,7 +119026,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Invite/InviteData.ts",
-									"line": 113,
+									"line": 118,
 									"character": 12
 								}
 							],
@@ -119051,7 +119051,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Invite/InviteData.ts",
-							"line": 99,
+							"line": 104,
 							"character": 27
 						}
 					]
@@ -119070,7 +119070,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Invite/InviteData.ts",
-							"line": 134,
+							"line": 139,
 							"character": 26
 						}
 					],
@@ -119095,7 +119095,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Invite/InviteData.ts",
-							"line": 135,
+							"line": 140,
 							"character": 36
 						}
 					],
@@ -123506,7 +123506,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 193,
+									"line": 198,
 									"character": 43
 								}
 							],
@@ -123599,7 +123599,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 158,
+									"line": 163,
 									"character": 12
 								}
 							],
@@ -123633,7 +123633,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 165,
+									"line": 170,
 									"character": 15
 								}
 							],
@@ -123667,7 +123667,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 123,
+									"line": 128,
 									"character": 15
 								}
 							],
@@ -123690,12 +123690,12 @@
 							},
 							"comment": {
 								"shortText": "Author",
-								"text": "The user that sent this message\n"
+								"text": "The user that sent this message\n`null` if the message is sent by a webhook\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 46,
+									"line": 47,
 									"character": 10
 								}
 							],
@@ -123783,7 +123783,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 67,
+									"line": 70,
 									"character": 11
 								}
 							],
@@ -123836,7 +123836,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 81,
+									"line": 84,
 									"character": 19
 								}
 							],
@@ -123869,7 +123869,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 130,
+									"line": 135,
 									"character": 10
 								}
 							],
@@ -123936,7 +123936,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 179,
+									"line": 184,
 									"character": 9
 								}
 							],
@@ -124022,7 +124022,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 193,
+									"line": 198,
 									"character": 15
 								}
 							],
@@ -124052,12 +124052,12 @@
 							},
 							"comment": {
 								"shortText": "Member",
-								"text": "The member object of the user that sent this message\n"
+								"text": "The member object of the user that sent this message\nThis field is only set for `messageCreate` and `messageUpdate` events\nCan be `undefined` if the message is sent in a DM\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 60,
+									"line": 63,
 									"character": 10
 								}
 							],
@@ -124082,7 +124082,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 95,
+									"line": 98,
 									"character": 19
 								}
 							],
@@ -124101,12 +124101,12 @@
 							},
 							"comment": {
 								"shortText": "Mentioned Channels",
-								"text": "The channels this message mentions\n"
+								"text": "The channels this message mentions\nThis field will be an empty array if the message isn't a crossposted message\nOnly channels from lurkable guilds are included\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 116,
+									"line": 121,
 									"character": 21
 								}
 							],
@@ -124134,7 +124134,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 109,
+									"line": 112,
 									"character": 18
 								}
 							],
@@ -124161,7 +124161,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 102,
+									"line": 105,
 									"character": 12
 								}
 							],
@@ -124189,7 +124189,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 172,
+									"line": 177,
 									"character": 20
 								}
 							],
@@ -124223,7 +124223,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 151,
+									"line": 156,
 									"character": 10
 								}
 							],
@@ -124247,7 +124247,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 144,
+									"line": 149,
 									"character": 13
 								}
 							],
@@ -124276,7 +124276,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 186,
+									"line": 191,
 									"character": 21
 								}
 							],
@@ -124310,7 +124310,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 137,
+									"line": 142,
 									"character": 12
 								}
 							],
@@ -124338,7 +124338,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 74,
+									"line": 77,
 									"character": 13
 								}
 							],
@@ -124362,7 +124362,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 88,
+									"line": 91,
 									"character": 7
 								}
 							],
@@ -124411,7 +124411,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 53,
+									"line": 54,
 									"character": 11
 								}
 							],
@@ -124582,7 +124582,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 353,
+									"line": 358,
 									"character": 9
 								}
 							]
@@ -124625,7 +124625,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 400,
+									"line": 405,
 									"character": 13
 								}
 							]
@@ -124694,7 +124694,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 431,
+									"line": 436,
 									"character": 10
 								}
 							]
@@ -124735,7 +124735,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 409,
+									"line": 414,
 									"character": 22
 								}
 							]
@@ -124795,7 +124795,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 420,
+									"line": 425,
 									"character": 30
 								}
 							]
@@ -124855,7 +124855,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 442,
+									"line": 447,
 									"character": 21
 								}
 							]
@@ -124932,7 +124932,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 465,
+									"line": 470,
 									"character": 22
 								}
 							]
@@ -125025,7 +125025,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 479,
+									"line": 484,
 									"character": 8
 								}
 							]
@@ -125181,7 +125181,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 493,
+									"line": 498,
 									"character": 16
 								}
 							]
@@ -125250,7 +125250,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 364,
+									"line": 369,
 									"character": 7
 								}
 							]
@@ -125310,7 +125310,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 375,
+									"line": 380,
 									"character": 9
 								}
 							]
@@ -125404,7 +125404,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 389,
+									"line": 394,
 									"character": 9
 								}
 							]
@@ -125518,7 +125518,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 453,
+									"line": 458,
 									"character": 9
 								}
 							]
@@ -125577,7 +125577,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 272,
+									"line": 277,
 									"character": 27
 								}
 							]
@@ -125653,7 +125653,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 258,
+									"line": 263,
 									"character": 23
 								}
 							]
@@ -125727,7 +125727,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 325,
+									"line": 330,
 									"character": 24
 								}
 							]
@@ -125812,7 +125812,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 340,
+									"line": 345,
 									"character": 32
 								}
 							]
@@ -125886,7 +125886,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 286,
+									"line": 291,
 									"character": 19
 								}
 							]
@@ -125951,7 +125951,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 312,
+									"line": 317,
 									"character": 20
 								}
 							]
@@ -126008,7 +126008,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/Message.ts",
-									"line": 299,
+									"line": 304,
 									"character": 17
 								}
 							]
@@ -126214,7 +126214,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 268,
+									"line": 271,
 									"character": 11
 								}
 							],
@@ -126238,7 +126238,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 261,
+									"line": 264,
 									"character": 6
 								}
 							],
@@ -126262,7 +126262,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 282,
+									"line": 285,
 									"character": 8
 								}
 							],
@@ -126286,7 +126286,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 275,
+									"line": 278,
 									"character": 8
 								}
 							],
@@ -126312,7 +126312,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 254,
+							"line": 257,
 							"character": 31
 						}
 					]
@@ -126345,7 +126345,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 304,
+									"line": 307,
 									"character": 11
 								}
 							],
@@ -126378,7 +126378,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 297,
+									"line": 300,
 									"character": 8
 								}
 							],
@@ -126402,7 +126402,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 290,
+							"line": 293,
 							"character": 32
 						}
 					]
@@ -126435,7 +126435,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 357,
+									"line": 360,
 									"character": 14
 								}
 							],
@@ -126468,7 +126468,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 343,
+									"line": 346,
 									"character": 15
 								}
 							],
@@ -126492,7 +126492,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 350,
+									"line": 353,
 									"character": 8
 								}
 							],
@@ -126525,7 +126525,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 329,
+									"line": 332,
 									"character": 6
 								}
 							],
@@ -126549,7 +126549,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 336,
+									"line": 339,
 									"character": 8
 								}
 							],
@@ -126575,7 +126575,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 322,
+							"line": 325,
 							"character": 35
 						}
 					]
@@ -126608,7 +126608,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 155,
+									"line": 158,
 									"character": 12
 								}
 							],
@@ -126642,7 +126642,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 162,
+									"line": 165,
 									"character": 15
 								}
 							],
@@ -126676,7 +126676,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 120,
+									"line": 123,
 									"character": 15
 								}
 							],
@@ -126699,12 +126699,12 @@
 							},
 							"comment": {
 								"shortText": "Author",
-								"text": "The user that sent this message\n"
+								"text": "The user that sent this message\n`null` if the message is sent by a webhook\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 43,
+									"line": 44,
 									"character": 10
 								}
 							],
@@ -126762,7 +126762,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 64,
+									"line": 65,
 									"character": 11
 								}
 							],
@@ -126786,7 +126786,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 78,
+									"line": 79,
 									"character": 19
 								}
 							],
@@ -126819,7 +126819,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 127,
+									"line": 130,
 									"character": 10
 								}
 							],
@@ -126847,7 +126847,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 197,
+									"line": 200,
 									"character": 13
 								}
 							],
@@ -126871,7 +126871,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 176,
+									"line": 179,
 									"character": 9
 								}
 							],
@@ -126952,7 +126952,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 190,
+									"line": 193,
 									"character": 15
 								}
 							],
@@ -126987,7 +126987,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 57,
+									"line": 58,
 									"character": 10
 								}
 							],
@@ -127012,7 +127012,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 92,
+									"line": 93,
 									"character": 19
 								}
 							],
@@ -127031,12 +127031,12 @@
 							},
 							"comment": {
 								"shortText": "Mentioned Channels",
-								"text": "The channels this message mentions\n"
+								"text": "The channels this message mentions\nThis field will be an empty array if the message isn't a crossposted message\nOnly channels from lurkable guilds are included\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 113,
+									"line": 116,
 									"character": 21
 								}
 							],
@@ -127064,7 +127064,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 106,
+									"line": 107,
 									"character": 18
 								}
 							],
@@ -127091,7 +127091,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 99,
+									"line": 100,
 									"character": 12
 								}
 							],
@@ -127119,7 +127119,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 169,
+									"line": 172,
 									"character": 20
 								}
 							],
@@ -127153,7 +127153,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 148,
+									"line": 151,
 									"character": 10
 								}
 							],
@@ -127177,7 +127177,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 141,
+									"line": 144,
 									"character": 13
 								}
 							],
@@ -127206,7 +127206,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 183,
+									"line": 186,
 									"character": 21
 								}
 							],
@@ -127240,7 +127240,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 134,
+									"line": 137,
 									"character": 12
 								}
 							],
@@ -127268,7 +127268,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 71,
+									"line": 72,
 									"character": 13
 								}
 							],
@@ -127292,7 +127292,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 85,
+									"line": 86,
 									"character": 7
 								}
 							],
@@ -127341,7 +127341,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 50,
+									"line": 51,
 									"character": 11
 								}
 							],
@@ -127432,7 +127432,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 401,
+									"line": 404,
 									"character": 6
 								}
 							],
@@ -127456,7 +127456,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 415,
+									"line": 418,
 									"character": 8
 								}
 							],
@@ -127480,7 +127480,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 408,
+									"line": 411,
 									"character": 8
 								}
 							],
@@ -127505,7 +127505,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 422,
+									"line": 425,
 									"character": 8
 								}
 							],
@@ -127531,7 +127531,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 394,
+							"line": 397,
 							"character": 35
 						}
 					]
@@ -127564,7 +127564,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 379,
+									"line": 382,
 									"character": 13
 								}
 							],
@@ -127588,7 +127588,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 386,
+									"line": 389,
 									"character": 11
 								}
 							],
@@ -127621,7 +127621,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 372,
+									"line": 375,
 									"character": 13
 								}
 							],
@@ -127654,7 +127654,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 365,
+							"line": 368,
 							"character": 33
 						}
 					]
@@ -127687,7 +127687,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 246,
+									"line": 249,
 									"character": 10
 								}
 							],
@@ -127720,7 +127720,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 232,
+									"line": 235,
 									"character": 6
 								}
 							],
@@ -127744,7 +127744,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Message/MessageData.ts",
-									"line": 239,
+									"line": 242,
 									"character": 8
 								}
 							],
@@ -127768,7 +127768,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 225,
+							"line": 228,
 							"character": 31
 						}
 					]
@@ -127787,7 +127787,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 311,
+							"line": 314,
 							"character": 31
 						}
 					],
@@ -127843,7 +127843,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 204,
+							"line": 207,
 							"character": 23
 						}
 					],
@@ -127961,7 +127961,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 312,
+							"line": 315,
 							"character": 39
 						}
 					],
@@ -127983,7 +127983,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 315,
+							"line": 318,
 							"character": 47
 						}
 					],
@@ -128005,7 +128005,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 314,
+							"line": 317,
 							"character": 41
 						}
 					],
@@ -128027,7 +128027,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 313,
+							"line": 316,
 							"character": 43
 						}
 					],
@@ -128049,7 +128049,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 218,
+							"line": 221,
 							"character": 45
 						}
 					],
@@ -128071,7 +128071,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 212,
+							"line": 215,
 							"character": 44
 						}
 					],
@@ -128093,7 +128093,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 206,
+							"line": 209,
 							"character": 48
 						}
 					],
@@ -128115,7 +128115,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 205,
+							"line": 208,
 							"character": 33
 						}
 					],
@@ -128137,7 +128137,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 213,
+							"line": 216,
 							"character": 54
 						}
 					],
@@ -128159,7 +128159,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 216,
+							"line": 219,
 							"character": 68
 						}
 					],
@@ -128181,7 +128181,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 215,
+							"line": 218,
 							"character": 70
 						}
 					],
@@ -128203,7 +128203,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 214,
+							"line": 217,
 							"character": 53
 						}
 					],
@@ -128225,7 +128225,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 207,
+							"line": 210,
 							"character": 43
 						}
 					],
@@ -128247,7 +128247,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 217,
+							"line": 220,
 							"character": 31
 						}
 					],
@@ -128269,7 +128269,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 208,
+							"line": 211,
 							"character": 57
 						}
 					],
@@ -128291,7 +128291,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 209,
+							"line": 212,
 							"character": 64
 						}
 					],
@@ -128313,7 +128313,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 210,
+							"line": 213,
 							"character": 64
 						}
 					],
@@ -128335,7 +128335,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Message/MessageData.ts",
-							"line": 211,
+							"line": 214,
 							"character": 64
 						}
 					],
@@ -130663,7 +130663,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 125,
+									"line": 126,
 									"character": 32
 								}
 							]
@@ -130683,7 +130683,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 118,
+									"line": 119,
 									"character": 10
 								}
 							],
@@ -130766,7 +130766,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 76,
+									"line": 77,
 									"character": 9
 								}
 							],
@@ -130799,7 +130799,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 55,
+									"line": 56,
 									"character": 15
 								}
 							],
@@ -130832,7 +130832,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 125,
+									"line": 126,
 									"character": 10
 								}
 							],
@@ -130860,7 +130860,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 83,
+									"line": 84,
 									"character": 10
 								}
 							],
@@ -130890,12 +130890,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this embed is in\n"
+								"text": "The ID of the guild this embed is in\n`null` if the embed is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 34,
+									"line": 35,
 									"character": 11
 								}
 							],
@@ -130928,7 +130928,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 90,
+									"line": 91,
 									"character": 9
 								}
 							],
@@ -130986,7 +130986,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 111,
+									"line": 112,
 									"character": 12
 								}
 							],
@@ -131020,7 +131020,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 97,
+									"line": 98,
 									"character": 13
 								}
 							],
@@ -131054,7 +131054,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 69,
+									"line": 70,
 									"character": 13
 								}
 							],
@@ -131087,7 +131087,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 41,
+									"line": 42,
 									"character": 9
 								}
 							],
@@ -131120,7 +131120,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 48,
+									"line": 49,
 									"character": 8
 								}
 							],
@@ -131154,7 +131154,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 62,
+									"line": 63,
 									"character": 7
 								}
 							],
@@ -131187,7 +131187,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 104,
+									"line": 105,
 									"character": 9
 								}
 							],
@@ -131277,7 +131277,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 195,
+									"line": 196,
 									"character": 27
 								}
 							]
@@ -131370,7 +131370,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 180,
+									"line": 181,
 									"character": 23
 								}
 							]
@@ -131444,7 +131444,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 209,
+									"line": 210,
 									"character": 19
 								}
 							]
@@ -131501,7 +131501,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbed.ts",
-									"line": 222,
+									"line": 223,
 									"character": 17
 								}
 							]
@@ -131613,7 +131613,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 305,
+									"line": 306,
 									"character": 11
 								}
 							],
@@ -131646,7 +131646,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 298,
+									"line": 299,
 									"character": 8
 								}
 							],
@@ -131679,7 +131679,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 312,
+									"line": 313,
 									"character": 16
 								}
 							],
@@ -131712,7 +131712,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 319,
+									"line": 320,
 									"character": 7
 								}
 							],
@@ -131746,7 +131746,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 291,
+							"line": 292,
 							"character": 35
 						}
 					]
@@ -131779,7 +131779,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 111,
+									"line": 112,
 									"character": 10
 								}
 							],
@@ -131837,7 +131837,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 69,
+									"line": 70,
 									"character": 9
 								}
 							],
@@ -131870,7 +131870,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 48,
+									"line": 49,
 									"character": 15
 								}
 							],
@@ -131903,7 +131903,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 118,
+									"line": 119,
 									"character": 10
 								}
 							],
@@ -131931,7 +131931,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 76,
+									"line": 77,
 									"character": 10
 								}
 							],
@@ -131961,12 +131961,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this embed is in\n"
+								"text": "The ID of the guild this embed is in\n`null` if the embed is sent in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 27,
+									"line": 28,
 									"character": 11
 								}
 							],
@@ -131999,7 +131999,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 83,
+									"line": 84,
 									"character": 9
 								}
 							],
@@ -132057,7 +132057,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 104,
+									"line": 105,
 									"character": 12
 								}
 							],
@@ -132091,7 +132091,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 90,
+									"line": 91,
 									"character": 13
 								}
 							],
@@ -132125,7 +132125,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 62,
+									"line": 63,
 									"character": 13
 								}
 							],
@@ -132158,7 +132158,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 34,
+									"line": 35,
 									"character": 9
 								}
 							],
@@ -132191,7 +132191,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 41,
+									"line": 42,
 									"character": 8
 								}
 							],
@@ -132225,7 +132225,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 55,
+									"line": 56,
 									"character": 7
 								}
 							],
@@ -132258,7 +132258,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 97,
+									"line": 98,
 									"character": 9
 								}
 							],
@@ -132338,7 +132338,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 348,
+									"line": 349,
 									"character": 10
 								}
 							],
@@ -132362,7 +132362,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 334,
+									"line": 335,
 									"character": 8
 								}
 							],
@@ -132386,7 +132386,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 341,
+									"line": 342,
 									"character": 9
 								}
 							],
@@ -132410,7 +132410,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 327,
+							"line": 328,
 							"character": 34
 						}
 					]
@@ -132443,7 +132443,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 146,
+									"line": 147,
 									"character": 11
 								}
 							],
@@ -132476,7 +132476,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 153,
+									"line": 154,
 									"character": 16
 								}
 							],
@@ -132509,7 +132509,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 139,
+									"line": 140,
 									"character": 8
 								}
 							],
@@ -132533,7 +132533,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 132,
+							"line": 133,
 							"character": 35
 						}
 					]
@@ -132566,7 +132566,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 189,
+									"line": 190,
 									"character": 10
 								}
 							],
@@ -132599,7 +132599,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 175,
+									"line": 176,
 									"character": 12
 								}
 							],
@@ -132632,7 +132632,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 168,
+									"line": 169,
 									"character": 7
 								}
 							],
@@ -132665,7 +132665,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 182,
+									"line": 183,
 									"character": 9
 								}
 							],
@@ -132699,7 +132699,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 161,
+							"line": 162,
 							"character": 34
 						}
 					]
@@ -132732,7 +132732,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 276,
+									"line": 277,
 									"character": 8
 								}
 							],
@@ -132765,7 +132765,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 283,
+									"line": 284,
 									"character": 7
 								}
 							],
@@ -132797,7 +132797,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 269,
+							"line": 270,
 							"character": 37
 						}
 					]
@@ -132830,7 +132830,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 225,
+									"line": 226,
 									"character": 10
 								}
 							],
@@ -132863,7 +132863,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 211,
+									"line": 212,
 									"character": 12
 								}
 							],
@@ -132896,7 +132896,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 204,
+									"line": 205,
 									"character": 7
 								}
 							],
@@ -132929,7 +132929,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 218,
+									"line": 219,
 									"character": 9
 								}
 							],
@@ -132963,7 +132963,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 197,
+							"line": 198,
 							"character": 38
 						}
 					]
@@ -132996,7 +132996,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 261,
+									"line": 262,
 									"character": 10
 								}
 							],
@@ -133029,7 +133029,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 247,
+									"line": 248,
 									"character": 12
 								}
 							],
@@ -133062,7 +133062,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 240,
+									"line": 241,
 									"character": 7
 								}
 							],
@@ -133095,7 +133095,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-									"line": 254,
+									"line": 255,
 									"character": 9
 								}
 							],
@@ -133129,7 +133129,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 233,
+							"line": 234,
 							"character": 34
 						}
 					]
@@ -133148,7 +133148,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/MessageEmbed/MessageEmbedData.ts",
-							"line": 125,
+							"line": 126,
 							"character": 28
 						}
 					],
@@ -134965,7 +134965,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 44,
+									"line": 46,
 									"character": 36
 								},
 								{
@@ -135322,12 +135322,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 37,
+									"line": 38,
 									"character": 17
 								}
 							],
@@ -135360,12 +135360,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 44,
+									"line": 46,
 									"character": 20
 								}
 							],
@@ -135914,7 +135914,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 110,
+									"line": 112,
 									"character": 14
 								}
 							],
@@ -136170,7 +136170,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 151,
+									"line": 153,
 									"character": 18
 								}
 							],
@@ -136284,7 +136284,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 139,
+									"line": 141,
 									"character": 15
 								}
 							],
@@ -136579,7 +136579,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 162,
+									"line": 164,
 									"character": 22
 								}
 							],
@@ -136660,7 +136660,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 174,
+									"line": 176,
 									"character": 30
 								}
 							],
@@ -136751,7 +136751,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 186,
+									"line": 188,
 									"character": 17
 								}
 							],
@@ -136832,7 +136832,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 198,
+									"line": 200,
 									"character": 21
 								}
 							],
@@ -137004,7 +137004,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 223,
+									"line": 225,
 									"character": 22
 								}
 							],
@@ -137210,7 +137210,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 238,
+									"line": 240,
 									"character": 15
 								}
 							],
@@ -137559,7 +137559,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 251,
+									"line": 253,
 									"character": 14
 								}
 							],
@@ -137632,7 +137632,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 264,
+									"line": 266,
 									"character": 15
 								}
 							],
@@ -137686,7 +137686,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 286,
+									"line": 288,
 									"character": 21
 								}
 							],
@@ -137789,7 +137789,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 301,
+									"line": 303,
 									"character": 16
 								}
 							],
@@ -137843,7 +137843,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 275,
+									"line": 277,
 									"character": 15
 								}
 							],
@@ -137934,7 +137934,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 98,
+									"line": 100,
 									"character": 14
 								}
 							],
@@ -138033,7 +138033,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 124,
+									"line": 126,
 									"character": 8
 								}
 							],
@@ -138082,7 +138082,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 310,
+									"line": 312,
 									"character": 15
 								}
 							],
@@ -138226,7 +138226,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 210,
+									"line": 212,
 									"character": 16
 								}
 							],
@@ -138531,7 +138531,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 86,
+									"line": 88,
 									"character": 24
 								},
 								{
@@ -139148,12 +139148,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 22,
+									"line": 23,
 									"character": 17
 								}
 							],
@@ -139186,12 +139186,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 29,
+									"line": 31,
 									"character": 20
 								}
 							],
@@ -146146,7 +146146,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 63,
+									"line": 64,
 									"character": 25
 								}
 							]
@@ -146215,7 +146215,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 49,
+									"line": 50,
 									"character": 9
 								}
 							],
@@ -146239,7 +146239,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 63,
+									"line": 64,
 									"character": 9
 								}
 							],
@@ -146260,12 +146260,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this reaction is in\n"
+								"text": "The ID of the guild this reaction is in\n`null` if the reaction is in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 42,
+									"line": 43,
 									"character": 11
 								}
 							],
@@ -146298,7 +146298,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 56,
+									"line": 57,
 									"character": 6
 								}
 							],
@@ -146367,7 +146367,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 162,
+									"line": 163,
 									"character": 10
 								}
 							]
@@ -146443,7 +146443,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 113,
+									"line": 114,
 									"character": 27
 								}
 							]
@@ -146536,7 +146536,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 98,
+									"line": 99,
 									"character": 23
 								}
 							]
@@ -146610,7 +146610,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 127,
+									"line": 128,
 									"character": 19
 								}
 							]
@@ -146675,7 +146675,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 153,
+									"line": 154,
 									"character": 24
 								}
 							]
@@ -146732,7 +146732,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/Reaction.ts",
-									"line": 140,
+									"line": 141,
 									"character": 17
 								}
 							]
@@ -146916,7 +146916,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/ReactionData.ts",
-									"line": 34,
+									"line": 35,
 									"character": 9
 								}
 							],
@@ -146940,7 +146940,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/ReactionData.ts",
-									"line": 48,
+									"line": 49,
 									"character": 9
 								}
 							],
@@ -146961,12 +146961,12 @@
 							},
 							"comment": {
 								"shortText": "Guild ID",
-								"text": "The ID of the guild this reaction is in\n"
+								"text": "The ID of the guild this reaction is in\n`null` if the reaction is in a DM channel\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/ReactionData.ts",
-									"line": 27,
+									"line": 28,
 									"character": 11
 								}
 							],
@@ -146999,7 +146999,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/ReactionData.ts",
-									"line": 41,
+									"line": 42,
 									"character": 6
 								}
 							],
@@ -147083,7 +147083,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/ReactionData.ts",
-									"line": 77,
+									"line": 78,
 									"character": 12
 								}
 							],
@@ -147107,7 +147107,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/ReactionData.ts",
-									"line": 63,
+									"line": 64,
 									"character": 6
 								}
 							],
@@ -147140,7 +147140,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/Reaction/ReactionData.ts",
-									"line": 70,
+									"line": 71,
 									"character": 8
 								}
 							],
@@ -147173,7 +147173,7 @@
 					"sources": [
 						{
 							"fileName": "src/classes/Reaction/ReactionData.ts",
-							"line": 56,
+							"line": 57,
 							"character": 30
 						}
 					]
@@ -159515,7 +159515,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 44,
+									"line": 46,
 									"character": 36
 								}
 							],
@@ -159766,12 +159766,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 37,
+									"line": 38,
 									"character": 17
 								}
 							],
@@ -159799,12 +159799,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 44,
+									"line": 46,
 									"character": 20
 								}
 							],
@@ -160062,7 +160062,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 110,
+									"line": 112,
 									"character": 14
 								}
 							]
@@ -160212,7 +160212,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 151,
+									"line": 153,
 									"character": 18
 								}
 							]
@@ -160323,7 +160323,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 139,
+									"line": 141,
 									"character": 15
 								}
 							]
@@ -160464,7 +160464,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 162,
+									"line": 164,
 									"character": 22
 								}
 							]
@@ -160541,7 +160541,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 174,
+									"line": 176,
 									"character": 30
 								}
 							]
@@ -160627,7 +160627,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 186,
+									"line": 188,
 									"character": 17
 								}
 							]
@@ -160704,7 +160704,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 198,
+									"line": 200,
 									"character": 21
 								}
 							]
@@ -160798,7 +160798,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 223,
+									"line": 225,
 									"character": 22
 								}
 							]
@@ -160908,7 +160908,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 238,
+									"line": 240,
 									"character": 15
 								}
 							]
@@ -161052,7 +161052,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 251,
+									"line": 253,
 									"character": 14
 								}
 							]
@@ -161118,7 +161118,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 264,
+									"line": 266,
 									"character": 15
 								}
 							]
@@ -161164,7 +161164,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 286,
+									"line": 288,
 									"character": 21
 								}
 							]
@@ -161264,7 +161264,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 301,
+									"line": 303,
 									"character": 16
 								}
 							]
@@ -161310,7 +161310,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 275,
+									"line": 277,
 									"character": 15
 								}
 							]
@@ -161396,7 +161396,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 98,
+									"line": 100,
 									"character": 14
 								}
 							]
@@ -161490,7 +161490,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 124,
+									"line": 126,
 									"character": 8
 								}
 							]
@@ -161531,7 +161531,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 310,
+									"line": 312,
 									"character": 15
 								}
 							]
@@ -161662,7 +161662,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 210,
+									"line": 212,
 									"character": 16
 								}
 							]
@@ -161943,7 +161943,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 86,
+									"line": 88,
 									"character": 24
 								}
 							],
@@ -162528,12 +162528,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 22,
+									"line": 23,
 									"character": 17
 								}
 							],
@@ -162561,12 +162561,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 29,
+									"line": 31,
 									"character": 20
 								}
 							],
@@ -163288,7 +163288,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 44,
+									"line": 46,
 									"character": 36
 								},
 								{
@@ -163645,12 +163645,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 37,
+									"line": 38,
 									"character": 17
 								}
 							],
@@ -163683,12 +163683,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 44,
+									"line": 46,
 									"character": 20
 								}
 							],
@@ -164237,7 +164237,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 110,
+									"line": 112,
 									"character": 14
 								}
 							],
@@ -164493,7 +164493,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 151,
+									"line": 153,
 									"character": 18
 								}
 							],
@@ -164607,7 +164607,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 139,
+									"line": 141,
 									"character": 15
 								}
 							],
@@ -164844,7 +164844,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 162,
+									"line": 164,
 									"character": 22
 								}
 							],
@@ -164925,7 +164925,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 174,
+									"line": 176,
 									"character": 30
 								}
 							],
@@ -165016,7 +165016,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 186,
+									"line": 188,
 									"character": 17
 								}
 							],
@@ -165097,7 +165097,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 198,
+									"line": 200,
 									"character": 21
 								}
 							],
@@ -165269,7 +165269,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 223,
+									"line": 225,
 									"character": 22
 								}
 							],
@@ -165475,7 +165475,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 238,
+									"line": 240,
 									"character": 15
 								}
 							],
@@ -165767,7 +165767,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 251,
+									"line": 253,
 									"character": 14
 								}
 							],
@@ -165840,7 +165840,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 264,
+									"line": 266,
 									"character": 15
 								}
 							],
@@ -165894,7 +165894,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 286,
+									"line": 288,
 									"character": 21
 								}
 							],
@@ -165997,7 +165997,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 301,
+									"line": 303,
 									"character": 16
 								}
 							],
@@ -166051,7 +166051,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 275,
+									"line": 277,
 									"character": 15
 								}
 							],
@@ -166142,7 +166142,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 98,
+									"line": 100,
 									"character": 14
 								}
 							],
@@ -166241,7 +166241,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 124,
+									"line": 126,
 									"character": 8
 								}
 							],
@@ -166290,7 +166290,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 310,
+									"line": 312,
 									"character": 15
 								}
 							],
@@ -166434,7 +166434,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 210,
+									"line": 212,
 									"character": 16
 								}
 							],
@@ -166739,7 +166739,7 @@
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannel.ts",
-									"line": 86,
+									"line": 88,
 									"character": 24
 								},
 								{
@@ -167354,12 +167354,12 @@
 							},
 							"comment": {
 								"shortText": "Last Message ID",
-								"text": "The ID of the last message in this channel\n"
+								"text": "The ID of the last message in this channel\n`null` if there aren't any messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 22,
+									"line": 23,
 									"character": 17
 								}
 							],
@@ -167392,12 +167392,12 @@
 							},
 							"comment": {
 								"shortText": "Last Pin Timestamp",
-								"text": "The timestamp of when the last pin in this channel was\n"
+								"text": "The timestamp of when the last pin in this channel was\n`null` if there aren't any pinned messages\n"
 							},
 							"sources": [
 								{
 									"fileName": "src/classes/TextBasedChannel/TextBasedChannelData.ts",
-									"line": 29,
+									"line": 31,
 									"character": 20
 								}
 							],
