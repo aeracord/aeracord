@@ -1,0 +1,25 @@
+name: test
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+
+      - name: "Install dependencies"
+        run: yarn
+
+      - name: "Build"
+        run: yarn build
+
+      - name: "Generate docs"
+        run: ./.github/scripts/generate_docs.sh
