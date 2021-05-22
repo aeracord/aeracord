@@ -13,13 +13,14 @@ export default function dataFromRawData(rawData: RawInviteData): InviteData {
         maxUses: rawData.max_uses,
         temporary: rawData.temporary,
         uses: rawData.uses,
+        expiresAt: typeof rawData.expires_at === "string" ? new Date(rawData.expires_at).getTime() : rawData.expires_at,
+        targetType: rawData.target_type || null,
         targetUser: rawData.target_user ? {
             id: rawData.target_user.id,
             username: rawData.target_user.username,
             discriminator: rawData.target_user.discriminator,
             avatar: rawData.target_user.avatar
         } : null,
-        targetUserType: rawData.target_user_type || null,
         fetchedAt: Date.now()
     };
 }

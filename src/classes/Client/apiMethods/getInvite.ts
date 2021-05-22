@@ -4,6 +4,7 @@ import getRoute from "../../../util/getRoute";
 
 export interface GetInviteData {
     withCounts?: boolean;
+    withExpiration?: boolean;
 }
 
 export default async function getInvite(client: Client, inviteResolvable: InviteResolvable, getInviteData: GetInviteData = {}): Promise<Invite | undefined> {
@@ -14,7 +15,8 @@ export default async function getInvite(client: Client, inviteResolvable: Invite
 
     // Define fetch data
     const path: string = `/invites/${inviteCode}?${queryString.stringify({
-        with_counts: getInviteData.withCounts
+        with_counts: getInviteData.withCounts,
+        with_expiration: getInviteData.withExpiration
     })}`;
     const method: string = "GET";
     const route: string = getRoute(path, method);

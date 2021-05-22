@@ -1,4 +1,4 @@
-import { Feature, GuildChannelType, RawUserData, TargetUserType, VerificationLevel } from "../../internal";
+import { Feature, GuildChannelType, RawUserData, TargetType, VerificationLevel } from "../../internal";
 
 export interface RawInviteData {
     code: string;
@@ -10,8 +10,9 @@ export interface RawInviteData {
     max_uses?: number;
     temporary?: boolean;
     uses?: number;
+    expires_at?: string | null;
+    target_type?: TargetType;
     target_user?: RawInviteDataTargetUser;
-    target_user_type?: TargetUserType;
 }
 
 export interface RawInviteDataChannel {

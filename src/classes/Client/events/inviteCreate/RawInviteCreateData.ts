@@ -1,4 +1,4 @@
-import { RawUserData, TargetUserType } from "../../../../internal";
+import { RawUserData, TargetType } from "../../../../internal";
 
 export interface RawInviteCreateData {
     code: string;
@@ -10,8 +10,8 @@ export interface RawInviteCreateData {
     max_uses: number;
     temporary: boolean;
     uses: number;
+    target_type?: TargetType;
     target_user?: RawInviteCreateDataTargetUser;
-    target_user_type?: TargetUserType;
 }
 
 export interface RawInviteCreateDataTargetUser {

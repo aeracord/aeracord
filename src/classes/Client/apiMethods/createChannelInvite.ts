@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, Invite, PermissionError, RawInviteData, TargetUserType, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, Invite, PermissionError, RawInviteData, TargetType, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateChannelInviteData {
@@ -7,7 +7,7 @@ export interface CreateChannelInviteData {
     temporary?: boolean;
     unique?: boolean;
     targetUser?: UserResolvable;
-    targetUserType?: TargetUserType;
+    targetType?: TargetType;
 }
 
 export default async function createChannelInvite(client: Client, channelResolvable: ChannelResolvable, createChannelInviteData: CreateChannelInviteData = {}, reason?: string): Promise<Invite> {
@@ -38,8 +38,8 @@ export default async function createChannelInvite(client: Client, channelResolva
             max_uses: createChannelInviteData.maxUses,
             temporary: createChannelInviteData.temporary,
             unique: createChannelInviteData.unique,
-            target_user: targetUser || undefined,
-            target_user_type: createChannelInviteData.targetUserType
+            target_type: createChannelInviteData.targetType,
+            target_user_id: targetUser || undefined
         },
         auditLogReason: reason
     });

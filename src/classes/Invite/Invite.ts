@@ -1,4 +1,4 @@
-import { Base, Client, InviteData, RawInviteData, READY_STATE_READY, TargetUser, TargetUserType, User } from "../../internal";
+import { Base, Client, InviteData, RawInviteData, READY_STATE_READY, TargetType, TargetUser, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveCode from "./resolveCode";
@@ -86,18 +86,27 @@ export default class Invite extends Base<Invite> {
     uses?: number;
 
     /**
+     * Expires At
+     *
+     * The timestamp for when this invite expires
+     * Can be `undefined` if the invite wasn't fetched with the `withExpiration` option
+     * Can be `null` if the invite doesn't expire
+     */
+    expiresAt?: number | null;
+
+    /**
+     * Target Type
+     *
+     * The type of target for this invite
+     */
+    targetType: TargetType | null;
+
+    /**
      * Target User
      *
      * The target user for this invite
      */
     targetUser: TargetUser | null;
-
-    /**
-     * Target User Type
-     *
-     * The type of target user for this invite
-     */
-    targetUserType: TargetUserType | null;
 
     /**
      * Invite
@@ -113,8 +122,8 @@ export default class Invite extends Base<Invite> {
      * @param inviteData.maxUses The max uses of the invite
      * @param inviteData.temporary Whether or not the invite is temporary
      * @param inviteData.uses The amount of times this invite has been used
+     * @param inviteData.targetType The type of target for this invite
      * @param inviteData.targetUser The target user for this invite
-     * @param inviteData.targetUserType The type of target user for this invite
      */
     constructor(client: Client, inviteData: InviteData) {
 

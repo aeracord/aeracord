@@ -74,6 +74,22 @@ export interface InviteData {
      * Can be `undefined` if the bot doesn't have permission to manage the invite's channel
      */
     uses?: number;
+
+    /**
+     * Expires At
+     *
+     * The timestamp for when this invite expires
+     * Can be `undefined` if the invite wasn't fetched with the `withExpiration` option
+     * Can be `null` if the invite doesn't expire
+     */
+    expiresAt?: number | null;
+
+    /**
+     * Target Type
+     *
+     * The type of target for this invite
+     */
+    targetType: TargetType | null;
     /**
      * Target User
      *
@@ -82,19 +98,20 @@ export interface InviteData {
     targetUser: TargetUser | null;
 
     /**
-     * Target User Type
-     *
-     * The type of target user for this invite
-     */
-    targetUserType: TargetUserType | null;
-
-    /**
      * Fetched At
      *
      * The timestamp for when this invite was fetched
      */
     fetchedAt: number;
 }
+
+/**
+ * Target Type
+ * https://discord.com/developers/docs/resources/invite#invite-object-invite-target-types
+ */
+export type TargetType = typeof TARGET_TYPE_STREAM | typeof TARGET_TYPE_EMBEDDED_APPLICATION;
+export const TARGET_TYPE_STREAM = 1;
+export const TARGET_TYPE_EMBEDDED_APPLICATION = 2;
 
 /**
  * Target User
@@ -131,10 +148,3 @@ export interface TargetUser {
      */
     avatar: string | null;
 }
-
-/**
- * Target User Type
- * https://discord.com/developers/docs/resources/invite#invite-object-target-user-types
- */
-export type TargetUserType = typeof TARGET_USER_TYPE_STREAM;
-export const TARGET_USER_TYPE_STREAM = 1;

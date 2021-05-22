@@ -361,9 +361,10 @@ export {
     Invite,
     InviteData,
     InviteResolvable,
+    TargetType,
     TargetUser,
-    TargetUserType,
-    TARGET_USER_TYPE_STREAM
+    TARGET_TYPE_EMBEDDED_APPLICATION,
+    TARGET_TYPE_STREAM
 } from "./internal";
 
 // Member

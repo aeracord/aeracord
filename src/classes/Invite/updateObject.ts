@@ -17,7 +17,8 @@ export default function updateObject(invite: Invite, inviteData: InviteData) {
     invite.maxUses = inviteData.maxUses;
     invite.temporary = inviteData.temporary;
     invite.uses = inviteData.uses;
+    invite.expiresAt = inviteData.expiresAt;
+    invite.targetType = inviteData.targetType;
     invite.targetUser = inviteData.targetUser;
-    invite.targetUserType = inviteData.targetUserType;
     invite._lastUpdatedAt = Date.now();
 }
