@@ -68,7 +68,8 @@ export {
     ClientActivityType,
     ClientData,
     ClientPresence,
-    ClientStatus
+    ClientStatus,
+    InitialCommands
 } from "./classes/Client/Client";
 
 // Client: API Methods

@@ -118,6 +118,7 @@ export {
     InitialCacheTypeGuilds,
     InitialCacheTypeIDs,
     InitialCacheTypeMessages,
+    InitialCommands,
     ObjectCacheStrategies,
     PermissionsCacheStrategies
 } from "./internal";
@@ -234,6 +235,11 @@ export {
     ModifyGuildWelcomeScreenData,
     ModifyGuildWidgetData,
     ModifyWebhookData,
+    NSFWLevel,
+    NSFW_LEVEL_AGE_RESTRICTED,
+    NSFW_LEVEL_DEFAULT,
+    NSFW_LEVEL_EXPLICIT,
+    NSFW_LEVEL_SAFE,
     PartialGuild,
     SearchGuildMembersData
 } from "./internal";
@@ -394,7 +400,10 @@ export {
     MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE,
     MESSAGE_TYPE_DEFAULT,
     MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED,
+    MESSAGE_TYPE_GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING,
+    MESSAGE_TYPE_GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING,
     MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED,
+    MESSAGE_TYPE_GUILD_INVITE_REMINDER,
     MESSAGE_TYPE_GUILD_MEMBER_JOIN,
     MESSAGE_TYPE_REPLY,
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION,
@@ -530,6 +539,9 @@ export {
 
 // Voice Channel
 export {
+    VideoQualityMode,
+    VIDEO_QUALITY_MODE_AUTO,
+    VIDEO_QUALITY_MODE_FULL,
     VoiceChannel,
     VoiceChannelData
 } from "./internal";
