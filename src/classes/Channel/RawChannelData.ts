@@ -1,4 +1,4 @@
-import { ChannelType, PermissionType, RawUserData } from "../../internal";
+import { ChannelType, PermissionType, RawUserData, VideoQualityMode } from "../../internal";
 
 export interface RawChannelData {
     id: string;
@@ -13,6 +13,7 @@ export interface RawChannelData {
     permission_overwrites?: RawChannelDataPermissionOverwrite[];
     bitrate?: number;
     user_limit?: number;
+    video_quality_mode?: VideoQualityMode;
     rate_limit_per_user?: number;
     parent_id: string | null;
     recipients?: RawUserData[];

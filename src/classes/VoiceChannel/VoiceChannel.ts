@@ -1,4 +1,4 @@
-import { CacheInterface, Client, CHANNEL_TYPE_VOICE, Invite, VoiceChannelData } from "../../internal";
+import { CacheInterface, Client, CHANNEL_TYPE_VOICE, Invite, VideoQualityMode, VoiceChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
@@ -26,6 +26,13 @@ export default class VoiceChannel extends GuildChannel {
     userLimit: number | null;
 
     /**
+     * Video Quality Mode
+     *
+     * The channel's video quality mode
+     */
+    videoQualityMode: VideoQualityMode;
+
+    /**
      * Invites
      *
      * The cache manager interface for the invites in this channel
@@ -39,6 +46,7 @@ export default class VoiceChannel extends GuildChannel {
      * @param voiceChannelData Options to initialize this voice channel with
      * @param voiceChannelData.bitrate The channel's bitrate
      * @param voiceChannelData.userLimit The channel's user limit
+     * @param voiceChannelData.videoQualityMode The channel's video quality mode
      */
     constructor(client: Client, voiceChannelData: VoiceChannelData) {
 

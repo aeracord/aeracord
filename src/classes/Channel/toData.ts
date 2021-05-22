@@ -58,6 +58,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             parentID: voiceChannel.parentID,
             bitrate: voiceChannel.bitrate,
             userLimit: voiceChannel.userLimit,
+            videoQualityMode: voiceChannel.videoQualityMode,
             fetchedAt: voiceChannel._lastUpdatedAt
         };
     }

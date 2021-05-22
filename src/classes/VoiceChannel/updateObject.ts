@@ -5,6 +5,7 @@ export default function updateObject(voiceChannel: VoiceChannel, voiceChannelDat
     // Set data
     voiceChannel.bitrate = voiceChannelData.bitrate;
     voiceChannel.userLimit = voiceChannelData.userLimit;
+    voiceChannel.videoQualityMode = voiceChannelData.videoQualityMode;
 
     /**
      * If this function was not called from a constructor,

@@ -1,4 +1,4 @@
-import { AnyChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawUserData } from "../../internal";
+import { AnyChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawUserData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
@@ -53,6 +53,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         parentID: rawData.parent_id,
         bitrate: rawData.bitrate,
         userLimit: rawData.user_limit,
+        videoQualityMode: rawData.video_quality_mode || VIDEO_QUALITY_MODE_AUTO,
         fetchedAt: Date.now()
     };
 
