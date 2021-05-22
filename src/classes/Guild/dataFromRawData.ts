@@ -41,7 +41,7 @@ export default function dataFromRawData(client: Client, rawData: RawGuildData): 
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
         welcomeScreen: rawData.welcome_screen ? WelcomeScreen._dataFromRawData(rawData.welcome_screen, rawData.id) : null,
-        nsfw: rawData.nsfw,
+        nsfwLevel: rawData.nsfw_level,
         fetchedAt: Date.now()
     };
 }

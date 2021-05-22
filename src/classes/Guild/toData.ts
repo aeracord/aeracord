@@ -38,7 +38,7 @@ export default function toData(guild: Guild): GuildData {
         approximateMemberCount: guild.approximateMemberCount,
         approximatePresenceCount: guild.approximatePresenceCount,
         welcomeScreen: guild.welcomeScreen && WelcomeScreen.toData(guild.welcomeScreen),
-        nsfw: guild.nsfw,
+        nsfwLevel: guild.nsfwLevel,
         fetchedAt: guild._lastUpdatedAt
     };
 }

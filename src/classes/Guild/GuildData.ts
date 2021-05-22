@@ -246,11 +246,11 @@ export interface GuildData {
     welcomeScreen: WelcomeScreenData | null;
 
     /**
-     * NSFW
+     * NSFW Level
      *
-     * Whether or not the guild is marked as NSFW
+     * The guild's NSFW level
      */
-    nsfw: boolean;
+    nsfwLevel: NSFWLevel;
 
     /**
      * Fetched At
@@ -311,6 +311,16 @@ export const PREMIUM_TIER_NONE = 0;
 export const PREMIUM_TIER_TIER_1 = 1;
 export const PREMIUM_TIER_TIER_2 = 2;
 export const PREMIUM_TIER_TIER_3 = 3;
+
+/**
+ * NSFW Level
+ * https://discord.com/developers/docs/resources/guild#guild-object-guild-nsfw-level
+ */
+export type NSFWLevel = typeof NSFW_LEVEL_DEFAULT | typeof NSFW_LEVEL_EXPLICIT | typeof NSFW_LEVEL_SAFE | typeof NSFW_LEVEL_AGE_RESTRICTED;
+export const NSFW_LEVEL_DEFAULT = 0;
+export const NSFW_LEVEL_EXPLICIT = 1;
+export const NSFW_LEVEL_SAFE = 2;
+export const NSFW_LEVEL_AGE_RESTRICTED = 3;
 
 /**
  * Voice Region
