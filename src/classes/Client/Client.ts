@@ -302,19 +302,11 @@ export interface ClientData {
     presencesIntent?: boolean;
 
     /**
-     * Global Commands
+     * Initial Commands
      *
-     * Data to bulk overwrite the bot's global commands
+     * Data to bulk overwrite the bot's commands
      */
-    globalCommands?: CreateCommandData[];
-
-    /**
-     * Global Command Guild IDs
-     *
-     * The guild IDs to also add the global commands to
-     * This can be useful during development since global commands can take up to an hour to update
-     */
-    globalCommandGuildIDs?: string[];
+    initialCommands?: InitialCommands;
 
     /**
      * Cache Strategies
@@ -358,6 +350,36 @@ export interface ClientPresence {
      * The timestamp in milliseconds for when the client went idle
      */
     since?: number;
+}
+
+/**
+ * Initial Commands
+ *
+ * Data to bulk overwrite the bot's commands
+ */
+export interface InitialCommands {
+
+    /**
+     * Commands
+     *
+     * The commands
+     */
+    commands: CreateCommandData[];
+
+    /**
+     * Global
+     *
+     * Whether or not to update the global commands
+     */
+    global?: boolean;
+
+    /**
+     * Guilds
+     *
+     * The guild IDs to update the guild commands in
+     * This can be useful during development since global commands can take up to an hour to update
+     */
+    guilds?: string[];
 }
 
 /**
@@ -886,20 +908,13 @@ export default class Client extends EventEmitter {
     _presencesIntent: boolean;
 
     /**
-     * Global Commands
+     * Initial Commands
      *
-     * Data to bulk overwrite the bot's global commands when connecting to the gateway
+     * Data to bulk overwrite the bot's commands when connecting to the gateway
      *
      * @private
      */
-    _globalCommands?: CreateCommandData[];
-
-    /**
-     * Global Command Guild IDs
-     *
-     * The guild IDs to also add the global commands to
-     */
-    _globalCommandGuildIDs?: string[];
+    _initialCommands?: InitialCommands;
 
     /**
      * Fetch Queues
@@ -1320,8 +1335,7 @@ export default class Client extends EventEmitter {
         this._initialPresence = clientData.presence;
         this._membersIntent = Boolean(clientData.membersIntent);
         this._presencesIntent = Boolean(clientData.presencesIntent);
-        this._globalCommands = clientData.globalCommands;
-        this._globalCommandGuildIDs = clientData.globalCommandGuildIDs;
+        this._initialCommands = clientData.initialCommands;
         Object.defineProperty(this, "_fetchQueues", { value: new Map() });
         this._cacheStrategies = {
             objects: clientData.cacheStrategies?.objects || {},
