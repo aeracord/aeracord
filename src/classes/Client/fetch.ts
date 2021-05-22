@@ -34,7 +34,7 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Make request
-    const result: Response = await nodeFetch(`https://discord.com/api/v8${requestOptions.path}`, {
+    const result: Response = await nodeFetch(`https://discord.com/api/v9${requestOptions.path}`, {
         headers: {
             "User-Agent": `Aeracord (https://aeracord.apixel.me, ${packageJSON.version})`,
             "Authorization": `Bot ${client.token}`,

@@ -50,7 +50,7 @@ export default async function connect(client: Client) {
      *
      * Create a new websocket with the url provided by `/gateway/bot`
      */
-    const ws: WebSocket = new WebSocket(`${gatewayData.url}?v=8&encoding=json`);
+    const ws: WebSocket = new WebSocket(`${gatewayData.url}?v=9&encoding=json`);
 
     // Set websocket
     Object.defineProperty(client, "_ws", {
