@@ -306,6 +306,17 @@ export default class Interaction extends Base<AnyInteraction> {
     }
 
     /**
+     * Get Original Response
+     *
+     * Get the original response to this interaction
+     *
+     * @returns {Promise<Message>} The message
+     */
+    getOriginalResponse(): Promise<Message> {
+        return this.client.getOriginalInteractionResponse(this.token);
+    }
+
+    /**
      * Respond
      *
      * Respond to this interaction

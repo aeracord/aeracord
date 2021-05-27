@@ -229,6 +229,7 @@ import getGuildWebhooks from "./apiMethods/getGuildWebhooks";
 import getGuildWelcomeScreen from "./apiMethods/getGuildWelcomeScreen";
 import getGuildWidgetSettings from "./apiMethods/getGuildWidgetSettings";
 import getInvite from "./apiMethods/getInvite";
+import getOriginalInteractionResponse from "./apiMethods/getOriginalInteractionResponse";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import getTemplate from "./apiMethods/getTemplate";
@@ -2655,6 +2656,19 @@ export default class Client extends EventEmitter {
      */
     getInvite(invite: InviteResolvable, getInviteData?: GetInviteData): Promise<Invite | undefined> {
         return getInvite(this, invite, getInviteData);
+    }
+
+    /**
+     * Get Original Interaction Response
+     *
+     * Get the original response to an interaction
+     *
+     * @param interactionToken The token for the interaction to get the response for
+     *
+     * @returns {Promise<Message>} The message
+     */
+    getOriginalInteractionResponse(interactionToken: string): Promise<Message> {
+        return getOriginalInteractionResponse(this, interactionToken);
     }
 
     /**
