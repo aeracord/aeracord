@@ -280,6 +280,8 @@ export {
 export {
     CommandInteraction,
     CommandInteractionData,
+    CommandInteractionMetadata,
+    CommandInteractionOption,
     GetOptionResult
 } from "./internal";
 
@@ -289,24 +291,11 @@ export {
     CommandPermissionsData
 } from "./internal";
 
-// Message Component
-export {
-    ActionRowComponent,
-    AnyMessageComponent,
-    AnyMessageComponentData,
-    ButtonComponent,
-    Component,
-    ComponentType,
-    COMPONENT_TYPE_ACTION_ROW,
-    COMPONENT_TYPE_BUTTON,
-    MessageComponent,
-    MessageComponentData
-} from "./internal";
-
 // Component Interaction
 export {
     ComponentInteraction,
-    ComponentInteractionData
+    ComponentInteractionData,
+    ComponentInteractionMetadata
 } from "./internal";
 
 // DM Channel
@@ -395,6 +384,7 @@ export {
     AnyInteractionData,
     Interaction,
     InteractionData,
+    InteractionMetadata,
     InteractionResolvable,
     InteractionType,
     INTERACTION_TYPE_COMMAND,
@@ -450,6 +440,20 @@ export {
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
     MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3,
     MessageWebhook
+} from "./internal";
+
+// Message Component
+export {
+    ActionRowComponent,
+    AnyMessageComponent,
+    AnyMessageComponentData,
+    ButtonComponent,
+    Component,
+    ComponentType,
+    COMPONENT_TYPE_ACTION_ROW,
+    COMPONENT_TYPE_BUTTON,
+    MessageComponent,
+    MessageComponentData
 } from "./internal";
 
 // Message Embed
