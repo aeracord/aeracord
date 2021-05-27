@@ -52,6 +52,7 @@ export default function toData(message: Message): MessageData {
         flags: message.flags,
         referencedMessage: message.referencedMessage,
         interaction: message.interaction,
+        components: message.components,
         fetchedAt: message._lastUpdatedAt
     };
 }

@@ -1,4 +1,4 @@
-import { AttachmentData, GuildChannelType, InteractionType, MemberData, MessageEmbedData, ReactionData, StickerData, UserData } from "../../internal";
+import { AnyMessageComponentData, AttachmentData, GuildChannelType, InteractionType, MemberData, MessageEmbedData, ReactionData, StickerData, UserData } from "../../internal";
 
 /**
  * Message Data
@@ -191,6 +191,13 @@ export interface MessageData {
      * The interaction this message is in response to
      */
     interaction: MessageInteraction | null;
+
+    /**
+     * Components
+     *
+     * The message's components
+     */
+    components: AnyMessageComponentData[];
 
     /**
      * Fetched At

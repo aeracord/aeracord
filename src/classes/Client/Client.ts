@@ -3,6 +3,7 @@ import WebSocket from "ws";
 import {
     AnyChannel,
     AnyGuildChannel,
+    AnyInteraction,
     AuditLog,
     ACTIVITY_TYPE_COMPETING,
     ACTIVITY_TYPE_LISTENING,
@@ -83,7 +84,6 @@ import {
     GuildUserCacheInterface,
     GuildUserCacheManager,
     GuildWidget,
-    Interaction,
     InteractionResolvable,
     Invite,
     InviteDeleteData,
@@ -148,8 +148,7 @@ import {
     Webhook,
     WebhooksUpdateData,
     WebhookResolvable,
-    WelcomeScreen,
-    WelcomeScreenData
+    WelcomeScreen
 } from "../../internal";
 import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
@@ -631,7 +630,7 @@ export default interface Client {
      *
      * Emitted when an interaction is created
      */
-    on(event: "interactionCreate", listener: (interaction: Interaction, options: ChannelEventOptions) => void): this;
+    on(event: "interactionCreate", listener: (interaction: AnyInteraction, options: ChannelEventOptions) => void): this;
 
     /**
      * Invite Create
@@ -1096,7 +1095,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _interactions: CacheManager<Interaction>;
+    _interactions: CacheManager<AnyInteraction>;
 
     /**
      * Invites
@@ -1242,7 +1241,7 @@ export default class Client extends EventEmitter {
      *
      * The cache of interactions
      */
-    interactions: CacheInterface<Interaction, false>;
+    interactions: CacheInterface<AnyInteraction, false>;
 
     /**
      * Invites
@@ -1366,7 +1365,7 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "_emojis", { value: new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.emojis)) });
         Object.defineProperty(this, "_guilds", { value: new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guilds)) });
         Object.defineProperty(this, "_guildWidgets", { value: new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guildWidgets)) });
-        Object.defineProperty(this, "_interactions", { value: new CacheManager<Interaction>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.interactions)) });
+        Object.defineProperty(this, "_interactions", { value: new CacheManager<AnyInteraction>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.interactions)) });
         Object.defineProperty(this, "_invites", { value: new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.invites)) });
         Object.defineProperty(this, "_members", { value: new GuildUserCacheManager<Member>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.members)) });
         Object.defineProperty(this, "_messages", { value: new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.messages)) });
@@ -1417,7 +1416,7 @@ export default class Client extends EventEmitter {
             })
         });
         Object.defineProperty(this, "interactions", {
-            value: new CacheInterface<Interaction, false>(this, {
+            value: new CacheInterface<AnyInteraction, false>(this, {
                 cacheManager: this._interactions
             })
         });

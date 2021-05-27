@@ -1,4 +1,4 @@
-import { AnyChannel, AnyGuildChannel, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Interaction, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -132,7 +132,7 @@ export default class Guild extends Base<Guild> {
      *
      * The cache manager interface for the interactions in this guild
      */
-    interactions: CacheInterface<Interaction, false>;
+    interactions: CacheInterface<AnyInteraction, false>;
 
     /**
      * Invites
@@ -414,9 +414,9 @@ export default class Guild extends Base<Guild> {
             })
         });
         Object.defineProperty(this, "interactions", {
-            value: new CacheInterface<Interaction, false>(this.client, {
+            value: new CacheInterface<AnyInteraction, false>(this.client, {
                 cacheManager: this.client._interactions,
-                match: (i: Interaction) => i.guildID === this.id
+                match: (i: AnyInteraction) => i.guildID === this.id
             })
         });
         Object.defineProperty(this, "invites", {

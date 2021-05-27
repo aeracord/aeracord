@@ -4,6 +4,31 @@ export {
     BaseData
 } from "./classes/Base/Base";
 
+// Interaction
+export {
+    default as Interaction,
+    AnyInteraction,
+    AnyInteractionData,
+    InteractionResolvable
+} from "./classes/Interaction/Interaction";
+export * from "./classes/Interaction/InteractionData";
+export * from "./classes/Interaction/RawInteractionData";
+
+// Message Component
+export {
+    default as MessageComponent,
+    AnyMessageComponent,
+    AnyMessageComponentData
+} from "./classes/MessageComponent/MessageComponent";
+export * from "./classes/MessageComponent/MessageComponentData";
+export * from "./classes/MessageComponent/RawMessageComponentData";
+
+// Action Row
+export {
+    default as ActionRow
+} from "./classes/ActionRow/ActionRow";
+export * from "./classes/ActionRow/ActionRowData";
+
 // API Error
 export {
     default as APIError,
@@ -30,6 +55,12 @@ export {
 } from "./classes/Ban/Ban";
 export * from "./classes/Ban/BanData";
 export * from "./classes/Ban/RawBanData";
+
+// Button
+export {
+    default as Button
+} from "./classes/Button/Button";
+export * from "./classes/Button/ButtonData";
 
 // Cache Interface
 export {
@@ -194,12 +225,25 @@ export {
 export * from "./classes/Command/CommandData";
 export * from "./classes/Command/RawCommandData";
 
+// Command Interaction
+export {
+    default as CommandInteraction
+} from "./classes/CommandInteraction/CommandInteraction";
+export * from "./classes/CommandInteraction/CommandInteractionData";
+export * from "./classes/CommandInteraction/getOption";
+
 // Command Permissions
 export {
     default as CommandPermissions
 } from "./classes/CommandPermissions/CommandPermissions";
 export * from "./classes/CommandPermissions/CommandPermissionsData";
 export * from "./classes/CommandPermissions/RawCommandPermissionsData";
+
+// Component Interaction
+export {
+    default as ComponentInteraction
+} from "./classes/ComponentInteraction/ComponentInteraction";
+export * from "./classes/ComponentInteraction/ComponentInteractionData";
 
 // DM Channel
 export {
@@ -263,15 +307,6 @@ export {
 } from "./classes/GuildWidget/GuildWidget";
 export * from "./classes/GuildWidget/GuildWidgetData";
 export * from "./classes/GuildWidget/RawGuildWidgetData";
-
-// Interaction
-export {
-    default as Interaction,
-    InteractionResolvable
-} from "./classes/Interaction/Interaction";
-export * from "./classes/Interaction/getOption";
-export * from "./classes/Interaction/InteractionData";
-export * from "./classes/Interaction/RawInteractionData";
 
 // Invite
 export {

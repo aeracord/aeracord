@@ -1,5 +1,5 @@
 import FormData from "form-data";
-import { Channel, ChannelResolvable, Client, Embed, EmbedAttachment, FetchQueue, Message, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, Client, Component, Embed, EmbedAttachment, FetchQueue, Message, MessageComponent, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import parseAttachments from "../../../util/parseAttachments";
 
@@ -7,6 +7,7 @@ export interface CreateMessageData {
     content?: string;
     tts?: boolean;
     embed?: Embed;
+    components?: Component[];
     allowedMentions?: AllowedMentions;
     messageReference?: CreateMessageReference;
     file?: CreateMessageFile;
@@ -73,6 +74,7 @@ export default async function createMessage(client: Client, channelResolvable: C
         content: createMessageData.content,
         tts: createMessageData.tts,
         embed: createMessageData.embed?._toJSON(),
+        components: createMessageData.components && MessageComponent._componentsToJSON(createMessageData.components),
         allowed_mentions: createMessageData.allowedMentions && {
             parse: createMessageData.allowedMentions.parse,
             users: allowedMentionsUsers,

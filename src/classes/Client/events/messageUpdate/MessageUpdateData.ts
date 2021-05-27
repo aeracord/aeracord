@@ -1,4 +1,4 @@
-import { Attachment, ChannelMention, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbed, MessageInteraction, MessageReference, MessageType, MessageWebhook, Reaction, Sticker, User } from "../../../../internal";
+import { AnyMessageComponentData, Attachment, ChannelMention, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbed, MessageInteraction, MessageReference, MessageType, MessageWebhook, Reaction, Sticker, User } from "../../../../internal";
 
 export interface MessageUpdateData {
 
@@ -183,4 +183,11 @@ export interface MessageUpdateData {
      * The interaction this message is in response to
      */
     interaction?: MessageInteraction;
+
+    /**
+     * Components
+     *
+     * The message's components
+     */
+    components?: AnyMessageComponentData[];
 }

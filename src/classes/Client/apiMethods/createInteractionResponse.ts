@@ -1,5 +1,5 @@
 import FormData from "form-data";
-import { AllowedMentions, Client, CreateMessageAttachment, CreateMessageFile, Embed, EmbedAttachment, FetchQueue, Interaction, InteractionResolvable, Message, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, Component, CreateMessageAttachment, CreateMessageFile, Embed, EmbedAttachment, FetchQueue, Interaction, InteractionResolvable, Message, MessageComponent, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import parseAttachments from "../../../util/parseAttachments";
 
@@ -8,15 +8,17 @@ export interface CreateInteractionResponseData {
     data?: InteractionResponseData;
 }
 
-export type InteractionResponseType = typeof INTERACTION_RESPONSE_TYPE_PONG | typeof INTERACTION_RESPONSE_TYPE_MESSAGE | typeof INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE;
-export const INTERACTION_RESPONSE_TYPE_PONG = 1;
+export type InteractionResponseType = typeof INTERACTION_RESPONSE_TYPE_MESSAGE | typeof INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE | typeof INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE | typeof INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE;
 export const INTERACTION_RESPONSE_TYPE_MESSAGE = 4;
 export const INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE = 5;
+export const INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE = 6;
+export const INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE = 7;
 
 export interface InteractionResponseData {
     content?: string;
     tts?: boolean;
     embeds?: Embed[];
+    components?: Component[];
     allowedMentions?: AllowedMentions;
     file?: CreateMessageFile;
     flags?: number;
@@ -53,6 +55,7 @@ export default async function createInteractionResponse(client: Client, interact
             content: createInteractionResponseData.data.content,
             tts: createInteractionResponseData.data.tts,
             embeds: createInteractionResponseData.data.embeds && createInteractionResponseData.data.embeds.map((e: Embed) => e._toJSON()),
+            components: createInteractionResponseData.data.components && MessageComponent._componentsToJSON(createInteractionResponseData.data.components),
             allowed_mentions: createInteractionResponseData.data.allowedMentions && {
                 parse: createInteractionResponseData.data.allowedMentions.parse,
                 users: allowedMentionsUsers,

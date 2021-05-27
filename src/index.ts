@@ -4,6 +4,12 @@ import * as aeracord from "./internal";
 // All
 export default aeracord;
 
+// Action Row
+export {
+    ActionRow,
+    ActionRowData
+} from "./internal";
+
 // API Error
 export {
     APIError,
@@ -71,6 +77,12 @@ export {
 // Base
 export {
     Base
+} from "./internal";
+
+// Button
+export {
+    Button,
+    ButtonData
 } from "./internal";
 
 // Cache Interface
@@ -218,8 +230,9 @@ export {
     InteractionResponseData,
     InteractionResponseType,
     INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE,
+    INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE,
     INTERACTION_RESPONSE_TYPE_MESSAGE,
-    INTERACTION_RESPONSE_TYPE_PONG,
+    INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE,
     ListGuildMembersData,
     ModifyChannelData,
     ModifyChannelDataType,
@@ -263,10 +276,37 @@ export {
     CommandResolvable
 } from "./internal";
 
+// Command Interaction
+export {
+    CommandInteraction,
+    CommandInteractionData,
+    GetOptionResult
+} from "./internal";
+
 // Command Permissions
 export {
     CommandPermissions,
     CommandPermissionsData
+} from "./internal";
+
+// Message Component
+export {
+    ActionRowComponent,
+    AnyMessageComponent,
+    AnyMessageComponentData,
+    ButtonComponent,
+    Component,
+    ComponentType,
+    COMPONENT_TYPE_ACTION_ROW,
+    COMPONENT_TYPE_BUTTON,
+    MessageComponent,
+    MessageComponentData
+} from "./internal";
+
+// Component Interaction
+export {
+    ComponentInteraction,
+    ComponentInteractionData
 } from "./internal";
 
 // DM Channel
@@ -351,15 +391,14 @@ export {
 
 // Interaction
 export {
-    GetOptionResult,
+    AnyInteraction,
+    AnyInteractionData,
     Interaction,
-    InteractionCommandData,
-    InteractionCommandOption,
     InteractionData,
     InteractionResolvable,
     InteractionType,
     INTERACTION_TYPE_COMMAND,
-    INTERACTION_TYPE_PING
+    INTERACTION_TYPE_COMPONENT
 } from "./internal";
 
 // Invite

@@ -34,5 +34,6 @@ export default function updateObject(message: Message, messageData: MessageData)
     message.flags = messageData.flags;
     message.referencedMessage = messageData.referencedMessage;
     message.interaction = messageData.interaction;
+    message.components = messageData.components;
     message._lastUpdatedAt = Date.now();
 }

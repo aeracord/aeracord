@@ -1,4 +1,4 @@
-import { AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserResolvable } from "../../internal";
+import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -198,6 +198,13 @@ export default class Message extends Base<Message> {
     interaction: MessageInteraction | null;
 
     /**
+     * Components
+     *
+     * The message's components
+     */
+    components: AnyMessageComponentData[];
+
+    /**
      * Message
      *
      * @param client The client
@@ -228,6 +235,7 @@ export default class Message extends Base<Message> {
      * @param messageData.flags The message's flags
      * @param messageData.referencedMessage The message this message references
      * @param messageData.interaction The interaction this message is in response to
+     * @param messageData.components The message's components
      */
     constructor(client: Client, messageData: MessageData) {
 

@@ -1,9 +1,10 @@
-import { AllowedMentions, Channel, ChannelResolvable, Client, Embed, FetchQueue, Message, MessageResolvable, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Channel, ChannelResolvable, Client, Component, Embed, FetchQueue, Message, MessageComponent, MessageResolvable, PermissionError, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface EditMessageData {
     content?: string;
     embed?: Embed;
+    components?: Component[];
     allowedMentions?: AllowedMentions;
     flags?: number;
 }
@@ -38,6 +39,7 @@ export default async function editMessage(client: Client, channelResolvable: Cha
         data: {
             content: editMessageData.content,
             embed: editMessageData.embed?._toJSON(),
+            components: editMessageData.components && MessageComponent._componentsToJSON(editMessageData.components),
             allowed_mentions: editMessageData.allowedMentions && {
                 parse: editMessageData.allowedMentions.parse,
                 users: allowedMentionsUsers,

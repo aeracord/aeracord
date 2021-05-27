@@ -1,27 +1,30 @@
-import { InteractionType, RawMemberData, RawUserData } from "../../internal";
+import { ComponentType, InteractionType, RawMemberData, RawMessageData, RawUserData } from "../../internal";
 
 export interface RawInteractionData {
     id: string;
     type: InteractionType;
     token: string;
     application_id: string;
-    data: RawInteractionDataCommand;
+    data: RawInteractionMetadata;
     guild_id?: string;
     channel_id: string;
     member?: RawInteractionDataMember;
     user?: RawUserData;
+    message?: RawMessageData;
 }
 
-export interface RawInteractionDataCommand {
-    id: string;
-    name: string;
-    options?: RawInteractionDataCommandOption[];
+export interface RawInteractionMetadata {
+    id?: string;
+    name?: string;
+    options?: RawInteractionMetadataOption[];
+    component_type?: ComponentType;
+    custom_id?: string;
 }
 
-export interface RawInteractionDataCommandOption {
+export interface RawInteractionMetadataOption {
     name: string;
     value?: string | number;
-    options?: RawInteractionDataCommandOption[];
+    options?: RawInteractionMetadataOption[];
 }
 
 export interface RawInteractionDataMember extends RawMemberData {

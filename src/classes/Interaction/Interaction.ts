@@ -1,15 +1,18 @@
-import { Base, Client, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, GetOptionResult, InteractionCommandData, InteractionCommandOption, InteractionData, InteractionType, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
+import { Base, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionData, InteractionMetadata, InteractionType, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
 import editOriginalResponse from "./editOriginalResponse";
 import fromData from "./fromData";
-import getOption from "./getOption";
 import resolveID from "./resolveID";
 import respond from "./respond";
 import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
+
+export type AnyInteraction = Interaction | CommandInteraction | ComponentInteraction;
+
+export type AnyInteractionData = InteractionData | CommandInteractionData | ComponentInteractionData;
 
 /**
  * Interaction Resolvable
@@ -18,7 +21,14 @@ import updateObjectFromData from "./updateObjectFromData";
  */
 export type InteractionResolvable = Interaction | InteractionData | string;
 
-export default class Interaction extends Base<Interaction> {
+export default class Interaction extends Base<AnyInteraction> {
+
+    /**
+     * ID
+     *
+     * The interaction's ID
+     */
+    id: string;
 
     /**
      * Type
@@ -46,7 +56,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * The interaction's data
      */
-    data: InteractionCommandData;
+    data: InteractionMetadata;
 
     /**
      * Guild ID
@@ -131,9 +141,9 @@ export default class Interaction extends Base<Interaction> {
      * @param client The client
      * @param rawData The raw data from the API
      *
-     * @returns {Interaction} The interaction
+     * @returns {AnyInteraction} The interaction
      */
-    static _fromRawData(client: Client, rawData: RawInteractionData): Interaction {
+    static _fromRawData(client: Client, rawData: RawInteractionData): AnyInteraction {
         return Interaction.fromData(client, Interaction._dataFromRawData(rawData));
     }
 
@@ -145,9 +155,9 @@ export default class Interaction extends Base<Interaction> {
      * @private
      * @param rawData The raw data from the API
      *
-     * @returns {InteractionData} The interaction data
+     * @returns {AnyInteractionData} The interaction data
      */
-    static _dataFromRawData(rawData: RawInteractionData): InteractionData {
+    static _dataFromRawData(rawData: RawInteractionData): AnyInteractionData {
         return dataFromRawData(rawData);
     }
 
@@ -161,7 +171,7 @@ export default class Interaction extends Base<Interaction> {
      *
      * @returns {Interaction} The interaction
      */
-    static fromData(client: Client, interactionData: InteractionData): Interaction {
+    static fromData(client: Client, interactionData: AnyInteractionData): Interaction {
         return fromData(client, interactionData);
     }
 
@@ -172,9 +182,9 @@ export default class Interaction extends Base<Interaction> {
      *
      * @param interaction The interaction
      *
-     * @returns {InteractionData} The interaction data
+     * @returns {AnyInteractionData} The interaction data
      */
-    static toData(interaction: Interaction): InteractionData {
+    static toData(interaction: AnyInteraction): AnyInteractionData {
         return toData(interaction);
     }
 
@@ -230,20 +240,6 @@ export default class Interaction extends Base<Interaction> {
      */
     cache(expiresIn?: number | null) {
         this.client._interactions.cache(this.id, this, expiresIn);
-    }
-
-    /**
-     * Get Option
-     *
-     * Get an option from this interaction's data
-     *
-     * @param name The name of the option
-     * @param suboptionNames The names of the suboptions
-     *
-     * @returns {GetOptionResult | undefined} The option or `undefined` if it isn't found
-     */
-    getOption(name: string, ...suboptionNames: string[]): GetOptionResult | undefined {
-        return getOption(this, name, suboptionNames);
     }
 
     /**

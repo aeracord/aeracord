@@ -1,5 +1,5 @@
 import FormData from "form-data";
-import { AllowedMentions, Client, CreateMessageAttachment, CreateMessageFile, Embed, EmbedAttachment, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { AllowedMentions, Client, Component, CreateMessageAttachment, CreateMessageFile, Embed, EmbedAttachment, FetchQueue, Message, MessageComponent, RawMessageData, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import parseAttachments from "../../../util/parseAttachments";
 
@@ -7,6 +7,7 @@ export interface FollowupInteractionResponseData {
     content?: string;
     tts?: boolean;
     embeds?: Embed[];
+    components?: Component[];
     allowedMentions?: AllowedMentions;
     file?: CreateMessageFile;
 }
@@ -38,6 +39,7 @@ export default async function createFollowupMessage(client: Client, interactionT
         content: followupInteractionResponseData.content,
         tts: followupInteractionResponseData.tts,
         embeds: followupInteractionResponseData.embeds && followupInteractionResponseData.embeds.map((e: Embed) => e._toJSON()),
+        components: followupInteractionResponseData.components && MessageComponent._componentsToJSON(followupInteractionResponseData.components),
         allowed_mentions: followupInteractionResponseData.allowedMentions && {
             parse: followupInteractionResponseData.allowedMentions.parse,
             users: allowedMentionsUsers,

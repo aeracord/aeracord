@@ -1,4 +1,4 @@
-import { Attachment, Client, Member, Message, MessageData, MessageEmbed, MessageUpdateData, RawAttachmentData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, RawWebhookData, Reaction, Sticker, User, Webhook } from "../../../../internal";
+import { Attachment, Client, Member, Message, MessageComponent, MessageData, MessageEmbed, MessageUpdateData, RawAttachmentData, RawMessageComponentData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../../../internal";
 
 export default function messageUpdate(client: Client, rawData: RawMessageUpdateData) {
 
@@ -71,7 +71,12 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
             type: rawData.interaction.type,
             name: rawData.interaction.name,
             user: User._dataFromRawData(rawData.interaction.user)
-        }
+        },
+        components: rawData.components ? rawData.components.map((c: RawMessageComponentData) => MessageComponent._dataFromRawData(c, {
+            messageID: rawData.id,
+            channelID: rawData.channel_id,
+            guildID: rawData.guild_id
+        })) : [],
     };
 
     // Get message

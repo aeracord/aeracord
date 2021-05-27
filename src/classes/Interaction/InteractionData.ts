@@ -1,4 +1,4 @@
-import { MemberData, UserData } from "../../internal";
+import { CommandInteractionMetadata, ComponentInteractionMetadata, MemberData, UserData } from "../../internal";
 
 /**
  * Interaction Data
@@ -40,7 +40,7 @@ export interface InteractionData {
      *
      * The interaction's data
      */
-    data: InteractionCommandData;
+    data: InteractionMetadata;
 
     /**
      * Guild ID
@@ -92,65 +92,13 @@ export interface InteractionData {
  * Interaction Type
  * https://discord.com/developers/docs/interactions/slash-commands#interaction-interactiontype
  */
-export type InteractionType = typeof INTERACTION_TYPE_PING | typeof INTERACTION_TYPE_COMMAND;
-export const INTERACTION_TYPE_PING = 1;
+export type InteractionType = typeof INTERACTION_TYPE_COMMAND | typeof INTERACTION_TYPE_COMPONENT;
 export const INTERACTION_TYPE_COMMAND = 2;
+export const INTERACTION_TYPE_COMPONENT = 3;
 
 /**
- * Interaction Command Data
+ * Interaction Metadata
  *
- * An interaction command
+ * An interaction metadata object
  */
-export interface InteractionCommandData {
-
-    /**
-     * ID
-     *
-     * The command's ID
-     */
-    id: string;
-
-    /**
-     * Name
-     *
-     * The command's name
-     */
-    name: string;
-
-    /**
-     * Options
-     *
-     * The command's parameters
-     */
-    options?: InteractionCommandOption[];
-}
-
-/**
- * Interaction Command Option
- *
- * An interaction command's parameters
- */
-export interface InteractionCommandOption {
-
-    /**
-     * Name
-     *
-     * The option's name
-     */
-    name: string;
-
-    /**
-     * Value
-     *
-     * The option's value
-     * `undefined` for subcommands and subcommand groups
-     */
-    value?: string | number;
-
-    /**
-     * Options
-     *
-     * The command's options if it's a subcommand or subcommand group
-     */
-    options?: InteractionCommandOption[];
-}
+export type InteractionMetadata = CommandInteractionMetadata | ComponentInteractionMetadata;

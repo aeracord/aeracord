@@ -1,4 +1,4 @@
-import { Interaction, InteractionCommandOption } from "../../internal";
+import { CommandInteraction, CommandInteractionOption } from "../../internal";
 
 /**
  * Get Option Result
@@ -30,10 +30,10 @@ export interface GetOptionResult {
     options?: GetOptionResult[];
 }
 
-export default function getOption(interaction: Interaction, name: string, suboptionNames: string[]): GetOptionResult | undefined {
+export default function getOption(commandInteraction: CommandInteraction, name: string, suboptionNames: string[]): GetOptionResult | undefined {
 
     // Define result
-    let result: GetOptionResult | undefined = interaction.data.options?.find((o: InteractionCommandOption) => o.name === name);
+    let result: GetOptionResult | undefined = commandInteraction.data.options?.find((o: CommandInteractionOption) => o.name === name);
 
     // Loop through suboption names
     for (let name of suboptionNames) {
