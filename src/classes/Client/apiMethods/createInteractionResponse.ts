@@ -24,7 +24,7 @@ export interface InteractionResponseData {
     flags?: number;
 }
 
-export default async function createInteractionResponse(client: Client, interactionResolvable: InteractionResolvable, interactionToken: string, createInteractionResponseData: CreateInteractionResponseData): Promise<Message> {
+export default async function createInteractionResponse(client: Client, interactionResolvable: InteractionResolvable, interactionToken: string, createInteractionResponseData: CreateInteractionResponseData): Promise<Message | undefined> {
 
     // Resolve objects
     const interactionID: string | undefined = Interaction.resolveID(interactionResolvable);
@@ -96,7 +96,7 @@ export default async function createInteractionResponse(client: Client, interact
     });
 
     // Get message
-    const message: Message = await client.getOriginalInteractionResponse(interactionToken);
+    const message: Message | undefined = await client.getOriginalInteractionResponse(interactionToken);
 
     // Return
     return message;

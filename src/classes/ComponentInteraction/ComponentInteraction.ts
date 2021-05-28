@@ -66,7 +66,7 @@ export default class ComponentInteraction extends Interaction {
      *
      * @returns {Promise<Message>} The updated message
      */
-    updateMessage(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message> {
+    updateMessage(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message | undefined> {
         return updateMessage(this, contentOrData, interactionResponseData);
     }
 
@@ -77,7 +77,7 @@ export default class ComponentInteraction extends Interaction {
      *
      * @returns {Promise<Message>} The created response
      */
-    deferUpdate(): Promise<Message> {
+    deferUpdate(): Promise<Message | undefined> {
         return this.client.createInteractionResponse(this, this.token, { type: INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE });
     }
 }

@@ -1,6 +1,6 @@
 import { Embed, Interaction, InteractionResponseData, INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE, Message } from "../../internal";
 
-export default function updateMessage(interaction: Interaction, contentOrData: string | Embed | InteractionResponseData, interactionResponseData: InteractionResponseData = {}): Promise<Message> {
+export default function updateMessage(interaction: Interaction, contentOrData: string | Embed | InteractionResponseData, interactionResponseData: InteractionResponseData = {}): Promise<Message | undefined> {
 
     // Parse data
     if (typeof contentOrData === "string") interactionResponseData.content = contentOrData;

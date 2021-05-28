@@ -1847,7 +1847,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message>} The created response
      */
-    createInteractionResponse(interaction: InteractionResolvable, interactionToken: string, createInteractionResponseData: CreateInteractionResponseData): Promise<Message> {
+    createInteractionResponse(interaction: InteractionResolvable, interactionToken: string, createInteractionResponseData: CreateInteractionResponseData): Promise<Message | undefined> {
         return createInteractionResponse(this, interaction, interactionToken, createInteractionResponseData);
     }
 
@@ -2656,7 +2656,7 @@ export default class Client extends EventEmitter {
      *
      * @returns {Promise<Message>} The message
      */
-    getOriginalInteractionResponse(interactionToken: string): Promise<Message> {
+    getOriginalInteractionResponse(interactionToken: string): Promise<Message | undefined> {
         return getOriginalInteractionResponse(this, interactionToken);
     }
 

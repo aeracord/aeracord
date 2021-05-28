@@ -312,7 +312,7 @@ export default class Interaction extends Base<AnyInteraction> {
      *
      * @returns {Promise<Message>} The message
      */
-    getOriginalResponse(): Promise<Message> {
+    getOriginalResponse(): Promise<Message | undefined> {
         return this.client.getOriginalInteractionResponse(this.token);
     }
 
@@ -326,7 +326,7 @@ export default class Interaction extends Base<AnyInteraction> {
      *
      * @returns {Promise<Message>} The created response
      */
-    respond(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message> {
+    respond(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message | undefined> {
         return respond(this, contentOrData, interactionResponseData);
     }
 
@@ -337,7 +337,7 @@ export default class Interaction extends Base<AnyInteraction> {
      *
      * @returns {Promise<Message>} The created response
      */
-    deferResponse(): Promise<Message> {
+    deferResponse(): Promise<Message | undefined> {
         return this.client.createInteractionResponse(this, this.token, { type: INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE });
     }
 }
