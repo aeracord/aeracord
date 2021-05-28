@@ -82,7 +82,14 @@ export {
 // Button
 export {
     Button,
-    ButtonData
+    ButtonData,
+    ButtonEmoji,
+    ButtonStyle,
+    BUTTON_STYLE_DANGER,
+    BUTTON_STYLE_LINK,
+    BUTTON_STYLE_PRIMARY,
+    BUTTON_STYLE_SECONDARY,
+    BUTTON_STYLE_SUCCESS
 } from "./internal";
 
 // Cache Interface
