@@ -1,4 +1,5 @@
-import { Client, ComponentInteractionData, ComponentInteractionMetadata, Interaction, INTERACTION_TYPE_COMPONENT, MessageData } from "../../internal";
+import { Client, ComponentInteractionData, ComponentInteractionMetadata, Embed, Interaction, InteractionResponseData, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE, INTERACTION_TYPE_COMPONENT, Message, MessageData } from "../../internal";
+import updateMessage from "./updateMessage";
 import updateObject from "./updateObject";
 
 export default class ComponentInteraction extends Interaction {
@@ -53,5 +54,30 @@ export default class ComponentInteraction extends Interaction {
      */
     static _updateObject(componentInteraction: ComponentInteraction, componentInteractionData: ComponentInteractionData, fromConstructor?: boolean) {
         updateObject(componentInteraction, componentInteractionData, fromConstructor);
+    }
+
+    /**
+     * Update Message
+     *
+     * Respond to this interaction by updating the component's message
+     *
+     * @param contentOrData The content or data for the response
+     * @param interactionResponseData The data for the response
+     *
+     * @returns {Promise<Message>} The updated message
+     */
+    updateMessage(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message> {
+        return updateMessage(this, contentOrData, interactionResponseData);
+    }
+
+    /**
+     * Defer Update
+     *
+     * Defer the message update response to this interaction
+     *
+     * @returns {Promise<Message>} The created response
+     */
+    deferUpdate(): Promise<Message> {
+        return this.client.createInteractionResponse(this, this.token, { type: INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE });
     }
 }

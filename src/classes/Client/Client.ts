@@ -1017,16 +1017,6 @@ export default class Client extends EventEmitter {
     _emojiGuilds?: Map<string, string>;
 
     /**
-     * Pending Interaction Response Messages
-     *
-     * When creating an interaction response, the API endpoint doesn't return a message object
-     * This maps interaction IDs to a promise's resolve function to resolve the interaction response's message once a `messageCreate` event is received for it
-     *
-     * @private
-     */
-    _pendingInteractionResponseMessages: Map<string, Function>;
-
-    /**
      * Commands
      *
      * The internal cache of commands
@@ -1358,7 +1348,6 @@ export default class Client extends EventEmitter {
             Object.defineProperty(this, "_guildEmojis", { value: new Map() });
             Object.defineProperty(this, "_emojiGuilds", { value: new Map() });
         }
-        this._pendingInteractionResponseMessages = new Map();
         Object.defineProperty(this, "_commands", { value: new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commands)) });
         Object.defineProperty(this, "_commandPermissions", { value: new CacheManager<CommandPermissions>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commandPermissions)) });
         Object.defineProperty(this, "_bans", { value: new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans)) });

@@ -1,6 +1,6 @@
-import { Embed, Interaction, InteractionResponseData, INTERACTION_RESPONSE_TYPE_MESSAGE, Message } from "../../internal";
+import { Embed, Interaction, InteractionResponseData, INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE, Message } from "../../internal";
 
-export default function respond(interaction: Interaction, contentOrData: string | Embed | InteractionResponseData, interactionResponseData: InteractionResponseData = {}): Promise<Message> {
+export default function updateMessage(interaction: Interaction, contentOrData: string | Embed | InteractionResponseData, interactionResponseData: InteractionResponseData = {}): Promise<Message> {
 
     // Parse data
     if (typeof contentOrData === "string") interactionResponseData.content = contentOrData;
@@ -9,7 +9,7 @@ export default function respond(interaction: Interaction, contentOrData: string 
 
     // Create response
     return interaction.client.createInteractionResponse(interaction, interaction.token, {
-        type: INTERACTION_RESPONSE_TYPE_MESSAGE,
+        type: INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE,
         data: interactionResponseData
     });
 }

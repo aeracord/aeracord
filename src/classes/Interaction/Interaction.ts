@@ -1,4 +1,4 @@
-import { Base, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, CreateInteractionResponseData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionData, InteractionMetadata, InteractionType, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
+import { Base, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionData, InteractionMetadata, InteractionResponseData, InteractionType, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -322,11 +322,22 @@ export default class Interaction extends Base<AnyInteraction> {
      * Respond to this interaction
      *
      * @param contentOrData The content or data for the response
-     * @param createInteractionResponseData The data for the response
+     * @param interactionResponseData The data for the response
      *
      * @returns {Promise<Message>} The created response
      */
-    respond(contentOrData: string | Embed | CreateInteractionResponseData, createInteractionResponseData?: CreateInteractionResponseData): Promise<Message> {
-        return respond(this, contentOrData, createInteractionResponseData);
+    respond(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message> {
+        return respond(this, contentOrData, interactionResponseData);
+    }
+
+    /**
+     * Defer Response
+     *
+     * Defer the response to this interaction
+     *
+     * @returns {Promise<Message>} The created response
+     */
+    deferResponse(): Promise<Message> {
+        return this.client.createInteractionResponse(this, this.token, { type: INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE });
     }
 }

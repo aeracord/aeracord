@@ -87,9 +87,6 @@ export default async function createInteractionResponse(client: Client, interact
         formData.append("payload_json", JSON.stringify(data));
     }
 
-    // Add to pending interaction response messages
-    const pendingMessage: Promise<Message> = new Promise((resolve) => client._pendingInteractionResponseMessages.set(interactionID, resolve));
-
     // Add to fetch queue
     await fetchQueue.request({
         path,
@@ -98,8 +95,8 @@ export default async function createInteractionResponse(client: Client, interact
         data: formData || data
     });
 
-    // Await pending message
-    const message: Message = await pendingMessage;
+    // Get message
+    const message: Message = await client.getOriginalInteractionResponse(interactionToken);
 
     // Return
     return message;
