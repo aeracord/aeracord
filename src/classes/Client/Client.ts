@@ -40,6 +40,7 @@ import {
     CreateGuildTemplateData,
     CreateInteractionResponseData,
     CreateMessageData,
+    CreateStageInstanceData,
     CreateWebhookData,
     CurrentUserNickname,
     DMChannel,
@@ -131,12 +132,14 @@ import {
     RoleResolvable,
     READY_STATE_NONE,
     SearchGuildMembersData,
+    StageInstance,
     Status,
     Template,
     TemplateResolvable,
     TextBasedChannelEventOptions,
     TypingStartData,
     TypingStartEventOptions,
+    UpdateStageInstanceData,
     User,
     UserData,
     UserResolvable,
@@ -171,6 +174,7 @@ import createGuildTemplate from "./apiMethods/createGuildTemplate";
 import createInteractionResponse from "./apiMethods/createInteractionResponse";
 import createMessage from "./apiMethods/createMessage";
 import createReaction from "./apiMethods/createReaction";
+import createStageInstance from "./apiMethods/createStageInstance";
 import createWebhook from "./apiMethods/createWebhook";
 import crosspostMessage from "./apiMethods/crosspostMessage";
 import deleteAllReactions from "./apiMethods/deleteAllReactions";
@@ -189,6 +193,7 @@ import deleteMessage from "./apiMethods/deleteMessage";
 import deleteOriginalInteractionResponse from "./apiMethods/deleteOriginalInteractionResponse";
 import deleteOwnReaction from "./apiMethods/deleteOwnReaction";
 import deletePinnedChannelMessage from "./apiMethods/deletePinnedChannelMessage";
+import deleteStageInstance from "./apiMethods/deleteStageInstance";
 import deleteUserReaction from "./apiMethods/deleteUserReaction";
 import deleteWebhook from "./apiMethods/deleteWebhook";
 import editChannelPermissions from "./apiMethods/editChannelPermissions";
@@ -232,6 +237,7 @@ import getInvite from "./apiMethods/getInvite";
 import getOriginalInteractionResponse from "./apiMethods/getOriginalInteractionResponse";
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
+import getStageInstance from "./apiMethods/getStageInstance";
 import getTemplate from "./apiMethods/getTemplate";
 import getUser from "./apiMethods/getUser";
 import getWebhook from "./apiMethods/getWebhook";
@@ -258,6 +264,7 @@ import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
 import searchGuildMembers from "./apiMethods/searchGuildMembers";
 import syncGuildTemplate from "./apiMethods/syncGuildTemplate";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
+import updateStageInstance from "./apiMethods/updateStageInstance";
 import canManageMember from "./canManageMember";
 import canManageRoles from "./canManageRoles";
 import connect from "./connect";
@@ -1879,6 +1886,19 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Create Stage Instance
+     *
+     * Create a stage instance in a stage channel
+     *
+     * @param createStageInstanceData The data for the stage instance
+     *
+     * @returns {Promise<StageInstance>} The created stage instance
+     */
+    createStageInstance(createStageInstanceData: CreateStageInstanceData): Promise<StageInstance> {
+        return createStageInstance(this, createStageInstanceData);
+    }
+
+    /**
      * Create Webhook
      *
      * Create a webhook
@@ -2107,6 +2127,17 @@ export default class Client extends EventEmitter {
      */
     deletePinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable, reason?: string): Promise<void> {
         return deletePinnedChannelMessage(this, channel, message, reason);
+    }
+
+    /**
+     * Delete Stage Instance
+     *
+     * End a stage instance
+     *
+     * @param channel The channel to delete the stage instance from
+     */
+    deleteStageInstance(channel: ChannelResolvable): Promise<void> {
+        return deleteStageInstance(this, channel);
     }
 
     /**
@@ -2690,6 +2721,19 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Get Stage Instance
+     *
+     * Get a stage instance
+     *
+     * @param channel The channel to get the stage instance from
+     *
+     * @returns {Promise<StageInstance>} The stage instance
+     */
+    getStageInstance(channel: ChannelResolvable): Promise<StageInstance | undefined> {
+        return getStageInstance(this, channel);
+    }
+
+    /**
      * Get Template
      *
      * Get a template
@@ -3045,5 +3089,19 @@ export default class Client extends EventEmitter {
      */
     triggerTypingIndicator(channel: ChannelResolvable): Promise<void> {
         return triggerTypingIndicator(this, channel);
+    }
+
+    /**
+     * Update Stage Instance
+     *
+     * Update a stage instance
+     *
+     * @param channel The channel to update the stage instance in
+     * @param updateStageInstanceData The data to update the stage instance
+     *
+     * @returns {Promise<StageInstance>} The updated stage instance
+     */
+    updateStageInstance(channel: ChannelResolvable, updateStageInstanceData: UpdateStageInstanceData): Promise<StageInstance> {
+        return updateStageInstance(this, channel, updateStageInstanceData);
     }
 }

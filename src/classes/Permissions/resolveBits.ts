@@ -41,6 +41,7 @@ export default function resolveBits(permissionsResolvable: PermissionsResolvable
     else if (permissionsResolvable === "MANAGE_WEBHOOKS") return BigInt("0x20000000");
     else if (permissionsResolvable === "MANAGE_EMOJIS") return BigInt("0x40000000");
     else if (permissionsResolvable === "USE_SLASH_COMMANDS") return BigInt("0x80000000");
+    else if (permissionsResolvable === "REQUEST_TO_SPEAK") return BigInt("0x100000000");
 
     // String, number, or bigint
     else if ((typeof permissionsResolvable === "string") || (typeof permissionsResolvable === "number") || (typeof permissionsResolvable === "bigint")) return BigInt(permissionsResolvable);

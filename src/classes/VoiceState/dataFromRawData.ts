@@ -15,6 +15,7 @@ export default function dataFromRawData(rawData: RawVoiceStateData): VoiceStateD
         selfDeafened: rawData.self_deaf,
         selfStream: Boolean(rawData.self_stream),
         selfVideo: rawData.self_video,
-        suppress: rawData.suppress
+        suppress: rawData.suppress,
+        requestToSpeakTimestamp: rawData.request_to_speak_timestamp ? new Date(rawData.request_to_speak_timestamp).getTime() : null
     };
 }

@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, CategoryChannel, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, NewsChannel, PermissionOverwrite, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import { AnyChannel, AnyChannelData, CategoryChannel, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, NewsChannel, PermissionOverwrite, StageChannel, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
 
 export default function toData(channel: AnyChannel): AnyChannelData {
 
@@ -125,6 +125,26 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             })),
             parentID: storeChannel.parentID,
             fetchedAt: storeChannel._lastUpdatedAt
+        };
+    }
+
+    // Parse stage channel data
+    else if (channel.type === CHANNEL_TYPE_STAGE) {
+        const stageChannel: StageChannel = channel as StageChannel;
+        return {
+            id: stageChannel.id,
+            type: stageChannel.type,
+            name: stageChannel.name,
+            guildID: stageChannel.guildID,
+            position: stageChannel.position,
+            permissionOverwrites: stageChannel.permissionOverwrites.map((p: PermissionOverwrite) => ({
+                id: p.id,
+                type: p.type,
+                allow: p.allow,
+                deny: p.deny
+            })),
+            parentID: stageChannel.parentID,
+            fetchedAt: stageChannel._lastUpdatedAt
         };
     }
 

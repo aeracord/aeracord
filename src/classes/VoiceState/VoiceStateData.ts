@@ -90,4 +90,11 @@ export interface VoiceStateData {
      * Whether or not this user is muted by the client
      */
     suppress: boolean;
+
+    /**
+     * Request to Speak Timestamp
+     *
+     * The timestamp for when the user requested to speak
+     */
+    requestToSpeakTimestamp: number | null;
 }

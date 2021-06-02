@@ -15,6 +15,7 @@ export default function toData(voiceState: VoiceState): VoiceStateData {
         selfDeafened: voiceState.selfDeafened,
         selfStream: voiceState.selfStream,
         selfVideo: voiceState.selfVideo,
-        suppress: voiceState.suppress
+        suppress: voiceState.suppress,
+        requestToSpeakTimestamp: voiceState.requestToSpeakTimestamp
     };
 }

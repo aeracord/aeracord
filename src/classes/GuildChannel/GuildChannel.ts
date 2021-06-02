@@ -1,12 +1,12 @@
-import { CategoryChannel, CategoryChannelData, Client, CreateChannelInviteData, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, EditChannelPermissionsData, GuildChannelData, Invite, ModifyChannelData, NewsChannel, NewsChannelData, PermissionOverwrite, RoleResolvable, StoreChannel, StoreChannelData, TextChannel, TextChannelData, UserResolvable, VoiceChannel, VoiceChannelData } from "../../internal";
+import { CategoryChannel, CategoryChannelData, Client, CreateChannelInviteData, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, EditChannelPermissionsData, GuildChannelData, Invite, ModifyChannelData, NewsChannel, NewsChannelData, PermissionOverwrite, RoleResolvable, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, UserResolvable, VoiceChannel, VoiceChannelData } from "../../internal";
 import Channel from "../Channel/Channel";
 import updateObject from "./updateObject";
 
-export type AnyGuildChannel = GuildChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel;
+export type AnyGuildChannel = GuildChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | StageChannel;
 
-export type AnyGuildChannelData = GuildChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData;
+export type AnyGuildChannelData = GuildChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData | StageChannelData;
 
-export type GuildChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE;
+export type GuildChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE | typeof CHANNEL_TYPE_STAGE;
 
 export default class GuildChannel extends Channel {
 

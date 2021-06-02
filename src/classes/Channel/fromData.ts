@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, CategoryChannel, CategoryChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, DMChannelData, NewsChannel, NewsChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData, Channel } from "../../internal";
+import { AnyChannel, AnyChannelData, CategoryChannel, CategoryChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, DMChannelData, NewsChannel, NewsChannelData, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 
 export default function fromData(client: Client, channelData: AnyChannelData): AnyChannel {
 
@@ -25,6 +25,9 @@ export default function fromData(client: Client, channelData: AnyChannelData): A
 
         // Store channel
         else if (channelData.type === CHANNEL_TYPE_STORE) channel = new StoreChannel(client, channelData as StoreChannelData);
+
+        // Stage channel
+        else if (channelData.type === CHANNEL_TYPE_STAGE) channel = new StageChannel(client, channelData as StageChannelData);
 
         // Unknown channel type
         else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);

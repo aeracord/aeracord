@@ -216,6 +216,7 @@ export {
     CreateMessageData,
     CreateMessageFile,
     CreateMessageReference,
+    CreateStageInstanceData,
     CreateWebhookData,
     CurrentUserNickname,
     EditChannelPermissionsData,
@@ -261,7 +262,8 @@ export {
     NSFW_LEVEL_EXPLICIT,
     NSFW_LEVEL_SAFE,
     PartialGuild,
-    SearchGuildMembersData
+    SearchGuildMembersData,
+    UpdateStageInstanceData
 } from "./internal";
 
 // Command
@@ -524,6 +526,19 @@ export {
     RoleData,
     RoleResolvable,
     RoleTags
+} from "./internal";
+
+// Stage Channel
+export {
+    CreateStageChannelInstanceData,
+    StageChannel,
+    StageChannelData
+} from "./internal";
+
+// Stage Instance
+export {
+    StageInstance,
+    StageInstanceData
 } from "./internal";
 
 // Sticker

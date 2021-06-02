@@ -119,6 +119,7 @@ export * from "./classes/Client/apiMethods/createGuildRole";
 export * from "./classes/Client/apiMethods/createGuildTemplate";
 export * from "./classes/Client/apiMethods/createInteractionResponse";
 export * from "./classes/Client/apiMethods/createMessage";
+export * from "./classes/Client/apiMethods/createStageInstance";
 export * from "./classes/Client/apiMethods/createWebhook";
 export * from "./classes/Client/apiMethods/editChannelPermissions";
 export * from "./classes/Client/apiMethods/editGlobalCommand";
@@ -148,6 +149,7 @@ export * from "./classes/Client/apiMethods/modifyGuildWelcomeScreen";
 export * from "./classes/Client/apiMethods/modifyGuildWidget";
 export * from "./classes/Client/apiMethods/modifyWebhook";
 export * from "./classes/Client/apiMethods/searchGuildMembers";
+export * from "./classes/Client/apiMethods/updateStageInstance";
 
 // Client: Cache Strategies
 export * from "./classes/Client/CacheStrategies";
@@ -379,6 +381,20 @@ export {
 } from "./classes/Role/Role";
 export * from "./classes/Role/RawRoleData";
 export * from "./classes/Role/RoleData";
+
+// Stage Channel
+export {
+    default as StageChannel,
+    CreateStageChannelInstanceData
+} from "./classes/StageChannel/StageChannel";
+export * from "./classes/StageChannel/StageChannelData";
+
+// Stage Instance
+export {
+    default as StageInstance
+} from "./classes/StageInstance/StageInstance";
+export * from "./classes/StageInstance/RawStageInstanceData";
+export * from "./classes/StageInstance/StageInstanceData";
 
 // Sticker
 export {

@@ -97,6 +97,13 @@ export default class VoiceState {
     suppress: boolean;
 
     /**
+     * Request to Speak Timestamp
+     *
+     * The timestamp for when the user requested to speak
+     */
+    requestToSpeakTimestamp: number | null;
+
+    /**
      * Voice State
      *
      * @param client The client
@@ -113,6 +120,7 @@ export default class VoiceState {
      * @param voiceStateData.selfStream Whether or not this user is streaming
      * @param voiceStateData.selfVideo Whether or not this user has video enabled
      * @param voiceStateData.suppress Whether or not this user is muted by the client
+     * @param voiceStateData.requestToSpeakTimestamp The timestamp for when the user requested to speak
      */
     constructor(client: Client, voiceStateData: VoiceStateData) {
 
@@ -130,6 +138,7 @@ export default class VoiceState {
         this.selfStream = voiceStateData.selfStream;
         this.selfVideo = voiceStateData.selfVideo;
         this.suppress = voiceStateData.suppress;
+        this.requestToSpeakTimestamp = voiceStateData.requestToSpeakTimestamp;
     }
 
     /**
