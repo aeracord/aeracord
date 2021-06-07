@@ -1,4 +1,4 @@
-import { AnyChannelData, Channel, Client, EmojiData, Guild, GuildCreateData, Member, MemberData, Presence, RawChannelData, RawGuildCreateData, RawMemberData, RawPresenceData, RawVoiceStateData, RoleData, VoiceState } from "../../../../internal";
+import { AnyChannelData, Channel, Client, EmojiData, Guild, GuildCreateData, Member, MemberData, Presence, RawChannelData, RawGuildCreateData, RawMemberData, RawPresenceData, RawStageInstanceData, RawVoiceStateData, RoleData, StageInstance, VoiceState } from "../../../../internal";
 import ready from "../ready";
 import cacheInitialObjects from "./cacheInitialObjects";
 
@@ -16,7 +16,8 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
         // Note that channel objects dont have a guild ID in the `guildCreate` event
         channels: rawData.channels.map((c: RawChannelData) => Channel._dataFromRawData(client, { ...c, guild_id: rawData.id })),
 
-        presences: rawData.presences.map((p: RawPresenceData) => Presence._dataFromRawData(p))
+        presences: rawData.presences.map((p: RawPresenceData) => Presence._dataFromRawData(p)),
+        stageInstances: rawData.stage_instances.map((s: RawStageInstanceData) => StageInstance._dataFromRawData(s))
     };
 
     // Set guild roles

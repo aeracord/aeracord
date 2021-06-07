@@ -1,4 +1,4 @@
-import { AnyChannelData, Guild, MemberData, PresenceData, VoiceStateData } from "../../../../internal";
+import { AnyChannelData, Guild, MemberData, PresenceData, StageInstanceData, VoiceStateData } from "../../../../internal";
 
 export interface GuildCreateData {
 
@@ -57,4 +57,11 @@ export interface GuildCreateData {
      * The guild's presences
      */
     presences: PresenceData[];
+
+    /**
+     * Stage Instances
+     *
+     * The guild's stage instances
+     */
+    stageInstances: StageInstanceData[];
 }
