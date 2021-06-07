@@ -7,7 +7,7 @@ export default function dataFromRawData(rawData: RawVoiceStateData): VoiceStateD
         guildID: rawData.guild_id,
         channelID: rawData.channel_id,
         userID: rawData.user_id,
-        member: Member._dataFromRawData(rawData.member, rawData.guild_id),
+        member: rawData.member && Member._dataFromRawData(rawData.member, rawData.guild_id),
         sessionID: rawData.session_id,
         muted: rawData.mute,
         deafened: rawData.deaf,

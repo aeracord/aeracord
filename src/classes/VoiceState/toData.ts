@@ -7,7 +7,7 @@ export default function toData(voiceState: VoiceState): VoiceStateData {
         guildID: voiceState.guildID,
         channelID: voiceState.channelID,
         userID: voiceState.userID,
-        member: Member.toData(voiceState.member),
+        member: voiceState.member && Member.toData(voiceState.member),
         sessionID: voiceState.sessionID,
         muted: voiceState.muted,
         deafened: voiceState.deafened,

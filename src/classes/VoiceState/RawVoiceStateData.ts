@@ -4,7 +4,7 @@ export interface RawVoiceStateData {
     guild_id: string;
     channel_id: string;
     user_id: string;
-    member: RawMemberData;
+    member?: RawMemberData;
     session_id: string;
     mute: boolean;
     deaf: boolean;

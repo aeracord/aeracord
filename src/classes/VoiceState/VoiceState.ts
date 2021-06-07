@@ -37,8 +37,9 @@ export default class VoiceState {
      * Member
      *
      * The member object of the user this voice state is for
+     * Can be `undefined` for voice states in guild create events when the bot doesn't have the guild members intent
      */
-    member: Member;
+    member?: Member;
 
     /**
      * Session ID
@@ -129,7 +130,7 @@ export default class VoiceState {
         this.guildID = voiceStateData.guildID;
         this.channelID = voiceStateData.channelID;
         this.userID = voiceStateData.userID;
-        this.member = Member.fromData(this.client, voiceStateData.member);
+        this.member = voiceStateData.member && Member.fromData(this.client, voiceStateData.member);
         this.sessionID = voiceStateData.sessionID;
         this.muted = voiceStateData.muted;
         this.deafened = voiceStateData.deafened;

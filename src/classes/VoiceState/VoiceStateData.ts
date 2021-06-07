@@ -32,8 +32,9 @@ export interface VoiceStateData {
      * Member
      *
      * The member object of the user this voice state is for
+     * Can be `undefined` for voice states in guild create events when the bot doesn't have the guild members intent
      */
-    member: MemberData;
+    member?: MemberData;
 
     /**
      * Session ID
