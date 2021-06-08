@@ -3,14 +3,17 @@ import { Channel, ChannelResolvable, Client, Component, Embed, EmbedAttachment, 
 import getRoute from "../../../util/getRoute";
 import parseAttachments from "../../../util/parseAttachments";
 
-export interface CreateMessageData {
+export interface BaseCreateMessageData {
     content?: string;
     tts?: boolean;
-    embed?: Embed;
     components?: Component[];
     allowedMentions?: AllowedMentions;
-    messageReference?: CreateMessageReference;
     file?: CreateMessageFile;
+}
+
+export interface CreateMessageData extends BaseCreateMessageData {
+    embed?: Embed;
+    messageReference?: CreateMessageReference;
 }
 
 export interface AllowedMentions {

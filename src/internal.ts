@@ -126,6 +126,8 @@ export * from "./classes/Client/apiMethods/editGlobalCommand";
 export * from "./classes/Client/apiMethods/editGuildCommandPermissions";
 export * from "./classes/Client/apiMethods/editOriginalInteractionResponse";
 export * from "./classes/Client/apiMethods/editMessage";
+export * from "./classes/Client/apiMethods/editWebhookMessage";
+export * from "./classes/Client/apiMethods/executeWebhook";
 export * from "./classes/Client/apiMethods/followNewsChannel";
 export * from "./classes/Client/apiMethods/getChannelMessages";
 export * from "./classes/Client/apiMethods/getCurrentUserGuilds";

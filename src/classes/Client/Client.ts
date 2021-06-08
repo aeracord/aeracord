@@ -42,6 +42,7 @@ import {
     CreateMessageData,
     CreateStageInstanceData,
     CreateWebhookData,
+    CreateWebhookMessageData,
     CurrentUserNickname,
     DMChannel,
     EditChannelPermissionsData,
@@ -49,6 +50,7 @@ import {
     EditGuildCommandPermissionsData,
     EditInteractionResponseData,
     EditMessageData,
+    EditWebhookMessageData,
     Emoji,
     EmojiResolvable,
     EventOptions,
@@ -196,6 +198,7 @@ import deletePinnedChannelMessage from "./apiMethods/deletePinnedChannelMessage"
 import deleteStageInstance from "./apiMethods/deleteStageInstance";
 import deleteUserReaction from "./apiMethods/deleteUserReaction";
 import deleteWebhook from "./apiMethods/deleteWebhook";
+import deleteWebhookMessage from "./apiMethods/deleteWebhookMessage";
 import editChannelPermissions from "./apiMethods/editChannelPermissions";
 import editFollowupMessage from "./apiMethods/editFollowupMessage";
 import editGlobalCommand from "./apiMethods/editGlobalCommand";
@@ -203,6 +206,8 @@ import editGuildCommand from "./apiMethods/editGuildCommand";
 import editGuildCommandPermissions from "./apiMethods/editGuildCommandPermissions";
 import editMessage from "./apiMethods/editMessage";
 import editOriginalInteractionResponse from "./apiMethods/editOriginalInteractionResponse";
+import editWebhookMessage from "./apiMethods/editWebhookMessage";
+import executeWebhook from "./apiMethods/executeWebhook";
 import followNewsChannel from "./apiMethods/followNewsChannel";
 import getAllGuildCommandPermissions from "./apiMethods/getAllGuildCommandPermissions";
 import getChannel from "./apiMethods/getChannel";
@@ -241,6 +246,7 @@ import getStageInstance from "./apiMethods/getStageInstance";
 import getTemplate from "./apiMethods/getTemplate";
 import getUser from "./apiMethods/getUser";
 import getWebhook from "./apiMethods/getWebhook";
+import getWebhookMessage from "./apiMethods/getWebhookMessage";
 import leaveGuild from "./apiMethods/leaveGuild";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
@@ -2168,6 +2174,19 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * Delete Webhook Message
+     *
+     * Delete a message sent by a webhook
+     *
+     * @param webhook The webhook to delete the message from
+     * @param webhookToken The webhook's token
+     * @param message The message to delete
+     */
+    deleteWebhookMessage(webhook: WebhookResolvable, webhookToken: string, message: MessageResolvable): Promise<void> {
+        return deleteWebhookMessage(this, webhook, webhookToken, message);
+    }
+
+    /**
      * Edit Channel Permissions
      *
      * Edit the permissions for a channel
@@ -2266,6 +2285,37 @@ export default class Client extends EventEmitter {
      */
     editOriginalInteractionResponse(interactionToken: string, editInteractionResponseData: EditInteractionResponseData): Promise<Message> {
         return editOriginalInteractionResponse(this, interactionToken, editInteractionResponseData);
+    }
+
+    /**
+     * Edit Webhook Message
+     *
+     * Edit a message sent by a webhook
+     *
+     * @param webhook The webhook to edit this message from
+     * @param webhookToken The webhook's token
+     * @param message The message to edit
+     * @param editWebhookMessageData The data for editing the message
+     *
+     * @returns {Promise<Message>} The edited message
+     */
+    editWebhookMessage(webhook: WebhookResolvable, webhookToken: string, message: MessageResolvable, editWebhookMessageData: EditWebhookMessageData): Promise<Message> {
+        return editWebhookMessage(this, webhook, webhookToken, message, editWebhookMessageData);
+    }
+
+    /**
+     * Execute Webhook
+     *
+     * Send a message from a webhook
+     *
+     * @param webhook The webhook to send this message from
+     * @param webhookToken The webhook's token
+     * @param createWebhookMessageData The data for the message
+     *
+     * @returns {Promise<Message>} The created message
+     */
+    executeWebhook(webhook: WebhookResolvable, webhookToken: string, createWebhookMessageData: CreateWebhookMessageData): Promise<Message> {
+        return executeWebhook(this, webhook, webhookToken, createWebhookMessageData);
     }
 
     /**
@@ -2771,6 +2821,21 @@ export default class Client extends EventEmitter {
      */
     getWebhook(channel: ChannelResolvable, webhook: WebhookResolvable): Promise<Webhook | undefined> {
         return getWebhook(this, channel, webhook);
+    }
+
+    /**
+     * Get Webhook Message
+     *
+     * Get a message sent by a webhook
+     *
+     * @param webhook The webhook to send this message from
+     * @param webhookToken The webhook's token
+     * @param message The message to get
+     *
+     * @returns {Promise<Message>} The message
+     */
+    getWebhookMessage(webhook: WebhookResolvable, webhookToken: string, message: MessageResolvable): Promise<Message | undefined> {
+        return getWebhookMessage(this, webhook, webhookToken, message);
     }
 
     /**
