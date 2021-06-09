@@ -1,5 +1,10 @@
 import { promises as fs } from "fs";
-import { CreateMessageAttachment, CreateMessageFile, EmbedAttachment } from "../internal";
+import { CreateMessageFile, EmbedAttachment } from "../internal";
+
+export interface CreateMessageAttachment {
+    filename: string;
+    image: Buffer;
+}
 
 /**
  * Parse Attachments

@@ -38,6 +38,7 @@ import {
     CreateGuildFromTemplateData,
     CreateGuildRoleData,
     CreateGuildTemplateData,
+    CreateInteractionMessageData,
     CreateInteractionResponseData,
     CreateMessageData,
     CreateStageInstanceData,
@@ -48,7 +49,7 @@ import {
     EditChannelPermissionsData,
     EditCommandData,
     EditGuildCommandPermissionsData,
-    EditInteractionResponseData,
+    EditInteractionMessageData,
     EditMessageData,
     EditWebhookMessageData,
     Emoji,
@@ -57,7 +58,6 @@ import {
     FetchedData,
     FetchQueue,
     FollowedChannel,
-    FollowupInteractionResponseData,
     FollowNewsChannelData,
     GetChannelMessagesData,
     GetCurrentUserGuildsData,
@@ -1715,12 +1715,12 @@ export default class Client extends EventEmitter {
      * Create a followup message for an interaction
      *
      * @param interactionToken The token for the interaction to create a followup message to
-     * @param followupInteractionResponseData The data for the message
+     * @param createInteractionMessageData The data for the message
      *
      * @returns {Promise<Message>} The created message
      */
-    createFollowupMessage(interactionToken: string, followupInteractionResponseData: FollowupInteractionResponseData): Promise<Message> {
-        return createFollowupMessage(this, interactionToken, followupInteractionResponseData);
+    createFollowupMessage(interactionToken: string, createInteractionMessageData: CreateInteractionMessageData): Promise<Message> {
+        return createFollowupMessage(this, interactionToken, createInteractionMessageData);
     }
 
     /**
@@ -2221,12 +2221,12 @@ export default class Client extends EventEmitter {
      *
      * @param interactionToken The token for the interaction to edit the followup message for
      * @param message The message to edit
-     * @param editInteractionResponseData The data for editing the message
+     * @param editInteractionMessageData The data for editing the message
      *
      * @returns {Promise<Message>} The edited message
      */
-    editFollowupMessage(interactionToken: string, message: MessageResolvable, editInteractionResponseData: EditInteractionResponseData): Promise<Message> {
-        return editFollowupMessage(this, interactionToken, message, editInteractionResponseData);
+    editFollowupMessage(interactionToken: string, message: MessageResolvable, editInteractionMessageData: EditInteractionMessageData): Promise<Message> {
+        return editFollowupMessage(this, interactionToken, message, editInteractionMessageData);
     }
 
     /**
@@ -2279,12 +2279,12 @@ export default class Client extends EventEmitter {
      * Edit the original response to an interaction
      *
      * @param interactionToken The token for the interaction to edit the response for
-     * @param editInteractionResponseData The data for editing the response
+     * @param editInteractionMessageData The data for editing the response
      *
      * @returns {Promise<Message>} The edited response
      */
-    editOriginalInteractionResponse(interactionToken: string, editInteractionResponseData: EditInteractionResponseData): Promise<Message> {
-        return editOriginalInteractionResponse(this, interactionToken, editInteractionResponseData);
+    editOriginalInteractionResponse(interactionToken: string, editInteractionMessageData: EditInteractionMessageData): Promise<Message> {
+        return editOriginalInteractionResponse(this, interactionToken, editInteractionMessageData);
     }
 
     /**

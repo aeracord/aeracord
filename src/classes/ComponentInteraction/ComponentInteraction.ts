@@ -1,4 +1,4 @@
-import { Client, ComponentInteractionData, ComponentInteractionMetadata, Embed, Interaction, InteractionResponseData, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE, INTERACTION_TYPE_COMPONENT, Message, MessageData } from "../../internal";
+import { Client, ComponentInteractionData, ComponentInteractionMetadata, CreateInteractionMessageData, Embed, Interaction, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE, INTERACTION_TYPE_COMPONENT, Message, MessageData } from "../../internal";
 import updateMessage from "./updateMessage";
 import updateObject from "./updateObject";
 
@@ -62,12 +62,12 @@ export default class ComponentInteraction extends Interaction {
      * Respond to this interaction by updating the component's message
      *
      * @param contentOrData The content or data for the response
-     * @param interactionResponseData The data for the response
+     * @param createInteractionMessageData The data for the response
      *
      * @returns {Promise<Message>} The updated message
      */
-    updateMessage(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message | undefined> {
-        return updateMessage(this, contentOrData, interactionResponseData);
+    updateMessage(contentOrData: string | Embed | CreateInteractionMessageData, createInteractionMessageData?: CreateInteractionMessageData): Promise<Message | undefined> {
+        return updateMessage(this, contentOrData, createInteractionMessageData);
     }
 
     /**

@@ -1,4 +1,4 @@
-import { Base, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, EditInteractionResponseData, Embed, FollowupInteractionResponseData, InteractionData, InteractionMetadata, InteractionResponseData, InteractionType, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
+import { Base, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, CreateInteractionMessageData, EditInteractionMessageData, Embed, InteractionData, InteractionMetadata, InteractionType, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -248,12 +248,12 @@ export default class Interaction extends Base<AnyInteraction> {
      * Create a followup message for this interaction
      *
      * @param contentOrData The content or data for the response
-     * @param followupInteractionResponseData The data for the message
+     * @param createInteractionMessageData The data for the message
      *
      * @returns {Promise<Message>} The created message
      */
-    createFollowupMessage(contentOrData: string | Embed | FollowupInteractionResponseData, followupInteractionResponseData?: FollowupInteractionResponseData): Promise<Message> {
-        return createFollowupMessage(this, contentOrData, followupInteractionResponseData);
+    createFollowupMessage(contentOrData: string | Embed | CreateInteractionMessageData, createInteractionMessageData?: CreateInteractionMessageData): Promise<Message> {
+        return createFollowupMessage(this, contentOrData, createInteractionMessageData);
     }
 
     /**
@@ -283,12 +283,12 @@ export default class Interaction extends Base<AnyInteraction> {
      *
      * @param message The message to edit
      * @param contentOrData The content or data for the response
-     * @param editInteractionResponseData The data for editing the message
+     * @param editInteractionMessageData The data for editing the message
      *
      * @returns {Promise<Message>} The edited message
      */
-    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
-        return editFollowupMessage(this, message, contentOrData, editInteractionResponseData);
+    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | EditInteractionMessageData, editInteractionMessageData?: EditInteractionMessageData): Promise<Message> {
+        return editFollowupMessage(this, message, contentOrData, editInteractionMessageData);
     }
 
     /**
@@ -297,12 +297,12 @@ export default class Interaction extends Base<AnyInteraction> {
      * Edit the original response to this interaction
      *
      * @param contentOrData The content or data for the response
-     * @param editInteractionResponseData The data for editing the response
+     * @param editInteractionMessageData The data for editing the response
      *
      * @returns {Promise<Message>} The edited response
      */
-    editOriginalResponse(contentOrData: string | Embed | EditInteractionResponseData, editInteractionResponseData?: EditInteractionResponseData): Promise<Message> {
-        return editOriginalResponse(this, contentOrData, editInteractionResponseData);
+    editOriginalResponse(contentOrData: string | Embed | EditInteractionMessageData, editInteractionMessageData?: EditInteractionMessageData): Promise<Message> {
+        return editOriginalResponse(this, contentOrData, editInteractionMessageData);
     }
 
     /**
@@ -322,12 +322,12 @@ export default class Interaction extends Base<AnyInteraction> {
      * Respond to this interaction
      *
      * @param contentOrData The content or data for the response
-     * @param interactionResponseData The data for the response
+     * @param createInteractionMessageData The data for the response
      *
      * @returns {Promise<Message>} The created response
      */
-    respond(contentOrData: string | Embed | InteractionResponseData, interactionResponseData?: InteractionResponseData): Promise<Message | undefined> {
-        return respond(this, contentOrData, interactionResponseData);
+    respond(contentOrData: string | Embed | CreateInteractionMessageData, createInteractionMessageData?: CreateInteractionMessageData): Promise<Message | undefined> {
+        return respond(this, contentOrData, createInteractionMessageData);
     }
 
     /**

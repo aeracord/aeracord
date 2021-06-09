@@ -1,12 +1,12 @@
-import { Embed, FollowupInteractionResponseData, Interaction, Message } from "../../internal";
+import { CreateInteractionMessageData, Embed, Interaction, Message } from "../../internal";
 
-export default function createFollowupMessage(interaction: Interaction, contentOrData: string | Embed | FollowupInteractionResponseData, followupInteractionResponseData: FollowupInteractionResponseData = {}): Promise<Message> {
+export default function createFollowupMessage(interaction: Interaction, contentOrData: string | Embed | CreateInteractionMessageData, createInteractionMessageData: CreateInteractionMessageData = {}): Promise<Message> {
 
     // Parse data
-    if (typeof contentOrData === "string") followupInteractionResponseData.content = contentOrData;
-    else if (contentOrData instanceof Embed) followupInteractionResponseData.embeds = [contentOrData];
-    else followupInteractionResponseData = contentOrData;
+    if (typeof contentOrData === "string") createInteractionMessageData.content = contentOrData;
+    else if (contentOrData instanceof Embed) createInteractionMessageData.embeds = [contentOrData];
+    else createInteractionMessageData = contentOrData;
 
     // Create followup message
-    return interaction.client.createFollowupMessage(interaction.token, followupInteractionResponseData);
+    return interaction.client.createFollowupMessage(interaction.token, createInteractionMessageData);
 }
