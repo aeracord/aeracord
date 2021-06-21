@@ -1,22 +1,18 @@
 import FormData from "form-data";
-import { BaseEditMessageData, Client, Embed, FetchQueue, Message, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable, Webhook, WebhookResolvable } from "../../../internal";
+import { BaseEditMessageData, Client, FetchQueue, Message, MessageResolvable, RawMessageData, Role, RoleResolvable, User, UserResolvable, Webhook, WebhookResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import parseCreateMessageData, { ParsedCreateMessageData } from "../../../util/parseCreateMessageData";
 
-export interface EditWebhookMessageData extends BaseEditMessageData {
-    embeds?: Embed[] | null;
-}
-
-export default async function editWebhookMessage(client: Client, webhookResolvable: WebhookResolvable, webhookToken: string, messageResolvable: MessageResolvable, editWebhookMessageData: EditWebhookMessageData): Promise<Message> {
+export default async function editWebhookMessage(client: Client, webhookResolvable: WebhookResolvable, webhookToken: string, messageResolvable: MessageResolvable, editMessageData: BaseEditMessageData): Promise<Message> {
 
     // Resolve objects
     const webhookID: string | undefined = Webhook.resolveID(webhookResolvable);
     if (!webhookID) throw new Error("Invalid webhook resolvable");
     const messageID: string | undefined = Message.resolveID(messageResolvable);
     if (!messageID) throw new Error("Invalid message resolvable");
-    const allowedMentionsUsers: Array<string | undefined> | undefined = editWebhookMessageData.allowedMentions?.users?.map((u: UserResolvable) => User.resolveID(u));
+    const allowedMentionsUsers: Array<string | undefined> | undefined = editMessageData.allowedMentions?.users?.map((u: UserResolvable) => User.resolveID(u));
     if (allowedMentionsUsers?.find((u: string | undefined) => !u)) throw new Error("Invalid user resolvable in array of allowed mentions users");
-    const allowedMentionsRoles: Array<string | undefined> | undefined = editWebhookMessageData.allowedMentions?.roles?.map((r: RoleResolvable) => Role.resolveID(r));
+    const allowedMentionsRoles: Array<string | undefined> | undefined = editMessageData.allowedMentions?.roles?.map((r: RoleResolvable) => Role.resolveID(r));
     if (allowedMentionsRoles?.find((r: string | undefined) => !r)) throw new Error("Invalid role resolvable in array of allowed mentions roles");
 
     // Define fetch data
@@ -28,7 +24,7 @@ export default async function editWebhookMessage(client: Client, webhookResolvab
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Parse payload data
-    const data: ParsedCreateMessageData = await parseCreateMessageData(editWebhookMessageData, {
+    const data: ParsedCreateMessageData = await parseCreateMessageData(editMessageData, {
         allowedMentionsRoles: allowedMentionsRoles as (string[] | undefined),
         allowedMentionsUsers: allowedMentionsUsers as (string[] | undefined)
     });

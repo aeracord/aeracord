@@ -1,4 +1,4 @@
-import { Base, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, CreateInteractionMessageData, EditInteractionMessageData, Embed, InteractionData, InteractionMetadata, InteractionType, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
+import { Base, BaseEditMessageData, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, CreateInteractionMessageData, Embed, InteractionData, InteractionMetadata, InteractionType, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -283,12 +283,12 @@ export default class Interaction extends Base<AnyInteraction> {
      *
      * @param message The message to edit
      * @param contentOrData The content or data for the response
-     * @param editInteractionMessageData The data for editing the message
+     * @param editMessageData The data for editing the message
      *
      * @returns {Promise<Message>} The edited message
      */
-    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | EditInteractionMessageData, editInteractionMessageData?: EditInteractionMessageData): Promise<Message> {
-        return editFollowupMessage(this, message, contentOrData, editInteractionMessageData);
+    editFollowupMessage(message: MessageResolvable, contentOrData: string | Embed | BaseEditMessageData, editMessageData?: BaseEditMessageData): Promise<Message> {
+        return editFollowupMessage(this, message, contentOrData, editMessageData);
     }
 
     /**
@@ -297,12 +297,12 @@ export default class Interaction extends Base<AnyInteraction> {
      * Edit the original response to this interaction
      *
      * @param contentOrData The content or data for the response
-     * @param editInteractionMessageData The data for editing the response
+     * @param editMessageData The data for editing the response
      *
      * @returns {Promise<Message>} The edited response
      */
-    editOriginalResponse(contentOrData: string | Embed | EditInteractionMessageData, editInteractionMessageData?: EditInteractionMessageData): Promise<Message> {
-        return editOriginalResponse(this, contentOrData, editInteractionMessageData);
+    editOriginalResponse(contentOrData: string | Embed | BaseEditMessageData, editMessageData?: BaseEditMessageData): Promise<Message> {
+        return editOriginalResponse(this, contentOrData, editMessageData);
     }
 
     /**

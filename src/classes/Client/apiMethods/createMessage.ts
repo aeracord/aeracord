@@ -6,13 +6,13 @@ import parseCreateMessageData, { ParsedCreateMessageData } from "../../../util/p
 export interface BaseCreateMessageData {
     content?: string;
     tts?: boolean;
+    embeds?: Embed[];
     components?: Component[];
     allowedMentions?: AllowedMentions;
     file?: CreateMessageFile;
 }
 
 export interface CreateMessageData extends BaseCreateMessageData {
-    embed?: Embed;
     messageReference?: CreateMessageReference;
 }
 
@@ -49,7 +49,7 @@ export default async function createMessage(client: Client, channelResolvable: C
     if (client._cacheStrategies.permissions.enabled) {
         if (!client.hasPermission("SEND_MESSAGES", channelID)) throw new PermissionError({ permission: "SEND_MESSAGES" });
         if ((createMessageData.tts) && (!client.hasPermission("SEND_TTS_MESSAGES", channelID))) throw new PermissionError({ permission: "SEND_TTS_MESSAGES" });
-        if ((createMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new PermissionError({ permission: "EMBED_LINKS" });
+        if ((createMessageData.embeds) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new PermissionError({ permission: "EMBED_LINKS" });
         if ((createMessageData.file) && (!client.hasPermission("ATTACH_FILES", channelID))) throw new PermissionError({ permission: "ATTACH_FILES" });
     }
 

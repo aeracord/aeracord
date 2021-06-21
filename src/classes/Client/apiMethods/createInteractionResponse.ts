@@ -15,7 +15,6 @@ export const INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE = 6;
 export const INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE = 7;
 
 export interface CreateInteractionMessageData extends BaseCreateMessageData {
-    embeds?: Embed[];
     flags?: number;
 }
 

@@ -12,6 +12,7 @@ import {
     ACTIVITY_TYPE_WATCHING,
     Ban,
     BanEventOptions,
+    BaseEditMessageData,
     BulkDeleteMessagesData,
     BulkEditGuildCommandPermissionsData,
     CacheInterface,
@@ -49,9 +50,7 @@ import {
     EditChannelPermissionsData,
     EditCommandData,
     EditGuildCommandPermissionsData,
-    EditInteractionMessageData,
     EditMessageData,
-    EditWebhookMessageData,
     Emoji,
     EmojiResolvable,
     EventOptions,
@@ -2221,12 +2220,12 @@ export default class Client extends EventEmitter {
      *
      * @param interactionToken The token for the interaction to edit the followup message for
      * @param message The message to edit
-     * @param editInteractionMessageData The data for editing the message
+     * @param editMessageData The data for editing the message
      *
      * @returns {Promise<Message>} The edited message
      */
-    editFollowupMessage(interactionToken: string, message: MessageResolvable, editInteractionMessageData: EditInteractionMessageData): Promise<Message> {
-        return editFollowupMessage(this, interactionToken, message, editInteractionMessageData);
+    editFollowupMessage(interactionToken: string, message: MessageResolvable, editMessageData: BaseEditMessageData): Promise<Message> {
+        return editFollowupMessage(this, interactionToken, message, editMessageData);
     }
 
     /**
@@ -2279,12 +2278,12 @@ export default class Client extends EventEmitter {
      * Edit the original response to an interaction
      *
      * @param interactionToken The token for the interaction to edit the response for
-     * @param editInteractionMessageData The data for editing the response
+     * @param editMessageData The data for editing the response
      *
      * @returns {Promise<Message>} The edited response
      */
-    editOriginalInteractionResponse(interactionToken: string, editInteractionMessageData: EditInteractionMessageData): Promise<Message> {
-        return editOriginalInteractionResponse(this, interactionToken, editInteractionMessageData);
+    editOriginalInteractionResponse(interactionToken: string, editMessageData: BaseEditMessageData): Promise<Message> {
+        return editOriginalInteractionResponse(this, interactionToken, editMessageData);
     }
 
     /**
@@ -2295,12 +2294,12 @@ export default class Client extends EventEmitter {
      * @param webhook The webhook to edit this message from
      * @param webhookToken The webhook's token
      * @param message The message to edit
-     * @param editWebhookMessageData The data for editing the message
+     * @param editMessageData The data for editing the message
      *
      * @returns {Promise<Message>} The edited message
      */
-    editWebhookMessage(webhook: WebhookResolvable, webhookToken: string, message: MessageResolvable, editWebhookMessageData: EditWebhookMessageData): Promise<Message> {
-        return editWebhookMessage(this, webhook, webhookToken, message, editWebhookMessageData);
+    editWebhookMessage(webhook: WebhookResolvable, webhookToken: string, message: MessageResolvable, editMessageData: BaseEditMessageData): Promise<Message> {
+        return editWebhookMessage(this, webhook, webhookToken, message, editMessageData);
     }
 
     /**

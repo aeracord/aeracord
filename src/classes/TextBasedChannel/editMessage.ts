@@ -4,7 +4,7 @@ export default function editMessage(channel: TextBasedChannel, message: MessageR
 
     // Parse data
     if (typeof contentOrEmbed === "string") editMessageData.content = contentOrEmbed;
-    else if (contentOrEmbed instanceof Embed) editMessageData.embed = contentOrEmbed;
+    else if (contentOrEmbed instanceof Embed) editMessageData.embeds = [contentOrEmbed];
 
     // Create message
     return channel.client.editMessage(channel, message, editMessageData);

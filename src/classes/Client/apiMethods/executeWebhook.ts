@@ -1,13 +1,11 @@
 import FormData from "form-data";
-import { BaseCreateMessageData, Client, CreateMessageFile, Embed, EmbedAttachment, FetchQueue, Message, MessageComponent, RawMessageData, Role, RoleResolvable, User, UserResolvable, Webhook, WebhookResolvable } from "../../../internal";
+import { BaseCreateMessageData, Client, Embed, FetchQueue, Message, RawMessageData, Role, RoleResolvable, User, UserResolvable, Webhook, WebhookResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
-import parseAttachments, { CreateMessageAttachment } from "../../../util/parseAttachments";
 import parseCreateMessageData, { ParsedCreateMessageData } from "../../../util/parseCreateMessageData";
 
 export interface CreateWebhookMessageData extends BaseCreateMessageData {
     username?: string;
     avatarURL?: string;
-    embeds?: Embed[];
 }
 
 export default async function executeWebhook(client: Client, webhookResolvable: WebhookResolvable, webhookToken: string, createWebhookMessageData: CreateWebhookMessageData): Promise<Message> {

@@ -4,7 +4,7 @@ export default function reply(message: Message, contentOrData: string | Embed | 
 
     // Parse data
     if (typeof contentOrData === "string") createMessageData.content = contentOrData;
-    else if (contentOrData instanceof Embed) createMessageData.embed = contentOrData;
+    else if (contentOrData instanceof Embed) createMessageData.embeds = [contentOrData];
     else createMessageData = contentOrData;
 
     // Set message reference

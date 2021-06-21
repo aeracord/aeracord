@@ -1,12 +1,12 @@
-import { EditInteractionMessageData, Embed, Interaction, Message, MessageResolvable } from "../../internal";
+import { BaseEditMessageData, Embed, Interaction, Message, MessageResolvable } from "../../internal";
 
-export default function editFollowupMessage(interaction: Interaction, message: MessageResolvable, contentOrData: string | Embed | EditInteractionMessageData, editInteractionMessageData: EditInteractionMessageData = {}): Promise<Message> {
+export default function editFollowupMessage(interaction: Interaction, message: MessageResolvable, contentOrData: string | Embed | BaseEditMessageData, editMessageData: BaseEditMessageData = {}): Promise<Message> {
 
     // Parse data
-    if (typeof contentOrData === "string") editInteractionMessageData.content = contentOrData;
-    else if (contentOrData instanceof Embed) editInteractionMessageData.embeds = [contentOrData];
-    else editInteractionMessageData = contentOrData;
+    if (typeof contentOrData === "string") editMessageData.content = contentOrData;
+    else if (contentOrData instanceof Embed) editMessageData.embeds = [contentOrData];
+    else editMessageData = contentOrData;
 
     // Edit response
-    return interaction.client.editFollowupMessage(interaction.token, message, editInteractionMessageData);
+    return interaction.client.editFollowupMessage(interaction.token, message, editMessageData);
 }

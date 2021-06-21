@@ -7,7 +7,7 @@ export default function createReply(channel: TextBasedChannel, messageResolvable
 
     // Parse data
     if (typeof contentOrData === "string") createMessageData.content = contentOrData;
-    else if (contentOrData instanceof Embed) createMessageData.embed = contentOrData;
+    else if (contentOrData instanceof Embed) createMessageData.embeds = [contentOrData];
     else createMessageData = contentOrData;
 
     // Set message reference

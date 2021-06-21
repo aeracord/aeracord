@@ -1,5 +1,5 @@
 import FormData from "form-data";
-import { BaseCreateMessageData, BaseEditMessageData, CreateInteractionMessageData, CreateMessageData, CreateMessageFile, CreateWebhookMessageData, EditInteractionMessageData, EditMessageData, EditWebhookMessageData, Embed, EmbedAttachment, MessageComponent } from "../internal";
+import { BaseCreateMessageData, BaseEditMessageData, CreateInteractionMessageData, CreateMessageData, CreateMessageFile, CreateWebhookMessageData, EditMessageData, Embed, EmbedAttachment, MessageComponent } from "../internal";
 import parseAttachments, { CreateMessageAttachment } from "./parseAttachments";
 
 export interface CreateMessageDataOptions {
@@ -21,12 +21,11 @@ interface ParsedData {
  *
  * @param createMessageData The data for creating the message
  */
-export default async function parseCreateMessageData(createMessageData: BaseCreateMessageData | CreateMessageData | CreateInteractionMessageData | CreateWebhookMessageData | BaseEditMessageData | EditMessageData | EditWebhookMessageData | EditInteractionMessageData, createMessageDataOptions: CreateMessageDataOptions): Promise<ParsedCreateMessageData> {
+export default async function parseCreateMessageData(createMessageData: BaseCreateMessageData | CreateMessageData | CreateInteractionMessageData | CreateWebhookMessageData | BaseEditMessageData | EditMessageData, createMessageDataOptions: CreateMessageDataOptions): Promise<ParsedCreateMessageData> {
 
     // Define data
     let data: ParsedData = {
         content: createMessageData.content,
-        embed: ("embed" in createMessageData) && createMessageData.embed?._toJSON(),
         components: createMessageData.components && MessageComponent._componentsToJSON(createMessageData.components),
         allowed_mentions: createMessageData.allowedMentions && {
             parse: createMessageData.allowedMentions.parse,
@@ -42,12 +41,6 @@ export default async function parseCreateMessageData(createMessageData: BaseCrea
 
     // TTS
     if ("tts" in createMessageData) data.tts = createMessageData.tts;
-
-    // Embed
-    if ("embed" in createMessageData) {
-        data.embed = createMessageData.embed && createMessageData.embed._toJSON();
-        if (createMessageData.embed) files.push(...createMessageData.embed.attachments);
-    }
 
     // Message reference
     if ("messageReference" in createMessageData) data.message_reference = createMessageData.messageReference && {

@@ -5,13 +5,13 @@ import parseCreateMessageData, { ParsedCreateMessageData } from "../../../util/p
 
 export interface BaseEditMessageData {
     content?: string | null;
+    embeds?: Embed[] | null;
     components?: Component[] | null;
     allowedMentions?: AllowedMentions | null;
     file?: CreateMessageFile | null;
 }
 
 export interface EditMessageData extends BaseEditMessageData {
-    embed?: Embed | null;
     flags?: number | null;
 }
 
@@ -29,7 +29,7 @@ export default async function editMessage(client: Client, channelResolvable: Cha
 
     // Missing permissions
     if (client._cacheStrategies.permissions.enabled) {
-        if ((editMessageData.embed) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new PermissionError({ permission: "EMBED_LINKS" });
+        if ((editMessageData.embeds) && (!client.hasPermission("EMBED_LINKS", channelID))) throw new PermissionError({ permission: "EMBED_LINKS" });
         if ((editMessageData.file) && (!client.hasPermission("ATTACH_FILES", channelID))) throw new PermissionError({ permission: "ATTACH_FILES" });
     }
 

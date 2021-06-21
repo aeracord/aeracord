@@ -224,7 +224,6 @@ export {
     EditCommandData,
     EditGuildCommandPermissions,
     EditGuildCommandPermissionsData,
-    EditInteractionMessageData,
     EditMessageData,
     FollowedChannel,
     FollowNewsChannelData,

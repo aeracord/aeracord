@@ -1,12 +1,12 @@
-import { EditInteractionMessageData, Embed, Interaction, Message } from "../../internal";
+import { BaseEditMessageData, Embed, Interaction, Message } from "../../internal";
 
-export default function editOriginalResponse(interaction: Interaction, contentOrData: string | Embed | EditInteractionMessageData, editInteractionMessageData: EditInteractionMessageData = {}): Promise<Message> {
+export default function editOriginalResponse(interaction: Interaction, contentOrData: string | Embed | BaseEditMessageData, editMessageData: BaseEditMessageData = {}): Promise<Message> {
 
     // Parse data
-    if (typeof contentOrData === "string") editInteractionMessageData.content = contentOrData;
-    else if (contentOrData instanceof Embed) editInteractionMessageData.embeds = [contentOrData];
-    else editInteractionMessageData = contentOrData;
+    if (typeof contentOrData === "string") editMessageData.content = contentOrData;
+    else if (contentOrData instanceof Embed) editMessageData.embeds = [contentOrData];
+    else editMessageData = contentOrData;
 
     // Edit response
-    return interaction.client.editOriginalInteractionResponse(interaction.token, editInteractionMessageData);
+    return interaction.client.editOriginalInteractionResponse(interaction.token, editMessageData);
 }

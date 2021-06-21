@@ -4,7 +4,7 @@ export default function send(channel: TextBasedChannel, contentOrData: string | 
 
     // Parse data
     if (typeof contentOrData === "string") createMessageData.content = contentOrData;
-    else if (contentOrData instanceof Embed) createMessageData.embed = contentOrData;
+    else if (contentOrData instanceof Embed) createMessageData.embeds = [contentOrData];
     else createMessageData = contentOrData;
 
     // Create message
