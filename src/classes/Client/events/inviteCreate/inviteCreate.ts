@@ -1,4 +1,4 @@
-import { Client, Invite, RawInviteCreateData, User } from "../../../../internal";
+import { Client, Invite, Member, RawInviteCreateData, RawMemberData, User } from "../../../../internal";
 
 export default function inviteCreate(client: Client, rawData: RawInviteCreateData) {
 
@@ -19,6 +19,12 @@ export default function inviteCreate(client: Client, rawData: RawInviteCreateDat
             username: rawData.target_user.username,
             discriminator: rawData.target_user.discriminator,
             avatar: rawData.target_user.avatar
+        } : null,
+        stageInstance: rawData.stage_instance ? {
+            topic: rawData.stage_instance.topic,
+            participantCount: rawData.stage_instance.participant_count,
+            speakerCount: rawData.stage_instance.speaker_count,
+            members: rawData.stage_instance.members.map((m: RawMemberData) => Member._dataFromRawData(m, rawData.guild_id))
         } : null,
         fetchedAt: Date.now()
     });

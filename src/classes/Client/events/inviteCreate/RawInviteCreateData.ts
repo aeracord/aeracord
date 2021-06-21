@@ -1,4 +1,4 @@
-import { RawUserData, TargetType } from "../../../../internal";
+import { RawInviteDataStageInstance, RawInviteDataTargetUser, RawUserData, TargetType } from "../../../../internal";
 
 export interface RawInviteCreateData {
     code: string;
@@ -11,12 +11,6 @@ export interface RawInviteCreateData {
     temporary: boolean;
     uses: number;
     target_type?: TargetType;
-    target_user?: RawInviteCreateDataTargetUser;
-}
-
-export interface RawInviteCreateDataTargetUser {
-    id: string;
-    username: string;
-    discriminator: string;
-    avatar: string | null;
+    target_user?: RawInviteDataTargetUser;
+    stage_instance?: RawInviteDataStageInstance;
 }

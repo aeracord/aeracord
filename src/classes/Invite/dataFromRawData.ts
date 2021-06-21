@@ -1,4 +1,4 @@
-import { InviteData, RawInviteData, User } from "../../internal";
+import { InviteData, Member, RawInviteData, RawMemberData, User } from "../../internal";
 
 export default function dataFromRawData(rawData: RawInviteData): InviteData {
 
@@ -20,6 +20,12 @@ export default function dataFromRawData(rawData: RawInviteData): InviteData {
             username: rawData.target_user.username,
             discriminator: rawData.target_user.discriminator,
             avatar: rawData.target_user.avatar
+        } : null,
+        stageInstance: rawData.stage_instance ? {
+            topic: rawData.stage_instance.topic,
+            participantCount: rawData.stage_instance.participant_count,
+            speakerCount: rawData.stage_instance.speaker_count,
+            members: rawData.stage_instance.members.map((m: RawMemberData) => Member._dataFromRawData(m, rawData.guild.id))
         } : null,
         fetchedAt: Date.now()
     };

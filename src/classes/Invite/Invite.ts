@@ -1,4 +1,4 @@
-import { Base, Client, InviteData, RawInviteData, READY_STATE_READY, TargetType, TargetUser, User } from "../../internal";
+import { Base, Client, InviteData, InviteStageInstance, RawInviteData, READY_STATE_READY, TargetType, TargetUser, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveCode from "./resolveCode";
@@ -109,6 +109,13 @@ export default class Invite extends Base<Invite> {
     targetUser: TargetUser | null;
 
     /**
+     * Stage Instance
+     *
+     * Data for the stage instance if theres a public stage instance in the channel for this invite
+     */
+    stageInstance: InviteStageInstance | null;
+
+    /**
      * Invite
      *
      * @param client The client
@@ -124,6 +131,7 @@ export default class Invite extends Base<Invite> {
      * @param inviteData.uses The amount of times this invite has been used
      * @param inviteData.targetType The type of target for this invite
      * @param inviteData.targetUser The target user for this invite
+     * @param inviteData.stageInstance Data for the stage instance if theres a public stage instance in the channel for this invite
      */
     constructor(client: Client, inviteData: InviteData) {
 

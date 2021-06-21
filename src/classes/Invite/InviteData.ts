@@ -1,4 +1,4 @@
-import { UserData } from "../../internal";
+import { MemberData, UserData } from "../../internal";
 
 /**
  * Invite Data
@@ -90,12 +90,20 @@ export interface InviteData {
      * The type of target for this invite
      */
     targetType: TargetType | null;
+
     /**
      * Target User
      *
      * The target user for this invite
      */
     targetUser: TargetUser | null;
+
+    /**
+     * Stage Instance
+     *
+     * Data for the stage instance if theres a public stage instance in the channel for this invite
+     */
+    stageInstance: InviteStageInstance | null;
 
     /**
      * Fetched At
@@ -147,4 +155,40 @@ export interface TargetUser {
      * The target user's avatar hash
      */
     avatar: string | null;
+}
+
+/**
+ * Invite Stage Instance
+ *
+ * Data for the stage instance if theres a public stage instance in the channel for this invite
+ */
+export interface InviteStageInstance {
+
+    /**
+     * Topic
+     *
+     * The stage instance's topic
+     */
+    topic: string;
+
+    /**
+     * Participant Count
+     *
+     * The amount of people in the stage channel
+     */
+    participantCount: number;
+
+    /**
+     * Speaker Count
+     *
+     * The amount of people speaking in the stage channel
+     */
+    speakerCount: number;
+
+    /**
+     * Members
+     *
+     * The members in the stage channel
+     */
+    members: MemberData[];
 }

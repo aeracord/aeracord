@@ -16,6 +16,7 @@ export default function toData(invite: Invite): InviteData {
         expiresAt: invite.expiresAt,
         targetType: invite.targetType,
         targetUser: invite.targetUser,
+        stageInstance: invite.stageInstance,
         fetchedAt: invite._lastUpdatedAt
     };
 }
