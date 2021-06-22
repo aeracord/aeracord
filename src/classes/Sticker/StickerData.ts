@@ -1,3 +1,5 @@
+import { UserData } from "../../internal";
+
 /**
  * Sticker Data
  *
@@ -13,11 +15,12 @@ export interface StickerData {
     id: string;
 
     /**
-     * Pack ID
+     * Guild ID
      *
-     * The ID of the pack this sticker is a part of
+     * The ID of the guild this sticker is in
+     * `null` for Nitro stickers
      */
-    packID: string;
+    guildID: string | null;
 
     /**
      * Name
@@ -34,25 +37,18 @@ export interface StickerData {
     description: string;
 
     /**
+     * Pack ID
+     *
+     * The ID of the pack this sticker is a part of
+     */
+    packID: string | null;
+
+    /**
      * Tags
      *
-     * The sticker's tags
+     * A unicode emoji for guild stickers and the sticker's tags for Nitro stickers
      */
-    tags: string | null;
-
-    /**
-     * Asset
-     *
-     * The sticker's asset hash
-     */
-    asset: string;
-
-    /**
-     * Preview Asset
-     *
-     * The sticker's preview asset hash
-     */
-    previewAsset: string | null;
+    tags: string;
 
     /**
      * Format Type
@@ -60,6 +56,29 @@ export interface StickerData {
      * The sticker's format type
      */
     formatType: StickerFormatType;
+
+    /**
+     * Available
+     *
+     * Whether or not this sticker is available
+     * Stickers can be unavailable due to losing server boosts
+     */
+    available: boolean;
+
+    /**
+     * Creator
+     *
+     * The user that created this sticker
+     * Can be `null` for Nitro stickers
+     */
+    creator: UserData | null;
+
+    /**
+     * Sort Value
+     *
+     * The sticker's sort value
+     */
+    sortValue: number | null;
 }
 
 /**

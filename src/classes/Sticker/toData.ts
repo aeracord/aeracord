@@ -1,16 +1,18 @@
-import { Sticker, StickerData } from "../../internal";
+import { Sticker, StickerData, User } from "../../internal";
 
 export default function toData(sticker: Sticker): StickerData {
 
     // Parse sticker data
     return {
         id: sticker.id,
-        packID: sticker.packID,
+        guildID: sticker.guildID,
         name: sticker.name,
         description: sticker.description,
+        packID: sticker.packID,
         tags: sticker.tags,
-        asset: sticker.asset,
-        previewAsset: sticker.previewAsset,
-        formatType: sticker.formatType
+        formatType: sticker.formatType,
+        available: sticker.available,
+        creator: sticker.creator && User.toData(sticker.creator),
+        sortValue: sticker.sortValue
     };
 }

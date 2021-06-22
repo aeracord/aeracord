@@ -95,10 +95,10 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         if (data.mentions !== undefined) message.mentions = data.mentions;
         if (data.mentionedRoles !== undefined) message.mentionedRoles = data.mentionedRoles;
         if (data.mentionedChannels !== undefined) message.mentionedChannels = data.mentionedChannels;
-        if (data.attachments !== undefined) message.attachments = data.attachments;
-        if (data.embeds !== undefined) message.embeds = data.embeds;
-        if (data.stickers !== undefined) message.stickers = data.stickers;
-        if (data.reactions !== undefined) message.reactions = data.reactions;
+        if (data.attachments !== undefined) message.attachments = data.attachments.map((a: Attachment) => Attachment.toData(a));
+        if (data.embeds !== undefined) message.embeds = data.embeds.map((e: MessageEmbed) => MessageEmbed.toData(e));
+        if (data.stickers !== undefined) message.stickers = data.stickers.map((s: Sticker) => Sticker.toData(s));
+        if (data.reactions !== undefined) message.reactions = data.reactions.map((r: Reaction) => Reaction.toData(r));
         if (data.pinned !== undefined) message.pinned = data.pinned;
         if (data.activity !== undefined) message.activity = data.activity;
         if (data.application !== undefined) message.application = data.application;

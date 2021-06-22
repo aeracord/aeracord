@@ -1,4 +1,4 @@
-import { Client, RawStickerData, StickerData, StickerFormatType } from "../../internal";
+import { Client, RawStickerData, StickerData, StickerFormatType, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -20,11 +20,12 @@ export default class Sticker {
     id: string;
 
     /**
-     * Pack ID
+     * Guild ID
      *
-     * The ID of the pack this sticker is a part of
+     * The ID of the guild this sticker is in
+     * `null` for Nitro stickers
      */
-    packID: string;
+    guildID: string | null;
 
     /**
      * Name
@@ -41,25 +42,18 @@ export default class Sticker {
     description: string;
 
     /**
+     * Pack ID
+     *
+     * The ID of the pack this sticker is a part of
+     */
+    packID: string | null;
+
+    /**
      * Tags
      *
-     * The sticker's tags
+     * A unicode emoji for guild stickers and the sticker's tags for Nitro stickers
      */
-    tags: string | null;
-
-    /**
-     * Asset
-     *
-     * The sticker's asset hash
-     */
-    asset: string;
-
-    /**
-     * Preview Asset
-     *
-     * The sticker's preview asset hash
-     */
-    previewAsset: string | null;
+    tags: string;
 
     /**
      * Format Type
@@ -69,31 +63,58 @@ export default class Sticker {
     formatType: StickerFormatType;
 
     /**
+     * Available
+     *
+     * Whether or not this sticker is available
+     * Stickers can be unavailable due to losing server boosts
+     */
+    available: boolean;
+
+    /**
+     * Creator
+     *
+     * The user that created this sticker
+     * Can be `null` for Nitro stickers
+     */
+    creator: User | null;
+
+    /**
+     * Sort Value
+     *
+     * The sticker's sort value
+     */
+    sortValue: number | null;
+
+    /**
      * Sticker
      *
      * @param client The client
      * @param stickerData Options to initialize this sticker with
      * @param stickerData.id The sticker's ID
-     * @param stickerData.packID The ID of the pack this sticker is a part of
+     * @param stickerData.guildID The ID of the guild this sticker is in
      * @param stickerData.name The sticker's name
      * @param stickerData.description The sticker's description
+     * @param stickerData.packID The ID of the pack this sticker is a part of
      * @param stickerData.tags The sticker's tags
-     * @param stickerData.asset The sticker's asset hash
-     * @param stickerData.previewAsset The sticker's preview asset hash
      * @param stickerData.formatType The sticker's format type
+     * @param stickerData.available Whether or not this sticker is available
+     * @param stickerData.creator The user that created this sticker
+     * @param stickerData.sortValue The sticker's sort value
      */
     constructor(client: Client, stickerData: StickerData) {
 
         // Set data
         Object.defineProperty(this, "client", { value: client });
         this.id = stickerData.id;
-        this.packID = stickerData.packID;
+        this.guildID = stickerData.guildID;
         this.name = stickerData.name;
         this.description = stickerData.description;
+        this.packID = stickerData.packID;
         this.tags = stickerData.tags;
-        this.asset = stickerData.asset;
-        this.previewAsset = stickerData.previewAsset;
         this.formatType = stickerData.formatType;
+        this.available = stickerData.available;
+        this.creator = stickerData.creator && User.fromData(this.client, stickerData.creator);
+        this.sortValue = stickerData.sortValue;
     }
 
     /**

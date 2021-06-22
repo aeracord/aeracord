@@ -1,16 +1,18 @@
-import { RawStickerData, StickerData } from "../../internal";
+import { RawStickerData, StickerData, User } from "../../internal";
 
 export default function dataFromRawData(rawData: RawStickerData): StickerData {
 
     // Parse sticker data
     return {
         id: rawData.id,
-        packID: rawData.pack_id,
+        guildID: rawData.guild_id || null,
         name: rawData.name,
         description: rawData.description,
-        tags: rawData.tags || null,
-        asset: rawData.asset,
-        previewAsset: rawData.preview_asset,
-        formatType: rawData.format_type
+        packID: rawData.pack_id || null,
+        tags: rawData.tags,
+        formatType: rawData.format_type,
+        available: Boolean(rawData.available),
+        creator: rawData.user ? User._dataFromRawData(rawData.user) : null,
+        sortValue: rawData.sort_value === undefined ? null : rawData.sort_value
     };
 }
