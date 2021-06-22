@@ -50,6 +50,11 @@ export default async function parseCreateMessageData(createMessageData: BaseCrea
 
     // Embeds
     if ("embeds" in createMessageData) {
+
+        // If the embed isnt in an array, create an array with the embed
+        if (createMessageData.embeds instanceof Embed) createMessageData.embeds = [createMessageData.embeds];
+
+        // Set data
         data.embeds = createMessageData.embeds && createMessageData.embeds.map((e: Embed) => e._toJSON());
         if (createMessageData.embeds) createMessageData.embeds.forEach((e: Embed) => files.push(...e.attachments));
     }

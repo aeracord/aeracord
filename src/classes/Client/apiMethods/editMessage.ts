@@ -5,7 +5,7 @@ import parseCreateMessageData, { ParsedCreateMessageData } from "../../../util/p
 
 export interface BaseEditMessageData {
     content?: string | null;
-    embeds?: Embed[] | null;
+    embeds?: Embed[] | Embed | null;
     components?: Component[] | null;
     allowedMentions?: AllowedMentions | null;
     file?: CreateMessageFile | null;

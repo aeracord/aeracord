@@ -6,7 +6,7 @@ import parseCreateMessageData, { ParsedCreateMessageData } from "../../../util/p
 export interface BaseCreateMessageData {
     content?: string;
     tts?: boolean;
-    embeds?: Embed[];
+    embeds?: Embed[] | Embed;
     components?: Component[];
     allowedMentions?: AllowedMentions;
     file?: CreateMessageFile;
