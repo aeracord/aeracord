@@ -30,7 +30,7 @@ export default function toData(message: Message): MessageData {
         })),
         attachments: message.attachments,
         embeds: message.embeds,
-        stickers: message.stickers,
+        stickerItems: message.stickerItems,
         reactions: message.reactions,
         pinned: message.pinned,
         activity: message.activity && {

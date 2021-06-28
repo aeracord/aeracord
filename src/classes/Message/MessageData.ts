@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, AttachmentData, GuildChannelType, InteractionType, MemberData, MessageEmbedData, ReactionData, StickerData, UserData } from "../../internal";
+import { AnyMessageComponentData, AttachmentData, GuildChannelType, InteractionType, MemberData, MessageEmbedData, ReactionData, StickerFormatType, UserData } from "../../internal";
 
 /**
  * Message Data
@@ -130,11 +130,11 @@ export interface MessageData {
     embeds: MessageEmbedData[];
 
     /**
-     * Stickers
+     * Sticker Items
      *
      * The message's stickers
      */
-    stickers: StickerData[];
+    stickerItems: MessageStickerItem[];
 
     /**
      * Reactions
@@ -291,6 +291,35 @@ export interface ChannelMention {
      * The channel's name
      */
     name: string;
+}
+
+/**
+ * Message Sticker Item
+ *
+ * A message's stickers
+ */
+export interface MessageStickerItem {
+
+    /**
+     * ID
+     *
+     * The sticker's ID
+     */
+    id: string;
+
+    /**
+     * Name
+     *
+     * The sticker's name
+     */
+    name: string;
+
+    /**
+     * Format Type
+     *
+     * The sticker's format type
+     */
+    formatType: StickerFormatType;
 }
 
 /**

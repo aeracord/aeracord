@@ -1,4 +1,4 @@
-import { Attachment, Member, Message, MessageComponent, MessageData, MessageEmbed, RawAttachmentData, RawMessageComponentData, RawMessageData, RawMessageDataChannelMention, RawMessageEmbedData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
+import { Attachment, Member, Message, MessageComponent, MessageData, MessageEmbed, RawAttachmentData, RawMessageComponentData, RawMessageData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageStickerItem, RawReactionData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
 
 export default function dataFromRawData(rawData: RawMessageData): MessageData {
 
@@ -57,7 +57,11 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
             channelID: rawData.channel_id,
             guildID: rawData.guild_id || null
         })),
-        stickers: rawData.stickers ? rawData.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(s)) : [],
+        stickerItems: rawData.sticker_items ? rawData.sticker_items.map((s: RawMessageStickerItem) => ({
+            id: s.id,
+            name: s.name,
+            formatType: s.format_type
+        })) : [],
         reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._dataFromRawData(r, {
             messageID: rawData.id,
             channelID: rawData.channel_id,

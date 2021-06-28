@@ -25,7 +25,7 @@ export default function updateObject(message: Message, messageData: MessageData)
     message.mentionedChannels = messageData.mentionedChannels;
     message.attachments = messageData.attachments;
     message.embeds = messageData.embeds;
-    message.stickers = messageData.stickers;
+    message.stickerItems = messageData.stickerItems;
     message.reactions = messageData.reactions;
     message.pinned = messageData.pinned;
     message.activity = messageData.activity;

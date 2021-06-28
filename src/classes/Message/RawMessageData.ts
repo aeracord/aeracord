@@ -1,4 +1,4 @@
-import { GuildChannelType, InteractionType, MessageActivityType, MessageType, RawAttachmentData, RawMessageComponentData, RawMessageEmbedData, RawReactionData, RawStickerData, RawUserlessMemberData, RawUserData, RawUserWithMemberData } from "../../internal";
+import { GuildChannelType, InteractionType, MessageActivityType, MessageType, RawAttachmentData, RawMessageComponentData, RawMessageEmbedData, RawReactionData, RawUserlessMemberData, RawUserData, RawUserWithMemberData, StickerFormatType } from "../../internal";
 
 export interface RawMessageData {
     id: string;
@@ -17,7 +17,7 @@ export interface RawMessageData {
     mention_channels?: RawMessageDataChannelMention[];
     attachments: RawAttachmentData[];
     embeds: RawMessageEmbedData[];
-    stickers?: RawStickerData[];
+    sticker_items?: RawMessageStickerItem[];
     reactions?: RawReactionData[];
     nonce?: string | number;
     pinned: boolean;
@@ -42,6 +42,12 @@ export interface RawMessageDataChannelMention {
     guild_id: string;
     type: GuildChannelType;
     name: string;
+}
+
+export interface RawMessageStickerItem {
+    id: string;
+    name: string;
+    format_type: StickerFormatType;
 }
 
 export interface RawMessageDataActivity {

@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StickerData, User, UserResolvable } from "../../internal";
+import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, User, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -135,11 +135,11 @@ export default class Message extends Base<Message> {
     embeds: MessageEmbedData[];
 
     /**
-     * Stickers
+     * Sticker Items
      *
      * The message's stickers
      */
-    stickers: StickerData[];
+    stickerItems: MessageStickerItem[];
 
     /**
      * Reactions
@@ -226,7 +226,7 @@ export default class Message extends Base<Message> {
      * @param messageData.mentionedChannels The channels this message mentions
      * @param messageData.attachments The message's attachments
      * @param messageData.embeds The message's embeds
-     * @param messageData.stickers The message's stickers
+     * @param messageData.stickerItems The message's stickers
      * @param messageData.reactions The message's reactions
      * @param messageData.pinned Whether or not this message is pinned
      * @param messageData.activity The message's activity
