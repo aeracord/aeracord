@@ -148,6 +148,19 @@ class TextChannel extends GuildChannel {
     }
 
     /**
+     * Start Private Thread
+     *
+     * Start a private thread in this channel
+     *
+     * @param startThreadData The data for starting the thread
+     *
+     * @returns {Promise<ThreadChannel>} The thread channel
+     */
+    startPrivateThread(startThreadData: StartThreadData): Promise<ThreadChannel> {
+        return this.client.startPrivateThread(this, startThreadData);
+    }
+
+    /**
      * Start Public Thread
      *
      * Start a public thread in this channel

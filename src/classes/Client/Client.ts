@@ -269,6 +269,7 @@ import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
 import searchGuildMembers from "./apiMethods/searchGuildMembers";
+import startPrivateThread from "./apiMethods/startPrivateThread";
 import startPublicThread from "./apiMethods/startPublicThread";
 import syncGuildTemplate from "./apiMethods/syncGuildTemplate";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
@@ -3131,6 +3132,20 @@ export default class Client extends EventEmitter {
      */
     searchGuildMembers(guild: GuildResolvable, searchGuildMembersData: SearchGuildMembersData): Promise<Member[]> {
         return searchGuildMembers(this, guild, searchGuildMembersData);
+    }
+
+    /**
+     * Start Private Thread
+     *
+     * Start a private thread
+     *
+     * @param channel The channel to create the thread in
+     * @param startThreadData The data for starting the thread
+     *
+     * @returns {Promise<ThreadChannel>} The thread channel
+     */
+    startPrivateThread(channel: ChannelResolvable, startThreadData: StartThreadData): Promise<ThreadChannel> {
+        return startPrivateThread(this, channel, startThreadData);
     }
 
     /**
