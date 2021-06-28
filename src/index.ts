@@ -579,6 +579,13 @@ export {
     TextChannelData
 } from "./internal";
 
+// Thread Channel
+export {
+    ThreadChannel,
+    ThreadChannelData,
+    ThreadChannelType
+} from "./internal";
+
 // User
 export {
     ActivityType,

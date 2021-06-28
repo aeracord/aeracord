@@ -432,6 +432,13 @@ export {
 } from "./classes/TextChannel/TextChannel";
 export * from "./classes/TextChannel/TextChannelData";
 
+// Thread Channel
+export {
+    default as ThreadChannel,
+    ThreadChannelType
+} from "./classes/ThreadChannel/ThreadChannel";
+export * from "./classes/ThreadChannel/ThreadChannelData";
+
 // User
 export {
     default as User,

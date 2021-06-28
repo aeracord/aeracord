@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, CategoryChannel, CategoryChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, DMChannelData, NewsChannel, NewsChannelData, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import { AnyChannel, AnyChannelData, CategoryChannel, CategoryChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, DMChannelData, NewsChannel, NewsChannelData, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 
 export default function fromData(client: Client, channelData: AnyChannelData): AnyChannel {
 
@@ -28,6 +28,9 @@ export default function fromData(client: Client, channelData: AnyChannelData): A
 
         // Stage channel
         else if (channelData.type === CHANNEL_TYPE_STAGE) channel = new StageChannel(client, channelData as StageChannelData);
+
+        // Thread channel
+        else if ((channelData.type === CHANNEL_TYPE_NEWS_THREAD) || (channelData.type === CHANNEL_TYPE_PUBLIC_THREAD) || (channelData.type === CHANNEL_TYPE_PRIVATE_THREAD)) channel = new ThreadChannel(client, channelData as ThreadChannelData);
 
         // Unknown channel type
         else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);

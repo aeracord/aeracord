@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, CategoryChannel, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, NewsChannel, PermissionOverwrite, StageChannel, StoreChannel, TextChannel, VoiceChannel } from "../../internal";
+import { AnyChannel, AnyChannelData, CategoryChannel, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, NewsChannel, PermissionOverwrite, StageChannel, StoreChannel, TextChannel, ThreadChannel, VoiceChannel } from "../../internal";
 
 export default function toData(channel: AnyChannel): AnyChannelData {
 
@@ -145,6 +145,28 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             })),
             parentID: stageChannel.parentID,
             fetchedAt: stageChannel._lastUpdatedAt
+        };
+    }
+
+    // Parse thread channel data
+    else if ((channel.type === CHANNEL_TYPE_NEWS_THREAD) || (channel.type === CHANNEL_TYPE_PUBLIC_THREAD) || (channel.type === CHANNEL_TYPE_PRIVATE_THREAD)) {
+        const threadChannel: ThreadChannel = channel as ThreadChannel;
+        return {
+            id: threadChannel.id,
+            type: threadChannel.type,
+            name: threadChannel.name,
+            guildID: threadChannel.guildID,
+            parentID: threadChannel.parentID,
+            creatorID: threadChannel.creatorID,
+            archived: threadChannel.archived,
+            autoArchivedDuration: threadChannel.autoArchivedDuration,
+            archivedAt: threadChannel.archivedAt,
+            locked: threadChannel.locked,
+            messageCount: threadChannel.messageCount,
+            memberCount: threadChannel.memberCount,
+            lastMessageID: threadChannel.lastMessageID,
+            lastPinTimestamp: threadChannel.lastPinTimestamp,
+            fetchedAt: threadChannel._lastUpdatedAt
         };
     }
 

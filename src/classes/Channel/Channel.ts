@@ -1,4 +1,4 @@
-import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, READY_STATE_READY, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, READY_STATE_READY, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -6,9 +6,9 @@ import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export type AnyChannel = Channel | GuildChannel | DMChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | StageChannel;
+export type AnyChannel = Channel | GuildChannel | DMChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | StageChannel | ThreadChannel;
 
-export type AnyChannelData = ChannelData | GuildChannelData | DMChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData | StageChannelData;
+export type AnyChannelData = ChannelData | GuildChannelData | DMChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData | StageChannelData | ThreadChannelData;
 
 /**
  * Channel Resolvable

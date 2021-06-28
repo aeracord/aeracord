@@ -1,10 +1,10 @@
-import { AnyInteraction, CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Message, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, User, UserResolvable, Webhook } from "../../internal";
+import { AnyInteraction, CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Message, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, ThreadChannelType, User, UserResolvable } from "../../internal";
 import createReply from "./createReply";
 import editMessage from "./editMessage";
 import send from "./send";
 import updateObject from "./updateObject";
 
-export type TextBasedChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_DM | typeof CHANNEL_TYPE_NEWS;
+export type TextBasedChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_DM | typeof CHANNEL_TYPE_NEWS | ThreadChannelType;
 
 export default class TextBasedChannel extends Channel {
 

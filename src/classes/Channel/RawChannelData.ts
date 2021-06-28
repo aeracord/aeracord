@@ -17,6 +17,10 @@ export interface RawChannelData {
     rate_limit_per_user?: number;
     parent_id: string | null;
     recipients?: RawUserData[];
+    owner_id?: string;
+    thread_metadata?: RawChannelDataThreadMetadata;
+    message_count?: number;
+    member_count?: number;
 }
 
 export interface RawChannelDataPermissionOverwrite {
@@ -24,4 +28,11 @@ export interface RawChannelDataPermissionOverwrite {
     type: PermissionType;
     allow: string;
     deny: string;
+}
+
+export interface RawChannelDataThreadMetadata {
+    archived: boolean;
+    auto_archive_duration: number;
+    archive_timestamp: string;
+    locked?: boolean;
 }

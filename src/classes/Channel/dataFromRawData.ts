@@ -1,4 +1,4 @@
-import { AnyChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawUserData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
+import { AnyChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawChannelDataThreadMetadata, RawUserData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
@@ -130,11 +130,30 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         fetchedAt: Date.now()
     };
 
+    // Parse thread channel data
+    else if ((rawData.type === CHANNEL_TYPE_NEWS_THREAD) || (rawData.type === CHANNEL_TYPE_PUBLIC_THREAD) || (rawData.type === CHANNEL_TYPE_PRIVATE_THREAD)) channelData = {
+        id: rawData.id,
+        type: rawData.type,
+        name: rawData.name as string,
+        guildID: rawData.guild_id as string,
+        parentID: rawData.parent_id as string,
+        creatorID: rawData.owner_id as string,
+        archived: (rawData.thread_metadata as RawChannelDataThreadMetadata).archived,
+        autoArchivedDuration: (rawData.thread_metadata as RawChannelDataThreadMetadata).auto_archive_duration,
+        archivedAt: new Date((rawData.thread_metadata as RawChannelDataThreadMetadata).archive_timestamp).getTime(),
+        locked: Boolean((rawData.thread_metadata as RawChannelDataThreadMetadata).locked),
+        messageCount: rawData.message_count as number,
+        memberCount: rawData.member_count as number,
+        lastMessageID: rawData.last_message_id,
+        lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
+        fetchedAt: Date.now()
+    };
+
     // Unknown channel type
     else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
 
     // Set channel permissions
-    if ((client._channelPermissions) && ("guildID" in channelData)) client._channelPermissions.set(channelData.id, {
+    if ((client._channelPermissions) && ("guildID" in channelData) && (!("archived" in channelData))) client._channelPermissions.set(channelData.id, {
         guildID: channelData.guildID,
         permissionOverwrites: channelData.permissionOverwrites
     });
