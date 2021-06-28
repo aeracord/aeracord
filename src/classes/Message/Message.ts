@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, User, UserResolvable } from "../../internal";
+import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StartThreadData, ThreadChannel, User, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -505,5 +505,18 @@ export default class Message extends Base<Message> {
      */
     getReactions(reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> {
         return this.client.getReactions(this.channelID, this, reactionEmoji, getReactionsData);
+    }
+
+    /**
+     * Start Thread
+     *
+     * Start a thread from this message
+     *
+     * @param startThreadData The data for starting the thread
+     *
+     * @returns {Promise<ThreadChannel>} The thread channel
+     */
+    startThread(startThreadData: StartThreadData): Promise<ThreadChannel> {
+        return this.client.startPublicThread(this.channelID, this, startThreadData);
     }
 }

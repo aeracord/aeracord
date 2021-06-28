@@ -134,10 +134,12 @@ import {
     READY_STATE_NONE,
     SearchGuildMembersData,
     StageInstance,
+    StartThreadData,
     Status,
     Template,
     TemplateResolvable,
     TextBasedChannelEventOptions,
+    ThreadChannel,
     TypingStartData,
     TypingStartEventOptions,
     UpdateStageInstanceData,
@@ -267,6 +269,7 @@ import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
 import searchGuildMembers from "./apiMethods/searchGuildMembers";
+import startPublicThread from "./apiMethods/startPublicThread";
 import syncGuildTemplate from "./apiMethods/syncGuildTemplate";
 import triggerTypingIndicator from "./apiMethods/triggerTypingIndicator";
 import updateStageInstance from "./apiMethods/updateStageInstance";
@@ -3128,6 +3131,21 @@ export default class Client extends EventEmitter {
      */
     searchGuildMembers(guild: GuildResolvable, searchGuildMembersData: SearchGuildMembersData): Promise<Member[]> {
         return searchGuildMembers(this, guild, searchGuildMembersData);
+    }
+
+    /**
+     * Start Public Thread
+     *
+     * Start a public thread
+     *
+     * @param channel The channel to create the thread in
+     * @param message The message to create the thread from
+     * @param startThreadData The data for starting the thread
+     *
+     * @returns {Promise<ThreadChannel>} The thread channel
+     */
+    startPublicThread(channel: ChannelResolvable, message: MessageResolvable, startThreadData: StartThreadData): Promise<ThreadChannel> {
+        return startPublicThread(this, channel, message, startThreadData);
     }
 
     /**

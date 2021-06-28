@@ -261,6 +261,7 @@ export {
     NSFW_LEVEL_SAFE,
     PartialGuild,
     SearchGuildMembersData,
+    StartThreadData,
     UpdateStageInstanceData
 } from "./internal";
 

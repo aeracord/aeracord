@@ -1,4 +1,4 @@
-import { AnyInteraction, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, NewsChannelData, Webhook } from "../../internal";
+import { AnyInteraction, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, NewsChannelData, StartThreadData, ThreadChannel, Webhook } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -169,6 +169,20 @@ class NewsChannel extends GuildChannel {
      */
     getWebhooks(): Promise<Webhook[]> {
         return this.client.getChannelWebhooks(this);
+    }
+
+    /**
+     * Start Public Thread
+     *
+     * Start a public thread in this channel
+     *
+     * @param message The message to create the thread from
+     * @param startThreadData The data for starting the thread
+     *
+     * @returns {Promise<ThreadChannel>} The thread channel
+     */
+    startPublicThread(message: MessageResolvable, startThreadData: StartThreadData): Promise<ThreadChannel> {
+        return this.client.startPublicThread(this, message, startThreadData);
     }
 }
 

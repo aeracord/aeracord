@@ -151,6 +151,7 @@ export * from "./classes/Client/apiMethods/modifyGuildWelcomeScreen";
 export * from "./classes/Client/apiMethods/modifyGuildWidget";
 export * from "./classes/Client/apiMethods/modifyWebhook";
 export * from "./classes/Client/apiMethods/searchGuildMembers";
+export * from "./classes/Client/apiMethods/startPublicThread";
 export * from "./classes/Client/apiMethods/updateStageInstance";
 
 // Client: Cache Strategies
