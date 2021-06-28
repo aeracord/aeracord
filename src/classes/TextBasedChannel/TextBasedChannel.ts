@@ -268,17 +268,6 @@ export default class TextBasedChannel extends Channel {
     }
 
     /**
-     * Get Webhooks
-     *
-     * Get the webhooks in this channel
-     *
-     * @returns {Promise<Webhook[]>} The channel's webhooks
-     */
-    getWebhooks(): Promise<Webhook[]> {
-        return this.client.getChannelWebhooks(this);
-    }
-
-    /**
      * Get Pinned Messages
      *
      * Get the pinned messages in this channel

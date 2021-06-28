@@ -159,6 +159,17 @@ class NewsChannel extends GuildChannel {
     getInvites(): Promise<Invite[]> {
         return this.client.getChannelInvites(this);
     }
+
+    /**
+     * Get Webhooks
+     *
+     * Get the webhooks in this channel
+     *
+     * @returns {Promise<Webhook[]>} The channel's webhooks
+     */
+    getWebhooks(): Promise<Webhook[]> {
+        return this.client.getChannelWebhooks(this);
+    }
 }
 
 applyMixins(NewsChannel, [TextBasedChannel]);
