@@ -271,6 +271,7 @@ import modifyWebhook from "./apiMethods/modifyWebhook";
 import removeGuildBan from "./apiMethods/removeGuildBan";
 import removeGuildMember from "./apiMethods/removeGuildMember";
 import removeGuildMemberRole from "./apiMethods/removeGuildMemberRole";
+import removeThreadMember from "./apiMethods/removeThreadMember";
 import searchGuildMembers from "./apiMethods/searchGuildMembers";
 import startPrivateThread from "./apiMethods/startPrivateThread";
 import startPublicThread from "./apiMethods/startPublicThread";
@@ -3157,6 +3158,20 @@ export default class Client extends EventEmitter {
      */
     removeGuildMemberRole(guild: GuildResolvable, user: UserResolvable, role: RoleResolvable, reason?: string): Promise<void> {
         return removeGuildMemberRole(this, guild, user, role, reason);
+    }
+
+    /**
+     * Remove Thread Member
+     *
+     * Remove a member from a thread
+     *
+     * @param channel The thread channel to remove the member from
+     * @param user The user resolvable for the member to remove from the thread
+     * @param parentChannel The thread's parent channel
+     * Optional, but required to check permissions
+     */
+    removeThreadMember(channel: ChannelResolvable, user: UserResolvable, parentChannel?: ChannelResolvable): Promise<void> {
+        return removeThreadMember(this, channel, user, parentChannel);
     }
 
     /**

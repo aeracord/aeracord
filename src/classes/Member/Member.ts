@@ -263,6 +263,19 @@ export default class Member extends Base<Member> {
     }
 
     /**
+     * Remove From Thread
+     *
+     * Remove this member from a thread
+     *
+     * @param channel The thread channel to remove this member from
+     * @param parentChannel The thread's parent channel
+     * Optional, but required to check permissions
+     */
+    removeFromThread(channel: ChannelResolvable, parentChannel?: ChannelResolvable): Promise<void> {
+        return this.client.removeThreadMember(channel, this, parentChannel);
+    }
+
+    /**
      * Remove Role
      *
      * Remove a role from this member

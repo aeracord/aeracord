@@ -161,4 +161,15 @@ export default class ThreadChannel extends TextBasedChannel {
     leave(): Promise<void> {
         return this.client.leaveThread(this);
     }
+
+    /**
+     * Remove Member
+     *
+     * Remove a member from this thread
+     *
+     * @param user The user resolvable for the member to remove from the thread
+     */
+    removeMember(user: UserResolvable): Promise<void> {
+        return this.client.removeThreadMember(this, user, this.parentID);
+    }
 }
