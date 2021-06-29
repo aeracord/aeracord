@@ -39,6 +39,9 @@ export default function getAll(permissions: Permissions): Array<bigint> {
     if (permissions.has("MANAGE_EMOJIS")) permissionBits.push(Permissions.resolveBits("MANAGE_EMOJIS"));
     if (permissions.has("USE_SLASH_COMMANDS")) permissionBits.push(Permissions.resolveBits("USE_SLASH_COMMANDS"));
     if (permissions.has("REQUEST_TO_SPEAK")) permissionBits.push(Permissions.resolveBits("REQUEST_TO_SPEAK"));
+    if (permissions.has("MANAGE_THREADS")) permissionBits.push(Permissions.resolveBits("MANAGE_THREADS"));
+    if (permissions.has("USE_PUBLIC_THREADS")) permissionBits.push(Permissions.resolveBits("USE_PUBLIC_THREADS"));
+    if (permissions.has("USE_PRIVATE_THREADS")) permissionBits.push(Permissions.resolveBits("USE_PRIVATE_THREADS"));
 
     // Return
     return permissionBits;
