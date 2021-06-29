@@ -42,6 +42,15 @@ export default class ThreadChannel extends TextBasedChannel {
     creatorID: string;
 
     /**
+     * Private
+     *
+     * Whether or not this thread is private
+     */
+    get private(): boolean {
+        return this.type === CHANNEL_TYPE_PRIVATE_THREAD;
+    }
+
+    /**
      * Archived
      *
      * Whether or not this thread is archived
