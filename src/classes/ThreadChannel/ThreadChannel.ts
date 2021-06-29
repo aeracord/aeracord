@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, ThreadChannelData } from "../../internal";
+import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, ThreadChannelData, UserResolvable } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import updateObject from "./updateObject";
 
@@ -131,6 +131,17 @@ export default class ThreadChannel extends TextBasedChannel {
      */
     static _updateObject(threadChannel: ThreadChannel, threadChannelData: ThreadChannelData, fromConstructor?: boolean) {
         updateObject(threadChannel, threadChannelData, fromConstructor);
+    }
+
+    /**
+     * Add Member
+     *
+     * Add a member to this thread
+     *
+     * @param user The user resolvable for the member to add to the thread
+     */
+    addMember(user: UserResolvable): Promise<void> {
+        return this.client.addThreadMember(this, user, this.parentID);
     }
 
     /**

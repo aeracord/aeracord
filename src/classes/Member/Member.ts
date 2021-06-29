@@ -1,4 +1,4 @@
-import { Base, Client, CreateGuildBanData, MemberData, ModifyGuildMemberData, RawMemberData, RoleResolvable, READY_STATE_READY, UserData } from "../../internal";
+import { Base, ChannelResolvable, Client, CreateGuildBanData, MemberData, ModifyGuildMemberData, RawMemberData, RoleResolvable, READY_STATE_READY, UserData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -200,6 +200,19 @@ export default class Member extends Base<Member> {
      */
     addRole(role: RoleResolvable, reason?: string): Promise<void> {
         return this.client.addGuildMemberRole(this.guildID, this, role, reason);
+    }
+
+    /**
+     * Add to Thread
+     *
+     * Add this member to a thread
+     *
+     * @param channel The thread channel to add this member to
+     * @param parentChannel The thread's parent channel
+     * Optional, but required to check permissions
+     */
+    addToThread(channel: ChannelResolvable, parentChannel?: ChannelResolvable): Promise<void> {
+        return this.client.addThreadMember(channel, this, parentChannel);
     }
 
     /**

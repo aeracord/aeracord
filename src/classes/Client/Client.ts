@@ -158,6 +158,7 @@ import {
 } from "../../internal";
 import addGuildMemberRole from "./apiMethods/addGuildMemberRole";
 import addPinnedChannelMessage from "./apiMethods/addPinnedChannelMessage";
+import addThreadMember from "./apiMethods/addThreadMember";
 import bulkDeleteMessages from "./apiMethods/bulkDeleteMessages";
 import bulkEditGuildCommandPermissions from "./apiMethods/bulkEditGuildCommandPermissions";
 import bulkOverwriteGlobalCommands from "./apiMethods/bulkOverwriteGlobalCommands";
@@ -1630,6 +1631,20 @@ export default class Client extends EventEmitter {
      */
     addPinnedChannelMessage(channel: ChannelResolvable, message: MessageResolvable, reason?: string): Promise<void> {
         return addPinnedChannelMessage(this, channel, message, reason);
+    }
+
+    /**
+     * Add Thread Member
+     *
+     * Add a member to a thread
+     *
+     * @param channel The thread channel to add the member to
+     * @param user The user resolvable for the member to add to the thread
+     * @param parentChannel The thread's parent channel
+     * Optional, but required to check permissions
+     */
+    addThreadMember(channel: ChannelResolvable, user: UserResolvable, parentChannel?: ChannelResolvable): Promise<void> {
+        return addThreadMember(this, channel, user, parentChannel);
     }
 
     /**
