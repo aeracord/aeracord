@@ -132,4 +132,13 @@ export default class ThreadChannel extends TextBasedChannel {
     join(): Promise<void> {
         return this.client.joinThread(this);
     }
+
+    /**
+     * Leave
+     *
+     * Leave this thread
+     */
+    leave(): Promise<void> {
+        return this.client.leaveThread(this);
+    }
 }

@@ -250,6 +250,7 @@ import getWebhook from "./apiMethods/getWebhook";
 import getWebhookMessage from "./apiMethods/getWebhookMessage";
 import joinThread from "./apiMethods/joinThread";
 import leaveGuild from "./apiMethods/leaveGuild";
+import leaveThread from "./apiMethods/leaveThread";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import listVoiceRegions from "./apiMethods/listVoiceRegions";
@@ -2862,6 +2863,17 @@ export default class Client extends EventEmitter {
      */
     leaveGuild(guild: GuildResolvable): Promise<void> {
         return leaveGuild(this, guild);
+    }
+
+    /**
+     * Leave Thread
+     *
+     * Leave a thread
+     *
+     * @param channel The thread channel to leave
+     */
+    leaveThread(channel: ChannelResolvable): Promise<void> {
+        return leaveThread(this, channel);
     }
 
     /**
