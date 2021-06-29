@@ -123,4 +123,13 @@ export default class ThreadChannel extends TextBasedChannel {
     static _updateObject(threadChannel: ThreadChannel, threadChannelData: ThreadChannelData, fromConstructor?: boolean) {
         updateObject(threadChannel, threadChannelData, fromConstructor);
     }
+
+    /**
+     * Join
+     *
+     * Join this thread
+     */
+    join(): Promise<void> {
+        return this.client.joinThread(this);
+    }
 }

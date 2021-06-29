@@ -248,6 +248,7 @@ import getTemplate from "./apiMethods/getTemplate";
 import getUser from "./apiMethods/getUser";
 import getWebhook from "./apiMethods/getWebhook";
 import getWebhookMessage from "./apiMethods/getWebhookMessage";
+import joinThread from "./apiMethods/joinThread";
 import leaveGuild from "./apiMethods/leaveGuild";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
@@ -2839,6 +2840,17 @@ export default class Client extends EventEmitter {
      */
     getWebhookMessage(webhook: WebhookResolvable, webhookToken: string, message: MessageResolvable): Promise<Message | undefined> {
         return getWebhookMessage(this, webhook, webhookToken, message);
+    }
+
+    /**
+     * Join Thread
+     *
+     * Join a thread
+     *
+     * @param channel The thread channel to join
+     */
+    joinThread(channel: ChannelResolvable): Promise<void> {
+        return joinThread(this, channel);
     }
 
     /**
