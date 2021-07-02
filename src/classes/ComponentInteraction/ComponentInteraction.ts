@@ -2,6 +2,12 @@ import { Client, ComponentInteractionData, ComponentInteractionMetadata, CreateI
 import updateMessage from "./updateMessage";
 import updateObject from "./updateObject";
 
+/**
+ * Component Interaction
+ *
+ * Represents a component interaction that the client receives
+ * For example, a button or select menu being used
+ */
 export default class ComponentInteraction extends Interaction {
 
     /**

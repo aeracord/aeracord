@@ -3,6 +3,14 @@ import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
 
+/**
+ * Message Embed
+ *
+ * A message embed represents an embed in a message that the client has recieved
+ * For example, when you fetch a message, it might have `MessageEmbed`s
+ *
+ * To send embeds with a message, use the `Embed` class
+ */
 export default class MessageEmbed {
 
     /**

@@ -13,6 +13,15 @@ import updateObjectFromData from "./updateObjectFromData";
  */
 export type CommandResolvable = Command | CommandData | string;
 
+/**
+ * Command
+ *
+ * An application command is a slash command that's registered with Discord
+ * For example, a `Command` is returned by `Client.getGlobalCommand()` and `Client.getGuildCommand()`
+ *
+ * A slash command interaction is represented by the `CommandInteraction` class
+ * This is sent to the `interactionCreate` event
+ */
 export default class Command extends Base<Command> {
 
     /**
