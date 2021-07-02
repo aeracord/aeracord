@@ -1,4 +1,4 @@
-import { Attachment, Client, Member, Message, MessageComponent, MessageData, MessageEmbed, MessageUpdateData, RawAttachmentData, RawMessageComponentData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageUpdateData, RawReactionData, RawStickerData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../../../internal";
+import { Attachment, Client, Member, Message, MessageComponent, MessageData, MessageEmbed, MessageUpdateData, RawAttachmentData, RawMessageComponentData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageStickerItem, RawMessageUpdateData, RawReactionData, RawUserData, RawUserWithMemberData, Reaction, User } from "../../../../internal";
 
 export default function messageUpdate(client: Client, rawData: RawMessageUpdateData) {
 
@@ -41,7 +41,11 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
             channelID: rawData.channel_id,
             guildID: rawData.guild_id
         })) : undefined,
-        stickers: rawData.stickers ? rawData.stickers.map((s: RawStickerData) => Sticker._fromRawData(client, s)) : undefined,
+        stickerItems: rawData.sticker_items ? rawData.sticker_items.map((s: RawMessageStickerItem) => ({
+            id: s.id,
+            name: s.name,
+            formatType: s.format_type
+        })) : undefined,
         reactions: rawData.reactions ? rawData.reactions.map((r: RawReactionData) => Reaction._fromRawData(client, r, {
             messageID: rawData.id,
             channelID: rawData.channel_id,
@@ -97,7 +101,7 @@ export default function messageUpdate(client: Client, rawData: RawMessageUpdateD
         if (data.mentionedChannels !== undefined) message.mentionedChannels = data.mentionedChannels;
         if (data.attachments !== undefined) message.attachments = data.attachments.map((a: Attachment) => Attachment.toData(a));
         if (data.embeds !== undefined) message.embeds = data.embeds.map((e: MessageEmbed) => MessageEmbed.toData(e));
-        if (data.stickers !== undefined) message.stickers = data.stickers.map((s: Sticker) => Sticker.toData(s));
+        if (data.stickerItems !== undefined) message.stickerItems = data.stickerItems;
         if (data.reactions !== undefined) message.reactions = data.reactions.map((r: Reaction) => Reaction.toData(r));
         if (data.pinned !== undefined) message.pinned = data.pinned;
         if (data.activity !== undefined) message.activity = data.activity;
