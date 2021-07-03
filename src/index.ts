@@ -301,9 +301,11 @@ export {
 
 // Component Interaction
 export {
+    ButtonInteractionMetadata,
     ComponentInteraction,
     ComponentInteractionData,
-    ComponentInteractionMetadata
+    ComponentInteractionMetadata,
+    SelectMenuInteractionMetadata
 } from "./internal";
 
 // DM Channel
@@ -460,8 +462,11 @@ export {
     ComponentType,
     COMPONENT_TYPE_ACTION_ROW,
     COMPONENT_TYPE_BUTTON,
+    COMPONENT_TYPE_SELECT_MENU,
     MessageComponent,
-    MessageComponentData
+    MessageComponentData,
+    SelectMenuComponent,
+    SelectMenuComponentOption
 } from "./internal";
 
 // Message Embed
@@ -525,6 +530,14 @@ export {
     RoleData,
     RoleResolvable,
     RoleTags
+} from "./internal";
+
+// Select Menu
+export {
+    SelectMenu,
+    SelectMenuData,
+    SelectMenuOption,
+    SelectMenuOptionEmoji
 } from "./internal";
 
 // Stage Channel

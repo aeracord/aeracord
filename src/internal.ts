@@ -385,6 +385,12 @@ export {
 export * from "./classes/Role/RawRoleData";
 export * from "./classes/Role/RoleData";
 
+// Select Menu
+export {
+    default as SelectMenu
+} from "./classes/SelectMenu/SelectMenu";
+export * from "./classes/SelectMenu/SelectMenuData";
+
 // Stage Channel
 export {
     default as StageChannel,

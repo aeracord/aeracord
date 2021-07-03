@@ -2,6 +2,11 @@ import { Client, CommandInteractionData, CommandInteractionMetadata, GetOptionRe
 import getOption from "./getOption";
 import updateObject from "./updateObject";
 
+/**
+ * Command Interaction
+ *
+ * Represents a slash command interaction that the client receives
+ */
 export default class CommandInteraction extends Interaction {
 
     /**

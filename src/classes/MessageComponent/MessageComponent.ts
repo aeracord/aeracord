@@ -1,12 +1,12 @@
-import { ActionRow, ActionRowData, Button, ButtonData, Client, Component, ComponentType, MessageComponentData, RawMessageComponentData, RawMessageComponentMetadata } from "../../internal";
+import { ActionRow, ActionRowData, Button, ButtonData, Client, Component, ComponentType, MessageComponentData, RawMessageComponentData, RawMessageComponentMetadata, SelectMenu, SelectMenuData } from "../../internal";
 import componentsToJSON from "./componentsToJSON";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
 
-export type AnyMessageComponent = MessageComponent | ActionRow | Button;
+export type AnyMessageComponent = MessageComponent | ActionRow | Button | SelectMenu;
 
-export type AnyMessageComponentData = MessageComponentData | ActionRowData | ButtonData;
+export type AnyMessageComponentData = MessageComponentData | ActionRowData | ButtonData | SelectMenuData;
 
 export default class MessageComponent {
 

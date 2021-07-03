@@ -19,6 +19,7 @@ export interface RawInteractionMetadata {
     options?: RawInteractionMetadataOption[];
     component_type?: ComponentType;
     custom_id?: string;
+    values?: string[];
 }
 
 export interface RawInteractionMetadataOption {

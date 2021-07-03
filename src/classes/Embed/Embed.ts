@@ -81,6 +81,13 @@ export interface EmbedField {
     inline?: boolean;
 }
 
+/**
+ * Embed
+ *
+ * An embed is used to send an embed with a message to the API
+ *
+ * When you recieve a message, it can have `MessageEmbed`s
+ */
 export default class Embed {
 
     /**
