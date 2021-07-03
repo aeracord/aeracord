@@ -1,4 +1,4 @@
-import { ActionRow, AnyMessageComponent, AnyMessageComponentData, Button, COMPONENT_TYPE_ACTION_ROW, COMPONENT_TYPE_BUTTON, MessageComponent } from "../../internal";
+import { ActionRow, AnyMessageComponent, AnyMessageComponentData, Button, COMPONENT_TYPE_ACTION_ROW, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, MessageComponent, SelectMenu } from "../../internal";
 
 export default function toData(messageComponent: AnyMessageComponent): AnyMessageComponentData {
 
@@ -28,6 +28,22 @@ export default function toData(messageComponent: AnyMessageComponent): AnyMessag
             customID: button.customID,
             url: button.url,
             disabled: button.disabled
+        };
+    }
+
+    // Parse select menu data
+    else if (messageComponent.type === COMPONENT_TYPE_SELECT_MENU) {
+        const selectMenu: SelectMenu = messageComponent as SelectMenu;
+        return {
+            type: selectMenu.type,
+            messageID: selectMenu.messageID,
+            channelID: selectMenu.channelID,
+            guildID: selectMenu.guildID,
+            placeholder: selectMenu.placeholder,
+            minimumValues: selectMenu.minimumValues,
+            maximumValues: selectMenu.maximumValues,
+            customID: selectMenu.customID,
+            options: selectMenu.options
         };
     }
 

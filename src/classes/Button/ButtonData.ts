@@ -19,14 +19,14 @@ export interface ButtonData extends MessageComponentData {
      *
      * The button's style
      */
-    style?: ButtonStyle;
+    style: ButtonStyle;
 
     /**
      * Label
      *
      * The button's label
      */
-    label?: string;
+    label: string;
 
     /**
      * Emoji
@@ -40,7 +40,7 @@ export interface ButtonData extends MessageComponentData {
      *
      * The button's custom ID
      */
-    customID?: string;
+    customID: string;
 
     /**
      * URL

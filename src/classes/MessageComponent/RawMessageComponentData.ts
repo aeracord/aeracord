@@ -4,11 +4,23 @@ export interface RawMessageComponentData {
     type: ComponentType;
     components?: RawMessageComponentData[];
     style?: ButtonStyle;
-    label?: string;
+    label: string;
     emoji?: RawMessageComponentDataEmoji;
-    custom_id?: string;
+    custom_id: string;
     url?: string;
     disabled?: boolean;
+    placeholder?: string;
+    min_values?: number;
+    max_values?: number;
+    options?: RawMessageComponentDataOption[];
+}
+
+export interface RawMessageComponentDataOption {
+    label: string;
+    value: string;
+    description?: string;
+    emoji?: RawMessageComponentDataEmoji;
+    default?: boolean;
 }
 
 export interface RawMessageComponentDataEmoji {

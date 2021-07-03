@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, COMPONENT_TYPE_ACTION_ROW, COMPONENT_TYPE_BUTTON, MessageComponent, RawMessageComponentData, RawMessageComponentMetadata } from "../../internal";
+import { AnyMessageComponentData, COMPONENT_TYPE_ACTION_ROW, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, MessageComponent, RawMessageComponentData, RawMessageComponentDataOption, RawMessageComponentMetadata } from "../../internal";
 
 export default function dataFromRawData(rawData: RawMessageComponentData, metadata: RawMessageComponentMetadata): AnyMessageComponentData {
 
@@ -30,6 +30,29 @@ export default function dataFromRawData(rawData: RawMessageComponentData, metada
         customID: rawData.custom_id,
         url: rawData.url,
         disabled: Boolean(rawData.disabled)
+    };
+
+    // Parse select menu data
+    else if (rawData.type === COMPONENT_TYPE_SELECT_MENU) messageComponentData = {
+        type: rawData.type,
+        messageID: metadata.messageID,
+        channelID: metadata.channelID,
+        guildID: metadata.guildID,
+        placeholder: rawData.placeholder,
+        minimumValues: rawData.min_values,
+        maximumValues: rawData.max_values,
+        customID: rawData.custom_id,
+        options: (rawData.options as RawMessageComponentDataOption[]).map((o: RawMessageComponentDataOption) => ({
+            label: o.label,
+            description: o.description,
+            value: o.value,
+            emoji: o.emoji && {
+                id: o.emoji.id,
+                name: o.emoji.name,
+                animated: Boolean(o.emoji.animated)
+            },
+            default: Boolean(o.default)
+        }))
     };
 
     // Unknown component type
