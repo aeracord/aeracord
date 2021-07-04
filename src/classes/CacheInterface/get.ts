@@ -2,7 +2,7 @@ import { Base, CacheInterface } from "../../internal";
 
 export type GetFetch<FetchObject, Fetch> = FetchObject extends true ? Fetch : never;
 
-export type GetResult<CachedObject, Fetch> = Fetch extends true ? Promise<CachedObject> : (CachedObject | undefined);
+export type GetResult<CachedObject, Fetch> = Fetch extends true ? Promise<CachedObject | undefined> : (CachedObject | undefined);
 
 export default function get<CachedObject extends Base<CachedObject>, FetchObject, Fetch extends boolean = false>(cacheInterface: CacheInterface<CachedObject, FetchObject>, id: string, fetch?: GetFetch<FetchObject, Fetch>): GetResult<CachedObject, Fetch> {
 
@@ -26,7 +26,7 @@ export default function get<CachedObject extends Base<CachedObject>, FetchObject
         const fetchedObject: CachedObject | undefined = await cacheInterface._fetchObject?.(id);
 
         // Check if the object is a valid match for the cache manager interface
-        if ((!fetchedObject) || ((cacheInterface._match) && (!cacheInterface._match(fetchedObject)))) throw new Error("Couldn't find an object with that ID");
+        if ((!fetchedObject) || ((cacheInterface._match) && (!cacheInterface._match(fetchedObject)))) return resolve(undefined);
 
         // Resolve the promise with the object that was fetched
         resolve(fetchedObject);

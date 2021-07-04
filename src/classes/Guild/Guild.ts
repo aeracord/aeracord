@@ -385,13 +385,13 @@ export default class Guild extends Base<Guild> {
             value: new CacheInterface<AnyChannel>(this.client, {
                 cacheManager: this.client._channels,
                 match: (c: AnyChannel) => ((c instanceof GuildChannel) || (c instanceof TextChannel) || (c instanceof VoiceChannel) || (c instanceof CategoryChannel) || (c instanceof NewsChannel) || (c instanceof StoreChannel)) && (c.guildID === this.id),
-                fetchObject: async (id: string): Promise<AnyChannel> => {
+                fetchObject: async (id: string): Promise<AnyChannel | undefined> => {
 
                     // Get channel
                     const channel: AnyChannel | undefined = await this.client.getChannel(id);
 
                     // Match
-                    if ((!channel) || (!("guildID" in channel)) || (channel.guildID !== this.id)) throw new Error("Couldn't find a channel with that ID in this guild");
+                    if ((!channel) || (!("guildID" in channel)) || (channel.guildID !== this.id)) return;
 
                     // Return
                     return channel;

@@ -1475,14 +1475,17 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "welcomeScreens", {
             value: new CacheInterface<WelcomeScreen>(this, {
                 cacheManager: this._welcomeScreens,
-                fetchObject: async (id: string): Promise<WelcomeScreen> => {
+                fetchObject: async (id: string): Promise<WelcomeScreen | undefined> => {
 
-                    // Get welcome screen data
-                    const welcomeScreenData: WelcomeScreen | null = (await this.guilds.get(id, true)).welcomeScreen;
-                    if (!welcomeScreenData) throw new Error("Couldn't find a welcome screen in that guild");
+                    // Get guild
+                    const guild: Guild | undefined = await this.guilds.get(id, true);
+                    if (!guild) return;
+
+                    // No welcome screen
+                    if (!guild.welcomeScreen) return;
 
                     // Return
-                    return welcomeScreenData;
+                    return guild.welcomeScreen;
                 }
             })
         });
