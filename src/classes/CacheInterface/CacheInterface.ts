@@ -144,7 +144,7 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
      * @param id The ID of the object
      * @param fetch Whether or not to fetch this object from the API if it isn't cached
      *
-     * @returns {CachedObject | Promise<CachedObject> | undefined} The cached object or `undefined` if it doesn't exist
+     * @returns {CachedObject | Promise<CachedObject> | undefined} The object or `undefined` if it doesn't exist
      */
     get<Fetch extends boolean = false>(id: string, fetch?: GetFetch<FetchObject, Fetch>): GetResult<CachedObject, Fetch> {
         return get<CachedObject, FetchObject, Fetch>(this, id, fetch);
