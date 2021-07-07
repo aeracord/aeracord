@@ -23,7 +23,7 @@ export default async function getChannel(client: Client, channelResolvable: Chan
     }).catch((err: APIError) => {
 
         // Unknown channel
-        if (err.code === 10003) unknownChannel = true;
+        if ((err.code === 10003) || (err.errors?.channel_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE")) unknownChannel = true;
 
         // Throw error
         else throw err;

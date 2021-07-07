@@ -28,7 +28,11 @@ export default async function getGuildBan(client: Client, guildResolvable: Guild
     }).catch((err: APIError) => {
 
         // Unknown ban
-        if (err.code === 10026) unknownBan = true;
+        if (
+            err.code === 10026 ||
+            err.errors?.guild_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE" ||
+            err.errors?.user_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE"
+        ) unknownBan = true;
 
         // Throw error
         else throw err;

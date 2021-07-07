@@ -25,7 +25,11 @@ export default async function getWebhookMessage(client: Client, webhookResolvabl
     }).catch((err: APIError) => {
 
         // Unknown message
-        if (err.code === 10008) unknownMessage = true;
+        if (
+            err.code === 10008 ||
+            err.errors?.webhook_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE" ||
+            err.errors?.message_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE"
+        ) unknownMessage = true;
 
         // Throw error
         else throw err;

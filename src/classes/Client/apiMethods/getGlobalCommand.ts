@@ -23,7 +23,7 @@ export default async function getGlobalCommand(client: Client, commandResolvable
     }).catch((err: APIError) => {
 
         // Unknown command
-        if (err.code === 10063) unknownCommand = true;
+        if ((err.code === 10063) || (err.errors?.command_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE")) unknownCommand = true;
 
         // Throw error
         else throw err;

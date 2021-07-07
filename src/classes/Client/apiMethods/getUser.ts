@@ -23,7 +23,7 @@ export default async function getUser(client: Client, userResolvable: UserResolv
     }).catch((err: APIError) => {
 
         // Unknown user
-        if (err.code === 10013) unknownUser = true;
+        if ((err.code === 10013) || (err.errors?.user_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE")) unknownUser = true;
 
         // Throw error
         else throw err;

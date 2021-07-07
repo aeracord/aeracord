@@ -25,7 +25,11 @@ export default async function getGuildCommandPermissions(client: Client, guildRe
     }).catch((err: APIError) => {
 
         // Unknown command
-        if (err.code === 10066) unknownCommand = true;
+        if (
+            err.code === 10066 ||
+            err.errors?.guild_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE" ||
+            err.errors?.command_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE"
+        ) unknownCommand = true;
 
         // Throw error
         else throw err;

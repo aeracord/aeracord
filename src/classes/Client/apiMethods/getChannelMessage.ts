@@ -28,7 +28,11 @@ export default async function getChannelMessage(client: Client, channelResolvabl
     }).catch((err: APIError) => {
 
         // Unknown message
-        if (err.code === 10008) unknownMessage = true;
+        if (
+            err.code === 10008 ||
+            err.errors?.channel_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE" ||
+            err.errors?.message_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE"
+        ) unknownMessage = true;
 
         // Throw error
         else throw err;

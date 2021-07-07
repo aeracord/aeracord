@@ -30,7 +30,7 @@ export default async function getGuild(client: Client, guildResolvable: GuildRes
     }).catch((err: APIError) => {
 
         // Unknown guild
-        if (err.code === 50001) unknownGuild = true;
+        if ((err.code === 50001) || (err.errors?.guild_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE")) unknownGuild = true;
 
         // Throw error
         else throw err;

@@ -25,7 +25,11 @@ export default async function getGuildMember(client: Client, guildResolvable: Gu
     }).catch((err: APIError) => {
 
         // Unknown member
-        if (err.code === 10007) unknownMember = true;
+        if (
+            err.code === 10007 ||
+            err.errors?.guild_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE" ||
+            err.errors?.user_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE"
+        ) unknownMember = true;
 
         // Throw error
         else throw err;

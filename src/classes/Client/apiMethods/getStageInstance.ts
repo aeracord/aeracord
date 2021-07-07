@@ -23,7 +23,7 @@ export default async function getStageInstance(client: Client, channelResolvable
     }).catch((err: APIError) => {
 
         // Unknown stage instance
-        if (err.code === 10067) unknownStageInstance = true;
+        if ((err.code === 10067) || (err.errors?.channel_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE")) unknownStageInstance = true;
 
         // Throw error
         else throw err;

@@ -28,7 +28,7 @@ export default async function getWebhook(client: Client, channelResolvable: Chan
     }).catch((err: APIError) => {
 
         // Unknown webhook
-        if (err.code === 10015) unknownWebhook = true;
+        if ((err.code === 10015) || (err.errors?.webhook_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE")) unknownWebhook = true;
 
         // Throw error
         else throw err;

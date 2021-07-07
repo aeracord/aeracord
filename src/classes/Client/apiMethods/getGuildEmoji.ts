@@ -25,7 +25,11 @@ export default async function getGuildEmoji(client: Client, guildResolvable: Gui
     }).catch((err: APIError) => {
 
         // Unknown emoji
-        if (err.code === 10014) unknownEmoji = true;
+        if (
+            err.code === 10014 ||
+            err.errors?.guild_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE" ||
+            err.errors?.emoji_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE"
+        ) unknownEmoji = true;
 
         // Throw error
         else throw err;

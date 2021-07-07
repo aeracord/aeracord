@@ -25,7 +25,11 @@ export default async function getGuildCommand(client: Client, guildResolvable: G
     }).catch((err: APIError) => {
 
         // Unknown command
-        if (err.code === 10063) unknownCommand = true;
+        if (
+            err.code === 10063 ||
+            err.errors?.guild_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE" ||
+            err.errors?.command_id?._errors?.[0]?.code === "NUMBER_TYPE_COERCE"
+        ) unknownCommand = true;
 
         // Throw error
         else throw err;
