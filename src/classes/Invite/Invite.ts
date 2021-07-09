@@ -147,10 +147,10 @@ export default class Invite extends Base<Invite> {
         /**
          * Cache Invite
          *
-         * If we need to cache all bans and the clients ready state is `READY`
+         * If we need to cache all invites and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._invites.cacheAll && client._readyState === READY_STATE_READY) this.client._invites.cache(this.id, this);
+        if (client._invites.cacheAll && client._readyState === READY_STATE_READY) this.cache();
     }
 
     /**

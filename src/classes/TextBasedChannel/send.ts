@@ -1,4 +1,4 @@
-import { CreateMessageData, Embed, Message, TextBasedChannel } from "../../internal";
+import { AnyChannel, CreateMessageData, Embed, Message, TextBasedChannel } from "../../internal";
 
 export default function send(channel: TextBasedChannel, contentOrData: string | Embed | CreateMessageData, createMessageData: CreateMessageData = {}): Promise<Message> {
 
@@ -8,5 +8,5 @@ export default function send(channel: TextBasedChannel, contentOrData: string | 
     else createMessageData = contentOrData;
 
     // Create message
-    return channel.client.createMessage(channel, createMessageData);
+    return channel.client.createMessage(channel as AnyChannel, createMessageData);
 }

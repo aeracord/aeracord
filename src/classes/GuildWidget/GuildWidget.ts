@@ -53,10 +53,10 @@ export default class GuildWidget extends Base<GuildWidget> {
         /**
          * Cache Guild Widget
          *
-         * If we need to cache all bans and the clients ready state is `READY`
+         * If we need to cache all guild widgets and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._guildWidgets.cacheAll && client._readyState === READY_STATE_READY) this.client._guildWidgets.cache(this.id, this);
+        if (client._guildWidgets.cacheAll && client._readyState === READY_STATE_READY) this.cache();
     }
 
     /**

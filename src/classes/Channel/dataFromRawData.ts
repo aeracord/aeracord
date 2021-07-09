@@ -1,4 +1,4 @@
-import { AnyChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawChannelDataThreadMetadata, RawUserData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
+import { AnyChannelData, CategoryChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannelData, NewsChannelData, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawChannelDataThreadMetadata, RawUserData, StageChannelData, StoreChannelData, TextChannelData, ThreadChannelData, VoiceChannelData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
@@ -25,7 +25,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         lastMessageID: rawData.last_message_id,
         lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
         fetchedAt: Date.now()
-    };
+    } as TextChannelData;
 
     // Parse DM channel data
     else if (rawData.type === CHANNEL_TYPE_DM) channelData = {
@@ -35,7 +35,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
         recipient: (rawData.recipients as RawUserData[])[0].id,
         fetchedAt: Date.now()
-    };
+    } as DMChannelData;
 
     // Parse voice channel data
     else if (rawData.type === CHANNEL_TYPE_VOICE) channelData = {
@@ -55,7 +55,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         userLimit: rawData.user_limit,
         videoQualityMode: rawData.video_quality_mode || VIDEO_QUALITY_MODE_AUTO,
         fetchedAt: Date.now()
-    };
+    } as VoiceChannelData;
 
     // Parse category channel data
     else if (rawData.type === CHANNEL_TYPE_CATEGORY) channelData = {
@@ -72,7 +72,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         })),
         parentID: rawData.parent_id,
         fetchedAt: Date.now()
-    };
+    } as CategoryChannelData;
 
     // Parse news channel data
     else if (rawData.type === CHANNEL_TYPE_NEWS) channelData = {
@@ -94,7 +94,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         lastMessageID: rawData.last_message_id,
         lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
         fetchedAt: Date.now()
-    };
+    } as NewsChannelData;
 
     // Parse store channel data
     else if (rawData.type === CHANNEL_TYPE_STORE) channelData = {
@@ -111,7 +111,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         })),
         parentID: rawData.parent_id,
         fetchedAt: Date.now()
-    };
+    } as StoreChannelData;
 
     // Parse stage channel data
     else if (rawData.type === CHANNEL_TYPE_STAGE) channelData = {
@@ -128,7 +128,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         })),
         parentID: rawData.parent_id,
         fetchedAt: Date.now()
-    };
+    } as StageChannelData;
 
     // Parse thread channel data
     else if ((rawData.type === CHANNEL_TYPE_NEWS_THREAD) || (rawData.type === CHANNEL_TYPE_PUBLIC_THREAD) || (rawData.type === CHANNEL_TYPE_PRIVATE_THREAD)) channelData = {
@@ -147,7 +147,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         lastMessageID: rawData.last_message_id,
         lastPinTimestamp: rawData.last_pin_timestamp ? new Date(rawData.last_pin_timestamp).getTime() : null,
         fetchedAt: Date.now()
-    };
+    } as ThreadChannelData;
 
     // Unknown channel type
     else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);

@@ -1,4 +1,4 @@
-import { AnyInteraction, CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Message, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, ThreadChannelType, User, UserResolvable } from "../../internal";
+import { AnyChannel, AnyInteraction, CacheInterface, Channel, Client, CreateMessageData, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, EditMessageData, Embed, GetChannelMessagesData, GetReactionsData, Message, MessageResolvable, ReactionEmojiResolvable, TextBasedChannelData, ThreadChannelType, User, UserResolvable } from "../../internal";
 import createReply from "./createReply";
 import editMessage from "./editMessage";
 import send from "./send";
@@ -98,7 +98,7 @@ export default class TextBasedChannel extends Channel {
      * @param reason The reason for pinning the message
      */
     pinMessage(message: MessageResolvable, reason?: string): Promise<void> {
-        return this.client.addPinnedChannelMessage(this, message, reason);
+        return this.client.addPinnedChannelMessage(this as unknown as AnyChannel, message, reason);
     }
 
     /**
@@ -110,7 +110,7 @@ export default class TextBasedChannel extends Channel {
      * @param reason The reason for bulk deleting the messages
      */
     bulkDelete(messages: MessageResolvable[], reason?: string): Promise<void> {
-        return this.client.bulkDeleteMessages(this, { messages }, reason);
+        return this.client.bulkDeleteMessages(this as unknown as AnyChannel, { messages }, reason);
     }
 
     /**
@@ -151,7 +151,7 @@ export default class TextBasedChannel extends Channel {
      * @param reactionEmoji The emoji to react with
      */
     createReaction(message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> {
-        return this.client.createReaction(this, message, reactionEmoji);
+        return this.client.createReaction(this as unknown as AnyChannel, message, reactionEmoji);
     }
 
     /**
@@ -162,7 +162,7 @@ export default class TextBasedChannel extends Channel {
      * @param message The message to create the reaction on
      */
     deleteAllReactions(message: MessageResolvable): Promise<void> {
-        return this.client.deleteAllReactions(this, message);
+        return this.client.deleteAllReactions(this as unknown as AnyChannel, message);
     }
 
     /**
@@ -174,7 +174,7 @@ export default class TextBasedChannel extends Channel {
      * @param reactionEmoji The emoji to delete reactions for
      */
     deleteAllReactionsForEmoji(message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> {
-        return this.client.deleteAllReactionsForEmoji(this, message, reactionEmoji);
+        return this.client.deleteAllReactionsForEmoji(this as unknown as AnyChannel, message, reactionEmoji);
     }
 
     /**
@@ -186,7 +186,7 @@ export default class TextBasedChannel extends Channel {
      * @param reason The reason for deleting the message
      */
     deleteMessage(message: MessageResolvable, reason?: string): Promise<void> {
-        return this.client.deleteMessage(this, message, reason);
+        return this.client.deleteMessage(this as unknown as AnyChannel, message, reason);
     }
 
     /**
@@ -198,7 +198,7 @@ export default class TextBasedChannel extends Channel {
      * @param reactionEmoji The emoji to unreact with
      */
     deleteOwnReaction(message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable): Promise<void> {
-        return this.client.deleteOwnReaction(this, message, reactionEmoji);
+        return this.client.deleteOwnReaction(this as unknown as AnyChannel, message, reactionEmoji);
     }
 
     /**
@@ -210,7 +210,7 @@ export default class TextBasedChannel extends Channel {
      * @param reason The reason for unpinning the message
      */
     unpinMessage(message: MessageResolvable, reason?: string): Promise<void> {
-        return this.client.deletePinnedChannelMessage(this, message, reason);
+        return this.client.deletePinnedChannelMessage(this as unknown as AnyChannel, message, reason);
     }
 
     /**
@@ -223,7 +223,7 @@ export default class TextBasedChannel extends Channel {
      * @param user The user to delete the reaction for
      */
     deleteUserReaction(message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, user: UserResolvable): Promise<void> {
-        return this.client.deleteUserReaction(this, message, reactionEmoji, user);
+        return this.client.deleteUserReaction(this as unknown as AnyChannel, message, reactionEmoji, user);
     }
 
     /**
@@ -251,7 +251,7 @@ export default class TextBasedChannel extends Channel {
      * @returns {Promise<Message>} The message
      */
     getMessage(message: MessageResolvable): Promise<Message | undefined> {
-        return this.client.getChannelMessage(this, message);
+        return this.client.getChannelMessage(this as unknown as AnyChannel, message);
     }
 
     /**
@@ -264,7 +264,7 @@ export default class TextBasedChannel extends Channel {
      * @returns {Promise<Message[]>} The messages
      */
     getMessages(getChannelMessagesData?: GetChannelMessagesData): Promise<Message[]> {
-        return this.client.getChannelMessages(this, getChannelMessagesData);
+        return this.client.getChannelMessages(this as unknown as AnyChannel, getChannelMessagesData);
     }
 
     /**
@@ -275,7 +275,7 @@ export default class TextBasedChannel extends Channel {
      * @returns {Promise<Message[]>} The messages
      */
     getPinnedMessages(): Promise<Message[]> {
-        return this.client.getPinnedMessages(this);
+        return this.client.getPinnedMessages(this as unknown as AnyChannel);
     }
 
     /**
@@ -290,7 +290,7 @@ export default class TextBasedChannel extends Channel {
      * @returns {Promise<User[]>} The users
      */
     getReactions(message: MessageResolvable, reactionEmoji: ReactionEmojiResolvable, getReactionsData?: GetReactionsData): Promise<User[]> {
-        return this.client.getReactions(this, message, reactionEmoji, getReactionsData);
+        return this.client.getReactions(this as unknown as AnyChannel, message, reactionEmoji, getReactionsData);
     }
 
     /**
@@ -299,6 +299,6 @@ export default class TextBasedChannel extends Channel {
      * Start typing in this channel
      */
     startTyping(): Promise<void> {
-        return this.client.triggerTypingIndicator(this);
+        return this.client.triggerTypingIndicator(this as unknown as AnyChannel);
     }
 }

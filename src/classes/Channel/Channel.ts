@@ -1,4 +1,4 @@
-import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, GuildChannel, GuildChannelData, NewsChannel, NewsChannelData, RawChannelData, READY_STATE_READY, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, NewsChannel, NewsChannelData, RawChannelData, READY_STATE_READY, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -6,9 +6,9 @@ import toData from "./toData";
 import updateObject from "./updateObject";
 import updateObjectFromData from "./updateObjectFromData";
 
-export type AnyChannel = Channel | GuildChannel | DMChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | StageChannel | ThreadChannel;
+export type AnyChannel = DMChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | StageChannel | ThreadChannel;
 
-export type AnyChannelData = ChannelData | GuildChannelData | DMChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData | StageChannelData | ThreadChannelData;
+export type AnyChannelData = DMChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData | StageChannelData | ThreadChannelData;
 
 /**
  * Channel Resolvable
@@ -47,10 +47,10 @@ export default class Channel extends Base<AnyChannel> {
         /**
          * Cache Channel
          *
-         * If we need to cache all bans and the clients ready state is `READY`
+         * If we need to cache all channels and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._channels.cacheAll && client._readyState === READY_STATE_READY) this.client._channels.cache(this.id, this);
+        if (client._channels.cacheAll && client._readyState === READY_STATE_READY) this.cache();
     }
 
     /**
@@ -91,9 +91,9 @@ export default class Channel extends Base<AnyChannel> {
      * @param client The client
      * @param channelData The channel data
      *
-     * @returns {Channel} The channel
+     * @returns {AnyChannel} The channel
      */
-    static fromData(client: Client, channelData: AnyChannelData): Channel {
+    static fromData(client: Client, channelData: AnyChannelData): AnyChannel {
         return fromData(client, channelData);
     }
 
@@ -145,9 +145,9 @@ export default class Channel extends Base<AnyChannel> {
      * @param client The client
      * @param channelData The channel data
      *
-     * @returns {Channel | undefined} The channel
+     * @returns {AnyChannel | undefined} The channel
      */
-    static _updateObjectFromData(client: Client, channelData: ChannelData): Channel | undefined {
+    static _updateObjectFromData(client: Client, channelData: AnyChannelData): AnyChannel | undefined {
         return updateObjectFromData(client, channelData);
     }
 
@@ -161,7 +161,7 @@ export default class Channel extends Base<AnyChannel> {
      * `undefined` to use the cache manager's default
      */
     cache(expiresIn?: number | null) {
-        this.client._channels.cache(this.id, this, expiresIn);
+        this.client._channels.cache(this.id, this as unknown as AnyChannel, expiresIn);
     }
 
     /**
@@ -174,6 +174,6 @@ export default class Channel extends Base<AnyChannel> {
      * @returns {Promise<AnyChannel>} The deleted or closed channel
      */
     delete(reason?: string): Promise<AnyChannel> {
-        return this.client.deleteChannel(this, reason);
+        return this.client.deleteChannel(this as unknown as AnyChannel, reason);
     }
 }

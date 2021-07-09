@@ -117,10 +117,10 @@ export default class Template extends Base<Template> {
         /**
          * Cache Template
          *
-         * If we need to cache all bans and the clients ready state is `READY`
+         * If we need to cache all templates and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._templates.cacheAll && client._readyState === READY_STATE_READY) this.client._templates.cache(this.id, this);
+        if (client._templates.cacheAll && client._readyState === READY_STATE_READY) this.cache();
     }
 
     /**

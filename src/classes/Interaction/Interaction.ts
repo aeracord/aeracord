@@ -135,10 +135,10 @@ export default class Interaction extends Base<AnyInteraction> {
         /**
          * Cache Interaction
          *
-         * If we need to cache all bans and the clients ready state is `READY`
+         * If we need to cache all interactions and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._interactions.cacheAll && client._readyState === READY_STATE_READY) this.client._interactions.cache(this.id, this);
+        if (client._interactions.cacheAll && client._readyState === READY_STATE_READY) this.cache();
     }
 
     /**

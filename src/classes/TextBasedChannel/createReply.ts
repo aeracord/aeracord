@@ -1,4 +1,4 @@
-import { CreateMessageData, Embed, Message, MessageResolvable, TextBasedChannel } from "../../internal";
+import { AnyChannel, CreateMessageData, Embed, Message, MessageResolvable, TextBasedChannel } from "../../internal";
 
 export default function createReply(channel: TextBasedChannel, messageResolvable: MessageResolvable, contentOrData: string | Embed | CreateMessageData, createMessageData: CreateMessageData = {}): Promise<Message> {
 
@@ -14,5 +14,5 @@ export default function createReply(channel: TextBasedChannel, messageResolvable
     createMessageData.messageReference = { id: messageID };
 
     // Create message
-    return channel.client.createMessage(channel, createMessageData);
+    return channel.client.createMessage(channel as AnyChannel, createMessageData);
 }

@@ -2,9 +2,9 @@ import { CategoryChannel, CategoryChannelData, Client, CreateChannelInviteData, 
 import Channel from "../Channel/Channel";
 import updateObject from "./updateObject";
 
-export type AnyGuildChannel = GuildChannel | TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | StageChannel;
+export type AnyGuildChannel = TextChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | StageChannel;
 
-export type AnyGuildChannelData = GuildChannelData | TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData | StageChannelData;
+export type AnyGuildChannelData = TextChannelData | VoiceChannelData | CategoryChannelData | NewsChannelData | StoreChannelData | StageChannelData;
 
 export type GuildChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE | typeof CHANNEL_TYPE_STAGE;
 
@@ -97,7 +97,7 @@ export default class GuildChannel extends Channel {
      * @returns {Promise<Invite>} The invite
      */
     createInvite(createChannelInviteData?: CreateChannelInviteData, reason?: string): Promise<Invite> {
-        return this.client.createChannelInvite(this, createChannelInviteData, reason);
+        return this.client.createChannelInvite(this as AnyGuildChannel, createChannelInviteData, reason);
     }
 
     /**
@@ -108,7 +108,7 @@ export default class GuildChannel extends Channel {
      * @param roleOrUser The role or user's permissions to delete
      */
     deletePermission(roleOrUser: RoleResolvable | UserResolvable): Promise<void> {
-        return this.client.deleteChannelPermission(this, roleOrUser);
+        return this.client.deleteChannelPermission(this as AnyGuildChannel, roleOrUser);
     }
 
     /**
@@ -120,7 +120,7 @@ export default class GuildChannel extends Channel {
      * @param editChannelPermissionsData The data for editing the channel permissions
      */
     editPermissions(roleOrUser: RoleResolvable | UserResolvable, editChannelPermissionsData: EditChannelPermissionsData): Promise<void> {
-        return this.client.editChannelPermissions(this, roleOrUser, editChannelPermissionsData);
+        return this.client.editChannelPermissions(this as AnyGuildChannel, roleOrUser, editChannelPermissionsData);
     }
 
     /**
@@ -134,6 +134,6 @@ export default class GuildChannel extends Channel {
      * @returns {Promise<AnyGuildChannel>} The modified channel
      */
     edit(modifyChannelData: ModifyChannelData, reason?: string): Promise<AnyGuildChannel> {
-        return this.client.modifyChannel(this, modifyChannelData, reason);
+        return this.client.modifyChannel(this as AnyGuildChannel, modifyChannelData, reason);
     }
 }
