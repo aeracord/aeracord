@@ -1,4 +1,4 @@
-import { AnyInteraction, CacheInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Invite, Message, MessageResolvable, StartThreadData, TextChannelData, ThreadChannel, Webhook } from "../../internal";
+import { AnyInteraction, CacheInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Invite, Message, MessageResolvable, ModifyWebhookData, StartThreadData, TextChannelData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -145,6 +145,46 @@ class TextChannel extends GuildChannel {
      */
     getWebhooks(): Promise<Webhook[]> {
         return this.client.getChannelWebhooks(this);
+    }
+
+    /**
+     * Get Webhook
+     *
+     * Get a webhook in this channel
+     *
+     * @param webhook The webhook to get
+     *
+     * @returns {Promise<Webhook>} The webhook
+     */
+    getWebhook(webhook: WebhookResolvable): Promise<Webhook | undefined> {
+        return this.client.getWebhook(this, webhook);
+    }
+
+    /**
+     * Modify Webhook
+     *
+     * Modify a webhook in this channel
+     *
+     * @param webhook The webhook to modify
+     * @param modifyWebhookData The data to modify the webhook
+     * @param reason The reason for modifying the webhook
+     *
+     * @returns {Promise<Webhook>} The modified webhook
+     */
+    modifyWebhook(webhook: WebhookResolvable, modifyWebhookData: ModifyWebhookData, reason?: string): Promise<Webhook> {
+        return this.client.modifyWebhook(this, webhook, modifyWebhookData, reason);
+    }
+
+    /**
+     * Delete Webhook
+     *
+     * Delete a webhook in this channel
+     *
+     * @param webhook The webhook to delete
+     * @param reason The reason for deleting the webhook
+     */
+    deleteWebhook(webhook: WebhookResolvable, reason?: string): Promise<void> {
+        return this.client.deleteWebhook(this, webhook, reason);
     }
 
     /**
