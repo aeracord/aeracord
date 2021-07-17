@@ -57,7 +57,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
         ) {
 
             // Loop through channels
-            guildCreateData.channels.forEach((c: AnyChannelData) => Channel.fromData(client, c));
+            guildCreateData.channels.forEach((c: AnyChannelData) => Channel.fromData(client, c).cache());
         }
 
         // Cache specific channels
@@ -68,7 +68,7 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
         ) {
 
             // Loop through channels
-            guildCreateData.channels.filter((c: AnyChannelData) => (client._cacheStrategies.objects.channels?.initialCache as InitialCacheTypeGuilds).ids?.includes(c.id)).forEach((c: AnyChannelData) => Channel.fromData(client, c));
+            guildCreateData.channels.filter((c: AnyChannelData) => (client._cacheStrategies.objects.channels?.initialCache as InitialCacheTypeGuilds).ids?.includes(c.id)).forEach((c: AnyChannelData) => Channel.fromData(client, c).cache());
         }
     }
 
