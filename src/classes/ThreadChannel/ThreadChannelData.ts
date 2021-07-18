@@ -86,3 +86,39 @@ export interface ThreadChannelData extends TextBasedChannelData {
      */
     memberCount: number;
 }
+
+/**
+ * Thread Channel Data
+ *
+ * Represents a `ThreadChannel`
+ */
+export interface ThreadMember {
+
+    /**
+     * ID
+     *
+     * The thread's ID
+     */
+    id: string;
+
+    /**
+     * User ID
+     *
+     * The user's ID
+     */
+    userID: string;
+
+    /**
+     * Join Timestamp
+     *
+     * The timestamp for when this user joined the thread
+     */
+    joinTimestamp: number;
+
+    /**
+     * Flags
+     *
+     * The user's flags for the thread
+     */
+    flags: number;
+}

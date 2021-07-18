@@ -88,7 +88,7 @@ export default class Member extends Base<Member> {
          * If we need to cache all members and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._members.cacheAll && client._readyState === READY_STATE_READY) this.cache();
+        if ((client._members.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
     }
 
     /**

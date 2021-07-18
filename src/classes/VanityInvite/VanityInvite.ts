@@ -56,7 +56,7 @@ export default class VanityInvite extends Base<VanityInvite> {
          * If we need to cache all vanity invites and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._vanityInvites.cacheAll && client._readyState === READY_STATE_READY) this.cache();
+        if ((client._vanityInvites.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
     }
 
     /**

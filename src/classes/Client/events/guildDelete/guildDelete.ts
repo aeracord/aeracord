@@ -1,4 +1,4 @@
-import { AnyChannel, Ban, Client, Command, Emoji, Guild, GuildDeleteData, GuildWidget, Invite, Member, Message, RawGuildDeleteData, Role, Template, VanityInvite, Webhook, WelcomeScreen } from "../../../../internal";
+import { AnyChannel, Ban, Client, Command, Emoji, Guild, GuildDeleteData, GuildWidget, Invite, Member, Message, RawGuildDeleteData, Role, Template, ThreadChannel, VanityInvite, Webhook, WelcomeScreen } from "../../../../internal";
 import ready from "../ready";
 
 export default function guildDelete(client: Client, rawData: RawGuildDeleteData) {
@@ -85,6 +85,10 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
         // Mark templates as deleted
         const templates: Template[] = [...client.templates.filter((t: Template) => t.sourceGuildID === data.id).values()];
         templates.forEach((t: Template) => t._markAsDeleted());
+
+        // Mark threads as deleted
+        const threads: ThreadChannel[] = [...client.threads.filter((c: AnyChannel) => ((c instanceof ThreadChannel) && (c.guildID === data.id))).values()] as ThreadChannel[];
+        threads.forEach((t: ThreadChannel) => t._markAsDeleted());
 
         // Mark vanity invite as deleted
         const vanityInvite: VanityInvite | undefined = client.vanityInvites.get(data.id);

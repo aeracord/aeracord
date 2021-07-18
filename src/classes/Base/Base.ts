@@ -1,4 +1,4 @@
-import { CacheManager, Client } from "../../internal";
+import { CacheManager, Client, ThreadChannel } from "../../internal";
 import markAsDeleted from "./markAsDeleted";
 import unmarkAsDeleted from "./unmarkAsDeleted";
 
@@ -90,6 +90,9 @@ export default class Base<ObjectType extends Base<ObjectType>> {
      * @param baseData.cacheManager The cache manager for the object that extends this `Base`
      */
     constructor(client: Client, baseData: BaseData<ObjectType>) {
+
+        // Set the cache manager for thread channels
+        if (this instanceof ThreadChannel) baseData.cacheManager = client._threads as unknown as CacheManager<ObjectType>;
 
         // Set data
         Object.defineProperty(this, "client", { value: client });

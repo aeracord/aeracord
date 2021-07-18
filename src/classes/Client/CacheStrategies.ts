@@ -28,6 +28,7 @@ export interface ObjectCacheStrategies {
     presences?: CacheStrategy<InitialCacheTypeIDs>;
     roles?: CacheStrategy<InitialCacheTypeGuilds>;
     templates?: CacheStrategy<InitialCacheTypeGuilds>;
+    threads?: CacheStrategy<InitialCacheTypeChannels, true>;
     vanityInvites?: CacheStrategy<InitialCacheTypeIDs>;
     webhooks?: CacheStrategy<InitialCacheTypeChannels>;
     welcomeScreens?: CacheStrategy<InitialCacheTypeIDs>;
@@ -39,7 +40,7 @@ export interface ObjectCacheStrategies {
  *
  * How something should be cached
  */
-export interface CacheStrategy<CacheStrategyInitialCacheType extends (InitialCacheType | undefined)> {
+export interface CacheStrategy<CacheStrategyInitialCacheType extends (InitialCacheType | undefined), Archivable extends boolean = false> {
 
     /**
      * Cache For
@@ -56,6 +57,14 @@ export interface CacheStrategy<CacheStrategyInitialCacheType extends (InitialCac
      * `null` if the object should never expire from cache
      */
     cacheDeletedFor?: number | null;
+
+    /**
+     * Cache Archived For
+     *
+     * The amount of time in milliseconds to keep the object cached after its been archived
+     * `null` if the object should never expire from cache
+     */
+    cacheArchivedFor?: Archivable extends true ? (number | null) : undefined;
 
     /**
      * Garbage Collection Interval

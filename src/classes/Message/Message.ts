@@ -254,7 +254,7 @@ export default class Message extends Base<Message> {
          * If we need to cache all messages and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._messages.cacheAll && client._readyState === READY_STATE_READY) this.cache();
+        if ((client._messages.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
     }
 
     /**

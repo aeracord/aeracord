@@ -1,6 +1,7 @@
 export interface CacheStrategyData {
     cacheFor?: number | null;
     cacheDeletedFor?: number | null;
+    cacheArchivedFor?: number | null;
     garbageCollectionInterval?: number | null;
     cacheAll?: boolean;
 }
@@ -8,6 +9,7 @@ export interface CacheStrategyData {
 export interface ParsedCacheStrategy {
     cacheFor?: number;
     cacheDeletedFor?: number;
+    cacheArchivedFor?: number;
     garbageCollectionInterval?: number;
     cacheAll?: boolean;
 }
@@ -28,6 +30,11 @@ export default function parseCacheStrategy(cacheStrategyData: CacheStrategyData 
     if (cacheStrategyData.cacheDeletedFor === undefined) parsedCacheStrategy.cacheDeletedFor = 60000;
     else if (cacheStrategyData.cacheDeletedFor === null) delete parsedCacheStrategy.cacheDeletedFor;
     else parsedCacheStrategy.cacheDeletedFor = cacheStrategyData.cacheDeletedFor;
+
+    // Parse cache archived for
+    if (cacheStrategyData.cacheArchivedFor === undefined) parsedCacheStrategy.cacheArchivedFor = 60000;
+    else if (cacheStrategyData.cacheArchivedFor === null) delete parsedCacheStrategy.cacheArchivedFor;
+    else parsedCacheStrategy.cacheArchivedFor = cacheStrategyData.cacheArchivedFor;
 
     // Parse garbage collection interval
     if (cacheStrategyData.garbageCollectionInterval === undefined) parsedCacheStrategy.garbageCollectionInterval = 60000;

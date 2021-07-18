@@ -97,7 +97,7 @@ export default class Command extends Base<Command> {
          * If we need to cache all commands and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._commands.cacheAll && client._readyState === READY_STATE_READY) this.cache();
+        if ((client._commands.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
     }
 
     /**

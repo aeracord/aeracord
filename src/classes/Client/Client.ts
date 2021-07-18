@@ -140,6 +140,11 @@ import {
     TemplateResolvable,
     TextBasedChannelEventOptions,
     ThreadChannel,
+    ThreadDeleteData,
+    ThreadEventOptions,
+    ThreadListSyncData,
+    ThreadMembersUpdateData,
+    ThreadUpdateEventOptions,
     TypingStartData,
     TypingStartEventOptions,
     UpdateStageInstanceData,
@@ -731,6 +736,41 @@ export default interface Client {
     on(event: "presenceUpdate", listener: (presence: Presence, options: PresenceUpdateEventOptions) => void): this;
 
     /**
+     * Thread Create
+     *
+     * Emitted when a thread is created
+     */
+    on(event: "threadCreate", listener: (threadChannel: ThreadChannel, options: EventOptions) => void): this;
+
+    /**
+     * Thread Delete
+     *
+     * Emitted when a thread is deleted
+     */
+    on(event: "threadDelete", listener: (data: ThreadDeleteData, options: ThreadEventOptions) => void): this;
+
+    /**
+     * Thread List Sync
+     *
+     * Emitted when the client gains access to a thread
+     */
+    on(event: "threadListSync", listener: (data: ThreadListSyncData, options: GuildEventOptions) => void): this;
+
+    /**
+     * Thread Members Update
+     *
+     * Emitted when users join or leave a thread
+     */
+    on(event: "threadMembersUpdate", listener: (data: ThreadMembersUpdateData, options: ThreadEventOptions) => void): this;
+
+    /**
+     * Thread Update
+     *
+     * Emitted when a thread is updated
+     */
+    on(event: "threadUpdate", listener: (threadChannel: ThreadChannel, options: ThreadUpdateEventOptions) => void): this;
+
+    /**
      * Typing Start
      *
      * Emitted when a user starts typing in a channel
@@ -1163,6 +1203,15 @@ export default class Client extends EventEmitter {
     _templates: CacheManager<Template>;
 
     /**
+     * Threads
+     *
+     * The internal cache of threads
+     *
+     * @private
+     */
+    _threads: CacheManager<AnyChannel>;
+
+    /**
      * Users
      *
      * The internal cache of users
@@ -1297,6 +1346,13 @@ export default class Client extends EventEmitter {
     templates: CacheInterface<Template>;
 
     /**
+     * Threads
+     *
+     * The cache of threads
+     */
+    threads: CacheInterface<AnyChannel>;
+
+    /**
      * Users
      *
      * The cache of users
@@ -1382,6 +1438,7 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "_presences", { value: new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.presences)) });
         Object.defineProperty(this, "_roles", { value: new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.roles)) });
         Object.defineProperty(this, "_templates", { value: new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.templates)) });
+        Object.defineProperty(this, "_threads", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.threads)) });
         Object.defineProperty(this, "_users", { value: new CacheManager<User>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.users)) });
         Object.defineProperty(this, "_vanityInvites", { value: new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.vanityInvites)) });
         Object.defineProperty(this, "_webhooks", { value: new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.webhooks)) });
@@ -1461,6 +1518,23 @@ export default class Client extends EventEmitter {
             value: new CacheInterface<Template>(this, {
                 cacheManager: this._templates,
                 fetchObject: async (id: string): Promise<Template | undefined> => await this.getTemplate(id)
+            })
+        });
+        Object.defineProperty(this, "threads", {
+            value: new CacheInterface<AnyChannel>(this, {
+                cacheManager: this._threads,
+                fetchObject: async (id: string): Promise<ThreadChannel | undefined> => {
+
+                    // Get channel
+                    const channel: AnyChannel | undefined = await this.getChannel(id);
+                    if (!channel) return;
+
+                    // Not a thread channel
+                    if (!(channel instanceof ThreadChannel)) return;
+
+                    // Return
+                    return channel;
+                }
             })
         });
         Object.defineProperty(this, "users", {

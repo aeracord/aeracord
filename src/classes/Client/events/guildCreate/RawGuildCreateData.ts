@@ -8,6 +8,7 @@ export interface RawGuildCreateData extends RawGuildData {
     voice_states: RawVoiceStateData[];
     members: RawMemberData[];
     channels: RawChannelData[];
+    threads: RawChannelData[];
     presences: RawPresenceData[];
     stage_instances: RawStageInstanceData[];
 }

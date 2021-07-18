@@ -26,6 +26,14 @@ export interface CacheManagerData {
     cacheDeletedFor?: number;
 
     /**
+     * Cache Archived For
+     *
+     * The amount of time in milliseconds to keep the object cached after its been archived
+     * `undefined` if the object should never expire from cache
+     */
+    cacheArchivedFor?: number;
+
+    /**
      * Garbage Collection Interval
      *
      * The interval in milliseconds for garbage collecting cached objects
@@ -94,6 +102,14 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
     cacheDeletedFor?: number;
 
     /**
+     * Cache Archived For
+     *
+     * The amount of time in milliseconds to keep the object cached after its been archived
+     * `undefined` if the object should never expire from cache
+     */
+    cacheArchivedFor?: number;
+
+    /**
      * Garbage Collection Interval
      *
      * The interval in milliseconds for garbage collecting cached objects
@@ -115,6 +131,7 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
      * @param cacheManagerData Options to initialize this cache manager with
      * @param cacheManagerData.cacheFor The amount of time in milliseconds to keep objects cached
      * @param cacheManagerData.cacheDeletedFor The amount of time in milliseconds to keep the object cached after its been deleted
+     * @param cacheManagerData.cacheArchivedFor The amount of time in milliseconds to keep the object cached after its been archived
      * @param cacheManagerData.garbageCollectionInterval The interval in milliseconds for garbage collecting cached objects
      * @param cacheManagerData.cacheAll Whether or not to cache all objects
      */
@@ -125,6 +142,7 @@ export default class CacheManager<CachedObject extends Base<CachedObject>> {
         this._cache = new Map();
         this.cacheFor = cacheManagerData.cacheFor;
         this.cacheDeletedFor = cacheManagerData.cacheDeletedFor;
+        this.cacheArchivedFor = cacheManagerData.cacheArchivedFor;
         this.garbageCollectionInterval = cacheManagerData.garbageCollectionInterval;
         this.cacheAll = Boolean(cacheManagerData.cacheAll);
 

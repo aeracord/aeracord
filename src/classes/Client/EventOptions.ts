@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, Ban, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, PresenceData, Role, RoleData, TextBasedChannel, User, UserData } from "../../internal";
+import { AnyChannel, AnyChannelData, Ban, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, PresenceData, Role, RoleData, TextBasedChannel, ThreadChannel, ThreadChannelData, User, UserData } from "../../internal";
 
 /**
  * Event Options
@@ -212,6 +212,25 @@ export interface ReactionBulkRemoveEventOptions extends TextBasedChannelEventOpt
 export interface TextBasedChannelEventOptions extends EventOptions {
     guild?: Guild;
     channel?: TextBasedChannel;
+}
+
+/**
+ * Thread Event Options
+ *
+ * Options for extra data sent with thread related events
+ */
+export interface ThreadEventOptions extends EventOptions {
+    thread?: ThreadChannel;
+    guild?: Guild;
+}
+
+/**
+ * Thread Update Event Options
+ *
+ * Options for extra data sent with thread update events
+ */
+export interface ThreadUpdateEventOptions extends EventOptions {
+    oldThreadData?: ThreadChannelData;
 }
 
 /**

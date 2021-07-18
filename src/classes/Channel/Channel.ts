@@ -50,7 +50,7 @@ export default class Channel extends Base<AnyChannel> {
          * If we need to cache all channels and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._channels.cacheAll && client._readyState === READY_STATE_READY) this.cache();
+        if ((client._channels.cacheAll) && (client._readyState === READY_STATE_READY) && (!(this instanceof ThreadChannel))) this.cache();
     }
 
     /**

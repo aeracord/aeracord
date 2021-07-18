@@ -32,6 +32,11 @@ import messageReactionRemoveEmoji from "./events/messageReactionRemoveEmoji/mess
 import messageUpdate from "./events/messageUpdate/messageUpdate";
 import presenceUpdate from "./events/presenceUpdate/presenceUpdate";
 import ready from "./events/ready/ready";
+import threadCreate from "./events/threadCreate/threadCreate";
+import threadDelete from "./events/threadDelete/threadDelete";
+import threadListSync from "./events/threadListSync/threadListSync";
+import threadMembersUpdate from "./events/threadMembersUpdate/threadMembersUpdate";
+import threadUpdate from "./events/threadUpdate/threadUpdate";
 import typingStart from "./events/typingStart/typingStart";
 import userUpdate from "./events/userUpdate/userUpdate";
 import voiceStateUpdate from "./events/voiceStateUpdate/voiceStateUpdate";
@@ -258,6 +263,36 @@ export default function event(client: Client, type: string, data: any) {
      * https://discord.com/developers/docs/topics/gateway#presence-update
      */
     else if (type === "PRESENCE_UPDATE") presenceUpdate(client, data);
+
+    /**
+     * Thread Create
+     * https://discord.com/developers/docs/topics/gateway#thread-create
+     */
+    else if (type === "THREAD_CREATE") threadCreate(client, data);
+
+    /**
+     * Thread Delete
+     * https://discord.com/developers/docs/topics/gateway#thread-delete
+     */
+    else if (type === "THREAD_DELETE") threadDelete(client, data);
+
+    /**
+     * Thread List Sync
+     * https://discord.com/developers/docs/topics/gateway#thread-list-sync
+     */
+    else if (type === "THREAD_LIST_SYNC") threadListSync(client, data);
+
+    /**
+     * Thread Members Update
+     * https://discord.com/developers/docs/topics/gateway#thread-members-update
+     */
+    else if (type === "THREAD_MEMBERS_UPDATE") threadMembersUpdate(client, data);
+
+    /**
+     * Thread Update
+     * https://discord.com/developers/docs/topics/gateway#thread-update
+     */
+    else if (type === "THREAD_UPDATE") threadUpdate(client, data);
 
     /**
      * Typing Start

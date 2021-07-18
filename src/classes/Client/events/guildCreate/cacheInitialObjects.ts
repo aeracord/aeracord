@@ -1,4 +1,4 @@
-import { AnyChannelData, Ban, Channel, Client, Command, CommandPermissions, Emoji, EmojiData, GuildCreateData, GuildWidget, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, Member, MemberData, Message, Presence, PresenceData, Role, RoleData, Template, User, VanityInvite, Webhook, WelcomeScreen } from "../../../../internal";
+import { AnyChannelData, Ban, Channel, Client, Command, CommandPermissions, Emoji, EmojiData, GuildCreateData, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, Member, MemberData, Message, Presence, PresenceData, Role, RoleData, Template, ThreadChannelData, User, VanityInvite, Webhook } from "../../../../internal";
 
 /**
  * Cache Initial Objects
@@ -408,6 +408,49 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
 
             // Loop through templates
             if (templates) templates.filter((t: Template) => (client._cacheStrategies.objects.templates?.initialCache as InitialCacheTypeGuilds).ids?.includes(t.code)).forEach((t: Template) => t.cache());
+        }
+    }
+
+    // Create thread channel objects
+    if (client._cacheStrategies.objects.threads?.initialCache) {
+
+        // Cache all threads from this guild
+        if (
+
+            // If the initial cache is `true`, all threads should be cached
+            client._cacheStrategies.objects.threads.initialCache === true ||
+
+            // Or the guild ID is in the array
+            client._cacheStrategies.objects.threads.initialCache.guilds?.includes(guildCreateData.guild.id)
+        ) {
+
+            // Loop through threads
+            guildCreateData.threads.forEach((t: ThreadChannelData) => Channel.fromData(client, t).cache());
+        }
+
+        // Cache threads from specific channels
+        else if (
+
+            // If the initial cache has channel IDs
+            client._cacheStrategies.objects.threads.initialCache.channels
+        ) {
+
+            // Loop through threads
+            guildCreateData.threads.filter((t: ThreadChannelData) => (client._cacheStrategies.objects.threads?.initialCache as InitialCacheTypeChannels).channels?.includes(t.parentID)).forEach((t: ThreadChannelData) => Channel.fromData(client, t).cache());
+        }
+
+        // Cache specific threads
+        if (
+
+            // If the initial cache isnt a boolean
+            typeof client._cacheStrategies.objects.threads.initialCache !== "boolean" &&
+
+            // If the initial cache has thread channel IDs
+            client._cacheStrategies.objects.threads.initialCache.ids
+        ) {
+
+            // Loop through threads
+            guildCreateData.threads.filter((t: ThreadChannelData) => (client._cacheStrategies.objects.threads?.initialCache as InitialCacheTypeChannels).ids?.includes(t.id)).forEach((t: ThreadChannelData) => Channel.fromData(client, t).cache());
         }
     }
 

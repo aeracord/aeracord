@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, ThreadChannelData, UserResolvable } from "../../internal";
+import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, UserResolvable } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import updateObject from "./updateObject";
 
@@ -117,6 +117,14 @@ export default class ThreadChannel extends TextBasedChannel {
 
         // Set data
         ThreadChannel._updateObject(this, threadChannelData, true);
+
+        /**
+         * Cache Thread Channel
+         *
+         * If we need to cache all thread channels and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if ((client._threads.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
     }
 
     /**
@@ -131,6 +139,19 @@ export default class ThreadChannel extends TextBasedChannel {
      */
     static _updateObject(threadChannel: ThreadChannel, threadChannelData: ThreadChannelData, fromConstructor?: boolean) {
         updateObject(threadChannel, threadChannelData, fromConstructor);
+    }
+
+    /**
+     * Cache
+     *
+     * Cache this `ThreadChannel`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
+     */
+    cache(expiresIn?: number | null) {
+        this.client._threads.cache(this.id, this, expiresIn);
     }
 
     /**

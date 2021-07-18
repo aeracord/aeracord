@@ -1,4 +1,4 @@
-import { AnyInteraction, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
+import { AnyChannel, AnyInteraction, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -46,6 +46,13 @@ class NewsChannel extends GuildChannel {
     invites: CacheInterface<Invite>;
 
     /**
+     * Threads
+     *
+     * The cache manager interface for the threads in this channel
+     */
+    threads: CacheInterface<AnyChannel>;
+
+    /**
      * Webhooks
      *
      * The cache manager interface for the webhooks in this channel
@@ -79,6 +86,24 @@ class NewsChannel extends GuildChannel {
                 cacheManager: this.client._invites,
                 match: (i: Invite) => i.channelID === this.id,
                 fetchObject: async (id: string): Promise<Invite | undefined> => await this.client.getInvite(id)
+            })
+        });
+        Object.defineProperty(this, "threads", {
+            value: new CacheInterface<AnyChannel>(this.client, {
+                cacheManager: this.client._threads,
+                match: (c: AnyChannel) => ((c instanceof ThreadChannel) && (c.parentID === this.id)),
+                fetchObject: async (id: string): Promise<ThreadChannel | undefined> => {
+
+                    // Get channel
+                    const channel: AnyChannel | undefined = await this.client.getChannel(id);
+                    if (!channel) return;
+
+                    // Not a thread channel
+                    if (!(channel instanceof ThreadChannel)) return;
+
+                    // Return
+                    return channel;
+                }
             })
         });
         Object.defineProperty(this, "messages", {
