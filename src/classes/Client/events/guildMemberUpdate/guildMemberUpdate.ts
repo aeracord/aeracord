@@ -1,4 +1,4 @@
-import { Client, Member, MemberData, RawGuildMemberUpdateData } from "../../../../internal";
+import { Client, Member, MemberData, RawGuildMemberUpdateData, ThreadChannel } from "../../../../internal";
 
 export default function guildMemberUpdate(client: Client, rawData: RawGuildMemberUpdateData) {
 
@@ -9,8 +9,15 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
     // Parse member
     const member: Member = Member._fromRawData(client, rawData, rawData.guild_id);
 
-    // Set client roles
-    if ((member.user.id === client.id) && (client._clientRoles)) client._clientRoles.set(member.guildID, member.roles);
+    // If the roles were updated for the client user
+    if (member.user.id === client.id) {
+
+        // Set client roles
+        if (client._clientRoles) client._clientRoles.set(member.guildID, member.roles);
+
+        // Recalculate thread permissions
+        ThreadChannel._recalculateThreadPermissions(client, member.guildID);
+    }
 
     // Emit event
     client.emit("guildMemberUpdate", member, {

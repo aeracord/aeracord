@@ -1,4 +1,4 @@
-import { Client, Permissions, RawRoleData, RoleData } from "../../internal";
+import { Client, Permissions, RawRoleData, RoleData, ThreadChannel } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
 
@@ -29,6 +29,9 @@ export default function dataFromRawData(client: Client, rawData: RawRoleData, gu
         position: roleData.position,
         permissions: roleData.permissions
     });
+
+    // Recalculate thread permissions
+    ThreadChannel._recalculateThreadPermissions(client, guildID);
 
     // Return
     return roleData;

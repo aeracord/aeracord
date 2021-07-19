@@ -117,6 +117,12 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
             if (guildChannels) guildChannels.forEach((c: string) => client._channelPermissions?.delete(c));
         }
 
+        // Remove from thread channels
+        if ((client._threadChannels) && (client._guildThreads)) {
+            const guildThreads: string[] | undefined = client._guildThreads.get(data.id);
+            if (guildThreads) guildThreads.forEach((t: string) => client._threadChannels?.delete(t));
+        }
+
         // Remove from emoji guilds
         if ((client._emojiGuilds) && (client._guildEmojis)) {
             const guildEmojis: string[] | undefined = client._guildEmojis.get(data.id);
@@ -128,6 +134,9 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
 
         // Remove from guild channels
         if (client._guildChannels) client._guildChannels.delete(data.id);
+
+        // Remove from guild threads
+        if (client._guildThreads) client._guildThreads.delete(data.id);
 
         // Remove from guild emojis
         if (client._guildEmojis) client._guildEmojis.delete(data.id);

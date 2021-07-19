@@ -16,6 +16,9 @@ export default function threadDelete(client: Client, rawData: RawThreadDeleteDat
     // Mark as deleted
     if (thread) thread._markAsDeleted();
 
+    // Uncache thread permissions
+    ThreadChannel._uncacheThreadPermissions(client, data);
+
     // Emit event
     client.emit("threadDelete", data, {
         rawData,

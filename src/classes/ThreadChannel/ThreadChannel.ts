@@ -1,5 +1,8 @@
 import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, UserResolvable } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
+import cacheThreadPermissions, { CacheThreadPermissionsData } from "./cacheThreadPermissions";
+import recalculateThreadPermissions from "./recalculateThreadPermissions";
+import uncacheThreadPermissions, { UncacheThreadPermissionsData } from "./uncacheThreadPermissions";
 import updateObject from "./updateObject";
 
 export type ThreadChannelType = typeof CHANNEL_TYPE_NEWS_THREAD | typeof CHANNEL_TYPE_PUBLIC_THREAD | typeof CHANNEL_TYPE_PRIVATE_THREAD;
@@ -139,6 +142,45 @@ export default class ThreadChannel extends TextBasedChannel {
      */
     static _updateObject(threadChannel: ThreadChannel, threadChannelData: ThreadChannelData, fromConstructor?: boolean) {
         updateObject(threadChannel, threadChannelData, fromConstructor);
+    }
+
+    /**
+     * Cache Thread Permissions
+     *
+     * Cache the thread channel's permissions
+     *
+     * @private
+     * @param client The client
+     * @param cacheThreadPermissionsData The data for caching the thread's permissions
+     */
+    static _cacheThreadPermissions(client: Client, cacheThreadPermissionsData: CacheThreadPermissionsData) {
+        cacheThreadPermissions(client, cacheThreadPermissionsData);
+    }
+
+    /**
+     * Uncache Thread Permissions
+     *
+     * Uncache the thread channel's permissions
+     *
+     * @private
+     * @param client The client
+     * @param uncacheThreadPermissionsData The data for uncaching the thread's permissions
+     */
+    static _uncacheThreadPermissions(client: Client, uncacheThreadPermissionsData: UncacheThreadPermissionsData) {
+        uncacheThreadPermissions(client, uncacheThreadPermissionsData);
+    }
+
+    /**
+     * Recalculate Thread Permissions
+     *
+     * Recalculate all the thread channel permissions in a guild
+     *
+     * @private
+     * @param client The client
+     * @param guildID The ID of the guild to recalculate the thread channel permissions for
+     */
+    static _recalculateThreadPermissions(client: Client, guildID: string) {
+        recalculateThreadPermissions(client, guildID);
     }
 
     /**

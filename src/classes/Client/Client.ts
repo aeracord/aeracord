@@ -139,6 +139,7 @@ import {
     Template,
     TemplateResolvable,
     TextBasedChannelEventOptions,
+    ThreadCacheData,
     ThreadChannel,
     ThreadDeleteData,
     ThreadEventOptions,
@@ -1032,6 +1033,15 @@ export default class Client extends EventEmitter {
     _guildChannels?: Map<string, string[]>;
 
     /**
+     * Guild Threads
+     *
+     * A map of guild IDs to an array of the guild's threads' IDs
+     *
+     * @private
+     */
+    _guildThreads?: Map<string, string[]>;
+
+    /**
      * Guild Emojis
      *
      * A map of guild IDs to an array of the guild's emoji IDs
@@ -1057,6 +1067,15 @@ export default class Client extends EventEmitter {
      * @private
      */
     _channelPermissions?: Map<string, ChannelPermissionData>;
+
+    /**
+     * Thread Channels
+     *
+     * A map of thread channel IDs that the client has access to, mapped to the thread's cache data
+     *
+     * @private
+     */
+    _threadChannels?: Map<string, ThreadCacheData>;
 
     /**
      * Client Roles
@@ -1416,8 +1435,10 @@ export default class Client extends EventEmitter {
             Object.defineProperty(this, "_guildOwners", { value: new Map() });
             Object.defineProperty(this, "_guildRoles", { value: new Map() });
             Object.defineProperty(this, "_guildChannels", { value: new Map() });
+            Object.defineProperty(this, "_guildThreads", { value: new Map() });
             Object.defineProperty(this, "_rolePermissions", { value: new Map() });
             Object.defineProperty(this, "_channelPermissions", { value: new Map() });
+            Object.defineProperty(this, "_threadChannels", { value: new Map() });
             Object.defineProperty(this, "_clientRoles", { value: new Map() });
         }
         if (this._cacheStrategies.permissions.externalEmojis) {

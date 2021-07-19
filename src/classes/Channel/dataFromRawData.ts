@@ -1,4 +1,4 @@
-import { AnyChannelData, CategoryChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannelData, NewsChannelData, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawChannelDataThreadMetadata, RawUserData, StageChannelData, StoreChannelData, TextChannelData, ThreadChannelData, VoiceChannelData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
+import { AnyChannelData, CategoryChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannelData, NewsChannelData, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawChannelDataThreadMetadata, RawUserData, StageChannelData, StoreChannelData, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannelData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
@@ -157,6 +157,9 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         guildID: channelData.guildID,
         permissionOverwrites: channelData.permissionOverwrites
     });
+
+    // Recalculate thread permissions
+    if ("guildID" in channelData) ThreadChannel._recalculateThreadPermissions(client, channelData.guildID);
 
     // Return
     return channelData;

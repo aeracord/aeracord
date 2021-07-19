@@ -15,6 +15,9 @@ export default function threadListSync(client: Client, rawData: RawThreadListSyn
         }))
     };
 
+    // Cache thread permissions
+    data.threads.forEach((t: ThreadChannel) => ThreadChannel._cacheThreadPermissions(client, t));
+
     // Emit event
     client.emit("threadListSync", data, {
         rawData,

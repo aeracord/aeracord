@@ -1,4 +1,4 @@
-import { Client, RawChannelDataThreadMember, RawThreadMembersUpdateData, ThreadChannel, ThreadMembersUpdateData } from "../../../../internal";
+import { Client, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, RawChannelDataThreadMember, RawThreadMembersUpdateData, ThreadCacheData, ThreadChannel, ThreadMembersUpdateData } from "../../../../internal";
 
 export default function threadMembersUpdate(client: Client, rawData: RawThreadMembersUpdateData) {
 
@@ -21,6 +21,36 @@ export default function threadMembersUpdate(client: Client, rawData: RawThreadMe
 
     // Update member count
     if (thread) thread.memberCount = data.memberCount;
+
+    // If the client leaves a thread
+    if ((data.removedMemberIDs.includes(client.id)) && (client._threadChannels)) {
+
+        // Get the threads cache data
+        const threadCacheData: ThreadCacheData | undefined = client._threadChannels.get(data.id);
+
+        // If the client cant access the thread
+        if (
+            threadCacheData &&
+            (
+                (
+                    threadCacheData.type === CHANNEL_TYPE_PUBLIC_THREAD &&
+                    !client.hasPermission("VIEW_CHANNEL", threadCacheData.parentID) &&
+                    !client.hasPermission("MANAGE_THREADS", threadCacheData.parentID)
+                ) ||
+                (
+                    threadCacheData.type === CHANNEL_TYPE_PRIVATE_THREAD &&
+                    !client.hasPermission("MANAGE_THREADS", threadCacheData.parentID)
+                )
+            )
+        ) {
+
+            // Mark as deleted
+            if (thread) thread._markAsDeleted();
+
+            // Uncache thread permissions
+            ThreadChannel._uncacheThreadPermissions(client, data);
+        }
+    }
 
     // Emit event
     client.emit("threadMembersUpdate", data, {

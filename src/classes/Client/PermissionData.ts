@@ -1,4 +1,4 @@
-import { Permissions, PermissionOverwrite } from "../../internal";
+import { Permissions, PermissionOverwrite, ThreadChannelType } from "../../internal";
 
 /**
  * Channel Permission Data
@@ -20,6 +20,28 @@ export interface ChannelPermissionData {
      * The permission overwrites of this channel
      */
     permissionOverwrites: PermissionOverwrite[];
+}
+
+/**
+ * Thread Cache Data
+ *
+ * Cached thread channel data
+ */
+export interface ThreadCacheData {
+
+    /**
+     * Type
+     *
+     * The thread's channel type
+     */
+    type: ThreadChannelType;
+
+    /**
+     * Parent ID
+     *
+     * The ID of this thread's parent channel
+     */
+    parentID: string;
 }
 
 /**

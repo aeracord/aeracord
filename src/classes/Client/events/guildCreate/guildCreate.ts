@@ -27,8 +27,17 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
     // Set guild channels
     if (client._guildChannels) client._guildChannels.set(data.guild.id, data.channels.map((c: AnyChannelData) => c.id));
 
+    // Set guild threads
+    if (client._guildThreads) client._guildThreads.set(data.guild.id, data.threads.map((t: ThreadChannelData) => t.id));
+
     // Set guild emojis
     if (client._guildEmojis) client._guildEmojis.set(data.guild.id, data.guild.emojiData.map((e: EmojiData) => e.id));
+
+    // Set thread channels
+    if (client._threadChannels) data.threads.forEach((t: ThreadChannelData) => client._threadChannels?.set(t.id, {
+        type: t.type,
+        parentID: t.parentID
+    }));
 
     // Set client roles
     const clientMember: MemberData = data.members.find((m: MemberData) => m.user.id === client.id) as MemberData;
