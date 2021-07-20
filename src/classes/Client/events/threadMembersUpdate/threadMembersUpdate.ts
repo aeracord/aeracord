@@ -28,6 +28,9 @@ export default function threadMembersUpdate(client: Client, rawData: RawThreadMe
         // Get the threads cache data
         const threadCacheData: ThreadCacheData | undefined = client._threadChannels.get(data.id);
 
+        // Mark the thread as not joined
+        if (threadCacheData) threadCacheData.joined = false;
+
         // If the client cant access the thread
         if (
             threadCacheData &&

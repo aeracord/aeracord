@@ -37,6 +37,7 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
     if (client._threadChannels) data.threads.forEach((t: ThreadChannelData) => client._threadChannels?.set(t.id, {
         type: t.type,
         parentID: t.parentID,
+        joined: Boolean(t.member),
         createdByClient: t.creatorID === client.id
     }));
 

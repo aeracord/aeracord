@@ -142,6 +142,12 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         autoArchivedDuration: (rawData.thread_metadata as RawChannelDataThreadMetadata).auto_archive_duration,
         archivedAt: new Date((rawData.thread_metadata as RawChannelDataThreadMetadata).archive_timestamp).getTime(),
         locked: Boolean((rawData.thread_metadata as RawChannelDataThreadMetadata).locked),
+        member: rawData.member && {
+            id: rawData.id,
+            userID: client.id,
+            joinTimestamp: new Date(rawData.member.join_timestamp).getTime(),
+            flags: rawData.member.flags
+        },
         messageCount: rawData.message_count as number,
         memberCount: rawData.member_count as number,
         lastMessageID: rawData.last_message_id,

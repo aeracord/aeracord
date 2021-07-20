@@ -11,6 +11,7 @@ export default function updateObject(threadChannel: ThreadChannel, threadChannel
     threadChannel.autoArchivedDuration = threadChannelData.autoArchivedDuration;
     threadChannel.archivedAt = threadChannelData.archivedAt;
     threadChannel.locked = threadChannelData.locked;
+    threadChannel.member = threadChannelData.member;
     threadChannel.messageCount = threadChannelData.messageCount;
     threadChannel.memberCount = threadChannelData.memberCount;
 

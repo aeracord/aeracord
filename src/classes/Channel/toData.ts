@@ -162,6 +162,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
             autoArchivedDuration: threadChannel.autoArchivedDuration,
             archivedAt: threadChannel.archivedAt,
             locked: threadChannel.locked,
+            member: threadChannel.member,
             messageCount: threadChannel.messageCount,
             memberCount: threadChannel.memberCount,
             lastMessageID: threadChannel.lastMessageID,

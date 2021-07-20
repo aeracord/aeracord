@@ -31,7 +31,13 @@ export default function recalculateThreadPermissions(client: Client, guildID: st
                 ) ||
                 (
                     threadCacheData.type === CHANNEL_TYPE_PRIVATE_THREAD &&
-                    !client.hasPermission("MANAGE_THREADS", threadCacheData.parentID)
+                    (
+                        !client.hasPermission("VIEW_CHANNEL", threadCacheData.parentID) ||
+                        (
+                            !client.hasPermission("MANAGE_THREADS", threadCacheData.parentID) &&
+                            !threadCacheData.joined
+                        )
+                    )
                 )
             )
         ) {

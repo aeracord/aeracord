@@ -71,6 +71,13 @@ export interface ThreadChannelData extends TextBasedChannelData {
     locked: boolean;
 
     /**
+     * Member
+     *
+     * The thread member data for the client
+     */
+    member?: ThreadMember;
+
+    /**
      * Message Count
      *
      * The approximate number of messages in this thread

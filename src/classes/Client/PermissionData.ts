@@ -44,6 +44,13 @@ export interface ThreadCacheData {
     parentID: string;
 
     /**
+     * Joined
+     *
+     * Whether or not the client has joined this thread
+     */
+    joined: boolean;
+
+    /**
      * Created by Client
      *
      * Whether or not the client created this thread

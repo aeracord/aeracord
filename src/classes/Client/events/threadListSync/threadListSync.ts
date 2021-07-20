@@ -1,4 +1,4 @@
-import { Channel, Client, RawChannelData, RawChannelDataThreadMember, RawThreadListSyncData, ThreadChannel, ThreadListSyncData } from "../../../../internal";
+import { Channel, Client, RawChannelData, RawChannelDataThreadMember, RawThreadListSyncData, ThreadChannel, ThreadListSyncData, ThreadMember } from "../../../../internal";
 
 export default function threadListSync(client: Client, rawData: RawThreadListSyncData) {
 
@@ -16,7 +16,7 @@ export default function threadListSync(client: Client, rawData: RawThreadListSyn
     };
 
     // Cache thread permissions
-    data.threads.forEach((t: ThreadChannel) => ThreadChannel._cacheThreadPermissions(client, t));
+    data.threads.forEach((t: ThreadChannel) => ThreadChannel._cacheThreadPermissions(client, { ...t, joined: data.threadMembers.some((tm: ThreadMember) => tm.id === t.id) }));
 
     // Emit event
     client.emit("threadListSync", data, {

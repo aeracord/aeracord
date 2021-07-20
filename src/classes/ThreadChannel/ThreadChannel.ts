@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, UserResolvable } from "../../internal";
+import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, ThreadMember, UserResolvable } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import cacheThreadPermissions, { CacheThreadPermissionsData } from "./cacheThreadPermissions";
 import recalculateThreadPermissions from "./recalculateThreadPermissions";
@@ -82,6 +82,13 @@ export default class ThreadChannel extends TextBasedChannel {
     locked: boolean;
 
     /**
+     * Member
+     *
+     * The thread member data for the client
+     */
+    member?: ThreadMember;
+
+    /**
      * Message Count
      *
      * The approximate number of messages in this thread
@@ -110,6 +117,7 @@ export default class ThreadChannel extends TextBasedChannel {
      * @param threadChannelData.autoArchivedDuration The amount of time in minutes after inactivity that this thread will automatically be archived
      * @param threadChannelData.archivedAt The timestamp for when this thread's archived status was last updated
      * @param threadChannelData.locked Whether or not this thread is locked
+     * @param threadChannelData.member The thread member data for the client
      * @param threadChannelData.messageCount The approximate number of messages in this thread
      * @param threadChannelData.memberCount The approximate number of members in this thread
      */

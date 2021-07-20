@@ -6,7 +6,7 @@ export default function threadCreate(client: Client, rawData: RawChannelData) {
     const thread: ThreadChannel = Channel._fromRawData(client, rawData) as ThreadChannel;
 
     // Cache thread permissions
-    ThreadChannel._cacheThreadPermissions(client, thread);
+    ThreadChannel._cacheThreadPermissions(client, { ...thread, joined: Boolean(thread.member) });
 
     // Emit event
     client.emit("threadCreate", thread, {

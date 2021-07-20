@@ -1,4 +1,4 @@
-import { Client, ThreadChannelType } from "../../internal";
+import { Client, ThreadCacheData, ThreadChannelType } from "../../internal";
 
 export interface CacheThreadPermissionsData {
     id: string;
@@ -6,6 +6,7 @@ export interface CacheThreadPermissionsData {
     guildID: string;
     parentID: string;
     creatorID: string;
+    joined?: boolean;
 }
 
 export default function cacheThreadPermissions(client: Client, cacheThreadPermissionsData: CacheThreadPermissionsData) {
@@ -17,9 +18,17 @@ export default function cacheThreadPermissions(client: Client, cacheThreadPermis
     }
 
     // Add to thread channels
-    if (client._threadChannels) client._threadChannels.set(cacheThreadPermissionsData.id, {
-        type: cacheThreadPermissionsData.type,
-        parentID: cacheThreadPermissionsData.parentID,
-        createdByClient: cacheThreadPermissionsData.creatorID === client.id
-    });
+    if (client._threadChannels) {
+
+        // Get old thread cache data
+        const oldThreadCacheData: ThreadCacheData | undefined = client._threadChannels.get(cacheThreadPermissionsData.id);
+
+        // Add to thread channels
+        client._threadChannels.set(cacheThreadPermissionsData.id, {
+            type: cacheThreadPermissionsData.type,
+            parentID: cacheThreadPermissionsData.parentID,
+            joined: cacheThreadPermissionsData.joined === undefined ? Boolean(oldThreadCacheData?.joined) : cacheThreadPermissionsData.joined,
+            createdByClient: cacheThreadPermissionsData.creatorID === client.id
+        });
+    }
 }
