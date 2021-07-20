@@ -36,7 +36,8 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
     // Set thread channels
     if (client._threadChannels) data.threads.forEach((t: ThreadChannelData) => client._threadChannels?.set(t.id, {
         type: t.type,
-        parentID: t.parentID
+        parentID: t.parentID,
+        createdByClient: t.creatorID === client.id
     }));
 
     // Set client roles

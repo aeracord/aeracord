@@ -208,11 +208,9 @@ export default class Member extends Base<Member> {
      * Add this member to a thread
      *
      * @param channel The thread channel to add this member to
-     * @param parentChannel The thread's parent channel
-     * Optional, but required to check permissions
      */
-    addToThread(channel: ChannelResolvable, parentChannel?: ChannelResolvable): Promise<void> {
-        return this.client.addThreadMember(channel, this, parentChannel);
+    addToThread(channel: ChannelResolvable): Promise<void> {
+        return this.client.addThreadMember(channel, this);
     }
 
     /**
@@ -268,11 +266,9 @@ export default class Member extends Base<Member> {
      * Remove this member from a thread
      *
      * @param channel The thread channel to remove this member from
-     * @param parentChannel The thread's parent channel
-     * Optional, but required to check permissions
      */
-    removeFromThread(channel: ChannelResolvable, parentChannel?: ChannelResolvable): Promise<void> {
-        return this.client.removeThreadMember(channel, this, parentChannel);
+    removeFromThread(channel: ChannelResolvable): Promise<void> {
+        return this.client.removeThreadMember(channel, this);
     }
 
     /**

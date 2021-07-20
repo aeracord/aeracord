@@ -204,7 +204,7 @@ export default class ThreadChannel extends TextBasedChannel {
      * @param user The user resolvable for the member to add to the thread
      */
     addMember(user: UserResolvable): Promise<void> {
-        return this.client.addThreadMember(this, user, this.parentID);
+        return this.client.addThreadMember(this, user);
     }
 
     /**
@@ -233,6 +233,6 @@ export default class ThreadChannel extends TextBasedChannel {
      * @param user The user resolvable for the member to remove from the thread
      */
     removeMember(user: UserResolvable): Promise<void> {
-        return this.client.removeThreadMember(this, user, this.parentID);
+        return this.client.removeThreadMember(this, user);
     }
 }

@@ -1,4 +1,4 @@
-import { AnyChannel, Channel, ChannelResolvable, Client, FetchQueue, PermissionError, RawChannelData } from "../../../internal";
+import { AnyChannel, Channel, ChannelResolvable, Client, FetchQueue, PermissionError, RawChannelData, ThreadCacheData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function deleteChannel(client: Client, channelResolvable: ChannelResolvable, reason?: string): Promise<AnyChannel> {
@@ -8,7 +8,14 @@ export default async function deleteChannel(client: Client, channelResolvable: C
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", channelID))) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
+    if (client._cacheStrategies.permissions.enabled) {
+
+        // Get the thread cache data
+        const threadCacheData: ThreadCacheData | undefined = client._threadChannels?.get(channelID);
+
+        if ((threadCacheData) && (!client.hasPermission("MANAGE_THREADS", channelID))) throw new PermissionError({ permission: "MANAGE_THREADS" });
+        else if ((!threadCacheData) && (!client.hasPermission("MANAGE_CHANNELS", channelID))) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
+    }
 
     // Define fetch data
     const path: string = `/channels/${channelID}`;

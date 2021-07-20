@@ -42,6 +42,13 @@ export interface ThreadCacheData {
      * The ID of this thread's parent channel
      */
     parentID: string;
+
+    /**
+     * Created by Client
+     *
+     * Whether or not the client created this thread
+     */
+    createdByClient: boolean;
 }
 
 /**

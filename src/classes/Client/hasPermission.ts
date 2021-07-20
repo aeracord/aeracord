@@ -1,4 +1,4 @@
-import { ChannelPermissionData, Client, Permissions, PermissionsResolvable, PermissionOverwrite, RolePermissionData } from "../../internal";
+import { ChannelPermissionData, Client, Permissions, PermissionsResolvable, PermissionOverwrite, RolePermissionData, ThreadCacheData } from "../../internal";
 import checkPermission from "./checkPermission";
 
 export default function hasPermission(client: Client, permission: PermissionsResolvable, guildOrChannel: string): boolean {
@@ -14,16 +14,19 @@ export default function hasPermission(client: Client, permission: PermissionsRes
     if (client._clientRoles?.get(guildOrChannel)) guildID = guildOrChannel;
     else {
 
+        // Get thread cache data
+        const threadCacheData: ThreadCacheData | undefined = client._threadChannels?.get(guildOrChannel);
+
+        // If the input channel is a thread, set the channel to its parent ID
+        if (threadCacheData) guildOrChannel = threadCacheData.parentID;
+
+        // Get channel permissions data
         const channelIDData: ChannelPermissionData | undefined = client._channelPermissions?.get(guildOrChannel);
+        if (!channelIDData) throw new Error("Invalid guild or channel ID");
 
         // Check channel permissions cache for channel ID
-        if (channelIDData) {
-            channelID = guildOrChannel;
-            guildID = channelIDData.guildID;
-        }
-
-        // Invalid guild or channel ID
-        else throw new Error("Invalid guild or channel ID");
+        channelID = guildOrChannel;
+        guildID = channelIDData.guildID;
     }
 
     // Get the client's roles in the guild

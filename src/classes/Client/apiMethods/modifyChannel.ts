@@ -1,4 +1,4 @@
-import { AnyGuildChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionError, PermissionOverwrite, RawChannelData } from "../../../internal";
+import { AnyGuildChannel, Channel, ChannelResolvable, Client, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_TEXT, FetchQueue, PermissionError, PermissionOverwrite, RawChannelData, ThreadCacheData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface ModifyChannelData {
@@ -26,8 +26,22 @@ export default async function modifyChannel(client: Client, channelResolvable: C
 
     // Missing permissions
     if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
-        if ((modifyChannelData.permissionOverwrites) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new PermissionError({ permission: "MANAGE_ROLES" });
+
+        // Get the thread cache data
+        const threadCacheData: ThreadCacheData | undefined = client._threadChannels?.get(channelID);
+
+        if (threadCacheData) {
+
+            /**
+             * You need the manage threads permission to modify the channel
+             * unless youre the creator of the thread
+             */
+            if ((!client.hasPermission("MANAGE_THREADS", channelID)) && (!threadCacheData.createdByClient)) throw new PermissionError({ permission: "MANAGE_THREADS" });
+        }
+        else {
+            if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
+            if ((modifyChannelData.permissionOverwrites) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new PermissionError({ permission: "MANAGE_ROLES" });
+        }
     }
 
     // Define fetch data

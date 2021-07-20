@@ -5,6 +5,7 @@ export interface CacheThreadPermissionsData {
     type: ThreadChannelType;
     guildID: string;
     parentID: string;
+    creatorID: string;
 }
 
 export default function cacheThreadPermissions(client: Client, cacheThreadPermissionsData: CacheThreadPermissionsData) {
@@ -18,6 +19,7 @@ export default function cacheThreadPermissions(client: Client, cacheThreadPermis
     // Add to thread channels
     if (client._threadChannels) client._threadChannels.set(cacheThreadPermissionsData.id, {
         type: cacheThreadPermissionsData.type,
-        parentID: cacheThreadPermissionsData.parentID
+        parentID: cacheThreadPermissionsData.parentID,
+        createdByClient: cacheThreadPermissionsData.creatorID === client.id
     });
 }
