@@ -302,16 +302,6 @@ export {
 } from "./classes/GuildChannel/GuildChannel";
 export * from "./classes/GuildChannel/GuildChannelData";
 
-// Guild User Cache Interface
-export {
-    default as GuildUserCacheInterface
-} from "./classes/GuildUserCacheInterface/GuildUserCacheInterface";
-
-// Guild User Cache Manager
-export {
-    default as GuildUserCacheManager
-} from "./classes/GuildUserCacheManager/GuildUserCacheManager";
-
 // Guild Widget
 export {
     default as GuildWidget
@@ -333,6 +323,16 @@ export {
 } from "./classes/Member/Member";
 export * from "./classes/Member/MemberData";
 export * from "./classes/Member/RawMemberData";
+
+// Member Cache Interface
+export {
+    default as MemberCacheInterface
+} from "./classes/MemberCacheInterface/MemberCacheInterface";
+
+// Member Cache Manager
+export {
+    default as MemberCacheManager
+} from "./classes/MemberCacheManager/MemberCacheManager";
 
 // Message
 export {

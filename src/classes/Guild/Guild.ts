@@ -1,4 +1,4 @@
-import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildUserCacheInterface, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberCacheInterface, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -102,70 +102,70 @@ export default class Guild extends Base<Guild> {
     /**
      * Bans
      *
-     * The guild user cache manager interface for the bans in this guild
+     * The member cache interface for the bans in this guild
      */
-    bans: GuildUserCacheInterface<Ban>;
+    bans: MemberCacheInterface<Ban>;
 
     /**
      * Channels
      *
-     * The cache manager interface for the channels in this guild
+     * The cache interface for the channels in this guild
      */
     channels: CacheInterface<AnyChannel>;
 
     /**
      * Commands
      *
-     * The cache manager interface for the commands in this guild
+     * The cache interface for the commands in this guild
      */
     commands: CacheInterface<Command>;
 
     /**
      * Emojis
      *
-     * The cache manager interface for the emojis in this guild
+     * The cache interface for the emojis in this guild
      */
     emojis: CacheInterface<Emoji>;
 
     /**
      * Interactions
      *
-     * The cache manager interface for the interactions in this guild
+     * The cache interface for the interactions in this guild
      */
     interactions: CacheInterface<AnyInteraction, false>;
 
     /**
      * Invites
      *
-     * The cache manager interface for the invites in this guild
+     * The cache interface for the invites in this guild
      */
     invites: CacheInterface<Invite>;
 
     /**
      * Members
      *
-     * The guild user cache manager interface for the members in this guild
+     * The member cache interface for the members in this guild
      */
-    members: GuildUserCacheInterface<Member>;
+    members: MemberCacheInterface<Member>;
 
     /**
      * Roles
      *
-     * The cache manager interface for the roles in this guild
+     * The cache interface for the roles in this guild
      */
     roles: CacheInterface<Role>;
 
     /**
      * Templates
      *
-     * The cache manager interface for the templates in this guild
+     * The cache interface for the templates in this guild
      */
     templates: CacheInterface<Template>;
 
     /**
      * Webhooks
      *
-     * The cache manager interface for the webhooks in this guild
+     * The cache interface for the webhooks in this guild
      */
     webhooks: CacheInterface<Webhook>;
 
@@ -375,7 +375,7 @@ export default class Guild extends Base<Guild> {
         // Set data
         Guild._updateObject(this, guildData);
         Object.defineProperty(this, "bans", {
-            value: new GuildUserCacheInterface<Ban>(this.client, {
+            value: new MemberCacheInterface<Ban>(this.client, {
                 cacheManager: this.client._bans._cacheManager,
                 match: (b: Ban) => b.guildID === this.id,
                 fetchObject: async (id: string): Promise<Ban | undefined> => await this.client.getGuildBan(id.split("_")[0], id.split("_")[1])
@@ -427,7 +427,7 @@ export default class Guild extends Base<Guild> {
             })
         });
         Object.defineProperty(this, "members", {
-            value: new GuildUserCacheInterface<Member>(this.client, {
+            value: new MemberCacheInterface<Member>(this.client, {
                 cacheManager: this.client._members._cacheManager,
                 match: (m: Member) => m.guildID === this.id,
                 fetchObject: async (id: string): Promise<Member | undefined> => await this.client.getGuildMember(id.split("_")[0], id.split("_")[1])

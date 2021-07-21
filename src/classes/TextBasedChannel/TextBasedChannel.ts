@@ -18,14 +18,14 @@ export default class TextBasedChannel extends Channel {
     /**
      * Interactions
      *
-     * The cache manager interface for the interactions in this channel
+     * The cache interface for the interactions in this channel
      */
     interactions: CacheInterface<AnyInteraction, false>;
 
     /**
      * Messages
      *
-     * The cache manager interface for the messages in this channel
+     * The cache interface for the messages in this channel
      */
     messages: CacheInterface<Message>;
 

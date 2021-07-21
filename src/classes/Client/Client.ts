@@ -83,8 +83,6 @@ import {
     GuildRoleDeleteEventOptions,
     GuildRoleUpdateEventOptions,
     GuildUpdateEventOptions,
-    GuildUserCacheInterface,
-    GuildUserCacheManager,
     GuildWidget,
     InteractionResolvable,
     Invite,
@@ -93,6 +91,8 @@ import {
     InviteResolvable,
     ListGuildMembersData,
     Member,
+    MemberCacheInterface,
+    MemberCacheManager,
     Message,
     MessageDeleteBulkData,
     MessageDeleteBulkEventOptions,
@@ -1120,7 +1120,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _bans: GuildUserCacheManager<Ban>;
+    _bans: MemberCacheManager<Ban>;
 
     /**
      * Channels
@@ -1183,7 +1183,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _members: GuildUserCacheManager<Member>;
+    _members: MemberCacheManager<Member>;
 
     /**
      * Messages
@@ -1285,7 +1285,7 @@ export default class Client extends EventEmitter {
      *
      * The cache of bans
      */
-    bans: GuildUserCacheInterface<Ban>;
+    bans: MemberCacheInterface<Ban>;
 
     /**
      * Channels
@@ -1334,7 +1334,7 @@ export default class Client extends EventEmitter {
      *
      * The cache of members
      */
-    members: GuildUserCacheInterface<Member>;
+    members: MemberCacheInterface<Member>;
 
     /**
      * Messages
@@ -1447,14 +1447,14 @@ export default class Client extends EventEmitter {
         }
         Object.defineProperty(this, "_commands", { value: new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commands)) });
         Object.defineProperty(this, "_commandPermissions", { value: new CacheManager<CommandPermissions>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commandPermissions)) });
-        Object.defineProperty(this, "_bans", { value: new GuildUserCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans)) });
+        Object.defineProperty(this, "_bans", { value: new MemberCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans)) });
         Object.defineProperty(this, "_channels", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.channels)) });
         Object.defineProperty(this, "_emojis", { value: new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.emojis)) });
         Object.defineProperty(this, "_guilds", { value: new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guilds)) });
         Object.defineProperty(this, "_guildWidgets", { value: new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guildWidgets)) });
         Object.defineProperty(this, "_interactions", { value: new CacheManager<AnyInteraction>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.interactions)) });
         Object.defineProperty(this, "_invites", { value: new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.invites)) });
-        Object.defineProperty(this, "_members", { value: new GuildUserCacheManager<Member>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.members)) });
+        Object.defineProperty(this, "_members", { value: new MemberCacheManager<Member>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.members)) });
         Object.defineProperty(this, "_messages", { value: new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.messages)) });
         Object.defineProperty(this, "_presences", { value: new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.presences)) });
         Object.defineProperty(this, "_roles", { value: new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.roles)) });
@@ -1475,7 +1475,7 @@ export default class Client extends EventEmitter {
             })
         });
         Object.defineProperty(this, "bans", {
-            value: new GuildUserCacheInterface<Ban>(this, {
+            value: new MemberCacheInterface<Ban>(this, {
                 cacheManager: this._bans._cacheManager,
                 fetchObject: async (id: string): Promise<Ban | undefined> => await this.getGuildBan(id.split("_")[0], id.split("_")[1])
             })
@@ -1515,7 +1515,7 @@ export default class Client extends EventEmitter {
             })
         });
         Object.defineProperty(this, "members", {
-            value: new GuildUserCacheInterface<Member>(this, {
+            value: new MemberCacheInterface<Member>(this, {
                 cacheManager: this._members._cacheManager,
                 fetchObject: async (id: string): Promise<Member | undefined> => await this.getGuildMember(id.split("_")[0], id.split("_")[1])
             })

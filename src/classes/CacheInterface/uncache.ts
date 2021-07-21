@@ -8,7 +8,7 @@ export default function uncache<CachedObject extends Base<CachedObject>, FetchOb
     // If the object isnt cached we dont need to do anything
     if (!object) return;
 
-    // Check if the object is a valid match for the cache manager interface
+    // Check if the object is a valid match for the cache interface
     if ((cacheInterface._match) && (!cacheInterface._match(object))) return;
 
     // Uncache the object

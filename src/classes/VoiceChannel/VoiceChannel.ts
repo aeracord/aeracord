@@ -35,7 +35,7 @@ export default class VoiceChannel extends GuildChannel {
     /**
      * Invites
      *
-     * The cache manager interface for the invites in this channel
+     * The cache interface for the invites in this channel
      */
     invites: CacheInterface<Invite>;
 

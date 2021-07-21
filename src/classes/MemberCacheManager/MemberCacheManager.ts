@@ -1,15 +1,15 @@
 import { Base, CacheManager, CacheManagerData, Client } from "../../internal";
 
 /**
- * Guild User Cache Manager
+ * Member Cache Manager
  *
- * Similar to a `CacheManager` except that it takes a `guildID` and a `userID` for inputs instead of just an `id`
- * Used to cache objects like `Member`s and `Ban`s
+ * Similar to a `CacheManager` except that it takes a `baseID` and a `userID` for inputs instead of just an `id`
+ * Used to cache objects like members, thread members, and bans
  *
- * `GuildUserCacheManager` keeps an internal `CacheManager` (`GuildUserCacheManager._cacheManager`)
- * and uses the `guildID` and `userID` concatenated with an underscore (`${guildID}_${userID}`) as the `id` for the `CacheManager`
+ * `MemberCacheManager` keeps an internal `CacheManager` (`MemberCacheManager._cacheManager`)
+ * and uses the `baseID` and `userID` concatenated with an underscore (`${baseID}_${userID}`) as the `id` for the `CacheManager`
  */
-export default class GuildUserCacheManager<CachedObject extends Base<CachedObject>> {
+export default class MemberCacheManager<CachedObject extends Base<CachedObject>> {
 
     /**
      * Client
@@ -78,7 +78,7 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
     }
 
     /**
-     * Guild User Cache Manager
+     * Member Cache Manager
      *
      * @param client The client
      * @param cacheManagerData Options to initialize this cache manager with
@@ -98,13 +98,13 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
      *
      * Get an object from cache
      *
-     * @param guildID The ID of the object's guild
+     * @param baseID The ID of the object's base
      * @param userID The ID of the object's user
      *
      * @returns {CachedObject | undefined} The object or `undefined` if it doesn't exist
      */
-    get(guildID: string, userID: string): CachedObject | undefined {
-        return this._cacheManager.get(`${guildID}_${userID}`);
+    get(baseID: string, userID: string): CachedObject | undefined {
+        return this._cacheManager.get(`${baseID}_${userID}`);
     }
 
     /**
@@ -123,15 +123,15 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
      *
      * Cache an object
      *
-     * @param guildID The ID of the object's guild
+     * @param baseID The ID of the object's base
      * @param userID The ID of the object's user
      * @param object The object
      * @param expiresIn The amount of time for when this object can be garbage collected
      * `null` if it should never expire from cache
      * `undefined` to use the cache manager's default
      */
-    cache(guildID: string, userID: string, object: CachedObject, expiresIn?: number | null) {
-        this._cacheManager.cache(`${guildID}_${userID}`, object, expiresIn);
+    cache(baseID: string, userID: string, object: CachedObject, expiresIn?: number | null) {
+        this._cacheManager.cache(`${baseID}_${userID}`, object, expiresIn);
     }
 
     /**
@@ -139,11 +139,11 @@ export default class GuildUserCacheManager<CachedObject extends Base<CachedObjec
      *
      * Remove an object from cache
      *
-     * @param guildID The ID of the object's guild
+     * @param baseID The ID of the object's base
      * @param userID The ID of the object's user
      */
-    uncache(guildID: string, userID: string) {
-        this._cacheManager.uncache(`${guildID}_${userID}`);
+    uncache(baseID: string, userID: string) {
+        this._cacheManager.uncache(`${baseID}_${userID}`);
     }
 
     /**

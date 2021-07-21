@@ -12,7 +12,7 @@ export default function get<CachedObject extends Base<CachedObject>, FetchObject
     // If the object was found or we don't need to fetch data from the API, return it
     if ((object) || (!fetch)) {
 
-        // Check if the object is a valid match for the cache manager interface
+        // Check if the object is a valid match for the cache interface
         if ((object) && (cacheInterface._match) && (!cacheInterface._match(object as CachedObject))) return undefined as GetResult<CachedObject, Fetch>;
 
         // Return
@@ -25,7 +25,7 @@ export default function get<CachedObject extends Base<CachedObject>, FetchObject
         // Fetch the object from the API
         const fetchedObject: CachedObject | undefined = await cacheInterface._fetchObject?.(id);
 
-        // Check if the object is a valid match for the cache manager interface
+        // Check if the object is a valid match for the cache interface
         if ((!fetchedObject) || ((cacheInterface._match) && (!cacheInterface._match(fetchedObject)))) return resolve(undefined);
 
         // Resolve the promise with the object that was fetched

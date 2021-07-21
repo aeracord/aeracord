@@ -41,21 +41,21 @@ class NewsChannel extends GuildChannel {
     /**
      * Invites
      *
-     * The cache manager interface for the invites in this channel
+     * The cache interface for the invites in this channel
      */
     invites: CacheInterface<Invite>;
 
     /**
      * Threads
      *
-     * The cache manager interface for the threads in this channel
+     * The cache interface for the threads in this channel
      */
     threads: CacheInterface<AnyChannel>;
 
     /**
      * Webhooks
      *
-     * The cache manager interface for the webhooks in this channel
+     * The cache interface for the webhooks in this channel
      */
     webhooks: CacheInterface<Webhook>;
 

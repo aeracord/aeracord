@@ -2,15 +2,15 @@ import { Base, CacheInterface, CacheInterfaceData, Client } from "../../internal
 import { GetFetch, GetResult } from "../CacheInterface/get";
 
 /**
- * Guild User Cache Manager Interface
+ * Member Cache Interface
  *
- * Similar to a `CacheInterface` except that it takes a `guildID` and a `userID` for inputs instead of just an `id`
- * Used to cache objects like `Member`s and `Ban`s
+ * Similar to a `CacheInterface` except that it takes a `baseID` and a `userID` for inputs instead of just an `id`
+ * Used to cache objects like members, thread members, and bans
  *
- * `GuildUserCacheInterface` keeps an internal `CacheInterface` (`GuildUserCacheInterface._cacheInterface`)
- * and uses the `guildID` and `userID` concatenated with an underscore (`${guildID}_${userID}`) as the `id` for the `CacheInterface`
+ * `MemberCacheInterface` keeps an internal `CacheInterface` (`MemberCacheInterface._cacheInterface`)
+ * and uses the `baseID` and `userID` concatenated with an underscore (`${baseID}_${userID}`) as the `id` for the `CacheInterface`
  */
-export default class GuildUserCacheInterface<CachedObject extends Base<CachedObject>, FetchObject = true> {
+export default class MemberCacheInterface<CachedObject extends Base<CachedObject>, FetchObject = true> {
 
     /**
      * Client
@@ -22,9 +22,9 @@ export default class GuildUserCacheInterface<CachedObject extends Base<CachedObj
     }
 
     /**
-     * Cache Manager Interface
+     * Cache Interface
      *
-     * The cache manager interface
+     * The cache interface
      *
      * @private
      */
@@ -40,17 +40,17 @@ export default class GuildUserCacheInterface<CachedObject extends Base<CachedObj
     }
 
     /**
-     * Guild User Cache Manager Interface
+     * Member Cache Interface
      *
      * @param client The client
-     * @param cacheInterfaceData Options to initialize this cache manager interface with
+     * @param cacheInterfaceData Options to initialize this cache interface with
      * @param cacheInterfaceData.cacheManager The cache manager
-     * @param cacheInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
+     * @param cacheInterfaceData.match The function to use to check if an object is a valid match for the cache interface
      * @param cacheInterfaceData.fetchObject A function to fetch an object from the API
      */
     constructor(client: Client, cacheInterfaceData: CacheInterfaceData<CachedObject>) {
 
-        // Create cache manager interface
+        // Create cache interface
         this._cacheInterface = new CacheInterface<CachedObject, FetchObject>(client, cacheInterfaceData);
     }
 
@@ -59,14 +59,14 @@ export default class GuildUserCacheInterface<CachedObject extends Base<CachedObj
      *
      * Get an object from cache
      *
-     * @param guildID The ID of the object's guild
+     * @param baseID The ID of the object's base
      * @param userID The ID of the object's user
      * @param fetch Whether or not to fetch this object from the API if it isn't cached
      *
      * @returns {CachedObject | Promise<CachedObject> | undefined} The cached object or `undefined` if it doesn't exist
      */
-    get<Fetch extends boolean = false>(guildID: string, userID: string, fetch?: GetFetch<FetchObject, Fetch>): GetResult<CachedObject, Fetch> {
-        return this._cacheInterface.get(`${guildID}_${userID}`, fetch);
+    get<Fetch extends boolean = false>(baseID: string, userID: string, fetch?: GetFetch<FetchObject, Fetch>): GetResult<CachedObject, Fetch> {
+        return this._cacheInterface.get(`${baseID}_${userID}`, fetch);
     }
 
     /**
@@ -85,11 +85,11 @@ export default class GuildUserCacheInterface<CachedObject extends Base<CachedObj
      *
      * Remove an object from cache
      *
-     * @param guildID The ID of the object's guild
+     * @param baseID The ID of the object's base
      * @param userID The ID of the object's user
      */
-    uncache(guildID: string, userID: string) {
-        this._cacheInterface.uncache(`${guildID}_${userID}`);
+    uncache(baseID: string, userID: string) {
+        this._cacheInterface.uncache(`${baseID}_${userID}`);
     }
 
     /**

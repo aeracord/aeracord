@@ -377,11 +377,6 @@ export {
     PERMISSION_TYPE_MEMBER
 } from "./internal";
 
-// Guild User Cache Interface
-export {
-    GuildUserCacheInterface
-} from "./internal";
-
 // Guild Widget
 export {
     GuildWidget,
@@ -416,6 +411,11 @@ export {
 export {
     Member,
     MemberData
+} from "./internal";
+
+// Member Cache Interface
+export {
+    MemberCacheInterface
 } from "./internal";
 
 // Message

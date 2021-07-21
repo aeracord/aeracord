@@ -6,7 +6,7 @@ import getItems from "./getItems";
 import uncache from "./uncache";
 
 /**
- * Cache Manager Interface Data
+ * Cache Interface Data
  *
  * Data to create a `CacheInterface`
  */
@@ -22,7 +22,7 @@ export interface CacheInterfaceData<CachedObject extends Base<CachedObject>> {
     /**
      * Match
      *
-     * The function to use to check if an object is a valid match for the cache manager interface
+     * The function to use to check if an object is a valid match for the cache interface
      */
     match?: MatchFunction<CachedObject>;
 
@@ -44,12 +44,12 @@ export interface CacheInterfaceData<CachedObject extends Base<CachedObject>> {
 /**
  * Match Function
  *
- * A function used to check if an object is a valid match for the cache manager interface
+ * A function used to check if an object is a valid match for the cache interface
  */
 export type MatchFunction<CachedObject> = (object: CachedObject) => boolean;
 
 /**
- * Cache Manager Interface
+ * Cache Interface
  *
  * Class properties use `CacheInterface`s as a way to access cached data related to the class
  * Each `CacheInterface` has a type of object it caches (`CachedObject`)
@@ -87,7 +87,7 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
     /**
      * Match
      *
-     * The function to use to check if an object is a valid match for the cache manager interface
+     * The function to use to check if an object is a valid match for the cache interface
      *
      * For example, with a `CacheInterface<AnyChannel>` on `Guild.channels`, `CacheInterface.get()` would check `Client.channels` for the `id`
      * This could potentially return a channel that isnt in the right guild
@@ -117,12 +117,12 @@ export default class CacheInterface<CachedObject extends Base<CachedObject>, Fet
     _getIDs?: () => string[];
 
     /**
-     * Cache Manager Interface
+     * Cache Interface
      *
      * @param client The client
-     * @param cacheInterfaceData Options to initialize this cache manager interface with
+     * @param cacheInterfaceData Options to initialize this cache interface with
      * @param cacheInterfaceData.cacheManager The cache manager
-     * @param cacheInterfaceData.match The function to use to check if an object is a valid match for the cache manager interface
+     * @param cacheInterfaceData.match The function to use to check if an object is a valid match for the cache interface
      * @param cacheInterfaceData.fetchObject A function to fetch an object from the API
      * @param cacheInterfaceData.getIDs A function to get the IDs of objects that could be in cache
      */
