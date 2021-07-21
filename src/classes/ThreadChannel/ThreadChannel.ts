@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, ThreadMember, UserResolvable } from "../../internal";
+import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, ThreadMemberData, UserResolvable } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import cacheThreadPermissions, { CacheThreadPermissionsData } from "./cacheThreadPermissions";
 import recalculateThreadPermissions from "./recalculateThreadPermissions";
@@ -86,7 +86,7 @@ export default class ThreadChannel extends TextBasedChannel {
      *
      * The thread member data for the client
      */
-    member?: ThreadMember;
+    member?: ThreadMemberData;
 
     /**
      * Message Count

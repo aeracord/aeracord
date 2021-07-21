@@ -16,7 +16,16 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
         // Note that channel objects dont have a guild ID in the `guildCreate` event
         channels: rawData.channels.map((c: RawChannelData) => Channel._dataFromRawData(client, { ...c, guild_id: rawData.id })),
 
-        threads: rawData.threads.map((c: RawChannelData) => Channel._dataFromRawData(client, c)) as ThreadChannelData[],
+        // Note that thread member objects dont have the thread ID and user ID in the `guildCreate` event
+        threads: rawData.threads.map((c: RawChannelData) => Channel._dataFromRawData(client, {
+            ...c,
+            member: c.member && {
+                ...c.member,
+                id: c.id,
+                user_id: client.id
+            }
+        })) as ThreadChannelData[],
+
         presences: rawData.presences.map((p: RawPresenceData) => Presence._dataFromRawData(p)),
         stageInstances: rawData.stage_instances.map((s: RawStageInstanceData) => StageInstance._dataFromRawData(s))
     };

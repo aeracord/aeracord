@@ -600,6 +600,12 @@ export {
     ThreadChannelType
 } from "./internal";
 
+// Thread Member
+export {
+    ThreadMember,
+    ThreadMemberData
+} from "./internal";
+
 // User
 export {
     ActivityType,

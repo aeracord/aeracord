@@ -1,4 +1,4 @@
-import { Channel, Client, RawChannelData, RawChannelDataThreadMember, RawThreadListSyncData, ThreadChannel, ThreadListSyncData, ThreadMember } from "../../../../internal";
+import { Channel, Client, RawChannelData, RawThreadListSyncData, RawThreadMemberData, ThreadChannel, ThreadListSyncData, ThreadMember } from "../../../../internal";
 
 export default function threadListSync(client: Client, rawData: RawThreadListSyncData) {
 
@@ -7,12 +7,7 @@ export default function threadListSync(client: Client, rawData: RawThreadListSyn
         guildID: rawData.guild_id,
         channelIDs: rawData.channel_ids,
         threads: rawData.threads.map((c: RawChannelData) => Channel._fromRawData(client, c) as ThreadChannel),
-        threadMembers: rawData.members.map((m: RawChannelDataThreadMember) => ({
-            id: m.id as string,
-            userID: m.user_id as string,
-            joinTimestamp: new Date(m.join_timestamp).getTime(),
-            flags: m.flags
-        }))
+        threadMembers: rawData.members.map((m: RawThreadMemberData) => ThreadMember._fromRawData(client, m, rawData.guild_id))
     };
 
     // Cache thread permissions

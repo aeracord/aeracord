@@ -29,6 +29,7 @@ export interface ObjectCacheStrategies {
     roles?: CacheStrategy<InitialCacheTypeGuilds>;
     templates?: CacheStrategy<InitialCacheTypeGuilds>;
     threads?: CacheStrategy<InitialCacheTypeChannels, true>;
+    threadMembers?: CacheStrategy<undefined>;
     vanityInvites?: CacheStrategy<InitialCacheTypeIDs>;
     webhooks?: CacheStrategy<InitialCacheTypeChannels>;
     welcomeScreens?: CacheStrategy<InitialCacheTypeIDs>;

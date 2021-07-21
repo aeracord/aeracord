@@ -452,6 +452,13 @@ export {
 } from "./classes/ThreadChannel/ThreadChannel";
 export * from "./classes/ThreadChannel/ThreadChannelData";
 
+// Thread Member
+export {
+    default as ThreadMember
+} from "./classes/ThreadMember/ThreadMember";
+export * from "./classes/ThreadMember/ThreadMemberData";
+export * from "./classes/ThreadMember/RawThreadMemberData";
+
 // User
 export {
     default as User,

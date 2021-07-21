@@ -1,4 +1,4 @@
-import { Client, GuildMemberRemoveData, Member, RawGuildMemberRemoveData, User } from "../../../../internal";
+import { Client, GuildMemberRemoveData, Member, RawGuildMemberRemoveData, ThreadMember, User } from "../../../../internal";
 
 export default function guildMemberRemove(client: Client, rawData: RawGuildMemberRemoveData) {
 
@@ -13,6 +13,19 @@ export default function guildMemberRemove(client: Client, rawData: RawGuildMembe
 
     // Mark as deleted
     if (member) member._markAsDeleted();
+
+    // Get guild threads
+    const guildThreads: string[] | undefined = client._guildThreads?.get(data.guildID);
+
+    // Loop through guild threads
+    if (guildThreads) guildThreads.forEach((t: string) => {
+
+        // Get thread member
+        const threadMember: ThreadMember | undefined = client.threadMembers.get(t, data.user.id);
+
+        // If the thread member is cached, mark it as deleted
+        if (threadMember) threadMember._markAsDeleted();
+    });
 
     // Emit event
     client.emit("guildMemberRemove", data, {

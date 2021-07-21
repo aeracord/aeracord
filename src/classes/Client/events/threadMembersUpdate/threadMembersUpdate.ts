@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, RawChannelDataThreadMember, RawThreadMembersUpdateData, ThreadCacheData, ThreadChannel, ThreadMembersUpdateData } from "../../../../internal";
+import { Client, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, RawThreadMembersUpdateData, RawThreadMemberData, ThreadCacheData, ThreadChannel, ThreadMember, ThreadMembersUpdateData } from "../../../../internal";
 
 export default function threadMembersUpdate(client: Client, rawData: RawThreadMembersUpdateData) {
 
@@ -7,12 +7,7 @@ export default function threadMembersUpdate(client: Client, rawData: RawThreadMe
         id: rawData.id,
         guildID: rawData.guild_id,
         memberCount: rawData.member_count,
-        addedMembers: rawData.added_members ? rawData.added_members.map((m: RawChannelDataThreadMember) => ({
-            id: m.id as string,
-            userID: m.user_id as string,
-            joinTimestamp: new Date(m.join_timestamp).getTime(),
-            flags: m.flags
-        })) : [],
+        addedMembers: rawData.added_members ? rawData.added_members.map((m: RawThreadMemberData) => ThreadMember._fromRawData(client, m, rawData.guild_id)) : [],
         removedMemberIDs: rawData.removed_member_ids || []
     };
 
@@ -21,6 +16,16 @@ export default function threadMembersUpdate(client: Client, rawData: RawThreadMe
 
     // Update member count
     if (thread) thread.memberCount = data.memberCount;
+
+    // Mark thread members as deleted
+    data.removedMemberIDs.forEach((m: string) => {
+
+        // Get thread member
+        const threadMember: ThreadMember | undefined = client.threadMembers.get(data.id, m);
+
+        // If the thread member is cached, mark it as deleted
+        if (threadMember) threadMember._markAsDeleted();
+    });
 
     // If the client leaves a thread
     if ((data.removedMemberIDs.includes(client.id)) && (client._threadChannels)) {

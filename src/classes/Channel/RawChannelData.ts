@@ -1,4 +1,4 @@
-import { ChannelType, PermissionType, RawUserData, VideoQualityMode } from "../../internal";
+import { ChannelType, PermissionType, RawThreadMemberData, RawUserData, VideoQualityMode } from "../../internal";
 
 export interface RawChannelData {
     id: string;
@@ -19,7 +19,7 @@ export interface RawChannelData {
     recipients?: RawUserData[];
     owner_id?: string;
     thread_metadata?: RawChannelDataThreadMetadata;
-    member?: RawChannelDataThreadMember;
+    member?: RawThreadMemberData;
     message_count?: number;
     member_count?: number;
 }
@@ -36,11 +36,4 @@ export interface RawChannelDataThreadMetadata {
     auto_archive_duration: number;
     archive_timestamp: string;
     locked?: boolean;
-}
-
-export interface RawChannelDataThreadMember {
-    id?: string;
-    user_id?: string;
-    join_timestamp: string;
-    flags: number;
 }

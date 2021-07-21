@@ -1,8 +1,8 @@
-import { RawChannelData, RawChannelDataThreadMember } from "../../../../internal";
+import { RawChannelData, RawThreadMemberData } from "../../../../internal";
 
 export interface RawThreadListSyncData {
     guild_id: string;
     channel_ids?: string[];
     threads: RawChannelData[];
-    members: RawChannelDataThreadMember[];
+    members: RawThreadMemberData[];
 }

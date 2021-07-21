@@ -144,6 +144,7 @@ import {
     ThreadDeleteData,
     ThreadEventOptions,
     ThreadListSyncData,
+    ThreadMember,
     ThreadMembersUpdateData,
     ThreadUpdateEventOptions,
     TypingStartData,
@@ -1231,6 +1232,15 @@ export default class Client extends EventEmitter {
     _threads: CacheManager<AnyChannel>;
 
     /**
+     * Thread Members
+     *
+     * The internal cache of thread members
+     *
+     * @private
+     */
+    _threadMembers: MemberCacheManager<ThreadMember>;
+
+    /**
      * Users
      *
      * The internal cache of users
@@ -1372,6 +1382,13 @@ export default class Client extends EventEmitter {
     threads: CacheInterface<AnyChannel>;
 
     /**
+     * Thread Members
+     *
+     * The cache of thread members
+     */
+    threadMembers: MemberCacheInterface<ThreadMember>;
+
+    /**
      * Users
      *
      * The cache of users
@@ -1460,6 +1477,7 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "_roles", { value: new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.roles)) });
         Object.defineProperty(this, "_templates", { value: new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.templates)) });
         Object.defineProperty(this, "_threads", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.threads)) });
+        Object.defineProperty(this, "_threadMembers", { value: new MemberCacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.threadMembers)) });
         Object.defineProperty(this, "_users", { value: new CacheManager<User>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.users)) });
         Object.defineProperty(this, "_vanityInvites", { value: new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.vanityInvites)) });
         Object.defineProperty(this, "_webhooks", { value: new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.webhooks)) });
@@ -1556,6 +1574,11 @@ export default class Client extends EventEmitter {
                     // Return
                     return channel;
                 }
+            })
+        });
+        Object.defineProperty(this, "threadMembers", {
+            value: new MemberCacheInterface<ThreadMember>(this, {
+                cacheManager: this._threadMembers._cacheManager
             })
         });
         Object.defineProperty(this, "users", {
