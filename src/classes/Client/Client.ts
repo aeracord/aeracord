@@ -263,6 +263,7 @@ import leaveThread from "./apiMethods/leaveThread";
 import listActiveThreads from "./apiMethods/listActiveThreads";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
+import listJoinedPrivateArchivedThreads from "./apiMethods/listJoinedPrivateArchivedThreads";
 import listPrivateArchivedThreads from "./apiMethods/listPrivateArchivedThreads";
 import listPublicArchivedThreads from "./apiMethods/listPublicArchivedThreads";
 import listThreadMembers from "./apiMethods/listThreadMembers";
@@ -3042,6 +3043,20 @@ export default class Client extends EventEmitter {
      */
     listGuildMembers(guild: GuildResolvable, listGuildMembersData?: ListGuildMembersData): Promise<Member[]> {
         return listGuildMembers(this, guild, listGuildMembersData);
+    }
+
+    /**
+     * List Joined Private Archived Threads
+     *
+     * Get the private archived threads in a channel that the client has joined
+     *
+     * @param channel The channel to get the threads from
+     * @param listArchivedThreadsData The data for getting the threads
+     *
+     * @returns {Promise<ThreadListData>} Data about the list of threads
+     */
+    listJoinedPrivateArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ThreadListData> {
+        return listJoinedPrivateArchivedThreads(this, channel, listArchivedThreadsData);
     }
 
     /**
