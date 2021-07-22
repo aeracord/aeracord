@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, ThreadMemberData, UserResolvable } from "../../internal";
+import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, ThreadMember, ThreadMemberData, UserResolvable } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import cacheThreadPermissions, { CacheThreadPermissionsData } from "./cacheThreadPermissions";
 import recalculateThreadPermissions from "./recalculateThreadPermissions";
@@ -213,6 +213,17 @@ export default class ThreadChannel extends TextBasedChannel {
      */
     addMember(user: UserResolvable): Promise<void> {
         return this.client.addThreadMember(this, user);
+    }
+
+    /**
+     * Get Members
+     *
+     * Get the members of this thread
+     *
+     * @returns {Promise<ThreadMember[]>} The thread members
+     */
+    getMembers(): Promise<ThreadMember[]> {
+        return this.client.listThreadMembers(this);
     }
 
     /**

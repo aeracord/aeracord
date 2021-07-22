@@ -260,6 +260,7 @@ import leaveGuild from "./apiMethods/leaveGuild";
 import leaveThread from "./apiMethods/leaveThread";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
+import listThreadMembers from "./apiMethods/listThreadMembers";
 import listVoiceRegions from "./apiMethods/listVoiceRegions";
 import modifyChannel from "./apiMethods/modifyChannel";
 import modifyCurrentUser from "./apiMethods/modifyCurrentUser";
@@ -3023,6 +3024,19 @@ export default class Client extends EventEmitter {
      */
     listGuildMembers(guild: GuildResolvable, listGuildMembersData?: ListGuildMembersData): Promise<Member[]> {
         return listGuildMembers(this, guild, listGuildMembersData);
+    }
+
+    /**
+     * List Thread Members
+     *
+     * Get the members of a thread
+     *
+     * @param channel The thread channel to get the members from
+     *
+     * @returns {Promise<ThreadMember[]>} The thread members
+     */
+    listThreadMembers(channel: ChannelResolvable): Promise<ThreadMember[]> {
+        return listThreadMembers(this, channel);
     }
 
     /**

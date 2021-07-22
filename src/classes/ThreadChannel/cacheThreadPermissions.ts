@@ -22,6 +22,7 @@ export default function cacheThreadPermissions(client: Client, cacheThreadPermis
     client._threadChannels.set(cacheThreadPermissionsData.id, {
         type: cacheThreadPermissionsData.type,
         parentID: cacheThreadPermissionsData.parentID,
+        guildID: cacheThreadPermissionsData.guildID,
         joined: cacheThreadPermissionsData.joined === undefined ? Boolean(oldThreadCacheData?.joined) : cacheThreadPermissionsData.joined,
         createdByClient: cacheThreadPermissionsData.creatorID === client.id
     });

@@ -44,6 +44,13 @@ export interface ThreadCacheData {
     parentID: string;
 
     /**
+     * Guild ID
+     *
+     * The ID of the guild this thread is in
+     */
+    guildID: string;
+
+    /**
      * Joined
      *
      * Whether or not the client has joined this thread
