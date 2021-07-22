@@ -142,6 +142,7 @@ import {
     ThreadChannel,
     ThreadDeleteData,
     ThreadEventOptions,
+    ThreadListData,
     ThreadListSyncData,
     ThreadMember,
     ThreadMembersUpdateData,
@@ -258,6 +259,7 @@ import getWebhookMessage from "./apiMethods/getWebhookMessage";
 import joinThread from "./apiMethods/joinThread";
 import leaveGuild from "./apiMethods/leaveGuild";
 import leaveThread from "./apiMethods/leaveThread";
+import listActiveThreads from "./apiMethods/listActiveThreads";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import listThreadMembers from "./apiMethods/listThreadMembers";
@@ -2997,6 +2999,19 @@ export default class Client extends EventEmitter {
      */
     leaveThread(channel: ChannelResolvable): Promise<void> {
         return leaveThread(this, channel);
+    }
+
+    /**
+     * List Active Threads
+     *
+     * Get the active threads in a channel
+     *
+     * @param channel The channel to get the threads from
+     *
+     * @returns {Promise<ThreadListData>} Data about the list of threads
+     */
+    listActiveThreads(channel: ChannelResolvable): Promise<ThreadListData> {
+        return listActiveThreads(this, channel);
     }
 
     /**

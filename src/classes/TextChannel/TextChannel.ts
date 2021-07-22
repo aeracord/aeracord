@@ -1,4 +1,4 @@
-import { AnyChannel, AnyInteraction, CacheInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Invite, Message, MessageResolvable, ModifyWebhookData, StartThreadData, TextChannelData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
+import { AnyChannel, AnyInteraction, CacheInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Invite, Message, MessageResolvable, ModifyWebhookData, StartThreadData, TextChannelData, ThreadChannel, ThreadListData, Webhook, WebhookResolvable } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -148,6 +148,17 @@ class TextChannel extends GuildChannel {
      */
     createWebhook(createWebhookData: CreateWebhookData, reason?: string): Promise<Webhook> {
         return this.client.createWebhook(this, createWebhookData, reason);
+    }
+
+    /**
+     * Get Active Threads
+     *
+     * Get the active threads in this channel
+     *
+     * @returns {Promise<ThreadListData>} Data about the list of threads
+     */
+    getActiveThreads(): Promise<ThreadListData> {
+        return this.client.listActiveThreads(this);
     }
 
     /**

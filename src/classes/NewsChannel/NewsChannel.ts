@@ -1,4 +1,4 @@
-import { AnyChannel, AnyInteraction, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
+import { AnyChannel, AnyInteraction, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, ThreadListData, Webhook, WebhookResolvable } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -172,6 +172,17 @@ class NewsChannel extends GuildChannel {
      */
     follow(targetChannel: ChannelResolvable): Promise<FollowedChannel> {
         return this.client.followNewsChannel(this, { targetChannel });
+    }
+
+    /**
+     * Get Active Threads
+     *
+     * Get the active threads in this channel
+     *
+     * @returns {Promise<ThreadListData>} Data about the list of threads
+     */
+    getActiveThreads(): Promise<ThreadListData> {
+        return this.client.listActiveThreads(this);
     }
 
     /**
