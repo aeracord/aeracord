@@ -137,6 +137,7 @@ export * from "./classes/Client/apiMethods/getGuildPreview";
 export * from "./classes/Client/apiMethods/getInvite";
 export * from "./classes/Client/apiMethods/getReactions";
 export * from "./classes/Client/apiMethods/listGuildMembers";
+export * from "./classes/Client/apiMethods/listPublicArchivedThreads";
 export * from "./classes/Client/apiMethods/modifyChannel";
 export * from "./classes/Client/apiMethods/modifyCurrentUser";
 export * from "./classes/Client/apiMethods/modifyCurrentUserNickname";

@@ -235,6 +235,7 @@ export {
     INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE,
     INTERACTION_RESPONSE_TYPE_MESSAGE,
     INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE,
+    ListArchivedThreadsData,
     ListGuildMembersData,
     ModifyChannelData,
     ModifyChannelDataType,

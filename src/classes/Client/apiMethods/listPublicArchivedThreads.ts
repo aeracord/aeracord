@@ -1,25 +1,23 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, RawChannelData, RawThreadMemberData, ThreadChannel } from "../../../internal";
+import queryString from "query-string";
+import { Channel, ChannelResolvable, Client, FetchQueue, RawChannelData, RawThreadListData, RawThreadMemberData, ThreadChannel, ThreadListData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export interface ThreadListData {
-    threads: ThreadChannel[];
-    hasMore: boolean;
+export interface ListArchivedThreadsData {
+    before?: string;
+    limit?: number;
 }
 
-export interface RawThreadListData {
-    threads: RawChannelData[];
-    members: RawThreadMemberData[];
-    has_more: boolean;
-}
-
-export default async function listActiveThreads(client: Client, channelResolvable: ChannelResolvable): Promise<ThreadListData> {
+export default async function listPublicArchivedThreads(client: Client, channelResolvable: ChannelResolvable, listArchivedThreadsData: ListArchivedThreadsData = {}): Promise<ThreadListData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Define fetch data
-    const path: string = `/channels/${channelID}/threads/active`;
+    const path: string = `/channels/${channelID}/threads/archived/public?${queryString.stringify({
+        before: listArchivedThreadsData.before,
+        limit: listArchivedThreadsData.limit
+    })}`;
     const method: string = "GET";
     const route: string = getRoute(path, method);
 
