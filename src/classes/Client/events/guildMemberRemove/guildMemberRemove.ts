@@ -15,7 +15,7 @@ export default function guildMemberRemove(client: Client, rawData: RawGuildMembe
     if (member) member._markAsDeleted();
 
     // Get guild threads
-    const guildThreads: string[] | undefined = client._guildThreads?.get(data.guildID);
+    const guildThreads: string[] | undefined = client._guildThreads.get(data.guildID);
 
     // Loop through guild threads
     if (guildThreads) guildThreads.forEach((t: string) => {

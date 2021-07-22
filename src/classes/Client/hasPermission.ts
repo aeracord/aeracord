@@ -3,25 +3,22 @@ import checkPermission from "./checkPermission";
 
 export default function hasPermission(client: Client, permission: PermissionsResolvable, guildOrChannel: string): boolean {
 
-    // If permission caching isnt enabled, this method cant be used
-    if (!client._cacheStrategies.permissions.enabled) throw new Error("Permission caching isn't enabled");
-
     // Define guild and channel IDs
     let guildID: string;
     let channelID: string | undefined;
 
     // Check client roles cache for guild ID
-    if (client._clientRoles?.get(guildOrChannel)) guildID = guildOrChannel;
+    if (client._clientRoles.get(guildOrChannel)) guildID = guildOrChannel;
     else {
 
         // Get thread cache data
-        const threadCacheData: ThreadCacheData | undefined = client._threadChannels?.get(guildOrChannel);
+        const threadCacheData: ThreadCacheData | undefined = client._threadChannels.get(guildOrChannel);
 
         // If the input channel is a thread, set the channel to its parent ID
         if (threadCacheData) guildOrChannel = threadCacheData.parentID;
 
         // Get channel permissions data
-        const channelIDData: ChannelPermissionData | undefined = client._channelPermissions?.get(guildOrChannel);
+        const channelIDData: ChannelPermissionData | undefined = client._channelPermissions.get(guildOrChannel);
         if (!channelIDData) throw new Error("Invalid guild or channel ID");
 
         // Check channel permissions cache for channel ID
@@ -30,13 +27,13 @@ export default function hasPermission(client: Client, permission: PermissionsRes
     }
 
     // Get the client's roles in the guild
-    const clientRoles: string[] = client._clientRoles?.get(guildID) as string[];
+    const clientRoles: string[] = client._clientRoles.get(guildID) as string[];
 
     // Get the permissions of the roles the client has
-    const rolePermissions: RolePermissionData[] = clientRoles.map((r: string) => client._rolePermissions?.get(r)) as RolePermissionData[];
+    const rolePermissions: RolePermissionData[] = clientRoles.map((r: string) => client._rolePermissions.get(r)) as RolePermissionData[];
 
     // Get the permission overwrites of the channel
-    let channelPermissionOverwrites: PermissionOverwrite[] | undefined = channelID ? (client._channelPermissions?.get(channelID) as ChannelPermissionData).permissionOverwrites : undefined;
+    let channelPermissionOverwrites: PermissionOverwrite[] | undefined = channelID ? (client._channelPermissions.get(channelID) as ChannelPermissionData).permissionOverwrites : undefined;
 
     // Filter out permission overwrite roles that the client doesnt have and permission overwrite members that arent the client
     channelPermissionOverwrites = channelPermissionOverwrites ? channelPermissionOverwrites.filter((p: PermissionOverwrite) => clientRoles.includes(p.id) || p.id === client.id) : undefined;

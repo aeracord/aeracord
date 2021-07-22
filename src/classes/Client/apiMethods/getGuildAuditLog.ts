@@ -16,7 +16,7 @@ export default async function getGuildAuditLog(client: Client, guildResolvable: 
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_AUDIT_LOG", guildID))) throw new PermissionError({ permission: "VIEW_AUDIT_LOG" });
+    if (!client.hasPermission("VIEW_AUDIT_LOG", guildID)) throw new PermissionError({ permission: "VIEW_AUDIT_LOG" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/audit-logs?${queryString.stringify({

@@ -10,10 +10,8 @@ export default async function deleteGuildRole(client: Client, guildResolvable: G
     if (!roleID) throw new Error("Invalid role resolvable");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("MANAGE_ROLES", guildID)) throw new PermissionError({ permission: "MANAGE_ROLES" });
-        if (!client.canManageRoles(guildID, roleID)) throw new PermissionError({ role: roleID });
-    }
+    if (!client.hasPermission("MANAGE_ROLES", guildID)) throw new PermissionError({ permission: "MANAGE_ROLES" });
+    if (!client.canManageRoles(guildID, roleID)) throw new PermissionError({ role: roleID });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/roles/${roleID}`;

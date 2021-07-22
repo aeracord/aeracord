@@ -10,7 +10,7 @@ export default async function deleteGuildEmoji(client: Client, guildResolvable: 
     if (!emojiID) throw new Error("Invalid emoji resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_EMOJIS", guildID))) throw new PermissionError({ permission: "MANAGE_EMOJIS" });
+    if (!client.hasPermission("MANAGE_EMOJIS", guildID)) throw new PermissionError({ permission: "MANAGE_EMOJIS" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/emojis/${emojiID}`;

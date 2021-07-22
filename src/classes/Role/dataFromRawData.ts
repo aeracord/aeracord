@@ -25,7 +25,7 @@ export default function dataFromRawData(client: Client, rawData: RawRoleData, gu
     };
 
     // Set role permissions
-    if (client._rolePermissions) client._rolePermissions.set(roleData.id, {
+    client._rolePermissions.set(roleData.id, {
         position: roleData.position,
         permissions: roleData.permissions
     });

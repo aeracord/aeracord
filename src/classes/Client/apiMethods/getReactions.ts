@@ -19,7 +19,7 @@ export default async function getReactions(client: Client, channelResolvable: Ch
     if (!reactionEmoji) throw new Error("Invalid reaction emoji resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("VIEW_CHANNEL", channelID))) throw new PermissionError({ permission: "VIEW_CHANNEL" });
+    if (!client.hasPermission("VIEW_CHANNEL", channelID)) throw new PermissionError({ permission: "VIEW_CHANNEL" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}/reactions/${encodeURIComponent(reactionEmoji)}?${queryString.stringify({

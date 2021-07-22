@@ -18,10 +18,8 @@ export default async function modifyWebhook(client: Client, channelResolvable: C
     if (targetChannelID === undefined) throw new Error("Invalid channel resolvable for webhook channel");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("MANAGE_WEBHOOKS", channelID)) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
-        if ((targetChannelID) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannelID))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
-    }
+    if (!client.hasPermission("MANAGE_WEBHOOKS", channelID)) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
+    if ((targetChannelID) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannelID))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
 
     // Define fetch data
     const path: string = `/webhooks/${webhookID}`;

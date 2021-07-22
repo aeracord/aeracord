@@ -10,10 +10,8 @@ export default async function removeGuildMember(client: Client, guildResolvable:
     if (!userID) throw new Error("Invalid user resolvable");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("KICK_MEMBERS", guildID)) throw new PermissionError({ permission: "KICK_MEMBERS" });
-        if ((userResolvable instanceof Member) && (!client.canManageMember(userResolvable))) throw new PermissionError({ member: userResolvable.user.id });
-    }
+    if (!client.hasPermission("KICK_MEMBERS", guildID)) throw new PermissionError({ permission: "KICK_MEMBERS" });
+    if ((userResolvable instanceof Member) && (!client.canManageMember(userResolvable))) throw new PermissionError({ member: userResolvable.user.id });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/${userID}`;

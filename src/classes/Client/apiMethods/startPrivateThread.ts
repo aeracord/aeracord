@@ -9,10 +9,8 @@ export default async function startPrivateThread(client: Client, channelResolvab
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("SEND_MESSAGES", channelID)) throw new PermissionError({ permission: "SEND_MESSAGES" });
-        if (!client.hasPermission("USE_PRIVATE_THREADS", channelID)) throw new PermissionError({ permission: "USE_PRIVATE_THREADS" });
-    }
+    if (!client.hasPermission("SEND_MESSAGES", channelID)) throw new PermissionError({ permission: "SEND_MESSAGES" });
+    if (!client.hasPermission("USE_PRIVATE_THREADS", channelID)) throw new PermissionError({ permission: "USE_PRIVATE_THREADS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/threads`;

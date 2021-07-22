@@ -9,13 +9,13 @@ export default function channelDelete(client: Client, rawData: RawChannelData) {
     if (channel) channel._markAsDeleted();
 
     // Remove from guild channels
-    if ((client._guildChannels) && ("guildID" in channel)) {
+    if ("guildID" in channel) {
         const guildChannels: string[] | undefined = client._guildChannels.get(channel.guildID);
         if ((guildChannels) && (guildChannels.includes(channel.id))) guildChannels.splice(guildChannels.indexOf(channel.id), 1);
     }
 
     // Remove from channel permissions
-    if (client._channelPermissions) client._channelPermissions.delete(channel.id);
+    client._channelPermissions.delete(channel.id);
 
     // Emit event
     client.emit("channelDelete", channel, {

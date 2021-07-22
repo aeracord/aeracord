@@ -20,7 +20,7 @@ export default async function modifyCurrentUserNickname(client: Client, guildRes
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("CHANGE_NICKNAME", guildID))) throw new PermissionError({ permission: "CHANGE_NICKNAME" });
+    if (!client.hasPermission("CHANGE_NICKNAME", guildID)) throw new PermissionError({ permission: "CHANGE_NICKNAME" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/@me/nick`;

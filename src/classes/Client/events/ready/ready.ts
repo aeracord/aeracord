@@ -26,15 +26,15 @@ export default async function ready(client: Client, rawData: RawReadyData) {
     if (
 
         // If the initial cache is `true`, all commands should be cached
-        client._cacheStrategies.objects.commands?.initialCache === true ||
+        client._cacheStrategies.commands?.initialCache === true ||
 
         (
 
             // If the initial cache is defined
-            client._cacheStrategies.objects.commands?.initialCache &&
+            client._cacheStrategies.commands?.initialCache &&
 
             // And global commands need to be cached
-            client._cacheStrategies.objects.commands.initialCache.global
+            client._cacheStrategies.commands.initialCache.global
         )
     ) {
 

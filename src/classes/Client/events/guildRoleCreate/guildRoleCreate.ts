@@ -12,10 +12,8 @@ export default function guildRoleCreate(client: Client, rawData: RawGuildRoleCre
     if (guild) guild.roleData.push(Role.toData(role));
 
     // Add to guild roles
-    if (client._guildRoles) {
-        const guildRoles: string[] | undefined = client._guildRoles.get(role.guildID);
-        if (guildRoles) guildRoles.push(role.id);
-    }
+    const guildRoles: string[] | undefined = client._guildRoles.get(role.guildID);
+    if (guildRoles) guildRoles.push(role.id);
 
     // Emit event
     client.emit("guildRoleCreate", role, {

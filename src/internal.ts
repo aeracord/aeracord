@@ -157,9 +157,6 @@ export * from "./classes/Client/apiMethods/updateStageInstance";
 // Client: Cache Strategies
 export * from "./classes/Client/CacheStrategies";
 
-// Client: Client Cache Strategy Data
-export * from "./classes/Client/ClientCacheStrategyData";
-
 // Client: Event Options
 export * from "./classes/Client/EventOptions";
 

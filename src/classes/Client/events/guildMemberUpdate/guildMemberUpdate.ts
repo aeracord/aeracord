@@ -13,7 +13,7 @@ export default function guildMemberUpdate(client: Client, rawData: RawGuildMembe
     if (member.user.id === client.id) {
 
         // Set client roles
-        if (client._clientRoles) client._clientRoles.set(member.guildID, member.roles);
+        client._clientRoles.set(member.guildID, member.roles);
 
         // Recalculate thread permissions
         ThreadChannel._recalculateThreadPermissions(client, member.guildID);

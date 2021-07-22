@@ -24,24 +24,21 @@ export default async function modifyChannel(client: Client, channelResolvable: C
     const parentID: string | undefined | null = modifyChannelData.parent ? Channel.resolveID(modifyChannelData.parent) : null;
     if (parentID === undefined) throw new Error("Invalid channel resolvable for parent");
 
+    // Get the thread cache data
+    const threadCacheData: ThreadCacheData | undefined = client._threadChannels.get(channelID);
+
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
+    if (threadCacheData) {
 
-        // Get the thread cache data
-        const threadCacheData: ThreadCacheData | undefined = client._threadChannels?.get(channelID);
-
-        if (threadCacheData) {
-
-            /**
-             * You need the manage threads permission to modify the channel
-             * unless youre the creator of the thread
-             */
-            if ((!client.hasPermission("MANAGE_THREADS", channelID)) && (!threadCacheData.createdByClient)) throw new PermissionError({ permission: "MANAGE_THREADS" });
-        }
-        else {
-            if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
-            if ((modifyChannelData.permissionOverwrites) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new PermissionError({ permission: "MANAGE_ROLES" });
-        }
+        /**
+         * You need the manage threads permission to modify the channel
+         * unless youre the creator of the thread
+         */
+        if ((!client.hasPermission("MANAGE_THREADS", channelID)) && (!threadCacheData.createdByClient)) throw new PermissionError({ permission: "MANAGE_THREADS" });
+    }
+    else {
+        if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
+        if ((modifyChannelData.permissionOverwrites) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new PermissionError({ permission: "MANAGE_ROLES" });
     }
 
     // Define fetch data

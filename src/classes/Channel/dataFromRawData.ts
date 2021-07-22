@@ -159,7 +159,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     else throw new Error(`Unknown channel type '${rawData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
 
     // Set channel permissions
-    if ((client._channelPermissions) && ("guildID" in channelData) && (!("archived" in channelData))) client._channelPermissions.set(channelData.id, {
+    if (("guildID" in channelData) && (!("archived" in channelData))) client._channelPermissions.set(channelData.id, {
         guildID: channelData.guildID,
         permissionOverwrites: channelData.permissionOverwrites
     });

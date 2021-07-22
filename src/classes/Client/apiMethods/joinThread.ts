@@ -8,16 +8,12 @@ export default async function joinThread(client: Client, channelResolvable: Chan
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
     if (!channelID) throw new Error("Invalid channel resolvable");
 
-    // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
+    // Get the thread cache data
+    const threadCacheData: ThreadCacheData | undefined = client._threadChannels.get(channelID);
+    if (!threadCacheData) throw new PermissionError({ permission: "VIEW_CHANNEL" });
 
-        // Get the thread cache data
-        const threadCacheData: ThreadCacheData | undefined = client._threadChannels?.get(channelID);
-        if (!threadCacheData) throw new PermissionError({ permission: "VIEW_CHANNEL" });
-
-        // You need the manage threads permission to join a private thread
-        if ((threadCacheData.type === CHANNEL_TYPE_PRIVATE_THREAD) && (!client.hasPermission("MANAGE_THREADS", channelID))) throw new PermissionError({ permission: "MANAGE_THREADS" });
-    }
+    // You need the manage threads permission to join a private thread
+    if ((threadCacheData.type === CHANNEL_TYPE_PRIVATE_THREAD) && (!client.hasPermission("MANAGE_THREADS", channelID))) throw new PermissionError({ permission: "MANAGE_THREADS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/thread-members/@me`;

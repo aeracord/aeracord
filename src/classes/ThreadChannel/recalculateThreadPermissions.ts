@@ -11,14 +11,14 @@ import { Client, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, Thread
 export default function recalculateThreadPermissions(client: Client, guildID: string) {
 
     // Get the guilds threads
-    const threads: string[] | undefined = client._guildThreads?.get(guildID);
+    const threads: string[] | undefined = client._guildThreads.get(guildID);
     if (!threads) return;
 
     // Loop through the guilds threads
     threads.forEach((t: string) => {
 
         // Get the threads cache data
-        const threadCacheData: ThreadCacheData | undefined = client._threadChannels?.get(t);
+        const threadCacheData: ThreadCacheData | undefined = client._threadChannels.get(t);
 
         // If the client cant access the thread
         if (

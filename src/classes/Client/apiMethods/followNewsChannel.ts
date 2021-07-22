@@ -24,7 +24,7 @@ export default async function followNewsChannel(client: Client, channelResolvabl
     if (!targetChannel) throw new Error("Invalid channel resolvable for target channel");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", targetChannel))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
+    if (!client.hasPermission("MANAGE_WEBHOOKS", targetChannel)) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/followers`;

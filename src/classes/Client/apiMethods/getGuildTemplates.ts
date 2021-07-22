@@ -8,7 +8,7 @@ export default async function getGuildTemplates(client: Client, guildResolvable:
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
+    if (!client.hasPermission("MANAGE_GUILD", guildID)) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/templates`;

@@ -28,7 +28,7 @@ export default function threadMembersUpdate(client: Client, rawData: RawThreadMe
     });
 
     // If the client leaves a thread
-    if ((data.removedMemberIDs.includes(client.id)) && (client._threadChannels)) {
+    if (data.removedMemberIDs.includes(client.id)) {
 
         // Get the threads cache data
         const threadCacheData: ThreadCacheData | undefined = client._threadChannels.get(data.id);

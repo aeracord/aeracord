@@ -22,14 +22,12 @@ export default async function modifyGuildMember(client: Client, guildResolvable:
     if ((voiceChannelID === undefined) && (modifyGuildMemberData.voiceChannelID !== undefined)) throw new Error("Invalid channel resolvable for voice channel");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if ((userResolvable instanceof Member) && (!client.canManageMember(userResolvable))) throw new PermissionError({ member: userResolvable.user.id });
-        if ((modifyGuildMemberData.roles) && (!client.canManageRoles(guildID, modifyGuildMemberData.roles))) throw new PermissionError({ role: modifyGuildMemberData.roles.join(",") });
-        if ((modifyGuildMemberData.nickname !== undefined) && (!client.hasPermission("MANAGE_NICKNAMES", guildID))) throw new PermissionError({ permission: "MANAGE_NICKNAMES" });
-        if ((modifyGuildMemberData.muted !== undefined) && (!client.hasPermission("MUTE_MEMBERS", guildID))) throw new PermissionError({ permission: "MUTE_MEMBERS" });
-        if ((modifyGuildMemberData.deafened !== undefined) && (!client.hasPermission("DEAFEN_MEMBERS", guildID))) throw new PermissionError({ permission: "DEAFEN_MEMBERS" });
-        if ((modifyGuildMemberData.voiceChannelID !== undefined) && (!client.hasPermission("MOVE_MEMBERS", guildID))) throw new PermissionError({ permission: "MOVE_MEMBERS" });
-    }
+    if ((userResolvable instanceof Member) && (!client.canManageMember(userResolvable))) throw new PermissionError({ member: userResolvable.user.id });
+    if ((modifyGuildMemberData.roles) && (!client.canManageRoles(guildID, modifyGuildMemberData.roles))) throw new PermissionError({ role: modifyGuildMemberData.roles.join(",") });
+    if ((modifyGuildMemberData.nickname !== undefined) && (!client.hasPermission("MANAGE_NICKNAMES", guildID))) throw new PermissionError({ permission: "MANAGE_NICKNAMES" });
+    if ((modifyGuildMemberData.muted !== undefined) && (!client.hasPermission("MUTE_MEMBERS", guildID))) throw new PermissionError({ permission: "MUTE_MEMBERS" });
+    if ((modifyGuildMemberData.deafened !== undefined) && (!client.hasPermission("DEAFEN_MEMBERS", guildID))) throw new PermissionError({ permission: "DEAFEN_MEMBERS" });
+    if ((modifyGuildMemberData.voiceChannelID !== undefined) && (!client.hasPermission("MOVE_MEMBERS", guildID))) throw new PermissionError({ permission: "MOVE_MEMBERS" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/members/${userID}`;

@@ -24,7 +24,6 @@ import {
     ChannelPinsUpdateEventOptions,
     ChannelResolvable,
     ChannelUpdateEventOptions,
-    ClientCacheStrategyData,
     Command,
     CommandPermissions,
     CommandResolvable,
@@ -340,7 +339,7 @@ export interface ClientData {
      *
      * How the client should cache objects
      */
-    cacheStrategies?: ClientCacheStrategyData;
+    cacheStrategies?: CacheStrategies;
 }
 
 /**
@@ -1013,7 +1012,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _guildOwners?: Map<string, string>;
+    _guildOwners: Map<string, string>;
 
     /**
      * Guild Roles
@@ -1022,7 +1021,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _guildRoles?: Map<string, string[]>;
+    _guildRoles: Map<string, string[]>;
 
     /**
      * Guild Channels
@@ -1031,7 +1030,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _guildChannels?: Map<string, string[]>;
+    _guildChannels: Map<string, string[]>;
 
     /**
      * Guild Threads
@@ -1040,7 +1039,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _guildThreads?: Map<string, string[]>;
+    _guildThreads: Map<string, string[]>;
 
     /**
      * Guild Emojis
@@ -1049,7 +1048,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _guildEmojis?: Map<string, string[]>;
+    _guildEmojis: Map<string, string[]>;
 
     /**
      * Role Permissions
@@ -1058,7 +1057,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _rolePermissions?: Map<string, RolePermissionData>;
+    _rolePermissions: Map<string, RolePermissionData>;
 
     /**
      * Channel Permissions
@@ -1067,7 +1066,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _channelPermissions?: Map<string, ChannelPermissionData>;
+    _channelPermissions: Map<string, ChannelPermissionData>;
 
     /**
      * Thread Channels
@@ -1076,7 +1075,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _threadChannels?: Map<string, ThreadCacheData>;
+    _threadChannels: Map<string, ThreadCacheData>;
 
     /**
      * Client Roles
@@ -1085,7 +1084,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _clientRoles?: Map<string, string[]>;
+    _clientRoles: Map<string, string[]>;
 
     /**
      * Emoji Guilds
@@ -1094,7 +1093,7 @@ export default class Client extends EventEmitter {
      *
      * @private
      */
-    _emojiGuilds?: Map<string, string>;
+    _emojiGuilds: Map<string, string>;
 
     /**
      * Commands
@@ -1439,49 +1438,37 @@ export default class Client extends EventEmitter {
         this._presencesIntent = Boolean(clientData.presencesIntent);
         this._initialCommands = clientData.initialCommands;
         Object.defineProperty(this, "_fetchQueues", { value: new Map() });
-        this._cacheStrategies = {
-            objects: clientData.cacheStrategies?.objects || {},
-            permissions: {
-                enabled: clientData.cacheStrategies?.permissions?.enabled === undefined ? true : clientData.cacheStrategies.permissions.enabled,
-                externalEmojis: Boolean(clientData.cacheStrategies?.permissions?.externalEmojis)
-            }
-        };
-        if (this._cacheStrategies.permissions.enabled === undefined) this._cacheStrategies.permissions.enabled = true;
-        this._cacheStrategies.permissions.externalEmojis = Boolean(this._cacheStrategies.permissions.externalEmojis);
-        if (this._cacheStrategies.permissions.enabled) {
-            Object.defineProperty(this, "_guildOwners", { value: new Map() });
-            Object.defineProperty(this, "_guildRoles", { value: new Map() });
-            Object.defineProperty(this, "_guildChannels", { value: new Map() });
-            Object.defineProperty(this, "_guildThreads", { value: new Map() });
-            Object.defineProperty(this, "_rolePermissions", { value: new Map() });
-            Object.defineProperty(this, "_channelPermissions", { value: new Map() });
-            Object.defineProperty(this, "_threadChannels", { value: new Map() });
-            Object.defineProperty(this, "_clientRoles", { value: new Map() });
-        }
-        if (this._cacheStrategies.permissions.externalEmojis) {
-            Object.defineProperty(this, "_guildEmojis", { value: new Map() });
-            Object.defineProperty(this, "_emojiGuilds", { value: new Map() });
-        }
-        Object.defineProperty(this, "_commands", { value: new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commands)) });
-        Object.defineProperty(this, "_commandPermissions", { value: new CacheManager<CommandPermissions>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.commandPermissions)) });
-        Object.defineProperty(this, "_bans", { value: new MemberCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.bans)) });
-        Object.defineProperty(this, "_channels", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.channels)) });
-        Object.defineProperty(this, "_emojis", { value: new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.emojis)) });
-        Object.defineProperty(this, "_guilds", { value: new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guilds)) });
-        Object.defineProperty(this, "_guildWidgets", { value: new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.guildWidgets)) });
-        Object.defineProperty(this, "_interactions", { value: new CacheManager<AnyInteraction>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.interactions)) });
-        Object.defineProperty(this, "_invites", { value: new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.invites)) });
-        Object.defineProperty(this, "_members", { value: new MemberCacheManager<Member>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.members)) });
-        Object.defineProperty(this, "_messages", { value: new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.messages)) });
-        Object.defineProperty(this, "_presences", { value: new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.presences)) });
-        Object.defineProperty(this, "_roles", { value: new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.roles)) });
-        Object.defineProperty(this, "_templates", { value: new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.templates)) });
-        Object.defineProperty(this, "_threads", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.threads)) });
-        Object.defineProperty(this, "_threadMembers", { value: new MemberCacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.threadMembers)) });
-        Object.defineProperty(this, "_users", { value: new CacheManager<User>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.users)) });
-        Object.defineProperty(this, "_vanityInvites", { value: new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.vanityInvites)) });
-        Object.defineProperty(this, "_webhooks", { value: new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.webhooks)) });
-        Object.defineProperty(this, "_welcomeScreens", { value: new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.objects.welcomeScreens)) });
+        this._cacheStrategies = clientData.cacheStrategies || {};
+        Object.defineProperty(this, "_guildOwners", { value: new Map() });
+        Object.defineProperty(this, "_guildRoles", { value: new Map() });
+        Object.defineProperty(this, "_guildChannels", { value: new Map() });
+        Object.defineProperty(this, "_guildThreads", { value: new Map() });
+        Object.defineProperty(this, "_rolePermissions", { value: new Map() });
+        Object.defineProperty(this, "_channelPermissions", { value: new Map() });
+        Object.defineProperty(this, "_threadChannels", { value: new Map() });
+        Object.defineProperty(this, "_clientRoles", { value: new Map() });
+        Object.defineProperty(this, "_guildEmojis", { value: new Map() });
+        Object.defineProperty(this, "_emojiGuilds", { value: new Map() });
+        Object.defineProperty(this, "_commands", { value: new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.commands)) });
+        Object.defineProperty(this, "_commandPermissions", { value: new CacheManager<CommandPermissions>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.commandPermissions)) });
+        Object.defineProperty(this, "_bans", { value: new MemberCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.bans)) });
+        Object.defineProperty(this, "_channels", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.channels)) });
+        Object.defineProperty(this, "_emojis", { value: new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.emojis)) });
+        Object.defineProperty(this, "_guilds", { value: new CacheManager<Guild>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.guilds)) });
+        Object.defineProperty(this, "_guildWidgets", { value: new CacheManager<GuildWidget>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.guildWidgets)) });
+        Object.defineProperty(this, "_interactions", { value: new CacheManager<AnyInteraction>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.interactions)) });
+        Object.defineProperty(this, "_invites", { value: new CacheManager<Invite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.invites)) });
+        Object.defineProperty(this, "_members", { value: new MemberCacheManager<Member>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.members)) });
+        Object.defineProperty(this, "_messages", { value: new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.messages)) });
+        Object.defineProperty(this, "_presences", { value: new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.presences)) });
+        Object.defineProperty(this, "_roles", { value: new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.roles)) });
+        Object.defineProperty(this, "_templates", { value: new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.templates)) });
+        Object.defineProperty(this, "_threads", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.threads)) });
+        Object.defineProperty(this, "_threadMembers", { value: new MemberCacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.threadMembers)) });
+        Object.defineProperty(this, "_users", { value: new CacheManager<User>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.users)) });
+        Object.defineProperty(this, "_vanityInvites", { value: new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.vanityInvites)) });
+        Object.defineProperty(this, "_webhooks", { value: new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.webhooks)) });
+        Object.defineProperty(this, "_welcomeScreens", { value: new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.welcomeScreens)) });
         Object.defineProperty(this, "commands", {
             value: new CacheInterface<Command, false>(this, {
                 cacheManager: this._commands

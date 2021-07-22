@@ -8,7 +8,7 @@ export default async function triggerTypingIndicator(client: Client, channelReso
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("SEND_MESSAGES", channelID))) throw new PermissionError({ permission: "SEND_MESSAGES" });
+    if (!client.hasPermission("SEND_MESSAGES", channelID)) throw new PermissionError({ permission: "SEND_MESSAGES" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/typing`;

@@ -103,46 +103,38 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
         if (welcomeScreen) welcomeScreen._markAsDeleted();
 
         // Remove from guild owners
-        if (client._guildOwners) client._guildOwners.delete(data.id);
+        client._guildOwners.delete(data.id);
 
         // Remove from role permissions
-        if ((client._rolePermissions) && (client._guildRoles)) {
-            const guildRoles: string[] | undefined = client._guildRoles.get(data.id);
-            if (guildRoles) guildRoles.forEach((r: string) => client._rolePermissions?.delete(r));
-        }
+        const guildRoles: string[] | undefined = client._guildRoles.get(data.id);
+        if (guildRoles) guildRoles.forEach((r: string) => client._rolePermissions.delete(r));
 
         // Remove from channel permissions
-        if ((client._channelPermissions) && (client._guildChannels)) {
-            const guildChannels: string[] | undefined = client._guildChannels.get(data.id);
-            if (guildChannels) guildChannels.forEach((c: string) => client._channelPermissions?.delete(c));
-        }
+        const guildChannels: string[] | undefined = client._guildChannels.get(data.id);
+        if (guildChannels) guildChannels.forEach((c: string) => client._channelPermissions.delete(c));
 
         // Remove from thread channels
-        if ((client._threadChannels) && (client._guildThreads)) {
-            const guildThreads: string[] | undefined = client._guildThreads.get(data.id);
-            if (guildThreads) guildThreads.forEach((t: string) => client._threadChannels?.delete(t));
-        }
+        const guildThreads: string[] | undefined = client._guildThreads.get(data.id);
+        if (guildThreads) guildThreads.forEach((t: string) => client._threadChannels.delete(t));
 
         // Remove from emoji guilds
-        if ((client._emojiGuilds) && (client._guildEmojis)) {
-            const guildEmojis: string[] | undefined = client._guildEmojis.get(data.id);
-            if (guildEmojis) guildEmojis.forEach((e: string) => client._emojiGuilds?.delete(e));
-        }
+        const guildEmojis: string[] | undefined = client._guildEmojis.get(data.id);
+        if (guildEmojis) guildEmojis.forEach((e: string) => client._emojiGuilds.delete(e));
 
         // Remove from guild roles
-        if (client._guildRoles) client._guildRoles.delete(data.id);
+        client._guildRoles.delete(data.id);
 
         // Remove from guild channels
-        if (client._guildChannels) client._guildChannels.delete(data.id);
+        client._guildChannels.delete(data.id);
 
         // Remove from guild threads
-        if (client._guildThreads) client._guildThreads.delete(data.id);
+        client._guildThreads.delete(data.id);
 
         // Remove from guild emojis
-        if (client._guildEmojis) client._guildEmojis.delete(data.id);
+        client._guildEmojis.delete(data.id);
 
         // Remove from client roles
-        if (client._clientRoles) client._clientRoles.delete(data.id);
+        client._clientRoles.delete(data.id);
 
         // Emit event
         client.emit("guildDelete", data, {

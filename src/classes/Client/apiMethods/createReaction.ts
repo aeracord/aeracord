@@ -12,23 +12,18 @@ export default async function createReaction(client: Client, channelResolvable: 
     if (!reactionEmoji) throw new Error("Invalid reaction emoji resolvable");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("ADD_REACTIONS", channelID)) throw new PermissionError({ permission: "ADD_REACTIONS" });
-        if (
+    if (!client.hasPermission("ADD_REACTIONS", channelID)) throw new PermissionError({ permission: "ADD_REACTIONS" });
+    if (
 
-            // If external emoji permissions are cached
-            client._cacheStrategies.permissions.externalEmojis &&
+        // If the reaction emoji is a custom emoji
+        reactionEmoji.includes(":") &&
 
-            // And the reaction emoji is a custom emoji
-            reactionEmoji.includes(":") &&
+        // And the emoji isnt in the guild
+        client._emojiGuilds.get(reactionEmoji.split(":")[1]) !== client._channelPermissions.get(channelID)?.guildID &&
 
-            // And the emoji isnt in the guild
-            client._emojiGuilds?.get(reactionEmoji.split(":")[1]) !== client._channelPermissions?.get(channelID)?.guildID &&
-
-            // And the client doesnt have the use external emojis permissions
-            !client.hasPermission("USE_EXTERNAL_EMOJIS", channelID)
-        ) throw new PermissionError({ permission: "USE_EXTERNAL_EMOJIS" });
-    }
+        // And the client doesnt have the use external emojis permissions
+        !client.hasPermission("USE_EXTERNAL_EMOJIS", channelID)
+    ) throw new PermissionError({ permission: "USE_EXTERNAL_EMOJIS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/messages/${messageID}/reactions/${encodeURIComponent(reactionEmoji)}/@me`;

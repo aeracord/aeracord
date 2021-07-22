@@ -14,11 +14,9 @@ export default async function createStageInstance(client: Client, createStageIns
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
-        if (!client.hasPermission("MUTE_MEMBERS", channelID)) throw new PermissionError({ permission: "MUTE_MEMBERS" });
-        if (!client.hasPermission("MOVE_MEMBERS", channelID)) throw new PermissionError({ permission: "MOVE_MEMBERS" });
-    }
+    if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
+    if (!client.hasPermission("MUTE_MEMBERS", channelID)) throw new PermissionError({ permission: "MUTE_MEMBERS" });
+    if (!client.hasPermission("MOVE_MEMBERS", channelID)) throw new PermissionError({ permission: "MOVE_MEMBERS" });
 
     // Define fetch data
     const path: string = "/stage-instances";

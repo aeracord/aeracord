@@ -15,10 +15,8 @@ export default async function createGuildBan(client: Client, guildResolvable: Gu
     if (!userID) throw new Error("Invalid user resolvable");
 
     // Missing permissions
-    if (client._cacheStrategies.permissions.enabled) {
-        if (!client.hasPermission("BAN_MEMBERS", guildID)) throw new PermissionError({ permission: "BAN_MEMBERS" });
-        if ((userResolvable instanceof Member) && (!client.canManageMember(userResolvable))) throw new PermissionError({ member: userResolvable.user.id });
-    }
+    if (!client.hasPermission("BAN_MEMBERS", guildID)) throw new PermissionError({ permission: "BAN_MEMBERS" });
+    if ((userResolvable instanceof Member) && (!client.canManageMember(userResolvable))) throw new PermissionError({ member: userResolvable.user.id });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/bans/${userID}`;

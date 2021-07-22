@@ -46,5 +46,5 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild._lastUpdatedAt = Date.now();
 
     // Set guild owner
-    if (guild.client._guildOwners) guild.client._guildOwners.set(guildData.id, guildData.ownerID);
+    guild.client._guildOwners.set(guildData.id, guildData.ownerID);
 }

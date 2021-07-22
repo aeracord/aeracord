@@ -8,7 +8,7 @@ export default async function getChannelWebhooks(client: Client, channelResolvab
     if (!channelID) throw new Error("Invalid channel resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", channelID))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
+    if (!client.hasPermission("MANAGE_WEBHOOKS", channelID)) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/webhooks`;

@@ -17,7 +17,7 @@ export default async function editChannelPermissions(client: Client, channelReso
     if (!roleOrUserID) throw new Error("Invalid role or user resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_ROLES", channelID))) throw new PermissionError({ permission: "MANAGE_ROLES" });
+    if (!client.hasPermission("MANAGE_ROLES", channelID)) throw new PermissionError({ permission: "MANAGE_ROLES" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/permissions/${roleOrUserID}`;

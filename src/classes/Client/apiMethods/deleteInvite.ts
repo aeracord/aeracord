@@ -10,7 +10,7 @@ export default async function deleteInvite(client: Client, channelResolvable: Ch
     if (!inviteCode) throw new Error("Invalid invite resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_CHANNELS", channelID))) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
+    if (!client.hasPermission("MANAGE_CHANNELS", channelID)) throw new PermissionError({ permission: "MANAGE_CHANNELS" });
 
     // Define fetch data
     const path: string = `/invites/${inviteCode}`;

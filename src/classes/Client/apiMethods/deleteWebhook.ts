@@ -10,7 +10,7 @@ export default async function deleteWebhook(client: Client, channelResolvable: C
     if (!webhookID) throw new Error("Invalid webhook resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_WEBHOOKS", channelID))) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
+    if (!client.hasPermission("MANAGE_WEBHOOKS", channelID)) throw new PermissionError({ permission: "MANAGE_WEBHOOKS" });
 
     // Define fetch data
     const path: string = `/webhooks/${webhookID}`;

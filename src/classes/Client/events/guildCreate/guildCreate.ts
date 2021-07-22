@@ -31,19 +31,19 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
     };
 
     // Set guild roles
-    if (client._guildRoles) client._guildRoles.set(data.guild.id, data.guild.roleData.map((r: RoleData) => r.id));
+    client._guildRoles.set(data.guild.id, data.guild.roleData.map((r: RoleData) => r.id));
 
     // Set guild channels
-    if (client._guildChannels) client._guildChannels.set(data.guild.id, data.channels.map((c: AnyChannelData) => c.id));
+    client._guildChannels.set(data.guild.id, data.channels.map((c: AnyChannelData) => c.id));
 
     // Set guild threads
-    if (client._guildThreads) client._guildThreads.set(data.guild.id, data.threads.map((t: ThreadChannelData) => t.id));
+    client._guildThreads.set(data.guild.id, data.threads.map((t: ThreadChannelData) => t.id));
 
     // Set guild emojis
-    if (client._guildEmojis) client._guildEmojis.set(data.guild.id, data.guild.emojiData.map((e: EmojiData) => e.id));
+    client._guildEmojis.set(data.guild.id, data.guild.emojiData.map((e: EmojiData) => e.id));
 
     // Set thread channels
-    if (client._threadChannels) data.threads.forEach((t: ThreadChannelData) => client._threadChannels?.set(t.id, {
+    data.threads.forEach((t: ThreadChannelData) => client._threadChannels.set(t.id, {
         type: t.type,
         parentID: t.parentID,
         joined: Boolean(t.member),
@@ -52,10 +52,10 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
 
     // Set client roles
     const clientMember: MemberData = data.members.find((m: MemberData) => m.user.id === client.id) as MemberData;
-    if (client._clientRoles) client._clientRoles.set(data.guild.id, clientMember.roles);
+    client._clientRoles.set(data.guild.id, clientMember.roles);
 
     // Set emoji guilds
-    if (client._emojiGuilds) data.guild.emojiData.forEach((e: EmojiData) => client._emojiGuilds?.set(e.id, data.guild.id));
+    data.guild.emojiData.forEach((e: EmojiData) => client._emojiGuilds.set(e.id, data.guild.id));
 
     // Initial guild create event
     if (client._uninitializedGuilds.has(data.guild.id)) {

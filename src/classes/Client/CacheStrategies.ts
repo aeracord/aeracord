@@ -4,16 +4,6 @@
  * How the client should cache objects
  */
 export interface CacheStrategies {
-    objects: ObjectCacheStrategies;
-    permissions: PermissionsCacheStrategies;
-}
-
-/**
- * Object Cache Strategies
- *
- * How the client should cache objects
- */
-export interface ObjectCacheStrategies {
     commands?: CacheStrategy<InitialCacheTypeCommands>;
     commandPermissions?: CacheStrategy<InitialCacheTypeCommands>;
     bans?: CacheStrategy<InitialCacheTypeGuilds>;
@@ -192,28 +182,4 @@ export interface InitialCacheTypeCommands {
      * The IDs of the guilds to cache command data from
      */
     guilds?: string[];
-}
-
-/**
- * Permissions Cache Strategies
- *
- * How the client should cache permissions
- */
-export interface PermissionsCacheStrategies {
-
-    /**
-     * Enabled
-     *
-     * Whether or not to cache permissions
-     * This needs to be `true` in order for other properties to take effect
-     */
-    enabled: boolean;
-
-    /**
-     * External Emojis
-     *
-     * Whether or not to cache a map of emoji IDs to guild IDs
-     * This is used to determine if an external emoji is about to be used without having permissions
-     */
-    externalEmojis: boolean;
 }

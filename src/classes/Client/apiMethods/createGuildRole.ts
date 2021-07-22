@@ -16,15 +16,12 @@ export default async function createGuildRole(client: Client, guildResolvable: G
     if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Missing permissions
-    if (
-        client._cacheStrategies.permissions.enabled &&
-        !client.hasPermission(
-            createGuildRoleData.permissions ?
-                ["MANAGE_ROLES", ...(new Permissions(createGuildRoleData.permissions).getAll())] :
-                ["MANAGE_ROLES"],
-            guildID
-        )
-    ) throw new PermissionError({ permission: "MANAGE_ROLES" });
+    if (!client.hasPermission(
+        createGuildRoleData.permissions ?
+            ["MANAGE_ROLES", ...(new Permissions(createGuildRoleData.permissions).getAll())] :
+            ["MANAGE_ROLES"],
+        guildID
+    )) throw new PermissionError({ permission: "MANAGE_ROLES" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/roles`;

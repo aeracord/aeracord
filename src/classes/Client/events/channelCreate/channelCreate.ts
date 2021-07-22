@@ -6,7 +6,7 @@ export default function channelCreate(client: Client, rawData: RawChannelData) {
     const channel: AnyChannel = Channel._fromRawData(client, rawData);
 
     // Add to guild channels
-    if ((client._guildChannels) && ("guildID" in channel)) {
+    if ("guildID" in channel) {
         const guildChannels: string[] | undefined = client._guildChannels.get(channel.guildID);
         if (guildChannels) guildChannels.push(channel.id);
     }

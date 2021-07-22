@@ -10,7 +10,7 @@ export default async function deleteGuildTemplate(client: Client, guildResolvabl
     if (!templateCode) throw new Error("Invalid template resolvable");
 
     // Missing permissions
-    if ((client._cacheStrategies.permissions.enabled) && (!client.hasPermission("MANAGE_GUILD", guildID))) throw new PermissionError({ permission: "MANAGE_GUILD" });
+    if (!client.hasPermission("MANAGE_GUILD", guildID)) throw new PermissionError({ permission: "MANAGE_GUILD" });
 
     // Define fetch data
     const path: string = `/guilds/${guildID}/templates/${templateCode}`;
