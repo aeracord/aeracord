@@ -1,13 +1,8 @@
 import queryString from "query-string";
-import { Channel, ChannelResolvable, Client, FetchQueue, PermissionError, RawChannelData, RawThreadListData, RawThreadMemberData, ThreadChannel, ThreadListData } from "../../../internal";
+import { Channel, ChannelResolvable, Client, FetchQueue, ListArchivedThreadsData, PermissionError, RawChannelData, RawThreadListData, RawThreadMemberData, ThreadChannel, ThreadListData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export interface ListArchivedThreadsData {
-    before?: string;
-    limit?: number;
-}
-
-export default async function listPublicArchivedThreads(client: Client, channelResolvable: ChannelResolvable, listArchivedThreadsData: ListArchivedThreadsData = {}): Promise<ThreadListData> {
+export default async function listPrivateArchivedThreads(client: Client, channelResolvable: ChannelResolvable, listArchivedThreadsData: ListArchivedThreadsData = {}): Promise<ThreadListData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -15,9 +10,10 @@ export default async function listPublicArchivedThreads(client: Client, channelR
 
     // Missing permissions
     if (!client.hasPermission("READ_MESSAGE_HISTORY", channelID)) throw new PermissionError({ permission: "READ_MESSAGE_HISTORY" });
+    if (!client.hasPermission("MANAGE_THREADS", channelID)) throw new PermissionError({ permission: "MANAGE_THREADS" });
 
     // Define fetch data
-    const path: string = `/channels/${channelID}/threads/archived/public?${queryString.stringify({
+    const path: string = `/channels/${channelID}/threads/archived/private?${queryString.stringify({
         before: listArchivedThreadsData.before,
         limit: listArchivedThreadsData.limit
     })}`;

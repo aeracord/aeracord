@@ -173,6 +173,17 @@ class TextChannel extends GuildChannel {
     }
 
     /**
+     * Get Private Archived Threads
+     *
+     * Get the private archived threads in this channel
+     *
+     * @returns {Promise<ThreadListData>} Data about the list of threads
+     */
+    getPrivateArchivedThreads(): Promise<ThreadListData> {
+        return this.client.listPrivateArchivedThreads(this);
+    }
+
+    /**
      * Get Public Archived Threads
      *
      * Get the public archived threads in this channel
