@@ -298,6 +298,7 @@ import fetch from "./fetch";
 import garbageCollect from "./garbageCollect";
 import getFetchQueue from "./getFetchQueue";
 import hasPermission from "./hasPermission";
+import releaseEvents from "./releaseEvents";
 
 /**
  * Client Data
@@ -347,6 +348,14 @@ export interface ClientData {
      * How the client should cache objects
      */
     cacheStrategies?: CacheStrategies;
+
+    /**
+     * Hold Events
+     *
+     * Hold all events, except for the `ready` event
+     * For more information, check out the [Holding Events Guide](https://aeracord.apixel.me/guides/holding-events)
+     */
+    holdEvents?: HoldEventsType;
 }
 
 /**
@@ -457,6 +466,16 @@ export interface ClientActivity {
  * The types of client activities
  */
 export type ClientActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_WATCHING | typeof ACTIVITY_TYPE_COMPETING;
+
+/**
+ * Hold Events Type
+ *
+ * The options for holding events
+ */
+export type HoldEventsType = typeof HOLD_EVENTS_TYPE_NONE | typeof HOLD_EVENTS_TYPE_EMIT | typeof HOLD_EVENTS_TYPE_DISCARD;
+export const HOLD_EVENTS_TYPE_NONE = 0;
+export const HOLD_EVENTS_TYPE_EMIT = 1;
+export const HOLD_EVENTS_TYPE_DISCARD = 2;
 
 /**
  * Event Queue Event
@@ -1013,6 +1032,16 @@ export default class Client extends EventEmitter {
     _cacheStrategies: CacheStrategies;
 
     /**
+     * Hold Events
+     *
+     * Hold all events, except for the `ready` event
+     * https://aeracord.apixel.me/guides/holding-events
+     *
+     * @private
+     */
+    _holdEvents: HoldEventsType;
+
+    /**
      * Guild Owners
      *
      * A map of guild IDs to the guild's owner's IDs
@@ -1446,6 +1475,7 @@ export default class Client extends EventEmitter {
         this._initialCommands = clientData.initialCommands;
         Object.defineProperty(this, "_fetchQueues", { value: new Map() });
         this._cacheStrategies = clientData.cacheStrategies || {};
+        this._holdEvents = clientData.holdEvents || HOLD_EVENTS_TYPE_NONE;
         Object.defineProperty(this, "_guildOwners", { value: new Map() });
         Object.defineProperty(this, "_guildRoles", { value: new Map() });
         Object.defineProperty(this, "_guildChannels", { value: new Map() });
@@ -1637,6 +1667,16 @@ export default class Client extends EventEmitter {
      */
     _garbageCollect() {
         garbageCollect(this);
+    }
+
+    /**
+     * Release Events
+     *
+     * Release held events
+     * For more information, check out the [Holding Events Guide](https://aeracord.apixel.me/guides/holding-events)
+     */
+    releaseEvents() {
+        releaseEvents(this);
     }
 
     /**
