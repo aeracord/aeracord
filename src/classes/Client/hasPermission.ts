@@ -19,7 +19,9 @@ export default function hasPermission(client: Client, permission: PermissionsRes
 
         // Get channel permissions data
         const channelIDData: ChannelPermissionData | undefined = client._channelPermissions.get(guildOrChannel);
-        if (!channelIDData) throw new Error("Invalid guild or channel ID");
+
+        // If there isnt any channel data, assume its a DM channel
+        if (!channelIDData) return true;
 
         // Check channel permissions cache for channel ID
         channelID = guildOrChannel;
