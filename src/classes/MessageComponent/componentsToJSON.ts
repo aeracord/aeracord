@@ -17,7 +17,7 @@ export default function componentsToJSON(components: Component[]): object {
             style: c.style,
             label: c.label.toString(),
             emoji: c.emoji && (/^[0-9]+$/.test(c.emoji) ? { id: c.emoji } : { name: c.emoji }),
-            custom_id: c.customID.toString(),
+            custom_id: c.customID?.toString(),
             url: c.url,
             disabled: c.disabled
         };

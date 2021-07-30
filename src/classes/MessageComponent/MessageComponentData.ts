@@ -115,7 +115,7 @@ export interface ButtonComponent {
      *
      * The button's custom ID
      */
-    customID: string | number | boolean;
+    customID?: string | number | boolean;
 
     /**
      * URL
