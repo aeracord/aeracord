@@ -17,6 +17,7 @@ export interface CacheStrategies {
     messages?: CacheStrategy<InitialCacheTypeMessages>;
     presences?: CacheStrategy<InitialCacheTypeIDs>;
     roles?: CacheStrategy<InitialCacheTypeGuilds>;
+    stickers?: CacheStrategy<InitialCacheTypeGuilds>;
     templates?: CacheStrategy<InitialCacheTypeGuilds>;
     threads?: CacheStrategy<InitialCacheTypeChannels, true>;
     threadMembers?: CacheStrategy<undefined>;

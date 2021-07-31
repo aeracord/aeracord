@@ -3,7 +3,7 @@ import { UserData } from "../../internal";
 /**
  * Sticker Data
  *
- * Represents a `Sticker`
+ * Represents an `Sticker`
  */
 export interface StickerData {
 
@@ -40,8 +40,16 @@ export interface StickerData {
      * Pack ID
      *
      * The ID of the pack this sticker is a part of
+     * `null` for guild stickers
      */
     packID: string | null;
+
+    /**
+     * Type
+     *
+     * The sticker's type
+     */
+    type: StickerType;
 
     /**
      * Tags
@@ -79,11 +87,26 @@ export interface StickerData {
      * The sticker's sort value
      */
     sortValue: number | null;
+
+    /**
+     * Fetched At
+     *
+     * The timestamp for when this emoji was fetched
+     */
+    fetchedAt: number;
 }
 
 /**
+ * Sticker Type
+ * https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-types
+ */
+export type StickerType = typeof STICKER_TYPE_STANDARD | typeof STICKER_TYPE_GUILD;
+export const STICKER_TYPE_STANDARD = 1;
+export const STICKER_TYPE_GUILD = 2;
+
+/**
  * Sticker Format Type
- * https://discord.com/developers/docs/resources/channel#message-object-message-sticker-format-types
+ * https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-format-types
  */
 export type StickerFormatType = typeof STICKER_FORMAT_TYPE_PNG | typeof STICKER_FORMAT_TYPE_APNG | typeof STICKER_FORMAT_TYPE_LOTTIE;
 export const STICKER_FORMAT_TYPE_PNG = 1;

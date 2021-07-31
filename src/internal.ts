@@ -418,7 +418,8 @@ export * from "./classes/StageInstance/StageInstanceData";
 
 // Sticker
 export {
-    default as Sticker
+    default as Sticker,
+    StickerResolvable
 } from "./classes/Sticker/Sticker";
 export * from "./classes/Sticker/RawStickerData";
 export * from "./classes/Sticker/StickerData";

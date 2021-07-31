@@ -9,10 +9,12 @@ export default function dataFromRawData(rawData: RawStickerData): StickerData {
         name: rawData.name,
         description: rawData.description,
         packID: rawData.pack_id || null,
+        type: rawData.type,
         tags: rawData.tags,
         formatType: rawData.format_type,
         available: Boolean(rawData.available),
         creator: rawData.user ? User._dataFromRawData(rawData.user) : null,
-        sortValue: rawData.sort_value === undefined ? null : rawData.sort_value
+        sortValue: rawData.sort_value === undefined ? null : rawData.sort_value,
+        fetchedAt: Date.now()
     };
 }

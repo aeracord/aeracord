@@ -562,7 +562,11 @@ export {
     StickerFormatType,
     STICKER_FORMAT_TYPE_APNG,
     STICKER_FORMAT_TYPE_LOTTIE,
-    STICKER_FORMAT_TYPE_PNG
+    STICKER_FORMAT_TYPE_PNG,
+    StickerResolvable,
+    StickerType,
+    STICKER_TYPE_GUILD,
+    STICKER_TYPE_STANDARD
 } from "./internal";
 
 // Store Channel

@@ -136,6 +136,7 @@ import {
     StageInstance,
     StartThreadData,
     Status,
+    Sticker,
     Template,
     TemplateResolvable,
     TextBasedChannelEventOptions,
@@ -1249,6 +1250,15 @@ export default class Client extends EventEmitter {
     _roles: CacheManager<Role>;
 
     /**
+     * Stickers
+     *
+     * The internal cache of stickers
+     *
+     * @private
+     */
+    _stickers: CacheManager<Sticker>;
+
+    /**
      * Templates
      *
      * The internal cache of templates
@@ -1403,6 +1413,13 @@ export default class Client extends EventEmitter {
     roles: CacheInterface<Role, false>;
 
     /**
+     * Stickers
+     *
+     * The cache of stickers
+     */
+    stickers: CacheInterface<Sticker, false>;
+
+    /**
      * Templates
      *
      * The cache of templates
@@ -1499,6 +1516,7 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "_messages", { value: new CacheManager<Message>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.messages)) });
         Object.defineProperty(this, "_presences", { value: new CacheManager<Presence>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.presences)) });
         Object.defineProperty(this, "_roles", { value: new CacheManager<Role>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.roles)) });
+        Object.defineProperty(this, "_stickers", { value: new CacheManager<Sticker>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.stickers)) });
         Object.defineProperty(this, "_templates", { value: new CacheManager<Template>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.templates)) });
         Object.defineProperty(this, "_threads", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.threads)) });
         Object.defineProperty(this, "_threadMembers", { value: new MemberCacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.threadMembers)) });
@@ -1575,6 +1593,11 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "roles", {
             value: new CacheInterface<Role, false>(this, {
                 cacheManager: this._roles
+            })
+        });
+        Object.defineProperty(this, "stickers", {
+            value: new CacheInterface<Sticker, false>(this, {
+                cacheManager: this._stickers
             })
         });
         Object.defineProperty(this, "templates", {

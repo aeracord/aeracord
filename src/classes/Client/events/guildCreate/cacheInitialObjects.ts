@@ -1,4 +1,4 @@
-import { AnyChannelData, Ban, Channel, Client, Command, CommandPermissions, Emoji, EmojiData, GuildCreateData, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, Member, MemberData, Message, Presence, PresenceData, Role, RoleData, Template, ThreadChannelData, User, VanityInvite, Webhook } from "../../../../internal";
+import { AnyChannelData, Ban, Channel, Client, Command, CommandPermissions, Emoji, EmojiData, GuildCreateData, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, Member, MemberData, Message, Presence, PresenceData, Role, RoleData, Sticker, StickerData, Template, ThreadChannelData, User, VanityInvite, Webhook } from "../../../../internal";
 
 /**
  * Cache Initial Objects
@@ -376,6 +376,35 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
 
             // Loop through roles
             guildCreateData.guild.roleData.filter((r: RoleData) => (client._cacheStrategies.roles?.initialCache as InitialCacheTypeGuilds).ids?.includes(r.id)).forEach((r: RoleData) => Role.fromData(client, r).cache());
+        }
+    }
+
+    // Create sticker objects
+    if (client._cacheStrategies.stickers?.initialCache) {
+
+        // Cache all stickers from this guild
+        if (
+
+            // If the initial cache is `true`, all stickers should be cached
+            client._cacheStrategies.stickers.initialCache === true ||
+
+            // Or the guild ID is in the array
+            client._cacheStrategies.stickers.initialCache.guilds?.includes(guildCreateData.guild.id)
+        ) {
+
+            // Loop through stickers
+            guildCreateData.guild.stickerData?.forEach((s: StickerData) => Sticker.fromData(client, s).cache());
+        }
+
+        // Cache specific stickers
+        else if (
+
+            // If the initial cache has sticker IDs
+            client._cacheStrategies.stickers.initialCache.ids
+        ) {
+
+            // Loop through stickers
+            guildCreateData.guild.stickerData?.filter((e: StickerData) => (client._cacheStrategies.stickers?.initialCache as InitialCacheTypeGuilds).ids?.includes(e.id)).forEach((s: StickerData) => Sticker.fromData(client, s).cache());
         }
     }
 

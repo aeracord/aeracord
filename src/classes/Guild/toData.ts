@@ -39,6 +39,7 @@ export default function toData(guild: Guild): GuildData {
         approximatePresenceCount: guild.approximatePresenceCount,
         welcomeScreen: guild.welcomeScreen && WelcomeScreen.toData(guild.welcomeScreen),
         nsfwLevel: guild.nsfwLevel,
+        stickerData: guild.stickerData,
         fetchedAt: guild._lastUpdatedAt
     };
 }

@@ -1,4 +1,4 @@
-import { Client, Emoji, GuildData, GuildWidget, RawEmojiData, RawGuildData, RawRoleData, Role, WelcomeScreen } from "../../internal";
+import { Client, Emoji, GuildData, GuildWidget, RawEmojiData, RawGuildData, RawRoleData, RawStickerData, Role, Sticker, WelcomeScreen } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawGuildData): GuildData {
 
@@ -42,6 +42,7 @@ export default function dataFromRawData(client: Client, rawData: RawGuildData): 
         approximatePresenceCount: rawData.approximate_presence_count,
         welcomeScreen: rawData.welcome_screen ? WelcomeScreen._dataFromRawData(rawData.welcome_screen, rawData.id) : null,
         nsfwLevel: rawData.nsfw_level,
+        stickerData: rawData.stickers && rawData.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(s)),
         fetchedAt: Date.now()
     };
 }

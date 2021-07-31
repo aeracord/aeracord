@@ -1,4 +1,4 @@
-import { RawUserData, StickerFormatType } from "../../internal";
+import { RawUserData, StickerFormatType, StickerType } from "../../internal";
 
 export interface RawStickerData {
     id: string;
@@ -6,6 +6,7 @@ export interface RawStickerData {
     name: string;
     description: string;
     pack_id?: string;
+    type: StickerType;
     tags: string;
     format_type: StickerFormatType;
     available?: boolean;

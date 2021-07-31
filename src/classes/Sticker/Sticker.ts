@@ -1,23 +1,19 @@
-import { Client, RawStickerData, StickerData, StickerFormatType, User } from "../../internal";
+import { Base, Client, RawStickerData, READY_STATE_READY, StickerData, StickerFormatType, StickerType, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
+import resolveID from "./resolveID";
 import toData from "./toData";
+import updateObject from "./updateObject";
+import updateObjectFromData from "./updateObjectFromData";
 
-export default class Sticker {
+/**
+ * Sticker Resolvable
+ *
+ * The types that can be resolved to a sticker
+ */
+export type StickerResolvable = Sticker | StickerData | string;
 
-    /**
-     * Client
-     *
-     * The client
-     */
-    client: Client;
-
-    /**
-     * ID
-     *
-     * The sticker's ID
-     */
-    id: string;
+export default class Sticker extends Base<Sticker> {
 
     /**
      * Guild ID
@@ -45,8 +41,16 @@ export default class Sticker {
      * Pack ID
      *
      * The ID of the pack this sticker is a part of
+     * `null` for guild stickers
      */
     packID: string | null;
+
+    /**
+     * Type
+     *
+     * The sticker's type
+     */
+    type: StickerType;
 
     /**
      * Tags
@@ -95,6 +99,7 @@ export default class Sticker {
      * @param stickerData.name The sticker's name
      * @param stickerData.description The sticker's description
      * @param stickerData.packID The ID of the pack this sticker is a part of
+     * @param stickerData.type The sticker's type
      * @param stickerData.tags The sticker's tags
      * @param stickerData.formatType The sticker's format type
      * @param stickerData.available Whether or not this sticker is available
@@ -103,18 +108,22 @@ export default class Sticker {
      */
     constructor(client: Client, stickerData: StickerData) {
 
+        // Super
+        super(client, {
+            id: stickerData.id,
+            cacheManager: client._stickers
+        });
+
         // Set data
-        Object.defineProperty(this, "client", { value: client });
-        this.id = stickerData.id;
-        this.guildID = stickerData.guildID;
-        this.name = stickerData.name;
-        this.description = stickerData.description;
-        this.packID = stickerData.packID;
-        this.tags = stickerData.tags;
-        this.formatType = stickerData.formatType;
-        this.available = stickerData.available;
-        this.creator = stickerData.creator && User.fromData(this.client, stickerData.creator);
-        this.sortValue = stickerData.sortValue;
+        Sticker._updateObject(this, stickerData);
+
+        /**
+         * Cache Sticker
+         *
+         * If we need to cache all stickers and the clients ready state is `READY`
+         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
+         */
+        if ((client._stickers.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
     }
 
     /**
@@ -171,5 +180,59 @@ export default class Sticker {
      */
     static toData(sticker: Sticker): StickerData {
         return toData(sticker);
+    }
+
+    /**
+     * Resolve ID
+     *
+     * Resolve an object to a sticker ID
+     *
+     * @param stickerResolvable The sticker resolvable
+     *
+     * @returns {string | undefined} The resolved sticker ID, or `undefined` if the sticker resolvable is invalid
+     */
+    static resolveID(stickerResolvable: StickerResolvable): string | undefined {
+        return resolveID(stickerResolvable);
+    }
+
+    /**
+     * Update Object
+     *
+     * Update the `Sticker` object with data from a `StickerData` object
+     *
+     * @private
+     * @param sticker The sticker to update
+     * @param stickerData The data to update this sticker with
+     */
+    static _updateObject(sticker: Sticker, stickerData: StickerData) {
+        updateObject(sticker, stickerData);
+    }
+
+    /**
+     * Update Object From Data
+     *
+     * Update the `Sticker` object with data from a `StickerData` object if it's cached
+     *
+     * @private
+     * @param client The client
+     * @param stickerData The sticker data
+     *
+     * @returns {Sticker | undefined} The sticker
+     */
+    static _updateObjectFromData(client: Client, stickerData: StickerData): Sticker | undefined {
+        return updateObjectFromData(client, stickerData);
+    }
+
+    /**
+     * Cache
+     *
+     * Cache this `Sticker`
+     *
+     * @param expiresIn The amount of time for when this object can be garbage collected
+     * `null` if it should never expire from cache
+     * `undefined` to use the cache manager's default
+     */
+    cache(expiresIn?: number | null) {
+        this.client._stickers.cache(this.id, this, expiresIn);
     }
 }

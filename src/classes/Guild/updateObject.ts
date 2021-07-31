@@ -43,6 +43,7 @@ export default function updateObject(guild: Guild, guildData: GuildData) {
     guild.approximatePresenceCount = guildData.approximatePresenceCount;
     guild.welcomeScreen = guildData.welcomeScreen && WelcomeScreen.fromData(guild.client, guildData.welcomeScreen);
     guild.nsfwLevel = guildData.nsfwLevel;
+    if (guildData.stickerData) guild.stickerData = guildData.stickerData;
     guild._lastUpdatedAt = Date.now();
 
     // Set guild owner

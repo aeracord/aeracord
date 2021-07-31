@@ -1,4 +1,4 @@
-import { EmojiData, GuildWidgetData, RoleData, WelcomeScreenData } from "../../internal";
+import { EmojiData, GuildWidgetData, RoleData, StickerData, WelcomeScreenData } from "../../internal";
 
 /**
  * Guild Data
@@ -251,6 +251,13 @@ export interface GuildData {
      * The guild's NSFW level
      */
     nsfwLevel: NSFWLevel;
+
+    /**
+     * Stickers
+     *
+     * The stickers in this guild
+     */
+    stickerData?: StickerData[];
 
     /**
      * Fetched At

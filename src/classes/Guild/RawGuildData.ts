@@ -1,4 +1,4 @@
-import { DefaultMessageNotifications, ExplicitContentFilter, Feature, MFALevel, NSFWLevel, PremiumTier, RawEmojiData, RawRoleData, RawWelcomeScreenData, VerificationLevel } from "../../internal";
+import { DefaultMessageNotifications, ExplicitContentFilter, Feature, MFALevel, NSFWLevel, PremiumTier, RawEmojiData, RawRoleData, RawStickerData, RawWelcomeScreenData, VerificationLevel } from "../../internal";
 
 export interface RawGuildData {
     id: string;
@@ -37,4 +37,5 @@ export interface RawGuildData {
     approximate_presence_count?: number;
     welcome_screen?: RawWelcomeScreenData;
     nsfw_level: NSFWLevel;
+    stickers?: RawStickerData[];
 }
