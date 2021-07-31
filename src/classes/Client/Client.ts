@@ -137,6 +137,7 @@ import {
     StartThreadData,
     Status,
     Sticker,
+    StickerResolvable,
     Template,
     TemplateResolvable,
     TextBasedChannelEventOptions,
@@ -254,6 +255,7 @@ import getOriginalInteractionResponse from "./apiMethods/getOriginalInteractionR
 import getPinnedMessages from "./apiMethods/getPinnedMessages";
 import getReactions from "./apiMethods/getReactions";
 import getStageInstance from "./apiMethods/getStageInstance";
+import getSticker from "./apiMethods/getSticker";
 import getTemplate from "./apiMethods/getTemplate";
 import getUser from "./apiMethods/getUser";
 import getWebhook from "./apiMethods/getWebhook";
@@ -1417,7 +1419,7 @@ export default class Client extends EventEmitter {
      *
      * The cache of stickers
      */
-    stickers: CacheInterface<Sticker, false>;
+    stickers: CacheInterface<Sticker>;
 
     /**
      * Templates
@@ -1596,8 +1598,9 @@ export default class Client extends EventEmitter {
             })
         });
         Object.defineProperty(this, "stickers", {
-            value: new CacheInterface<Sticker, false>(this, {
-                cacheManager: this._stickers
+            value: new CacheInterface<Sticker>(this, {
+                cacheManager: this._stickers,
+                fetchObject: async (id: string): Promise<Sticker | undefined> => await this.getSticker(id)
             })
         });
         Object.defineProperty(this, "templates", {
@@ -2978,6 +2981,19 @@ export default class Client extends EventEmitter {
      */
     getStageInstance(channel: ChannelResolvable): Promise<StageInstance | undefined> {
         return getStageInstance(this, channel);
+    }
+
+    /**
+     * Get Sticker
+     *
+     * Get a sticker
+     *
+     * @param sticker The sticker to get
+     *
+     * @returns {Promise<Sticker>} The sticker
+     */
+    getSticker(sticker: StickerResolvable): Promise<Sticker | undefined> {
+        return getSticker(this, sticker);
     }
 
     /**
