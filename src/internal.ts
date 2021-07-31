@@ -160,6 +160,7 @@ export * from "./classes/Client/apiMethods/modifyWebhook";
 export * from "./classes/Client/apiMethods/searchGuildMembers";
 export * from "./classes/Client/apiMethods/startPublicThread";
 export * from "./classes/Client/apiMethods/listActiveThreads";
+export * from "./classes/Client/apiMethods/listNitroStickerPacks";
 export * from "./classes/Client/apiMethods/updateStageInstance";
 
 // Client: Cache Strategies

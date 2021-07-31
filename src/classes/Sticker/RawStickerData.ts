@@ -13,3 +13,13 @@ export interface RawStickerData {
     user?: RawUserData;
     sort_value?: number;
 }
+
+export interface RawStickerPackData {
+    id: string;
+    name: string;
+    description: string;
+    stickers: RawStickerData[];
+    cover_sticker_id?: string;
+    banner_asset_id: string;
+    sku_id: string;
+}

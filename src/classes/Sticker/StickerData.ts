@@ -112,3 +112,60 @@ export type StickerFormatType = typeof STICKER_FORMAT_TYPE_PNG | typeof STICKER_
 export const STICKER_FORMAT_TYPE_PNG = 1;
 export const STICKER_FORMAT_TYPE_APNG = 2;
 export const STICKER_FORMAT_TYPE_LOTTIE = 3;
+
+/**
+ * Sticker Pack
+ *
+ * A sticker pack
+ */
+export interface StickerPack {
+
+    /**
+     * ID
+     *
+     * The sticker pack's ID
+     */
+    id: string;
+
+    /**
+     * Name
+     *
+     * The sticker pack's name
+     */
+    name: string;
+
+    /**
+     * Description
+     *
+     * The sticker pack's description
+     */
+    description: string;
+
+    /**
+     * Stickers
+     *
+     * The stickers in this sticker pack
+     */
+    stickers: StickerData[];
+
+    /**
+     * Cover Sticker ID
+     *
+     * The ID of the sticker that's used for this sticker pack's cover
+     */
+    coverStickerID: string | null;
+
+    /**
+     * Banner Asset ID
+     *
+     * The ID of the sticker pack's banner
+     */
+    bannerAssetID: string;
+
+    /**
+     * SKU ID
+     *
+     * The ID of the sticker pack's SKU
+     */
+    skuID: string;
+}

@@ -90,6 +90,7 @@ import {
     InviteResolvable,
     ListArchivedThreadsData,
     ListGuildMembersData,
+    ListStickerPacksData,
     Member,
     MemberCacheInterface,
     MemberCacheManager,
@@ -267,6 +268,7 @@ import listActiveThreads from "./apiMethods/listActiveThreads";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
 import listJoinedPrivateArchivedThreads from "./apiMethods/listJoinedPrivateArchivedThreads";
+import listNitroStickerPacks from "./apiMethods/listNitroStickerPacks";
 import listPrivateArchivedThreads from "./apiMethods/listPrivateArchivedThreads";
 import listPublicArchivedThreads from "./apiMethods/listPublicArchivedThreads";
 import listThreadMembers from "./apiMethods/listThreadMembers";
@@ -3164,6 +3166,17 @@ export default class Client extends EventEmitter {
      */
     listPublicArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ThreadListData> {
         return listPublicArchivedThreads(this, channel, listArchivedThreadsData);
+    }
+
+    /**
+     * List Nitro Sticker Packs
+     *
+     * Get all Nitro sticker packs
+     *
+     * @returns {Promise<ListStickerPacksData>} Data about the list of sticker packs
+     */
+    listNitroStickerPacks(): Promise<ListStickerPacksData> {
+        return listNitroStickerPacks(this);
     }
 
     /**
