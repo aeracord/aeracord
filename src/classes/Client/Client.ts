@@ -245,6 +245,7 @@ import getGuildInvites from "./apiMethods/getGuildInvites";
 import getGuildMember from "./apiMethods/getGuildMember";
 import getGuildPreview from "./apiMethods/getGuildPreview";
 import getGuildRoles from "./apiMethods/getGuildRoles";
+import getGuildSticker from "./apiMethods/getGuildSticker";
 import getGuildTemplates from "./apiMethods/getGuildTemplates";
 import getGuildVanityURL from "./apiMethods/getGuildVanityURL";
 import getGuildVoiceRegions from "./apiMethods/getGuildVoiceRegions";
@@ -2836,6 +2837,20 @@ export default class Client extends EventEmitter {
      */
     getGuildRoles(guild: GuildResolvable): Promise<Role[]> {
         return getGuildRoles(this, guild);
+    }
+
+    /**
+     * Get Guild Sticker
+     *
+     * Get a guild's sticker
+     *
+     * @param guild The guild to get the sticker from
+     * @param sticker The sticker to get
+     *
+     * @returns {Promise<Sticker>} The sticker
+     */
+    getGuildSticker(guild: GuildResolvable, sticker: StickerResolvable): Promise<Sticker | undefined> {
+        return getGuildSticker(this, guild, sticker);
     }
 
     /**
