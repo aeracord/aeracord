@@ -211,6 +211,7 @@ export {
     CreateGuildEmojiData,
     CreateGuildFromTemplateData,
     CreateGuildRoleData,
+    CreateGuildStickerData,
     CreateGuildTemplateData,
     CreateInteractionMessageData,
     CreateInteractionResponseData,

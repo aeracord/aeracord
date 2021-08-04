@@ -37,6 +37,7 @@ import {
     CreateGuildEmojiData,
     CreateGuildFromTemplateData,
     CreateGuildRoleData,
+    CreateGuildStickerData,
     CreateGuildTemplateData,
     CreateInteractionMessageData,
     CreateInteractionResponseData,
@@ -185,6 +186,7 @@ import createGuildCommand from "./apiMethods/createGuildCommand";
 import createGuildEmoji from "./apiMethods/createGuildEmoji";
 import createGuildFromTemplate from "./apiMethods/createGuildFromTemplate";
 import createGuildRole from "./apiMethods/createGuildRole";
+import createGuildSticker from "./apiMethods/createGuildSticker";
 import createGuildTemplate from "./apiMethods/createGuildTemplate";
 import createInteractionResponse from "./apiMethods/createInteractionResponse";
 import createMessage from "./apiMethods/createMessage";
@@ -2036,6 +2038,21 @@ export default class Client extends EventEmitter {
      */
     createGuildRole(guild: GuildResolvable, createGuildRoleData: CreateGuildRoleData, reason?: string): Promise<Role> {
         return createGuildRole(this, guild, createGuildRoleData, reason);
+    }
+
+    /**
+     * Create Guild Sticker
+     *
+     * Create a sticker
+     *
+     * @param guild The guild to create a sticker in
+     * @param createGuildStickerData The data for the sticker
+     * @param reason The reason for creating the sticker
+     *
+     * @returns {Promise<Sticker>} The created sticker
+     */
+    createGuildSticker(guild: GuildResolvable, createGuildStickerData: CreateGuildStickerData, reason?: string): Promise<Sticker> {
+        return createGuildSticker(this, guild, createGuildStickerData, reason);
     }
 
     /**

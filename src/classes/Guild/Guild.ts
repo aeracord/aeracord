@@ -1,4 +1,4 @@
-import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberCacheInterface, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, Sticker, StickerData, StickerResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildStickerData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberCacheInterface, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, Sticker, StickerData, StickerResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -741,6 +741,20 @@ export default class Guild extends Base<Guild> {
      */
     createRole(createGuildRoleData: CreateGuildRoleData, reason?: string): Promise<Role> {
         return this.client.createGuildRole(this, createGuildRoleData, reason);
+    }
+
+    /**
+     * Create Sticker
+     *
+     * Create a sticker in this guild
+     *
+     * @param createGuildStickerData The data for the sticker
+     * @param reason The reason for creating the sticker
+     *
+     * @returns {Promise<Sticker>} The created sticker
+     */
+    createSticker(createGuildStickerData: CreateGuildStickerData, reason?: string): Promise<Sticker> {
+        return this.client.createGuildSticker(this, createGuildStickerData, reason);
     }
 
     /**

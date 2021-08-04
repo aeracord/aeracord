@@ -122,6 +122,7 @@ export * from "./classes/Client/apiMethods/createGuildChannel";
 export * from "./classes/Client/apiMethods/createGuildEmoji";
 export * from "./classes/Client/apiMethods/createGuildFromTemplate";
 export * from "./classes/Client/apiMethods/createGuildRole";
+export * from "./classes/Client/apiMethods/createGuildSticker";
 export * from "./classes/Client/apiMethods/createGuildTemplate";
 export * from "./classes/Client/apiMethods/createInteractionResponse";
 export * from "./classes/Client/apiMethods/createMessage";
