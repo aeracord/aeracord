@@ -116,6 +116,7 @@ import {
     ModifyGuildMemberData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
+    ModifyGuildStickerData,
     ModifyGuildTemplateData,
     ModifyGuildWelcomeScreenData,
     ModifyGuildWidgetData,
@@ -285,6 +286,7 @@ import modifyGuildEmoji from "./apiMethods/modifyGuildEmoji";
 import modifyGuildMember from "./apiMethods/modifyGuildMember";
 import modifyGuildRole from "./apiMethods/modifyGuildRole";
 import modifyGuildRolePositions from "./apiMethods/modifyGuildRolePositions";
+import modifyGuildSticker from "./apiMethods/modifyGuildSticker";
 import modifyGuildTemplate from "./apiMethods/modifyGuildTemplate";
 import modifyGuildWelcomeScreen from "./apiMethods/modifyGuildWelcomeScreen";
 import modifyGuildWidget from "./apiMethods/modifyGuildWidget";
@@ -3364,6 +3366,22 @@ export default class Client extends EventEmitter {
      */
     modifyGuildRolePositions(guild: GuildResolvable, modifyGuildRolePositionsData: ModifyGuildRolePositionsData[]): Promise<Role[]> {
         return modifyGuildRolePositions(this, guild, modifyGuildRolePositionsData);
+    }
+
+    /**
+     * Modify Guild Sticker
+     *
+     * Modify a sticker
+     *
+     * @param guild The guild to modify the sticker in
+     * @param sticker The sticker to modify
+     * @param modifyGuildStickerData The data to modify the sticker
+     * @param reason The reason for modifying the sticker
+     *
+     * @returns {Promise<Sticker>} The modified sticker
+     */
+    modifyGuildSticker(guild: GuildResolvable, sticker: StickerResolvable, modifyGuildStickerData: ModifyGuildStickerData, reason?: string): Promise<Sticker> {
+        return modifyGuildSticker(this, guild, sticker, modifyGuildStickerData, reason);
     }
 
     /**

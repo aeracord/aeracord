@@ -253,6 +253,7 @@ export {
     ModifyGuildMemberData,
     ModifyGuildRoleData,
     ModifyGuildRolePositionsData,
+    ModifyGuildStickerData,
     ModifyGuildTemplateData,
     ModifyGuildWelcomeScreenData,
     ModifyGuildWidgetData,

@@ -1,4 +1,4 @@
-import { Base, Client, RawStickerData, READY_STATE_READY, StickerData, StickerFormatType, StickerType, User } from "../../internal";
+import { Base, Client, ModifyGuildStickerData, RawStickerData, READY_STATE_READY, StickerData, StickerFormatType, StickerType, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -234,5 +234,23 @@ export default class Sticker extends Base<Sticker> {
      */
     cache(expiresIn?: number | null) {
         this.client._stickers.cache(this.id, this, expiresIn);
+    }
+
+    /**
+     * Edit
+     *
+     * Edit this sticker
+     *
+     * @param modifyGuildStickerData The data to modify the sticker
+     * @param reason The reason for modifying this sticker
+     *
+     * @returns {Promise<Sticker>} The modified sticker
+     */
+    edit(modifyGuildStickerData: ModifyGuildStickerData, reason?: string): Promise<Sticker> {
+
+        // Cant edit a nitro sticker
+        if (!this.guildID) throw new Error("Can't edit a Nitro sticker");
+
+        return this.client.modifyGuildSticker(this.guildID, this, modifyGuildStickerData, reason);
     }
 }

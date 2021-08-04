@@ -154,6 +154,7 @@ export * from "./classes/Client/apiMethods/modifyGuildEmoji";
 export * from "./classes/Client/apiMethods/modifyGuildMember";
 export * from "./classes/Client/apiMethods/modifyGuildRole";
 export * from "./classes/Client/apiMethods/modifyGuildRolePositions";
+export * from "./classes/Client/apiMethods/modifyGuildSticker";
 export * from "./classes/Client/apiMethods/modifyGuildTemplate";
 export * from "./classes/Client/apiMethods/modifyGuildWelcomeScreen";
 export * from "./classes/Client/apiMethods/modifyGuildWidget";
