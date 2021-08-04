@@ -205,6 +205,7 @@ import deleteGuild from "./apiMethods/deleteGuild";
 import deleteGuildCommand from "./apiMethods/deleteGuildCommand";
 import deleteGuildEmoji from "./apiMethods/deleteGuildEmoji";
 import deleteGuildRole from "./apiMethods/deleteGuildRole";
+import deleteGuildSticker from "./apiMethods/deleteGuildSticker";
 import deleteGuildTemplate from "./apiMethods/deleteGuildTemplate";
 import deleteInvite from "./apiMethods/deleteInvite";
 import deleteMessage from "./apiMethods/deleteMessage";
@@ -2276,6 +2277,19 @@ export default class Client extends EventEmitter {
      */
     deleteGuildRole(guild: GuildResolvable, role: RoleResolvable, reason?: string): Promise<void> {
         return deleteGuildRole(this, guild, role, reason);
+    }
+
+    /**
+     * Delete Guild Sticker
+     *
+     * Delete a sticker
+     *
+     * @param guild The guild to delete the sticker from
+     * @param sticker The sticker to delete
+     * @param reason The reason for deleting the sticker
+     */
+    deleteGuildSticker(guild: GuildResolvable, sticker: StickerResolvable, reason?: string): Promise<void> {
+        return deleteGuildSticker(this, guild, sticker, reason);
     }
 
     /**

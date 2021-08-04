@@ -253,4 +253,19 @@ export default class Sticker extends Base<Sticker> {
 
         return this.client.modifyGuildSticker(this.guildID, this, modifyGuildStickerData, reason);
     }
+
+    /**
+     * Delete
+     *
+     * Delete this sticker
+     *
+     * @param reason The reason for deleting this sticker
+     */
+    delete(reason?: string): Promise<void> {
+
+        // Cant delete a nitro sticker
+        if (!this.guildID) throw new Error("Can't delete a Nitro sticker");
+
+        return this.client.deleteGuildSticker(this.guildID, this, reason);
+    }
 }

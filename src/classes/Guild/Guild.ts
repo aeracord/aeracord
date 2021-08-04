@@ -815,6 +815,18 @@ export default class Guild extends Base<Guild> {
     }
 
     /**
+     * Delete Sticker
+     *
+     * Delete a sticker from this guild
+     *
+     * @param sticker The sticker to delete
+     * @param reason The reason for deleting the sticker
+     */
+    deleteSticker(sticker: StickerResolvable, reason?: string): Promise<void> {
+        return this.client.deleteGuildSticker(this, sticker, reason);
+    }
+
+    /**
      * Delete Template
      *
      * Delete a template from this guild
