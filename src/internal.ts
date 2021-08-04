@@ -197,6 +197,8 @@ export * from "./classes/Client/events/guildRoleCreate/RawGuildRoleCreateData";
 export * from "./classes/Client/events/guildRoleDelete/GuildRoleDeleteData";
 export * from "./classes/Client/events/guildRoleDelete/RawGuildRoleDeleteData";
 export * from "./classes/Client/events/guildRoleUpdate/RawGuildRoleUpdateData";
+export * from "./classes/Client/events/guildStickersUpdate/GuildStickersUpdateData";
+export * from "./classes/Client/events/guildStickersUpdate/RawGuildStickersUpdateData";
 export * from "./classes/Client/events/inviteCreate/RawInviteCreateData";
 export * from "./classes/Client/events/inviteDelete/InviteDeleteData";
 export * from "./classes/Client/events/inviteDelete/RawInviteDeleteData";

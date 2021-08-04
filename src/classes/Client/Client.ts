@@ -82,6 +82,8 @@ import {
     GuildRoleDeleteData,
     GuildRoleDeleteEventOptions,
     GuildRoleUpdateEventOptions,
+    GuildStickersUpdateData,
+    GuildStickersUpdateEventOptions,
     GuildUpdateEventOptions,
     GuildWidget,
     InteractionResolvable,
@@ -675,6 +677,13 @@ export default interface Client {
      * Emitted when a role is updated
      */
     on(event: "guildRoleUpdate", listener: (role: Role, options: GuildRoleUpdateEventOptions) => void): this;
+
+    /**
+     * Guild Stickers Update
+     *
+     * Emitted when a guild's stickers are updated
+     */
+    on(event: "guildStickersUpdate", listener: (data: GuildStickersUpdateData, options: GuildStickersUpdateEventOptions) => void): this;
 
     /**
      * Guild Unavailable

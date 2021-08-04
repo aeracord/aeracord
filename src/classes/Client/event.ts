@@ -18,6 +18,7 @@ import guildMemberUpdate from "./events/guildMemberUpdate/guildMemberUpdate";
 import guildRoleCreate from "./events/guildRoleCreate/guildRoleCreate";
 import guildRoleDelete from "./events/guildRoleDelete/guildRoleDelete";
 import guildRoleUpdate from "./events/guildRoleUpdate/guildRoleUpdate";
+import guildStickersUpdate from "./events/guildStickersUpdate/guildStickersUpdate";
 import guildUpdate from "./events/guildUpdate/guildUpdate";
 import interactionCreate from "./events/interactionCreate/interactionCreate";
 import inviteCreate from "./events/inviteCreate/inviteCreate";
@@ -150,6 +151,12 @@ export default function event(client: Client, type: string, data: any) {
      * https://discord.com/developers/docs/topics/gateway#guild-emojis-update
      */
     else if (type === "GUILD_EMOJIS_UPDATE") guildEmojisUpdate(client, data);
+
+    /**
+     * Guild Stickers Update
+     * https://discord.com/developers/docs/topics/gateway#guild-stickers-update
+     */
+    else if (type === "GUILD_STICKERS_UPDATE") guildStickersUpdate(client, data);
 
     /**
      * Guild Member Add

@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, Ban, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, PresenceData, Role, RoleData, TextBasedChannel, ThreadChannel, ThreadChannelData, User, UserData } from "../../internal";
+import { AnyChannel, AnyChannelData, Ban, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, PresenceData, Role, RoleData, StickerData, TextBasedChannel, ThreadChannel, ThreadChannelData, User, UserData } from "../../internal";
 
 /**
  * Event Options
@@ -125,6 +125,16 @@ export interface GuildRoleDeleteEventOptions extends EventOptions {
 export interface GuildRoleUpdateEventOptions extends EventOptions {
     guild?: Guild;
     oldRoleData?: RoleData;
+}
+
+/**
+ * Guild Stickers Update Event Options
+ *
+ * Options for extra data sent with guild stickers update events
+ */
+export interface GuildStickersUpdateEventOptions extends EventOptions {
+    guild?: Guild;
+    oldStickersData: StickerData[];
 }
 
 /**
