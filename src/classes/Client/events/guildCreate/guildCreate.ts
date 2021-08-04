@@ -1,4 +1,4 @@
-import { AnyChannelData, Channel, Client, EmojiData, Guild, GuildCreateData, Member, MemberData, Presence, RawChannelData, RawGuildCreateData, RawMemberData, RawPresenceData, RawStageInstanceData, RawVoiceStateData, RoleData, StageInstance, ThreadChannelData, VoiceState } from "../../../../internal";
+import { AnyChannelData, Channel, Client, EmojiData, Guild, GuildCreateData, Member, MemberData, Presence, RawChannelData, RawGuildCreateData, RawMemberData, RawPresenceData, RawStageInstanceData, RawVoiceStateData, RoleData, StageInstance, StickerData, ThreadChannelData, VoiceState } from "../../../../internal";
 import ready from "../ready";
 import cacheInitialObjects from "./cacheInitialObjects";
 
@@ -42,6 +42,9 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
     // Set guild emojis
     client._guildEmojis.set(data.guild.id, data.guild.emojiData.map((e: EmojiData) => e.id));
 
+    // Set guild stickers
+    if (data.guild.stickerData) client._guildStickers.set(data.guild.id, data.guild.stickerData.map((s: StickerData) => s.id));
+
     // Set thread channels
     data.threads.forEach((t: ThreadChannelData) => client._threadChannels.set(t.id, {
         type: t.type,
@@ -57,6 +60,9 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
 
     // Set emoji guilds
     data.guild.emojiData.forEach((e: EmojiData) => client._emojiGuilds.set(e.id, data.guild.id));
+
+    // Set sticker guilds
+    data.guild.stickerData?.forEach((s: StickerData) => client._stickerGuilds.set(s.id, data.guild.id));
 
     // Initial guild create event
     if (client._uninitializedGuilds.has(data.guild.id)) {

@@ -1108,6 +1108,15 @@ export default class Client extends EventEmitter {
     _guildEmojis: Map<string, string[]>;
 
     /**
+     * Guild Stickers
+     *
+     * A map of guild IDs to an array of the guild's sticker IDs
+     *
+     * @private
+     */
+    _guildStickers: Map<string, string[]>;
+
+    /**
      * Role Permissions
      *
      * A map of role IDs to their permission data
@@ -1151,6 +1160,15 @@ export default class Client extends EventEmitter {
      * @private
      */
     _emojiGuilds: Map<string, string>;
+
+    /**
+     * Sticker Guilds
+     *
+     * A map of sticker IDs to the ID of the guild the sticker is in
+     *
+     * @private
+     */
+    _stickerGuilds: Map<string, string>;
 
     /**
      * Commands
@@ -1522,7 +1540,9 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "_threadChannels", { value: new Map() });
         Object.defineProperty(this, "_clientRoles", { value: new Map() });
         Object.defineProperty(this, "_guildEmojis", { value: new Map() });
+        Object.defineProperty(this, "_guildStickers", { value: new Map() });
         Object.defineProperty(this, "_emojiGuilds", { value: new Map() });
+        Object.defineProperty(this, "_stickerGuilds", { value: new Map() });
         Object.defineProperty(this, "_commands", { value: new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.commands)) });
         Object.defineProperty(this, "_commandPermissions", { value: new CacheManager<CommandPermissions>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.commandPermissions)) });
         Object.defineProperty(this, "_bans", { value: new MemberCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.bans)) });

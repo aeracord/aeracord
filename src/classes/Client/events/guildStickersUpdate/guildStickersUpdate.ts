@@ -25,6 +25,18 @@ export default function guildStickersUpdate(client: Client, rawData: RawGuildSti
     const deletedStickers: Sticker[] = [...client.stickers.filter((s: Sticker) => s.guildID === data.guildID && !stickerIDs.includes(s.id)).values()];
     deletedStickers.forEach((s: Sticker) => s._markAsDeleted());
 
+    // Get guild stickers
+    const guildStickers: string[] | undefined = client._guildStickers.get(data.guildID);
+
+    // Remove sticker guilds
+    if (guildStickers) guildStickers.forEach((s: string) => client._stickerGuilds.delete(s));
+
+    // Set sticker guilds
+    stickerIDs.forEach((e: string) => client._stickerGuilds.set(e, data.guildID));
+
+    // Set guild stickers
+    client._guildStickers.set(data.guildID, stickerIDs);
+
     // Emit event
     client.emit("guildStickersUpdate", data, {
         rawData,

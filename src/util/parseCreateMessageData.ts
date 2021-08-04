@@ -48,6 +48,9 @@ export default async function parseCreateMessageData(createMessageData: BaseCrea
         fail_if_not_exists: createMessageData.messageReference.failIfNotExists
     };
 
+    // Stickers
+    if ("stickers" in createMessageData) data.sticker_ids = createMessageData.stickers;
+
     // Embeds
     if ("embeds" in createMessageData) {
 

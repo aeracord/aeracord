@@ -125,6 +125,10 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
         const guildEmojis: string[] | undefined = client._guildEmojis.get(data.id);
         if (guildEmojis) guildEmojis.forEach((e: string) => client._emojiGuilds.delete(e));
 
+        // Remove from sticker guilds
+        const guildStickers: string[] | undefined = client._guildStickers.get(data.id);
+        if (guildStickers) guildStickers.forEach((e: string) => client._stickerGuilds.delete(e));
+
         // Remove from guild roles
         client._guildRoles.delete(data.id);
 
@@ -136,6 +140,9 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
 
         // Remove from guild emojis
         client._guildEmojis.delete(data.id);
+
+        // Remove from guild stickers
+        client._guildStickers.delete(data.id);
 
         // Remove from client roles
         client._clientRoles.delete(data.id);
