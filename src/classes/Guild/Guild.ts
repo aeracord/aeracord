@@ -1071,6 +1071,17 @@ export default class Guild extends Base<Guild> {
     }
 
     /**
+     * Get Stickers
+     *
+     * Get this guild's stickers
+     *
+     * @returns {Promise<Sticker[]>} The stickers
+     */
+    getStickers(): Promise<Sticker[]> {
+        return this.client.listGuildStickers(this);
+    }
+
+    /**
      * Get Vanity URL
      *
      * Get this guild's vanity URL

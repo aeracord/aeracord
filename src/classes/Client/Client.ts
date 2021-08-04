@@ -272,6 +272,7 @@ import leaveThread from "./apiMethods/leaveThread";
 import listActiveThreads from "./apiMethods/listActiveThreads";
 import listGuildEmojis from "./apiMethods/listGuildEmojis";
 import listGuildMembers from "./apiMethods/listGuildMembers";
+import listGuildStickers from "./apiMethods/listGuildStickers";
 import listJoinedPrivateArchivedThreads from "./apiMethods/listJoinedPrivateArchivedThreads";
 import listNitroStickerPacks from "./apiMethods/listNitroStickerPacks";
 import listPrivateArchivedThreads from "./apiMethods/listPrivateArchivedThreads";
@@ -3189,6 +3190,17 @@ export default class Client extends EventEmitter {
     }
 
     /**
+     * List Nitro Sticker Packs
+     *
+     * Get all Nitro sticker packs
+     *
+     * @returns {Promise<ListStickerPacksData>} Data about the list of sticker packs
+     */
+    listNitroStickerPacks(): Promise<ListStickerPacksData> {
+        return listNitroStickerPacks(this);
+    }
+
+    /**
      * List Private Archived Threads
      *
      * Get the private archived threads in a channel
@@ -3217,14 +3229,16 @@ export default class Client extends EventEmitter {
     }
 
     /**
-     * List Nitro Sticker Packs
+     * List Guild Stickers
      *
-     * Get all Nitro sticker packs
+     * Get the stickers in a guild
      *
-     * @returns {Promise<ListStickerPacksData>} Data about the list of sticker packs
+     * @param guild The guild to get the stickers from
+     *
+     * @returns {Promise<Sticker[]>} The stickers
      */
-    listNitroStickerPacks(): Promise<ListStickerPacksData> {
-        return listNitroStickerPacks(this);
+    listGuildStickers(guild: GuildResolvable): Promise<Sticker[]> {
+        return listGuildStickers(this, guild);
     }
 
     /**
