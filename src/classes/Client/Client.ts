@@ -4,6 +4,7 @@ import {
     AnyChannel,
     AnyGuildChannel,
     AnyInteraction,
+    ArchivedThreadListData,
     AuditLog,
     ACTIVITY_TYPE_COMPETING,
     ACTIVITY_TYPE_LISTENING,
@@ -150,7 +151,6 @@ import {
     ThreadChannel,
     ThreadDeleteData,
     ThreadEventOptions,
-    ThreadListData,
     ThreadListSyncData,
     ThreadMember,
     ThreadMembersUpdateData,
@@ -3182,14 +3182,14 @@ export default class Client extends EventEmitter {
     /**
      * List Active Threads
      *
-     * Get the active threads in a channel
+     * Get the active threads in a guild
      *
-     * @param channel The channel to get the threads from
+     * @param guild The guild to get the threads from
      *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
+     * @returns {Promise<ThreadChannel[]>} The thread channels
      */
-    listActiveThreads(channel: ChannelResolvable): Promise<ThreadListData> {
-        return listActiveThreads(this, channel);
+    listActiveThreads(guild: GuildResolvable): Promise<ThreadChannel[]> {
+        return listActiveThreads(this, guild);
     }
 
     /**
@@ -3227,9 +3227,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to get the threads from
      * @param listArchivedThreadsData The data for getting the threads
      *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
+     * @returns {Promise<ArchivedThreadListData>} Data about the list of threads
      */
-    listJoinedPrivateArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ThreadListData> {
+    listJoinedPrivateArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ArchivedThreadListData> {
         return listJoinedPrivateArchivedThreads(this, channel, listArchivedThreadsData);
     }
 
@@ -3252,9 +3252,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to get the threads from
      * @param listArchivedThreadsData The data for getting the threads
      *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
+     * @returns {Promise<ArchivedThreadListData>} Data about the list of threads
      */
-    listPrivateArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ThreadListData> {
+    listPrivateArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ArchivedThreadListData> {
         return listPrivateArchivedThreads(this, channel, listArchivedThreadsData);
     }
 
@@ -3266,9 +3266,9 @@ export default class Client extends EventEmitter {
      * @param channel The channel to get the threads from
      * @param listArchivedThreadsData The data for getting the threads
      *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
+     * @returns {Promise<ArchivedThreadListData>} Data about the list of threads
      */
-    listPublicArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ThreadListData> {
+    listPublicArchivedThreads(channel: ChannelResolvable, listArchivedThreadsData?: ListArchivedThreadsData): Promise<ArchivedThreadListData> {
         return listPublicArchivedThreads(this, channel, listArchivedThreadsData);
     }
 

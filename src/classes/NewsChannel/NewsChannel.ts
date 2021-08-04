@@ -1,4 +1,4 @@
-import { AnyChannel, AnyInteraction, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, ThreadListData, Webhook, WebhookResolvable } from "../../internal";
+import { AnyChannel, AnyInteraction, ArchivedThreadListData, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -175,17 +175,6 @@ class NewsChannel extends GuildChannel {
     }
 
     /**
-     * Get Active Threads
-     *
-     * Get the active threads in this channel
-     *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
-     */
-    getActiveThreads(): Promise<ThreadListData> {
-        return this.client.listActiveThreads(this);
-    }
-
-    /**
      * Get Invites
      *
      * Get this channel's invites
@@ -201,9 +190,9 @@ class NewsChannel extends GuildChannel {
      *
      * Get the private archived threads in this channel that the client has joined
      *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
+     * @returns {Promise<ArchivedThreadListData>} Data about the list of threads
      */
-    getJoinedPrivateArchivedThreads(): Promise<ThreadListData> {
+    getJoinedPrivateArchivedThreads(): Promise<ArchivedThreadListData> {
         return this.client.listJoinedPrivateArchivedThreads(this);
     }
 
@@ -212,9 +201,9 @@ class NewsChannel extends GuildChannel {
      *
      * Get the private archived threads in this channel
      *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
+     * @returns {Promise<ArchivedThreadListData>} Data about the list of threads
      */
-    getPrivateArchivedThreads(): Promise<ThreadListData> {
+    getPrivateArchivedThreads(): Promise<ArchivedThreadListData> {
         return this.client.listPrivateArchivedThreads(this);
     }
 
@@ -223,9 +212,9 @@ class NewsChannel extends GuildChannel {
      *
      * Get the public archived threads in this channel
      *
-     * @returns {Promise<ThreadListData>} Data about the list of threads
+     * @returns {Promise<ArchivedThreadListData>} Data about the list of threads
      */
-    getPublicArchivedThreads(): Promise<ThreadListData> {
+    getPublicArchivedThreads(): Promise<ArchivedThreadListData> {
         return this.client.listPublicArchivedThreads(this);
     }
 

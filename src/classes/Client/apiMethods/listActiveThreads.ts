@@ -1,25 +1,19 @@
-import { Channel, ChannelResolvable, Client, FetchQueue, RawChannelData, RawThreadMemberData, ThreadChannel } from "../../../internal";
+import { Channel, Client, FetchQueue, Guild, GuildResolvable, RawChannelData, RawThreadMemberData, ThreadChannel } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export interface ThreadListData {
-    threads: ThreadChannel[];
-    hasMore: boolean;
-}
-
-export interface RawThreadListData {
+interface RawThreadListData {
     threads: RawChannelData[];
     members: RawThreadMemberData[];
-    has_more: boolean;
 }
 
-export default async function listActiveThreads(client: Client, channelResolvable: ChannelResolvable): Promise<ThreadListData> {
+export default async function listActiveThreads(client: Client, guildResolvable: GuildResolvable): Promise<ThreadChannel[]> {
 
     // Resolve objects
-    const channelID: string | undefined = Channel.resolveID(channelResolvable);
-    if (!channelID) throw new Error("Invalid channel resolvable");
+    const guildID: string | undefined = Guild.resolveID(guildResolvable);
+    if (!guildID) throw new Error("Invalid guild resolvable");
 
     // Define fetch data
-    const path: string = `/channels/${channelID}/threads/active`;
+    const path: string = `/guilds/${guildID}/threads/active`;
     const method: string = "GET";
     const route: string = getRoute(path, method);
 
@@ -39,8 +33,5 @@ export default async function listActiveThreads(client: Client, channelResolvabl
     }) as ThreadChannel);
 
     // Return
-    return {
-        threads,
-        hasMore: result.has_more
-    };
+    return threads;
 }

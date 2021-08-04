@@ -197,6 +197,7 @@ export {
 export {
     AllowedMentionType,
     AllowedMentions,
+    ArchivedThreadListData,
     BulkDeleteMessagesData,
     BulkEditGuildCommandPermissionsData,
     CreateCommandData,
@@ -267,7 +268,6 @@ export {
     PartialGuild,
     SearchGuildMembersData,
     StartThreadData,
-    ThreadListData,
     UpdateStageInstanceData
 } from "./internal";
 

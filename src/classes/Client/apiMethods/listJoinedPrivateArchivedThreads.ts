@@ -1,8 +1,8 @@
 import queryString from "query-string";
-import { Channel, ChannelResolvable, Client, FetchQueue, ListArchivedThreadsData, PermissionError, RawChannelData, RawThreadListData, RawThreadMemberData, ThreadChannel, ThreadListData } from "../../../internal";
+import { ArchivedThreadListData, Channel, ChannelResolvable, Client, FetchQueue, ListArchivedThreadsData, PermissionError, RawArchivedThreadListData, RawChannelData, RawThreadMemberData, ThreadChannel } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
-export default async function listJoinedPrivateArchivedThreads(client: Client, channelResolvable: ChannelResolvable, listArchivedThreadsData: ListArchivedThreadsData = {}): Promise<ThreadListData> {
+export default async function listJoinedPrivateArchivedThreads(client: Client, channelResolvable: ChannelResolvable, listArchivedThreadsData: ListArchivedThreadsData = {}): Promise<ArchivedThreadListData> {
 
     // Resolve objects
     const channelID: string | undefined = Channel.resolveID(channelResolvable);
@@ -23,7 +23,7 @@ export default async function listJoinedPrivateArchivedThreads(client: Client, c
     const fetchQueue: FetchQueue = client._getFetchQueue(route);
 
     // Add to fetch queue
-    const result: RawThreadListData = await fetchQueue.request({
+    const result: RawArchivedThreadListData = await fetchQueue.request({
         path,
         method
     });
