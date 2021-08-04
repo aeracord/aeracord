@@ -45,6 +45,7 @@ export default function resolveBits(permissionsResolvable: PermissionsResolvable
     else if (permissionsResolvable === "MANAGE_THREADS") return BigInt("0x400000000");
     else if (permissionsResolvable === "USE_PUBLIC_THREADS") return BigInt("0x800000000");
     else if (permissionsResolvable === "USE_PRIVATE_THREADS") return BigInt("0x1000000000");
+    else if (permissionsResolvable === "USE_EXTERNAL_STICKERS") return BigInt("0x2000000000");
 
     // String, number, or bigint
     else if ((typeof permissionsResolvable === "string") || (typeof permissionsResolvable === "number") || (typeof permissionsResolvable === "bigint")) return BigInt(permissionsResolvable);

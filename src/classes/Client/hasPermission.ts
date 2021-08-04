@@ -77,6 +77,7 @@ export default function hasPermission(client: Client, permission: PermissionsRes
         else if ((permissionBit === Permissions.resolveBits("MANAGE_THREADS")) && (!checkPermission("VIEW_CHANNEL", rolePermissions, channelPermissionOverwrites))) return false;
         else if ((permissionBit === Permissions.resolveBits("USE_PUBLIC_THREADS")) && (!checkPermission("VIEW_CHANNEL", rolePermissions, channelPermissionOverwrites))) return false;
         else if ((permissionBit === Permissions.resolveBits("USE_PRIVATE_THREADS")) && (!checkPermission("VIEW_CHANNEL", rolePermissions, channelPermissionOverwrites))) return false;
+        else if ((permissionBit === Permissions.resolveBits("USE_EXTERNAL_STICKERS")) && (!checkPermission("VIEW_CHANNEL", rolePermissions, channelPermissionOverwrites))) return false;
 
         // Check permission
         return checkPermission(p, rolePermissions, channelPermissionOverwrites);

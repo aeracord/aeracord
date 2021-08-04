@@ -42,6 +42,7 @@ export default function getAll(permissions: Permissions): Array<bigint> {
     if (permissions.has("MANAGE_THREADS")) permissionBits.push(Permissions.resolveBits("MANAGE_THREADS"));
     if (permissions.has("USE_PUBLIC_THREADS")) permissionBits.push(Permissions.resolveBits("USE_PUBLIC_THREADS"));
     if (permissions.has("USE_PRIVATE_THREADS")) permissionBits.push(Permissions.resolveBits("USE_PRIVATE_THREADS"));
+    if (permissions.has("USE_EXTERNAL_STICKERS")) permissionBits.push(Permissions.resolveBits("USE_EXTERNAL_STICKERS"));
 
     // Return
     return permissionBits;
