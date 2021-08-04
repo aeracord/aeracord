@@ -236,6 +236,7 @@ import getChannelMessages from "./apiMethods/getChannelMessages";
 import getChannelWebhooks from "./apiMethods/getChannelWebhooks";
 import getCurrentUser from "./apiMethods/getCurrentUser";
 import getCurrentUserGuilds from "./apiMethods/getCurrentUserGuilds";
+import getFollowupMessage from "./apiMethods/getFollowupMessage";
 import getGlobalCommand from "./apiMethods/getGlobalCommand";
 import getGlobalCommands from "./apiMethods/getGlobalCommands";
 import getGuild from "./apiMethods/getGuild";
@@ -2700,6 +2701,20 @@ export default class Client extends EventEmitter {
      */
     getCurrentUserGuilds(getCurrentUserGuildsData?: GetCurrentUserGuildsData): Promise<PartialGuild[]> {
         return getCurrentUserGuilds(this, getCurrentUserGuildsData);
+    }
+
+    /**
+     * Get Followup Message
+     *
+     * Get a followup message to an interaction
+     *
+     * @param interactionToken The token for the interaction to get the message for
+     * @param message The message to get
+     *
+     * @returns {Promise<Message>} The message
+     */
+    getFollowupMessage(interactionToken: string, message: MessageResolvable): Promise<Message | undefined> {
+        return getFollowupMessage(this, interactionToken, message);
     }
 
     /**

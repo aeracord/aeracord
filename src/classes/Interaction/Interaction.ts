@@ -326,6 +326,19 @@ export default class Interaction extends Base<AnyInteraction> {
     }
 
     /**
+     * Get Followup Message
+     *
+     * Get a followup message to this interaction
+     *
+     * @param message The message to get
+     *
+     * @returns {Promise<Message>} The message
+     */
+    getFollowupMessage(message: MessageResolvable): Promise<Message | undefined> {
+        return this.client.getFollowupMessage(this.token, message);
+    }
+
+    /**
      * Respond
      *
      * Respond to this interaction
