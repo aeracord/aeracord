@@ -87,5 +87,11 @@ const parseEntryChangeType = (rawType: RawAuditLogDataEntryChangeKey): AuditLogC
     else if (rawType === "expire_behavior") return "expireBehavior";
     else if (rawType === "expire_grace_period") return "expireGracePeriod";
     else if (rawType === "user_limit") return "userLimit";
+    else if (rawType === "privacy_level") return "privacyLevel";
+    else if (rawType === "tags") return "tags";
+    else if (rawType === "format_type") return "formatType";
+    else if (rawType === "asset") return "asset";
+    else if (rawType === "available") return "available";
+    else if (rawType === "guild_id") return "guildID";
     else return rawType;
 };

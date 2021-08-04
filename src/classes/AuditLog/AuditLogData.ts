@@ -120,6 +120,9 @@ export const AUDIT_LOG_EVENT_INTEGRATION_DELETE = 82;
 export const AUDIT_LOG_EVENT_STAGE_INSTANCE_CREATE = 83;
 export const AUDIT_LOG_EVENT_STAGE_INSTANCE_UPDATE = 84;
 export const AUDIT_LOG_EVENT_STAGE_INSTANCE_DELETE = 85;
+export const AUDIT_LOG_EVENT_STICKER_CREATE = 90;
+export const AUDIT_LOG_EVENT_STICKER_UPDATE = 91;
+export const AUDIT_LOG_EVENT_STICKER_DELETE = 92;
 
 /**
  * Audit Log Change
@@ -154,7 +157,7 @@ export interface AuditLogChange {
  * Audit Log Change Type
  * https://discord.com/developers/docs/resources/audit-log#audit-log-change-object-audit-log-change-key
  */
-export type AuditLogChangeType = "name" | "description" | "icon" | "splash" | "discoverySplash" | "banner" | "ownerID" | "region" | "preferredLocale" | "afkChannelID" | "afkTimeout" | "rulesChannelID" | "publicUpdatesChannelID" | "mfaLevel" | "verificationLevel" | "explicitContentFilter" | "defaultMessageNotifications" | "vanityURLCode" | "add" | "remove" | "pruneDeleteDays" | "widgetEnabled" | "widgetChannelID" | "systemChannelID" | "position" | "topic" | "bitrate" | "permissionOverwrites" | "nsfw" | "applicationID" | "rateLimitPerUser" | "permissions" | "color" | "hoist" | "mentionable" | "allow" | "deny" | "code" | "channelID" | "inviterID" | "maxUses" | "uses" | "maxAge" | "temporary" | "deaf" | "mute" | "nick" | "avatar" | "id" | "type" | "enableEmoticons" | "expireBehavior" | "expireGracePeriod" | "userLimit";
+export type AuditLogChangeType = "name" | "description" | "icon" | "splash" | "discoverySplash" | "banner" | "ownerID" | "region" | "preferredLocale" | "afkChannelID" | "afkTimeout" | "rulesChannelID" | "publicUpdatesChannelID" | "mfaLevel" | "verificationLevel" | "explicitContentFilter" | "defaultMessageNotifications" | "vanityURLCode" | "add" | "remove" | "pruneDeleteDays" | "widgetEnabled" | "widgetChannelID" | "systemChannelID" | "position" | "topic" | "bitrate" | "permissionOverwrites" | "nsfw" | "applicationID" | "rateLimitPerUser" | "permissions" | "color" | "hoist" | "mentionable" | "allow" | "deny" | "code" | "channelID" | "inviterID" | "maxUses" | "uses" | "maxAge" | "temporary" | "deaf" | "mute" | "nick" | "avatar" | "id" | "type" | "enableEmoticons" | "expireBehavior" | "expireGracePeriod" | "userLimit" | "privacyLevel" | "tags" | "formatType" | "asset" | "available" | "guildID";
 
 /**
  * Audit Log Options
