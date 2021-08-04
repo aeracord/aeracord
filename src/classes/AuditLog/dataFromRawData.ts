@@ -93,5 +93,9 @@ const parseEntryChangeType = (rawType: RawAuditLogDataEntryChangeKey): AuditLogC
     else if (rawType === "asset") return "asset";
     else if (rawType === "available") return "available";
     else if (rawType === "guild_id") return "guildID";
+    else if (rawType === "archived") return "archived";
+    else if (rawType === "locked") return "locked";
+    else if (rawType === "auto_archive_duration") return "autoArchiveDuration";
+    else if (rawType === "default_auto_archive_duration") return "defaultAutoArchiveDuration";
     else return rawType;
 };
