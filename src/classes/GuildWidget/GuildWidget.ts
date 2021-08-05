@@ -72,7 +72,7 @@ export default class GuildWidget extends Base<GuildWidget> {
      * @returns {GuildWidget} The guild widget
      */
     static _fromRawData(client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidget {
-        return GuildWidget.fromData(client, GuildWidget._dataFromRawData(rawData, guildID));
+        return GuildWidget.fromData(client, GuildWidget._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -86,8 +86,8 @@ export default class GuildWidget extends Base<GuildWidget> {
      *
      * @returns {GuildWidgetData} The guild widget data
      */
-    static _dataFromRawData(rawData: RawGuildWidgetData, guildID: string): GuildWidgetData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawGuildWidgetData, guildID: string): GuildWidgetData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -138,11 +138,9 @@ export default class GuildWidget extends Base<GuildWidget> {
      * @private
      * @param client The client
      * @param guildWidgetData The guild widget data
-     *
-     * @returns {GuildWidget | undefined} The guild widget
      */
-    static _updateObjectFromData(client: Client, guildWidgetData: GuildWidgetData): GuildWidget | undefined {
-        return updateObjectFromData(client, guildWidgetData);
+    static _updateObjectFromData(client: Client, guildWidgetData: GuildWidgetData) {
+        updateObjectFromData(client, guildWidgetData);
     }
 
     /**

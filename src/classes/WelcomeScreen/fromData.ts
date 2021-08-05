@@ -2,8 +2,8 @@ import { Client, WelcomeScreen, WelcomeScreenData } from "../../internal";
 
 export default function fromData(client: Client, welcomeScreenData: WelcomeScreenData): WelcomeScreen {
 
-    // Update cached welcome screen
-    let welcomeScreen: WelcomeScreen | undefined = WelcomeScreen._updateObjectFromData(client, welcomeScreenData);
+    // Get welcome screen from cache
+    let welcomeScreen: WelcomeScreen | undefined = client.welcomeScreens.get(welcomeScreenData.guildID);
 
     // Create welcome screen
     if (!welcomeScreen) welcomeScreen = new WelcomeScreen(client, welcomeScreenData);

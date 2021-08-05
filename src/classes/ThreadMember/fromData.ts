@@ -2,8 +2,8 @@ import { Client, ThreadMember, ThreadMemberData } from "../../internal";
 
 export default function fromData(client: Client, threadMemberData: ThreadMemberData): ThreadMember {
 
-    // Update cached thread member
-    let threadMember: ThreadMember | undefined = ThreadMember._updateObjectFromData(client, threadMemberData);
+    // Get thread member from cache
+    let threadMember: ThreadMember | undefined = client.threadMembers.get(threadMemberData.threadID, threadMemberData.userID);
 
     // Create thread member
     if (!threadMember) threadMember = new ThreadMember(client, threadMemberData);

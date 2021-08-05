@@ -1,9 +1,9 @@
-import { PresenceData, RawPresenceData, RawPresenceDataActivity } from "../../internal";
+import { Client, Presence, PresenceData, RawPresenceData, RawPresenceDataActivity } from "../../internal";
 
-export default function dataFromRawData(rawData: RawPresenceData): PresenceData {
+export default function dataFromRawData(client: Client, rawData: RawPresenceData): PresenceData {
 
     // Parse presence data
-    return {
+    const presenceData: PresenceData = {
         user: {
             id: rawData.user.id,
             username: rawData.user.username,
@@ -56,4 +56,10 @@ export default function dataFromRawData(rawData: RawPresenceData): PresenceData 
         },
         fetchedAt: Date.now()
     };
+
+    // Update cached presence
+    Presence._updateObjectFromData(client, presenceData);
+
+    // Return
+    return presenceData;
 }

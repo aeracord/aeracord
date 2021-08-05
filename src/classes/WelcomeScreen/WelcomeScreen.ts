@@ -72,7 +72,7 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      * @returns {WelcomeScreen} The welcome screen
      */
     static _fromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreen {
-        return WelcomeScreen.fromData(client, WelcomeScreen._dataFromRawData(rawData, guildID));
+        return WelcomeScreen.fromData(client, WelcomeScreen._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -86,8 +86,8 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      *
      * @returns {WelcomeScreenData} The welcome screen data
      */
-    static _dataFromRawData(rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -138,11 +138,9 @@ export default class WelcomeScreen extends Base<WelcomeScreen> {
      * @private
      * @param client The client
      * @param welcomeScreenData The welcome screen data
-     *
-     * @returns {WelcomeScreen | undefined} The welcome screen
      */
-    static _updateObjectFromData(client: Client, welcomeScreenData: WelcomeScreenData): WelcomeScreen | undefined {
-        return updateObjectFromData(client, welcomeScreenData);
+    static _updateObjectFromData(client: Client, welcomeScreenData: WelcomeScreenData) {
+        updateObjectFromData(client, welcomeScreenData);
     }
 
     /**

@@ -1,9 +1,9 @@
-import { Client, Emoji, GuildData, GuildWidget, RawEmojiData, RawGuildData, RawRoleData, RawStickerData, Role, Sticker, WelcomeScreen } from "../../internal";
+import { Client, Emoji, Guild, GuildData, GuildWidget, RawEmojiData, RawGuildData, RawRoleData, RawStickerData, Role, Sticker, WelcomeScreen } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawGuildData): GuildData {
 
     // Parse guild data
-    return {
+    const guildData: GuildData = {
         id: rawData.id,
         name: rawData.name,
         iconHash: rawData.icon,
@@ -13,7 +13,7 @@ export default function dataFromRawData(client: Client, rawData: RawGuildData): 
         region: rawData.region,
         afkChannelID: rawData.afk_channel_id,
         afkTimeout: rawData.afk_timeout,
-        widget: GuildWidget._dataFromRawData({
+        widget: GuildWidget._dataFromRawData(client, {
             channel_id: rawData.widget_channel_id || null,
             enabled: Boolean(rawData.widget_enabled)
         }, rawData.id),
@@ -21,7 +21,7 @@ export default function dataFromRawData(client: Client, rawData: RawGuildData): 
         defaultMessageNotifications: rawData.default_message_notifications,
         explicitContentFilter: rawData.explicit_content_filter,
         roleData: rawData.roles.map((r: RawRoleData) => Role._dataFromRawData(client, r, rawData.id)),
-        emojiData: rawData.emojis.map((e: RawEmojiData) => Emoji._dataFromRawData(e, rawData.id)),
+        emojiData: rawData.emojis.map((e: RawEmojiData) => Emoji._dataFromRawData(client, e, rawData.id)),
         features: rawData.features,
         mfaLevel: rawData.mfa_level,
         applicationID: rawData.application_id,
@@ -40,9 +40,15 @@ export default function dataFromRawData(client: Client, rawData: RawGuildData): 
         maxVideoChannelUsers: rawData.max_video_channel_users,
         approximateMemberCount: rawData.approximate_member_count,
         approximatePresenceCount: rawData.approximate_presence_count,
-        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._dataFromRawData(rawData.welcome_screen, rawData.id) : null,
+        welcomeScreen: rawData.welcome_screen ? WelcomeScreen._dataFromRawData(client, rawData.welcome_screen, rawData.id) : null,
         nsfwLevel: rawData.nsfw_level,
-        stickerData: rawData.stickers && rawData.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(s)),
+        stickerData: rawData.stickers && rawData.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(client, s)),
         fetchedAt: Date.now()
     };
+
+    // Update cached guild
+    Guild._updateObjectFromData(client, guildData);
+
+    // Return
+    return guildData;
 }

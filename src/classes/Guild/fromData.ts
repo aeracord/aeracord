@@ -2,8 +2,8 @@ import { Client, Guild, GuildData } from "../../internal";
 
 export default function fromData(client: Client, guildData: GuildData): Guild {
 
-    // Update cached guild
-    let guild: Guild | undefined = Guild._updateObjectFromData(client, guildData);
+    // Get guild from cache
+    let guild: Guild | undefined = client.guilds.get(guildData.id);
 
     // Create guild
     if (!guild) guild = new Guild(client, guildData);

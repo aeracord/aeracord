@@ -31,7 +31,7 @@ export default async function listNitroStickerPacks(client: Client): Promise<Lis
             id: s.id,
             name: s.name,
             description: s.description,
-            stickers: s.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(s)),
+            stickers: s.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(client, s)),
             coverStickerID: s.cover_sticker_id || null,
             bannerAssetID: s.banner_asset_id,
             skuID: s.sku_id

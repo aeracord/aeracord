@@ -2,8 +2,8 @@ import { Client, User, UserData } from "../../internal";
 
 export default function fromData(client: Client, userData: UserData): User {
 
-    // Update cached user
-    let user: User | undefined = User._updateObjectFromData(client, userData);
+    // Get user from cache
+    let user: User | undefined = client.users.get(userData.id);
 
     // Create user
     if (!user) user = new User(client, userData);

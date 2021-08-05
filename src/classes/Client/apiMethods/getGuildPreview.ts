@@ -54,7 +54,7 @@ export default async function getGuildPreview(client: Client, guildResolvable: G
         icon: result.icon || undefined,
         splash: result.splash || undefined,
         discoverySplash: result.discovery_splash || undefined,
-        emojis: result.emojis.map((e: RawEmojiData) => Emoji._dataFromRawData(e, guildID)),
+        emojis: result.emojis.map((e: RawEmojiData) => Emoji._dataFromRawData(client, e, guildID)),
         features: result.features,
         description: result.description || undefined,
         approximateMemberCount: result.approximate_member_count,

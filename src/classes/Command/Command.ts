@@ -113,7 +113,7 @@ export default class Command extends Base<Command> {
      * @returns {Command} The command
      */
     static _fromRawData(client: Client, rawData: RawCommandData, guildID?: string): Command {
-        return Command.fromData(client, Command._dataFromRawData(rawData, guildID));
+        return Command.fromData(client, Command._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -127,8 +127,8 @@ export default class Command extends Base<Command> {
      *
      * @returns {CommandData} The command data
      */
-    static _dataFromRawData(rawData: RawCommandData, guildID?: string): CommandData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawCommandData, guildID?: string): CommandData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -192,11 +192,9 @@ export default class Command extends Base<Command> {
      * @private
      * @param client The client
      * @param commandData The command data
-     *
-     * @returns {Command | undefined} The command
      */
-    static _updateObjectFromData(client: Client, commandData: CommandData): Command | undefined {
-        return updateObjectFromData(client, commandData);
+    static _updateObjectFromData(client: Client, commandData: CommandData) {
+        updateObjectFromData(client, commandData);
     }
 
     /**

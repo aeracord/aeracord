@@ -70,7 +70,7 @@ export default class Ban extends Base<Ban> {
      * @returns {Ban} The ban
      */
     static _fromRawData(client: Client, rawData: RawBanData, guildID: string): Ban {
-        return Ban.fromData(client, Ban._dataFromRawData(rawData, guildID));
+        return Ban.fromData(client, Ban._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -84,8 +84,8 @@ export default class Ban extends Base<Ban> {
      *
      * @returns {BanData} The ban data
      */
-    static _dataFromRawData(rawData: RawBanData, guildID: string): BanData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawBanData, guildID: string): BanData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -136,11 +136,9 @@ export default class Ban extends Base<Ban> {
      * @private
      * @param client The client
      * @param banData The ban data
-     *
-     * @returns {Ban | undefined} The ban
      */
-    static _updateObjectFromData(client: Client, banData: BanData): Ban | undefined {
-        return updateObjectFromData(client, banData);
+    static _updateObjectFromData(client: Client, banData: BanData) {
+        updateObjectFromData(client, banData);
     }
 
     /**

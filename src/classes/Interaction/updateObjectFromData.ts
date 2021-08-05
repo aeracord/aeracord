@@ -1,6 +1,6 @@
 import { AnyInteraction, AnyInteractionData, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT } from "../../internal";
 
-export default function updateObjectFromData(client: Client, interactionData: AnyInteractionData): AnyInteraction | undefined {
+export default function updateObjectFromData(client: Client, interactionData: AnyInteractionData) {
 
     // Get interaction from cache
     let interaction: AnyInteraction | undefined = client.interactions.get(interactionData.id);
@@ -17,7 +17,4 @@ export default function updateObjectFromData(client: Client, interactionData: An
         // Unknown interaction type
         else throw new Error(`Unknown interaction type '${interactionData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
     }
-
-    // Return
-    return interaction;
 }

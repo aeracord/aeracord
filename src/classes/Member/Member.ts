@@ -104,7 +104,7 @@ export default class Member extends Base<Member> {
      * @returns {Member} The member
      */
     static _fromRawData(client: Client, rawData: RawMemberData, guildID: string): Member {
-        return Member.fromData(client, Member._dataFromRawData(rawData, guildID));
+        return Member.fromData(client, Member._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -118,8 +118,8 @@ export default class Member extends Base<Member> {
      *
      * @returns {MemberData} The member data
      */
-    static _dataFromRawData(rawData: RawMemberData, guildID: string): MemberData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawMemberData, guildID: string): MemberData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -170,11 +170,9 @@ export default class Member extends Base<Member> {
      * @private
      * @param client The client
      * @param memberData The member data
-     *
-     * @returns {Member | undefined} The member
      */
-    static _updateObjectFromData(client: Client, memberData: MemberData): Member | undefined {
-        return updateObjectFromData(client, memberData);
+    static _updateObjectFromData(client: Client, memberData: MemberData) {
+        updateObjectFromData(client, memberData);
     }
 
     /**

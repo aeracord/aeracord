@@ -77,7 +77,7 @@ export default class Presence extends Base<Presence> {
      * @returns {Presence} The presence
      */
     static _fromRawData(client: Client, rawData: RawPresenceData): Presence {
-        return Presence.fromData(client, Presence._dataFromRawData(rawData));
+        return Presence.fromData(client, Presence._dataFromRawData(client, rawData));
     }
 
     /**
@@ -90,8 +90,8 @@ export default class Presence extends Base<Presence> {
      *
      * @returns {PresenceData} The presence data
      */
-    static _dataFromRawData(rawData: RawPresenceData): PresenceData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawPresenceData): PresenceData {
+        return dataFromRawData(client, rawData);
     }
 
     /**
@@ -142,11 +142,9 @@ export default class Presence extends Base<Presence> {
      * @private
      * @param client The client
      * @param presenceData The presence data
-     *
-     * @returns {Presence | undefined} The presence
      */
-    static _updateObjectFromData(client: Client, presenceData: PresenceData): Presence | undefined {
-        return updateObjectFromData(client, presenceData);
+    static _updateObjectFromData(client: Client, presenceData: PresenceData) {
+        updateObjectFromData(client, presenceData);
     }
 
     /**

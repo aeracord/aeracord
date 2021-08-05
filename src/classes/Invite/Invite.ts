@@ -165,7 +165,7 @@ export default class Invite extends Base<Invite> {
      * @returns {Invite} The invite
      */
     static _fromRawData(client: Client, rawData: RawInviteData): Invite {
-        return Invite.fromData(client, Invite._dataFromRawData(rawData));
+        return Invite.fromData(client, Invite._dataFromRawData(client, rawData));
     }
 
     /**
@@ -178,8 +178,8 @@ export default class Invite extends Base<Invite> {
      *
      * @returns {InviteData} The invite data
      */
-    static _dataFromRawData(rawData: RawInviteData): InviteData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawInviteData): InviteData {
+        return dataFromRawData(client, rawData);
     }
 
     /**
@@ -243,11 +243,9 @@ export default class Invite extends Base<Invite> {
      * @private
      * @param client The client
      * @param inviteData The invite data
-     *
-     * @returns {Invite | undefined} The invite
      */
-    static _updateObjectFromData(client: Client, inviteData: InviteData): Invite | undefined {
-        return updateObjectFromData(client, inviteData);
+    static _updateObjectFromData(client: Client, inviteData: InviteData) {
+        updateObjectFromData(client, inviteData);
     }
 
     /**

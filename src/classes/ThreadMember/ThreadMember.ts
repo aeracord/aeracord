@@ -86,7 +86,7 @@ export default class ThreadMember extends Base<ThreadMember> {
      * @returns {ThreadMember} The thread member
      */
     static _fromRawData(client: Client, rawData: RawThreadMemberData, guildID: string): ThreadMember {
-        return ThreadMember.fromData(client, ThreadMember._dataFromRawData(rawData, guildID));
+        return ThreadMember.fromData(client, ThreadMember._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -100,8 +100,8 @@ export default class ThreadMember extends Base<ThreadMember> {
      *
      * @returns {ThreadMemberData} The thread member data
      */
-    static _dataFromRawData(rawData: RawThreadMemberData, guildID: string): ThreadMemberData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawThreadMemberData, guildID: string): ThreadMemberData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -152,11 +152,9 @@ export default class ThreadMember extends Base<ThreadMember> {
      * @private
      * @param client The client
      * @param threadMemberData The thread member data
-     *
-     * @returns {ThreadMember | undefined} The thread member
      */
-    static _updateObjectFromData(client: Client, threadMemberData: ThreadMemberData): ThreadMember | undefined {
-        return updateObjectFromData(client, threadMemberData);
+    static _updateObjectFromData(client: Client, threadMemberData: ThreadMemberData) {
+        updateObjectFromData(client, threadMemberData);
     }
 
     /**

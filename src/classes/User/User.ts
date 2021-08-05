@@ -111,7 +111,7 @@ export default class User extends Base<User> {
      * @returns {User} The user
      */
     static _fromRawData(client: Client, rawData: RawUserData): User {
-        return User.fromData(client, User._dataFromRawData(rawData));
+        return User.fromData(client, User._dataFromRawData(client, rawData));
     }
 
     /**
@@ -124,8 +124,8 @@ export default class User extends Base<User> {
      *
      * @returns {UserData} The user data
      */
-    static _dataFromRawData(rawData: RawUserData): UserData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawUserData): UserData {
+        return dataFromRawData(client, rawData);
     }
 
     /**
@@ -189,11 +189,9 @@ export default class User extends Base<User> {
      * @private
      * @param client The client
      * @param userData The user data
-     *
-     * @returns {User | undefined} The user
      */
-    static _updateObjectFromData(client: Client, userData: UserData): User | undefined {
-        return updateObjectFromData(client, userData);
+    static _updateObjectFromData(client: Client, userData: UserData) {
+        updateObjectFromData(client, userData);
     }
 
     /**

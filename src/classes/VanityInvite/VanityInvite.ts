@@ -72,7 +72,7 @@ export default class VanityInvite extends Base<VanityInvite> {
      * @returns {VanityInvite} The vanity invite
      */
     static _fromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInvite {
-        return VanityInvite.fromData(client, VanityInvite._dataFromRawData(rawData, guildID));
+        return VanityInvite.fromData(client, VanityInvite._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -86,8 +86,8 @@ export default class VanityInvite extends Base<VanityInvite> {
      *
      * @returns {VanityInviteData} The vanity invite data
      */
-    static _dataFromRawData(rawData: RawVanityInviteData, guildID: string): VanityInviteData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawVanityInviteData, guildID: string): VanityInviteData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -138,11 +138,9 @@ export default class VanityInvite extends Base<VanityInvite> {
      * @private
      * @param client The client
      * @param vanityInviteData The vanity invite data
-     *
-     * @returns {VanityInvite | undefined} The vanity invite
      */
-    static _updateObjectFromData(client: Client, vanityInviteData: VanityInviteData): VanityInvite | undefined {
-        return updateObjectFromData(client, vanityInviteData);
+    static _updateObjectFromData(client: Client, vanityInviteData: VanityInviteData) {
+        updateObjectFromData(client, vanityInviteData);
     }
 
     /**

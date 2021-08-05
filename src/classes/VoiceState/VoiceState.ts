@@ -154,7 +154,7 @@ export default class VoiceState {
      * @returns {VoiceState} The voice state
      */
     static _fromRawData(client: Client, rawData: RawVoiceStateData): VoiceState {
-        return VoiceState.fromData(client, VoiceState._dataFromRawData(rawData));
+        return VoiceState.fromData(client, VoiceState._dataFromRawData(client, rawData));
     }
 
     /**
@@ -167,8 +167,8 @@ export default class VoiceState {
      *
      * @returns {VoiceStateData} The voice state data
      */
-    static _dataFromRawData(rawData: RawVoiceStateData): VoiceStateData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawVoiceStateData): VoiceStateData {
+        return dataFromRawData(client, rawData);
     }
 
     /**

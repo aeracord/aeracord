@@ -121,7 +121,7 @@ export default class Emoji extends Base<Emoji> {
      * @returns {Emoji} The emoji
      */
     static _fromRawData(client: Client, rawData: RawEmojiData, guildID: string): Emoji {
-        return Emoji.fromData(client, Emoji._dataFromRawData(rawData, guildID));
+        return Emoji.fromData(client, Emoji._dataFromRawData(client, rawData, guildID));
     }
 
     /**
@@ -135,8 +135,8 @@ export default class Emoji extends Base<Emoji> {
      *
      * @returns {EmojiData} The emoji data
      */
-    static _dataFromRawData(rawData: RawEmojiData, guildID: string): EmojiData {
-        return dataFromRawData(rawData, guildID);
+    static _dataFromRawData(client: Client, rawData: RawEmojiData, guildID: string): EmojiData {
+        return dataFromRawData(client, rawData, guildID);
     }
 
     /**
@@ -200,11 +200,9 @@ export default class Emoji extends Base<Emoji> {
      * @private
      * @param client The client
      * @param emojiData The emoji data
-     *
-     * @returns {Emoji | undefined} The emoji
      */
-    static _updateObjectFromData(client: Client, emojiData: EmojiData): Emoji | undefined {
-        return updateObjectFromData(client, emojiData);
+    static _updateObjectFromData(client: Client, emojiData: EmojiData) {
+        updateObjectFromData(client, emojiData);
     }
 
     /**

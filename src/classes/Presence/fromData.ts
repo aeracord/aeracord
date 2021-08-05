@@ -2,8 +2,8 @@ import { Client, Presence, PresenceData } from "../../internal";
 
 export default function fromData(client: Client, presenceData: PresenceData): Presence {
 
-    // Update cached presence
-    let presence: Presence | undefined = Presence._updateObjectFromData(client, presenceData);
+    // Get presence from cache
+    let presence: Presence | undefined = client.presences.get(presenceData.user.id);
 
     // Create presence
     if (!presence) presence = new Presence(client, presenceData);

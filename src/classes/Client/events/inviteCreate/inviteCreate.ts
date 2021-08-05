@@ -8,7 +8,7 @@ export default function inviteCreate(client: Client, rawData: RawInviteCreateDat
         channelID: rawData.channel_id,
         guildID: rawData.guild_id,
         createdAt: new Date(rawData.created_at).getTime(),
-        inviter: rawData.inviter ? User._dataFromRawData(rawData.inviter) : null,
+        inviter: rawData.inviter ? User._dataFromRawData(client, rawData.inviter) : null,
         maxAge: rawData.max_age,
         maxUses: rawData.max_uses,
         temporary: rawData.temporary,
@@ -24,7 +24,7 @@ export default function inviteCreate(client: Client, rawData: RawInviteCreateDat
             topic: rawData.stage_instance.topic,
             participantCount: rawData.stage_instance.participant_count,
             speakerCount: rawData.stage_instance.speaker_count,
-            members: rawData.stage_instance.members.map((m: RawMemberData) => Member._dataFromRawData(m, rawData.guild_id))
+            members: rawData.stage_instance.members.map((m: RawMemberData) => Member._dataFromRawData(client, m, rawData.guild_id))
         } : null,
         fetchedAt: Date.now()
     });

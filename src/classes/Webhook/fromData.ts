@@ -2,8 +2,8 @@ import { Client, Webhook, WebhookData } from "../../internal";
 
 export default function fromData(client: Client, webhookData: WebhookData): Webhook {
 
-    // Update cached webhook
-    let webhook: Webhook | undefined = Webhook._updateObjectFromData(client, webhookData);
+    // Get webhook from cache
+    let webhook: Webhook | undefined = client.webhooks.get(webhookData.id);
 
     // Create webhook
     if (!webhook) webhook = new Webhook(client, webhookData);

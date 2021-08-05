@@ -1,9 +1,9 @@
-import { RawWelcomeScreenData, RawWelcomeScreenDataChannel, WelcomeScreenData } from "../../internal";
+import { Client, RawWelcomeScreenData, RawWelcomeScreenDataChannel, WelcomeScreen, WelcomeScreenData } from "../../internal";
 
-export default function dataFromRawData(rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
+export default function dataFromRawData(client: Client, rawData: RawWelcomeScreenData, guildID: string): WelcomeScreenData {
 
     // Parse welcome screen data
-    return {
+    const welcomeScreenData: WelcomeScreenData = {
         guildID,
         description: rawData.description,
         channels: rawData.welcome_channels.map((c: RawWelcomeScreenDataChannel) => ({
@@ -14,4 +14,10 @@ export default function dataFromRawData(rawData: RawWelcomeScreenData, guildID: 
         })),
         fetchedAt: Date.now()
     };
+
+    // Update cached welcome screen
+    WelcomeScreen._updateObjectFromData(client, welcomeScreenData);
+
+    // Return
+    return welcomeScreenData;
 }

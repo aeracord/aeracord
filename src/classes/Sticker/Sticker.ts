@@ -138,7 +138,7 @@ export default class Sticker extends Base<Sticker> {
      * @returns {Sticker} The sticker
      */
     static _fromRawData(client: Client, rawData: RawStickerData): Sticker {
-        return Sticker.fromData(client, Sticker._dataFromRawData(rawData));
+        return Sticker.fromData(client, Sticker._dataFromRawData(client, rawData));
     }
 
     /**
@@ -151,8 +151,8 @@ export default class Sticker extends Base<Sticker> {
      *
      * @returns {StickerData} The sticker data
      */
-    static _dataFromRawData(rawData: RawStickerData): StickerData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawStickerData): StickerData {
+        return dataFromRawData(client, rawData);
     }
 
     /**
@@ -216,11 +216,9 @@ export default class Sticker extends Base<Sticker> {
      * @private
      * @param client The client
      * @param stickerData The sticker data
-     *
-     * @returns {Sticker | undefined} The sticker
      */
-    static _updateObjectFromData(client: Client, stickerData: StickerData): Sticker | undefined {
-        return updateObjectFromData(client, stickerData);
+    static _updateObjectFromData(client: Client, stickerData: StickerData) {
+        updateObjectFromData(client, stickerData);
     }
 
     /**

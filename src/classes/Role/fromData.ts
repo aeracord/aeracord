@@ -2,8 +2,8 @@ import { Client, Role, RoleData } from "../../internal";
 
 export default function fromData(client: Client, roleData: RoleData): Role {
 
-    // Update cached role
-    let role: Role | undefined = Role._updateObjectFromData(client, roleData);
+    // Get role from cache
+    let role: Role | undefined = client.roles.get(roleData.id);
 
     // Create role
     if (!role) role = new Role(client, roleData);

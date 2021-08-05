@@ -1,6 +1,6 @@
-import { AnyInteractionData, ComponentType, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, InteractionMetadata, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT, Member, Message, RawInteractionData, RawMemberData, RawMessageData, User } from "../../internal";
+import { AnyInteractionData, Client, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, Interaction, InteractionMetadata, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT, Member, Message, RawInteractionData, RawMemberData, RawMessageData, User } from "../../internal";
 
-export default function dataFromRawData(rawData: RawInteractionData): AnyInteractionData {
+export default function dataFromRawData(client: Client, rawData: RawInteractionData): AnyInteractionData {
 
     // Define interaction data
     let interactionData: AnyInteractionData;
@@ -18,9 +18,9 @@ export default function dataFromRawData(rawData: RawInteractionData): AnyInterac
         },
         guildID: rawData.guild_id || null,
         channelID: rawData.channel_id,
-        member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData(rawData.member, rawData.guild_id) : null,
+        member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData(client, rawData.member, rawData.guild_id) : null,
         permissions: rawData.member ? rawData.member.permissions : null,
-        user: User._dataFromRawData(rawData.user || (rawData.member as RawMemberData).user),
+        user: User._dataFromRawData(client, rawData.user || (rawData.member as RawMemberData).user),
         fetchedAt: Date.now()
     };
 
@@ -55,16 +55,19 @@ export default function dataFromRawData(rawData: RawInteractionData): AnyInterac
             data,
             guildID: rawData.guild_id || null,
             channelID: rawData.channel_id,
-            member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData(rawData.member, rawData.guild_id) : null,
+            member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData(client, rawData.member, rawData.guild_id) : null,
             permissions: rawData.member ? rawData.member.permissions : null,
-            user: User._dataFromRawData(rawData.user || (rawData.member as RawMemberData).user),
-            message: Message._dataFromRawData(rawData.message as RawMessageData),
+            user: User._dataFromRawData(client, rawData.user || (rawData.member as RawMemberData).user),
+            message: Message._dataFromRawData(client, rawData.message as RawMessageData),
             fetchedAt: Date.now()
         };
     }
 
     // Unknown interaction type
     else throw new Error(`Unknown interaction type '${rawData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
+
+    // Update cached interaction
+    Interaction._updateObjectFromData(client, interactionData);
 
     // Return
     return interactionData;

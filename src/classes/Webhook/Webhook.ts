@@ -118,7 +118,7 @@ export default class Webhook extends Base<Webhook> {
      * @returns {Webhook} The webhook
      */
     static _fromRawData(client: Client, rawData: RawWebhookData): Webhook {
-        return Webhook.fromData(client, Webhook._dataFromRawData(rawData));
+        return Webhook.fromData(client, Webhook._dataFromRawData(client, rawData));
     }
 
     /**
@@ -131,8 +131,8 @@ export default class Webhook extends Base<Webhook> {
      *
      * @returns {WebhookData} The webhook data
      */
-    static _dataFromRawData(rawData: RawWebhookData): WebhookData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawWebhookData): WebhookData {
+        return dataFromRawData(client, rawData);
     }
 
     /**
@@ -196,11 +196,9 @@ export default class Webhook extends Base<Webhook> {
      * @private
      * @param client The client
      * @param webhookData The webhook data
-     *
-     * @returns {Webhook | undefined} The webhook
      */
-    static _updateObjectFromData(client: Client, webhookData: WebhookData): Webhook | undefined {
-        return updateObjectFromData(client, webhookData);
+    static _updateObjectFromData(client: Client, webhookData: WebhookData) {
+        updateObjectFromData(client, webhookData);
     }
 
     /**

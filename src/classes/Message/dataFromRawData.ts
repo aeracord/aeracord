@@ -1,6 +1,6 @@
-import { Attachment, Member, Message, MessageComponent, MessageData, MessageEmbed, RawAttachmentData, RawMessageComponentData, RawMessageData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageStickerItem, RawReactionData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
+import { Attachment, Client, Member, Message, MessageComponent, MessageData, MessageEmbed, RawAttachmentData, RawMessageComponentData, RawMessageData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageStickerItem, RawReactionData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
 
-export default function dataFromRawData(rawData: RawMessageData): MessageData {
+export default function dataFromRawData(client: Client, rawData: RawMessageData): MessageData {
 
     /**
      * Set Referenced Message Guild ID
@@ -10,7 +10,7 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
     if ((rawData.referenced_message) && (rawData.message_reference)) rawData.referenced_message.guild_id = rawData.message_reference.guild_id;
 
     // Parse message data
-    return {
+    const messageData: MessageData = {
         id: rawData.id,
         type: rawData.type,
         channelID: rawData.channel_id,
@@ -23,20 +23,20 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
          * If it has the `discriminator` property, we know that its a user object
          * Otherwise, if its a webhook object, set the author property to `null` since the `webhook` property will be set
          */
-        author: ("discriminator" in rawData.author) ? User._dataFromRawData(rawData.author) : null,
+        author: ("discriminator" in rawData.author) ? User._dataFromRawData(client, rawData.author) : null,
 
         webhook: rawData.webhook_id ? {
             id: rawData.author.id,
             name: rawData.author.username,
             avatar: rawData.author.avatar
         } : null,
-        member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData({ ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
+        member: (rawData.member && rawData.guild_id) ? Member._dataFromRawData(client, { ...rawData.member, user: rawData.author as RawUserData }, rawData.guild_id) : undefined,
         content: rawData.content,
         timestamp: new Date(rawData.timestamp).getTime(),
         editedTimestamp: rawData.edited_timestamp ? new Date(rawData.edited_timestamp).getTime() : null,
         tts: rawData.tts,
         mentionEveryone: rawData.mention_everyone,
-        mentions: rawData.guild_id ? rawData.mentions.map((u: RawUserWithMemberData) => Member._dataFromRawData({
+        mentions: rawData.guild_id ? rawData.mentions.map((u: RawUserWithMemberData) => Member._dataFromRawData(client, {
             ...u.member,
             user: u
         }, rawData.guild_id as string)) : [],
@@ -85,12 +85,12 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
             guildID: rawData.message_reference.guild_id || null
         } : null,
         flags: rawData.flags || 0,
-        referencedMessage: rawData.referenced_message && Message._dataFromRawData(rawData.referenced_message),
+        referencedMessage: rawData.referenced_message && Message._dataFromRawData(client, rawData.referenced_message),
         interaction: rawData.interaction ? {
             id: rawData.interaction.id,
             type: rawData.interaction.type,
             name: rawData.interaction.name,
-            user: User._dataFromRawData(rawData.interaction.user)
+            user: User._dataFromRawData(client, rawData.interaction.user)
         } : null,
         components: rawData.components ? rawData.components.map((c: RawMessageComponentData) => MessageComponent._dataFromRawData(c, {
             messageID: rawData.id,
@@ -99,4 +99,10 @@ export default function dataFromRawData(rawData: RawMessageData): MessageData {
         })) : [],
         fetchedAt: Date.now()
     };
+
+    // Update cached message
+    Message._updateObjectFromData(client, messageData);
+
+    // Return
+    return messageData;
 }

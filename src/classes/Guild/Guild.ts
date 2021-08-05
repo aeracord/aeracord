@@ -571,11 +571,9 @@ export default class Guild extends Base<Guild> {
      * @private
      * @param client The client
      * @param guildData The guild data
-     *
-     * @returns {Guild | undefined} The guild
      */
-    static _updateObjectFromData(client: Client, guildData: GuildData): Guild | undefined {
-        return updateObjectFromData(client, guildData);
+    static _updateObjectFromData(client: Client, guildData: GuildData) {
+        updateObjectFromData(client, guildData);
     }
 
     /**

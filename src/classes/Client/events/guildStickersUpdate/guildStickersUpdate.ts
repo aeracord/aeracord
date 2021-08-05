@@ -19,7 +19,7 @@ export default function guildStickersUpdate(client: Client, rawData: RawGuildSti
     const guild: Guild | undefined = client.guilds.get(data.guildID);
 
     // Update stickers
-    if (guild) guild.stickerData = rawData.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(s));
+    if (guild) guild.stickerData = rawData.stickers.map((s: RawStickerData) => Sticker._dataFromRawData(client, s));
 
     // Mark as deleted
     const deletedStickers: Sticker[] = [...client.stickers.filter((s: Sticker) => s.guildID === data.guildID && !stickerIDs.includes(s.id)).values()];

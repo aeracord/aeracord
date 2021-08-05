@@ -2,8 +2,8 @@ import { Client, Template, TemplateData } from "../../internal";
 
 export default function fromData(client: Client, templateData: TemplateData): Template {
 
-    // Update cached template
-    let template: Template | undefined = Template._updateObjectFromData(client, templateData);
+    // Get template from cache
+    let template: Template | undefined = client.templates.get(templateData.code);
 
     // Create template
     if (!template) template = new Template(client, templateData);

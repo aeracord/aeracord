@@ -1,4 +1,4 @@
-import { Client, Permissions, RawRoleData, RoleData, ThreadChannel } from "../../internal";
+import { Client, Permissions, RawRoleData, Role, RoleData, ThreadChannel } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawRoleData, guildID: string): RoleData {
 
@@ -32,6 +32,9 @@ export default function dataFromRawData(client: Client, rawData: RawRoleData, gu
 
     // Recalculate thread permissions
     ThreadChannel._recalculateThreadPermissions(client, guildID);
+
+    // Update cached role
+    Role._updateObjectFromData(client, roleData);
 
     // Return
     return roleData;

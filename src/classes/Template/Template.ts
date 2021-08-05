@@ -135,7 +135,7 @@ export default class Template extends Base<Template> {
      * @returns {Template} The template
      */
     static _fromRawData(client: Client, rawData: RawTemplateData): Template {
-        return Template.fromData(client, Template._dataFromRawData(rawData));
+        return Template.fromData(client, Template._dataFromRawData(client, rawData));
     }
 
     /**
@@ -148,8 +148,8 @@ export default class Template extends Base<Template> {
      *
      * @returns {TemplateData} The template data
      */
-    static _dataFromRawData(rawData: RawTemplateData): TemplateData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawTemplateData): TemplateData {
+        return dataFromRawData(client, rawData);
     }
 
     /**
@@ -213,11 +213,9 @@ export default class Template extends Base<Template> {
      * @private
      * @param client The client
      * @param templateData The template data
-     *
-     * @returns {Template | undefined} The template
      */
-    static _updateObjectFromData(client: Client, templateData: TemplateData): Template | undefined {
-        return updateObjectFromData(client, templateData);
+    static _updateObjectFromData(client: Client, templateData: TemplateData) {
+        updateObjectFromData(client, templateData);
     }
 
     /**

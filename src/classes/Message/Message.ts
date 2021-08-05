@@ -269,7 +269,7 @@ export default class Message extends Base<Message> {
      * @returns {Message} The message
      */
     static _fromRawData(client: Client, rawData: RawMessageData): Message {
-        return Message.fromData(client, Message._dataFromRawData(rawData));
+        return Message.fromData(client, Message._dataFromRawData(client, rawData));
     }
 
     /**
@@ -282,8 +282,8 @@ export default class Message extends Base<Message> {
      *
      * @returns {MessageData} The message data
      */
-    static _dataFromRawData(rawData: RawMessageData): MessageData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawMessageData): MessageData {
+        return dataFromRawData(client, rawData);
     }
 
     /**
@@ -347,11 +347,9 @@ export default class Message extends Base<Message> {
      * @private
      * @param client The client
      * @param messageData The message data
-     *
-     * @returns {Message | undefined} The message
      */
-    static _updateObjectFromData(client: Client, messageData: MessageData): Message | undefined {
-        return updateObjectFromData(client, messageData);
+    static _updateObjectFromData(client: Client, messageData: MessageData) {
+        updateObjectFromData(client, messageData);
     }
 
     /**

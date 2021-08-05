@@ -1,9 +1,9 @@
-import { RawThreadMemberData, ThreadMemberData } from "../../internal";
+import { Client, RawThreadMemberData, ThreadMember, ThreadMemberData } from "../../internal";
 
-export default function dataFromRawData(rawData: RawThreadMemberData, guildID: string): ThreadMemberData {
+export default function dataFromRawData(client: Client, rawData: RawThreadMemberData, guildID: string): ThreadMemberData {
 
     // Parse thread member data
-    return {
+    const threadMemberData: ThreadMemberData = {
         threadID: rawData.id,
         guildID,
         userID: rawData.user_id,
@@ -11,4 +11,10 @@ export default function dataFromRawData(rawData: RawThreadMemberData, guildID: s
         flags: rawData.flags,
         fetchedAt: Date.now()
     };
+
+    // Update cached thread member
+    ThreadMember._updateObjectFromData(client, threadMemberData);
+
+    // Return
+    return threadMemberData;
 }

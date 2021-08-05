@@ -211,11 +211,9 @@ export default class Role extends Base<Role> {
      * @private
      * @param client The client
      * @param roleData The role data
-     *
-     * @returns {Role | undefined} The role
      */
-    static _updateObjectFromData(client: Client, roleData: RoleData): Role | undefined {
-        return updateObjectFromData(client, roleData);
+    static _updateObjectFromData(client: Client, roleData: RoleData) {
+        updateObjectFromData(client, roleData);
     }
 
     /**

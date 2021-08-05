@@ -13,7 +13,7 @@ export default async function ready(client: Client, rawData: RawReadyData) {
     };
 
     // Set client data
-    client.user = User._dataFromRawData(rawData.user);
+    client.user = User._dataFromRawData(client, rawData.user);
     client._sessionID = rawData.session_id;
 
     // Set ready data

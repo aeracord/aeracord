@@ -144,11 +144,9 @@ export default class Channel extends Base<AnyChannel> {
      * @private
      * @param client The client
      * @param channelData The channel data
-     *
-     * @returns {AnyChannel | undefined} The channel
      */
-    static _updateObjectFromData(client: Client, channelData: AnyChannelData): AnyChannel | undefined {
-        return updateObjectFromData(client, channelData);
+    static _updateObjectFromData(client: Client, channelData: AnyChannelData) {
+        updateObjectFromData(client, channelData);
     }
 
     /**

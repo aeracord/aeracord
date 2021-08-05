@@ -10,8 +10,8 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
         joinedAt: new Date(rawData.joined_at).getTime(),
         large: rawData.large,
         memberCount: rawData.member_count,
-        voiceStates: rawData.voice_states.map((vs: RawVoiceStateData) => VoiceState._dataFromRawData(vs)),
-        members: rawData.members.map((m: RawMemberData) => Member._dataFromRawData(m, rawData.id)),
+        voiceStates: rawData.voice_states.map((vs: RawVoiceStateData) => VoiceState._dataFromRawData(client, vs)),
+        members: rawData.members.map((m: RawMemberData) => Member._dataFromRawData(client, m, rawData.id)),
 
         // Note that channel objects dont have a guild ID in the `guildCreate` event
         channels: rawData.channels.map((c: RawChannelData) => Channel._dataFromRawData(client, { ...c, guild_id: rawData.id })),
@@ -26,7 +26,7 @@ export default async function guildCreate(client: Client, rawData: RawGuildCreat
             }
         })) as ThreadChannelData[],
 
-        presences: rawData.presences.map((p: RawPresenceData) => Presence._dataFromRawData(p)),
+        presences: rawData.presences.map((p: RawPresenceData) => Presence._dataFromRawData(client, p)),
         stageInstances: rawData.stage_instances.map((s: RawStageInstanceData) => StageInstance._dataFromRawData(s))
     };
 
