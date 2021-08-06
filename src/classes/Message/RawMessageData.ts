@@ -12,7 +12,7 @@ export interface RawMessageData {
     edited_timestamp: string | null;
     tts: boolean;
     mention_everyone: boolean;
-    mentions: RawUserWithMemberData[];
+    mentions: RawUserData[] | RawUserWithMemberData[];
     mention_roles: string[];
     mention_channels?: RawMessageDataChannelMention[];
     attachments: RawAttachmentData[];

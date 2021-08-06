@@ -95,9 +95,10 @@ export interface MessageData {
     /**
      * Mentions
      *
-     * The members this message mentions
+     * An array of users that are mentioned in this message
+     * If the message is in a guild, this will be an array of members instead
      */
-    mentions: MemberData[];
+    mentions: UserData[] | MemberData[];
 
     /**
      * Mentioned Roles

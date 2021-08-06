@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, Attachment, ChannelMention, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbed, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, Reaction, User } from "../../../../internal";
+import { AnyMessageComponentData, Attachment, ChannelMention, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbed, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, Reaction, User, UserData } from "../../../../internal";
 
 export interface MessageUpdateData {
 
@@ -89,9 +89,10 @@ export interface MessageUpdateData {
     /**
      * Mentions
      *
-     * The members this message mentions
+     * An array of users that are mentioned in this message
+     * If the message is in a guild, this will be an array of members instead
      */
-    mentions?: MemberData[];
+    mentions?: UserData[] | MemberData[];
 
     /**
      * Mentioned Roles

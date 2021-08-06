@@ -1,4 +1,4 @@
-import { Attachment, Client, Member, Message, MessageComponent, MessageData, MessageEmbed, RawAttachmentData, RawMessageComponentData, RawMessageData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageStickerItem, RawReactionData, RawUserData, RawUserWithMemberData, Reaction, Sticker, User } from "../../internal";
+import { Attachment, Client, Member, MemberData, Message, MessageComponent, MessageData, MessageEmbed, RawAttachmentData, RawMessageComponentData, RawMessageData, RawMessageDataChannelMention, RawMessageEmbedData, RawMessageStickerItem, RawReactionData, RawUserData, RawUserWithMemberData, Reaction, User, UserData } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawMessageData): MessageData {
 
@@ -36,10 +36,12 @@ export default function dataFromRawData(client: Client, rawData: RawMessageData)
         editedTimestamp: rawData.edited_timestamp ? new Date(rawData.edited_timestamp).getTime() : null,
         tts: rawData.tts,
         mentionEveryone: rawData.mention_everyone,
-        mentions: rawData.guild_id ? rawData.mentions.map((u: RawUserWithMemberData) => Member._dataFromRawData(client, {
-            ...u.member,
-            user: u
-        }, rawData.guild_id as string)) : [],
+        mentions: rawData.mentions.map((u: RawUserData | RawUserWithMemberData) => ("member" in u) ?
+            Member._dataFromRawData(client, {
+                ...u.member,
+                user: u
+            }, rawData.guild_id as string) :
+            User._dataFromRawData(client, u)) as UserData[] | MemberData[],
         mentionedRoles: rawData.mention_roles,
         mentionedChannels: rawData.mention_channels ? rawData.mention_channels.map((c: RawMessageDataChannelMention) => ({
             id: c.id,
