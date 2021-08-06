@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StartThreadData, ThreadChannel, User, UserResolvable } from "../../internal";
+import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StartThreadData, ThreadChannel, User, UserData, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -100,9 +100,10 @@ export default class Message extends Base<Message> {
     /**
      * Mentions
      *
-     * The members this message mentions
+     * An array of users that are mentioned in this message
+     * If the message is in a guild, this will be an array of members instead
      */
-    mentions: MemberData[];
+    mentions: UserData[] | MemberData[];
 
     /**
      * Mentioned Roles
@@ -221,7 +222,7 @@ export default class Message extends Base<Message> {
      * @param messageData.editedTimestamp The timestamp for when the message was last edited
      * @param messageData.tts Whether or not this message is TTS
      * @param messageData.mentionEveryone Whether or not this message mentions everyone
-     * @param messageData.mentions The members this message mentions
+     * @param messageData.mentions An array of users that are mentioned in this message
      * @param messageData.mentionedRoles The IDs of the roles this message mentions
      * @param messageData.mentionedChannels The channels this message mentions
      * @param messageData.attachments The message's attachments
