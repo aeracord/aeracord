@@ -1,4 +1,4 @@
-import { Client, Command, CreateCommandData, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
+import { Client, Command, CreateCommandData, COMMAND_TYPE_CHAT_INPUT, FetchQueue, Guild, GuildResolvable, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function createGuildCommand(client: Client, guildResolvable: GuildResolvable, createCommandData: CreateCommandData): Promise<Command> {
@@ -21,8 +21,9 @@ export default async function createGuildCommand(client: Client, guildResolvable
         method,
         data: {
             name: createCommandData.name,
-            description: createCommandData.description,
-            options: createCommandData.options,
+            type: createCommandData.type,
+            description: createCommandData.type === COMMAND_TYPE_CHAT_INPUT ? createCommandData.description : undefined,
+            options: createCommandData.type === COMMAND_TYPE_CHAT_INPUT ? createCommandData.options : undefined,
             default_permission: createCommandData.defaultPermission
         }
     });

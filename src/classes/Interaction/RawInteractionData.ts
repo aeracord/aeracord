@@ -1,4 +1,4 @@
-import { ComponentType, InteractionType, RawMemberData, RawMessageData, RawUserData } from "../../internal";
+import { CommandType, ComponentType, InteractionType, RawMemberData, RawMessageData, RawUserData } from "../../internal";
 
 export interface RawInteractionData {
     id: string;
@@ -16,10 +16,12 @@ export interface RawInteractionData {
 export interface RawInteractionMetadata {
     id?: string;
     name?: string;
+    type?: CommandType;
     options?: RawInteractionMetadataOption[];
     component_type?: ComponentType;
     custom_id?: string;
     values?: string[];
+    target_id?: string;
 }
 
 export interface RawInteractionMetadataOption {

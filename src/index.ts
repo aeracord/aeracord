@@ -200,6 +200,7 @@ export {
     ArchivedThreadListData,
     BulkDeleteMessagesData,
     BulkEditGuildCommandPermissionsData,
+    BulkOverwriteCommandData,
     CreateCommandData,
     CreateCommandDataOption,
     CreateChannelInviteData,
@@ -288,7 +289,12 @@ export {
     COMMAND_OPTION_TYPE_SUB_COMMAND,
     COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP,
     COMMAND_OPTION_TYPE_USER,
-    CommandResolvable
+    CommandResolvable,
+    CommandType,
+    COMMAND_TYPE_CHAT_INPUT,
+    COMMAND_TYPE_MESSAGE,
+    COMMAND_TYPE_USER,
+    ContextMenuCommandType
 } from "./internal";
 
 // Command Interaction

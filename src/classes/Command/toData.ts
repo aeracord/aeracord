@@ -8,6 +8,7 @@ export default function toData(command: Command): CommandData {
         guildID: command.guildID,
         applicationID: command.applicationID,
         name: command.name,
+        type: command.type,
         description: command.description,
         options: command.options,
         defaultPermission: command.defaultPermission,

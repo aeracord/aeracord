@@ -35,6 +35,13 @@ export interface CommandData {
     name: string;
 
     /**
+     * Type
+     *
+     * The command's type
+     */
+    type: CommandType;
+
+    /**
      * Description
      *
      * The command's description
@@ -62,6 +69,16 @@ export interface CommandData {
      */
     fetchedAt: number;
 }
+
+/**
+ * Command Type
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-types
+ */
+export type CommandType = typeof COMMAND_TYPE_CHAT_INPUT | ContextMenuCommandType;
+export type ContextMenuCommandType = typeof COMMAND_TYPE_USER | typeof COMMAND_TYPE_MESSAGE;
+export const COMMAND_TYPE_CHAT_INPUT = 1;
+export const COMMAND_TYPE_USER = 2;
+export const COMMAND_TYPE_MESSAGE = 3;
 
 /**
  * Command Option

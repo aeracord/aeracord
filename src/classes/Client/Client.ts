@@ -16,6 +16,7 @@ import {
     BaseEditMessageData,
     BulkDeleteMessagesData,
     BulkEditGuildCommandPermissionsData,
+    BulkOverwriteCommandData,
     CacheInterface,
     CacheManager,
     CacheStrategies,
@@ -1898,12 +1899,12 @@ export default class Client extends EventEmitter {
      *
      * Bulk edit global commands
      *
-     * @param editCommandData The data for the commands
+     * @param bulkOverwriteCommandData The data for the commands
      *
      * @returns {Promise<Command[]>} The commands
      */
-    bulkOverwriteGlobalCommands(editCommandData: EditCommandData[]): Promise<Command[]> {
-        return bulkOverwriteGlobalCommands(this, editCommandData);
+    bulkOverwriteGlobalCommands(bulkOverwriteCommandData: BulkOverwriteCommandData[]): Promise<Command[]> {
+        return bulkOverwriteGlobalCommands(this, bulkOverwriteCommandData);
     }
 
     /**
@@ -1912,12 +1913,12 @@ export default class Client extends EventEmitter {
      * Bulk edit a guild's commands
      *
      * @param guild The guild to edit the commands in
-     * @param editCommandData The data for the commands
+     * @param bulkOverwriteCommandData The data for the commands
      *
      * @returns {Promise<Command[]>} The commands
      */
-    bulkOverwriteGuildCommands(guild: GuildResolvable, editCommandData: EditCommandData[]): Promise<Command[]> {
-        return bulkOverwriteGuildCommands(this, guild, editCommandData);
+    bulkOverwriteGuildCommands(guild: GuildResolvable, bulkOverwriteCommandData: BulkOverwriteCommandData[]): Promise<Command[]> {
+        return bulkOverwriteGuildCommands(this, guild, bulkOverwriteCommandData);
     }
 
     /**

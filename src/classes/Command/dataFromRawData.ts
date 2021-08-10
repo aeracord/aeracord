@@ -1,4 +1,4 @@
-import { CommandData, CommandOption, RawCommandData, RawCommandDataChoice, RawCommandDataOption } from "../../internal";
+import { CommandData, CommandOption, COMMAND_TYPE_CHAT_INPUT, RawCommandData, RawCommandDataChoice, RawCommandDataOption } from "../../internal";
 
 export default function dataFromRawData(rawData: RawCommandData, guildID?: string): CommandData {
 
@@ -8,6 +8,7 @@ export default function dataFromRawData(rawData: RawCommandData, guildID?: strin
         guildID: guildID || null,
         applicationID: rawData.application_id,
         name: rawData.name,
+        type: rawData.type || COMMAND_TYPE_CHAT_INPUT,
         description: rawData.description,
         options: rawData.options ? rawData.options.map((o: RawCommandDataOption) => parseOption(o)) : [],
         defaultPermission: rawData.default_permission,

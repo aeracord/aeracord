@@ -1,4 +1,4 @@
-import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildStickerData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberCacheInterface, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildStickerData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, Sticker, StickerData, StickerResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, ThreadChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, BulkOverwriteCommandData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildStickerData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberCacheInterface, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildStickerData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, Sticker, StickerData, StickerResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, ThreadChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -680,12 +680,12 @@ export default class Guild extends Base<Guild> {
      *
      * Bulk edit this guild's commands
      *
-     * @param editCommandData The data for the commands
+     * @param bulkOverwriteCommandData The data for the commands
      *
      * @returns {Promise<Command[]>} The commands
      */
-    bulkEditCommands(editCommandData: EditCommandData[]): Promise<Command[]> {
-        return this.client.bulkOverwriteGuildCommands(this, editCommandData);
+    bulkEditCommands(bulkOverwriteCommandData: BulkOverwriteCommandData[]): Promise<Command[]> {
+        return this.client.bulkOverwriteGuildCommands(this, bulkOverwriteCommandData);
     }
 
     /**

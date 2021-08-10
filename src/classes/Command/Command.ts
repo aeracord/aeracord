@@ -1,4 +1,4 @@
-import { Base, Client, CommandData, CommandOption, EditCommandData, RawCommandData, READY_STATE_READY } from "../../internal";
+import { Base, Client, CommandData, CommandOption, CommandType, EditCommandData, RawCommandData, READY_STATE_READY } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -16,10 +16,10 @@ export type CommandResolvable = Command | CommandData | string;
 /**
  * Command
  *
- * An application command is a slash command that's registered with Discord
+ * An application command is a slash command, user command, or message command that's registered with Discord
  * For example, a `Command` is returned by `Client.getGlobalCommand()` and `Client.getGuildCommand()`
  *
- * A slash command interaction is represented by the `CommandInteraction` class
+ * A command interaction is represented by the `CommandInteraction` class
  * This is sent to the `interactionCreate` event
  */
 export default class Command extends Base<Command> {
@@ -45,6 +45,13 @@ export default class Command extends Base<Command> {
      * The command's name
      */
     name: string;
+
+    /**
+     * Type
+     *
+     * The command's type
+     */
+    type: CommandType;
 
     /**
      * Description
@@ -76,6 +83,7 @@ export default class Command extends Base<Command> {
      * @param commandData.guildID The ID of the guild this command is in
      * @param commandData.applicationID The ID of the application that owns this command
      * @param commandData.name The command's name
+     * @param commandData.type The command's type
      * @param commandData.description The command's description
      * @param commandData.options The command's options
      * @param commandData.defaultPermission Whether or not the command is enabled by default

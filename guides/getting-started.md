@@ -66,7 +66,7 @@ client.on("ready", (data) => {
 });
 ```
 
-You can also listen for various other [events](https://aeracord.apixel.me/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.apixel.me/docs/classes/Client#interactionCreate) for when a slash command is used:
+You can also listen for various other [events](https://aeracord.apixel.me/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.apixel.me/docs/classes/Client#interactionCreate) for when an interaction is created:
 
 ```js
 // Interaction create

@@ -5,7 +5,7 @@ import updateObject from "./updateObject";
 /**
  * Command Interaction
  *
- * Represents a slash command interaction that the client receives
+ * Represents a slash command, user command, or message command interaction that the client receives
  */
 export default class CommandInteraction extends Interaction {
 

@@ -112,6 +112,7 @@ export {
 // Client: API Methods
 export * from "./classes/Client/apiMethods/bulkDeleteMessages";
 export * from "./classes/Client/apiMethods/bulkEditGuildCommandPermissions";
+export * from "./classes/Client/apiMethods/bulkOverwriteGlobalCommands";
 export * from "./classes/Client/apiMethods/createGlobalCommand";
 export * from "./classes/Client/apiMethods/createChannelInvite";
 export * from "./classes/Client/apiMethods/createDM";

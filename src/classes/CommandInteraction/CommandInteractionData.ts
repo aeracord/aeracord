@@ -1,4 +1,4 @@
-import { InteractionData, INTERACTION_TYPE_COMMAND } from "../../internal";
+import { ContextMenuCommandType, COMMAND_TYPE_CHAT_INPUT, InteractionData, INTERACTION_TYPE_COMMAND } from "../../internal";
 
 /**
  * Command Interaction Data
@@ -27,7 +27,14 @@ export interface CommandInteractionData extends InteractionData {
  *
  * A command interaction's data
  */
-export interface CommandInteractionMetadata {
+export type CommandInteractionMetadata = ChatInputCommandInteractionMetadata | ContextMenuCommandInteractionMetadata;
+
+/**
+ * Base Command Interaction Metadata
+ *
+ * The base data for a command interaction's data
+ */
+export interface BaseCommandInteractionMetadata {
 
     /**
      * ID
@@ -42,6 +49,21 @@ export interface CommandInteractionMetadata {
      * The command's name
      */
     name: string;
+}
+
+/**
+ * Chat Input Command Interaction Metadata
+ *
+ * The data for a slash command interaction's data
+ */
+export interface ChatInputCommandInteractionMetadata extends BaseCommandInteractionMetadata {
+
+    /**
+     * Type
+     *
+     * The command's type
+     */
+    type: typeof COMMAND_TYPE_CHAT_INPUT;
 
     /**
      * Options
@@ -49,6 +71,29 @@ export interface CommandInteractionMetadata {
      * The command's parameters
      */
     options?: CommandInteractionOption[];
+}
+
+/**
+ * Context Menu Command Interaction Metadata
+ *
+ * The data for a context ment command interaction's data
+ */
+export interface ContextMenuCommandInteractionMetadata extends BaseCommandInteractionMetadata {
+
+    /**
+     * Type
+     *
+     * The command's type
+     */
+    type: ContextMenuCommandType;
+
+    /**
+     * Target ID
+     *
+     * The command's target ID
+     * A user ID for user commands and a message ID for message commands
+     */
+    targetID: string;
 }
 
 /**

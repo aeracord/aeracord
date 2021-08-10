@@ -1,9 +1,10 @@
-import { CommandOptionType } from "../../internal";
+import { CommandOptionType, CommandType } from "../../internal";
 
 export interface RawCommandData {
     id: string;
     application_id: string;
     name: string;
+    type?: CommandType;
     description: string;
     options?: RawCommandDataOption[];
     default_permission: boolean;

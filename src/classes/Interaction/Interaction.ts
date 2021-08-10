@@ -27,7 +27,7 @@ export type InteractionResolvable = Interaction | InteractionData | string;
  * Represents an interaction that the client receives
  *
  * An `Interaction` is a base class that needs to be extended.
- * For example, a `CommandInteraction` represents a slash command interaction,
+ * For example, a `CommandInteraction` represents a chat input interaction,
  * and a `ComponentInteraction` represents a button or select menu interaction
  */
 export default class Interaction extends Base<AnyInteraction> {

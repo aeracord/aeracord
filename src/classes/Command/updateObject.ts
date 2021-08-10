@@ -13,6 +13,7 @@ export default function updateObject(command: Command, commandData: CommandData)
     command.guildID = commandData.guildID;
     command.applicationID = commandData.applicationID;
     command.name = commandData.name;
+    command.type = commandData.type;
     command.description = commandData.description;
     command.options = commandData.options;
     command.defaultPermission = commandData.defaultPermission;
