@@ -1,4 +1,4 @@
-import { CommandType, ComponentType, InteractionType, RawMemberData, RawMessageData, RawUserData } from "../../internal";
+import { ChannelType, CommandType, ComponentType, InteractionType, RawChannelDataThreadMetadata, RawMemberData, RawMessageData, RawRoleData, RawUserlessMemberData, RawUserData } from "../../internal";
 
 export interface RawInteractionData {
     id: string;
@@ -17,11 +17,39 @@ export interface RawInteractionMetadata {
     id?: string;
     name?: string;
     type?: CommandType;
+    resolved?: RawInteractionResolvedData;
     options?: RawInteractionMetadataOption[];
     component_type?: ComponentType;
     custom_id?: string;
     values?: string[];
     target_id?: string;
+}
+
+export interface RawInteractionResolvedData {
+    users?: {
+        [key: string]: RawUserData;
+    };
+    members?: {
+        [key: string]: RawUserlessMemberData;
+    };
+    roles?: {
+        [key: string]: RawRoleData;
+    };
+    channels?: {
+        [key: string]: RawResolvedChannel;
+    };
+    messages?: {
+        [key: string]: RawMessageData;
+    };
+}
+
+export interface RawResolvedChannel {
+    id: string;
+    type: ChannelType;
+    name: string;
+    permissions: string;
+    parent_id: string | null;
+    thread_metadata?: RawChannelDataThreadMetadata;
 }
 
 export interface RawInteractionMetadataOption {

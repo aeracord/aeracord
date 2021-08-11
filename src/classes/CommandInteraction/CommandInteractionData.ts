@@ -1,4 +1,4 @@
-import { ContextMenuCommandType, COMMAND_TYPE_CHAT_INPUT, InteractionData, INTERACTION_TYPE_COMMAND } from "../../internal";
+import { ChannelType, ContextMenuCommandType, COMMAND_TYPE_CHAT_INPUT, InteractionData, INTERACTION_TYPE_COMMAND, MemberData, MessageData, RoleData, UserData } from "../../internal";
 
 /**
  * Command Interaction Data
@@ -49,6 +49,127 @@ export interface BaseCommandInteractionMetadata {
      * The command's name
      */
     name: string;
+
+    /**
+     * Resolved
+     *
+     * The resolved objects from this command
+     */
+    resolved: CommandInteractionResolvedData;
+}
+
+/**
+ * Command Interaction Resolved Data
+ *
+ * Objects that were referenced in a command
+ */
+export interface CommandInteractionResolvedData {
+
+    /**
+     * Users
+     *
+     * The resolved users
+     */
+    users: Map<string, UserData>;
+
+    /**
+     * Members
+     *
+     * The resolved members
+     */
+    members: Map<string, MemberData>;
+
+    /**
+     * Roles
+     *
+     * The resolved roles
+     */
+    roles: Map<string, RoleData>;
+
+    /**
+     * Channels
+     *
+     * The resolved channels
+     */
+    channels: Map<string, ResolvedChannel>;
+
+    /**
+     * Messages
+     *
+     * The resolved messages
+     */
+    messages: Map<string, MessageData>;
+}
+
+/**
+ * Resolved Channel
+ *
+ * A channel that was referenced in a command
+ */
+export interface ResolvedChannel {
+
+    /**
+     * ID
+     *
+     * The channel's ID
+     */
+    id: string;
+
+    /**
+     * Type
+     *
+     * The channel's type
+     */
+    type: ChannelType;
+
+    /**
+     * Name
+     *
+     * The channel's name
+     */
+    name: string;
+
+    /**
+     * Permissions
+     *
+     * The invoking member's permissions including role permissions and channel overwrites
+     */
+    permissions: string;
+
+    /**
+     * Parent ID
+     *
+     * The ID of this channel's parent channel
+     */
+    parentID: string | null;
+
+    /**
+     * Archived
+     *
+     * Whether or not this thread is archived
+     */
+    archived?: boolean;
+
+    /**
+     * Auto Archived Duration
+     *
+     * The amount of time in minutes after inactivity that this thread will automatically be archived
+     */
+    autoArchivedDuration?: number;
+
+    /**
+     * Archived At
+     *
+     * The timestamp for when this thread's archived status was last updated
+     */
+    archivedAt?: number;
+
+    /**
+     * Locked
+     *
+     * Whether or not this thread is locked
+     */
+    locked?: boolean;
 }
 
 /**
