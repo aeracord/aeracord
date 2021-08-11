@@ -153,7 +153,7 @@ export default class Interaction extends Base<AnyInteraction> {
      * @returns {AnyInteraction} The interaction
      */
     static _fromRawData(client: Client, rawData: RawInteractionData): AnyInteraction {
-        return Interaction.fromData(client, Interaction._dataFromRawData(rawData));
+        return Interaction.fromData(client, Interaction._dataFromRawData(client, rawData));
     }
 
     /**
@@ -166,8 +166,8 @@ export default class Interaction extends Base<AnyInteraction> {
      *
      * @returns {AnyInteractionData} The interaction data
      */
-    static _dataFromRawData(rawData: RawInteractionData): AnyInteractionData {
-        return dataFromRawData(rawData);
+    static _dataFromRawData(client: Client, rawData: RawInteractionData): AnyInteractionData {
+        return dataFromRawData(client, rawData);
     }
 
     /**

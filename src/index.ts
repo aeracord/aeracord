@@ -299,11 +299,16 @@ export {
 
 // Command Interaction
 export {
+    BaseCommandInteractionMetadata,
+    ChatInputCommandInteractionMetadata,
     CommandInteraction,
     CommandInteractionData,
     CommandInteractionMetadata,
     CommandInteractionOption,
-    GetOptionResult
+    CommandInteractionResolvedData,
+    ContextMenuCommandInteractionMetadata,
+    GetOptionResult,
+    ResolvedChannel
 } from "./internal";
 
 // Command Permissions

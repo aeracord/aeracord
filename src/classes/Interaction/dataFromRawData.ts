@@ -1,6 +1,6 @@
-import { AnyInteractionData, COMMAND_TYPE_CHAT_INPUT, COMMAND_TYPE_MESSAGE, COMMAND_TYPE_USER, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, InteractionMetadata, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT, Member, Message, RawInteractionData, RawMemberData, RawMessageData, User } from "../../internal";
+import { AnyInteractionData, Client, CommandInteractionResolvedData, COMMAND_TYPE_CHAT_INPUT, COMMAND_TYPE_MESSAGE, COMMAND_TYPE_USER, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, InteractionMetadata, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT, Member, Message, RawInteractionData, RawMemberData, RawMessageData, RawResolvedChannel, RawRoleData, RawUserlessMemberData, RawUserData, Role, User } from "../../internal";
 
-export default function dataFromRawData(rawData: RawInteractionData): AnyInteractionData {
+export default function dataFromRawData(client: Client, rawData: RawInteractionData): AnyInteractionData {
 
     // Define interaction data
     let interactionData: AnyInteractionData;
@@ -11,11 +11,52 @@ export default function dataFromRawData(rawData: RawInteractionData): AnyInterac
         // Define interaction metadata
         let data: InteractionMetadata;
 
+        // Parse resolved data
+        const resolved: CommandInteractionResolvedData = {
+            users: new Map(),
+            members: new Map(),
+            roles: new Map(),
+            channels: new Map(),
+            messages: new Map()
+        };
+
+        // Parse resolved users
+        if (rawData.data.resolved?.users) Object.values(rawData.data.resolved.users).forEach((u: RawUserData) => resolved.users.set(u.id, User._dataFromRawData(u)));
+
+        // Parse resolved members
+        if (rawData.data.resolved?.members) Object.keys(rawData.data.resolved.members).forEach((m: string) => resolved.members.set(m, Member._dataFromRawData({
+            ...rawData.data.resolved?.members?.[m] as RawUserlessMemberData,
+            user: rawData.data.resolved?.users?.[m] as RawUserData
+        }, rawData.guild_id as string)));
+
+        // Parse resolved roles
+        if (rawData.data.resolved?.roles) Object.values(rawData.data.resolved.roles).forEach((r: RawRoleData) => resolved.roles.set(r.id, Role._dataFromRawData(client, r, rawData.guild_id as string)));
+
+        // Parse resolved channels
+        if (rawData.data.resolved?.channels) Object.values(rawData.data.resolved.channels).forEach((c: RawResolvedChannel) => resolved.channels.set(c.id, {
+            id: c.id,
+            type: c.type,
+            name: c.name,
+            permissions: c.permissions,
+            parentID: c.parent_id,
+            archived: c.thread_metadata?.archived,
+            autoArchivedDuration: c.thread_metadata?.auto_archive_duration,
+            archivedAt: c.thread_metadata && new Date(c.thread_metadata.archive_timestamp).getTime(),
+            locked: c.thread_metadata?.locked
+        }));
+
+        // Parse resolved messages
+        if (rawData.data.resolved?.messages) Object.values(rawData.data.resolved.messages).forEach((m: RawMessageData) => resolved.messages.set(m.id, Message._dataFromRawData({
+            ...m,
+            guild_id: rawData.guild_id
+        })));
+
         // Parse chat input command metadata
         if (rawData.data.type === COMMAND_TYPE_CHAT_INPUT) data = {
             id: rawData.data.id as string,
             name: rawData.data.name as string,
             type: rawData.data.type,
+            resolved,
             options: rawData.data.options
         };
 
@@ -24,6 +65,7 @@ export default function dataFromRawData(rawData: RawInteractionData): AnyInterac
             id: rawData.data.id as string,
             name: rawData.data.name as string,
             type: rawData.data.type,
+            resolved,
             targetID: rawData.data.target_id as string
         };
 
