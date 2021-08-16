@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_DM, DMChannelData } from "../../internal";
+import { ChannelTypes, Client, DMChannelData } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import updateObject from "./updateObject";
 
@@ -9,7 +9,7 @@ export default class DMChannel extends TextBasedChannel {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_DM;
+    type: typeof ChannelTypes.DM;
 
     /**
      * Recipient

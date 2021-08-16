@@ -1,4 +1,4 @@
-import { Client, Command, CommandChoice, CommandOptionType, ContextMenuCommandType, COMMAND_TYPE_CHAT_INPUT, FetchQueue, RawCommandData } from "../../../internal";
+import { Client, Command, CommandChoice, CommandOptionType, CommandTypes, ContextMenuCommandType, FetchQueue, RawCommandData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export type CreateCommandData = CreateChatInputCommandData | CreateContextMenuCommandData;
@@ -9,7 +9,7 @@ export interface BaseCreateCommandData {
 }
 
 export interface CreateChatInputCommandData extends BaseCreateCommandData {
-    type: typeof COMMAND_TYPE_CHAT_INPUT;
+    type: typeof CommandTypes.CHAT_INPUT;
     description: string;
     options?: CreateCommandDataOption[];
 }
@@ -44,8 +44,8 @@ export default async function createGlobalCommand(client: Client, createCommandD
         data: {
             name: createCommandData.name,
             type: createCommandData.type,
-            description: createCommandData.type === COMMAND_TYPE_CHAT_INPUT ? createCommandData.description : undefined,
-            options: createCommandData.type === COMMAND_TYPE_CHAT_INPUT ? createCommandData.options : undefined,
+            description: createCommandData.type === CommandTypes.CHAT_INPUT ? createCommandData.description : undefined,
+            options: createCommandData.type === CommandTypes.CHAT_INPUT ? createCommandData.options : undefined,
             default_permission: createCommandData.defaultPermission
         }
     });

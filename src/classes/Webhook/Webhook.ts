@@ -1,4 +1,4 @@
-import { Base, Client, ModifyWebhookData, RawWebhookData, READY_STATE_READY, User, WebhookData, WebhookType } from "../../internal";
+import { Base, Client, ModifyWebhookData, RawWebhookData, ReadyStates, User, WebhookData, WebhookType } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -103,7 +103,7 @@ export default class Webhook extends Base<Webhook> {
          * If we need to cache all webhooks and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._webhooks.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._webhooks.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

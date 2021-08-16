@@ -1,9 +1,9 @@
-import { AnyInteraction, AnyInteractionData, CommandInteraction, ComponentInteraction, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT, Member, User } from "../../internal";
+import { AnyInteraction, AnyInteractionData, CommandInteraction, ComponentInteraction, InteractionTypes, Member, User } from "../../internal";
 
 export default function toData(interaction: AnyInteraction): AnyInteractionData {
 
     // Parse command interaction data
-    if (interaction.type === INTERACTION_TYPE_COMMAND) {
+    if (interaction.type === InteractionTypes.COMMAND) {
         const commandInteraction: CommandInteraction = interaction as CommandInteraction;
         return {
             id: commandInteraction.id,
@@ -21,7 +21,7 @@ export default function toData(interaction: AnyInteraction): AnyInteractionData 
     }
 
     // Parse component interaction data
-    else if (interaction.type === INTERACTION_TYPE_COMPONENT) {
+    else if (interaction.type === InteractionTypes.COMPONENT) {
         const componentInteraction: ComponentInteraction = interaction as ComponentInteraction;
         return {
             id: componentInteraction.id,

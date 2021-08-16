@@ -1,4 +1,4 @@
-import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, BulkOverwriteCommandData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildStickerData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotifications, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberCacheInterface, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildStickerData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, Role, RoleData, RoleResolvable, READY_STATE_READY, SearchGuildMembersData, Sticker, StickerData, StickerResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, ThreadChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
+import { AnyChannel, AnyGuildChannel, AnyInteraction, AuditLogData, Ban, BanData, Base, BulkEditGuildCommandPermissionsData, BulkOverwriteCommandData, CacheInterface, CategoryChannel, Client, Command, CommandPermissions, CommandResolvable, CreateCommandData, CreateGuildBanData, CreateGuildChannelData, CreateGuildEmojiData, CreateGuildRoleData, CreateGuildStickerData, CreateGuildTemplateData, CurrentUserNickname, DefaultMessageNotification, EditCommandData, EditGuildCommandPermissionsData, Emoji, EmojiData, EmojiResolvable, ExplicitContentFilter, Feature, GetGuildAuditLogData, GuildChannel, GuildChannelData, GuildData, GuildPreview, GuildWidget, GuildWidgetData, Invite, InviteData, ListGuildMembersData, Member, MemberCacheInterface, MemberData, ModifyGuildChannelPositionsData, ModifyGuildData, ModifyGuildEmojiData, ModifyGuildMemberData, ModifyGuildRoleData, ModifyGuildRolePositionsData, ModifyGuildStickerData, ModifyGuildTemplateData, ModifyGuildWelcomeScreenData, ModifyGuildWidgetData, MFALevel, NewsChannel, NSFWLevel, PremiumTier, RawGuildData, ReadyStates, Role, RoleData, RoleResolvable, SearchGuildMembersData, Sticker, StickerData, StickerResolvable, StoreChannel, Template, TemplateData, TemplateResolvable, TextChannel, ThreadChannel, UserResolvable, VanityInvite, VanityInviteData, VerificationLevel, VoiceChannel, VoiceRegion, Webhook, WebhookData, WelcomeScreen, WelcomeScreenData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -90,7 +90,7 @@ export default class Guild extends Base<Guild> {
      *
      * The guild's default message notifications setting
      */
-    defaultMessageNotifications: DefaultMessageNotifications;
+    defaultMessageNotifications: DefaultMessageNotification;
 
     /**
      * Explicit Content Filter
@@ -477,7 +477,7 @@ export default class Guild extends Base<Guild> {
          * If we need to cache all guilds and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._guilds.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._guilds.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

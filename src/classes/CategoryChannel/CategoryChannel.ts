@@ -1,4 +1,4 @@
-import { CategoryChannelData, Client, CHANNEL_TYPE_CATEGORY } from "../../internal";
+import { CategoryChannelData, ChannelTypes, Client } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
@@ -9,7 +9,7 @@ export default class CategoryChannel extends GuildChannel {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_CATEGORY;
+    type: typeof ChannelTypes.CATEGORY;
 
     /**
      * Category Channel

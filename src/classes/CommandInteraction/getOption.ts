@@ -1,4 +1,4 @@
-import { CommandInteraction, CommandInteractionOption, COMMAND_TYPE_CHAT_INPUT } from "../../internal";
+import { CommandInteraction, CommandInteractionOption, CommandTypes } from "../../internal";
 
 /**
  * Get Option Result
@@ -33,7 +33,7 @@ export interface GetOptionResult {
 export default function getOption(commandInteraction: CommandInteraction, name: string, suboptionNames: string[]): GetOptionResult | undefined {
 
     // Not a slash command
-    if (commandInteraction.data.type !== COMMAND_TYPE_CHAT_INPUT) throw new Error("Options are only available on slash commands");
+    if (commandInteraction.data.type !== CommandTypes.CHAT_INPUT) throw new Error("Options are only available on slash commands");
 
     // Define result
     let result: GetOptionResult | undefined = commandInteraction.data.options?.find((o: CommandInteractionOption) => o.name === name);

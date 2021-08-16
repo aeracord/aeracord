@@ -1,4 +1,4 @@
-import { DefaultMessageNotifications, ExplicitContentFilter, Feature, MFALevel, NSFWLevel, PremiumTier, RawEmojiData, RawRoleData, RawStickerData, RawWelcomeScreenData, VerificationLevel } from "../../internal";
+import { DefaultMessageNotification, ExplicitContentFilter, Feature, MFALevel, NSFWLevel, PremiumTier, RawEmojiData, RawRoleData, RawStickerData, RawWelcomeScreenData, VerificationLevel } from "../../internal";
 
 export interface RawGuildData {
     id: string;
@@ -13,7 +13,7 @@ export interface RawGuildData {
     widget_enabled?: boolean;
     widget_channel_id?: string | null;
     verification_level: VerificationLevel;
-    default_message_notifications: DefaultMessageNotifications;
+    default_message_notifications: DefaultMessageNotification;
     explicit_content_filter: ExplicitContentFilter;
     roles: RawRoleData[];
     emojis: RawEmojiData[];

@@ -1,4 +1,4 @@
-import { CHANNEL_TYPE_STORE, GuildChannelData } from "../../internal";
+import { ChannelTypes, GuildChannelData } from "../../internal";
 
 /**
  * Store Channel Data
@@ -12,5 +12,5 @@ export interface StoreChannelData extends GuildChannelData {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_STORE;
+    type: typeof ChannelTypes.STORE;
 }

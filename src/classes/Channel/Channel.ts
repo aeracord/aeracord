@@ -1,4 +1,4 @@
-import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, NewsChannel, NewsChannelData, RawChannelData, READY_STATE_READY, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import { Base, CategoryChannel, CategoryChannelData, ChannelData, ChannelType, Client, DMChannel, DMChannelData, NewsChannel, NewsChannelData, RawChannelData, ReadyStates, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -50,7 +50,7 @@ export default class Channel extends Base<AnyChannel> {
          * If we need to cache all channels and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._channels.cacheAll) && (client._readyState === READY_STATE_READY) && (!(this instanceof ThreadChannel))) this.cache();
+        if ((client._channels.cacheAll) && (client._readyState === ReadyStates.READY) && (!(this instanceof ThreadChannel))) this.cache();
     }
 
     /**

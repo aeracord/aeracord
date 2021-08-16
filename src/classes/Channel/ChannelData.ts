@@ -31,14 +31,87 @@ export interface ChannelData {
  * Channel Type
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-types
  */
-export type ChannelType = typeof CHANNEL_TYPE_TEXT | typeof CHANNEL_TYPE_DM | typeof CHANNEL_TYPE_VOICE | typeof CHANNEL_TYPE_CATEGORY | typeof CHANNEL_TYPE_NEWS | typeof CHANNEL_TYPE_STORE | typeof CHANNEL_TYPE_NEWS_THREAD | typeof CHANNEL_TYPE_PUBLIC_THREAD | typeof CHANNEL_TYPE_PRIVATE_THREAD | typeof CHANNEL_TYPE_STAGE;
-export const CHANNEL_TYPE_TEXT = 0;
-export const CHANNEL_TYPE_DM = 1;
-export const CHANNEL_TYPE_VOICE = 2;
-export const CHANNEL_TYPE_CATEGORY = 4;
-export const CHANNEL_TYPE_NEWS = 5;
-export const CHANNEL_TYPE_STORE = 6;
-export const CHANNEL_TYPE_NEWS_THREAD = 10;
-export const CHANNEL_TYPE_PUBLIC_THREAD = 11;
-export const CHANNEL_TYPE_PRIVATE_THREAD = 12;
-export const CHANNEL_TYPE_STAGE = 13;
+export type ChannelType = typeof ChannelTypes.TEXT | typeof ChannelTypes.DM | typeof ChannelTypes.VOICE | typeof ChannelTypes.CATEGORY | typeof ChannelTypes.NEWS | typeof ChannelTypes.STORE | typeof ChannelTypes.NEWS_THREAD | typeof ChannelTypes.PUBLIC_THREAD | typeof ChannelTypes.PRIVATE_THREAD | typeof ChannelTypes.STAGE;
+export const ChannelTypes: {
+
+    /**
+     * Text
+     *
+     * A text channel
+     */
+    TEXT: 0,
+
+    /**
+     * DM
+     *
+     * A DM channel
+     */
+    DM: 1,
+
+    /**
+     * Voice
+     *
+     * A voice channel
+     */
+    VOICE: 2,
+
+    /**
+     * Category
+     *
+     * A category channel
+     */
+    CATEGORY: 4,
+
+    /**
+     * News
+     *
+     * An announcement channel
+     */
+    NEWS: 5,
+
+    /**
+     * Store
+     *
+     * A store channel
+     */
+    STORE: 6,
+
+    /**
+     * News Thread
+     *
+     * A thread channel within an announcement channel
+     */
+    NEWS_THREAD: 10,
+
+    /**
+     * Public Thread
+     *
+     * A public thread channel
+     */
+    PUBLIC_THREAD: 11,
+
+    /**
+     * Private Thread
+     *
+     * A private thread channel
+     */
+    PRIVATE_THREAD: 12,
+
+    /**
+     * Stage
+     *
+     * A stage channel
+     */
+    STAGE: 13
+} = {
+    TEXT: 0,
+    DM: 1,
+    VOICE: 2,
+    CATEGORY: 4,
+    NEWS: 5,
+    STORE: 6,
+    NEWS_THREAD: 10,
+    PUBLIC_THREAD: 11,
+    PRIVATE_THREAD: 12,
+    STAGE: 13
+};

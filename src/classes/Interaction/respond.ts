@@ -1,4 +1,4 @@
-import { CreateInteractionMessageData, Embed, Interaction, INTERACTION_RESPONSE_TYPE_MESSAGE, Message } from "../../internal";
+import { CreateInteractionMessageData, Embed, Interaction, InteractionResponseTypes, Message } from "../../internal";
 
 export default function respond(interaction: Interaction, contentOrData: string | Embed | CreateInteractionMessageData, createInteractionMessageData: CreateInteractionMessageData = {}): Promise<Message | undefined> {
 
@@ -9,7 +9,7 @@ export default function respond(interaction: Interaction, contentOrData: string 
 
     // Create response
     return interaction.client.createInteractionResponse(interaction, interaction.token, {
-        type: INTERACTION_RESPONSE_TYPE_MESSAGE,
+        type: InteractionResponseTypes.MESSAGE,
         data: createInteractionMessageData
     });
 }

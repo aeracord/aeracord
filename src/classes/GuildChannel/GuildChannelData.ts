@@ -91,6 +91,23 @@ export interface PermissionOverwrite {
  *
  * The types of permission overwrites
  */
-export type PermissionType = typeof PERMISSION_TYPE_ROLE | typeof PERMISSION_TYPE_MEMBER;
-export const PERMISSION_TYPE_ROLE = 0;
-export const PERMISSION_TYPE_MEMBER = 1;
+export type PermissionType = typeof PermissionTypes.ROLE | typeof PermissionTypes.MEMBER;
+export const PermissionTypes: {
+
+    /**
+     * Role
+     *
+     * A role permission overwrite
+     */
+    ROLE: 0,
+
+    /**
+     * Member
+     *
+     * A member permission overwrite
+     */
+    MEMBER: 1
+} = {
+    ROLE: 0,
+    MEMBER: 1
+};

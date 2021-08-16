@@ -1,4 +1,4 @@
-import { AnyChannel, AnyInteraction, ArchivedThreadListData, CacheInterface, ChannelResolvable, Client, CreateWebhookData, CHANNEL_TYPE_NEWS, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
+import { AnyChannel, AnyInteraction, ArchivedThreadListData, CacheInterface, ChannelResolvable, ChannelTypes, Client, CreateWebhookData, FollowedChannel, Invite, Message, MessageResolvable, ModifyWebhookData, NewsChannelData, StartThreadData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -15,7 +15,7 @@ class NewsChannel extends GuildChannel {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_NEWS;
+    type: typeof ChannelTypes.NEWS;
 
     /**
      * Topic

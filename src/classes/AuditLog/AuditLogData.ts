@@ -81,48 +81,338 @@ export interface AuditLogEntry {
  * Audit Log Event
  * https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events
  */
-export type AuditLogEvent = typeof AUDIT_LOG_EVENT_GUILD_UPDATE | typeof AUDIT_LOG_EVENT_CHANNEL_CREATE | typeof AUDIT_LOG_EVENT_CHANNEL_UPDATE | typeof AUDIT_LOG_EVENT_CHANNEL_DELETE | typeof AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_CREATE | typeof AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_UPDATE | typeof AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_DELETE | typeof AUDIT_LOG_EVENT_MEMBER_KICK | typeof AUDIT_LOG_EVENT_MEMBER_PRUNE | typeof AUDIT_LOG_EVENT_MEMBER_BAN_ADD | typeof AUDIT_LOG_EVENT_MEMBER_BAN_REMOVE | typeof AUDIT_LOG_EVENT_MEMBER_UPDATE | typeof AUDIT_LOG_EVENT_MEMBER_ROLE_UPDATE | typeof AUDIT_LOG_EVENT_MEMBER_MOVE | typeof AUDIT_LOG_EVENT_MEMBER_DISCONNECT | typeof AUDIT_LOG_EVENT_BOT_ADD | typeof AUDIT_LOG_EVENT_ROLE_CREATE | typeof AUDIT_LOG_EVENT_ROLE_UPDATE | typeof AUDIT_LOG_EVENT_ROLE_DELETE | typeof AUDIT_LOG_EVENT_INVITE_CREATE | typeof AUDIT_LOG_EVENT_INVITE_UPDATE | typeof AUDIT_LOG_EVENT_INVITE_DELETE | typeof AUDIT_LOG_EVENT_WEBHOOK_CREATE | typeof AUDIT_LOG_EVENT_WEBHOOK_UPDATE | typeof AUDIT_LOG_EVENT_WEBHOOK_DELETE | typeof AUDIT_LOG_EVENT_EMOJI_CREATE | typeof AUDIT_LOG_EVENT_EMOJI_UPDATE | typeof AUDIT_LOG_EVENT_EMOJI_DELETE | typeof AUDIT_LOG_EVENT_MESSAGE_DELETE | typeof AUDIT_LOG_EVENT_MESSAGE_BULK_DELETE | typeof AUDIT_LOG_EVENT_MESSAGE_PIN | typeof AUDIT_LOG_EVENT_MESSAGE_UNPIN | typeof AUDIT_LOG_EVENT_INTEGRATION_CREATE | typeof AUDIT_LOG_EVENT_INTEGRATION_UPDATE | typeof AUDIT_LOG_EVENT_INTEGRATION_DELETE;
-export const AUDIT_LOG_EVENT_GUILD_UPDATE = 1;
-export const AUDIT_LOG_EVENT_CHANNEL_CREATE = 10;
-export const AUDIT_LOG_EVENT_CHANNEL_UPDATE = 11;
-export const AUDIT_LOG_EVENT_CHANNEL_DELETE = 12;
-export const AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_CREATE = 13;
-export const AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_UPDATE = 14;
-export const AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_DELETE = 15;
-export const AUDIT_LOG_EVENT_MEMBER_KICK = 20;
-export const AUDIT_LOG_EVENT_MEMBER_PRUNE = 21;
-export const AUDIT_LOG_EVENT_MEMBER_BAN_ADD = 22;
-export const AUDIT_LOG_EVENT_MEMBER_BAN_REMOVE = 23;
-export const AUDIT_LOG_EVENT_MEMBER_UPDATE = 24;
-export const AUDIT_LOG_EVENT_MEMBER_ROLE_UPDATE = 25;
-export const AUDIT_LOG_EVENT_MEMBER_MOVE = 26;
-export const AUDIT_LOG_EVENT_MEMBER_DISCONNECT = 27;
-export const AUDIT_LOG_EVENT_BOT_ADD = 28;
-export const AUDIT_LOG_EVENT_ROLE_CREATE = 30;
-export const AUDIT_LOG_EVENT_ROLE_UPDATE = 31;
-export const AUDIT_LOG_EVENT_ROLE_DELETE = 32;
-export const AUDIT_LOG_EVENT_INVITE_CREATE = 40;
-export const AUDIT_LOG_EVENT_INVITE_UPDATE = 41;
-export const AUDIT_LOG_EVENT_INVITE_DELETE = 42;
-export const AUDIT_LOG_EVENT_WEBHOOK_CREATE = 50;
-export const AUDIT_LOG_EVENT_WEBHOOK_UPDATE = 51;
-export const AUDIT_LOG_EVENT_WEBHOOK_DELETE = 52;
-export const AUDIT_LOG_EVENT_EMOJI_CREATE = 60;
-export const AUDIT_LOG_EVENT_EMOJI_UPDATE = 61;
-export const AUDIT_LOG_EVENT_EMOJI_DELETE = 62;
-export const AUDIT_LOG_EVENT_MESSAGE_DELETE = 72;
-export const AUDIT_LOG_EVENT_MESSAGE_BULK_DELETE = 73;
-export const AUDIT_LOG_EVENT_MESSAGE_PIN = 74;
-export const AUDIT_LOG_EVENT_MESSAGE_UNPIN = 75;
-export const AUDIT_LOG_EVENT_INTEGRATION_CREATE = 80;
-export const AUDIT_LOG_EVENT_INTEGRATION_UPDATE = 81;
-export const AUDIT_LOG_EVENT_INTEGRATION_DELETE = 82;
-export const AUDIT_LOG_EVENT_STAGE_INSTANCE_CREATE = 83;
-export const AUDIT_LOG_EVENT_STAGE_INSTANCE_UPDATE = 84;
-export const AUDIT_LOG_EVENT_STAGE_INSTANCE_DELETE = 85;
-export const AUDIT_LOG_EVENT_STICKER_CREATE = 90;
-export const AUDIT_LOG_EVENT_STICKER_UPDATE = 91;
-export const AUDIT_LOG_EVENT_STICKER_DELETE = 92;
+export type AuditLogEvent = typeof AuditLogEvents.GUILD_UPDATE | typeof AuditLogEvents.CHANNEL_CREATE | typeof AuditLogEvents.CHANNEL_UPDATE | typeof AuditLogEvents.CHANNEL_DELETE | typeof AuditLogEvents.CHANNEL_OVERWRITE_CREATE | typeof AuditLogEvents.CHANNEL_OVERWRITE_UPDATE | typeof AuditLogEvents.CHANNEL_OVERWRITE_DELETE | typeof AuditLogEvents.MEMBER_KICK | typeof AuditLogEvents.MEMBER_PRUNE | typeof AuditLogEvents.MEMBER_BAN_ADD | typeof AuditLogEvents.MEMBER_BAN_REMOVE | typeof AuditLogEvents.MEMBER_UPDATE | typeof AuditLogEvents.MEMBER_ROLE_UPDATE | typeof AuditLogEvents.MEMBER_MOVE | typeof AuditLogEvents.MEMBER_DISCONNECT | typeof AuditLogEvents.BOT_ADD | typeof AuditLogEvents.ROLE_CREATE | typeof AuditLogEvents.ROLE_UPDATE | typeof AuditLogEvents.ROLE_DELETE | typeof AuditLogEvents.INVITE_CREATE | typeof AuditLogEvents.INVITE_UPDATE | typeof AuditLogEvents.INVITE_DELETE | typeof AuditLogEvents.WEBHOOK_CREATE | typeof AuditLogEvents.WEBHOOK_UPDATE | typeof AuditLogEvents.WEBHOOK_DELETE | typeof AuditLogEvents.EMOJI_CREATE | typeof AuditLogEvents.EMOJI_UPDATE | typeof AuditLogEvents.EMOJI_DELETE | typeof AuditLogEvents.MESSAGE_DELETE | typeof AuditLogEvents.MESSAGE_BULK_DELETE | typeof AuditLogEvents.MESSAGE_PIN | typeof AuditLogEvents.MESSAGE_UNPIN | typeof AuditLogEvents.INTEGRATION_CREATE | typeof AuditLogEvents.INTEGRATION_UPDATE | typeof AuditLogEvents.INTEGRATION_DELETE;
+export const AuditLogEvents: {
+
+    /**
+     * Guild Update
+     *
+     * When a guild is updated
+     */
+    GUILD_UPDATE: 1,
+
+    /**
+     * Channel Create
+     *
+     * When a channel is created
+     */
+    CHANNEL_CREATE: 10,
+
+    /**
+     * Channel Update
+     *
+     * When a channel is updated
+     */
+    CHANNEL_UPDATE: 11,
+
+    /**
+     * Channel Delete
+     *
+     * When a channel is deleted
+     */
+    CHANNEL_DELETE: 12,
+
+    /**
+     * Channel Overwrite Create
+     *
+     * When a channel overwrite is created
+     */
+    CHANNEL_OVERWRITE_CREATE: 13,
+
+    /**
+     * Channel Overwrite Update
+     *
+     * When a channel overwrite is updated
+     */
+    CHANNEL_OVERWRITE_UPDATE: 14,
+
+    /**
+     * Channel Overwrite Delete
+     *
+     * When a channel overwrite is deleted
+     */
+    CHANNEL_OVERWRITE_DELETE: 15,
+
+    /**
+     * Member Kick
+     *
+     * When a member is kicked from a guild
+     */
+    MEMBER_KICK: 20,
+
+    /**
+     * Member Prune
+     *
+     * When members are pruned from a guild
+     */
+    MEMBER_PRUNE: 21,
+
+    /**
+     * Member Ban Add
+     *
+     * When a user is banned from a guild
+     */
+    MEMBER_BAN_ADD: 22,
+
+    /**
+     * Member Ban Remove
+     *
+     * When a user is unbanned from a guild
+     */
+    MEMBER_BAN_REMOVE: 23,
+
+    /**
+     * Member Update
+     *
+     * When a member is updated
+     */
+    MEMBER_UPDATE: 24,
+
+    /**
+     * Member Role Update
+     *
+     * When a member's roles are updated
+     */
+    MEMBER_ROLE_UPDATE: 25,
+
+    /**
+     * Member Move
+     *
+     * When a member is moved to a different voice channel
+     */
+    MEMBER_MOVE: 26,
+
+    /**
+     * Member Disconnect
+     *
+     * When a mmeber is disconnected from a voice channel
+     */
+    MEMBER_DISCONNECT: 27,
+
+    /**
+     * Bot Add
+     *
+     * When a bot is added to a guild
+     */
+    BOT_ADD: 28,
+
+    /**
+     * Role Create
+     *
+     * When a role is created
+     */
+    ROLE_CREATE: 30,
+
+    /**
+     * Role Update
+     *
+     * When a role is updated
+     */
+    ROLE_UPDATE: 31,
+
+    /**
+     * Role Delete
+     *
+     * When a role is deleted
+     */
+    ROLE_DELETE: 32,
+
+    /**
+     * Invite Create
+     *
+     * When an invite is created
+     */
+    INVITE_CREATE: 40,
+
+    /**
+     * Invite Update
+     *
+     * When an invite is updated
+     */
+    INVITE_UPDATE: 41,
+
+    /**
+     * Invite Delete
+     *
+     * When an invite is deleted
+     */
+    INVITE_DELETE: 42,
+
+    /**
+     * Webhook Create
+     *
+     * When a webhook is created
+     */
+    WEBHOOK_CREATE: 50,
+
+    /**
+     * Webhook Update
+     *
+     * When a webhook is updated
+     */
+    WEBHOOK_UPDATE: 51,
+
+    /**
+     * Webhook Delete
+     *
+     * When a webhook is deleted
+     */
+    WEBHOOK_DELETE: 52,
+
+    /**
+     * Emoji Create
+     *
+     * When an emoji is created
+     */
+    EMOJI_CREATE: 60,
+
+    /**
+     * Emoji Update
+     *
+     * When an emoji is updated
+     */
+    EMOJI_UPDATE: 61,
+
+    /**
+     * Emoji Delete
+     *
+     * When an emoji is deleted
+     */
+    EMOJI_DELETE: 62,
+
+    /**
+     * Message Delete
+     *
+     * When a message is deleted
+     */
+    MESSAGE_DELETE: 72,
+
+    /**
+     * Message Bulk Delete
+     *
+     * When messages are deleted in bulk
+     */
+    MESSAGE_BULK_DELETE: 73,
+
+    /**
+     * Message Pin
+     *
+     * When a message is pinned
+     */
+    MESSAGE_PIN: 74,
+
+    /**
+     * Message Unpin
+     *
+     * When a message is unpinned
+     */
+    MESSAGE_UNPIN: 75,
+
+    /**
+     * Integration Create
+     *
+     * When an integration is created
+     */
+    INTEGRATION_CREATE: 80,
+
+    /**
+     * Integration Update
+     *
+     * When an integration is updated
+     */
+    INTEGRATION_UPDATE: 81,
+
+    /**
+     * Integration Delete
+     *
+     * When an integration is deleted
+     */
+    INTEGRATION_DELETE: 82,
+
+    /**
+     * Stage Instance Create
+     *
+     * When a stage instance is created
+     */
+    STAGE_INSTANCE_CREATE: 83,
+
+    /**
+     * Stage Instance Update
+     *
+     * When a stage instance is updated
+     */
+    STAGE_INSTANCE_UPDATE: 84,
+
+    /**
+     * Stage Instance Delete
+     *
+     * When a stage instance is deleted
+     */
+    STAGE_INSTANCE_DELETE: 85,
+
+    /**
+     * Sticker Create
+     *
+     * When a sticker is created
+     */
+    STICKER_CREATE: 90,
+
+    /**
+     * Sticker Update
+     *
+     * When a sticker is updated
+     */
+    STICKER_UPDATE: 91,
+
+    /**
+     * Sticker Delete
+     *
+     * When a sticker is deleted
+     */
+    STICKER_DELETE: 92
+} = {
+    GUILD_UPDATE: 1,
+    CHANNEL_CREATE: 10,
+    CHANNEL_UPDATE: 11,
+    CHANNEL_DELETE: 12,
+    CHANNEL_OVERWRITE_CREATE: 13,
+    CHANNEL_OVERWRITE_UPDATE: 14,
+    CHANNEL_OVERWRITE_DELETE: 15,
+    MEMBER_KICK: 20,
+    MEMBER_PRUNE: 21,
+    MEMBER_BAN_ADD: 22,
+    MEMBER_BAN_REMOVE: 23,
+    MEMBER_UPDATE: 24,
+    MEMBER_ROLE_UPDATE: 25,
+    MEMBER_MOVE: 26,
+    MEMBER_DISCONNECT: 27,
+    BOT_ADD: 28,
+    ROLE_CREATE: 30,
+    ROLE_UPDATE: 31,
+    ROLE_DELETE: 32,
+    INVITE_CREATE: 40,
+    INVITE_UPDATE: 41,
+    INVITE_DELETE: 42,
+    WEBHOOK_CREATE: 50,
+    WEBHOOK_UPDATE: 51,
+    WEBHOOK_DELETE: 52,
+    EMOJI_CREATE: 60,
+    EMOJI_UPDATE: 61,
+    EMOJI_DELETE: 62,
+    MESSAGE_DELETE: 72,
+    MESSAGE_BULK_DELETE: 73,
+    MESSAGE_PIN: 74,
+    MESSAGE_UNPIN: 75,
+    INTEGRATION_CREATE: 80,
+    INTEGRATION_UPDATE: 81,
+    INTEGRATION_DELETE: 82,
+    STAGE_INSTANCE_CREATE: 83,
+    STAGE_INSTANCE_UPDATE: 84,
+    STAGE_INSTANCE_DELETE: 85,
+    STICKER_CREATE: 90,
+    STICKER_UPDATE: 91,
+    STICKER_DELETE: 92
+}
 
 /**
  * Audit Log Change

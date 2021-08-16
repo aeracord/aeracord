@@ -74,11 +74,35 @@ export interface CommandData {
  * Command Type
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-types
  */
-export type CommandType = typeof COMMAND_TYPE_CHAT_INPUT | ContextMenuCommandType;
-export type ContextMenuCommandType = typeof COMMAND_TYPE_USER | typeof COMMAND_TYPE_MESSAGE;
-export const COMMAND_TYPE_CHAT_INPUT = 1;
-export const COMMAND_TYPE_USER = 2;
-export const COMMAND_TYPE_MESSAGE = 3;
+export type CommandType = typeof CommandTypes.CHAT_INPUT | ContextMenuCommandType;
+export type ContextMenuCommandType = typeof CommandTypes.USER | typeof CommandTypes.MESSAGE;
+export const CommandTypes: {
+
+    /**
+     * Chat Input
+     *
+     * A slash command
+     */
+    CHAT_INPUT: 1,
+
+    /**
+     * User
+     *
+     * A user context menu command
+     */
+    USER: 2,
+
+    /**
+     * Message
+     *
+     * A message context menu command
+     */
+    MESSAGE: 3
+} = {
+    CHAT_INPUT: 1,
+    USER: 2,
+    MESSAGE: 3
+};
 
 /**
  * Command Option
@@ -134,17 +158,91 @@ export interface CommandOption {
  * Command Option Type
  * https://discord.com/developers/docs/interactions/slash-commands#applicationcommandoptiontype
  */
-export type CommandOptionType = typeof COMMAND_OPTION_TYPE_SUB_COMMAND | typeof COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP | typeof COMMAND_OPTION_TYPE_STRING | typeof COMMAND_OPTION_TYPE_INTEGER | typeof COMMAND_OPTION_TYPE_BOOLEAN | typeof COMMAND_OPTION_TYPE_USER | typeof COMMAND_OPTION_TYPE_CHANNEL | typeof COMMAND_OPTION_TYPE_ROLE | typeof COMMAND_OPTION_TYPE_MENTIONABLE | typeof COMMAND_OPTION_TYPE_NUMBER;
-export const COMMAND_OPTION_TYPE_SUB_COMMAND = 1;
-export const COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP = 2;
-export const COMMAND_OPTION_TYPE_STRING = 3;
-export const COMMAND_OPTION_TYPE_INTEGER = 4;
-export const COMMAND_OPTION_TYPE_BOOLEAN = 5;
-export const COMMAND_OPTION_TYPE_USER = 6;
-export const COMMAND_OPTION_TYPE_CHANNEL = 7;
-export const COMMAND_OPTION_TYPE_ROLE = 8;
-export const COMMAND_OPTION_TYPE_MENTIONABLE = 9;
-export const COMMAND_OPTION_TYPE_NUMBER = 10;
+export type CommandOptionType = typeof CommandOptionTypes.SUB_COMMAND | typeof CommandOptionTypes.SUB_COMMAND_GROUP | typeof CommandOptionTypes.STRING | typeof CommandOptionTypes.INTEGER | typeof CommandOptionTypes.BOOLEAN | typeof CommandOptionTypes.USER | typeof CommandOptionTypes.CHANNEL | typeof CommandOptionTypes.ROLE | typeof CommandOptionTypes.MENTIONABLE | typeof CommandOptionTypes.NUMBER;
+export const CommandOptionTypes: {
+
+    /**
+     * Sub Command
+     *
+     * A sub-command within another command or a sub-command group
+     */
+    SUB_COMMAND: 1,
+
+    /**
+     * Sub Command Group
+     *
+     * A group of sub-commands
+     */
+    SUB_COMMAND_GROUP: 2,
+
+    /**
+     * String
+     *
+     * A string
+     */
+    STRING: 3,
+
+    /**
+     * Integer
+     *
+     * An integer
+     */
+    INTEGER: 4,
+
+    /**
+     * Boolean
+     *
+     * A boolean
+     */
+    BOOLEAN: 5,
+
+    /**
+     * User
+     *
+     * A user
+     */
+    USER: 6,
+
+    /**
+     * Channel
+     *
+     * A channel
+     */
+    CHANNEL: 7,
+
+    /**
+     * Role
+     *
+     * A role
+     */
+    ROLE: 8,
+
+    /**
+     * Mentionable
+     *
+     * Users and roles
+     */
+    MENTIONABLE: 9,
+
+    /**
+     * Number
+     *
+     * A number
+     */
+    NUMBER: 10
+} = {
+    SUB_COMMAND: 1,
+    SUB_COMMAND_GROUP: 2,
+    STRING: 3,
+    INTEGER: 4,
+    BOOLEAN: 5,
+    USER: 6,
+    CHANNEL: 7,
+    ROLE: 8,
+    MENTIONABLE: 9,
+    NUMBER: 10
+};
+
 
 /**
  * Command Choice

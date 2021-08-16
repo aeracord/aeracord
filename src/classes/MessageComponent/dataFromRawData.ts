@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, COMPONENT_TYPE_ACTION_ROW, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, MessageComponent, RawMessageComponentData, RawMessageComponentDataOption, RawMessageComponentMetadata } from "../../internal";
+import { AnyMessageComponentData, ComponentTypes, MessageComponent, RawMessageComponentData, RawMessageComponentDataOption, RawMessageComponentMetadata } from "../../internal";
 
 export default function dataFromRawData(rawData: RawMessageComponentData, metadata: RawMessageComponentMetadata): AnyMessageComponentData {
 
@@ -6,7 +6,7 @@ export default function dataFromRawData(rawData: RawMessageComponentData, metada
     let messageComponentData: AnyMessageComponentData;
 
     // Parse action row data
-    if (rawData.type === COMPONENT_TYPE_ACTION_ROW) messageComponentData = {
+    if (rawData.type === ComponentTypes.ACTION_ROW) messageComponentData = {
         type: rawData.type,
         messageID: metadata.messageID,
         channelID: metadata.channelID,
@@ -15,7 +15,7 @@ export default function dataFromRawData(rawData: RawMessageComponentData, metada
     };
 
     // Parse button data
-    else if (rawData.type === COMPONENT_TYPE_BUTTON) messageComponentData = {
+    else if (rawData.type === ComponentTypes.BUTTON) messageComponentData = {
         type: rawData.type,
         messageID: metadata.messageID,
         channelID: metadata.channelID,
@@ -33,7 +33,7 @@ export default function dataFromRawData(rawData: RawMessageComponentData, metada
     };
 
     // Parse select menu data
-    else if (rawData.type === COMPONENT_TYPE_SELECT_MENU) messageComponentData = {
+    else if (rawData.type === ComponentTypes.SELECT_MENU) messageComponentData = {
         type: rawData.type,
         messageID: metadata.messageID,
         channelID: metadata.channelID,

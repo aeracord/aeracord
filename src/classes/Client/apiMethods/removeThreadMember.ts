@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, CHANNEL_TYPE_PRIVATE_THREAD, FetchQueue, PermissionError, ThreadCacheData, User, UserResolvable } from "../../../internal";
+import { Channel, ChannelResolvable, ChannelTypes, Client, FetchQueue, PermissionError, ThreadCacheData, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export default async function removeThreadMember(client: Client, channelResolvable: ChannelResolvable, userResolvable: UserResolvable): Promise<void> {
@@ -20,7 +20,7 @@ export default async function removeThreadMember(client: Client, channelResolvab
     if (
         !client.hasPermission("MANAGE_THREADS", channelID) &&
         (
-            threadCacheData.type !== CHANNEL_TYPE_PRIVATE_THREAD ||
+            threadCacheData.type !== ChannelTypes.PRIVATE_THREAD ||
             !threadCacheData.createdByClient
         )
     ) throw new PermissionError({ permission: "MANAGE_THREADS" });

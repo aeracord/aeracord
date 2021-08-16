@@ -1,4 +1,4 @@
-import { CHANNEL_TYPE_DM, TextBasedChannelData } from "../../internal";
+import { ChannelTypes, TextBasedChannelData } from "../../internal";
 
 /**
  * DM Channel Data
@@ -12,7 +12,7 @@ export interface DMChannelData extends TextBasedChannelData {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_DM;
+    type: typeof ChannelTypes.DM;
 
     /**
      * Recipient

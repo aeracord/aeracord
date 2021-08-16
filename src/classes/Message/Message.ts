@@ -1,4 +1,4 @@
-import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, READY_STATE_READY, StartThreadData, ThreadChannel, User, UserData, UserResolvable } from "../../internal";
+import { AnyMessageComponentData, AttachmentData, Base, ChannelMention, Client, CreateMessageData, EditMessageData, Embed, GetReactionsData, Member, MemberData, MessageActivity, MessageApplication, MessageData, MessageEmbedData, MessageInteraction, MessageReference, MessageStickerItem, MessageType, MessageWebhook, RawMessageData, ReactionData, ReactionEmojiResolvable, ReadyStates, StartThreadData, ThreadChannel, User, UserData, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import edit from "./edit";
 import fromData from "./fromData";
@@ -255,7 +255,7 @@ export default class Message extends Base<Message> {
          * If we need to cache all messages and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._messages.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._messages.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

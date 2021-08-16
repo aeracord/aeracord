@@ -1,4 +1,4 @@
-import { COMPONENT_TYPE_ACTION_ROW, MessageComponentData } from "../../internal";
+import { ComponentTypes, MessageComponentData } from "../../internal";
 
 /**
  * Action Row Data
@@ -12,7 +12,7 @@ export interface ActionRowData extends MessageComponentData {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_ACTION_ROW;
+    type: typeof ComponentTypes.ACTION_ROW;
 
     /**
      * Components

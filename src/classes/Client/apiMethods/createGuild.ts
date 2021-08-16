@@ -1,4 +1,4 @@
-import { Client, DefaultMessageNotifications, ExplicitContentFilter, FetchQueue, Guild, GuildChannelType, RawChannelDataPermissionOverwrite, RawGuildData, VerificationLevel } from "../../../internal";
+import { Client, DefaultMessageNotification, ExplicitContentFilter, FetchQueue, Guild, GuildChannelType, RawChannelDataPermissionOverwrite, RawGuildData, VerificationLevel } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 
 export interface CreateGuildData {
@@ -6,7 +6,7 @@ export interface CreateGuildData {
     region?: string;
     icon?: string;
     verificationLevel?: VerificationLevel;
-    defaultMessageNotifications?: DefaultMessageNotifications;
+    defaultMessageNotifications?: DefaultMessageNotification;
     explicitContentFilter?: ExplicitContentFilter;
     roles?: CreateGuildDataRole[];
     channels?: CreateGuildDataChannel[];

@@ -1,4 +1,4 @@
-import { CHANNEL_TYPE_NEWS, GuildChannelData, TextBasedChannelData } from "../../internal";
+import { ChannelTypes, GuildChannelData, TextBasedChannelData } from "../../internal";
 
 /**
  * News Channel Data
@@ -12,7 +12,7 @@ export interface NewsChannelData extends GuildChannelData, TextBasedChannelData 
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_NEWS;
+    type: typeof ChannelTypes.NEWS;
 
     /**
      * Topic

@@ -76,6 +76,23 @@ export interface CommandPermission {
  *
  * The types of command permissions
  */
-export type CommandPermissionType = typeof COMMAND_PERMISSION_TYPE_ROLE | typeof COMMAND_PERMISSION_TYPE_USER;
-export const COMMAND_PERMISSION_TYPE_ROLE = 1;
-export const COMMAND_PERMISSION_TYPE_USER = 2;
+export type CommandPermissionType = typeof CommandPermissionTypes.ROLE | typeof CommandPermissionTypes.USER;
+export const CommandPermissionTypes: {
+
+    /**
+     * Role
+     *
+     * A role command permission type
+     */
+    ROLE: 1,
+
+    /**
+     * User
+     *
+     * A user command permission type
+     */
+    USER: 2
+} = {
+    ROLE: 1,
+    USER: 2
+};

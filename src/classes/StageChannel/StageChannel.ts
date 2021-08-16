@@ -1,4 +1,4 @@
-import { CacheInterface, Client, CHANNEL_TYPE_STAGE, Invite, PrivacyLevel, StageChannelData, StageInstance } from "../../internal";
+import { CacheInterface, ChannelTypes, Client, Invite, PrivacyLevel, StageChannelData, StageInstance } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
@@ -14,7 +14,7 @@ export default class StageChannel extends GuildChannel {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_STAGE;
+    type: typeof ChannelTypes.STAGE;
 
     /**
      * Invites

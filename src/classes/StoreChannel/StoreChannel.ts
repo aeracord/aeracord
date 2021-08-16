@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_STORE, StoreChannelData } from "../../internal";
+import { ChannelTypes, Client, StoreChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
@@ -9,7 +9,7 @@ export default class StoreChannel extends GuildChannel {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_STORE;
+    type: typeof ChannelTypes.STORE;
 
     /**
      * Store Channel

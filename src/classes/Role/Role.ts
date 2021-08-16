@@ -1,4 +1,4 @@
-import { Base, Client, ModifyGuildRoleData, Permissions, RawRoleData, RoleData, RoleTags, READY_STATE_READY, UserResolvable } from "../../internal";
+import { Base, Client, ModifyGuildRoleData, Permissions, RawRoleData, RoleData, RoleTags, ReadyStates, UserResolvable } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -115,7 +115,7 @@ export default class Role extends Base<Role> {
          * If we need to cache all roles and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._roles.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._roles.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

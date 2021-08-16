@@ -117,9 +117,26 @@ export interface InviteData {
  * Target Type
  * https://discord.com/developers/docs/resources/invite#invite-object-invite-target-types
  */
-export type TargetType = typeof TARGET_TYPE_STREAM | typeof TARGET_TYPE_EMBEDDED_APPLICATION;
-export const TARGET_TYPE_STREAM = 1;
-export const TARGET_TYPE_EMBEDDED_APPLICATION = 2;
+export type TargetType = typeof TargetTypes.STREAM | typeof TargetTypes.EMBEDDED_APPLICATION;
+export const TargetTypes: {
+
+    /**
+     * Stream
+     *
+     * A stream invite
+     */
+    STREAM: 1,
+
+    /**
+     * Embedded Application
+     *
+     * An invite for an embedded application
+     */
+    EMBEDDED_APPLICATION: 2
+} = {
+    STREAM: 1,
+    EMBEDDED_APPLICATION: 2
+};
 
 /**
  * Target User

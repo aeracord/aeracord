@@ -100,18 +100,59 @@ export interface StickerData {
  * Sticker Type
  * https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-types
  */
-export type StickerType = typeof STICKER_TYPE_STANDARD | typeof STICKER_TYPE_GUILD;
-export const STICKER_TYPE_STANDARD = 1;
-export const STICKER_TYPE_GUILD = 2;
+export type StickerType = typeof StickerTypes.STANDARD | typeof StickerTypes.GUILD;
+export const StickerTypes: {
+
+    /**
+     * Standard
+     *
+     * A Nitro sticker
+     */
+    STANDARD: 1,
+
+    /**
+     * Guild
+     *
+     * A custom guild sticker
+     */
+    GUILD: 2
+} = {
+    STANDARD: 1,
+    GUILD: 2
+};
 
 /**
  * Sticker Format Type
  * https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-format-types
  */
-export type StickerFormatType = typeof STICKER_FORMAT_TYPE_PNG | typeof STICKER_FORMAT_TYPE_APNG | typeof STICKER_FORMAT_TYPE_LOTTIE;
-export const STICKER_FORMAT_TYPE_PNG = 1;
-export const STICKER_FORMAT_TYPE_APNG = 2;
-export const STICKER_FORMAT_TYPE_LOTTIE = 3;
+export type StickerFormatType = typeof StickerFormatTypes.PNG | typeof StickerFormatTypes.APNG | typeof StickerFormatTypes.LOTTIE;
+export const StickerFormatTypes: {
+
+    /**
+     * PNG
+     *
+     * A PNG sticker
+     */
+    PNG: 1,
+
+    /**
+     * APNG
+     *
+     * An APNG sticker
+     */
+    APNG: 2,
+
+    /**
+     * Lottie
+     *
+     * A lottie sticker
+     */
+    LOTTIE: 3
+} = {
+    PNG: 1,
+    APNG: 2,
+    LOTTIE: 3
+};
 
 /**
  * Sticker Pack

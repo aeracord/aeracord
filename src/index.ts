@@ -25,46 +25,12 @@ export {
 // Audit Log
 export {
     AuditLog,
-    AUDIT_LOG_EVENT_BOT_ADD,
-    AUDIT_LOG_EVENT_CHANNEL_CREATE,
-    AUDIT_LOG_EVENT_CHANNEL_DELETE,
-    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_CREATE,
-    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_DELETE,
-    AUDIT_LOG_EVENT_CHANNEL_OVERWRITE_UPDATE,
-    AUDIT_LOG_EVENT_CHANNEL_UPDATE,
-    AUDIT_LOG_EVENT_EMOJI_CREATE,
-    AUDIT_LOG_EVENT_EMOJI_DELETE,
-    AUDIT_LOG_EVENT_EMOJI_UPDATE,
-    AUDIT_LOG_EVENT_GUILD_UPDATE,
-    AUDIT_LOG_EVENT_INTEGRATION_CREATE,
-    AUDIT_LOG_EVENT_INTEGRATION_DELETE,
-    AUDIT_LOG_EVENT_INTEGRATION_UPDATE,
-    AUDIT_LOG_EVENT_INVITE_CREATE,
-    AUDIT_LOG_EVENT_INVITE_DELETE,
-    AUDIT_LOG_EVENT_INVITE_UPDATE,
-    AUDIT_LOG_EVENT_MEMBER_BAN_ADD,
-    AUDIT_LOG_EVENT_MEMBER_BAN_REMOVE,
-    AUDIT_LOG_EVENT_MEMBER_DISCONNECT,
-    AUDIT_LOG_EVENT_MEMBER_KICK,
-    AUDIT_LOG_EVENT_MEMBER_MOVE,
-    AUDIT_LOG_EVENT_MEMBER_PRUNE,
-    AUDIT_LOG_EVENT_MEMBER_ROLE_UPDATE,
-    AUDIT_LOG_EVENT_MEMBER_UPDATE,
-    AUDIT_LOG_EVENT_MESSAGE_BULK_DELETE,
-    AUDIT_LOG_EVENT_MESSAGE_DELETE,
-    AUDIT_LOG_EVENT_MESSAGE_PIN,
-    AUDIT_LOG_EVENT_MESSAGE_UNPIN,
-    AUDIT_LOG_EVENT_ROLE_CREATE,
-    AUDIT_LOG_EVENT_ROLE_DELETE,
-    AUDIT_LOG_EVENT_ROLE_UPDATE,
-    AUDIT_LOG_EVENT_WEBHOOK_CREATE,
-    AUDIT_LOG_EVENT_WEBHOOK_DELETE,
-    AUDIT_LOG_EVENT_WEBHOOK_UPDATE,
     AuditLogChange,
     AuditLogChangeType,
     AuditLogData,
     AuditLogEntry,
     AuditLogEvent,
+    AuditLogEvents,
     AuditLogOptions
 } from "./internal";
 
@@ -85,11 +51,7 @@ export {
     ButtonData,
     ButtonEmoji,
     ButtonStyle,
-    BUTTON_STYLE_DANGER,
-    BUTTON_STYLE_LINK,
-    BUTTON_STYLE_PRIMARY,
-    BUTTON_STYLE_SECONDARY,
-    BUTTON_STYLE_SUCCESS
+    ButtonStyles
 } from "./internal";
 
 // Cache Interface
@@ -111,12 +73,7 @@ export {
     ChannelData,
     ChannelResolvable,
     ChannelType,
-    CHANNEL_TYPE_CATEGORY,
-    CHANNEL_TYPE_DM,
-    CHANNEL_TYPE_NEWS,
-    CHANNEL_TYPE_STORE,
-    CHANNEL_TYPE_TEXT,
-    CHANNEL_TYPE_VOICE
+    ChannelTypes
 } from "./internal";
 
 // Client
@@ -129,17 +86,17 @@ export {
     ClientData,
     ClientPresence,
     ClientStatus,
-    HOLD_EVENTS_TYPE_DISCARD,
-    HOLD_EVENTS_TYPE_EMIT,
-    HOLD_EVENTS_TYPE_NONE,
     HoldEventsType,
+    HoldEventsTypes,
     InitialCacheType,
     InitialCacheTypeChannels,
     InitialCacheTypeCommands,
     InitialCacheTypeGuilds,
     InitialCacheTypeIDs,
     InitialCacheTypeMessages,
-    InitialCommands
+    InitialCommands,
+    ReadyState,
+    ReadyStates
 } from "./internal";
 
 // Client: Event Options
@@ -239,10 +196,7 @@ export {
     GetReactionsData,
     GuildPreview,
     InteractionResponseType,
-    INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE,
-    INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE,
-    INTERACTION_RESPONSE_TYPE_MESSAGE,
-    INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE,
+    InteractionResponseTypes,
     ListArchivedThreadsData,
     ListGuildMembersData,
     ListStickerPacksData,
@@ -261,11 +215,6 @@ export {
     ModifyGuildWelcomeScreenData,
     ModifyGuildWidgetData,
     ModifyWebhookData,
-    NSFWLevel,
-    NSFW_LEVEL_AGE_RESTRICTED,
-    NSFW_LEVEL_DEFAULT,
-    NSFW_LEVEL_EXPLICIT,
-    NSFW_LEVEL_SAFE,
     PartialGuild,
     SearchGuildMembersData,
     StartThreadData,
@@ -279,21 +228,10 @@ export {
     CommandData,
     CommandOption,
     CommandOptionType,
-    COMMAND_OPTION_TYPE_CHANNEL,
-    COMMAND_OPTION_TYPE_BOOLEAN,
-    COMMAND_OPTION_TYPE_INTEGER,
-    COMMAND_OPTION_TYPE_MENTIONABLE,
-    COMMAND_OPTION_TYPE_NUMBER,
-    COMMAND_OPTION_TYPE_ROLE,
-    COMMAND_OPTION_TYPE_STRING,
-    COMMAND_OPTION_TYPE_SUB_COMMAND,
-    COMMAND_OPTION_TYPE_SUB_COMMAND_GROUP,
-    COMMAND_OPTION_TYPE_USER,
+    CommandOptionTypes,
     CommandResolvable,
     CommandType,
-    COMMAND_TYPE_CHAT_INPUT,
-    COMMAND_TYPE_MESSAGE,
-    COMMAND_TYPE_USER,
+    CommandTypes,
     ContextMenuCommandType
 } from "./internal";
 
@@ -313,8 +251,11 @@ export {
 
 // Command Permissions
 export {
+    CommandPermission,
     CommandPermissions,
-    CommandPermissionsData
+    CommandPermissionsData,
+    CommandPermissionType,
+    CommandPermissionTypes
 } from "./internal";
 
 // Component Interaction
@@ -354,31 +295,22 @@ export {
 
 // Guild
 export {
+    DefaultMessageNotification,
     DefaultMessageNotifications,
-    DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES,
-    DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS,
     ExplicitContentFilter,
-    EXPLICIT_CONTENT_FILTER_DISABLED,
-    EXPLICIT_CONTENT_FILTER_ALL_MEMBERS,
-    EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES,
+    ExplicitContentFilters,
     Feature,
     Guild,
     GuildData,
     GuildResolvable,
     MFALevel,
-    MFA_LEVEL_ELEVATED,
-    MFA_LEVEL_NONE,
+    MFALevels,
+    NSFWLevel,
+    NSFWLevels,
     PremiumTier,
-    PREMIUM_TIER_NONE,
-    PREMIUM_TIER_TIER_1,
-    PREMIUM_TIER_TIER_2,
-    PREMIUM_TIER_TIER_3,
+    PremiumTiers,
     VerificationLevel,
-    VERIFICATION_LEVEL_HIGH,
-    VERIFICATION_LEVEL_LOW,
-    VERIFICATION_LEVEL_MEDIUM,
-    VERIFICATION_LEVEL_NONE,
-    VERIFICATION_LEVEL_VERY_HIGH,
+    VerificationLevels,
     VoiceRegion
 } from "./internal";
 
@@ -391,8 +323,7 @@ export {
     GuildChannelType,
     PermissionOverwrite,
     PermissionType,
-    PERMISSION_TYPE_ROLE,
-    PERMISSION_TYPE_MEMBER
+    PermissionTypes
 } from "./internal";
 
 // Guild Widget
@@ -410,8 +341,7 @@ export {
     InteractionMetadata,
     InteractionResolvable,
     InteractionType,
-    INTERACTION_TYPE_COMMAND,
-    INTERACTION_TYPE_COMPONENT
+    InteractionTypes
 } from "./internal";
 
 // Invite
@@ -420,9 +350,8 @@ export {
     InviteData,
     InviteResolvable,
     TargetType,
-    TargetUser,
-    TARGET_TYPE_EMBEDDED_APPLICATION,
-    TARGET_TYPE_STREAM
+    TargetTypes,
+    TargetUser
 } from "./internal";
 
 // Member
@@ -442,31 +371,14 @@ export {
     Message,
     MessageActivity,
     MessageActivityType,
-    MESSAGE_ACTIVITY_TYPE_JOIN,
-    MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST,
-    MESSAGE_ACTIVITY_TYPE_LISTEN,
-    MESSAGE_ACTIVITY_TYPE_SPECTATE,
+    MessageActivityTypes,
     MessageApplication,
     MessageData,
     MessageInteraction,
     MessageReference,
     MessageResolvable,
     MessageType,
-    MESSAGE_TYPE_APPLICATION_COMMAND,
-    MESSAGE_TYPE_CHANNEL_FOLLOW_ADD,
-    MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE,
-    MESSAGE_TYPE_DEFAULT,
-    MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED,
-    MESSAGE_TYPE_GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING,
-    MESSAGE_TYPE_GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING,
-    MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED,
-    MESSAGE_TYPE_GUILD_INVITE_REMINDER,
-    MESSAGE_TYPE_GUILD_MEMBER_JOIN,
-    MESSAGE_TYPE_REPLY,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2,
-    MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3,
+    MessageTypes,
     MessageWebhook
 } from "./internal";
 
@@ -478,9 +390,7 @@ export {
     ButtonComponent,
     Component,
     ComponentType,
-    COMPONENT_TYPE_ACTION_ROW,
-    COMPONENT_TYPE_BUTTON,
-    COMPONENT_TYPE_SELECT_MENU,
+    ComponentTypes,
     MessageComponent,
     MessageComponentData,
     SelectMenuComponent,
@@ -576,14 +486,11 @@ export {
     Sticker,
     StickerData,
     StickerFormatType,
-    STICKER_FORMAT_TYPE_APNG,
-    STICKER_FORMAT_TYPE_LOTTIE,
-    STICKER_FORMAT_TYPE_PNG,
+    StickerFormatTypes,
     StickerPack,
     StickerResolvable,
     StickerType,
-    STICKER_TYPE_GUILD,
-    STICKER_TYPE_STANDARD
+    StickerTypes
 } from "./internal";
 
 // Store Channel
@@ -632,12 +539,7 @@ export {
 // User
 export {
     ActivityType,
-    ACTIVITY_TYPE_COMPETING,
-    ACTIVITY_TYPE_CUSTOM,
-    ACTIVITY_TYPE_LISTENING,
-    ACTIVITY_TYPE_PLAYING,
-    ACTIVITY_TYPE_STREAMING,
-    ACTIVITY_TYPE_WATCHING,
+    ActivityTypes,
     Status,
     User,
     UserData,
@@ -653,8 +555,7 @@ export {
 // Voice Channel
 export {
     VideoQualityMode,
-    VIDEO_QUALITY_MODE_AUTO,
-    VIDEO_QUALITY_MODE_FULL,
+    VideoQualityModes,
     VoiceChannel,
     VoiceChannelData
 } from "./internal";
@@ -671,8 +572,7 @@ export {
     WebhookData,
     WebhookResolvable,
     WebhookType,
-    WEBHOOK_TYPE_CHANNEL_FOLLOWER,
-    WEBHOOK_TYPE_INCOMING
+    WebhookTypes
 } from "./internal";
 
 // Welcome Screen

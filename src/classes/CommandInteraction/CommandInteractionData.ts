@@ -1,4 +1,4 @@
-import { ChannelType, ContextMenuCommandType, COMMAND_TYPE_CHAT_INPUT, InteractionData, INTERACTION_TYPE_COMMAND, MemberData, MessageData, RoleData, UserData } from "../../internal";
+import { ChannelType, CommandTypes, ContextMenuCommandType, InteractionData, InteractionTypes, MemberData, MessageData, RoleData, UserData } from "../../internal";
 
 /**
  * Command Interaction Data
@@ -12,7 +12,7 @@ export interface CommandInteractionData extends InteractionData {
      *
      * The interaction's type
      */
-    type: typeof INTERACTION_TYPE_COMMAND;
+    type: typeof InteractionTypes.COMMAND;
 
     /**
      * Data
@@ -184,7 +184,7 @@ export interface ChatInputCommandInteractionMetadata extends BaseCommandInteract
      *
      * The command's type
      */
-    type: typeof COMMAND_TYPE_CHAT_INPUT;
+    type: typeof CommandTypes.CHAT_INPUT;
 
     /**
      * Options

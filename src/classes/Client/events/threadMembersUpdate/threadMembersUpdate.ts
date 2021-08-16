@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, RawThreadMembersUpdateData, RawThreadMemberData, ThreadCacheData, ThreadChannel, ThreadMember, ThreadMembersUpdateData } from "../../../../internal";
+import { ChannelTypes, Client, RawThreadMembersUpdateData, RawThreadMemberData, ThreadCacheData, ThreadChannel, ThreadMember, ThreadMembersUpdateData } from "../../../../internal";
 
 export default function threadMembersUpdate(client: Client, rawData: RawThreadMembersUpdateData) {
 
@@ -41,12 +41,12 @@ export default function threadMembersUpdate(client: Client, rawData: RawThreadMe
             threadCacheData &&
             (
                 (
-                    threadCacheData.type === CHANNEL_TYPE_PUBLIC_THREAD &&
+                    threadCacheData.type === ChannelTypes.PUBLIC_THREAD &&
                     !client.hasPermission("VIEW_CHANNEL", threadCacheData.parentID) &&
                     !client.hasPermission("MANAGE_THREADS", threadCacheData.parentID)
                 ) ||
                 (
-                    threadCacheData.type === CHANNEL_TYPE_PRIVATE_THREAD &&
+                    threadCacheData.type === ChannelTypes.PRIVATE_THREAD &&
                     !client.hasPermission("MANAGE_THREADS", threadCacheData.parentID)
                 )
             )

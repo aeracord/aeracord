@@ -1,4 +1,4 @@
-import { CHANNEL_TYPE_TEXT, GuildChannelData, TextBasedChannelData } from "../../internal";
+import { ChannelTypes, GuildChannelData, TextBasedChannelData } from "../../internal";
 
 /**
  * Text Channel Data
@@ -12,7 +12,7 @@ export interface TextChannelData extends GuildChannelData, TextBasedChannelData 
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_TEXT;
+    type: typeof ChannelTypes.TEXT;
 
     /**
      * Topic

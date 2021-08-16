@@ -1,4 +1,4 @@
-import { AnyInteraction, AnyInteractionData, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT } from "../../internal";
+import { AnyInteraction, AnyInteractionData, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, InteractionTypes } from "../../internal";
 
 export default function fromData(client: Client, interactionData: AnyInteractionData): AnyInteraction {
 
@@ -6,10 +6,10 @@ export default function fromData(client: Client, interactionData: AnyInteraction
     let interaction: AnyInteraction;
 
     // Create command interaction
-    if (interactionData.type === INTERACTION_TYPE_COMMAND) interaction = new CommandInteraction(client, interactionData as CommandInteractionData);
+    if (interactionData.type === InteractionTypes.COMMAND) interaction = new CommandInteraction(client, interactionData as CommandInteractionData);
 
     // Create component interaction
-    else if (interactionData.type === INTERACTION_TYPE_COMPONENT) interaction = new ComponentInteraction(client, interactionData as ComponentInteractionData);
+    else if (interactionData.type === InteractionTypes.COMPONENT) interaction = new ComponentInteraction(client, interactionData as ComponentInteractionData);
 
     // Unknown interaction type
     else throw new Error(`Unknown interaction type '${interactionData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);

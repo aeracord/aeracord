@@ -1,4 +1,4 @@
-import { CacheInterface, Client, CHANNEL_TYPE_VOICE, Invite, VideoQualityMode, VoiceChannelData } from "../../internal";
+import { CacheInterface, ChannelTypes, Client, Invite, VideoQualityMode, VoiceChannelData } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import updateObject from "./updateObject";
 
@@ -9,7 +9,7 @@ export default class VoiceChannel extends GuildChannel {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_VOICE;
+    type: typeof ChannelTypes.VOICE;
 
     /**
      * Bitrate

@@ -1,5 +1,5 @@
 import FormData from "form-data";
-import { BaseCreateMessageData, Client, Embed, FetchQueue, Interaction, InteractionResolvable, Message, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
+import { BaseCreateMessageData, Client, FetchQueue, Interaction, InteractionResolvable, Message, Role, RoleResolvable, User, UserResolvable } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import parseCreateMessageData, { ParsedCreateMessageData } from "../../../util/parseCreateMessageData";
 
@@ -8,11 +8,42 @@ export interface CreateInteractionResponseData {
     data?: CreateInteractionMessageData;
 }
 
-export type InteractionResponseType = typeof INTERACTION_RESPONSE_TYPE_MESSAGE | typeof INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE | typeof INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE | typeof INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE;
-export const INTERACTION_RESPONSE_TYPE_MESSAGE = 4;
-export const INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE = 5;
-export const INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE = 6;
-export const INTERACTION_RESPONSE_TYPE_MESSAGE_UPDATE = 7;
+export type InteractionResponseType = typeof InteractionResponseTypes.MESSAGE | typeof InteractionResponseTypes.DEFERRED_MESSAGE | typeof InteractionResponseTypes.DEFERRED_MESSAGE_UPDATE | typeof InteractionResponseTypes.MESSAGE_UPDATE;
+export const InteractionResponseTypes: {
+
+    /**
+     * Message
+     *
+     * A regular message
+     */
+    MESSAGE: 4,
+
+    /**
+     * Deferred Message
+     *
+     * Defer sending a message
+     */
+    DEFERRED_MESSAGE: 5,
+
+    /**
+     * Deferred Message Update
+     *
+     * Defer updating the message
+     */
+    DEFERRED_MESSAGE_UPDATE: 6,
+
+    /**
+     * Message Update
+     *
+     * Update the message
+     */
+    MESSAGE_UPDATE: 7
+} = {
+    MESSAGE: 4,
+    DEFERRED_MESSAGE: 5,
+    DEFERRED_MESSAGE_UPDATE: 6,
+    MESSAGE_UPDATE: 7
+};
 
 export interface CreateInteractionMessageData extends BaseCreateMessageData {
     flags?: number;

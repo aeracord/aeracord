@@ -1,4 +1,4 @@
-import { Client, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, ThreadCacheData, ThreadChannel } from "../../internal";
+import { ChannelTypes, Client, ThreadCacheData, ThreadChannel } from "../../internal";
 
 /**
  * Recalculate Thread Permissions
@@ -25,12 +25,12 @@ export default function recalculateThreadPermissions(client: Client, guildID: st
             threadCacheData &&
             (
                 (
-                    threadCacheData.type === CHANNEL_TYPE_PUBLIC_THREAD &&
+                    threadCacheData.type === ChannelTypes.PUBLIC_THREAD &&
                     !client.hasPermission("VIEW_CHANNEL", threadCacheData.parentID) &&
                     !client.hasPermission("MANAGE_THREADS", threadCacheData.parentID)
                 ) ||
                 (
-                    threadCacheData.type === CHANNEL_TYPE_PRIVATE_THREAD &&
+                    threadCacheData.type === ChannelTypes.PRIVATE_THREAD &&
                     (
                         !client.hasPermission("VIEW_CHANNEL", threadCacheData.parentID) ||
                         (

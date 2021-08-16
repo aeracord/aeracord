@@ -1,4 +1,4 @@
-import { DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, PermissionType, RawUserData, VerificationLevel } from "../../internal";
+import { DefaultMessageNotification, ExplicitContentFilter, GuildChannelType, PermissionType, RawUserData, VerificationLevel } from "../../internal";
 
 export interface RawTemplateData {
     code: string;
@@ -21,7 +21,7 @@ export interface RawTemplateDataGuild {
     afk_channel_id: number | null;
     afk_timeout: number;
     verification_level: VerificationLevel;
-    default_message_notifications: DefaultMessageNotifications;
+    default_message_notifications: DefaultMessageNotification;
     explicit_content_filter: ExplicitContentFilter;
     roles: RawTemplateDataGuildRole[];
     channels: RawTemplateDataGuildChannel[];

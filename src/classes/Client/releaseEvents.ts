@@ -1,4 +1,4 @@
-import { Client, EventQueueEvent, READY_STATE_READY } from "../../internal";
+import { Client, EventQueueEvent, ReadyStates } from "../../internal";
 import event from "./event";
 
 export default function releaseEvents(client: Client) {
@@ -8,7 +8,7 @@ export default function releaseEvents(client: Client) {
      *
      * This allows events to be processed
      */
-    client._readyState = READY_STATE_READY;
+    client._readyState = ReadyStates.READY;
 
     // Process queued events
     client._eventQueue.forEach((e: EventQueueEvent) => event(client, e.type, e.data));

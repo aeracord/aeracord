@@ -9,12 +9,12 @@ Holding events can be useful if your bot needs to perform an asynchronous task a
 To hold events, we can use the [`ClientData.holdEvents`](https://aeracord.apixel.me/docs/interfaces/ClientData#holdEvents) property when constructing the client:
 
 ```js
-import { Client, HOLD_EVENTS_TYPE_EMIT } from "aeracord";
+import { Client, HoldEventsTypes } from "aeracord";
 
 // Create client
 const client = new Client({
     ...
-    holdEvents: HOLD_EVENTS_TYPE_EMIT
+    holdEvents: HoldEventsTypes.EMIT
 });
 ```
 
@@ -43,11 +43,11 @@ This can be useful if you need to initialize data before being able to handle ev
 If your bot doesn't need to process the held events, we can simply tell the client to discard them instead of storing them in memory:
 
 ```js
-import { Client, HOLD_EVENTS_TYPE_DISCARD } from "aeracord";
+import { Client, HoldEventsTypes } from "aeracord";
 
 // Create client
 const client = new Client({
     ...
-    holdEvents: HOLD_EVENTS_TYPE_DISCARD
+    holdEvents: HoldEventsTypes.DISCARD
 });
 ```

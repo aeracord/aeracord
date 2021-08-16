@@ -1,4 +1,4 @@
-import { Client, COMPONENT_TYPE_SELECT_MENU, MessageComponent, SelectMenuData, SelectMenuOption } from "../../internal";
+import { Client, ComponentTypes, MessageComponent, SelectMenuData, SelectMenuOption } from "../../internal";
 
 export default class SelectMenu extends MessageComponent {
 
@@ -7,7 +7,7 @@ export default class SelectMenu extends MessageComponent {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_SELECT_MENU;
+    type: typeof ComponentTypes.SELECT_MENU;
 
     /**
      * Placeholder

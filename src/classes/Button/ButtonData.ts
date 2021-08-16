@@ -1,4 +1,4 @@
-import { COMPONENT_TYPE_BUTTON, MessageComponentData } from "../../internal";
+import { ComponentTypes, MessageComponentData } from "../../internal";
 
 /**
  * Button Data
@@ -12,7 +12,7 @@ export interface ButtonData extends MessageComponentData {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_BUTTON;
+    type: typeof ComponentTypes.BUTTON;
 
     /**
      * Style
@@ -61,12 +61,50 @@ export interface ButtonData extends MessageComponentData {
  * Button Style
  * https://discord.com/developers/docs/interactions/message-components#buttons-button-styles
  */
-export type ButtonStyle = typeof BUTTON_STYLE_PRIMARY | typeof BUTTON_STYLE_SECONDARY | typeof BUTTON_STYLE_SUCCESS | typeof BUTTON_STYLE_DANGER | typeof BUTTON_STYLE_LINK;
-export const BUTTON_STYLE_PRIMARY = 1;
-export const BUTTON_STYLE_SECONDARY = 2;
-export const BUTTON_STYLE_SUCCESS = 3;
-export const BUTTON_STYLE_DANGER = 4;
-export const BUTTON_STYLE_LINK = 5;
+export type ButtonStyle = typeof ButtonStyles.PRIMARY | typeof ButtonStyles.SECONDARY | typeof ButtonStyles.SUCCESS | typeof ButtonStyles.DANGER | typeof ButtonStyles.LINK;
+export const ButtonStyles: {
+
+    /**
+     * Primary
+     *
+     * A blurple button
+     */
+    PRIMARY: 1,
+
+    /**
+     * Secondary
+     *
+     * A gray button
+     */
+    SECONDARY: 2,
+
+    /**
+     * Success
+     *
+     * A green button
+     */
+    SUCCESS: 3,
+
+    /**
+     * Danger
+     *
+     * A red button
+     */
+    DANGER: 4,
+
+    /**
+     * Link
+     *
+     * A button that opens a link
+     */
+    LINK: 5
+} = {
+    PRIMARY: 1,
+    SECONDARY: 2,
+    SUCCESS: 3,
+    DANGER: 4,
+    LINK: 5
+};
 
 /**
  * Button Emoji

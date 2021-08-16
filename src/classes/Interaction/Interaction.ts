@@ -1,4 +1,4 @@
-import { Base, BaseEditMessageData, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, CreateInteractionMessageData, Embed, InteractionData, InteractionMetadata, InteractionType, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE, Member, Message, MessageResolvable, RawInteractionData, READY_STATE_READY, User } from "../../internal";
+import { Base, BaseEditMessageData, Client, CommandInteraction, CommandInteractionData, ComponentInteraction, ComponentInteractionData, CreateInteractionMessageData, Embed, InteractionData, InteractionMetadata, InteractionResponseTypes, InteractionType, Member, Message, MessageResolvable, RawInteractionData, ReadyStates, User } from "../../internal";
 import createFollowupMessage from "./createFollowupMessage";
 import dataFromRawData from "./dataFromRawData";
 import editFollowupMessage from "./editFollowupMessage";
@@ -138,7 +138,7 @@ export default class Interaction extends Base<AnyInteraction> {
          * If we need to cache all interactions and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if (client._interactions.cacheAll && client._readyState === READY_STATE_READY) this.cache();
+        if (client._interactions.cacheAll && client._readyState === ReadyStates.READY) this.cache();
     }
 
     /**
@@ -360,6 +360,6 @@ export default class Interaction extends Base<AnyInteraction> {
      * @returns {Promise<Message>} The created response
      */
     deferResponse(): Promise<Message | undefined> {
-        return this.client.createInteractionResponse(this, this.token, { type: INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE });
+        return this.client.createInteractionResponse(this, this.token, { type: InteractionResponseTypes.DEFERRED_MESSAGE });
     }
 }

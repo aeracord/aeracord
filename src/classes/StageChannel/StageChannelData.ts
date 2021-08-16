@@ -1,4 +1,4 @@
-import { CHANNEL_TYPE_STAGE, GuildChannelData } from "../../internal";
+import { ChannelTypes, GuildChannelData } from "../../internal";
 
 /**
  * Stage Channel Data
@@ -12,5 +12,5 @@ export interface StageChannelData extends GuildChannelData {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_STAGE;
+    type: typeof ChannelTypes.STAGE;
 }

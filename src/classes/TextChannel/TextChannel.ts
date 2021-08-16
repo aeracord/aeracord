@@ -1,4 +1,4 @@
-import { AnyChannel, AnyInteraction, ArchivedThreadListData, CacheInterface, Client, CreateWebhookData, CHANNEL_TYPE_TEXT, Invite, Message, MessageResolvable, ModifyWebhookData, StartThreadData, TextChannelData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
+import { AnyChannel, AnyInteraction, ArchivedThreadListData, CacheInterface, ChannelTypes, Client, CreateWebhookData, Invite, Message, MessageResolvable, ModifyWebhookData, StartThreadData, TextChannelData, ThreadChannel, Webhook, WebhookResolvable } from "../../internal";
 import GuildChannel from "../GuildChannel/GuildChannel";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import applyMixins from "../applyMixins";
@@ -15,7 +15,7 @@ class TextChannel extends GuildChannel {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_TEXT;
+    type: typeof ChannelTypes.TEXT;
 
     /**
      * Topic

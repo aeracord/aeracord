@@ -1,4 +1,4 @@
-import { BanData, Base, Client, RawBanData, READY_STATE_READY, User } from "../../internal";
+import { BanData, Base, Client, RawBanData, ReadyStates, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
@@ -54,7 +54,7 @@ export default class Ban extends Base<Ban> {
          * If we need to cache all bans and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._bans.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._bans.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

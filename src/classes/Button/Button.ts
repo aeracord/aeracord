@@ -1,4 +1,4 @@
-import { ButtonData, ButtonEmoji, ButtonStyle, Client, COMPONENT_TYPE_BUTTON, MessageComponent } from "../../internal";
+import { ButtonData, ButtonEmoji, ButtonStyle, Client, ComponentTypes, MessageComponent } from "../../internal";
 
 export default class Button extends MessageComponent {
 
@@ -7,7 +7,7 @@ export default class Button extends MessageComponent {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_BUTTON;
+    type: typeof ComponentTypes.BUTTON;
 
     /**
      * Style

@@ -1,11 +1,11 @@
-import { Client, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, READY_STATE_READY, ThreadChannelData, ThreadMember, ThreadMemberData, UserResolvable } from "../../internal";
+import { ChannelTypes, Client, ReadyStates, ThreadChannelData, ThreadMember, ThreadMemberData, UserResolvable } from "../../internal";
 import TextBasedChannel from "../TextBasedChannel/TextBasedChannel";
 import cacheThreadPermissions, { CacheThreadPermissionsData } from "./cacheThreadPermissions";
 import recalculateThreadPermissions from "./recalculateThreadPermissions";
 import uncacheThreadPermissions, { UncacheThreadPermissionsData } from "./uncacheThreadPermissions";
 import updateObject from "./updateObject";
 
-export type ThreadChannelType = typeof CHANNEL_TYPE_NEWS_THREAD | typeof CHANNEL_TYPE_PUBLIC_THREAD | typeof CHANNEL_TYPE_PRIVATE_THREAD;
+export type ThreadChannelType = typeof ChannelTypes.NEWS_THREAD | typeof ChannelTypes.PUBLIC_THREAD | typeof ChannelTypes.PRIVATE_THREAD;
 
 export default class ThreadChannel extends TextBasedChannel {
 
@@ -50,7 +50,7 @@ export default class ThreadChannel extends TextBasedChannel {
      * Whether or not this thread is private
      */
     get private(): boolean {
-        return this.type === CHANNEL_TYPE_PRIVATE_THREAD;
+        return this.type === ChannelTypes.PRIVATE_THREAD;
     }
 
     /**
@@ -135,7 +135,7 @@ export default class ThreadChannel extends TextBasedChannel {
          * If we need to cache all thread channels and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._threads.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._threads.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

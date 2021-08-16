@@ -1,4 +1,4 @@
-import { Base, Client, InviteData, InviteStageInstance, RawInviteData, READY_STATE_READY, TargetType, TargetUser, User } from "../../internal";
+import { Base, Client, InviteData, InviteStageInstance, RawInviteData, ReadyStates, TargetType, TargetUser, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveCode from "./resolveCode";
@@ -150,7 +150,7 @@ export default class Invite extends Base<Invite> {
          * If we need to cache all invites and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._invites.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._invites.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

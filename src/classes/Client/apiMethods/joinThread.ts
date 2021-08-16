@@ -1,4 +1,4 @@
-import { Channel, ChannelResolvable, Client, CHANNEL_TYPE_PRIVATE_THREAD, FetchQueue, ThreadCacheData } from "../../../internal";
+import { Channel, ChannelResolvable, ChannelTypes, Client, FetchQueue, ThreadCacheData } from "../../../internal";
 import getRoute from "../../../util/getRoute";
 import PermissionError from "../../PermissionError/PermissionError";
 
@@ -13,7 +13,7 @@ export default async function joinThread(client: Client, channelResolvable: Chan
     if (!threadCacheData) throw new PermissionError({ permission: "VIEW_CHANNEL" });
 
     // You need the manage threads permission to join a private thread
-    if ((threadCacheData.type === CHANNEL_TYPE_PRIVATE_THREAD) && (!client.hasPermission("MANAGE_THREADS", channelID))) throw new PermissionError({ permission: "MANAGE_THREADS" });
+    if ((threadCacheData.type === ChannelTypes.PRIVATE_THREAD) && (!client.hasPermission("MANAGE_THREADS", channelID))) throw new PermissionError({ permission: "MANAGE_THREADS" });
 
     // Define fetch data
     const path: string = `/channels/${channelID}/thread-members/@me`;

@@ -1,16 +1,12 @@
 import EventEmitter from "events";
 import WebSocket from "ws";
 import {
+    ActivityTypes,
     AnyChannel,
     AnyGuildChannel,
     AnyInteraction,
     ArchivedThreadListData,
     AuditLog,
-    ACTIVITY_TYPE_COMPETING,
-    ACTIVITY_TYPE_LISTENING,
-    ACTIVITY_TYPE_PLAYING,
-    ACTIVITY_TYPE_STREAMING,
-    ACTIVITY_TYPE_WATCHING,
     Ban,
     BanEventOptions,
     BaseEditMessageData,
@@ -134,11 +130,11 @@ import {
     ReactionEventOptions,
     ReadyData,
     ReadyState,
+    ReadyStates,
     RequestOptions,
     Role,
     RolePermissionData,
     RoleResolvable,
-    READY_STATE_NONE,
     SearchGuildMembersData,
     StageInstance,
     StartThreadData,
@@ -481,17 +477,41 @@ export interface ClientActivity {
  *
  * The types of client activities
  */
-export type ClientActivityType = typeof ACTIVITY_TYPE_PLAYING | typeof ACTIVITY_TYPE_STREAMING | typeof ACTIVITY_TYPE_LISTENING | typeof ACTIVITY_TYPE_WATCHING | typeof ACTIVITY_TYPE_COMPETING;
+export type ClientActivityType = typeof ActivityTypes.PLAYING | typeof ActivityTypes.STREAMING | typeof ActivityTypes.LISTENING | typeof ActivityTypes.WATCHING | typeof ActivityTypes.COMPETING;
 
 /**
  * Hold Events Type
  *
  * The options for holding events
  */
-export type HoldEventsType = typeof HOLD_EVENTS_TYPE_NONE | typeof HOLD_EVENTS_TYPE_EMIT | typeof HOLD_EVENTS_TYPE_DISCARD;
-export const HOLD_EVENTS_TYPE_NONE = 0;
-export const HOLD_EVENTS_TYPE_EMIT = 1;
-export const HOLD_EVENTS_TYPE_DISCARD = 2;
+export type HoldEventsType = typeof HoldEventsTypes.NONE | typeof HoldEventsTypes.EMIT | typeof HoldEventsTypes.DISCARD;
+export const HoldEventsTypes: {
+
+    /**
+     * None
+     *
+     * Don't hold any events
+     */
+    NONE: 0,
+
+    /**
+     * Emit
+     *
+     * Hold events and emit them when they're released
+     */
+    EMIT: 1,
+
+    /**
+     * Discard
+     *
+     * Discard events until they're released
+     */
+    DISCARD: 2
+} = {
+    NONE: 0,
+    EMIT: 1,
+    DISCARD: 2
+};
 
 /**
  * Event Queue Event
@@ -1521,7 +1541,7 @@ export default class Client extends EventEmitter {
 
         // Set data
         this.token = clientData.token;
-        this._readyState = READY_STATE_NONE;
+        this._readyState = ReadyStates.NONE;
         this._eventQueue = [];
         this._uninitializedGuilds = new Set();
         this._unavailableGuilds = new Set();
@@ -1532,7 +1552,7 @@ export default class Client extends EventEmitter {
         this._initialCommands = clientData.initialCommands;
         Object.defineProperty(this, "_fetchQueues", { value: new Map() });
         this._cacheStrategies = clientData.cacheStrategies || {};
-        this._holdEvents = clientData.holdEvents || HOLD_EVENTS_TYPE_NONE;
+        this._holdEvents = clientData.holdEvents || HoldEventsTypes.NONE;
         Object.defineProperty(this, "_guildOwners", { value: new Map() });
         Object.defineProperty(this, "_guildRoles", { value: new Map() });
         Object.defineProperty(this, "_guildChannels", { value: new Map() });

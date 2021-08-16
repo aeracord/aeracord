@@ -41,10 +41,34 @@ export interface MessageComponentData {
  * Component Type
  * https://discord.com/developers/docs/interactions/message-components#component-types
  */
-export type ComponentType = typeof COMPONENT_TYPE_ACTION_ROW | typeof COMPONENT_TYPE_BUTTON | typeof COMPONENT_TYPE_SELECT_MENU;
-export const COMPONENT_TYPE_ACTION_ROW = 1;
-export const COMPONENT_TYPE_BUTTON = 2;
-export const COMPONENT_TYPE_SELECT_MENU = 3;
+export type ComponentType = typeof ComponentTypes.ACTION_ROW | typeof ComponentTypes.BUTTON | typeof ComponentTypes.SELECT_MENU;
+export const ComponentTypes: {
+
+    /**
+     * Action Row
+     *
+     * A group of components
+     */
+    ACTION_ROW: 1,
+
+    /**
+     * Button
+     *
+     * A button
+     */
+    BUTTON: 2,
+
+    /**
+     * Select Menu
+     *
+     * A select menu
+     */
+    SELECT_MENU: 3
+} = {
+    ACTION_ROW: 1,
+    BUTTON: 2,
+    SELECT_MENU: 3
+};
 
 /**
  * Component Data
@@ -65,7 +89,7 @@ export interface ActionRowComponent {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_ACTION_ROW;
+    type: typeof ComponentTypes.ACTION_ROW;
 
     /**
      * Components
@@ -87,7 +111,7 @@ export interface ButtonComponent {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_BUTTON;
+    type: typeof ComponentTypes.BUTTON;
 
     /**
      * Style
@@ -144,7 +168,7 @@ export interface SelectMenuComponent {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_SELECT_MENU;
+    type: typeof ComponentTypes.SELECT_MENU;
 
     /**
      * Placeholder

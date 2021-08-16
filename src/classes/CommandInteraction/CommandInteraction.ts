@@ -1,4 +1,4 @@
-import { Client, CommandInteractionData, CommandInteractionMetadata, GetOptionResult, Interaction, INTERACTION_TYPE_COMMAND } from "../../internal";
+import { Client, CommandInteractionData, CommandInteractionMetadata, GetOptionResult, Interaction, InteractionTypes } from "../../internal";
 import getOption from "./getOption";
 import updateObject from "./updateObject";
 
@@ -14,7 +14,7 @@ export default class CommandInteraction extends Interaction {
      *
      * The interaction's type
      */
-    type: typeof INTERACTION_TYPE_COMMAND;
+    type: typeof InteractionTypes.COMMAND;
 
     /**
      * Data

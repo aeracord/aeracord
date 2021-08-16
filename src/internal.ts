@@ -101,10 +101,8 @@ export {
     ClientPresence,
     ClientStatus,
     EventQueueEvent,
-    HOLD_EVENTS_TYPE_DISCARD,
-    HOLD_EVENTS_TYPE_EMIT,
-    HOLD_EVENTS_TYPE_NONE,
     HoldEventsType,
+    HoldEventsTypes,
     InitialCommands,
     UnemittedReadyData
 } from "./classes/Client/Client";

@@ -1,4 +1,4 @@
-import { Base, Client, ModifyGuildStickerData, RawStickerData, READY_STATE_READY, StickerData, StickerFormatType, StickerType, User } from "../../internal";
+import { Base, Client, ModifyGuildStickerData, RawStickerData, ReadyStates, StickerData, StickerFormatType, StickerType, User } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
@@ -123,7 +123,7 @@ export default class Sticker extends Base<Sticker> {
          * If we need to cache all stickers and the clients ready state is `READY`
          * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
          */
-        if ((client._stickers.cacheAll) && (client._readyState === READY_STATE_READY)) this.cache();
+        if ((client._stickers.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
     }
 
     /**

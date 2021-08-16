@@ -1,4 +1,4 @@
-import { CHANNEL_TYPE_VOICE, GuildChannelData } from "../../internal";
+import { ChannelTypes, GuildChannelData } from "../../internal";
 
 /**
  * Voice Channel Data
@@ -12,7 +12,7 @@ export interface VoiceChannelData extends GuildChannelData {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_VOICE;
+    type: typeof ChannelTypes.VOICE;
 
     /**
      * Bitrate
@@ -40,6 +40,23 @@ export interface VoiceChannelData extends GuildChannelData {
  * Video Quality Mode
  * https://discord.com/developers/docs/resources/channel#channel-object-video-quality-modes
  */
-export type VideoQualityMode = typeof VIDEO_QUALITY_MODE_AUTO | typeof VIDEO_QUALITY_MODE_FULL;
-export const VIDEO_QUALITY_MODE_AUTO = 1;
-export const VIDEO_QUALITY_MODE_FULL = 2;
+export type VideoQualityMode = typeof VideoQualityModes.AUTO | typeof VideoQualityModes.FULL;
+export const VideoQualityModes: {
+
+    /**
+     * Auto
+     *
+     * Automatically determine the video quality
+     */
+    AUTO: 1,
+
+    /**
+     * Full
+     *
+     * Use the best video quality
+     */
+    FULL: 2
+} = {
+    AUTO: 1,
+    FULL: 2
+};

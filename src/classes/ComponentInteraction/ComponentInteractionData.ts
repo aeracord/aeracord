@@ -1,4 +1,4 @@
-import { COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, InteractionData, INTERACTION_TYPE_COMPONENT, MessageData } from "../../internal";
+import { ComponentTypes, InteractionData, InteractionTypes, MessageData } from "../../internal";
 
 /**
  * Component Interaction Data
@@ -12,7 +12,7 @@ export interface ComponentInteractionData extends InteractionData {
      *
      * The interaction's type
      */
-    type: typeof INTERACTION_TYPE_COMPONENT;
+    type: typeof InteractionTypes.COMPONENT;
 
     /**
      * Data
@@ -49,7 +49,7 @@ export interface ButtonInteractionMetadata {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_BUTTON;
+    type: typeof ComponentTypes.BUTTON;
 
     /**
      * Custom ID
@@ -71,7 +71,7 @@ export interface SelectMenuInteractionMetadata {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_SELECT_MENU;
+    type: typeof ComponentTypes.SELECT_MENU;
 
     /**
      * Custom ID

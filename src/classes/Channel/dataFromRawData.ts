@@ -1,4 +1,4 @@
-import { AnyChannelData, CategoryChannelData, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannelData, NewsChannelData, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawChannelDataThreadMetadata, RawUserData, StageChannelData, StoreChannelData, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannelData, VIDEO_QUALITY_MODE_AUTO } from "../../internal";
+import { AnyChannelData, CategoryChannelData, ChannelTypes, Client, DMChannelData, NewsChannelData, Permissions, RawChannelData, RawChannelDataPermissionOverwrite, RawChannelDataThreadMetadata, RawUserData, StageChannelData, StoreChannelData, TextChannelData, ThreadChannel, ThreadChannelData, VideoQualityModes, VoiceChannelData } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawChannelData): AnyChannelData {
 
@@ -6,7 +6,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     let channelData: AnyChannelData;
 
     // Parse text channel data
-    if (rawData.type === CHANNEL_TYPE_TEXT) channelData = {
+    if (rawData.type === ChannelTypes.TEXT) channelData = {
         id: rawData.id,
         type: rawData.type,
         name: rawData.name as string,
@@ -28,7 +28,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     } as TextChannelData;
 
     // Parse DM channel data
-    else if (rawData.type === CHANNEL_TYPE_DM) channelData = {
+    else if (rawData.type === ChannelTypes.DM) channelData = {
         id: rawData.id,
         type: rawData.type,
         lastMessageID: rawData.last_message_id,
@@ -38,7 +38,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     } as DMChannelData;
 
     // Parse voice channel data
-    else if (rawData.type === CHANNEL_TYPE_VOICE) channelData = {
+    else if (rawData.type === ChannelTypes.VOICE) channelData = {
         id: rawData.id,
         type: rawData.type,
         name: rawData.name as string,
@@ -53,12 +53,12 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         parentID: rawData.parent_id,
         bitrate: rawData.bitrate,
         userLimit: rawData.user_limit,
-        videoQualityMode: rawData.video_quality_mode || VIDEO_QUALITY_MODE_AUTO,
+        videoQualityMode: rawData.video_quality_mode || VideoQualityModes.AUTO,
         fetchedAt: Date.now()
     } as VoiceChannelData;
 
     // Parse category channel data
-    else if (rawData.type === CHANNEL_TYPE_CATEGORY) channelData = {
+    else if (rawData.type === ChannelTypes.CATEGORY) channelData = {
         id: rawData.id,
         type: rawData.type,
         name: rawData.name as string,
@@ -75,7 +75,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     } as CategoryChannelData;
 
     // Parse news channel data
-    else if (rawData.type === CHANNEL_TYPE_NEWS) channelData = {
+    else if (rawData.type === ChannelTypes.NEWS) channelData = {
         id: rawData.id,
         type: rawData.type,
         name: rawData.name as string,
@@ -97,7 +97,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     } as NewsChannelData;
 
     // Parse store channel data
-    else if (rawData.type === CHANNEL_TYPE_STORE) channelData = {
+    else if (rawData.type === ChannelTypes.STORE) channelData = {
         id: rawData.id,
         type: rawData.type,
         name: rawData.name as string,
@@ -114,7 +114,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     } as StoreChannelData;
 
     // Parse stage channel data
-    else if (rawData.type === CHANNEL_TYPE_STAGE) channelData = {
+    else if (rawData.type === ChannelTypes.STAGE) channelData = {
         id: rawData.id,
         type: rawData.type,
         name: rawData.name as string,
@@ -131,7 +131,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
     } as StageChannelData;
 
     // Parse thread channel data
-    else if ((rawData.type === CHANNEL_TYPE_NEWS_THREAD) || (rawData.type === CHANNEL_TYPE_PUBLIC_THREAD) || (rawData.type === CHANNEL_TYPE_PRIVATE_THREAD)) channelData = {
+    else if ((rawData.type === ChannelTypes.NEWS_THREAD) || (rawData.type === ChannelTypes.PUBLIC_THREAD) || (rawData.type === ChannelTypes.PRIVATE_THREAD)) channelData = {
         id: rawData.id,
         type: rawData.type,
         name: rawData.name as string,

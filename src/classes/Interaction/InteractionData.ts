@@ -92,9 +92,26 @@ export interface InteractionData {
  * Interaction Type
  * https://discord.com/developers/docs/interactions/slash-commands#interaction-interactiontype
  */
-export type InteractionType = typeof INTERACTION_TYPE_COMMAND | typeof INTERACTION_TYPE_COMPONENT;
-export const INTERACTION_TYPE_COMMAND = 2;
-export const INTERACTION_TYPE_COMPONENT = 3;
+export type InteractionType = typeof InteractionTypes.COMMAND | typeof InteractionTypes.COMPONENT;
+export const InteractionTypes: {
+
+    /**
+     * Command
+     *
+     * A slash command or context menu command interaction
+     */
+    COMMAND: 2,
+
+    /**
+     * Component
+     *
+     * A component interaction
+     */
+    COMPONENT: 3
+} = {
+    COMMAND: 2,
+    COMPONENT: 3
+};
 
 /**
  * Interaction Metadata

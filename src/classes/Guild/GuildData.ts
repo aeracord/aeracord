@@ -89,7 +89,7 @@ export interface GuildData {
      *
      * The guild's default message notifications setting
      */
-    defaultMessageNotifications: DefaultMessageNotifications;
+    defaultMessageNotifications: DefaultMessageNotification;
 
     /**
      * Explicit Content Filter
@@ -271,29 +271,108 @@ export interface GuildData {
  * Verification Level
  * https://discord.com/developers/docs/resources/guild#guild-object-verification-level
  */
-export type VerificationLevel = typeof VERIFICATION_LEVEL_NONE | typeof VERIFICATION_LEVEL_LOW | typeof VERIFICATION_LEVEL_MEDIUM | typeof VERIFICATION_LEVEL_HIGH | typeof VERIFICATION_LEVEL_VERY_HIGH;
-export const VERIFICATION_LEVEL_NONE = 0;
-export const VERIFICATION_LEVEL_LOW = 1;
-export const VERIFICATION_LEVEL_MEDIUM = 2;
-export const VERIFICATION_LEVEL_HIGH = 3;
-export const VERIFICATION_LEVEL_VERY_HIGH = 4;
+export type VerificationLevel = typeof VerificationLevels.NONE | typeof VerificationLevels.LOW | typeof VerificationLevels.MEDIUM | typeof VerificationLevels.HIGH | typeof VerificationLevels.VERY_HIGH;
+export const VerificationLevels: {
+
+    /**
+     * None
+     *
+     * No verification level
+     */
+    NONE: 0,
+
+    /**
+     * Low
+     *
+     * Low verification level
+     */
+    LOW: 1,
+
+    /**
+     * Medium
+     *
+     * Medium verification level
+     */
+    MEDIUM: 2,
+
+    /**
+     * High
+     *
+     * High verification level
+     */
+    HIGH: 3,
+
+    /**
+     * Very High
+     *
+     * Very high verification level
+     */
+    VERY_HIGH: 4
+} = {
+    NONE: 0,
+    LOW: 1,
+    MEDIUM: 2,
+    HIGH: 3,
+    VERY_HIGH: 4
+};
 
 /**
  * Default Message Notifications
  * https://discord.com/developers/docs/resources/guild#guild-object-default-message-notification-level
  */
-export type DefaultMessageNotifications = typeof DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES | typeof DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS;
-export const DEFAULT_MESSAGE_NOTIFICATIONS_ALL_MESSAGES = 0;
-export const DEFAULT_MESSAGE_NOTIFICATIONS_ONLY_MENTIONS = 1;
+export type DefaultMessageNotification = typeof DefaultMessageNotifications.ALL_MESSAGES | typeof DefaultMessageNotifications.ONLY_MENTIONS;
+export const DefaultMessageNotifications: {
+
+    /**
+     * All Messages
+     *
+     * Send notifications for all messages
+     */
+    ALL_MESSAGES: 0,
+
+    /**
+     * Only Mentions
+     *
+     * Only send notifications for mentions
+     */
+    ONLY_MENTIONS: 1
+} = {
+    ALL_MESSAGES: 0,
+    ONLY_MENTIONS: 1
+};
 
 /**
  * Explicit Content Filter
  * https://discord.com/developers/docs/resources/guild#guild-object-explicit-content-filter-level
  */
-export type ExplicitContentFilter = typeof EXPLICIT_CONTENT_FILTER_DISABLED | typeof EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES | typeof EXPLICIT_CONTENT_FILTER_ALL_MEMBERS;
-export const EXPLICIT_CONTENT_FILTER_DISABLED = 0;
-export const EXPLICIT_CONTENT_FILTER_MEMBERS_WITHOUT_ROLES = 1;
-export const EXPLICIT_CONTENT_FILTER_ALL_MEMBERS = 2;
+export type ExplicitContentFilter = typeof ExplicitContentFilters.DISABLED | typeof ExplicitContentFilters.MEMBERS_WITHOUT_ROLES | typeof ExplicitContentFilters.ALL_MEMBERS;
+export const ExplicitContentFilters: {
+
+    /**
+     * Disabled
+     *
+     * Don't scan any content
+     */
+    DISABLED: 0,
+
+    /**
+     * Members Without Roles
+     *
+     * Only scan content from members without any roles
+     */
+    MEMBERS_WITHOUT_ROLES: 1,
+
+    /**
+     * All Members
+     *
+     * Scan content from all members
+     */
+    ALL_MEMBERS: 2
+} = {
+    DISABLED: 0,
+    MEMBERS_WITHOUT_ROLES: 1,
+    ALL_MEMBERS: 2
+};
 
 /**
  * Feature
@@ -305,29 +384,108 @@ export type Feature = "INVITE_SPLASH" | "VIP_REGIONS" | "VANITY_URL" | "VERIFIED
  * MFA Level
  * https://discord.com/developers/docs/resources/guild#guild-object-mfa-level
  */
-export type MFALevel = typeof MFA_LEVEL_NONE | typeof MFA_LEVEL_ELEVATED;
-export const MFA_LEVEL_NONE = 0;
-export const MFA_LEVEL_ELEVATED = 1;
+export type MFALevel = typeof MFALevels.NONE | typeof MFALevels.ELEVATED;
+export const MFALevels: {
+
+    /**
+     * None
+     *
+     * No MFA requirement
+     */
+    NONE: 0,
+
+    /**
+     * Elevated
+     *
+     * MFA requirement is enabled
+     */
+    ELEVATED: 1
+} = {
+    NONE: 0,
+    ELEVATED: 1
+};
 
 /**
  * Premium Tier
  * https://discord.com/developers/docs/resources/guild#guild-object-premium-tier
  */
-export type PremiumTier = typeof PREMIUM_TIER_NONE | typeof PREMIUM_TIER_TIER_1 | typeof PREMIUM_TIER_TIER_2 | typeof PREMIUM_TIER_TIER_3;
-export const PREMIUM_TIER_NONE = 0;
-export const PREMIUM_TIER_TIER_1 = 1;
-export const PREMIUM_TIER_TIER_2 = 2;
-export const PREMIUM_TIER_TIER_3 = 3;
+export type PremiumTier = typeof PremiumTiers.NONE | typeof PremiumTiers.TIER_1 | typeof PremiumTiers.TIER_2 | typeof PremiumTiers.TIER_3;
+export const PremiumTiers: {
+
+    /**
+     * None
+     *
+     * No boost level
+     */
+    NONE: 0,
+
+    /**
+     * Tier 1
+     *
+     * Boost level 1
+     */
+    TIER_1: 1,
+
+    /**
+     * Tier 2
+     *
+     * Boost level 2
+     */
+    TIER_2: 2,
+
+    /**
+     * Tier 3
+     *
+     * Boost level 3
+     */
+    TIER_3: 3
+} = {
+    NONE: 0,
+    TIER_1: 1,
+    TIER_2: 2,
+    TIER_3: 3
+};
 
 /**
  * NSFW Level
  * https://discord.com/developers/docs/resources/guild#guild-object-guild-nsfw-level
  */
-export type NSFWLevel = typeof NSFW_LEVEL_DEFAULT | typeof NSFW_LEVEL_EXPLICIT | typeof NSFW_LEVEL_SAFE | typeof NSFW_LEVEL_AGE_RESTRICTED;
-export const NSFW_LEVEL_DEFAULT = 0;
-export const NSFW_LEVEL_EXPLICIT = 1;
-export const NSFW_LEVEL_SAFE = 2;
-export const NSFW_LEVEL_AGE_RESTRICTED = 3;
+export type NSFWLevel = typeof NSFWLevels.DEFAULT | typeof NSFWLevels.EXPLICIT | typeof NSFWLevels.SAFE | typeof NSFWLevels.AGE_RESTRICTED;
+export const NSFWLevels: {
+
+    /**
+     * Default
+     *
+     * The guild is not marked as NSFW
+     */
+    DEFAULT: 0,
+
+    /**
+     * Explicit
+     *
+     * Explicit content
+     */
+    EXPLICIT: 1,
+
+    /**
+     * Safe
+     *
+     * Safe content
+     */
+    SAFE: 2,
+
+    /**
+     * Age Restricted
+     *
+     * Age restricted content
+     */
+    AGE_RESTRICTED: 3
+} = {
+    DEFAULT: 0,
+    EXPLICIT: 1,
+    SAFE: 2,
+    AGE_RESTRICTED: 3
+};
 
 /**
  * Voice Region

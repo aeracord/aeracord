@@ -83,18 +83,23 @@ export interface WebhookData {
  *
  * The types of webhooks
  */
-export type WebhookType = typeof WEBHOOK_TYPE_INCOMING | typeof WEBHOOK_TYPE_CHANNEL_FOLLOWER;
+export type WebhookType = typeof WebhookTypes.INCOMING | typeof WebhookTypes.CHANNEL_FOLLOWER;
+export const WebhookTypes: {
 
-/**
- * Webhook Type: Incoming
- *
- * A regular webhook
- */
-export const WEBHOOK_TYPE_INCOMING = 1;
+    /**
+     * Incoming
+     *
+     * A regular webhook
+     */
+    INCOMING: 1,
 
-/**
- * Webhook Type: Channel Follower
- *
- * A webhook from following an announcement channel
- */
-export const WEBHOOK_TYPE_CHANNEL_FOLLOWER = 2;
+    /**
+     * Channel Follower
+     *
+     * A webhook from following an announcement channel
+     */
+    CHANNEL_FOLLOWER: 2
+} = {
+    INCOMING: 1,
+    CHANNEL_FOLLOWER: 2
+};

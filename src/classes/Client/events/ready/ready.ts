@@ -1,4 +1,4 @@
-import { Client, Command, RawReadyData, RawReadyDataGuild, ReadyData, READY_STATE_INITIAL_GUILDS, User } from "../../../../internal";
+import { Client, Command, RawReadyData, RawReadyDataGuild, ReadyData, ReadyStates, User } from "../../../../internal";
 import { EventQueueEvent } from "../../Client";
 import event from "../../event";
 import readyEvent from "../ready";
@@ -63,7 +63,7 @@ export default async function ready(client: Client, rawData: RawReadyData) {
      *
      * Set the ready state to allow guild create and delete events
      */
-    client._readyState = READY_STATE_INITIAL_GUILDS;
+    client._readyState = ReadyStates.INITIAL_GUILDS;
 
     // Get queued initial guild events
     const initialGuildEvents: EventQueueEvent[] = client._eventQueue.filter((e: EventQueueEvent) => ((e.type === "GUILD_CREATE") || (e.type === "GUILD_DELETE")) && (client._uninitializedGuilds.has(e.data.id)));

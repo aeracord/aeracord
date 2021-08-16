@@ -1,4 +1,4 @@
-import { AnyInteractionData, Client, CommandInteractionResolvedData, COMMAND_TYPE_CHAT_INPUT, COMMAND_TYPE_MESSAGE, COMMAND_TYPE_USER, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, InteractionMetadata, INTERACTION_TYPE_COMMAND, INTERACTION_TYPE_COMPONENT, Member, Message, RawInteractionData, RawMemberData, RawMessageData, RawResolvedChannel, RawRoleData, RawUserlessMemberData, RawUserData, Role, User } from "../../internal";
+import { AnyInteractionData, Client, CommandInteractionResolvedData, CommandTypes, ComponentTypes, InteractionMetadata, InteractionTypes, Member, Message, RawInteractionData, RawMemberData, RawMessageData, RawResolvedChannel, RawRoleData, RawUserlessMemberData, RawUserData, Role, User } from "../../internal";
 
 export default function dataFromRawData(client: Client, rawData: RawInteractionData): AnyInteractionData {
 
@@ -6,7 +6,7 @@ export default function dataFromRawData(client: Client, rawData: RawInteractionD
     let interactionData: AnyInteractionData;
 
     // Parse command data
-    if (rawData.type === INTERACTION_TYPE_COMMAND) {
+    if (rawData.type === InteractionTypes.COMMAND) {
 
         // Define interaction metadata
         let data: InteractionMetadata;
@@ -52,7 +52,7 @@ export default function dataFromRawData(client: Client, rawData: RawInteractionD
         })));
 
         // Parse chat input command metadata
-        if (rawData.data.type === COMMAND_TYPE_CHAT_INPUT) data = {
+        if (rawData.data.type === CommandTypes.CHAT_INPUT) data = {
             id: rawData.data.id as string,
             name: rawData.data.name as string,
             type: rawData.data.type,
@@ -61,7 +61,7 @@ export default function dataFromRawData(client: Client, rawData: RawInteractionD
         };
 
         // Parse context menu command metadata
-        else if ((rawData.data.type === COMMAND_TYPE_USER) || (rawData.data.type === COMMAND_TYPE_MESSAGE)) data = {
+        else if ((rawData.data.type === CommandTypes.USER) || (rawData.data.type === CommandTypes.MESSAGE)) data = {
             id: rawData.data.id as string,
             name: rawData.data.name as string,
             type: rawData.data.type,
@@ -89,19 +89,19 @@ export default function dataFromRawData(client: Client, rawData: RawInteractionD
     }
 
     // Parse component data
-    else if (rawData.type === INTERACTION_TYPE_COMPONENT) {
+    else if (rawData.type === InteractionTypes.COMPONENT) {
 
         // Define interaction metadata
         let data: InteractionMetadata;
 
         // Parse button metadata
-        if (rawData.data.component_type === COMPONENT_TYPE_BUTTON) data = {
+        if (rawData.data.component_type === ComponentTypes.BUTTON) data = {
             type: rawData.data.component_type,
             customID: rawData.data.custom_id as string
         };
 
         // Parse select menu metadata
-        else if (rawData.data.component_type === COMPONENT_TYPE_SELECT_MENU) data = {
+        else if (rawData.data.component_type === ComponentTypes.SELECT_MENU) data = {
             type: rawData.data.component_type,
             customID: rawData.data.custom_id as string,
             values: rawData.data.values as string[]

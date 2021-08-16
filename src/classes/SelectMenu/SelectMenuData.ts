@@ -1,4 +1,4 @@
-import { COMPONENT_TYPE_SELECT_MENU, MessageComponentData } from "../../internal";
+import { ComponentTypes, MessageComponentData } from "../../internal";
 
 /**
  * Select Menu Data
@@ -12,7 +12,7 @@ export interface SelectMenuData extends MessageComponentData {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_SELECT_MENU;
+    type: typeof ComponentTypes.SELECT_MENU;
 
     /**
      * Placeholder

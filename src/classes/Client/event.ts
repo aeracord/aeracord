@@ -1,4 +1,4 @@
-import { Client, HOLD_EVENTS_TYPE_EMIT, READY_STATE_INITIAL_GUILDS, READY_STATE_READY } from "../../internal";
+import { Client, HoldEventsTypes, ReadyStates } from "../../internal";
 import channelCreate from "./events/channelCreate/channelCreate";
 import channelDelete from "./events/channelDelete/channelDelete";
 import channelPinsUpdate from "./events/channelPinsUpdate/channelPinsUpdate";
@@ -58,7 +58,7 @@ export default function event(client: Client, type: string, data: any) {
     if (type === "READY") return ready(client, data);
 
     // Initial guild create/delete
-    if ((client._readyState === READY_STATE_INITIAL_GUILDS) && ((type === "GUILD_CREATE") || (type === "GUILD_DELETE"))) {
+    if ((client._readyState === ReadyStates.INITIAL_GUILDS) && ((type === "GUILD_CREATE") || (type === "GUILD_DELETE"))) {
 
         // Guild Create
         if (type === "GUILD_CREATE") return guildCreate(client, data);
@@ -68,13 +68,13 @@ export default function event(client: Client, type: string, data: any) {
     }
 
     // If the client isn't ready or we need to hold events
-    if (client._readyState < READY_STATE_READY) {
+    if (client._readyState < ReadyStates.READY) {
 
         /**
          * If the initial guilds are still being loaded or we need to hold events and emit later, add the event to the event queue
          * Once the client's ready, it'll loop through the queue and process all the events
          */
-        if ((client._readyState <= READY_STATE_INITIAL_GUILDS) || (client._holdEvents === HOLD_EVENTS_TYPE_EMIT)) client._eventQueue.push({ type, data });
+        if ((client._readyState <= ReadyStates.INITIAL_GUILDS) || (client._holdEvents === HoldEventsTypes.EMIT)) client._eventQueue.push({ type, data });
 
         // Return
         return;

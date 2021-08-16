@@ -1,4 +1,4 @@
-import { ActionRowData, Client, COMPONENT_TYPE_ACTION_ROW, MessageComponent, MessageComponentData } from "../../internal";
+import { ActionRowData, Client, ComponentTypes, MessageComponent, MessageComponentData } from "../../internal";
 
 export default class ActionRow extends MessageComponent {
 
@@ -7,7 +7,7 @@ export default class ActionRow extends MessageComponent {
      *
      * The component's type
      */
-    type: typeof COMPONENT_TYPE_ACTION_ROW;
+    type: typeof ComponentTypes.ACTION_ROW;
 
     /**
      * Components

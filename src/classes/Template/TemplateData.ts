@@ -1,4 +1,4 @@
-import { DefaultMessageNotifications, ExplicitContentFilter, GuildChannelType, UserData, VerificationLevel } from "../../internal";
+import { DefaultMessageNotification, ExplicitContentFilter, GuildChannelType, UserData, VerificationLevel } from "../../internal";
 
 /**
  * Template Data
@@ -139,7 +139,7 @@ export interface TemplateGuild {
      *
      * The guild's default message notifications setting
      */
-    defaultMessageNotifications: DefaultMessageNotifications;
+    defaultMessageNotifications: DefaultMessageNotification;
 
     /**
      * Explicit Content Filter

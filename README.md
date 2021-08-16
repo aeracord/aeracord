@@ -45,7 +45,7 @@ import { Client, Guild, User, ... } from "aeracord";
 To connect to the gateway, you need to construct a new [Client](https://aeracord.apixel.me/docs/classes/Client):
 
 ```js
-import { Client, ACTIVITY_TYPE_PLAYING } from "aeracord";
+import { ActivityTypes, Client } from "aeracord";
 
 // Create client
 const client = new Client({
@@ -53,7 +53,7 @@ const client = new Client({
     presence: {
         activities: [{
             name: "say /help",
-            type: ACTIVITY_TYPE_PLAYING
+            type: ActivityTypes.PLAYING
         }]
     },
     membersIntent: true,

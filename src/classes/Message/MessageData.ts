@@ -212,22 +212,130 @@ export interface MessageData {
  * Message Type
  * https://discord.com/developers/docs/resources/channel#message-object-message-types
  */
-export type MessageType = typeof MESSAGE_TYPE_DEFAULT | typeof MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE | typeof MESSAGE_TYPE_GUILD_MEMBER_JOIN | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2 | typeof MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3 | typeof MESSAGE_TYPE_CHANNEL_FOLLOW_ADD | typeof MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED | typeof MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED | typeof MESSAGE_TYPE_REPLY | typeof MESSAGE_TYPE_APPLICATION_COMMAND | typeof MESSAGE_TYPE_GUILD_INVITE_REMINDER;
-export const MESSAGE_TYPE_DEFAULT = 0;
-export const MESSAGE_TYPE_CHANNEL_PINNED_MESSAGE = 6;
-export const MESSAGE_TYPE_GUILD_MEMBER_JOIN = 7;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION = 8;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1 = 9;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2 = 10;
-export const MESSAGE_TYPE_USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3 = 11;
-export const MESSAGE_TYPE_CHANNEL_FOLLOW_ADD = 12;
-export const MESSAGE_TYPE_GUILD_DISCOVERY_DISQUALIFIED = 14;
-export const MESSAGE_TYPE_GUILD_DISCOVERY_REQUALIFIED = 15;
-export const MESSAGE_TYPE_GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING = 16;
-export const MESSAGE_TYPE_GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING = 17;
-export const MESSAGE_TYPE_REPLY = 19;
-export const MESSAGE_TYPE_APPLICATION_COMMAND = 20;
-export const MESSAGE_TYPE_GUILD_INVITE_REMINDER = 22;
+export type MessageType = typeof MessageTypes.DEFAULT | typeof MessageTypes.CHANNEL_PINNED_MESSAGE | typeof MessageTypes.GUILD_MEMBER_JOIN | typeof MessageTypes.USER_PREMIUM_GUILD_SUBSCRIPTION | typeof MessageTypes.USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1 | typeof MessageTypes.USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2 | typeof MessageTypes.USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3 | typeof MessageTypes.CHANNEL_FOLLOW_ADD | typeof MessageTypes.GUILD_DISCOVERY_DISQUALIFIED | typeof MessageTypes.GUILD_DISCOVERY_REQUALIFIED | typeof MessageTypes.REPLY | typeof MessageTypes.APPLICATION_COMMAND | typeof MessageTypes.GUILD_INVITE_REMINDER;
+export const MessageTypes: {
+
+    /**
+     * Default
+     *
+     * A regular message
+     */
+    DEFAULT: 0,
+
+    /**
+     * Channel Pinned Message
+     *
+     * When a message is pinned
+     */
+    CHANNEL_PINNED_MESSAGE: 6,
+
+    /**
+     * Guild Member Join
+     *
+     * When a member joins a server
+     */
+    GUILD_MEMBER_JOIN: 7,
+
+    /**
+     * User Premium Guild Subscription
+     *
+     * When a user boosts a server
+     */
+    USER_PREMIUM_GUILD_SUBSCRIPTION: 8,
+
+    /**
+     * User Premium Guild Subscription Tier 1
+     *
+     * When a user boosts a server to tier 1
+     */
+    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1: 9,
+
+    /**
+     * User Premium Guild Subscription Tier 2
+     *
+     * When a user boosts a server to tier 2
+     */
+    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2: 10,
+
+    /**
+     * User Premium Guild Subscription Tier 3
+     *
+     * When a user boosts a server to tier 3
+     */
+    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3: 11,
+
+    /**
+     * Channel Follow Add
+     *
+     * When an announcement channel is followed
+     */
+    CHANNEL_FOLLOW_ADD: 12,
+
+    /**
+     * Guild Discovery Disqualified
+     *
+     * When a server no longer meets the requirements for server discovery
+     */
+    GUILD_DISCOVERY_DISQUALIFIED: 14,
+
+    /**
+     * Guild Discovery Requalified
+     *
+     * When a server meets the requirements for server discovery
+     */
+    GUILD_DISCOVERY_REQUALIFIED: 15,
+
+    /**
+     * Guild Discovery Grace Period Initial Warning
+     *
+     * An initial warning about guild discovery
+     */
+    GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING: 16,
+
+    /**
+     * Guild Discovery Grace Period Final Warning
+     *
+     * A final warning about guild discovery
+     */
+    GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING: 17,
+
+    /**
+     * Reply
+     *
+     * A message that replies to another message
+     */
+    REPLY: 19,
+
+    /**
+     * Application Command
+     *
+     * A message that uses a slash command
+     */
+    APPLICATION_COMMAND: 20,
+
+    /**
+     * Guild Invite Reminder
+     *
+     * A reminder about guild invites
+     */
+    GUILD_INVITE_REMINDER: 22
+} = {
+    DEFAULT: 0,
+    CHANNEL_PINNED_MESSAGE: 6,
+    GUILD_MEMBER_JOIN: 7,
+    USER_PREMIUM_GUILD_SUBSCRIPTION: 8,
+    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1: 9,
+    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2: 10,
+    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3: 11,
+    CHANNEL_FOLLOW_ADD: 12,
+    GUILD_DISCOVERY_DISQUALIFIED: 14,
+    GUILD_DISCOVERY_REQUALIFIED: 15,
+    GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING: 16,
+    GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING: 17,
+    REPLY: 19,
+    APPLICATION_COMMAND: 20,
+    GUILD_INVITE_REMINDER: 22
+};
 
 /**
  * Message Webhook
@@ -349,11 +457,42 @@ export interface MessageActivity {
  * Message Activity Type
  * https://discord.com/developers/docs/resources/channel#message-object-message-activity-types
  */
-export type MessageActivityType = typeof MESSAGE_ACTIVITY_TYPE_JOIN | typeof MESSAGE_ACTIVITY_TYPE_SPECTATE | typeof MESSAGE_ACTIVITY_TYPE_LISTEN | typeof MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST;
-export const MESSAGE_ACTIVITY_TYPE_JOIN = 1;
-export const MESSAGE_ACTIVITY_TYPE_SPECTATE = 2;
-export const MESSAGE_ACTIVITY_TYPE_LISTEN = 3;
-export const MESSAGE_ACTIVITY_TYPE_JOIN_REQUEST = 5;
+export type MessageActivityType = typeof MessageActivityTypes.JOIN | typeof MessageActivityTypes.SPECTATE | typeof MessageActivityTypes.LISTEN | typeof MessageActivityTypes.JOIN_REQUEST;
+export const MessageActivityTypes: {
+
+    /**
+     * Join
+     *
+     * For joining a game
+     */
+    JOIN: 1,
+
+    /**
+     * Spectate
+     *
+     * For spectating a game
+     */
+    SPECTATE: 2,
+
+    /**
+     * Listen
+     *
+     * To listen along on Spotify
+     */
+    LISTEN: 3,
+
+    /**
+     * Join Request
+     *
+     * For requesting to join a game
+     */
+    JOIN_REQUEST: 5
+} = {
+    JOIN: 1,
+    SPECTATE: 2,
+    LISTEN: 3,
+    JOIN_REQUEST: 5
+};
 
 /**
  * Message Application

@@ -1,9 +1,9 @@
-import { ActionRow, AnyMessageComponent, AnyMessageComponentData, Button, COMPONENT_TYPE_ACTION_ROW, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_SELECT_MENU, MessageComponent, SelectMenu } from "../../internal";
+import { ActionRow, AnyMessageComponent, AnyMessageComponentData, Button, ComponentTypes, MessageComponent, SelectMenu } from "../../internal";
 
 export default function toData(messageComponent: AnyMessageComponent): AnyMessageComponentData {
 
     // Parse action row data
-    if (messageComponent.type === COMPONENT_TYPE_ACTION_ROW) {
+    if (messageComponent.type === ComponentTypes.ACTION_ROW) {
         const actionRow: ActionRow = messageComponent as ActionRow;
         return {
             type: actionRow.type,
@@ -15,7 +15,7 @@ export default function toData(messageComponent: AnyMessageComponent): AnyMessag
     }
 
     // Parse button data
-    else if (messageComponent.type === COMPONENT_TYPE_BUTTON) {
+    else if (messageComponent.type === ComponentTypes.BUTTON) {
         const button: Button = messageComponent as Button;
         return {
             type: button.type,
@@ -32,7 +32,7 @@ export default function toData(messageComponent: AnyMessageComponent): AnyMessag
     }
 
     // Parse select menu data
-    else if (messageComponent.type === COMPONENT_TYPE_SELECT_MENU) {
+    else if (messageComponent.type === ComponentTypes.SELECT_MENU) {
         const selectMenu: SelectMenu = messageComponent as SelectMenu;
         return {
             type: selectMenu.type,

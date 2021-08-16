@@ -1,4 +1,4 @@
-import { CHANNEL_TYPE_CATEGORY, GuildChannelData } from "../../internal";
+import { ChannelTypes, GuildChannelData } from "../../internal";
 
 /**
  * Category Channel Data
@@ -12,5 +12,5 @@ export interface CategoryChannelData extends GuildChannelData {
      *
      * The channel's type
      */
-    type: typeof CHANNEL_TYPE_CATEGORY;
+    type: typeof ChannelTypes.CATEGORY;
 }

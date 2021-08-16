@@ -1,4 +1,4 @@
-import { Client, ComponentInteractionData, ComponentInteractionMetadata, CreateInteractionMessageData, Embed, Interaction, INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE, INTERACTION_TYPE_COMPONENT, Message, MessageData } from "../../internal";
+import { Client, ComponentInteractionData, ComponentInteractionMetadata, CreateInteractionMessageData, Embed, Interaction, InteractionResponseTypes, InteractionTypes, Message, MessageData } from "../../internal";
 import updateMessage from "./updateMessage";
 import updateObject from "./updateObject";
 
@@ -15,7 +15,7 @@ export default class ComponentInteraction extends Interaction {
      *
      * The interaction's type
      */
-    type: typeof INTERACTION_TYPE_COMPONENT;
+    type: typeof InteractionTypes.COMPONENT;
 
     /**
      * Data
@@ -84,6 +84,6 @@ export default class ComponentInteraction extends Interaction {
      * @returns {Promise<Message>} The created response
      */
     deferUpdate(): Promise<Message | undefined> {
-        return this.client.createInteractionResponse(this, this.token, { type: INTERACTION_RESPONSE_TYPE_DEFERRED_MESSAGE_UPDATE });
+        return this.client.createInteractionResponse(this, this.token, { type: InteractionResponseTypes.DEFERRED_MESSAGE_UPDATE });
     }
 }

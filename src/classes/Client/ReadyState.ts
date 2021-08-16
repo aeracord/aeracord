@@ -3,33 +3,40 @@
  *
  * The client's ready states
  */
-export type ReadyState = typeof READY_STATE_NONE | typeof READY_STATE_INITIAL_GUILDS | typeof READY_STATE_HOLDING_EVENTS | typeof READY_STATE_READY;
+export type ReadyState = typeof ReadyStates.NONE | typeof ReadyStates.INITIAL_GUILDS | typeof ReadyStates.HOLDING_EVENTS | typeof ReadyStates.READY;
+export const ReadyStates: {
 
-/**
- * Ready State: None
- *
- * The ready state used when the client is connecting to the gateway
- */
-export const READY_STATE_NONE = 0;
+    /**
+     * None
+     *
+     * The ready state used when the client is connecting to the gateway
+     */
+    NONE: 0,
 
-/**
- * Ready State: Initial Guilds
- *
- * The ready state used when the gateway is sending initial `GUILD_CREATE` events
- */
-export const READY_STATE_INITIAL_GUILDS = 1;
+    /**
+     * Initial Guilds
+     *
+     * The ready state used when the gateway is sending initial `GUILD_CREATE` events
+     */
+    INITIAL_GUILDS: 1,
 
-/**
- * Ready State: Holding Events
- *
- * The ready state used when the client is holding events
- * https://aeracord.apixel.me/guides/holding-events
- */
-export const READY_STATE_HOLDING_EVENTS = 2;
+    /**
+     * Holding Events
+     *
+     * The ready state used when the client is holding events
+     * https://aeracord.apixel.me/guides/holding-events
+     */
+    HOLDING_EVENTS: 2,
 
-/**
- * Ready State: Ready
- *
- * The ready state used when the client is ready
- */
-export const READY_STATE_READY = 3;
+    /**
+     * Ready
+     *
+     * The ready state used when the client is ready
+     */
+    READY: 3
+} = {
+    NONE: 0,
+    INITIAL_GUILDS: 1,
+    HOLDING_EVENTS: 2,
+    READY: 3
+};

@@ -1,9 +1,9 @@
-import { AnyChannel, AnyChannelData, CategoryChannel, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, NewsChannel, PermissionOverwrite, StageChannel, StoreChannel, TextChannel, ThreadChannel, VoiceChannel } from "../../internal";
+import { AnyChannel, AnyChannelData, CategoryChannel, ChannelTypes, DMChannel, NewsChannel, PermissionOverwrite, StageChannel, StoreChannel, TextChannel, ThreadChannel, VoiceChannel } from "../../internal";
 
 export default function toData(channel: AnyChannel): AnyChannelData {
 
     // Parse text channel data
-    if (channel.type === CHANNEL_TYPE_TEXT) {
+    if (channel.type === ChannelTypes.TEXT) {
         const textChannel: TextChannel = channel as TextChannel;
         return {
             id: textChannel.id,
@@ -28,7 +28,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Parse DM channel data
-    else if (channel.type === CHANNEL_TYPE_DM) {
+    else if (channel.type === ChannelTypes.DM) {
         const dmChannel: DMChannel = channel as DMChannel;
         return {
             id: dmChannel.id,
@@ -41,7 +41,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Parse voice channel data
-    else if (channel.type === CHANNEL_TYPE_VOICE) {
+    else if (channel.type === ChannelTypes.VOICE) {
         const voiceChannel: VoiceChannel = channel as VoiceChannel;
         return {
             id: voiceChannel.id,
@@ -64,7 +64,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Parse category channel data
-    else if (channel.type === CHANNEL_TYPE_CATEGORY) {
+    else if (channel.type === ChannelTypes.CATEGORY) {
         const categoryChannel: CategoryChannel = channel as CategoryChannel;
         return {
             id: categoryChannel.id,
@@ -84,7 +84,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Parse news channel data
-    else if (channel.type === CHANNEL_TYPE_NEWS) {
+    else if (channel.type === ChannelTypes.NEWS) {
         const newsChannel: NewsChannel = channel as NewsChannel;
         return {
             id: newsChannel.id,
@@ -109,7 +109,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Parse store channel data
-    else if (channel.type === CHANNEL_TYPE_STORE) {
+    else if (channel.type === ChannelTypes.STORE) {
         const storeChannel: StoreChannel = channel as StoreChannel;
         return {
             id: storeChannel.id,
@@ -129,7 +129,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Parse stage channel data
-    else if (channel.type === CHANNEL_TYPE_STAGE) {
+    else if (channel.type === ChannelTypes.STAGE) {
         const stageChannel: StageChannel = channel as StageChannel;
         return {
             id: stageChannel.id,
@@ -149,7 +149,7 @@ export default function toData(channel: AnyChannel): AnyChannelData {
     }
 
     // Parse thread channel data
-    else if ((channel.type === CHANNEL_TYPE_NEWS_THREAD) || (channel.type === CHANNEL_TYPE_PUBLIC_THREAD) || (channel.type === CHANNEL_TYPE_PRIVATE_THREAD)) {
+    else if ((channel.type === ChannelTypes.NEWS_THREAD) || (channel.type === ChannelTypes.PUBLIC_THREAD) || (channel.type === ChannelTypes.PRIVATE_THREAD)) {
         const threadChannel: ThreadChannel = channel as ThreadChannel;
         return {
             id: threadChannel.id,

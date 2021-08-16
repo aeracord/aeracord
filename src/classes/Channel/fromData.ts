@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, CategoryChannel, CategoryChannelData, Channel, Client, CHANNEL_TYPE_CATEGORY, CHANNEL_TYPE_DM, CHANNEL_TYPE_NEWS, CHANNEL_TYPE_NEWS_THREAD, CHANNEL_TYPE_PRIVATE_THREAD, CHANNEL_TYPE_PUBLIC_THREAD, CHANNEL_TYPE_STAGE, CHANNEL_TYPE_STORE, CHANNEL_TYPE_TEXT, CHANNEL_TYPE_VOICE, DMChannel, DMChannelData, NewsChannel, NewsChannelData, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
+import { AnyChannel, AnyChannelData, CategoryChannel, CategoryChannelData, Channel, ChannelTypes, Client, DMChannel, DMChannelData, NewsChannel, NewsChannelData, StageChannel, StageChannelData, StoreChannel, StoreChannelData, TextChannel, TextChannelData, ThreadChannel, ThreadChannelData, VoiceChannel, VoiceChannelData } from "../../internal";
 
 export default function fromData(client: Client, channelData: AnyChannelData): AnyChannel {
 
@@ -9,28 +9,28 @@ export default function fromData(client: Client, channelData: AnyChannelData): A
     if (!channel) {
 
         // Text channel
-        if (channelData.type === CHANNEL_TYPE_TEXT) channel = new TextChannel(client, channelData as TextChannelData);
+        if (channelData.type === ChannelTypes.TEXT) channel = new TextChannel(client, channelData as TextChannelData);
 
         // DM channel
-        else if (channelData.type === CHANNEL_TYPE_DM) channel = new DMChannel(client, channelData as DMChannelData);
+        else if (channelData.type === ChannelTypes.DM) channel = new DMChannel(client, channelData as DMChannelData);
 
         // Voice channel
-        else if (channelData.type === CHANNEL_TYPE_VOICE) channel = new VoiceChannel(client, channelData as VoiceChannelData);
+        else if (channelData.type === ChannelTypes.VOICE) channel = new VoiceChannel(client, channelData as VoiceChannelData);
 
         // Category channel
-        else if (channelData.type === CHANNEL_TYPE_CATEGORY) channel = new CategoryChannel(client, channelData as CategoryChannelData);
+        else if (channelData.type === ChannelTypes.CATEGORY) channel = new CategoryChannel(client, channelData as CategoryChannelData);
 
         // News channel
-        else if (channelData.type === CHANNEL_TYPE_NEWS) channel = new NewsChannel(client, channelData as NewsChannelData);
+        else if (channelData.type === ChannelTypes.NEWS) channel = new NewsChannel(client, channelData as NewsChannelData);
 
         // Store channel
-        else if (channelData.type === CHANNEL_TYPE_STORE) channel = new StoreChannel(client, channelData as StoreChannelData);
+        else if (channelData.type === ChannelTypes.STORE) channel = new StoreChannel(client, channelData as StoreChannelData);
 
         // Stage channel
-        else if (channelData.type === CHANNEL_TYPE_STAGE) channel = new StageChannel(client, channelData as StageChannelData);
+        else if (channelData.type === ChannelTypes.STAGE) channel = new StageChannel(client, channelData as StageChannelData);
 
         // Thread channel
-        else if ((channelData.type === CHANNEL_TYPE_NEWS_THREAD) || (channelData.type === CHANNEL_TYPE_PUBLIC_THREAD) || (channelData.type === CHANNEL_TYPE_PRIVATE_THREAD)) channel = new ThreadChannel(client, channelData as ThreadChannelData);
+        else if ((channelData.type === ChannelTypes.NEWS_THREAD) || (channelData.type === ChannelTypes.PUBLIC_THREAD) || (channelData.type === ChannelTypes.PRIVATE_THREAD)) channel = new ThreadChannel(client, channelData as ThreadChannelData);
 
         // Unknown channel type
         else throw new Error(`Unknown channel type '${channelData.type}'. Please open an issue about this at https://github.com/aeracord/aeracord`);
