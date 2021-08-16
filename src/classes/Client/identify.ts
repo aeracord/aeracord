@@ -2,6 +2,9 @@ import { Client } from "../../internal";
 
 export default function identify(client: Client) {
 
+    // Debug: Identify
+    client.emit("debug", "Sending identify request");
+
     // Get os
     let os: string = process.platform;
     if (os === "win32") os = "windows";

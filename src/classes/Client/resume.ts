@@ -2,6 +2,9 @@ import { Client } from "../../internal";
 
 export default function resume(client: Client) {
 
+    // Debug: Resume
+    client.emit("debug", `Resuming session (Sequence ${client._sequence})`);
+
     /**
      * Resume
      * https://discord.com/developers/docs/topics/gateway#resuming

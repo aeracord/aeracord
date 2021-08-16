@@ -867,6 +867,13 @@ export default interface Client {
      * Emitted when a channel's webhooks are updated
      */
     on(event: "webhooksUpdate", listener: (data: WebhooksUpdateData, options: ChannelEventOptions) => void): this;
+
+    /**
+     * Debug
+     *
+     * Emits debug information
+     */
+    on(event: "debug", listener: (message: string, error?: Error) => void): this;
 }
 
 export default class Client extends EventEmitter {

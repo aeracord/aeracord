@@ -8,6 +8,9 @@ export default function heartbeat(client: Client) {
     // Set heartbeat acked
     client._heartbeatAcked = false;
 
+    // Debug: Heartbeat
+    client.emit("debug", "Sending heartbeat");
+
     // Send heartbeat
     client._ws.send(JSON.stringify({
         op: 1,

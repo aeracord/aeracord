@@ -31,6 +31,9 @@ export type Intent = (
 
 export default async function connect(client: Client) {
 
+    // Debug: Connecting
+    client.emit("debug", "Connecting to the gateway");
+
     /**
      * Get gateway data
      * https://discord.com/developers/docs/topics/gateway#get-gateway-bot
@@ -43,6 +46,9 @@ export default async function connect(client: Client) {
         }
     });
     const gatewayData = await gatewayResult.json();
+
+    // Debug: Received gateway data
+    client.emit("debug", `Received gateway data: ${JSON.stringify(gatewayData, null, 4)}`);
 
     /**
      * Create websocket
@@ -60,6 +66,9 @@ export default async function connect(client: Client) {
 
     // Websocket opened
     ws.on("open", () => {
+
+        // Debug: Websocket opened
+        client.emit("debug", "Websocket opened");
 
         /**
          * Identify
@@ -94,4 +103,11 @@ export default async function connect(client: Client) {
      * https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
      */
     ws.on("close", (code: number, reason: string) => websocketClosed(client, code, reason));
+
+    // Websocket error
+    ws.on("error", (error: Error) => {
+
+        // Debug: Websocket error
+        client.emit("debug", "Websocket error", error);
+    });
 }
