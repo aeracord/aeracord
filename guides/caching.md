@@ -14,7 +14,7 @@ const client = new Client({
 
 ## Objects
 
-The [`ObjectCacheStrategies`](https://aeracord.apixel.me/docs/interfaces/ObjectCacheStrategies) object takes the type of object as a key:
+The [`ObjectCacheStrategies`](https://aeracord.pranav.page/docs/interfaces/ObjectCacheStrategies) object takes the type of object as a key:
 
 - `commands`
 - `bans`
@@ -34,7 +34,7 @@ The [`ObjectCacheStrategies`](https://aeracord.apixel.me/docs/interfaces/ObjectC
 - `welcomeScreens`
 - `users`
 
-And either a [`CacheStrategy`](https://aeracord.apixel.me/docs/interfaces/CacheStrategy) object or a boolean as the value:
+And either a [`CacheStrategy`](https://aeracord.pranav.page/docs/interfaces/CacheStrategy) object or a boolean as the value:
 
 ```js
 {
@@ -52,11 +52,11 @@ The `garbageCollectionInterval` is the interval in milliseconds for garbage coll
 
 `cacheAll` can be set to `true` to automatically cache all objects.
 
-`initialCache` can be used to cache certain objects when the client connects to the gateway. The [`ready` event](https://aeracord.apixel.me/docs/classes/Client#ready) will fire after these objects are cached. The [`InitialCacheType`](https://aeracord.apixel.me/docs/interfaces/InitialCacheType) object depends on the object (ie. `guilds`, `channels`, `users`, etc).
+`initialCache` can be used to cache certain objects when the client connects to the gateway. The [`ready` event](https://aeracord.pranav.page/docs/classes/Client#ready) will fire after these objects are cached. The [`InitialCacheType`](https://aeracord.pranav.page/docs/interfaces/InitialCacheType) object depends on the object (ie. `guilds`, `channels`, `users`, etc).
 
 ### IDs
 
-An [`InitialCacheTypeIDs`](https://aeracord.apixel.me/docs/interfaces/InitialCacheTypeIDs) object is an array of IDs. The following objects use an `InitialCacheTypeIDs` object:
+An [`InitialCacheTypeIDs`](https://aeracord.pranav.page/docs/interfaces/InitialCacheTypeIDs) object is an array of IDs. The following objects use an `InitialCacheTypeIDs` object:
 
 - `guilds`
 - `guildWidgets`
@@ -69,7 +69,7 @@ For example, for the `guilds` objects, you can specify guild IDs. Note that `gui
 
 ### Guilds
 
-An [`InitialCacheTypeGuilds`](https://aeracord.apixel.me/docs/interfaces/InitialCacheTypeGuilds) object is used to cache objects from guilds. The following objects use an `InitialCacheTypeGuilds` object:
+An [`InitialCacheTypeGuilds`](https://aeracord.pranav.page/docs/interfaces/InitialCacheTypeGuilds) object is used to cache objects from guilds. The following objects use an `InitialCacheTypeGuilds` object:
 
 - `bans`
 - `channels`
@@ -91,7 +91,7 @@ An `InitialCacheTypeGuilds` object could look like this:
 
 ### Channels
 
-An [`InitialCacheTypeChannels`](https://aeracord.apixel.me/docs/interfaces/InitialCacheTypeChannels) object is used to cache objects from channels. The following objects use an `InitialCacheTypeChannels` object:
+An [`InitialCacheTypeChannels`](https://aeracord.pranav.page/docs/interfaces/InitialCacheTypeChannels) object is used to cache objects from channels. The following objects use an `InitialCacheTypeChannels` object:
 
 - `invites`
 - `webhooks`
@@ -110,7 +110,7 @@ An `InitialCacheTypeChannels` object could look like this:
 
 ### Messages
 
-An [`InitialCacheTypeMessages`](https://aeracord.apixel.me/docs/interfaces/InitialCacheTypeMessages) object is used to cache `messages` objects. An `InitialCacheTypeMessages` object could look like this:
+An [`InitialCacheTypeMessages`](https://aeracord.pranav.page/docs/interfaces/InitialCacheTypeMessages) object is used to cache `messages` objects. An `InitialCacheTypeMessages` object could look like this:
 
 ```js
 {
@@ -125,7 +125,7 @@ An [`InitialCacheTypeMessages`](https://aeracord.apixel.me/docs/interfaces/Initi
 
 ### Commands
 
-An [`InitialCacheTypeCommands`](https://aeracord.apixel.me/docs/interfaces/InitialCacheTypeCommands) object is used to cache `commands` objects. An `InitialCacheTypeCommands` object could look like this:
+An [`InitialCacheTypeCommands`](https://aeracord.pranav.page/docs/interfaces/InitialCacheTypeCommands) object is used to cache `commands` objects. An `InitialCacheTypeCommands` object could look like this:
 
 ```js
 {
@@ -138,4 +138,4 @@ An [`InitialCacheTypeCommands`](https://aeracord.apixel.me/docs/interfaces/Initi
 
 ## Permissions
 
-You can learn more about the `permissions` property in the [permissions guide](https://aeracord.apixel.me/guides/permissions).
+You can learn more about the `permissions` property in the [permissions guide](https://aeracord.pranav.page/guides/permissions).

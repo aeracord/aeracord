@@ -36,7 +36,7 @@ export default async function fetch(client: Client, requestOptions: RequestOptio
     // Make request
     const result: Response = await nodeFetch(`https://discord.com/api/v9${requestOptions.path}`, {
         headers: {
-            "User-Agent": `Aeracord (https://aeracord.apixel.me, ${packageJSON.version})`,
+            "User-Agent": `Aeracord (https://aeracord.pranav.page, ${packageJSON.version})`,
             "Authorization": `Bot ${client.token}`,
             "Content-Type": requestOptions.contentType || (requestOptions.method === "DELETE" ? undefined : "application/json"),
             "X-RateLimit-Precision": "millisecond",

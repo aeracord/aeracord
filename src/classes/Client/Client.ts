@@ -365,7 +365,7 @@ export interface ClientData {
      * Hold Events
      *
      * Hold all events, except for the `ready` event
-     * For more information, check out the [Holding Events Guide](https://aeracord.apixel.me/guides/holding-events)
+     * For more information, check out the [Holding Events Guide](https://aeracord.pranav.page/guides/holding-events)
      */
     holdEvents?: HoldEventsType;
 }
@@ -1085,7 +1085,7 @@ export default class Client extends EventEmitter {
      * Hold Events
      *
      * Hold all events, except for the `ready` event
-     * https://aeracord.apixel.me/guides/holding-events
+     * https://aeracord.pranav.page/guides/holding-events
      *
      * @private
      */
@@ -1761,7 +1761,7 @@ export default class Client extends EventEmitter {
      * Release Events
      *
      * Release held events
-     * For more information, check out the [Holding Events Guide](https://aeracord.apixel.me/guides/holding-events)
+     * For more information, check out the [Holding Events Guide](https://aeracord.pranav.page/guides/holding-events)
      */
     releaseEvents() {
         releaseEvents(this);

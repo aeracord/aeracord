@@ -1,6 +1,6 @@
 # Aeracord
 
-[Aeracord](https://aeracord.apixel.me) is a lightweight library for the Discord API. Aeracord's main purpose is to give you control over how objects are cached.
+[Aeracord](https://aeracord.pranav.page) is a lightweight library for the Discord API. Aeracord's main purpose is to give you control over how objects are cached.
 
 ---
 
@@ -42,7 +42,7 @@ import { Client, Guild, User, ... } from "aeracord";
 
 # Connecting to the Gateway
 
-To connect to the gateway, you need to construct a new [Client](https://aeracord.apixel.me/docs/classes/Client):
+To connect to the gateway, you need to construct a new [Client](https://aeracord.pranav.page/docs/classes/Client):
 
 ```js
 import { ActivityTypes, Client } from "aeracord";
@@ -67,7 +67,7 @@ const client = new Client({
 client.connect();
 ```
 
-Before interacting with the API, you need to wait for the [`ready` event](https://aeracord.apixel.me/docs/classes/Client#ready). This event is fired when the client has connected to the gateway:
+Before interacting with the API, you need to wait for the [`ready` event](https://aeracord.pranav.page/docs/classes/Client#ready). This event is fired when the client has connected to the gateway:
 
 ```js
 // Ready
@@ -78,7 +78,7 @@ client.on("ready", (data) => {
 });
 ```
 
-You can also listen for various other [events](https://aeracord.apixel.me/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.apixel.me/docs/classes/Client#interactionCreate) for when an interaction is created:
+You can also listen for various other [events](https://aeracord.pranav.page/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.pranav.page/docs/classes/Client#interactionCreate) for when an interaction is created:
 
 ```js
 // Interaction create

@@ -36,7 +36,7 @@ import { Client, Guild, User, ... } from "aeracord";
 
 # Connecting to the Gateway
 
-To connect to the gateway, you need to construct a new [Client](https://aeracord.apixel.me/docs/classes/Client):
+To connect to the gateway, you need to construct a new [Client](https://aeracord.pranav.page/docs/classes/Client):
 
 ```js
 import { ActivityTypes, Client } from "aeracord";
@@ -61,7 +61,7 @@ const client = new Client({
 client.connect();
 ```
 
-Before interacting with the API, you need to wait for the [`ready` event](https://aeracord.apixel.me/docs/classes/Client#ready). This event is fired when the client has connected to the gateway:
+Before interacting with the API, you need to wait for the [`ready` event](https://aeracord.pranav.page/docs/classes/Client#ready). This event is fired when the client has connected to the gateway:
 
 ```js
 // Ready
@@ -72,7 +72,7 @@ client.on("ready", (data) => {
 });
 ```
 
-You can also listen for various other [events](https://aeracord.apixel.me/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.apixel.me/docs/classes/Client#interactionCreate) for when an interaction is created:
+You can also listen for various other [events](https://aeracord.pranav.page/docs/classes/Client#events), such as the [`interactionCreate` event](https://aeracord.pranav.page/docs/classes/Client#interactionCreate) for when an interaction is created:
 
 ```js
 // Interaction create
@@ -91,4 +91,4 @@ client.on("interactionCreate", (interaction) => {
 
 # Other Guides
 
-We recommend learning about how you can control what the client caches with the [caching guide](https://aeracord.apixel.me/guides/caching) as well as how you can use Aeracord's different ways of modeling data with the [Data Models](https://aeracord.apixel.me/guides/data-models) guide.
+We recommend learning about how you can control what the client caches with the [caching guide](https://aeracord.pranav.page/guides/caching) as well as how you can use Aeracord's different ways of modeling data with the [Data Models](https://aeracord.pranav.page/guides/data-models) guide.

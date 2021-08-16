@@ -24,7 +24,7 @@ export const ReadyStates: {
      * Holding Events
      *
      * The ready state used when the client is holding events
-     * https://aeracord.apixel.me/guides/holding-events
+     * https://aeracord.pranav.page/guides/holding-events
      */
     HOLDING_EVENTS: 2,
 

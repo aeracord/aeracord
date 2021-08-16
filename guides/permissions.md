@@ -32,7 +32,7 @@ Discord has a limit of 10,000 [invalid requests](https://discord.com/developers/
 
 # Checking Permissions
 
-You can use the [`Permissions`](https://aeracord.apixel.me/docs/classes/Permissions) class to check for subsets of permissions. For example, if you have a permission bitfield, you can check if the `VIEW_CHANNEL` permission is included:
+You can use the [`Permissions`](https://aeracord.pranav.page/docs/classes/Permissions) class to check for subsets of permissions. For example, if you have a permission bitfield, you can check if the `VIEW_CHANNEL` permission is included:
 
 ```js
 // Create permissions
