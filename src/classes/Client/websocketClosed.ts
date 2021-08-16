@@ -35,5 +35,5 @@ export default function websocketClosed(client: Client, code: number, reason: st
     }
 
     // Reconnect
-    client._connect();
+    client.connect();
 }

@@ -1733,9 +1733,6 @@ export default class Client extends EventEmitter {
             })
         });
 
-        // Connect
-        this._connect();
-
         // Garbage collection interval
         setInterval(() => this._garbageCollect(), 30000);
     }
@@ -1744,10 +1741,8 @@ export default class Client extends EventEmitter {
      * Connect
      *
      * Connect to the gateway
-     *
-     * @private
      */
-    _connect() {
+    connect() {
         connect(this);
     }
 
