@@ -53,6 +53,12 @@ const client = new Client({
     membersIntent: true,
     presencesIntent: true
 });
+
+// Event listeners
+...
+
+// Connect to the gateway
+client.connect();
 ```
 
 Before interacting with the API, you need to wait for the [`ready` event](https://aeracord.apixel.me/docs/classes/Client#ready). This event is fired when the client has connected to the gateway:
