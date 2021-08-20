@@ -10,9 +10,10 @@ export default function websocketClosed(client: Client, code: number, reason: st
     // Debug: Websocket closed
     client.emit("debug", `Websocket closed with code ${code} (${reason})`);
 
-    // Clear intervals
+    // Clear data
     clearInterval(client._pingInterval);
     clearInterval(client._heartbeatInterval);
+    client._heartbeatAcked = true;
 
     // Must start new session
     if (![4000, 4021, 4022].includes(code)) {
