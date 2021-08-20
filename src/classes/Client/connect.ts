@@ -1,6 +1,7 @@
 import fetch, { Response } from "node-fetch";
 import WebSocket from "ws";
 import { Client } from "../../internal";
+import formatMS from "../../util/formatMS";
 import handleWebsocketEvent from "./handleWebsocketEvent";
 import identify from "./identify";
 import ping from "./ping";
@@ -49,6 +50,16 @@ export default async function connect(client: Client) {
 
     // Debug: Received gateway data
     client.emit("debug", `Received gateway data: ${JSON.stringify(gatewayData, null, 4)}`);
+
+    // Maximum session starts
+    if (gatewayData.session_start_limit.remaining === 0) {
+
+        // Debug: Maximum session starts
+        client.emit("debug", `Maximum session starts (${gatewayData.session_start_limit.remaining}/${gatewayData.session_start_limit.total} remaining)\nResets in ${formatMS(gatewayData.session_start_limit.reset_after)} (${gatewayData.session_start_limit.reset_after} ms)\nExiting process`);
+
+        // Exit
+        process.exit();
+    }
 
     /**
      * Create websocket
