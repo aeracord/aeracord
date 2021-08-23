@@ -71,6 +71,13 @@ export interface ThreadChannelData extends TextBasedChannelData {
     locked: boolean;
 
     /**
+     * Invitable
+     *
+     * Whether or not non-moderators can add other non-moderators to this thread
+     */
+    invitable: boolean;
+
+    /**
      * Member
      *
      * The thread member data for the client

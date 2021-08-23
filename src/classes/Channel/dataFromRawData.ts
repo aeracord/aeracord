@@ -142,6 +142,7 @@ export default function dataFromRawData(client: Client, rawData: RawChannelData)
         autoArchivedDuration: (rawData.thread_metadata as RawChannelDataThreadMetadata).auto_archive_duration,
         archivedAt: new Date((rawData.thread_metadata as RawChannelDataThreadMetadata).archive_timestamp).getTime(),
         locked: (rawData.thread_metadata as RawChannelDataThreadMetadata).locked,
+        invitable: Boolean((rawData.thread_metadata as RawChannelDataThreadMetadata).invitable),
         member: rawData.member && {
             id: rawData.id,
             userID: client.id,
