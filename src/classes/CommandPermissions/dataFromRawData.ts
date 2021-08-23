@@ -7,7 +7,6 @@ export default function dataFromRawData(rawData: RawCommandPermissionsData): Com
         id: rawData.id,
         guildID: rawData.guild_id,
         applicationID: rawData.application_id,
-        permissions: rawData.permissions,
-        fetchedAt: Date.now()
+        permissions: rawData.permissions
     };
 }

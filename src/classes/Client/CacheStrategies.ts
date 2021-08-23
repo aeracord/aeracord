@@ -4,8 +4,6 @@
  * How the client should cache objects
  */
 export interface CacheStrategies {
-    commands?: CacheStrategy<InitialCacheTypeCommands>;
-    commandPermissions?: CacheStrategy<InitialCacheTypeCommands>;
     bans?: CacheStrategy<InitialCacheTypeGuilds>;
     channels?: CacheStrategy<InitialCacheTypeGuilds>;
     emojis?: CacheStrategy<InitialCacheTypeGuilds>;
@@ -87,7 +85,7 @@ export interface CacheStrategy<CacheStrategyInitialCacheType extends (InitialCac
  *
  * Types of initial caches
  */
-export type InitialCacheType = InitialCacheTypeIDs | InitialCacheTypeGuilds | InitialCacheTypeChannels | InitialCacheTypeMessages | InitialCacheTypeCommands;
+export type InitialCacheType = InitialCacheTypeIDs | InitialCacheTypeGuilds | InitialCacheTypeChannels | InitialCacheTypeMessages;
 
 /**
  * Initial Cache Type: IDs
@@ -161,26 +159,4 @@ export interface InitialCacheTypeMessages extends InitialCacheTypeChannels {
      * The amount of messages to fetch from channels
      */
     count?: number;
-}
-
-/**
- * Initial Cache Type: Commands
- *
- * Used to cache global command data or command data from specific guilds
- */
-export interface InitialCacheTypeCommands {
-
-    /**
-     * Global
-     *
-     * Whether or not to cache global command data
-     */
-    global?: boolean;
-
-    /**
-     * Guilds
-     *
-     * The IDs of the guilds to cache command data from
-     */
-    guilds?: string[];
 }

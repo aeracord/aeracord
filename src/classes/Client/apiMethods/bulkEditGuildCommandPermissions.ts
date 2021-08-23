@@ -45,20 +45,6 @@ export default async function bulkEditGuildCommandPermissions(client: Client, gu
     // Parse commands permissions
     const commandPermissions: CommandPermissions[] = result.map((p: RawCommandPermissionsData) => CommandPermissions._fromRawData(client, p));
 
-    // Get command IDs
-    const commandIDs: string[] = commandPermissions.map((p: CommandPermissions) => p.id);
-
-    /**
-     * Updating command permissions doesn't fire `APPLICATION_COMMAND_UPDATE` events so we need to update the cached command permissions
-     * Since creating `CommandPermissions` updates data for command permissions that still exist, we just need to mark the rest of the command permissions as deleted
-     *
-     * Filter the command permissions cache for commands in this guild that aren't in the `commandPermissions` array
-     */
-    const guildCommandPermissions: CommandPermissions[] = [...client.commandPermissions.filter((p: CommandPermissions) => p.guildID === guildID && !commandIDs.includes(p.id)).values()];
-
-    // Loop through the command permissions and mark them as deleted
-    guildCommandPermissions.forEach((p: CommandPermissions) => p._markAsDeleted());
-
     // Return
     return commandPermissions;
 }

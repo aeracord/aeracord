@@ -3,9 +3,6 @@ import channelCreate from "./events/channelCreate/channelCreate";
 import channelDelete from "./events/channelDelete/channelDelete";
 import channelPinsUpdate from "./events/channelPinsUpdate/channelPinsUpdate";
 import channelUpdate from "./events/channelUpdate/channelUpdate";
-import commandCreate from "./events/commandCreate/commandCreate";
-import commandDelete from "./events/commandDelete/commandDelete";
-import commandUpdate from "./events/commandUpdate/commandUpdate";
 import guildBanAdd from "./events/guildBanAdd/guildBanAdd";
 import guildBanRemove from "./events/guildBanRemove/guildBanRemove";
 import guildCreate from "./events/guildCreate/guildCreate";
@@ -103,24 +100,6 @@ export default function event(client: Client, type: string, data: any) {
      * https://discord.com/developers/docs/topics/gateway#channel-update
      */
     else if (type === "CHANNEL_UPDATE") channelUpdate(client, data);
-
-    /**
-     * Command Create
-     * https://discord.com/developers/docs/topics/gateway#application-command-create
-     */
-    if (type === "APPLICATION_COMMAND_CREATE") commandCreate(client, data);
-
-    /**
-     * Command Delete
-     * https://discord.com/developers/docs/topics/gateway#application-command-delete
-     */
-    else if (type === "APPLICATION_COMMAND_DELETE") commandDelete(client, data);
-
-    /**
-     * Command Update
-     * https://discord.com/developers/docs/topics/gateway#application-command-update
-     */
-    else if (type === "APPLICATION_COMMAND_UPDATE") commandUpdate(client, data);
 
     /**
      * Guild Ban Add

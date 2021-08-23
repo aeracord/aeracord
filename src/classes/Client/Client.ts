@@ -25,7 +25,6 @@ import {
     Command,
     CommandPermissions,
     CommandResolvable,
-    CommandUpdateEventOptions,
     CreateChannelInviteData,
     CreateCommandData,
     CreateDMData,
@@ -587,27 +586,6 @@ export default interface Client {
      * Emitted when a channel is updated
      */
     on(event: "channelUpdate", listener: (channel: AnyChannel, options: ChannelUpdateEventOptions) => void): this;
-
-    /**
-     * Command Create
-     *
-     * Emitted when a command is created
-     */
-    on(event: "commandCreate", listener: (command: Command, options: EventOptions) => void): this;
-
-    /**
-     * Command Delete
-     *
-     * Emitted when a command is deleted
-     */
-    on(event: "commandDelete", listener: (command: Command, options: EventOptions) => void): this;
-
-    /**
-     * Command Update
-     *
-     * Emitted when a command is updated
-     */
-    on(event: "commandUpdate", listener: (command: Command, options: CommandUpdateEventOptions) => void): this;
 
     /**
      * Guild Available
@@ -1200,24 +1178,6 @@ export default class Client extends EventEmitter {
     _stickerGuilds: Map<string, string>;
 
     /**
-     * Commands
-     *
-     * The internal cache of commands
-     *
-     * @private
-     */
-    _commands: CacheManager<Command>;
-
-    /**
-     * Command Permissions
-     *
-     * The internal cache of command permissions
-     *
-     * @private
-     */
-    _commandPermissions: CacheManager<CommandPermissions>;
-
-    /**
      * Bans
      *
      * The internal cache of bans
@@ -1389,20 +1349,6 @@ export default class Client extends EventEmitter {
     _welcomeScreens: CacheManager<WelcomeScreen>;
 
     /**
-     * Commands
-     *
-     * The cache of commands
-     */
-    commands: CacheInterface<Command, false>;
-
-    /**
-     * Command Permissions
-     *
-     * The cache of command permissions
-     */
-    commandPermissions: CacheInterface<CommandPermissions, false>;
-
-    /**
      * Bans
      *
      * The cache of bans
@@ -1572,8 +1518,6 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "_guildStickers", { value: new Map() });
         Object.defineProperty(this, "_emojiGuilds", { value: new Map() });
         Object.defineProperty(this, "_stickerGuilds", { value: new Map() });
-        Object.defineProperty(this, "_commands", { value: new CacheManager<Command>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.commands)) });
-        Object.defineProperty(this, "_commandPermissions", { value: new CacheManager<CommandPermissions>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.commandPermissions)) });
         Object.defineProperty(this, "_bans", { value: new MemberCacheManager<Ban>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.bans)) });
         Object.defineProperty(this, "_channels", { value: new CacheManager<AnyChannel>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.channels)) });
         Object.defineProperty(this, "_emojis", { value: new CacheManager<Emoji>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.emojis)) });
@@ -1593,16 +1537,6 @@ export default class Client extends EventEmitter {
         Object.defineProperty(this, "_vanityInvites", { value: new CacheManager<VanityInvite>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.vanityInvites)) });
         Object.defineProperty(this, "_webhooks", { value: new CacheManager<Webhook>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.webhooks)) });
         Object.defineProperty(this, "_welcomeScreens", { value: new CacheManager<WelcomeScreen>(this, CacheManager.parseCacheStrategy(this._cacheStrategies.welcomeScreens)) });
-        Object.defineProperty(this, "commands", {
-            value: new CacheInterface<Command, false>(this, {
-                cacheManager: this._commands
-            })
-        });
-        Object.defineProperty(this, "commandPermissions", {
-            value: new CacheInterface<CommandPermissions, false>(this, {
-                cacheManager: this._commandPermissions
-            })
-        });
         Object.defineProperty(this, "bans", {
             value: new MemberCacheInterface<Ban>(this, {
                 cacheManager: this._bans._cacheManager,

@@ -11,8 +11,7 @@ export default function toData(command: Command): CommandData {
         type: command.type,
         description: command.description,
         options: command.options,
-        defaultPermission: command.defaultPermission,
-        fetchedAt: command._lastUpdatedAt
+        defaultPermission: command.defaultPermission
     };
 }
 

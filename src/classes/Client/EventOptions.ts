@@ -1,4 +1,4 @@
-import { AnyChannel, AnyChannelData, Ban, CommandData, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, PresenceData, Role, RoleData, StickerData, TextBasedChannel, ThreadChannel, ThreadChannelData, User, UserData } from "../../internal";
+import { AnyChannel, AnyChannelData, Ban, EmojiData, Guild, GuildData, Invite, Member, MemberData, Message, MessageData, PresenceData, Role, RoleData, StickerData, TextBasedChannel, ThreadChannel, ThreadChannelData, User, UserData } from "../../internal";
 
 /**
  * Event Options
@@ -46,15 +46,6 @@ export interface ChannelPinsUpdateEventOptions extends EventOptions {
  */
 export interface ChannelUpdateEventOptions extends EventOptions {
     oldChannelData?: AnyChannelData;
-}
-
-/**
- * Command Update Event Options
- *
- * Options for extra data sent with command update events
- */
-export interface CommandUpdateEventOptions extends EventOptions {
-    oldCommandData?: CommandData;
 }
 
 /**

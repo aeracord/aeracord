@@ -1,4 +1,4 @@
-import { AnyChannel, Ban, Client, Command, Emoji, Guild, GuildDeleteData, GuildWidget, Invite, Member, Message, RawGuildDeleteData, Role, Sticker, Template, ThreadChannel, VanityInvite, Webhook, WelcomeScreen } from "../../../../internal";
+import { AnyChannel, Ban, Client, Emoji, Guild, GuildDeleteData, GuildWidget, Invite, Member, Message, RawGuildDeleteData, Role, Sticker, Template, ThreadChannel, VanityInvite, Webhook, WelcomeScreen } from "../../../../internal";
 import ready from "../ready";
 
 export default function guildDelete(client: Client, rawData: RawGuildDeleteData) {
@@ -53,10 +53,6 @@ export default function guildDelete(client: Client, rawData: RawGuildDeleteData)
             else return false;
         }).values()];
         channels.forEach((c: AnyChannel) => c._markAsDeleted());
-
-        // Mark commands as deleted
-        const commands: Command[] = [...client.commands.filter((c: Command) => c.guildID === data.id).values()];
-        commands.forEach((c: Command) => c._markAsDeleted());
 
         // Mark emojis as deleted
         const emojis: Emoji[] = [...client.emojis.filter((e: Emoji) => e.guildID === data.id).values()];

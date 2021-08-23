@@ -7,7 +7,6 @@ export default function toData(commandPermissions: CommandPermissions): CommandP
         id: commandPermissions.id,
         guildID: commandPermissions.guildID,
         applicationID: commandPermissions.applicationID,
-        permissions: commandPermissions.permissions,
-        fetchedAt: commandPermissions._lastUpdatedAt
+        permissions: commandPermissions.permissions
     };
 }

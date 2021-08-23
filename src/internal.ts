@@ -173,9 +173,6 @@ export * from "./classes/Client/EventOptions";
 // Client: Events
 export * from "./classes/Client/events/channelPinsUpdate/ChannelPinsUpdateData";
 export * from "./classes/Client/events/channelPinsUpdate/RawChannelPinsUpdateData";
-export * from "./classes/Client/events/commandCreate/RawCommandCreateData";
-export * from "./classes/Client/events/commandDelete/RawCommandDeleteData";
-export * from "./classes/Client/events/commandUpdate/RawCommandUpdateData";
 export * from "./classes/Client/events/guildBanAdd/GuildBanAddData";
 export * from "./classes/Client/events/guildBanAdd/RawGuildBanAddData";
 export * from "./classes/Client/events/guildBanRemove/GuildBanRemoveData";

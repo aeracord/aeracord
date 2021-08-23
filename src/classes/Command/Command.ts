@@ -1,10 +1,8 @@
-import { Base, Client, CommandData, CommandOption, CommandType, EditCommandData, RawCommandData, ReadyStates } from "../../internal";
+import { Client, CommandData, CommandOption, CommandType, EditCommandData, RawCommandData, ReadyStates } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import resolveID from "./resolveID";
 import toData from "./toData";
-import updateObject from "./updateObject";
-import updateObjectFromData from "./updateObjectFromData";
 
 /**
  * Command Resolvable
@@ -22,7 +20,21 @@ export type CommandResolvable = Command | CommandData | string;
  * A command interaction is represented by the `CommandInteraction` class
  * This is sent to the `interactionCreate` event
  */
-export default class Command extends Base<Command> {
+export default class Command {
+
+    /**
+     * Client
+     *
+     * The client
+     */
+    client: Client;
+
+    /**
+     * ID
+     *
+     * The ID of the object
+     */
+    id: string;
 
     /**
      * Guild ID
@@ -90,22 +102,16 @@ export default class Command extends Base<Command> {
      */
     constructor(client: Client, commandData: CommandData) {
 
-        // Super
-        super(client, {
-            id: commandData.id,
-            cacheManager: client._commands
-        });
-
         // Set data
-        Command._updateObject(this, commandData);
-
-        /**
-         * Cache Command
-         *
-         * If we need to cache all commands and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        if ((client._commands.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
+        Object.defineProperty(this, "client", { value: client });
+        this.id = commandData.id;
+        this.guildID = commandData.guildID;
+        this.applicationID = commandData.applicationID;
+        this.name = commandData.name;
+        this.type = commandData.type;
+        this.description = commandData.description;
+        this.options = commandData.options;
+        this.defaultPermission = commandData.defaultPermission;
     }
 
     /**
@@ -177,47 +183,6 @@ export default class Command extends Base<Command> {
      */
     static resolveID(commandResolvable: CommandResolvable): string | undefined {
         return resolveID(commandResolvable);
-    }
-
-    /**
-     * Update Object
-     *
-     * Update the `Command` object with data from a `CommandData` object
-     *
-     * @private
-     * @param command The command to update
-     * @param commandData The data to update this command with
-     */
-    static _updateObject(command: Command, commandData: CommandData) {
-        updateObject(command, commandData);
-    }
-
-    /**
-     * Update Object From Data
-     *
-     * Update the `Command` object with data from a `CommandData` object if it's cached
-     *
-     * @private
-     * @param client The client
-     * @param commandData The command data
-     *
-     * @returns {Command | undefined} The command
-     */
-    static _updateObjectFromData(client: Client, commandData: CommandData): Command | undefined {
-        return updateObjectFromData(client, commandData);
-    }
-
-    /**
-     * Cache
-     *
-     * Cache this `Command`
-     *
-     * @param expiresIn The amount of time for when this object can be garbage collected
-     * `null` if it should never expire from cache
-     * `undefined` to use the cache manager's default
-     */
-    cache(expiresIn?: number | null) {
-        this.client._commands.cache(this.id, this, expiresIn);
     }
 
     /**

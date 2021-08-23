@@ -1,11 +1,23 @@
-import { Base, Client, CommandPermission, CommandPermissionsData, RawCommandPermissionsData, ReadyStates } from "../../internal";
+import { Client, CommandPermission, CommandPermissionsData, RawCommandPermissionsData, ReadyStates } from "../../internal";
 import dataFromRawData from "./dataFromRawData";
 import fromData from "./fromData";
 import toData from "./toData";
-import updateObject from "./updateObject";
-import updateObjectFromData from "./updateObjectFromData";
 
-export default class CommandPermissions extends Base<CommandPermissions> {
+export default class CommandPermissions {
+
+    /**
+     * Client
+     *
+     * The client
+     */
+    client: Client;
+
+    /**
+     * ID
+     *
+     * The ID of the object
+     */
+    id: string;
 
     /**
      * Guild ID
@@ -41,22 +53,12 @@ export default class CommandPermissions extends Base<CommandPermissions> {
      */
     constructor(client: Client, commandPermissionsData: CommandPermissionsData) {
 
-        // Super
-        super(client, {
-            id: commandPermissionsData.id,
-            cacheManager: client._commandPermissions
-        });
-
         // Set data
-        CommandPermissions._updateObject(this, commandPermissionsData);
-
-        /**
-         * Cache Command
-         *
-         * If we need to cache all command permissions and the clients ready state is `READY`
-         * The ready state needs to be `READY` since the client might need to fetch data to cache initial objects
-         */
-        if ((client._commandPermissions.cacheAll) && (client._readyState === ReadyStates.READY)) this.cache();
+        Object.defineProperty(this, "client", { value: client });
+        this.id = commandPermissionsData.id;
+        this.guildID = commandPermissionsData.guildID;
+        this.applicationID = commandPermissionsData.applicationID;
+        this.permissions = commandPermissionsData.permissions;
     }
 
     /**
@@ -113,46 +115,5 @@ export default class CommandPermissions extends Base<CommandPermissions> {
      */
     static toData(commandPermissions: CommandPermissions): CommandPermissionsData {
         return toData(commandPermissions);
-    }
-
-    /**
-     * Update Object
-     *
-     * Update the `CommandPermissions` object with data from a `CommandPermissionsData` object
-     *
-     * @private
-     * @param commandPermissions The command permissions to update
-     * @param commandPermissionsData The data to update this command permissions with
-     */
-    static _updateObject(commandPermissions: CommandPermissions, commandPermissionsData: CommandPermissionsData) {
-        updateObject(commandPermissions, commandPermissionsData);
-    }
-
-    /**
-     * Update Object From Data
-     *
-     * Update the `CommandPermissions` object with data from a `CommandPermissionsData` object if it's cached
-     *
-     * @private
-     * @param client The client
-     * @param commandPermissionsData The command permissions data
-     *
-     * @returns {CommandPermissions | undefined} The command permissions
-     */
-    static _updateObjectFromData(client: Client, commandPermissionsData: CommandPermissionsData): CommandPermissions | undefined {
-        return updateObjectFromData(client, commandPermissionsData);
-    }
-
-    /**
-     * Cache
-     *
-     * Cache this `Command`
-     *
-     * @param expiresIn The amount of time for when this object can be garbage collected
-     * `null` if it should never expire from cache
-     * `undefined` to use the cache manager's default
-     */
-    cache(expiresIn?: number | null) {
-        this.client._commandPermissions.cache(this.id, this, expiresIn);
     }
 }

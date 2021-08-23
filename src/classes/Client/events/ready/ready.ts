@@ -1,4 +1,4 @@
-import { Client, Command, RawReadyData, RawReadyDataGuild, ReadyData, ReadyStates, User } from "../../../../internal";
+import { Client, RawReadyData, RawReadyDataGuild, ReadyData, ReadyStates, User } from "../../../../internal";
 import { EventQueueEvent } from "../../Client";
 import event from "../../event";
 import readyEvent from "../ready";
@@ -21,29 +21,6 @@ export default async function ready(client: Client, rawData: RawReadyData) {
 
     // Set uninitialized guilds
     client._uninitializedGuilds = new Set(rawData.guilds.map((g: RawReadyDataGuild) => g.id));
-
-    // Create command objects for global commands
-    if (
-
-        // If the initial cache is `true`, all commands should be cached
-        client._cacheStrategies.commands?.initialCache === true ||
-
-        (
-
-            // If the initial cache is defined
-            client._cacheStrategies.commands?.initialCache &&
-
-            // And global commands need to be cached
-            client._cacheStrategies.commands.initialCache.global
-        )
-    ) {
-
-        // Get commands
-        const commands: Command[] | void = await client.getGlobalCommands().catch(() => { });
-
-        // Loop through commands
-        if (commands) commands.forEach((c: Command) => c.cache());
-    }
 
     // Bulk overwrite the bot's commands
     if (client._initialCommands) {

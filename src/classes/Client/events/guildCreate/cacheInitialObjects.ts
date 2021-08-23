@@ -1,4 +1,4 @@
-import { AnyChannelData, Ban, Channel, Client, Command, CommandPermissions, Emoji, EmojiData, GuildCreateData, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, Member, MemberData, Message, Presence, PresenceData, Role, RoleData, Sticker, StickerData, Template, ThreadChannelData, User, VanityInvite, Webhook } from "../../../../internal";
+import { AnyChannelData, Ban, Channel, Client, Emoji, EmojiData, GuildCreateData, InitialCacheTypeChannels, InitialCacheTypeGuilds, InitialCacheTypeMessages, Invite, Member, MemberData, Message, Presence, PresenceData, Role, RoleData, Sticker, StickerData, Template, ThreadChannelData, User, VanityInvite, Webhook } from "../../../../internal";
 
 /**
  * Cache Initial Objects
@@ -70,52 +70,6 @@ export default async function cacheInitialObjects(client: Client, guildCreateDat
             // Loop through channels
             guildCreateData.channels.filter((c: AnyChannelData) => (client._cacheStrategies.channels?.initialCache as InitialCacheTypeGuilds).ids?.includes(c.id)).forEach((c: AnyChannelData) => Channel.fromData(client, c).cache());
         }
-    }
-
-    // Create command objects
-    if (
-
-        // If the initial cache is `true`, all commands should be cached
-        client._cacheStrategies.commands?.initialCache === true ||
-
-        (
-
-            // If the initial cache is defined
-            client._cacheStrategies.commands?.initialCache &&
-
-            // And the guild ID is in the array
-            client._cacheStrategies.commands.initialCache.guilds?.includes(guildCreateData.guild.id)
-        )
-    ) {
-
-        // Get commands
-        const commands: Command[] | void = await client.getGuildCommands(guildCreateData.guild.id).catch(() => { });
-
-        // Loop through commands
-        if (commands) commands.forEach((c: Command) => c.cache());
-    }
-
-    // Create command permissions objects
-    if (
-
-        // If the initial cache is `true`, all command permissions should be cached
-        client._cacheStrategies.commandPermissions?.initialCache === true ||
-
-        (
-
-            // If the initial cache is defined
-            client._cacheStrategies.commandPermissions?.initialCache &&
-
-            // And the guild ID is in the array
-            client._cacheStrategies.commandPermissions.initialCache.guilds?.includes(guildCreateData.guild.id)
-        )
-    ) {
-
-        // Get command permissions
-        const commandPermissions: CommandPermissions[] | void = await client.getAllGuildCommandPermissions(guildCreateData.guild.id).catch(() => { });
-
-        // Loop through command permissions
-        if (commandPermissions) commandPermissions.forEach((p: CommandPermissions) => p.cache());
     }
 
     // Create emoji objects

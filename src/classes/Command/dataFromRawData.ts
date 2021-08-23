@@ -11,8 +11,7 @@ export default function dataFromRawData(rawData: RawCommandData, guildID?: strin
         type: rawData.type || CommandTypes.CHAT_INPUT,
         description: rawData.description,
         options: rawData.options ? rawData.options.map((o: RawCommandDataOption) => parseOption(o)) : [],
-        defaultPermission: rawData.default_permission,
-        fetchedAt: Date.now()
+        defaultPermission: rawData.default_permission
     };
 }
 

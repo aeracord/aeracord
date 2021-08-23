@@ -114,13 +114,6 @@ export default class Guild extends Base<Guild> {
     channels: CacheInterface<AnyChannel>;
 
     /**
-     * Commands
-     *
-     * The cache interface for the commands in this guild
-     */
-    commands: CacheInterface<Command>;
-
-    /**
      * Emojis
      *
      * The cache interface for the emojis in this guild
@@ -404,13 +397,6 @@ export default class Guild extends Base<Guild> {
                     // Return
                     return channel;
                 }
-            })
-        });
-        Object.defineProperty(this, "commands", {
-            value: new CacheInterface<Command>(this.client, {
-                cacheManager: this.client._commands,
-                match: (c: Command) => c.guildID === this.id,
-                fetchObject: async (id: string): Promise<Command | undefined> => await this.client.getGuildCommand(this.id, id)
             })
         });
         Object.defineProperty(this, "emojis", {

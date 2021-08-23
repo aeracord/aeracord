@@ -61,13 +61,6 @@ export interface CommandData {
      * Whether or not the command is enabled by default
      */
     defaultPermission: boolean;
-
-    /**
-     * Fetched At
-     *
-     * The timestamp for when this command was fetched
-     */
-    fetchedAt: number;
 }
 
 /**

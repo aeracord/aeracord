@@ -33,13 +33,6 @@ export interface CommandPermissionsData {
      * The command's permissions
      */
     permissions: CommandPermission[];
-
-    /**
-     * Fetched At
-     *
-     * The timestamp for when this command was fetched
-     */
-    fetchedAt: number;
 }
 
 /**
