@@ -5,6 +5,8 @@ export interface RawUserData {
     username: string;
     discriminator: string;
     avatar: string | null;
+    banner?: string | null;
+    accent_color?: number | null;
     bot?: boolean;
     system?: boolean;
     flags?: number;

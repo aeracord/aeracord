@@ -12,6 +12,8 @@ export default function updateObject(user: User, userData: UserData) {
     user.username = userData.username;
     user.discriminator = userData.discriminator;
     user.avatarHash = userData.avatarHash;
+    user.bannerHash = userData.bannerHash;
+    user.accentColor = userData.accentColor;
     user.bot = userData.bot;
     user.system = userData.system;
     user.publicFlags = userData.publicFlags;

@@ -8,6 +8,8 @@ export default function toData(user: User): UserData {
         username: user.username,
         discriminator: user.discriminator,
         avatarHash: user.avatarHash,
+        bannerHash: user.bannerHash,
+        accentColor: user.accentColor,
         bot: user.bot,
         system: user.system,
         publicFlags: user.publicFlags,

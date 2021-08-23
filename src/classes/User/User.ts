@@ -46,6 +46,20 @@ export default class User extends Base<User> {
     avatarHash: string | null;
 
     /**
+     * Banner Hash
+     *
+     * The user's banner hash
+     */
+    bannerHash: string | null;
+
+    /**
+     * Accent Color
+     *
+     * The user's accent color
+     */
+    accentColor: number | null;
+
+    /**
      * Bot
      *
      * Whether or not this user is a bot
@@ -220,6 +234,19 @@ export default class User extends Base<User> {
      */
     avatarURL(allowGIF = true): string {
         return this.avatarHash ? `https://cdn.discordapp.com/avatars/${this.id}/${this.avatarHash}.${((allowGIF) && (this.avatarHash.startsWith("a_"))) ? "gif" : "png"}` : `https://cdn.discordapp.com/embed/avatars/${parseInt(this.discriminator) % 5}.png`;
+    }
+
+    /**
+     * Banner URL
+     *
+     * Get the banner's URL
+     *
+     * @param allowGIF Return the GIF version of the banner if available
+     *
+     * @returns {string | undefined} The banner's URL or `undefined` if the user doesn't have a banner
+     */
+    bannerURL(allowGIF = true): string | undefined {
+        return this.bannerHash ? `https://cdn.discordapp.com/banners/${this.id}/${this.bannerHash}.${((allowGIF) && (this.bannerHash.startsWith("a_"))) ? "gif" : "png"}` : undefined;
     }
 
     /**

@@ -34,6 +34,20 @@ export interface UserData {
     avatarHash: string | null;
 
     /**
+     * Banner Hash
+     *
+     * The user's banner hash
+     */
+    bannerHash: string | null;
+
+    /**
+     * Accent Color
+     *
+     * The user's accent color
+     */
+    accentColor: number | null;
+
+    /**
      * Bot
      *
      * Whether or not this user is a bot

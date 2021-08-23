@@ -8,6 +8,8 @@ export default function dataFromRawData(rawData: RawUserData): UserData {
         username: rawData.username,
         discriminator: rawData.discriminator,
         avatarHash: rawData.avatar,
+        bannerHash: rawData.banner || null,
+        accentColor: rawData.accent_color || null,
         bot: Boolean(rawData.bot),
         system: Boolean(rawData.system),
         publicFlags: rawData.public_flags || 0,
