@@ -35,5 +35,5 @@ export interface RawChannelDataThreadMetadata {
     archived: boolean;
     auto_archive_duration: number;
     archive_timestamp: string;
-    locked?: boolean;
+    locked: boolean;
 }
