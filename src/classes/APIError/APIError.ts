@@ -56,12 +56,16 @@ export default class APIError extends Error {
     constructor(apiErrorData: APIErrorData) {
 
         // Parse message
-        const message: string = `Discord API error at ${apiErrorData.method} ${apiErrorData.path}: ${apiErrorData.message}`;
+        const message: string = `Discord API error at ${apiErrorData.method} ${apiErrorData.path}: ${apiErrorData.code} ${apiErrorData.message}`;
 
         // Super
         super(message);
 
+        // Capture stack trace
+        Error.captureStackTrace(this, APIError);
+
         // Set data
+        this.name = "APIError";
         this.code = apiErrorData.code;
         this.message = message;
         this.path = apiErrorData.path;
